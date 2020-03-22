@@ -1,0 +1,19 @@
+{
+  "name": "kinetotickets",
+  "version": "1.0.0",
+  "description": "A project website that users can locate and buy rare movie tickets from classical movies to movies released a few years ago to limited time films and to special venue films. It is also a project on learning node, express and mongoDB.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackCubes/Film-Ticket-Website.git"
+  },
+  "author": "Elias Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlackCubes/Film-Ticket-Website/issues"
+  },
+  "homepage": "https://github.com/BlackCubes/Film-Ticket-Website#readme"
+}
