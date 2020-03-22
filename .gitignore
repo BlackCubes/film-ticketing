@@ -1,3 +1,5 @@
 # CONFIG #
 ##########
+node_modules/
 *.env
+.cache/
