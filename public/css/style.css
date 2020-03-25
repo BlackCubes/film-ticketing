@@ -1,4 +1,4 @@
-/* MOBILE FIRST */
+/* MOBILE FIRST @ 480px */
 
 *,
 *::before,
@@ -12,4 +12,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* 480px */
+/* NAVBAR */
+.header {
+  background-color: #003733;
+}
