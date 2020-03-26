@@ -1,4 +1,3 @@
-/* MOBILE FIRST @ 480px */
 *,
 *::before,
 *::after {
@@ -17,7 +16,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400; }
 
-/* NAVBAR */
 .header {
   background-color: #003733;
   background-image: linear-gradient(to bottom, #003733, #001B19); }
