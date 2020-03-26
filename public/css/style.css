@@ -24,4 +24,7 @@ body {
 /* NAVBAR */
 .header {
   background-color: #003733;
+  background-image: linear-gradient(to bottom,
+  #003733,
+  #001B19);
 }
