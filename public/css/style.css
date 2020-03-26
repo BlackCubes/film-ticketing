@@ -12,6 +12,10 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  font-size: 10px;
+}
+
 /* NAVBAR */
 .header {
   background-color: #003733;
