@@ -1,0 +1,33 @@
+/* MOBILE FIRST @ 480px */
+
+$color-bg-dark-green-blue-1: #003733;
+$color-bg-dark-green-blue-2: #001B19;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+/* NAVBAR */
+.header {
+  background-color: $color-bg-dark-green-blue-1;
+  background-image: linear-gradient(to bottom,
+  $color-bg-dark-green-blue-1,
+  $color-bg-dark-green-blue-2);
+}
