@@ -1,5 +1,4 @@
 /* MOBILE FIRST @ 480px */
-
 *,
 *::before,
 *::after {
@@ -9,22 +8,16 @@
   -moz-box-sizing: inherit;
   box-sizing: inherit;
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
+  -moz-osx-font-smoothing: grayscale; }
 
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-}
+  font-weight: 400; }
 
 /* NAVBAR */
 .header {
   background-color: #003733;
-  background-image: linear-gradient(to bottom,
-  #003733,
-  #001B19);
-}
+  background-image: linear-gradient(to bottom, #003733, #001B19); }
