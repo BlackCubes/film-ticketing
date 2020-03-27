@@ -11,6 +11,51 @@ $transition-delay: .05s;
 
 #toggle { display: none; }
 
+#toggle:checked {
+  & ~ .nav__toggle-container .nav__toggle-button {
+    box-shadow: 0 0 0 55rem rgba(0, 0, 0, 0.1), inset 0 0 0 2rem rgba(0, 0, 0, 0.1);
+
+    &:before {
+      transform: translateY(-50%) rotate(45deg) scale(1);
+    }
+
+    &:after {
+      transform: translateY(-50%) rotate(-45deg) scale(1);
+    }
+  }
+
+  & ~ .nav__toggle-menu {
+    margin-bottom: 10rem;
+    pointer-events: auto;
+    transform: translate(5rem, 5rem);
+
+    .nav__toggle-item {
+      color: $color-white;
+      letter-spacing: 0;
+      height: 4rem;
+      line-height: 4rem;
+      margin-top: 0;
+      opacity: 1;
+      transform: scaleY(1);
+      transition: $transition-duration, opacity .1s;
+
+      @for $i from 1 through $items {
+        &:nth-child(#{$i}) {
+          $delay: ($items - $i) * $transition-delay;
+          transition-delay: $delay;
+          &:before {
+            transition-delay: $delay;
+          }
+        }
+      }
+
+      &:before {
+        opacity: 0;
+      }
+    }
+  }
+}
+
 .nav__toggle-button {
   position: absolute;
   display: inline-block;
