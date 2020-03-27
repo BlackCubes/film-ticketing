@@ -25,3 +25,17 @@ body {
 
 #toggle {
   display: none; }
+
+.nav__toggle-button {
+  position: absolute;
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  margin: 5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 100%;
+  transition: 0.6s; }
+  .nav__toggle-button:hover {
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1); }
