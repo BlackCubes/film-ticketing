@@ -24,6 +24,12 @@ body {
   background-color: #003733;
   background-image: linear-gradient(to bottom, #003733, #001B19); }
 
+.nav__left {
+  float: left; }
+
+.nav__right {
+  float: right; }
+
 #toggle {
   display: none; }
 

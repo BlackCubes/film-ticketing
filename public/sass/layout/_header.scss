@@ -9,6 +9,14 @@ $transition-delay: .05s;
   $color-bg-dark-green-blue-2);
 }
 
+.nav__left {
+  float: left;
+}
+
+.nav__right {
+  float: right;
+}
+
 #toggle { display: none; }
 
 #toggle:checked {
