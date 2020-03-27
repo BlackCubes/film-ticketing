@@ -19,3 +19,6 @@ body {
 .container {
   background-color: #003733;
   background-image: linear-gradient(to bottom, #003733, #001B19); }
+
+#toggle {
+  display: none; }
