@@ -9,12 +9,40 @@ $transition-delay: .05s;
   $color-bg-dark-green-blue-2);
 }
 
+.nav {
+  overflow: hidden;
+}
+
 .nav__left {
   float: left;
 }
 
 .nav__right {
   float: right;
+}
+
+.nav__region {
+  position: absolute;
+  top: 6.9rem;
+  left: 0;
+  right: 0;
+  background-color: #007800;
+}
+
+.nav__region-menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__region-link {
+  display: block;
+  padding: 1rem;
+}
+
+.nav__profile {
+  float: left;
+  padding: 1rem;
 }
 
 #toggle { display: none; }
