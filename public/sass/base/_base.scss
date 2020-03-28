@@ -11,7 +11,13 @@
 }
 
 html {
+  // Defines what 1rem is
   font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: $color-bg-dark-green-blue-2;
 }
 
 a {
