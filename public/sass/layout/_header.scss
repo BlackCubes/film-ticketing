@@ -65,7 +65,7 @@ $transition-delay: .05s;
   & ~ .nav__toggle-menu {
     margin-bottom: 10rem;
     pointer-events: auto;
-    transform: translate(5rem, 5rem);
+    transform: translate(0rem, 7rem);
 
     .nav__toggle-item {
       color: $color-white;

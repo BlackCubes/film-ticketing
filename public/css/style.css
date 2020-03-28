@@ -68,7 +68,7 @@ body {
 #toggle:checked ~ .nav__toggle-menu {
   margin-bottom: 10rem;
   pointer-events: auto;
-  transform: translate(5rem, 5rem); }
+  transform: translate(0rem, 7rem); }
   #toggle:checked ~ .nav__toggle-menu .nav__toggle-item {
     color: #fff;
     letter-spacing: 0;
