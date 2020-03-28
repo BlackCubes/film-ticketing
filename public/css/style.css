@@ -113,7 +113,7 @@ body {
   border-radius: 100%;
   transition: 0.6s; }
   .nav__toggle-button:hover {
-    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1); }
+    box-shadow: 0 0 0 0.8rem rgba(0, 0, 0, 0.1), inset 0 0 0 2rem rgba(0, 0, 0, 0.1); }
   .nav__toggle-button:before, .nav__toggle-button:after {
     position: absolute;
     content: "";
@@ -122,7 +122,7 @@ body {
     width: 60%;
     height: 2px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: .5rem;
     transition: 0.5s; }
   .nav__toggle-button:before {
     transform: translateY(-50%) rotate(45deg) scale(0); }

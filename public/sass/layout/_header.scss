@@ -26,7 +26,7 @@ $transition-delay: .05s;
   top: 5rem;
   left: 0;
   right: 0;
-  background-color: #007800;
+  background-color: $color-green-1;
   border-top: .1rem solid $color-white;
 }
 
@@ -51,7 +51,7 @@ $transition-delay: .05s;
 
 #toggle:checked {
   & ~ .nav__toggle-container .nav__toggle-button {
-    box-shadow: 0 0 0 55rem rgba(0, 0, 0, 0.1), inset 0 0 0 2rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 55rem rgba(0, 0, 0, .1), inset 0 0 0 2rem rgba(0, 0, 0, .1);
 
     &:before {
       transform: translateY(-50%) rotate(45deg) scale(1);
@@ -107,7 +107,7 @@ $transition-delay: .05s;
   transition: $transition-duration + .1;
 
   &:hover {
-    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 .8rem rgba(0, 0, 0, .1), inset 0 0 0 2rem rgba(0, 0, 0, .1);
   }
 
   &:before, &:after {
@@ -118,7 +118,7 @@ $transition-delay: .05s;
     width: 60%;
     height: 2px;
     background-color: $color-white;
-    border-radius: 5px;
+    border-radius: .5rem;
     transition: $transition-duration;
   }
 
@@ -154,7 +154,7 @@ $transition-delay: .05s;
   line-height: .6rem;
   text-transform: uppercase;
   white-space: nowrap;
-  transform: scaleY(0.2);
+  transform: scaleY(.2);
   transition: $transition-duration, opacity 1s;
 
   @for $i from 1 through $items {
