@@ -14,25 +14,27 @@ $transition-delay: .05s;
 }
 
 .nav__left {
-  float: left;
+  float: right;
 }
 
 .nav__right {
-  float: right;
+  float: left;
 }
 
 .nav__region {
   position: absolute;
-  top: 6.9rem;
+  top: 5rem;
   left: 0;
   right: 0;
   background-color: #007800;
+  border-top: .1rem solid $color-white;
 }
 
 .nav__region-menu {
   list-style: none;
   display: flex;
   justify-content: space-between;
+  text-align: center;
 }
 
 .nav__region-link {
@@ -41,7 +43,7 @@ $transition-delay: .05s;
 }
 
 .nav__profile {
-  float: left;
+  float: right;
   padding: 1rem;
 }
 
@@ -95,14 +97,14 @@ $transition-delay: .05s;
 .nav__toggle-button {
   position: absolute;
   display: inline-block;
-  width: 2rem;
+  width: 2.5rem;
   height: 2rem;
-  margin: 5rem;
+  margin: 1.5rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
   border-radius: 100%;
-  transition: $transition-duration + 0.1;
+  transition: $transition-duration + .1;
 
   &:hover {
     box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
@@ -113,7 +115,7 @@ $transition-delay: .05s;
     content: "";
     top: 50%;
     left: 0;
-    width: 100%;
+    width: 60%;
     height: 2px;
     background-color: $color-white;
     border-radius: 5px;
@@ -129,9 +131,13 @@ $transition-delay: .05s;
   }
 }
 
+.nav__toggle-container {
+  float: left;
+}
+
 .nav__toggle-menu {
   display: inline-block;
-  margin: 2.5rem 2.5rem 2rem;
+  margin: 1.5rem;
   pointer-events: none;
   transition: $transition-duration;
 }
@@ -145,7 +151,7 @@ $transition-delay: .05s;
   font-size: 1.4rem;
   letter-spacing: -.62rem;
   height: .7rem;
-  line-height: .7rem;
+  line-height: .6rem;
   text-transform: uppercase;
   white-space: nowrap;
   transform: scaleY(0.2);
@@ -180,10 +186,10 @@ $transition-delay: .05s;
     content: "";
     top: 50%;
     left: 0;
-    width: 100%;
+    width: 110%;
     height: 2px;
     background-color: $color-white;
     transform: translateY(-50%) scaleY(5);
-    transition: $transition-duration;
+    transition: $transition-duration - .3;
   }
 }

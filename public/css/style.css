@@ -28,29 +28,31 @@ body {
   overflow: hidden; }
 
 .nav__left {
-  float: left; }
+  float: right; }
 
 .nav__right {
-  float: right; }
+  float: left; }
 
 .nav__region {
   position: absolute;
-  top: 6.9rem;
+  top: 5rem;
   left: 0;
   right: 0;
-  background-color: #007800; }
+  background-color: #007800;
+  border-top: 0.1rem solid #fff; }
 
 .nav__region-menu {
   list-style: none;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  text-align: center; }
 
 .nav__region-link {
   display: block;
   padding: 1rem; }
 
 .nav__profile {
-  float: left;
+  float: right;
   padding: 1rem; }
 
 #toggle {
@@ -102,9 +104,9 @@ body {
 .nav__toggle-button {
   position: absolute;
   display: inline-block;
-  width: 2rem;
+  width: 2.5rem;
   height: 2rem;
-  margin: 5rem;
+  margin: 1.5rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -117,7 +119,7 @@ body {
     content: "";
     top: 50%;
     left: 0;
-    width: 100%;
+    width: 60%;
     height: 2px;
     background-color: #fff;
     border-radius: 5px;
@@ -127,9 +129,12 @@ body {
   .nav__toggle-button:after {
     transform: translateY(50%) rotate(-45deg) scale(0); }
 
+.nav__toggle-container {
+  float: left; }
+
 .nav__toggle-menu {
   display: inline-block;
-  margin: 2.5rem 2.5rem 2rem;
+  margin: 1.5rem;
   pointer-events: none;
   transition: 0.5s; }
 
@@ -142,7 +147,7 @@ body {
   font-size: 1.4rem;
   letter-spacing: -.62rem;
   height: .7rem;
-  line-height: .7rem;
+  line-height: .6rem;
   text-transform: uppercase;
   white-space: nowrap;
   transform: scaleY(0.2);
@@ -180,8 +185,8 @@ body {
     content: "";
     top: 50%;
     left: 0;
-    width: 100%;
+    width: 110%;
     height: 2px;
     background-color: #fff;
     transform: translateY(-50%) scaleY(5);
-    transition: 0.5s; }
+    transition: 0.2s; }
