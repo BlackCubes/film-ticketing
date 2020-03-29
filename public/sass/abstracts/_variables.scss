@@ -17,3 +17,11 @@ $gutter-horizontal: 6rem;
 $items: 5;
 $transition-duration: .5s;
 $transition-delay: .05s;
+
+// CAROUSEL
+$carousel-transition-duration: 450ms;
+$tile-width: 25rem;
+$tile-height: ($tile-width / (16/9));
+$carousel-grow-factor: 1.5;
+$carousel-move-left: -($tile-width * ($grow-factor - 1) / 2);
+$carousel-move-right: $tile-width * ($grow-factor - 1);
