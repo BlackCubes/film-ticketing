@@ -273,3 +273,7 @@ body {
 .section-carousel,
 .section-special-venues {
   width: 100%; }
+
+.section-member {
+  background-image: url(../img/theatre-friends-large-1.jpg);
+  background-size: cover; }
