@@ -274,7 +274,7 @@ body {
 .section-special-venues {
   width: 100%; }
 
-.section-member {
+.member__image {
   background-image: url(../img/theatre-friends-large-1.jpg);
   background-color: #fff;
   background-size: cover;

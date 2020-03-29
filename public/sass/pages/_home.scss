@@ -4,9 +4,14 @@
 }
 
 .section-member {
-  background-image: url(../img/theatre-friends-large-1.jpg);
-  background-color: $color-white;
-  background-size: cover;
-  background-position: center;
-  height: 40rem;
+}
+
+.member {
+  &__image {
+    background-image: url(../img/theatre-friends-large-1.jpg);
+    background-color: $color-white;
+    background-size: cover;
+    background-position: center;
+    height: 40rem;
+  }
 }
