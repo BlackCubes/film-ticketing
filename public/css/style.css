@@ -28,7 +28,7 @@ body {
   font-weight: 400; }
 
 .row--scroll {
-  overflow: hidden;
+  overflow: scroll;
   width: 100%; }
   .row--scroll .row__inner {
     transition: 450ms transform;
