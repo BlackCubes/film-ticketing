@@ -1,0 +1,69 @@
+.row--scroll {
+  overflow: hidden;
+  width: 100%;
+
+  .row__inner {
+    transition: $carousel-transition-duration transform;
+    font-size: 0;
+    white-space: nowrap;
+    margin: ($tile-height / 2) 0;
+    padding-bottom: 1rem;
+
+    &:hover {
+      transform: translate3d($carousel-move-left, 0, 0);
+    }
+
+    &:hover .tile {
+      opacity: .3;
+
+      &:hover {
+        transform: scale($carousel-grow-factor);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.tile {
+  position: relative;
+  display: inline-block;
+  width: $tile-width;
+  height: $tile-height;
+  margin-right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: $carousel-transition-duration all;
+  transform-origin: center left;
+
+  &__img {
+    width: $tile-width;
+    height: $tile-height;
+    object-fit: cover;
+  }
+
+  &__details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-size: 1rem;
+    opacity: 0;
+    background: linear-gradient(to top, rgba($color-black, .9) 0%, rgba($color-black, 0) 100%);
+    transition: $carousel-transition-duration opacity;
+
+    .tile__title {
+      position: absolute;
+      bottom: 0;
+      padding: 1rem;
+    }
+  }
+
+  &:hover &__details {
+    opacity: 1;
+  }
+
+  &:hover ~ & {
+    transform: translate3d($carousel-move-right, 0, 0);
+  }
+}

@@ -27,6 +27,56 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400; }
 
+.row--scroll {
+  overflow: hidden;
+  width: 100%; }
+  .row--scroll .row__inner {
+    transition: 450ms transform;
+    font-size: 0;
+    white-space: nowrap;
+    margin: 7.03125rem 0;
+    padding-bottom: 1rem; }
+    .row--scroll .row__inner:hover {
+      transform: translate3d(-6.25rem, 0, 0); }
+    .row--scroll .row__inner:hover .tile {
+      opacity: .3; }
+      .row--scroll .row__inner:hover .tile:hover {
+        transform: scale(1.5);
+        opacity: 1; }
+
+.tile {
+  position: relative;
+  display: inline-block;
+  width: 25rem;
+  height: 14.0625rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 450ms all;
+  transform-origin: center left; }
+  .tile__img {
+    width: 25rem;
+    height: 14.0625rem;
+    object-fit: cover; }
+  .tile__details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-size: 1rem;
+    opacity: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: 450ms opacity; }
+    .tile__details .tile__title {
+      position: absolute;
+      bottom: 0;
+      padding: 1rem; }
+  .tile:hover .tile__details {
+    opacity: 1; }
+  .tile:hover ~ .tile {
+    transform: translate3d(12.5rem, 0, 0); }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -219,3 +269,6 @@ body {
     background-color: #fff;
     transform: translateY(-50%) scaleY(5);
     transition: 0.2s; }
+
+.section-carousel {
+  width: 100%; }
