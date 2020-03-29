@@ -4,6 +4,9 @@
 }
 
 .section-member {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .member {
@@ -13,5 +16,6 @@
     background-size: cover;
     background-position: center;
     height: 40rem;
+    width: 100%;
   }
 }

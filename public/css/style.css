@@ -274,9 +274,15 @@ body {
 .section-special-venues {
   width: 100%; }
 
+.section-member {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
+
 .member__image {
   background-image: url(../img/theatre-friends-large-1.jpg);
   background-color: #fff;
   background-size: cover;
   background-position: center;
-  height: 40rem; }
+  height: 40rem;
+  width: 100%; }
