@@ -276,4 +276,7 @@ body {
 
 .section-member {
   background-image: url(../img/theatre-friends-large-1.jpg);
-  background-size: cover; }
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  height: 40rem; }
