@@ -274,7 +274,8 @@ body {
 .section-special-venues {
   width: 100%; }
 
-.section-member {
+.section-member,
+.section-promo {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
