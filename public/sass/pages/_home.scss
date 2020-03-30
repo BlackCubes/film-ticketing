@@ -52,4 +52,22 @@
     background-clip: text;
     -webkit-background-clip: text;
   }
+
+  &__text-wrapper {
+    position: relative;
+    top: -2rem;
+    padding: 1.4rem;
+  }
+
+  &__text {
+    font-size: 1.74rem;
+    font-weight: 300;
+    color: $color-white;
+    line-height: 1.5;
+    letter-spacing: .1rem;
+  }
+
+  &__join {
+    margin-top: 2rem;
+  }
 }
