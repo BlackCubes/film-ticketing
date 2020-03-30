@@ -285,7 +285,9 @@ body {
   background-size: cover;
   background-position: center;
   height: 40rem;
-  width: 100%; }
+  width: 100%;
+  position: relative;
+  overflow: hidden; }
   .member__image:before, .member__image:after {
     content: "";
     position: absolute;
