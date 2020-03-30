@@ -286,6 +286,19 @@ body {
   background-position: center;
   height: 40rem;
   width: 100%; }
+  .member__image:before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    height: 0;
+    border-left: 2.3rem solid transparent;
+    border-right: 2.3rem solid transparent;
+    border-bottom: 1.7rem solid #000912;
+    z-index: 100;
+    width: 100%; }
+  .member__image:after {
+    left: -50%; }
 
 .member__header-wrapper {
   position: relative;
