@@ -325,3 +325,7 @@ body {
     letter-spacing: .1rem; }
   .member__join {
     margin-top: 2rem; }
+    .member__join .btn__join {
+      font-size: 2rem;
+      font-weight: 500;
+      text-transform: uppercase; }
