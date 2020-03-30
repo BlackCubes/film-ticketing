@@ -18,4 +18,12 @@
     height: 40rem;
     width: 100%;
   }
+
+  &__header-wrapper {
+    position: relative;
+    top: -18rem;
+    color: $color-white;
+    font-size: 2.5rem;
+    text-align: center;
+  }
 }
