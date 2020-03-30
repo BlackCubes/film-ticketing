@@ -18,7 +18,8 @@
     height: 40rem;
     width: 100%;
 
-    &:before {
+    &:before,
+    &:after {
       content: "";
       position: absolute;
       bottom: -1px;

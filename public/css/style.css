@@ -286,7 +286,7 @@ body {
   background-position: center;
   height: 40rem;
   width: 100%; }
-  .member__image:before {
+  .member__image:before, .member__image:after {
     content: "";
     position: absolute;
     bottom: -1px;
