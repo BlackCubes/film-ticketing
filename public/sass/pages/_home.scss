@@ -15,8 +15,8 @@
 }
 
 .promo {
-  background-color: $color-green-1;
-  background-image: linear-gradient(-20deg, $color-lightseagreen, $color-green-2, $color-light-silver);
+  background-color: $color-light-blue-2;
+  background-image: linear-gradient(180deg, $color-lightseagreen, $color-light-blue-2);
 
   &__image {
     background-image: url(../img/mandalorian-large.jpg);
@@ -37,7 +37,7 @@
       height: 0;
       border-left: 2.3rem solid transparent;
       border-right: 2.3rem solid transparent;
-      border-bottom: 1.7rem solid $color-lightseagreen;
+      border-bottom: 1.7rem solid $color-light-blue-2;
       z-index: 100;
       width: 100%;
     }
@@ -53,7 +53,7 @@
     color: transparent;
     font-size: 2.5rem;
     text-align: center;
-    background-image: linear-gradient(-270deg, $color-lightseagreen, $color-green-2, $color-light-silver);
+    background-image: linear-gradient(-20deg, $color-lightseagreen, $color-light-blue-2);
     background-clip: text;
     -webkit-background-clip: text;
   }
