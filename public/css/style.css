@@ -307,7 +307,7 @@ body {
   .member__header-wrapper {
     position: relative;
     top: -18rem;
-    color: #fff;
+    color: transparent;
     font-size: 2.5rem;
     text-align: center;
     background-image: linear-gradient(-270deg, #20B2AA, #007869, #D3D3D3);
