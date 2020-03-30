@@ -10,6 +10,9 @@
 }
 
 .member {
+  background-color: $color-green-1;
+  background-image: linear-gradient(-20deg, $color-lightseagreen, $color-green-2, $color-light-silver);
+
   &__image {
     background-image: url(../img/theatre-friends-large-1.jpg);
     background-color: $color-white;
@@ -29,7 +32,7 @@
       height: 0;
       border-left: 2.3rem solid transparent;
       border-right: 2.3rem solid transparent;
-      border-bottom: 1.7rem solid #000912;
+      border-bottom: 1.7rem solid $color-lightseagreen;
       z-index: 100;
       width: 100%;
     }
@@ -45,5 +48,8 @@
     color: $color-white;
     font-size: 2.5rem;
     text-align: center;
+    background-image: linear-gradient(-270deg, $color-lightseagreen, $color-green-2, $color-light-silver);
+    background-clip: text;
+    -webkit-background-clip: text;
   }
 }
