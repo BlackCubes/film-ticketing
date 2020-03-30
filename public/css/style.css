@@ -278,7 +278,8 @@ body {
   margin-bottom: 2rem; }
 
 .section-promo,
-.section-member {
+.section-member,
+.section-map {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
