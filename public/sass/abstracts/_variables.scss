@@ -32,3 +32,6 @@ $tile-height: ($tile-width / (16/9));
 $carousel-grow-factor: 1.5;
 $carousel-move-left: -($tile-width * ($carousel-grow-factor - 1) / 2);
 $carousel-move-right: $tile-width * ($carousel-grow-factor - 1);
+
+// FONT AWESOME
+$fa-font-path: "webfonts";
