@@ -37,7 +37,7 @@ $carousel-move-right: $tile-width * ($carousel-grow-factor - 1);
 // Variables
 // --------------------------
 
-$fa-font-path:         "../webfonts" !default;
+$fa-font-path:         url('../../../webfonts') !default;
 $fa-font-size-base:    16px !default;
 $fa-font-display:      block !default;
 $fa-css-prefix:        fa !default;
