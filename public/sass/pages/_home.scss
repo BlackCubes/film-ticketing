@@ -166,18 +166,11 @@
   bottom: 0;
 
   .marker {
-    background-image: none;
+    background-image: url('../img/map-marker.svg');
     background-size: cover;
     width: 3.2rem;
     height: 4rem;
     cursor: pointer;
-
-    //@extend %fa-icon;
-    //@extend .fas;
-
-    //&:before {
-    //  content: fa-content($fa-var-user);
-    //}
   }
 
   .mapboxgl-popup {
