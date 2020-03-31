@@ -172,7 +172,7 @@
     height: 4rem;
     cursor: pointer;
 
-    @include fa-icon;
+    @extend %fa-icon;
     @extend .fas;
 
     &:before {
