@@ -397,7 +397,7 @@ body {
   top: 0;
   bottom: 0; }
   #map .marker {
-    background-image: url("../img/map-marker.svg");
+    background-image: url("../img/map_marker.svg");
     background-size: cover;
     width: 3.2rem;
     height: 4rem;
