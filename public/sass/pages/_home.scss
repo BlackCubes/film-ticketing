@@ -172,11 +172,11 @@
     height: 4rem;
     cursor: pointer;
 
-    @extend %fa-icon;
+    @include fa-icon;
     @extend .fas;
 
-    &::before {
-      content: fa-content($fa-var-map-marker);
+    &:before {
+      content: fa-content($fa-var-user);
     }
   }
 
