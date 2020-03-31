@@ -166,8 +166,9 @@
   bottom: 0;
 
   .marker {
-    background-image: url(#{fa-content($fa-var-map-marker)});
-    background-size: cover;
+    //background-image: ;
+    //background-size: cover;
+    content: fa-content($fa-var-map-marker);
     width: 3.2rem;
     height: 4rem;
     cursor: pointer;
