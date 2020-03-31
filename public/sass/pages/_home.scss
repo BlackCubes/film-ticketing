@@ -165,6 +165,9 @@
   top: 0;
   bottom: 0;
 
+  @extend %fa-icon;
+  @extend .fas;
+
   .marker {
     //background-image: ;
     //background-size: cover;
