@@ -77,6 +77,42 @@ body {
   .tile:hover ~ .tile {
     transform: translate3d(12.5rem, 0, 0); }
 
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.form__input {
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-bottom: .3rem solid transparent;
+  width: 90%;
+  display: block;
+  transition: all .3s; }
+  .form__input:focus {
+    outline: none;
+    border-bottom: 0.3rem solid #20B2AA; }
+  .form__input:focus:invalid {
+    border-bottom: 0.3rem solid #ff0000; }
+  .form__input::-webkit-input-placeholder {
+    color: #0067AA; }
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  display: block;
+  transition: all .3s; }
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
