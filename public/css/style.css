@@ -416,6 +416,11 @@ body {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+  .section-login .login {
+    height: 50rem; }
+    .section-login .login__form {
+      width: 100%;
+      padding: 6rem; }
 
 /*!
  * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
