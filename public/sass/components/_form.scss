@@ -3,6 +3,10 @@
     margin-bottom: 2rem;
   }
 
+  &__group:last-child {
+    text-align: center;
+  }
+
   &__input {
     font-family: inherit;
     font-size: 1.5rem;
