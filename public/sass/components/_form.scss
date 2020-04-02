@@ -65,6 +65,15 @@
     }
   }
 
+  &__info {
+    width: 95%;
+    margin-left: auto;
+
+    &-small {
+      color: $color-light-silver;
+    }
+  }
+
   &__captcha {
     width: 50%;
     text-align: center;
