@@ -136,6 +136,10 @@ body {
 .form__input:focus:invalid + .form__label {
   color: #ff0000; }
 
+.form__link {
+  width: 95%;
+  margin-left: auto; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
