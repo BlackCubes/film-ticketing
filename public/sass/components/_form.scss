@@ -39,6 +39,7 @@
   &__label {
     font-size: 1.2rem;
     font-weight: 700;
+    color: $color-lightseagreen;
     margin-left: 2rem;
     margin-top: .7rem;
     display: block;
@@ -49,5 +50,9 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
+  }
+
+  &__input:focus:invalid + &__label {
+    color: $color-red;
   }
 }
