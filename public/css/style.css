@@ -510,6 +510,16 @@ body {
       width: 100%;
       padding: 1rem; }
 
+.section-register {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
+  .section-register .register {
+    height: 50rem; }
+    .section-register .register__form {
+      width: 100%;
+      padding: 1rem; }
+
 /*!
  * Font Awesome Free 5.13.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
