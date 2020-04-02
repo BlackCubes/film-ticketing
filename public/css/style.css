@@ -117,7 +117,7 @@ body {
   .form__input:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
   .form__input::-webkit-input-placeholder {
-    color: #0086DC; }
+    color: #20B2AA; }
 
 .form__label {
   font-size: 1.2rem;
