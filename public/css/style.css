@@ -142,6 +142,13 @@ body {
   .form__link-small {
     color: #D3D3D3; }
 
+.form__captcha {
+  width: 50%;
+  text-align: center;
+  font-style: italic;
+  margin-left: auto;
+  margin-right: auto; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
