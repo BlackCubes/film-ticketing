@@ -59,5 +59,9 @@
   &__link {
     width: 95%;
     margin-left: auto;
+
+    &-span {
+      color: $color-light-silver;
+    }
   }
 }

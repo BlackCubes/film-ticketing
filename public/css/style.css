@@ -139,6 +139,8 @@ body {
 .form__link {
   width: 95%;
   margin-left: auto; }
+  .form__link-span {
+    color: #D3D3D3; }
 
 .row {
   max-width: 114rem;
