@@ -91,6 +91,69 @@ body {
   .tile:hover ~ .tile {
     transform: translate3d(12.5rem, 0, 0); }
 
+.dropdown {
+  position: relative;
+  display: block;
+  font-size: 1.5rem;
+  color: #D3D3D3;
+  width: 100%;
+  margin: 0 auto; }
+  .dropdown__current {
+    position: relative;
+    cursor: pointer;
+    outline: none; }
+    .dropdown__current:focus + .dropdown__list {
+      opacity: 1;
+      animation-name: none; }
+      .dropdown__current:focus + .dropdown__list .dropdown__option {
+        cursor: pointer; }
+    .dropdown__current:focus .dropdown__icon {
+      transform: translateY(-50%) rotate(180deg); }
+  .dropdown__icon {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    width: 2rem;
+    opacity: .3;
+    transition: .2s ease; }
+  .dropdown__value {
+    display: flex; }
+  .dropdown__input {
+    display: none; }
+    .dropdown__input:checked + .dropdown__input-text {
+      display: block; }
+  .dropdown__input-text {
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 1.5rem;
+    background-color: #fff; }
+  .dropdown__list {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    animation-name: HideList;
+    animation-duration: .5s;
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: step-start; }
+  .dropdown__option {
+    display: block;
+    padding: 1.5rem;
+    background-color: #fff; }
+    .dropdown__option:hover, .dropdown__option:focus {
+      color: #546c84;
+      background-color: #fbfbfb; }
+
+@keyframes HideList {
+  from {
+    transform: scaleY(1); }
+  to {
+    transform: scaleY(0); } }
+
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
 
