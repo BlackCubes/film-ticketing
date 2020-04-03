@@ -116,7 +116,8 @@ body {
     transform: translateY(-50%);
     width: 2rem;
     opacity: .3;
-    transition: .2s ease; }
+    transition: .2s ease;
+    font-size: 2rem; }
   .dropdown__value {
     display: flex; }
   .dropdown__input {
@@ -128,7 +129,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 1.5rem;
-    background-color: #fff; }
+    background-color: rgba(255, 255, 255, 0.3); }
   .dropdown__list {
     position: absolute;
     width: 100%;
@@ -143,7 +144,7 @@ body {
   .dropdown__option {
     display: block;
     padding: 1.5rem;
-    background-color: #fff; }
+    background-color: #696969; }
     .dropdown__option:hover, .dropdown__option:focus {
       color: #546c84;
       background-color: #fbfbfb; }
