@@ -155,6 +155,11 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
+.form__gender {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
