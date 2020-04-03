@@ -99,18 +99,23 @@
                     <div class="dropdown">
                       <div class="dropdown__current" tabindex="1">
                         <div class="dropdown__value">
-                          <input type="radio" class="dropdown__input" id="0" value="1" checked="checked"/>
+                          <input type="radio" class="dropdown__input" id="0" value="1" name="gender" checked="checked">
+                          <p class="dropdown__input-text">Gender Select</p>
+                        </div>
+
+                        <div class="dropdown__value">
+                          <input type="radio" class="dropdown__input" id="1" value="2" name="gender" checked="checked"/>
                           <p class="dropdown__input-text">Female</p>
                         </div>
 
                         <div class="dropdown__value">
-                          <input type="radio" class="dropdown__input" id="1" value="2"/>
+                          <input type="radio" class="dropdown__input" id="2" value="3" name="gender" checked="checked"/>
                           <p class="dropdown__input-text">Male</p>
                         </div>
 
                         <div class="dropdown__value">
-                          <input type="radio" class="dropdown__input" id="2" value="3"/>
-                          <p class="dropdown__input-text">X</p>
+                          <input type="radio" class="dropdown__input" id="3" value="4" name="gender" checked="checked"/>
+                          <p class="dropdown__input-text">Prefer not to say</p>
                         </div>
 
                         <i class="dropdown__icon fas fa-sort-down" aria-hidden="true"></i>
@@ -118,15 +123,19 @@
 
                       <ul class="dropdown__list">
                         <li>
-                          <label for="0" class="dropdown__option" aria-hidden="aria-hidden">Female</label>
+                          <label for="0" class="dropdown__option" aria-hidden="aria-hidden">Gender Select</label>
                         </li>
 
                         <li>
-                          <label for="1" class="dropdown__option" aria-hidden="aria-hidden">Male</label>
+                          <label for="1" class="dropdown__option" aria-hidden="aria-hidden">Female</label>
                         </li>
 
                         <li>
-                          <label for="2" class="dropdown__option" aria-hidden="aria-hidden">X</label>
+                          <label for="2" class="dropdown__option" aria-hidden="aria-hidden">Male</label>
+                        </li>
+
+                        <li>
+                          <label for="3" class="dropdown__option" aria-hidden="aria-hidden">Prefer not to say</label>
                         </li>
                       </ul>
                     </div>
