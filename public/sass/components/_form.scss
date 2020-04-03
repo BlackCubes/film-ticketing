@@ -88,9 +88,15 @@
     margin-right: auto;
   }
 
-  &__birth-month,
-  &__birth-day,
-  &__birth-year {
-    display: inline-block;
+  &__birth {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    &-month,
+    &-day,
+    &-year {
+      display: inline-block;
+    }
   }
 }
