@@ -158,8 +158,7 @@ body {
 .form__gender {
   width: 90%;
   margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 4rem; }
+  margin-right: auto; }
 
 .form__birth {
   display: -webkit-flex;
@@ -170,8 +169,7 @@ body {
   -ms-justify-content: space-between;
   justify-content: space-between;
   margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 4rem; }
+  margin-right: auto; }
   .form__birth-month {
     -webkit-flex-basis: 40%;
     -ms-flex-basis: 40%;
