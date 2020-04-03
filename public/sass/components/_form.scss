@@ -87,4 +87,10 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  &__birth-month,
+  &__birth-day,
+  &__birth-year {
+    display: inline-block;
+  }
 }

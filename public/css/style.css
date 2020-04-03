@@ -224,6 +224,9 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
+.form__birth-month, .form__birth-day, .form__birth-year {
+  display: inline-block; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
