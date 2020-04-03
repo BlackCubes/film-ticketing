@@ -78,8 +78,8 @@
 
     &:hover,
     &:focus {
-      color: #546c84;
-      background-color: #fbfbfb;
+      color: $color-grey-blue;
+      background-color: rgba($color-dim-grey, .3);
     }
   }
 }
