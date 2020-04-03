@@ -104,7 +104,6 @@ body {
     outline: none; }
     .dropdown__current:focus + .dropdown__list {
       opacity: 1;
-      z-index: 1;
       animation-name: none; }
       .dropdown__current:focus + .dropdown__list .dropdown__option {
         cursor: pointer; }
