@@ -1,94 +1,94 @@
-.dropdown {
-  position: relative;
-  display: block;
-  font-size: 1.5rem;
-  color: $color-light-silver;
-  width: 100%;
-  margin: 0 auto;
-
-  &__current {
-    position: relative;
-    cursor: pointer;
-    outline: none;
-
-    &:focus {
-      & + .dropdown__list {
-        opacity: 1;
-        animation-name: none;
-
-        .dropdown__option {
-          cursor: pointer;
-        }
-      }
-
-      .dropdown__icon {
-        transform: translateY(-50%) rotate(180deg);
-      }
-    }
-  }
-
-  &__icon {
-    position: absolute;
-    top: 50%;
-    right: 1.5rem;
-    transform: translateY(-50%);
-    width: 2rem;
-    opacity: .3;
-    transition: .2s ease;
-    font-size: 2rem;
-  }
-
-  &__value {
-    display: flex;
-  }
-
-  &__input {
-    display: none;
-
-    &:checked + .dropdown__input-text {
-      display: block;
-    }
-  }
-
-  &__input-text {
-    display: none;
-    width: 100%;
-    margin: 0;
-    padding: 1.5rem;
-    background-color: rgba($color-white, .3);
-  }
-
-  &__list {
-    position: absolute;
-    width: 100%;
-    padding: 0;
-    list-style: none;
-    opacity: 0;
-    animation-name: HideList;
-    animation-duration: .5s;
-    animation-delay: .5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: step-start;
-  }
-
-  &__option {
-    display: block;
-    padding: 1.5rem;
-    background-color: $color-dim-grey;
-
-    &:hover,
-    &:focus {
-      color: $color-light-silver-2;
-      background-color: $color-dim-grey-2;
-    }
-  }
-}
-
-@keyframes HideList {
-  from {
-    transform: scaleY(1);
-  }
-  to {
-    transform: scaleY(0);
-  }
-}
+//.dropdown {
+//  position: relative;
+//  display: block;
+//  font-size: 1.5rem;
+//  color: $color-light-silver;
+//  width: 100%;
+//  margin: 0 auto;
+//
+//  &__current {
+//    position: relative;
+//    cursor: pointer;
+//    outline: none;
+//
+//    &:focus {
+//      & + .dropdown__list {
+//        opacity: 1;
+//        animation-name: none;
+//
+//        .dropdown__option {
+//          cursor: pointer;
+//        }
+//      }
+//
+//      .dropdown__icon {
+//        transform: translateY(-50%) rotate(180deg);
+//      }
+//    }
+//  }
+//
+//  &__icon {
+//    position: absolute;
+//    top: 50%;
+//    right: 1.5rem;
+//    transform: translateY(-50%);
+//    width: 2rem;
+//    opacity: .3;
+//    transition: .2s ease;
+//    font-size: 2rem;
+//  }
+//
+//  &__value {
+//    display: flex;
+//  }
+//
+//  &__input {
+//    display: none;
+//
+//    &:checked + .dropdown__input-text {
+//      display: block;
+//    }
+//  }
+//
+//  &__input-text {
+//    display: none;
+//    width: 100%;
+//    margin: 0;
+//    padding: 1.5rem;
+//    background-color: rgba($color-white, .3);
+//  }
+//
+//  &__list {
+//    position: absolute;
+//    width: 100%;
+//    padding: 0;
+//    list-style: none;
+//    opacity: 0;
+//    animation-name: HideList;
+//    animation-duration: .5s;
+//    animation-delay: .5s;
+//    animation-fill-mode: forwards;
+//    animation-timing-function: step-start;
+//  }
+//
+//  &__option {
+//    display: block;
+//    padding: 1.5rem;
+//    background-color: $color-dim-grey;
+//
+//    &:hover,
+//    &:focus {
+//      color: $color-light-silver-2;
+//      background-color: $color-dim-grey-2;
+//    }
+//  }
+//}
+//
+//@keyframes HideList {
+//  from {
+//    transform: scaleY(1);
+//  }
+//  to {
+//    transform: scaleY(0);
+//  }
+//}
