@@ -136,6 +136,7 @@ body {
     padding: 0;
     list-style: none;
     opacity: 0;
+    z-index: 1;
     animation-name: HideList;
     animation-duration: .5s;
     animation-delay: .5s;
