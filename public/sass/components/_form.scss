@@ -129,6 +129,16 @@
     width: 100%;
     padding: .8rem 1.7rem;
     border: none;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -o-border-radius: .2rem;
     border-radius: .2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../img/down-chevron.png);
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: .8rem .4rem;
   }
 }
