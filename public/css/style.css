@@ -146,7 +146,7 @@ body {
     padding: 1.5rem;
     background-color: #696969; }
     .dropdown__option:hover, .dropdown__option:focus {
-      color: #546c84;
+      color: #BFBFBF;
       background-color: #646464; }
 
 @keyframes HideList {
