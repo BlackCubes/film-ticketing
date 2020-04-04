@@ -215,9 +215,11 @@ body {
 
 .footer {
   font-family: inherit;
-  color: #fff; }
+  color: #fff;
+  background-color: #001B4C;
+  margin-top: 2rem; }
   .footer__follow {
-    background-color: #49454C;
+    background-color: #20B2AA;
     padding: 1rem;
     list-style: none;
     text-align: center; }
@@ -231,14 +233,14 @@ body {
       display: inline-block; }
     .footer__follow-link {
       display: block;
-      color: snow;
-      background-color: blueviolet;
+      color: #fffafa;
+      background-color: #001B4C;
       margin: 0 .5rem;
       padding: .6rem;
       border-radius: 50%; }
     .footer__follow .fa-github, .footer__follow .fa-linkedin {
       font-size: 3.2rem;
-      color: snow;
+      color: #fffafa;
       width: 3.1rem;
       height: 3.1rem; }
 

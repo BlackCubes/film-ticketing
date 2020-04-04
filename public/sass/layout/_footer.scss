@@ -1,9 +1,11 @@
 .footer {
   font-family: inherit;
   color: $color-white;
+  background-color: $color-dark-blue-1;
+  margin-top: 2rem;
   
   &__follow {
-    background-color: #49454C;
+    background-color: $color-lightseagreen;
     padding: 1rem;
     list-style: none;
     text-align: center;
@@ -24,8 +26,8 @@
 
     &-link {
       display: block;
-      color: snow;
-      background-color: blueviolet;
+      color: $color-snow;
+      background-color: $color-dark-blue-1;
       margin: 0 .5rem;
       padding: .6rem;
       border-radius: 50%;
@@ -35,7 +37,7 @@
       &-github,
       &-linkedin {
         font-size: 3.2rem;
-        color: snow;
+        color: $color-snow;
         width: 3.1rem;
         height: 3.1rem;
       }
