@@ -192,6 +192,7 @@ body {
   width: 100%;
   padding: .8rem 1.7rem;
   border: none;
+  border-bottom: .3rem solid transparent;
   -webkit-border-radius: .2rem;
   -moz-border-radius: .2rem;
   -o-border-radius: .2rem;
@@ -203,6 +204,11 @@ body {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: .8rem .4rem; }
+  .form__select:focus {
+    outline: none;
+    border-bottom: 0.3rem solid #20B2AA; }
+  .form__select:focus:invalid {
+    border-bottom: 0.3rem solid #ff0000; }
 
 .row {
   max-width: 114rem;

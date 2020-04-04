@@ -129,6 +129,7 @@
     width: 100%;
     padding: .8rem 1.7rem;
     border: none;
+    border-bottom: .3rem solid transparent;
     -webkit-border-radius: .2rem;
     -moz-border-radius: .2rem;
     -o-border-radius: .2rem;
@@ -140,5 +141,14 @@
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: .8rem .4rem;
+
+    &:focus {
+      outline: none;
+      border-bottom: .3rem solid $color-lightseagreen;
+    }
+
+    &:focus:invalid {
+      border-bottom: .3rem solid $color-red;
+    }
   }
 }
