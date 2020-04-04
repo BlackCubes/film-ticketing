@@ -141,9 +141,10 @@
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: .8rem .4rem;
+    transition: all .3s;
 
     &:focus {
-      outline: none;
+      outline: none !important;
       border-bottom: .3rem solid $color-lightseagreen;
     }
 

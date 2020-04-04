@@ -203,9 +203,10 @@ body {
   background-image: url(../img/down-chevron.png);
   background-repeat: no-repeat;
   background-position: right 1rem center;
-  background-size: .8rem .4rem; }
+  background-size: .8rem .4rem;
+  transition: all .3s; }
   .form__select:focus {
-    outline: none;
+    outline: none !important;
     border-bottom: 0.3rem solid #20B2AA; }
   .form__select:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
