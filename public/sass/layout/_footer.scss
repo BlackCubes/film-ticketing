@@ -1,0 +1,41 @@
+.footer {
+  
+  &__follow {
+    background-color: #49454C;
+    padding: 1rem;
+    list-style: none;
+
+    &-title {
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+    }
+
+    &-list {
+      padding: 0;
+      margin: 0;
+    }
+
+    &-item {
+      display: inline-block;
+    }
+
+    &-link {
+      display: block;
+      color: snow;
+      background-color: blueviolet;
+      margin: 0 .5rem;
+      padding: .6rem;
+      border-radius: 50%;
+    }
+
+    .fa {
+      &-github,
+      &-linkedin {
+        font-size: 3.2rem;
+        color: snow;
+        width: 3.1rem;
+        height: 3.1rem;
+      }
+    }
+  }
+}
