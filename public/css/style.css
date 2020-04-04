@@ -246,7 +246,8 @@ body {
   .footer__main {
     text-align: center; }
   .footer__navigation {
-    margin-top: 2.5rem; }
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem; }
   .footer__title {
     font-size: 1.5rem;
     text-transform: uppercase; }
@@ -261,7 +262,7 @@ body {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    padding: 3.5rem 0 .5rem; }
+    padding: 2.5rem 0 2.5rem; }
     .footer__copyright-content {
       display: block;
       font-size: 1.1rem;
