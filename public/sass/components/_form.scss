@@ -151,5 +151,14 @@
     &:focus:invalid {
       border-bottom: .3rem solid $color-red;
     }
+
+    &-option:hover:not(:first-child) {
+      background-color: $color-lightseagreen;
+      color: $color-black;
+    }
+
+    &-option:hover:first-child {
+      background-color: $color-red;
+    }
   }
 }

@@ -210,6 +210,11 @@ body {
     border-bottom: 0.3rem solid #20B2AA; }
   .form__select:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
+  .form__select-option:hover:not(:first-child) {
+    background-color: #20B2AA;
+    color: #000; }
+  .form__select-option:hover:first-child {
+    background-color: #ff0000; }
 
 .row {
   max-width: 114rem;
