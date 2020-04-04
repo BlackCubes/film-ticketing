@@ -213,30 +213,34 @@ body {
   .form__select:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
 
-.footer__follow {
-  background-color: #49454C;
-  padding: 1rem;
-  list-style: none; }
-  .footer__follow-title {
-    font-size: 1.5rem;
-    padding-bottom: 1rem; }
-  .footer__follow-list {
-    padding: 0;
-    margin: 0; }
-  .footer__follow-item {
-    display: inline-block; }
-  .footer__follow-link {
-    display: block;
-    color: snow;
-    background-color: blueviolet;
-    margin: 0 .5rem;
-    padding: .6rem;
-    border-radius: 50%; }
-  .footer__follow .fa-github, .footer__follow .fa-linkedin {
-    font-size: 3.2rem;
-    color: snow;
-    width: 3.1rem;
-    height: 3.1rem; }
+.footer {
+  font-family: inherit;
+  color: #fff; }
+  .footer__follow {
+    background-color: #49454C;
+    padding: 1rem;
+    list-style: none;
+    text-align: center; }
+    .footer__follow-title {
+      font-size: 1.5rem;
+      padding-bottom: 1rem; }
+    .footer__follow-list {
+      padding: 0;
+      margin: 0; }
+    .footer__follow-item {
+      display: inline-block; }
+    .footer__follow-link {
+      display: block;
+      color: snow;
+      background-color: blueviolet;
+      margin: 0 .5rem;
+      padding: .6rem;
+      border-radius: 50%; }
+    .footer__follow .fa-github, .footer__follow .fa-linkedin {
+      font-size: 3.2rem;
+      color: snow;
+      width: 3.1rem;
+      height: 3.1rem; }
 
 .row {
   max-width: 114rem;
