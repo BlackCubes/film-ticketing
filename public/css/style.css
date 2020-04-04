@@ -243,6 +243,29 @@ body {
       color: #fffafa;
       width: 3.1rem;
       height: 3.1rem; }
+  .footer__main {
+    text-align: center; }
+  .footer__navigation {
+    margin-top: 2.5rem; }
+  .footer__title {
+    font-size: 1.5rem;
+    text-transform: uppercase; }
+  .footer__item {
+    padding: 1rem; }
+  .footer__link {
+    font-size: 1.2rem; }
+  .footer__lower {
+    width: 100%;
+    background-color: #000; }
+  .footer__copyright {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3.5rem 0 .5rem; }
+    .footer__copyright-content {
+      display: block;
+      font-size: 1.1rem;
+      padding: 1.5rem 0; }
 
 .row {
   max-width: 114rem;

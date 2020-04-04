@@ -43,4 +43,43 @@
       }
     }
   }
+
+  &__main {
+    text-align: center;
+  }
+
+  &__navigation {
+    margin-top: 2.5rem;
+  }
+  
+  &__title {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    padding: 1rem;
+  }
+
+  &__link {
+    font-size: 1.2rem;
+  }
+
+  &__lower {
+    width: 100%;
+    background-color: $color-black;
+  }
+
+  &__copyright {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3.5rem 0 .5rem;
+
+    &-content {
+      display: block;
+      font-size: 1.1rem;
+      padding: 1.5rem 0;
+    }
+  }
 }
