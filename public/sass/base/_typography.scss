@@ -43,3 +43,16 @@ body {
 .small-text {
   font-size: $font-size-small;
 }
+
+.input-text {
+  font-family: inherit;
+  font-size: $default-font-size;
+  color: $color-white;
+  background-color: rgba($color-white, .3);
+}
+
+.label-text {
+  font-size: $font-size-book;
+  font-weight: 700;
+  color: $color-lightseagreen;
+}

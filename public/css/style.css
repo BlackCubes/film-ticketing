@@ -59,6 +59,17 @@ body {
 .small-text {
   font-size: 1.1rem; }
 
+.input-text {
+  font-family: inherit;
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3); }
+
+.label-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #20B2AA; }
+
 .btn {
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -158,12 +169,8 @@ body {
   text-align: center; }
 
 .form__input {
-  font-family: inherit;
-  font-size: 1.5rem;
-  color: #fff;
   padding: 1.5rem 2rem;
   border-radius: .2rem;
-  background-color: rgba(255, 255, 255, 0.3);
   border: none;
   border-bottom: .3rem solid transparent;
   width: 90%;
@@ -180,9 +187,6 @@ body {
     color: #D3D3D3; }
 
 .form__label {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #20B2AA;
   margin-left: 3rem;
   margin-top: .7rem;
   display: block;
