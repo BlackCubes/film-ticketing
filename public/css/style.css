@@ -91,6 +91,34 @@ body {
   .tile:hover ~ .tile {
     transform: translate3d(12.5rem, 0, 0); }
 
+.dropdown {
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: #D3D3D3;
+  background-color: #505050;
+  height: 5rem;
+  width: 100%;
+  padding: .8rem 1.7rem;
+  border: none;
+  border-bottom: .3rem solid transparent;
+  -webkit-border-radius: .2rem;
+  -moz-border-radius: .2rem;
+  -o-border-radius: .2rem;
+  border-radius: .2rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(../img/down-chevron.png);
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: .8rem .4rem;
+  transition: all .3s; }
+  .dropdown:focus {
+    outline: none !important;
+    border-bottom: 0.3rem solid #20B2AA; }
+  .dropdown:focus:invalid {
+    border-bottom: 0.3rem solid #ff0000; }
+
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
 
@@ -184,34 +212,6 @@ body {
     -webkit-flex-basis: 30%;
     -ms-flex-basis: 30%;
     flex-basis: 30%; }
-
-.form__select {
-  font-family: inherit;
-  font-size: 1.5rem;
-  color: #D3D3D3;
-  background-color: #505050;
-  height: 5rem;
-  width: 100%;
-  padding: .8rem 1.7rem;
-  border: none;
-  border-bottom: .3rem solid transparent;
-  -webkit-border-radius: .2rem;
-  -moz-border-radius: .2rem;
-  -o-border-radius: .2rem;
-  border-radius: .2rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: url(../img/down-chevron.png);
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: .8rem .4rem;
-  transition: all .3s; }
-  .form__select:focus {
-    outline: none !important;
-    border-bottom: 0.3rem solid #20B2AA; }
-  .form__select:focus:invalid {
-    border-bottom: 0.3rem solid #ff0000; }
 
 .footer {
   font-family: inherit;
