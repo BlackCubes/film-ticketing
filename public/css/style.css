@@ -77,6 +77,9 @@ body {
 .u-center-text {
   text-align: center; }
 
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
 .btn {
   font-size: 1.6rem;
   text-transform: uppercase;
