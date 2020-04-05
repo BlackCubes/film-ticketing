@@ -75,6 +75,9 @@ body {
   font-weight: 700;
   color: #20B2AA; }
 
+.u-center-text {
+  text-align: center; }
+
 .btn {
   font-size: 1.6rem;
   text-transform: uppercase;
