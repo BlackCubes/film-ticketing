@@ -169,6 +169,11 @@ body {
   .dropdown:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
 
+.form__title {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
+
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
 
