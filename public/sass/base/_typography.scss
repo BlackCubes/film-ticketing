@@ -4,6 +4,12 @@ body {
   color: $color-white;
 }
 
+.heading-primary {
+  font-size: $font-size-primary-small;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .heading-secondary {
   font-size: $font-size-secondary-small;
   text-transform: uppercase;
