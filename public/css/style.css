@@ -25,7 +25,39 @@ a {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400; }
+  font-weight: 400;
+  color: #fff; }
+
+.heading-secondary {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  text-align: center; }
+  .heading-secondary--gradient-1 {
+    color: transparent;
+    background-image: linear-gradient(-20deg, #20B2AA, #0067AA);
+    -webkit-background-clip: text;
+    background-clip: text; }
+  .heading-secondary--gradient-2 {
+    color: transparent;
+    background-image: linear-gradient(-270deg, #20B2AA, #007869, #D3D3D3);
+    -webkit-background-clip: text;
+    background-clip: text; }
+
+.heading-tertiary {
+  font-size: 1.5rem;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: .1rem; }
+
+.book-text {
+  font-size: 1.2rem; }
+
+.small-text {
+  font-size: 1.1rem; }
 
 .btn {
   font-size: 1.6rem;
@@ -224,7 +256,6 @@ body {
     list-style: none;
     text-align: center; }
     .footer__follow-title {
-      font-size: 1.5rem;
       padding-bottom: 1rem; }
     .footer__follow-list {
       padding: 0;
@@ -248,13 +279,8 @@ body {
   .footer__navigation {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem; }
-  .footer__title {
-    font-size: 1.5rem;
-    text-transform: uppercase; }
   .footer__item {
     padding: 1rem; }
-  .footer__link {
-    font-size: 1.2rem; }
   .footer__lower {
     width: 100%;
     background-color: #000; }
@@ -265,7 +291,6 @@ body {
     padding: 2.5rem 0 2.5rem; }
     .footer__copyright-content {
       display: block;
-      font-size: 1.1rem;
       padding: 1.5rem 0; }
 
 .row {
@@ -517,23 +542,11 @@ body {
       left: -50%; }
   .promo__header-wrapper {
     position: relative;
-    top: -18rem;
-    color: transparent;
-    font-size: 2.5rem;
-    text-align: center;
-    background-image: linear-gradient(-20deg, #20B2AA, #0067AA);
-    background-clip: text;
-    -webkit-background-clip: text; }
+    top: -18rem; }
   .promo__text-wrapper {
     position: relative;
     top: -2rem;
     padding: 1.4rem; }
-  .promo__text {
-    font-size: 1.74rem;
-    font-weight: 300;
-    color: #fff;
-    line-height: 1.5;
-    letter-spacing: .1rem; }
   .promo__join {
     margin-top: 2rem; }
     .promo__join .btn__promo {
@@ -568,23 +581,11 @@ body {
       left: -50%; }
   .member__header-wrapper {
     position: relative;
-    top: -18rem;
-    color: transparent;
-    font-size: 2.5rem;
-    text-align: center;
-    background-image: linear-gradient(-270deg, #20B2AA, #007869, #D3D3D3);
-    background-clip: text;
-    -webkit-background-clip: text; }
+    top: -18rem; }
   .member__text-wrapper {
     position: relative;
     top: -2rem;
     padding: 1.4rem; }
-  .member__text {
-    font-size: 1.74rem;
-    font-weight: 300;
-    color: #fff;
-    line-height: 1.5;
-    letter-spacing: .1rem; }
   .member__join {
     margin-top: 2rem; }
     .member__join .btn__join {
