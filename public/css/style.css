@@ -30,7 +30,8 @@ body {
 
 .heading-primary {
   font-size: 2rem;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  letter-spacing: .3rem; }
 
 .heading-secondary {
   font-size: 2.5rem;
