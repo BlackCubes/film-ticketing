@@ -151,7 +151,7 @@ app
   .post(createUser);
 
 app
-  .route('/api/v1/users:id')
+  .route('/api/v1/users/:id')
   .get(getUser)
   .patch(updateUser)
   .delete(deleteUser);
