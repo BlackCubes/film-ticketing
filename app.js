@@ -134,27 +134,33 @@ const deleteUser = (req, res) => {
 };
 
 // Routes
-app
-  .route('/api/v1/shows')
+const showRouter = express.Router();
+const userRouter = express.Router();
+
+showRouter
+  .route('/')
   .get(getAllShows)
   .post(createShow);
 
-app
-  .route('/api/v1/shows/:id')
+showRouter
+  .route('/:id')
   .get(getShow)
   .patch(updateShow)
   .delete(deleteShow);
 
-app
-  .route('/api/v1/users')
+userRouter
+  .route('/')
   .get(getAllUsers)
   .post(createUser);
 
-app
-  .route('/api/v1/users/:id')
+userRouter
+  .route('/:id')
   .get(getUser)
   .patch(updateUser)
   .delete(deleteUser);
+
+app.use('/api/v1/shows', showRouter);
+app.use('/api/v1/users', userRouter);
 
 // Start Server
 const port = 3000;
