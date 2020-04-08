@@ -1,14 +1,17 @@
 const fs = require('fs');
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
 
+// Middlewares
 app.use(express.json());
 
 const shows = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/shows-simple.json`)
 );
 
+// Route Handlers
 const getAllShows = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -88,6 +91,7 @@ const deleteShow = (req, res) => {
   });
 };
 
+// Routes
 app
   .route('/api/v1/shows')
   .get(getAllShows)
@@ -99,6 +103,7 @@ app
   .patch(updateShow)
   .delete(deleteShow);
 
+// Start Server
 const port = 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
