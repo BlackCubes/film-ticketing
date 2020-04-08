@@ -88,11 +88,16 @@ const deleteShow = (req, res) => {
   });
 };
 
-app.get('/api/v1/shows', getAllShows);
-app.get('/api/v1/shows/:id', getShow);
-app.post('/api/v1/shows', createShow);
-app.patch('/api/v1/shows/:id', updateShow);
-app.delete('/api/v1/shows/:id', deleteShow);
+app
+  .route('/api/v1/shows')
+  .get(getAllShows)
+  .post(createShow);
+
+app
+  .route('/api/v1/shows/:id')
+  .get(getShow)
+  .patch(updateShow)
+  .delete(deleteShow);
 
 const port = 3000;
 app.listen(port, () => {
