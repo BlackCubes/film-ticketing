@@ -92,11 +92,9 @@ app.delete('/api/v1/shows/:id', (req, res) => {
     });
   }
 
-  res.status(200).json({
+  res.status(204).json({
     status: 'success',
-    data: {
-      shows: '<Deleted show here...>'
-    }
+    data: null
   });
 });
 
