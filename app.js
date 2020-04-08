@@ -17,7 +17,7 @@ const shows = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/shows-simple.json`)
 );
 
-app.get('/api/v1/users', (req, res) => {
+app.get('/api/v1/shows', (req, res) => {
   res.status(200).json({
     message: 'success',
     results: shows.length,
