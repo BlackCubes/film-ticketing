@@ -1,0 +1,16 @@
+[
+  {
+    "id": 0,
+    "title": "string",
+    "year": "string",
+    "duration": "int",
+    "mpaaRating": "string",
+    "releaseDate": "string",
+    "synopsis": "string",
+    "price": "int",
+    "ratingsAverage": "int",
+    "ratingsQuantity": "int",
+    "genres": "string",
+    "images": "string"
+  }
+]
