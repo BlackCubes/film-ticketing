@@ -9,7 +9,7 @@ const shows = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/shows-simple.json`)
 );
 
-app.get('/api/v1/shows', (req, res) => {
+const getAllShows = (req, res) => {
   res.status(200).json({
     status: 'success',
     results: shows.length,
@@ -17,9 +17,9 @@ app.get('/api/v1/shows', (req, res) => {
       shows
     }
   });
-});
+};
 
-app.get('/api/v1/shows/:id', (req, res) => {
+const getShow = (req, res) => {
   const id = req.params.id * 1;
   const show = shows.find(el => el.id === id);
 
@@ -36,9 +36,9 @@ app.get('/api/v1/shows/:id', (req, res) => {
       show
     }
   });
-});
+};
 
-app.post('/api/v1/shows', (req, res) => {
+const createShow = (req, res) => {
   const newId = shows[shows.length - 1].id + 1;
   const newShow = Object.assign({ id: newId }, req.body);
 
@@ -56,9 +56,9 @@ app.post('/api/v1/shows', (req, res) => {
       });
     }
   );
-});
+};
 
-app.patch('/api/v1/shows/:id', (req, res) => {
+const updateShow = (req, res) => {
   if (req.params.id * 1 > shows.length) {
     return res.status(404).json({
       status: 'fail',
@@ -72,9 +72,9 @@ app.patch('/api/v1/shows/:id', (req, res) => {
       shows: '<Updated show here...>'
     }
   });
-});
+};
 
-app.delete('/api/v1/shows/:id', (req, res) => {
+const deleteShow = (req, res) => {
   if (req.params.id * 1 > shows.length) {
     return res.status(404).json({
       status: 'fail',
@@ -86,7 +86,13 @@ app.delete('/api/v1/shows/:id', (req, res) => {
     status: 'success',
     data: null
   });
-});
+};
+
+app.get('/api/v1/shows', getAllShows);
+app.get('/api/v1/shows/:id', getShow);
+app.post('/api/v1/shows', createShow);
+app.patch('/api/v1/shows/:id', updateShow);
+app.delete('/api/v1/shows/:id', deleteShow);
 
 const port = 3000;
 app.listen(port, () => {
