@@ -19,9 +19,9 @@ const shows = JSON.parse(
 
 app.get('/api/v1/shows', (req, res) => {
   res.status(200).json({
-    message: 'success',
+    status: 'success',
     results: shows.length,
-    body: {
+    data: {
       shows
     }
   });
