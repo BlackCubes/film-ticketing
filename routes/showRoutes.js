@@ -8,7 +8,7 @@ router.param('id', showController.checkID);
 router
   .route('/')
   .get(showController.getAllShows)
-  .post(showController.createShow);
+  .post(showController.checkBody, showController.createShow);
 
 router
   .route('/:id')
