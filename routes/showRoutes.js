@@ -3,6 +3,8 @@ const showController = require('./../controllers/showController');
 
 const router = express.Router();
 
+router.param('id', showController.checkID);
+
 router
   .route('/')
   .get(showController.getAllShows)
