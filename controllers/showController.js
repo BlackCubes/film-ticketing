@@ -17,7 +17,7 @@ exports.checkID = (req, res, next, val) => {
 };
 
 exports.checkBody = (req, res, next) => {
-  if (!req.body.name && !req.body.price) {
+  if (!req.body.title || !req.body.price) {
     return res.status(400).json({
       status: 'fail',
       message: 'Did not put in the name or price!'
