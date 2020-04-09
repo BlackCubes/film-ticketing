@@ -4,6 +4,16 @@ const shows = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/shows-simple.json`)
 );
 
+exports.checkID = (req, res, next, val) => {
+  if (req.params.id * 1 > shows.length) {
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Invalid ID'
+    });
+  }
+  next();
+};
+
 exports.getAllShows = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -17,13 +27,6 @@ exports.getAllShows = (req, res) => {
 exports.getShow = (req, res) => {
   const id = req.params.id * 1;
   const show = shows.find(el => el.id === id);
-
-  if (!show) {
-    return res.status(404).json({
-      status: 'fail',
-      message: 'Invalid ID'
-    });
-  }
 
   res.status(200).json({
     status: 'success',
@@ -54,13 +57,6 @@ exports.createShow = (req, res) => {
 };
 
 exports.updateShow = (req, res) => {
-  if (req.params.id * 1 > shows.length) {
-    return res.status(404).json({
-      status: 'fail',
-      message: 'Invalid ID'
-    });
-  }
-
   res.status(200).json({
     status: 'success',
     data: {
@@ -70,13 +66,6 @@ exports.updateShow = (req, res) => {
 };
 
 exports.deleteShow = (req, res) => {
-  if (req.params.id * 1 > shows.length) {
-    return res.status(404).json({
-      status: 'fail',
-      message: 'Invalid ID'
-    });
-  }
-
   res.status(204).json({
     status: 'success',
     data: null
