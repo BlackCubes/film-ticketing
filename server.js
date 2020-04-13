@@ -35,6 +35,21 @@ const showSchema = new mongoose.Schema({
 
 const Show = mongoose.model('Show', showSchema);
 
+const testShow = new Show({
+  title: 'Lawrence of Arabia',
+  ratingsAverage: 4.7,
+  price: 20
+});
+
+testShow
+  .save()
+  .then(doc => {
+    console.log(doc);
+  })
+  .catch(err => {
+    console.log('Error on creating the document:', err);
+  });
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
