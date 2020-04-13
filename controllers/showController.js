@@ -1,4 +1,5 @@
 const fs = require('fs');
+const Show = require('./../models/showModel');
 
 const shows = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/shows-simple.json`)

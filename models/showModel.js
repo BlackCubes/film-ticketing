@@ -17,3 +17,5 @@ const showSchema = new mongoose.Schema({
 });
 
 const Show = mongoose.model('Show', showSchema);
+
+module.exports = Show;
