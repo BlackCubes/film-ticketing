@@ -17,6 +17,24 @@ mongoose
   })
   .then(() => console.log('The DB has been successfully connected!'));
 
+const showSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: [true, 'A show must have a title!'],
+    unique: true
+  },
+  ratingsAverage: {
+    type: Number,
+    default: 4.5
+  },
+  price: {
+    type: Number,
+    required: [true, 'A show must have a price!']
+  }
+});
+
+const Show = mongoose.model('Show', showSchema);
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
