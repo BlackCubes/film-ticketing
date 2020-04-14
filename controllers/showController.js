@@ -57,6 +57,18 @@ exports.getAllShows = async (req, res) => {
       query = query.select('-__v');
     }
 
+    // PAGINATION
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit * 1 || 100;
+    const skip = (page - 1) * limit;
+
+    query = query.skip(skip).limit(limit);
+
+    if (req.query.page) {
+      const numShows = await Show.countDocuments();
+      if (skip >= numShows) throw new Error('This page does not exist!');
+    }
+
     // EXECUTE QUERY
     const shows = await query;
 
