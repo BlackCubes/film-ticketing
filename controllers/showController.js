@@ -30,8 +30,17 @@ const Show = require('./../models/showModel');
 
 exports.getAllShows = async (req, res) => {
   try {
-    const shows = await Show.find();
+    // BUILD QUERY
+    const queryObj = { ...req.query };
+    const excludedFeilds = ['page', 'sort', 'limit', 'fields'];
+    excludedFeilds.forEach(el => delete queryObj[el]);
 
+    const query = Show.find(queryObj);
+
+    // EXECUTE QUERY
+    const shows = await query;
+
+    // SEND RESPONSE
     res.status(200).json({
       status: 'success',
       results: shows.length,
