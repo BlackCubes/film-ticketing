@@ -31,6 +31,7 @@ const Show = require('./../models/showModel');
 exports.getAllShows = async (req, res) => {
   try {
     // BUILD QUERY
+    // FILTERING
     const queryObj = { ...req.query };
     const excludedFeilds = ['page', 'sort', 'limit', 'fields'];
     excludedFeilds.forEach(el => delete queryObj[el]);
@@ -38,7 +39,15 @@ exports.getAllShows = async (req, res) => {
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gt|lt|gte|lte)\b/g, match => `$${match}`);
 
-    const query = Show.find(JSON.parse(queryStr));
+    let query = Show.find(JSON.parse(queryStr));
+
+    // SORTING
+    if (req.query.sort) {
+      const sortBy = req.query.sort.split(',').join(' ');
+      query = query.sort(sortBy);
+    } else {
+      query = query.sort('-createdAt');
+    }
 
     // EXECUTE QUERY
     const shows = await query;
