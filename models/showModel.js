@@ -8,7 +8,7 @@ const showSchema = new mongoose.Schema({
     trim: true
   },
   originalReleaseDate: {
-    type: Date,
+    type: [Date],
     required: [true, 'A show must have an original release year!']
   },
   releaseDate: Date,
