@@ -2,10 +2,10 @@
   {
     "id": 0,
     "title": "Lawrence of Arabia",
-    "year": "1962-12-11,10:00",
+    "originalReleaseDate": ["1962-12-11,10:00"],
+    "releaseDate": "2020-07-17,10:00",
     "duration": 228,
     "mpaaRating": "PG",
-    "releaseDate": "2020-07-17,10:00",
     "synopsis": "Due to his knowledge of the native Bedouin tribes, British Lieutenant T.E. Lawrence (Peter O'Toole) is sent to Arabia to find Prince Faisal (Alec Guinness) and serve as a liaison between the Arabs and the British in their fight against the Turks. With the aid of native Sherif Ali (Omar Sharif), Lawrence rebels against the orders of his superior officer and strikes out on a daring camel journey across the harsh desert to attack a well-guarded Turkish port.",
     "price": 25,
     "ratingsAverage": 4.5,
@@ -16,10 +16,10 @@
   {
     "id": 1,
     "title": "2001: A Space Odyssey",
-    "year": "1968",
+    "originalReleaseDate": ["1968-05-12,10:00"],
+    "releaseDate": "2020-10-16,10:00",
     "duration": 164,
     "mpaaRating": "G",
-    "releaseDate": "2020-10-16,10:00",
     "synopsis": "An imposing black structure provides a connection between the past and the future in this enigmatic adaptation of a short story by revered sci-fi author Arthur C. Clarke. When Dr. Dave Bowman (Keir Dullea) and other astronauts are sent on a mysterious mission, their ship's computer system, HAL, begins to display increasingly strange behavior, leading up to a tense showdown between man and machine that results in a mind-bending trek through space and time.",
     "price": 20,
     "ratingsAverage": 4.8,
@@ -30,10 +30,10 @@
   {
     "id": 2,
     "title": "The Matrix",
-    "year": "1999",
+    "originalReleaseDate": ["1999-03-31,10:00"],
+    "releaseDate": "2020-06-26,10:00",
     "duration": 150,
     "mpaaRating": "R",
-    "releaseDate": "2020-06-26,10:00",
     "synopsis": "Neo (Keanu Reeves) believes that Morpheus (Laurence Fishburne), an elusive figure considered to be the most dangerous man alive, can answer his question -- What is the Matrix? Neo is contacted by Trinity (Carrie-Anne Moss), a beautiful stranger who leads him into an underworld where he meets Morpheus. They fight a brutal battle for their lives against a cadre of viciously intelligent secret agents. It is a truth that could cost Neo something more precious than his life.",
     "price": 20,
     "ratingsAverage": 4.4,
@@ -44,10 +44,14 @@
   {
     "id": 3,
     "title": "Three Colours Trilogy",
-    "year": "1994",
+    "originalReleaseDate": [
+      "1993-09-08,10:00",
+      "1994-06-10,10:00",
+      "1994-11-23,10:00"
+    ],
+    "releaseDate": "2020-08-08,10:00",
     "duration": 291,
     "mpaaRating": "R",
-    "releaseDate": "2020-08-08,10:00",
     "synopsis": "This boldly cinematic trio of stories about love and loss, from Krzysztof Kieślowski was a defining event of the art-house boom of the 1990s. The films are named for the colors of the French flag and stand for the tenets of the French Revolution—liberty, equality, and fraternity—but that hardly begins to explain their enigmatic beauty and rich humanity. Set in Paris, Warsaw, and Geneva, and ranging from tragedy to comedy, Blue, White, and Red (Kieślowski’s final film) examine with artistic clarity a group of ambiguously interconnected people experiencing profound personal disruptions. Marked by intoxicating cinematography and stirring performances by such actors as Juliette Binoche, Julie Delpy, Irène Jacob, and Jean-Louis Trintignant, Kieślowski’s Three Colors is a benchmark of contemporary cinema.",
     "price": 30,
     "ratingsAverage": 4.5,
@@ -57,11 +61,11 @@
   },
   {
     "id": 4,
-    "title": "The Mandalorian",
-    "year": "2019",
+    "title": "The Mandalorian: Season 1",
+    "originalReleaseDate": ["2019-11-12,10:00"],
+    "releaseDate": "2020-11-21,10:00",
     "duration": 323,
     "mpaaRating": "TV-PG",
-    "releaseDate": "2020-11-21,10:00",
     "synopsis": "After the stories of Jango and Boba Fett, another warrior emerges in the Star Wars universe. The Mandalorian is set after the fall of the Empire and before the emergence of the First Order. We follow the travails of a lone gunfighter in the outer reaches of the galaxy far from the authority of the New Republic.",
     "price": 40,
     "ratingsAverage": 4.8,
@@ -72,16 +76,15 @@
   {
     "id": 5,
     "title": "The Godfather",
-    "year": "1972",
+    "originalReleaseDate": ["1972-03-24,10:00"],
+    "releaseDate": "2020-12-05,10:00",
     "duration": 175,
     "mpaaRating": "R",
-    "releaseDate": "2020-12-05,10:00",
     "synopsis": "Widely regarded as one of the greatest films of all time, this mob drama, based on Mario Puzo's novel of the same name, focuses on the powerful Italian-American crime family of Don Vito Corleone (Marlon Brando). When the don's youngest son, Michael (Al Pacino), reluctantly joins the Mafia, he becomes involved in the inevitable cycle of violence and betrayal. Although Michael tries to maintain a normal relationship with his wife, Kay (Diane Keaton), he is drawn deeper into the family business.",
     "price": 20,
     "ratingsAverage": 4.9,
     "ratingsQuantity": 60,
     "genres": ["Crime", "Drama"],
     "images": "godfather-large.jpg"
-  },
-  { "id": 6, "title": "Test Movie", "duration": 120 }
+  }
 ]
