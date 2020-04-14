@@ -101,7 +101,7 @@ exports.getShow = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: 'Could not get the show!'
+      message: `Could not get the show! ${err}`
     });
   }
 
@@ -129,7 +129,7 @@ exports.createShow = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: 'fail',
-      message: 'Could not create a new show!'
+      message: `Could not create a new show! ${err}`
     });
   }
 
@@ -168,7 +168,7 @@ exports.updateShow = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: 'Could not update the show!'
+      message: `Could not update the show! ${err}`
     });
   }
 };
@@ -184,7 +184,7 @@ exports.deleteShow = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: 'Could not delete show!'
+      message: `Could not delete show! ${err}`
     });
   }
 };
