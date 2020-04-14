@@ -132,9 +132,18 @@ exports.updateShow = async (req, res) => {
   }
 };
 
-exports.deleteShow = (req, res) => {
-  res.status(204).json({
-    status: 'success',
-    data: null
-  });
+exports.deleteShow = async (req, res) => {
+  try {
+    await Show.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+      status: 'success',
+      data: null
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'Could not delete show!'
+    });
+  }
 };
