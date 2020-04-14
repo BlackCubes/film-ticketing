@@ -111,13 +111,25 @@ exports.createShow = async (req, res) => {
   // );
 };
 
-exports.updateShow = (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    data: {
-      shows: '<Updated show here...>'
-    }
-  });
+exports.updateShow = async (req, res) => {
+  try {
+    const show = await Show.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        show
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'Could not update the show!'
+    });
+  }
 };
 
 exports.deleteShow = (req, res) => {
