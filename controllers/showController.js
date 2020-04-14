@@ -28,18 +28,43 @@ const Show = require('./../models/showModel');
 //   next();
 // };
 
-exports.getAllShows = (req, res) => {
-  res.status(200).json({
-    status: 'success'
-    // results: shows.length,
-    // data: {
-    //   shows
-    // }
-  });
+exports.getAllShows = async (req, res) => {
+  try {
+    const shows = await Show.find();
+
+    res.status(200).json({
+      status: 'success',
+      results: shows.length,
+      data: {
+        shows
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'Could not get all the shows!'
+    });
+  }
 };
 
-exports.getShow = (req, res) => {
-  const id = req.params.id * 1;
+exports.getShow = async (req, res) => {
+  try {
+    const show = await Show.findById(req.params.id);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        show
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'Could not get the show!'
+    });
+  }
+
+  // const id = req.params.id * 1;
   // const show = shows.find(el => el.id === id);
 
   // res.status(200).json({
@@ -63,7 +88,7 @@ exports.createShow = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: 'fail',
-      message: `There was an error on creating a new show! Error: ${err}`
+      message: 'Could not create a new show!'
     });
   }
 
