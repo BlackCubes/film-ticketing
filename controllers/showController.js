@@ -35,7 +35,10 @@ exports.getAllShows = async (req, res) => {
     const excludedFeilds = ['page', 'sort', 'limit', 'fields'];
     excludedFeilds.forEach(el => delete queryObj[el]);
 
-    const query = Show.find(queryObj);
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gt|lt|gte|lte)\b/g, match => `$${match}`);
+
+    const query = Show.find(JSON.parse(queryStr));
 
     // EXECUTE QUERY
     const shows = await query;
