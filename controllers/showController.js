@@ -18,15 +18,15 @@ const Show = require('./../models/showModel');
 //   next();
 // };
 
-exports.checkBody = (req, res, next) => {
-  if (!req.body.title || !req.body.price) {
-    return res.status(400).json({
-      status: 'fail',
-      message: 'Did not put in the name or price!'
-    });
-  }
-  next();
-};
+// exports.checkBody = (req, res, next) => {
+//   if (!req.body.title || !req.body.price) {
+//     return res.status(400).json({
+//       status: 'fail',
+//       message: 'Did not put in the name or price!'
+//     });
+//   }
+//   next();
+// };
 
 exports.getAllShows = (req, res) => {
   res.status(200).json({
@@ -50,13 +50,22 @@ exports.getShow = (req, res) => {
   // });
 };
 
-exports.createShow = (req, res) => {
-  res.status(201).json({
-    status: 'success',
-    data: {
-      // shows: newShow
-    }
-  });
+exports.createShow = async (req, res) => {
+  try {
+    const newShow = await Show.create(req.body);
+
+    res.status(201).json({
+      status: 'success',
+      data: {
+        show: newShow
+      }
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: `There was an error on creating a new show! Error: ${err}`
+    });
+  }
 
   // const newId = shows[shows.length - 1].id + 1;
   // const newShow = Object.assign({ id: newId }, req.body);

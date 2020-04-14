@@ -8,7 +8,7 @@ const router = express.Router();
 router
   .route('/')
   .get(showController.getAllShows)
-  .post(showController.checkBody, showController.createShow);
+  .post(showController.createShow);
 
 router
   .route('/:id')
