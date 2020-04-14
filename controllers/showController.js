@@ -83,7 +83,7 @@ exports.getAllShows = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'fail',
-      message: 'Could not get all the shows!'
+      message: `Could not get all the shows! Error: ${err}`
     });
   }
 };
