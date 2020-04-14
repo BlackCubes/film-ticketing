@@ -7,10 +7,11 @@ const showSchema = new mongoose.Schema({
     unique: true,
     trim: true
   },
-  year: {
+  originalReleaseDate: {
     type: Date,
     required: [true, 'A show must have an original release year!']
   },
+  releaseDate: Date,
   duration: {
     type: Number,
     required: [true, 'A show must have a duration!']
@@ -19,7 +20,6 @@ const showSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A show must have a MPAA rating!']
   },
-  releaseDate: Date,
   overview: {
     type: String,
     required: [true, 'A show must have an overview!'],
