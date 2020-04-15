@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const showSchema = new mongoose.Schema(
   {
@@ -8,6 +9,7 @@ const showSchema = new mongoose.Schema(
       unique: true,
       trim: true
     },
+    slug: String,
     originalReleaseDate: {
       type: [Date],
       required: [true, 'A show must have an original release year!']
@@ -62,6 +64,11 @@ const showSchema = new mongoose.Schema(
 
 showSchema.virtual('durationHours').get(function() {
   return this.duration / 60;
+});
+
+showSchema.pre('save', function(next) {
+  this.slug = slugify(this.title, { lower: true });
+  next();
 });
 
 const Show = mongoose.model('Show', showSchema);
