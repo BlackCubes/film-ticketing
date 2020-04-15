@@ -255,7 +255,7 @@ exports.getOriginalRelease = async (req, res) => {
         $project: { _id: 0 }
       },
       {
-        $sort: { numShowsBegan: -1 }
+        $sort: { year: 1 }
       }
     ]);
 
