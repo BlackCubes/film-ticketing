@@ -9,7 +9,7 @@ router
   .route('/top-5-shows')
   .get(showController.aliasTopShows, showController.getAllShows);
 
-router.route('show-stats').get(showController.getShowStats);
+router.route('/show-stats').get(showController.getShowStats);
 
 router
   .route('/')
