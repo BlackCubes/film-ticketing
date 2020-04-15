@@ -141,6 +141,42 @@ exports.deleteShow = async (req, res) => {
   }
 };
 
+exports.getShowStats = async (req, res) => {
+  try {
+    const stats = await Show.aggregate([
+      {
+        $match: { ratingsAverage: { $gte: 4.5 } }
+      },
+      {
+        $group: {
+          _id: { $toUpper: '$mpaaRating' },
+          numShows: { $sum: 1 },
+          numRating: { $sum: '$ratingsQuantity' },
+          avgRating: { $avg: '$ratingsAverage' },
+          avgPrice: { $avg: '$price' },
+          minPrice: { $min: '$price' },
+          maxPrice: { $max: '$price' }
+        }
+      },
+      {
+        $sort: { avgPrice: 1 }
+      }
+    ]);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        stats
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: `Could not get the show statistics! ${err}`
+    });
+  }
+};
+
 // FOR WITHOUT MONGO:
 // exports.checkID = (req, res, next, val) => {
 //   console.log(`Show id is: ${val}`);
