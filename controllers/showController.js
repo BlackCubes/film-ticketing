@@ -225,6 +225,54 @@ exports.getMonthlyPlan = async (req, res) => {
   }
 };
 
+exports.getOriginalRelease = async (req, res) => {
+  try {
+    const year = req.params.year * 1;
+
+    const original = await Show.aggregate([
+      {
+        $unwind: '$originalReleaseDate'
+      },
+      {
+        $match: {
+          originalReleaseDate: {
+            $gte: new Date(`${year}-01-01`),
+            $lte: new Date(`${year}-12-31`)
+          }
+        }
+      },
+      {
+        $group: {
+          _id: { $year: '$originalReleaseDate' },
+          numShowsBegan: { $sum: 1 },
+          shows: { $push: '$title' }
+        }
+      },
+      {
+        $addFields: { year: '$_id' }
+      },
+      {
+        $project: { _id: 0 }
+      },
+      {
+        $sort: { numShowsBegan: -1 }
+      }
+    ]);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        original
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: `Could not get the original release! ${err}`
+    });
+  }
+};
+
 // FOR WITHOUT MONGO:
 // exports.checkID = (req, res, next, val) => {
 //   console.log(`Show id is: ${val}`);
