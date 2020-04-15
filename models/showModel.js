@@ -54,6 +54,14 @@ const showSchema = new mongoose.Schema(
       type: Date,
       default: Date.now(),
       select: false
+    },
+    specialVenue: {
+      type: Boolean,
+      default: false
+    },
+    secretShow: {
+      type: Boolean,
+      default: false
     }
   },
   {
@@ -66,8 +74,15 @@ showSchema.virtual('durationHours').get(function() {
   return this.duration / 60;
 });
 
+// DOCUMENT MIDDLEWARE
 showSchema.pre('save', function(next) {
   this.slug = slugify(this.title, { lower: true });
+  next();
+});
+
+// QUERY MIDDLEWARE
+showSchema.pre(/^find/, function(next) {
+  this.find({ secretShow: { $ne: true } });
   next();
 });
 
