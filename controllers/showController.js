@@ -177,6 +177,54 @@ exports.getShowStats = async (req, res) => {
   }
 };
 
+exports.getMonthlyPlan = async (req, res) => {
+  try {
+    const year = req.params.year * 1;
+
+    const plan = await Show.aggregate([
+      {
+        $match: {
+          releaseDate: {
+            $gte: new Date(`${year}-01-01`),
+            $lte: new Date(`${year}-12-31`)
+          }
+        }
+      },
+      {
+        $group: {
+          _id: { $month: '$releaseDate' },
+          numShowStarts: { $sum: 1 },
+          shows: { $push: '$title' }
+        }
+      },
+      {
+        $addFields: { month: '$_id' }
+      },
+      {
+        $project: { _id: 0 }
+      },
+      {
+        $sort: { numShowStarts: -1 }
+      },
+      {
+        $limit: 12
+      }
+    ]);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        plan
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: `Could not get the monthly plan! ${err}`
+    });
+  }
+};
+
 // FOR WITHOUT MONGO:
 // exports.checkID = (req, res, next, val) => {
 //   console.log(`Show id is: ${val}`);
