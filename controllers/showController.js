@@ -5,28 +5,13 @@ const Show = require('./../models/showModel');
 //   fs.readFileSync(`${__dirname}/../dev-data/data/shows-simple.json`)
 // );
 
-// FOR WITHOUT MONGO:
-// exports.checkID = (req, res, next, val) => {
-//   console.log(`Show id is: ${val}`);
+exports.aliasTopShows = (req, res, next) => {
+  req.query.limit = '5';
+  req.query.sort = '-ratingsAverage,price';
+  req.query.fields = 'name,price,ratingsAverage,summary,difficulty';
 
-//   if (req.params.id * 1 > shows.length) {
-//     return res.status(404).json({
-//       status: 'fail',
-//       message: 'Invalid ID'
-//     });
-//   }
-//   next();
-// };
-
-// exports.checkBody = (req, res, next) => {
-//   if (!req.body.title || !req.body.price) {
-//     return res.status(400).json({
-//       status: 'fail',
-//       message: 'Did not put in the name or price!'
-//     });
-//   }
-//   next();
-// };
+  next();
+};
 
 exports.getAllShows = async (req, res) => {
   try {
@@ -188,3 +173,26 @@ exports.deleteShow = async (req, res) => {
     });
   }
 };
+
+// FOR WITHOUT MONGO:
+// exports.checkID = (req, res, next, val) => {
+//   console.log(`Show id is: ${val}`);
+
+//   if (req.params.id * 1 > shows.length) {
+//     return res.status(404).json({
+//       status: 'fail',
+//       message: 'Invalid ID'
+//     });
+//   }
+//   next();
+// };
+
+// exports.checkBody = (req, res, next) => {
+//   if (!req.body.title || !req.body.price) {
+//     return res.status(400).json({
+//       status: 'fail',
+//       message: 'Did not put in the name or price!'
+//     });
+//   }
+//   next();
+// };

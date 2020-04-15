@@ -6,6 +6,10 @@ const router = express.Router();
 // router.param('id', showController.checkID);
 
 router
+  .route('/top-5-shows')
+  .get(showController.aliasTopShows, showController.getAllShows);
+
+router
   .route('/')
   .get(showController.getAllShows)
   .post(showController.createShow);
