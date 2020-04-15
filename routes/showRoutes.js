@@ -10,6 +10,7 @@ router
   .get(showController.aliasTopShows, showController.getAllShows);
 
 router.route('/show-stats').get(showController.getShowStats);
+router.route('/monthly-plan/:year').get(showController.getMonthlyPlan);
 
 router
   .route('/')
