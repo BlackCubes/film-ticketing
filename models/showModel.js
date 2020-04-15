@@ -86,6 +86,12 @@ showSchema.pre(/^find/, function(next) {
   next();
 });
 
+// AGGREGATION MIDDLEWARE
+showSchema.pre('aggregate', function(next) {
+  this.pipeline().unshift({ $match: { secretShow: { $ne: true } } });
+  next();
+});
+
 const Show = mongoose.model('Show', showSchema);
 
 module.exports = Show;
