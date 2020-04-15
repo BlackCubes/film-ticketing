@@ -11,6 +11,7 @@ router
 
 router.route('/show-stats').get(showController.getShowStats);
 router.route('/monthly-plan/:year').get(showController.getMonthlyPlan);
+router.route('/original-release/:year').get(showController.getOriginalRelease);
 
 router
   .route('/')
