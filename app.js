@@ -13,14 +13,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 
-app.all('*', (req, res, next) => {
-  res.status(404).json({
-    status: 'fail',
-    message: `Could not find ${req.originalUrl} on this server!`
-  });
-  next();
-});
-
 // app.use((req, res, next) => {
 //   console.log('Hello from the middleware!');
 //   next();
@@ -29,5 +21,13 @@ app.all('*', (req, res, next) => {
 // Routes
 app.use('/api/v1/shows', showRouter);
 app.use('/api/v1/users', userRouter);
+
+app.all('*', (req, res, next) => {
+  res.status(404).json({
+    status: 'fail',
+    message: `Could not find ${req.originalUrl} on this server!`
+  });
+  next();
+});
 
 module.exports = app;
