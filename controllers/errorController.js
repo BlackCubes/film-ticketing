@@ -8,10 +8,21 @@ const sendErrorDev = (res, err) => {
 };
 
 const sendErrorProd = (res, err) => {
-  res.status(err.statusCode).json({
-    status: err.status,
-    message: err.message
-  });
+  // OPERATIONAL, TRUSTED ERROR: SEND MESSAGE TO CLIENT
+  if (err.isOperational) {
+    res.status(err.statusCode).json({
+      status: err.status,
+      message: err.message
+    });
+
+    // PROGRAMMING OR OTHER UNKNOWN ERROR: DON'T LEAK ERROR DETAILS
+  } else {
+    console.error('ERROR!', err);
+    res.status(500).json({
+      status: 'error',
+      message: 'Something went very wrong!'
+    });
+  }
 };
 
 module.exports = (err, req, res, next) => {
