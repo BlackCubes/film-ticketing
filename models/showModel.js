@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
+const validator = require('validator');
 
 const showSchema = new mongoose.Schema(
   {
@@ -63,6 +64,15 @@ const showSchema = new mongoose.Schema(
     price: {
       type: Number,
       required: [true, 'A show must have a price!']
+    },
+    priceDiscount: {
+      type: Number,
+      validate: {
+        validator: function(val) {
+          return val < this.price;
+        },
+        message: 'A discount price ({VALUE}) must be below the regular price!'
+      }
     },
     ratingsAverage: {
       type: Number,
