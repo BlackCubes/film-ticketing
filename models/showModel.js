@@ -7,7 +7,12 @@ const showSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A show must have a title!'],
       unique: true,
-      trim: true
+      trim: true,
+      maxlength: [100, 'A show must have a title less than or equal to 100!'],
+      minlength: [
+        1,
+        'A show must have a title more than or equal to 1 character!'
+      ]
     },
     slug: String,
     originalReleaseDate: {
@@ -21,7 +26,26 @@ const showSchema = new mongoose.Schema(
     },
     mpaaRating: {
       type: String,
-      required: [true, 'A show must have a MPAA rating!']
+      required: [true, 'A show must have a MPAA rating!'],
+      enum: {
+        values: [
+          'G',
+          'PG',
+          'PG-13',
+          'R',
+          'NC-17',
+          'NR',
+          'Unrated',
+          'TV-Y',
+          'TV-Y7',
+          'TV-G',
+          'TV-PG',
+          'TV-14',
+          'TV-MA'
+        ],
+        message:
+          'Give the correct MPAA Rating! Acceptable: G, PG, PG-13, R, NC-17, NR, Unrated, TV-Y, TV-Y7, TV-G, TV-PG, TV-14, TV-MA.'
+      }
     },
     overview: {
       type: String,
@@ -42,7 +66,9 @@ const showSchema = new mongoose.Schema(
     },
     ratingsAverage: {
       type: Number,
-      default: 4.5
+      default: 4.5,
+      min: [1, 'A rating must be above 1.0!'],
+      max: [5, 'A rating must be below 5.0!']
     },
     ratingsQuantity: {
       type: Number,
