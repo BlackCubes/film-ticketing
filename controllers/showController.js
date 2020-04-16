@@ -14,48 +14,34 @@ exports.aliasTopShows = (req, res, next) => {
   next();
 };
 
-exports.getAllShows = async (req, res) => {
-  try {
-    // EXECUTE QUERY
-    const features = new APIFeatures(Show.find(), req.query)
-      .filter()
-      .sort()
-      .limitFields()
-      .paginate();
-    const shows = await features.query;
+exports.getAllShows = catchAsync(async (req, res, next) => {
+  // EXECUTE QUERY
+  const features = new APIFeatures(Show.find(), req.query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+  const shows = await features.query;
 
-    // SEND RESPONSE
-    res.status(200).json({
-      status: 'success',
-      results: shows.length,
-      data: {
-        shows
-      }
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: `Could not get all the shows! ${err}`
-    });
-  }
-};
+  // SEND RESPONSE
+  res.status(200).json({
+    status: 'success',
+    results: shows.length,
+    data: {
+      shows
+    }
+  });
+});
 
-exports.getShow = async (req, res) => {
-  try {
-    const show = await Show.findById(req.params.id);
+exports.getShow = catchAsync(async (req, res) => {
+  const show = await Show.findById(req.params.id);
 
-    res.status(200).json({
-      status: 'success',
-      data: {
-        show
-      }
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: `Could not get the show! ${err}`
-    });
-  }
+  res.status(200).json({
+    status: 'success',
+    data: {
+      show
+    }
+  });
 
   // const id = req.params.id * 1;
   // const show = shows.find(el => el.id === id);
@@ -66,7 +52,7 @@ exports.getShow = async (req, res) => {
   //     show
   //   }
   // });
-};
+});
 
 exports.createShow = catchAsync(async (req, res, next) => {
   const newShow = await Show.create(req.body);
@@ -97,174 +83,139 @@ exports.createShow = catchAsync(async (req, res, next) => {
   // );
 });
 
-exports.updateShow = async (req, res) => {
-  try {
-    const show = await Show.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true
-    });
+exports.updateShow = catchAsync(async (req, res, next) => {
+  const show = await Show.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
 
-    res.status(200).json({
-      status: 'success',
-      data: {
-        show
+  res.status(200).json({
+    status: 'success',
+    data: {
+      show
+    }
+  });
+});
+
+exports.deleteShow = catchAsync(async (req, res, next) => {
+  await Show.findByIdAndDelete(req.params.id);
+
+  res.status(204).json({
+    status: 'success',
+    data: null
+  });
+});
+
+exports.getShowStats = catchAsync(async (req, res, next) => {
+  const stats = await Show.aggregate([
+    {
+      $match: { ratingsAverage: { $gte: 4.5 } }
+    },
+    {
+      $group: {
+        _id: { $toUpper: '$mpaaRating' },
+        numShows: { $sum: 1 },
+        numRating: { $sum: '$ratingsQuantity' },
+        avgRating: { $avg: '$ratingsAverage' },
+        avgPrice: { $avg: '$price' },
+        minPrice: { $min: '$price' },
+        maxPrice: { $max: '$price' }
       }
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: `Could not update the show! ${err}`
-    });
-  }
-};
+    },
+    {
+      $sort: { avgPrice: 1 }
+    }
+  ]);
 
-exports.deleteShow = async (req, res) => {
-  try {
-    await Show.findByIdAndDelete(req.params.id);
+  res.status(200).json({
+    status: 'success',
+    data: {
+      stats
+    }
+  });
+});
 
-    res.status(204).json({
-      status: 'success',
-      data: null
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: `Could not delete show! ${err}`
-    });
-  }
-};
+exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
+  const year = req.params.year * 1;
 
-exports.getShowStats = async (req, res) => {
-  try {
-    const stats = await Show.aggregate([
-      {
-        $match: { ratingsAverage: { $gte: 4.5 } }
-      },
-      {
-        $group: {
-          _id: { $toUpper: '$mpaaRating' },
-          numShows: { $sum: 1 },
-          numRating: { $sum: '$ratingsQuantity' },
-          avgRating: { $avg: '$ratingsAverage' },
-          avgPrice: { $avg: '$price' },
-          minPrice: { $min: '$price' },
-          maxPrice: { $max: '$price' }
+  const plan = await Show.aggregate([
+    {
+      $match: {
+        releaseDate: {
+          $gte: new Date(`${year}-01-01`),
+          $lte: new Date(`${year}-12-31`)
         }
-      },
-      {
-        $sort: { avgPrice: 1 }
       }
-    ]);
-
-    res.status(200).json({
-      status: 'success',
-      data: {
-        stats
+    },
+    {
+      $group: {
+        _id: { $month: '$releaseDate' },
+        numShowStarts: { $sum: 1 },
+        shows: { $push: '$title' }
       }
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: `Could not get the show statistics! ${err}`
-    });
-  }
-};
+    },
+    {
+      $addFields: { month: '$_id' }
+    },
+    {
+      $project: { _id: 0 }
+    },
+    {
+      $sort: { numShowStarts: -1 }
+    },
+    {
+      $limit: 12
+    }
+  ]);
 
-exports.getMonthlyPlan = async (req, res) => {
-  try {
-    const year = req.params.year * 1;
+  res.status(200).json({
+    status: 'success',
+    data: {
+      plan
+    }
+  });
+});
 
-    const plan = await Show.aggregate([
-      {
-        $match: {
-          releaseDate: {
-            $gte: new Date(`${year}-01-01`),
-            $lte: new Date(`${year}-12-31`)
-          }
+exports.getOriginalRelease = catchAsync(async (req, res, next) => {
+  const year = req.params.year * 1;
+
+  const original = await Show.aggregate([
+    {
+      $unwind: '$originalReleaseDate'
+    },
+    {
+      $match: {
+        originalReleaseDate: {
+          $gte: new Date(`${year}`),
+          $lte: new Date(`${year + 10}`)
         }
-      },
-      {
-        $group: {
-          _id: { $month: '$releaseDate' },
-          numShowStarts: { $sum: 1 },
-          shows: { $push: '$title' }
-        }
-      },
-      {
-        $addFields: { month: '$_id' }
-      },
-      {
-        $project: { _id: 0 }
-      },
-      {
-        $sort: { numShowStarts: -1 }
-      },
-      {
-        $limit: 12
       }
-    ]);
-
-    res.status(200).json({
-      status: 'success',
-      data: {
-        plan
+    },
+    {
+      $group: {
+        _id: { $year: '$originalReleaseDate' },
+        numShowsBegan: { $sum: 1 },
+        shows: { $push: '$title' }
       }
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: `Could not get the monthly plan! ${err}`
-    });
-  }
-};
+    },
+    {
+      $addFields: { year: '$_id' }
+    },
+    {
+      $project: { _id: 0 }
+    },
+    {
+      $sort: { year: 1 }
+    }
+  ]);
 
-exports.getOriginalRelease = async (req, res) => {
-  try {
-    const year = req.params.year * 1;
-
-    const original = await Show.aggregate([
-      {
-        $unwind: '$originalReleaseDate'
-      },
-      {
-        $match: {
-          originalReleaseDate: {
-            $gte: new Date(`${year}`),
-            $lte: new Date(`${year + 10}`)
-          }
-        }
-      },
-      {
-        $group: {
-          _id: { $year: '$originalReleaseDate' },
-          numShowsBegan: { $sum: 1 },
-          shows: { $push: '$title' }
-        }
-      },
-      {
-        $addFields: { year: '$_id' }
-      },
-      {
-        $project: { _id: 0 }
-      },
-      {
-        $sort: { year: 1 }
-      }
-    ]);
-
-    res.status(200).json({
-      status: 'success',
-      data: {
-        original
-      }
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: `Could not get the original release! ${err}`
-    });
-  }
-};
+  res.status(200).json({
+    status: 'success',
+    data: {
+      original
+    }
+  });
+});
 
 // FOR WITHOUT MONGO:
 // exports.checkID = (req, res, next, val) => {
