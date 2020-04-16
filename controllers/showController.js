@@ -68,22 +68,21 @@ exports.getShow = async (req, res) => {
   // });
 };
 
-exports.createShow = async (req, res) => {
-  try {
-    const newShow = await Show.create(req.body);
+const catchAsync = fn => {
+  return (req, res, next) => {
+    fn(req, res, next).catch(next);
+  };
+};
 
-    res.status(201).json({
-      status: 'success',
-      data: {
-        show: newShow
-      }
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: `Could not create a new show! ${err}`
-    });
-  }
+exports.createShow = catchAsync(async (req, res, next) => {
+  const newShow = await Show.create(req.body);
+
+  res.status(201).json({
+    status: 'success',
+    data: {
+      show: newShow
+    }
+  });
 
   // const newId = shows[shows.length - 1].id + 1;
   // const newShow = Object.assign({ id: newId }, req.body);
@@ -102,7 +101,7 @@ exports.createShow = async (req, res) => {
   //     });
   //   }
   // );
-};
+});
 
 exports.updateShow = async (req, res) => {
   try {
