@@ -1,6 +1,6 @@
-// const fs = require('fs');
 const Show = require('./../models/showModel');
 const APIFeatures = require('./../utils/apiFeatures');
+const catchAsync = require('./../utils/catchAsync');
 
 // const shows = JSON.parse(
 //   fs.readFileSync(`${__dirname}/../dev-data/data/shows-simple.json`)
@@ -66,12 +66,6 @@ exports.getShow = async (req, res) => {
   //     show
   //   }
   // });
-};
-
-const catchAsync = fn => {
-  return (req, res, next) => {
-    fn(req, res, next).catch(next);
-  };
 };
 
 exports.createShow = catchAsync(async (req, res, next) => {
