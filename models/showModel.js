@@ -27,7 +27,7 @@ const showSchema = new mongoose.Schema(
     },
     mpaaRating: {
       type: String,
-      required: [true, 'A show must have a MPAA rating!'],
+      required: [true, 'A show must have an MPAA rating!'],
       enum: {
         values: [
           'G',
