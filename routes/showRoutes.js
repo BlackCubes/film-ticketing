@@ -23,6 +23,10 @@ router
   .route('/:id')
   .get(showController.getShow)
   .patch(showController.updateShow)
-  .delete(showController.deleteShow);
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin', 'event-owner'),
+    showController.deleteShow
+  );
 
 module.exports = router;
