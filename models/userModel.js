@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcryptjs');
+const catchAsync = require('./../controllers/authController');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -50,6 +52,16 @@ const userSchema = new mongoose.Schema({
         'Give the correct values for gender! Acceptable are: Female, Male, or Prefer not to say.'
     }
   }
+});
+
+// DOCUMENT MIDDLEWARE TO SALT PASSWORD
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) return next();
+
+  this.password = await bcrypt.hash(this.password, 12);
+
+  this.passwordConfirm = undefined;
+  next();
 });
 
 const User = mongoose.model('User', userSchema);
