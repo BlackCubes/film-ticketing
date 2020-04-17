@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
     enum: {
       values: ['Female', 'Male', 'Prefer not to say'],
       message:
-        "Give the correct values for gender! Acceptable are 'Female', 'Male', or 'Prefer not to say'."
+        'Give the correct values for gender! Acceptable are: Female, Male, or Prefer not to say.'
     }
   }
 });
