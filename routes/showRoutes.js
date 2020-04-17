@@ -1,5 +1,6 @@
 const express = require('express');
 const showController = require('./../controllers/showController');
+const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
@@ -15,7 +16,7 @@ router.route('/original-release/:year').get(showController.getOriginalRelease);
 
 router
   .route('/')
-  .get(showController.getAllShows)
+  .get(authController.protect, showController.getAllShows)
   .post(showController.createShow);
 
 router
