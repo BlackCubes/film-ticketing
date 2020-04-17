@@ -38,6 +38,7 @@ const userSchema = new mongoose.Schema({
       message: 'The passwords are not the same!'
     }
   },
+  passwordChangedAt: Date,
   birthdate: {
     type: Date,
     required: [true, 'Please provide your birthdate!']
@@ -70,6 +71,20 @@ userSchema.methods.correctPassword = async function(
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
+};
+
+// INSTANCE METHOD TO CHECK FOR CHANGED PASSWORD AFTER TOKEN ISSUED
+userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
+  if (this.passwordChangedAt) {
+    const changedTimestamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+
+    return JWTTimestamp < changedTimestamp;
+  }
+
+  return false;
 };
 
 const User = mongoose.model('User', userSchema);
