@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
   birthdate: {
     type: Date,
     required: [true, 'Please provide your birthdate!'],
-    validate: [validator.isDate, 'Please provide a valid birthdat!']
+    validate: [validator.isDate, 'Please provide a valid birthday!']
   },
   gender: {
     type: String,
