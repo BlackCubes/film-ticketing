@@ -63,7 +63,8 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-// DOCUMENT MIDDLEWARE TO SALT PASSWORD
+// DOCUMENT MIDDLEWARES
+// SALT PASSWORD
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
 
@@ -73,7 +74,16 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
-// INSTANCE METHOD TO CHECK FOR CORRECT PASSWORD
+// UPDATE THE DATE IF PASSWORD IS CHANGED
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password') || this.isNew) return next();
+
+  this.passwordChangedAt = Date.now() - 1000;
+  next();
+});
+
+// INSTANCE METHODS
+// CHECK FOR CORRECT PASSWORD
 userSchema.methods.correctPassword = async function(
   candidatePassword,
   userPassword
@@ -81,7 +91,7 @@ userSchema.methods.correctPassword = async function(
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
-// INSTANCE METHOD TO CHECK FOR CHANGED PASSWORD AFTER TOKEN ISSUED
+// CHECK FOR CHANGED PASSWORD AFTER TOKEN ISSUED
 userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
   if (this.passwordChangedAt) {
     const changedTimestamp = parseInt(
@@ -95,7 +105,7 @@ userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
   return false;
 };
 
-// INSTANCE METHOD TO CREATE USER PASSWORD RESET
+// CREATE USER PASSWORD RESET
 userSchema.methods.createPasswordResetToken = function() {
   const resetToken = crypto.randomBytes(32).toString('hex');
 
