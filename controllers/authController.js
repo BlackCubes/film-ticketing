@@ -12,7 +12,7 @@ const signToken = id => {
   });
 };
 
-const createSendToken = (user, statusCode, res) {
+const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
 
   res.status(statusCode).json({
@@ -21,8 +21,8 @@ const createSendToken = (user, statusCode, res) {
     data: {
       user
     }
-  })
-}
+  });
+};
 
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
