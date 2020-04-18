@@ -79,6 +79,13 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
+// QUERY MIDDLEWARES
+// SHOW USER(S) THAT ARE ACTIVE
+userSchema.pre(/^find/, function(next) {
+  this.find({ active: true });
+  next();
+});
+
 // UPDATE THE DATE IF PASSWORD IS CHANGED
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password') || this.isNew) return next();
