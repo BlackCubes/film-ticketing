@@ -60,6 +60,11 @@ const userSchema = new mongoose.Schema({
       message:
         'Give the correct values for gender! Acceptable are: Female, Male, or Prefer not to say.'
     }
+  },
+  active: {
+    type: Boolean,
+    default: true,
+    select: false
   }
 });
 
