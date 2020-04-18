@@ -82,7 +82,7 @@ userSchema.pre('save', async function(next) {
 // QUERY MIDDLEWARES
 // SHOW USER(S) THAT ARE ACTIVE
 userSchema.pre(/^find/, function(next) {
-  this.find({ active: true });
+  this.find({ active: { $ne: false } });
   next();
 });
 
