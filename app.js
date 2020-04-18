@@ -4,6 +4,7 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
+const hpp = require('hpp');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -13,15 +14,15 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 // GLOBAL MIDDLEWARES
-// Helmet -- Set security HTTP headers
+// Helmet -- set security HTTP headers
 app.use(helmet());
 
-// Morgan -- Development logging
+// Morgan -- Ddvelopment logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Express-Rate-Limit -- Limit requests from same API
+// Express-Rate-Limit -- limit requests from same API
 const limiter = rateLimit({
   // Based on the type of app you have
   max: 100,
@@ -30,7 +31,7 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
-// Body Parser -- Reading data from the body into req.body
+// Body Parser -- reading data from the body into req.body
 app.use(express.json({ limit: '10kb' }));
 
 // Data Sanitization
@@ -40,7 +41,21 @@ app.use(mongoSanitize());
 // -- against XSS
 app.use(xss());
 
-// Static -- Displaying static files
+// HPP -- prevent parameter pollution
+app.use(
+  hpp({
+    whitelist: [
+      'duration',
+      'ratingsQuantity',
+      'ratingsAverage',
+      'mpaaRating',
+      'genres',
+      'price'
+    ]
+  })
+);
+
+// Static -- displaying static files
 //app.use(express.static(`${__dirname}/public`));
 
 // app.use((req, res, next) => {
