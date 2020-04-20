@@ -16,5 +16,203 @@
     "chainLogo": "regency-theatres-logo.jpg",
     "linkUrl": "https://regencymovies.com/main.php?theaterId=27",
     "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Blvd Cinemas",
+    "address": "742 W. Lancaster Blvd.",
+    "city": "Lancaster",
+    "state": "CA",
+    "zipCode": "93534",
+    "phone": "(661) 726-1537",
+    "description": "Movie Theater with Luxury seating with Food, Beer and wine.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.143382, 34.6974576]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=43",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Granada Hills 9",
+    "address": "16830 Devonshire St.",
+    "city": "Granada Hills",
+    "state": "CA",
+    "zipCode": "91344",
+    "phone": "(818) 363-3679",
+    "description": "",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.4989961, 34.2565431]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=26",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Westlake Village Twin",
+    "address": "4711 Lakeview Canyon Road",
+    "city": "Westlake Village",
+    "state": "CA",
+    "zipCode": "91361",
+    "phone": "(818) 889-0689",
+    "description": "Ventura County's Premiere Art Cinemas offers all Dolby Digital sound, free parking and accept Visa, Discover and Mastercard! We offer online-advance ticket purchasing. There is a $1 transaction fee per ticket and there are no refunds on tickets purchased online. To buy tickets just go to the movie page and click your showtime! --It's that simple!",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.8192119, 34.1493008]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=1",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Van Nuys Plant 16",
+    "address": "7876 Van Nuys Blvd",
+    "city": "Van Nuys",
+    "state": "CA",
+    "zipCode": "91402",
+    "phone": "(818) 779-0619",
+    "description": "",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.4453683, 34.2159188]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=32",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Agoura Hills Stadium 8",
+    "address": "29045 Agoura Hills Road",
+    "city": "Agoura Hills",
+    "state": "CA",
+    "zipCode": "91301",
+    "phone": "(818) 707-9966",
+    "description": "",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.7573674, 34.1441501]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=22",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Valley Plaza 6",
+    "address": "6355 Bellingham Ave.",
+    "city": "North Hollywood",
+    "state": "CA",
+    "zipCode": "91606",
+    "phone": "(818) 760-8444",
+    "description": "",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.3991241, 34.1860847]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=30",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Bruin Theater",
+    "address": "948 Broxton Ave.",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90024",
+    "phone": "(310) 208-6293",
+    "description": "Opened in 1936 with 670 seats this elegant theater is often seen in the backdrop of movie premieres taking place across the street at the Village Theater. Its wrap-around marquee can be seen from all four streets which intersect at the theater.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.446843, 34.0627632]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=28",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Academy 6 Theater",
+    "address": "1003 E. Colorado Blvd.",
+    "city": "Pasadena",
+    "state": "CA",
+    "zipCode": "91106",
+    "phone": "(626) 229-9400",
+    "description": "This was the FOX Colorado Theatre in 1939 designed by L.A. Smith, we know it today as the Academy Cinemas.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.1296764, 34.1461172]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=8",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Foothill Center 10",
+    "address": "854 E. Alosta",
+    "city": "Azusa",
+    "state": "CA",
+    "zipCode": "91702",
+    "phone": "(626) 334-6007",
+    "description": "10-screen theater offering recent releases along with a variety of concessions & plenty of parking.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-117.8922701, 34.127797]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=6",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Commerce 14",
+    "address": "950 Goodrich Blvd.",
+    "city": "City Of Commerce",
+    "state": "CA",
+    "zipCode": "90022",
+    "phone": "(323) 726-6965",
+    "description": "",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.1537692, 34.0183787]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=31",
+    "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "Regency Norwalk 8",
+    "address": "13917 Pioneer Blvd.",
+    "city": "Norwalk",
+    "state": "CA",
+    "zipCode": "90650",
+    "phone": "(562) 929-0535",
+    "description": "Comfy theater featuring a variety of movies, plus a neon-lit lobby with a circular concession stand.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.084371, 33.9051011]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=36",
+    "photo": "regency-theatres-logo.jpg"
   }
 ]
