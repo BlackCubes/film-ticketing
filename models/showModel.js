@@ -110,7 +110,10 @@ const showSchema = new mongoose.Schema(
       default: 0
     },
     genres: [String],
-    images: [String],
+    imgpromo: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'ImgPromo'
+    },
     createdAt: {
       type: Date,
       default: Date.now(),
