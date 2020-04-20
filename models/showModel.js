@@ -106,8 +106,17 @@ const showSchema = new mongoose.Schema(
   }
 );
 
+// VIRTUAL
+// -- convert mintues to hours
 showSchema.virtual('durationHours').get(function() {
   return this.duration / 60;
+});
+
+// -- populate reviews
+showSchema.virtual('reviews', {
+  ref: 'Review',
+  foreignField: 'show',
+  localField: '_id'
 });
 
 // DOCUMENT MIDDLEWARE
