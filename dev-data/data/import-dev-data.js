@@ -2,6 +2,7 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Show = require('./../../models/showModel');
+const Theater = require('./../../models/theaterModel');
 
 dotenv.config({ path: './config.env' });
 
@@ -18,13 +19,17 @@ mongoose
   })
   .then(() => console.log('DB connection to import data successful!'));
 
-// READ JSON FILE
+// READ JSON FILES
 const shows = JSON.parse(
   fs.readFileSync(`${__dirname}/shows-simple.json`, 'utf-8')
 );
 
+const theaters = JSON.parse(
+  fs.readFileSync(`${__dirname}/theaters.json`, 'utf-8')
+);
+
 // IMPORT DATA INTO DB
-const importData = async () => {
+const importDataShow = async () => {
   try {
     await Show.create(shows);
     console.log('Data successfully imported!');
@@ -35,7 +40,7 @@ const importData = async () => {
 };
 
 // DELETE ALL DATA FROM COLLECTION
-const deleteData = async () => {
+const deleteDataShow = async () => {
   try {
     await Show.deleteMany();
     console.log('Data successfully deleted!');
@@ -46,7 +51,7 @@ const deleteData = async () => {
 };
 
 if (process.argv[2] === '--import') {
-  importData();
+  if (process.argv[3] === 'show') importDataShow();
 } else if (process.argv[2] === '--delete') {
-  deleteData();
+  if (process.argv[3] === 'show') deleteDataShow();
 }
