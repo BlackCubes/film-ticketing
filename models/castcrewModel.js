@@ -19,10 +19,12 @@ const castcrewSchema = new mongoose.Schema(
       required: [true, 'A cast/crew must have a role!']
     },
     photo: String,
-    imgpromo: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'ImgPromo'
-    }
+    imgpromo: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'ImgPromo'
+      }
+    ]
   },
   {
     toJSON: { virtuals: true },
