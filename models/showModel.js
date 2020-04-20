@@ -61,6 +61,31 @@ const showSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A show must have a poster!']
     },
+    director: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'CastCrew',
+      required: [true, 'A show must have director(s)!']
+    },
+    actor: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'CastCrew',
+      required: [true, 'A show must have actor(s)!']
+    },
+    writer: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'CastCrew',
+      required: [true, 'A show must have writer(s)!']
+    },
+    producer: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'CastCrew',
+      required: [true, 'A show must have producer(s)!']
+    },
+    cinematographer: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'CastCrew',
+      required: [true, 'A show must have cinematographer(s)!']
+    },
     price: {
       type: Number,
       required: [true, 'A show must have a price!']
