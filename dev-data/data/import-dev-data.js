@@ -32,9 +32,19 @@ const theaters = JSON.parse(
 const importDataShow = async () => {
   try {
     await Show.create(shows);
-    console.log('Data successfully imported!');
+    console.log('Show data successfully imported!');
   } catch (err) {
-    console.log('Could not import data into DB!', err);
+    console.log('Could not import show data into DB!', err);
+  }
+  process.exit();
+};
+
+const importDataTheater = async () => {
+  try {
+    await Theater.create(theaters);
+    console.log('Theater data successfully imported!');
+  } catch (err) {
+    console.log('Could not import theater data into DB!', err);
   }
   process.exit();
 };
@@ -43,15 +53,27 @@ const importDataShow = async () => {
 const deleteDataShow = async () => {
   try {
     await Show.deleteMany();
-    console.log('Data successfully deleted!');
+    console.log('Show data successfully deleted!');
   } catch (err) {
-    console.log('Could not delete the data from collection!', err);
+    console.log('Could not delete the show data from collection!', err);
+  }
+  process.exit();
+};
+
+const deleteDataTheater = async () => {
+  try {
+    await Theater.deleteMany();
+    console.log('Theater data successfully deleted!');
+  } catch (err) {
+    console.log('Could not delete the theater data from collection!', err);
   }
   process.exit();
 };
 
 if (process.argv[2] === '--import') {
   if (process.argv[3] === 'show') importDataShow();
+  if (process.argv[3] === 'theater') importDataTheater();
 } else if (process.argv[2] === '--delete') {
   if (process.argv[3] === 'show') deleteDataShow();
+  if (process.argv[3] === 'theater') deleteDataTheater();
 }
