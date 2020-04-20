@@ -37,7 +37,7 @@ const reviewSchema = new mongoose.Schema(
 // DOCUMENT MIDDLEWARE
 // -- populate the review
 reviewSchema.pre(/^find/, function(next) {
-  // If want to populate both reviews and users
+  // If want to populate both show and users
   // this.populate({
   //   path: 'show',
   //   select: 'title'
