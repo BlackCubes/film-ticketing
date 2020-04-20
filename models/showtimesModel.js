@@ -10,16 +10,20 @@ const showtimesSchema = new mongoose.Schema(
       type: Date,
       required: [true, 'A show must have an end datetime!']
     },
-    shows: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'Shows',
-      required: [true, 'A showtime must belong to a show!']
-    },
-    theaters: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'Theaters',
-      required: [true, 'A showtime must belong to a theater!']
-    },
+    shows: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Shows',
+        required: [true, 'A showtime must belong to a show!']
+      }
+    ],
+    theaters: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Theaters',
+        required: [true, 'A showtime must belong to a theater!']
+      }
+    ],
     createdAt: {
       type: Date,
       default: Date.now()
