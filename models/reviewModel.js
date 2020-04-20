@@ -34,6 +34,8 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
+// DOCUMENT MIDDLEWARE
+// -- populate the review
 reviewSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'show',
