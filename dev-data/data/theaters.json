@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Regency Village Theater",
+    "address": "961 Broxton Ave.",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90024",
+    "phone": "(310) 208-0018",
+    "description": "Built in 1930, and opened in 1931, Regency's Village Theatre has been a popular location to see movies for several generations of moviegoers. Across the street from the Bruin Theatre, the Village was a part of the old Fox Theatres circuit and played the best of the Fox Studio's films. The Fox name still lights up the top of the theatre today. The most striking feature of the Fox Theater is the iconic 170-foot white Spanish Revival/Modern tower which looms over the Broxton and Weyburn Avenues intersection. Atop the tower is a blue and white metal Art Deco “Fox” sign, which was renovated in the late 1980s. Halfway up the tower there are carved winged lions which sit at the base of projecting columns. At the bottom of the tower just above the entrance is a blue and white sign with the legend \"Fox Westwood Village\". By night the elegant white tower literally becomes a beacon with its signs and the shaft of the tower illuminated. The rectangular cinema building immediately behind the tower features long rows of Churrigueresque stucco decorations. Perched atop the corners of the building stand carved griffins.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.449444, 34.062678]
+    },
+    "chainName": "Regency Theatres",
+    "chainCode": "",
+    "chainLogo": "regency-theatres-logo.jpg",
+    "linkUrl": "https://regencymovies.com/main.php?theaterId=27",
+    "photo": "regency-theatres-logo.jpg"
+  }
+]
