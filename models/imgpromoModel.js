@@ -22,6 +22,10 @@ const imgpromoSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    eventOrganizer: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Users'
+    },
     createdAt: {
       type: Date,
       default: Date.now()
