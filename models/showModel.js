@@ -61,6 +61,15 @@ const showSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A show must have a poster!']
     },
+    language: String,
+    subtitles: String,
+    contentType: {
+      type: String,
+      enum: {
+        values: ['Film', 'TV'],
+        message: 'Give the correct content! Acceptable: Film or TV.'
+      }
+    },
     director: [
       {
         type: mongoose.Schema.ObjectId,
