@@ -6,7 +6,7 @@ const theaterSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A theater must have a name']
     },
-    addess: {
+    address: {
       type: String,
       required: [true, 'A theater must have an address!']
     },
