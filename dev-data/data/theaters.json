@@ -466,5 +466,95 @@
     "chainLogo": "vintage-cinemas-logo.jpg",
     "linkUrl": "http://www.vintagecinemas.com/losfeliz/",
     "photo": "vintage-cinemas-logo.jpg"
+  },
+  {
+    "name": "Lumiere Cinema",
+    "address": "9036 Wilshire Blvd.",
+    "city": "Beverly Hills",
+    "state": "CA",
+    "zipCode": "90211",
+    "phone": "(310) 478-3836",
+    "description": "We are very excited to announce that the Laemmle tradition will be kept alive at the Music Hall. We are three Laemmle Theatre employees (two former and one current) and we are opening a new company, Lumiere Cinema, at the Music Hall. It is our intention to honor the Laemmle family’s commitment of bringing the best of independent cinema to the big screen in Los Angeles. Each of us has worked at the Music Hall and we are proud to be able to grant it a new lease on life. We would like to thank Greg Laemmle and the entire Laemmle team for enabling us to make this dream a reality.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.3889884, 34.0667046]
+    },
+    "chainName": "Lumiere Cinema",
+    "chainCode": "",
+    "chainLogo": "lumiere-cinema-logo.png",
+    "linkUrl": "https://lumierecinemala.com/",
+    "photo": "lumiere-cinema-logo.png"
+  },
+  {
+    "name": "El Capitan Theatre",
+    "address": "6838 Hollywood Blvd.",
+    "city": "Hollywood",
+    "state": "CA",
+    "zipCode": "90028",
+    "phone": "1-800-DISNEY6",
+    "description": "As an exclusive first run theatre for Walt Disney Pictures, The El Capitan Theatre hosts live stage shows, world premieres, and other special events that have helped restore showmanship to Hollywood Boulevard. Partial parking validation available for the Hollywood & Highland Parking Structure.\nDebuted May 3, 1926 as Hollywood's First Home of Spoken Drama. The El Capitan has been restored to its original elegance of Spanish Colonial exterior & boasts a colorful & lavish East Indian interior designed by renowned San Francisco architect G Albert Lansburgh. Between 1926 & 1936, more than 120 live plays were produced here, with such famed stars as Will Rogers, Clark Gable, & Joan Fontaine. In 1941, Orson Welles' Academy Award winning \"Citizen Kane\" made its world premiere. In 1989, The Walt Disney Company joined forces with Pacific Theatres to begin a 2-yr archeological dig, leading to a museum-quality restoration. Under the supervision of the National Park Service's Department of the Interior, & w/ guidance from conservator Martin Weil, architect Ed Fields, & renowned theatre designer Joseph J. Musil, the certified national historic site was restored to its former grandeur & reopened to the public in June, 1991, w/ the world premiere of Walt Disney Pictures' \"The Rocketeer.\"",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.3399396, 34.101382]
+    },
+    "chainName": "The Walt Disney Company",
+    "chainCode": "",
+    "chainLogo": "walt-disney-company-logo.png",
+    "linkUrl": "https://elcapitantheatre.com/",
+    "photo": "el-capitan-theatre-logo.png"
+  },
+  {
+    "name": "New Beverly Cinema",
+    "address": "7165 Beverly Blvd.",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90036",
+    "phone": "(323) 938-4038",
+    "description": "A vaudeville house, candy factory & beer parlor, Jewish Community Center and celebrity nightclub, a lot of magic happened at 7165 Beverly Blvd before the first film projectors rolled in. But everything would change in 1978 when Sherman Torgan turned a shuttered adult theater into the repertory movie haven we know today as the New Beverly Cinema.\nFor nearly 30 years Sherman Torgan dedicated his life to sharing his love of motion pictures, turning a simple venue into a de facto film school and beloved cultural hub through nightly themed double feature pairings of classic, foreign, independent and arthouse cinema. Seeing Sherman in the box office was always a welcome sight for the city's cinephiles. Upon his untimely death in 2007, his son Michael assumed day-to-day operations, helping usher in a new era for the theater. Michael continues to use his deep knowledge and passion to help manage the theater to this day.\nAfter 10 years of being a benefactor of the theater, Oscar-winning filmmaker Quentin Tarantino became owner and head programmer. Committed to celluloid, Quentin made the unique decision to have the New Beverly solely project film prints. \"I want the New Beverly to be a bastion for 35mm films. I want it to stand for something. When you see a film on the New Beverly calendar, you don't have to ask whether it's going to be shown in DCP or in 35mm. You know it's playing in 35 because it's the New Beverly.\"\nWhile ticket and concession prices have not changed in the two years since Quentin came on board, there have been a few changes. A small partition wall in the lobby was removed and we're now able to display large format posters, mostly from France and Italy. The periscope projection system was eliminated, resulting in a crisper and brighter image. 4 Track mag heads and a 16mm projector were installed, giving us the ability to show more film formats. Plus, the concession stand has been expanded, carpet replaced, seats re-upholstered and cupholders added.\nQuentin does the vast majority of the monthly programming at the New Beverly, having launched with an October 2014 double feature tribute to Paul Mazursky featuring BOB & CAROL & TED & ALICE and BLUME IN LOVE. He also started an ongoing weekend kiddee matinee series and added Friday midnight shows of his own work, promising \"if you want to see one of my movies in 35mm, any week of the year, there is one place you can go to.\"\nOther popular programming series that Quentin has scheduled include two blockbuster months in tribute to 90's cinema, Shawtember (an action-packed Shaw Bros. retrospective), Ozploitation (Australian exploitation), Meeker Mania (an extended Ralph Meeker celebration) and salutes to Richard Fleischer, Glenn Ford, John Cassavettes (as actor) and more. Quentin has also continued and expanded the wildly popular Grindhouse Tuesdays, run for over a decade by our beloved friend and Hollywood Book and Poster Co. founder Eric Caidin with current New Bev manager Brian Quinn. Tuesdays remain one of our most popular nights with a tremendously loyal following.\nMany of the 35mm and 16mm prints shown are from Quentin's private collection. One of the prime reasons he wanted to run the New Beverly was to share his collection with an audience. Said Quentin of his prints, \"I have a really, really huge film-print collection that I've been curating for almost 20 years now. And I want to show my prints! We'll still be borrowing prints from the studios and other collectors, but I like the idea that the base of what we're doing will be my print collection. Some of them are absolutely amazing, and I want people to see them, to enjoy them.\"\nWe look forward to continuing to keep light on the screen in the house that Sherman built, to facilitate Quentin's dreams and to keep building the New Beverly family with you all.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.3457564, 34.0764408]
+    },
+    "chainName": "New Beverly Cinema",
+    "chainCode": "",
+    "chainLogo": "new-beverly-cinema-logo.png",
+    "linkUrl": "https://thenewbev.com/",
+    "photo": "new-beverly-cinema-logo.png"
+  },
+  {
+    "name": "Downtown Independent",
+    "address": "251 South Main Street",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90012",
+    "phone": "(213) 617-1033",
+    "description": "The movie theater that sits at 251 S. Main Street is one of Los Angeles’ greatest treasures. Housing film festivals, non-profit events and performance artists alike, the Downtown Independent has a long history as a community cinema. We are proud to continue this long-held tradition, prioritizing the concepts of a strong cinema community and film fun.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.2455046, 34.0501638]
+    },
+    "chainName": "Downtown Independent",
+    "chainCode": "",
+    "chainLogo": "downtown-independent-logo.png",
+    "linkUrl": "https://downtownindependent.com/",
+    "photo": "downtown-independent-logo.png"
+  },
+  {
+    "name": "Alamo Drafthouse Downtown LA",
+    "address": "750 West 7th St.",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90017",
+    "phone": "(213) 217-9027",
+    "description": "\"The Alamo Drafthouse Theater is good food, good beer and good film, all at the same place!\" That's how we described ourselves in 1997, and that mission hasn't changed and will never, ever change. For over two decades we've worked to make the Alamo Drafthouse experience the best cinematic experience in the world. Whether it's an interactive Movie Party presentation of a timeless classic, a chef-inspired feast with a menu paired to a film, or a re-evaluation of a lost gem, we love sharing the movies we love with Alamo Drafthouse audiences of all ages. When you see a movie at Alamo Drafthouse, you get cold drinks, delicious meals and tasty local beers, brought to your seat by a server. Beer is our middle name at Alamo Drafthouse, so we make certain that every Alamo Drafthouse location highlights and promotes the best local craft breweries. Our bar staff also loves to innovate, and are constantly mixing up new cocktail creations that'll elevate the cinematic experience. Presentation standards are one of the most important and yet most frequently overlooked aspect of the theater-going experience. At Alamo Drafthouse we're obsessed with making sure that each film looks and sounds the best it possibly can, and that means investing in new technology, constant maintenance to make sure our equipment meets our standards, and developing and training the next generation of projectionists.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.2608554, 34.0477529]
+    },
+    "chainName": "Alamo Drafthouse Cinema",
+    "chainCode": "alamo-drafthouse-logo.png",
+    "chainLogo": "",
+    "linkUrl": "https://drafthouse.com/",
+    "photo": "alamo-drafthouse-logo.png"
   }
 ]
