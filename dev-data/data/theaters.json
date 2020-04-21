@@ -322,5 +322,59 @@
     "chainLogo": "arclight-cinemas-logo.png",
     "linkUrl": "https://www.arclightcinemas.com/locations/los-angeles/beach-cities/showtimes",
     "photo": "arclight-cinemas-logo.png"
+  },
+  {
+    "name": "The Landmark Westwood",
+    "address": "1045 Broxton Ave",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90024",
+    "phone": "(310) 208-3250",
+    "description": "Built in 1946 and operated by Landmark since 2002, this newly revitalized single-screen theatre now features state-of-the art digital projection and sound, with audio powered by the dazzling Dolby ATMOS Sound System. Curated design enhancements include platformed, luxury leather seating imported from Spain and newly installed hardwood floors and wall coverings. The remodeled, modern restrooms now feature ADA-compliant facilities on the ground floor and a vanity area in the women’s room.\nAdditional enhancements include a newly equipped and attractively appointed bar as part of the food and beverage area which will be serving a variety of craft beers and wines and featuring traditional cinema favorites like popcorn, available with real butter, an expanded menu of pub fare, and Landmark favorites like vegan cookies and wasabi peas.\nThe theatre additionally boasts a new Concierge desk, designed to make it easy for guests to pick up their pre-purchased tickets and to obtain speedy assistance.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.4465659, 34.0615941]
+    },
+    "chainName": "Landmark Theatres",
+    "chainCode": "",
+    "chainLogo": "landmark-theatres-logo.png",
+    "linkUrl": "https://www.landmarktheatres.com/los-angeles/the-landmark-westwood",
+    "photo": "landmark-theatres-logo.png"
+  },
+  {
+    "name": "Nuart Theatre",
+    "address": "11272 Santa Monica Blvd.",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90025",
+    "phone": "(310) 473-8530",
+    "description": "1 Screen 4K DLP Digital Projection and 35mm Projection with 5.1 Dolby Surround Sound. Operated by Landmark since 1974. Extensively renovated in 2006. Located in the heart of L.A.'s Westside on Santa Monica Boulevard just west of the 405 Freeway, the Nuart Theatre features an eclectic mix of programming, as detailed in the bimonthly Nuart Film Calendar. It is one of the country's most renowned and prestigious epicenters for independent film, foreign language cinema, documentaries, animation festivals and restored classics. Having hosted many world premiere engagements as well as a number of highly anticipated film series over the past 30 years, the Nuart Theatre holds the distinction of being Landmark's first theatre acquisition.\nThe Nuart also features frequent in-person appearances and Q&A sessions from stars and filmmakers such as Lena Dunham, Werner Herzog, Harmony Korine, John Sayles, Todd Solondz, Harry Dean Stanton and Paul Williams. In addition to hosting unique movies every Friday night at midnight, the theatre is also L.A.'s home for The Rocky Horror Picture Show, which plays every Saturday at midnight.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.4478207, 34.0463125]
+    },
+    "chainName": "Landmark Theatres",
+    "chainCode": "",
+    "chainLogo": "landmark-theatres-logo.png",
+    "linkUrl": "https://www.landmarktheatres.com/los-angeles/nuart-theatre",
+    "photo": "landmark-theatres-logo.png"
+  },
+  {
+    "name": "The Landmark - West LA",
+    "address": "10850 West Pico Blvd.",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90064",
+    "phone": "(310) 470-0492",
+    "description": "Landmark Theatres’ flagship theatre in Los Angeles, The Landmark, offers 12 state-of-the-art auditoriums and an upscale lounge for the discerning movie-goer who is looking for a wide array of quality film choices in a sophisticated environment.\nLocated in the Westside Pavilion, The Landmark offers a number of food and beverage options before, during and after the film. The concession stand features gourmet, health conscious and specialty snacks, including freshly-popped popcorn with real butter and unique items like pizza made fresh on location, Hebrew National hot dogs and La Brea Bakery hot pretzels with gourmet mustards. The menu at The Landmark Lounge, situated on the main floor of the theatre, now features premium spirits, fine wine and craft beer, including many local offerings and film-themed cocktails, as well as light appetizers and entrees for a snack before or after a movie.\nThe Landmark’s auditoriums feature reserved stadium seating, extra leg room, leather-style seats and unobstructed sight lines. Several auditoriums at the theatre are “Screening Lounges,” offering an unparalleled movie-going experience for patrons who want to enjoy a film from the comfort of love seats. Additionally, all auditoriums are outfitted with state-of-the-art projection and sound equipment. Strategically located throughout the theatre, customers will find plasmas and LCD screens displaying custom designed content including show times and movie trailers as well as concession and retail items available for sale.\nThe Landmark also caters to special events by providing added technology features, such as a video simulcast system for broadcasting overflow screenings, presentations and Q&As, and WiFi connectivity.\nIn 2008, the critically-acclaimed Westside Tavern opened on the ground floor of the building. The upscale restaurant is a modern and lively gastropub known for its “rock-solid, high-end pub food” (Zagat), handcrafted cocktails, California micro brews and boutique wines. Chef Benjamin Cohn has been honored as one of the country’s top culinary talents in the inaugural edition of Best Chefs America.\nWith cutting edge technology, an adult-oriented atmosphere, upscale amenities and Landmark Theatres’ signature brand of customer service, The Landmark is a destination setting a new standard in entertainment.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.428945, 34.039635]
+    },
+    "chainName": "Landmark Theatres",
+    "chainCode": "",
+    "chainLogo": "landmark-theatres-logo.png",
+    "linkUrl": "https://www.landmarktheatres.com/los-angeles/the-landmark",
+    "photo": "landmark-theatres-logo.png"
   }
 ]
