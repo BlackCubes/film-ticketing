@@ -1,6 +1,7 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const CastCrew = require('./../../models/castcrewModel.js');
 const Show = require('./../../models/showModel');
 const Theater = require('./../../models/theaterModel');
 
@@ -20,6 +21,10 @@ mongoose
   .then(() => console.log('DB connection to import data successful!'));
 
 // READ JSON FILES
+const castcrews = JSON.parse(
+  fs.readFileSync(`${__dirname}/castcrew.json`, 'utf-8')
+);
+
 const shows = JSON.parse(
   fs.readFileSync(`${__dirname}/shows-simple.json`, 'utf-8')
 );
@@ -29,6 +34,16 @@ const theaters = JSON.parse(
 );
 
 // IMPORT DATA INTO DB
+const importDataCastCrew = async () => {
+  try {
+    await CastCrew.create(castcrews);
+    console.log('Castcrew data successfully imported!');
+  } catch (err) {
+    console.log('Could not import the castcrew data into DB!', err);
+  }
+  process.exit();
+};
+
 const importDataShow = async () => {
   try {
     await Show.create(shows);
@@ -50,6 +65,16 @@ const importDataTheater = async () => {
 };
 
 // DELETE ALL DATA FROM COLLECTION
+const deleteDataCastCrew = async () => {
+  try {
+    await CastCrew.deleteMany();
+    console.log('Castcrew data successfully deleted!');
+  } catch (err) {
+    console.log('Could not delete the castcrew data from collection!', err);
+  }
+  process.exit();
+};
+
 const deleteDataShow = async () => {
   try {
     await Show.deleteMany();
@@ -71,9 +96,11 @@ const deleteDataTheater = async () => {
 };
 
 if (process.argv[2] === '--import') {
+  if (process.argv[3] == 'castcrew') importDataCastCrew();
   if (process.argv[3] === 'show') importDataShow();
   if (process.argv[3] === 'theater') importDataTheater();
 } else if (process.argv[2] === '--delete') {
+  if (process.argv[3] === 'castcrew') deleteDataCastCrew();
   if (process.argv[3] === 'show') deleteDataShow();
   if (process.argv[3] === 'theater') deleteDataTheater();
 }
