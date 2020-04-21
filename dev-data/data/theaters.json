@@ -376,5 +376,59 @@
     "chainLogo": "landmark-theatres-logo.png",
     "linkUrl": "https://www.landmarktheatres.com/los-angeles/the-landmark",
     "photo": "landmark-theatres-logo.png"
+  },
+  {
+    "name": "TCL Chinese Theatres + IMAX",
+    "address": "6925 Hollywood Blvd",
+    "city": "Hollywood",
+    "state": "CA",
+    "zipCode": "90028",
+    "phone": "(323) 464-6266",
+    "description": "The TCL Chinese Theatre is the most iconic movie palace in the world. With over 50 events a year, including movie premieres, imprint ceremonies, and film festivals, the theatre continues to make Hollywood history every day.\nOn January 11, 2013, the world famous Chinese Theatre announced that they would be teaming up with one of China’s biggest electronics manufacturers, TCL, aka “The Creative Life,” in a 10-year naming rights partnership. This partnership has brought many exciting upgrades and preservation projects to the Chinese Theatre. For example, new sloped seating, new digital marquee, main lobby refurbishments and key technology upgrades for both the audio and visual presentation. Not only do these enhancements bring the cherished venue back to the glory days when showman-founder Sid Grauman first opened the theatre, but they will also give the storied movie palace a new lease on life and provide theatre-goers with a much improved, truly world-class movie experience.\nSince 1927, the TCL Chinese Theatre has been the home to the most prominent red carpet movie premieres and special events. It’s where Hollywood's biggest and brightest stars come to watch their movies! The theatre has the unique Forecourt of the Stars, which features cement hand and footprints of major movie stars from past to present. These aspects make our cinema palace the most famous movie theatre in the world.\nOur IMAX stands apart too. It’s the world’s largest IMAX auditorium, as well as the only movie palace in California with a state-of-the-art IMAX Laser projection experience. Watching a movie here is not just a night out, it’s a memorable event. The IMAX laser experience at the TCL Chinese Theatre represents a quantum leap forward in cinema technology - providing audiences with the sharpest, brightest, clearest and most vivid digital images ever, combined with a whole new level of immersive audio. The experience of seeing a movie at the TCL Chinese Theatre IMAX is truly unparalleled.\nGuests can experience the majesty of the theatre by purchasing movie tickets or VIP tour tickets. The TCL Chinese Theatre VIP Tour is the only place in Hollywood where you learn the star-studded history of the historic TCL Chinese Theatres. The Tour features stories and fun facts about the theatre’s Hollywood premieres, celebrities, and its famous Forecourt of the Stars.\nSo step off the red carpet and walk through the golden doors of this Movie Palace of the Stars. A visit to Los Angeles is not complete without a stroll through Hollywood cinema history.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.3409712, 34.1020231]
+    },
+    "chainName": "TCL Chinese Theatre",
+    "chainCode": "",
+    "chainLogo": "tcl-chinese-theatre-logo.jpg",
+    "linkUrl": "http://www.tclchinesetheatres.com/",
+    "photo": "tcl-chinese-theatre-logo.jpg"
+  },
+  {
+    "name": "Egyptian Theatre - Hollywood",
+    "address": "6712 Hollywood Blvd.",
+    "city": "Hollywood",
+    "state": "CA",
+    "zipCode": "90028",
+    "phone": "(323) 466-3456",
+    "description": "The Egyptian Theatre is a classic and beloved movie palace originally built in 1922 during the silent film era. A fixture in Hollywood’s Golden Age, the Egyptian was the site of the world’s very first movie premiere of ROBIN HOOD starring Douglas Fairbanks and remains to this day as the ultimate destination for moviegoers. This historic venue has been the home of glamorous red carpet premieres, groundbreaking film festivals and incredible cinematic experiences over the near-century it has been presenting films for audiences in Hollywood, the movie-making capital of the world.\nThe American Cinematheque re-opened the doors of the Egyptian Theatre in 1998 after extensive renovation work. Since then, the American Cinematheque has produced thousands of film events in the space with state-of-the-art presentation, including in-person tributes and conversations, film retrospectives, dazzling movie premieres, advanced screenings, and notable film festivals including Beyond Fest and Noir City: Hollywood.\nThe Egyptain Theatre Screening Formats: 35mm (including nitrate film), 70mm, and DCP.\nNitrate film projection at the Egyptian Theatre is made possible through the support of the Hollywood Foreign Press Association, Turner Classic Movies, and The Film Foundation in partnership with the American Cinematheque and the Academy Film Archive. The Egyptian Theatre is currently one of only four theatres in the United States that can project nitrate film.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.3366101, 34.1009124]
+    },
+    "chainName": "American Cinematheque",
+    "chainCode": "",
+    "chainLogo": "american-cinematheque-logo.jpg",
+    "linkUrl": "http://americancinemathequecalendar.com/egyptian_theatre_events",
+    "photo": "american-cinematheque-logo.jpg"
+  },
+  {
+    "name": "American Cinematheque at the Aero Theatre",
+    "address": "1328 Montana Ave.",
+    "city": "Santa Monica",
+    "state": "CA",
+    "zipCode": "90403",
+    "phone": "(310) 260-1528",
+    "description": "The Aero Theatre, its name a tribute to the aerospace industry, was built by the Douglas Aircraft Company. The Streamline Moderne-styled theatre was designed by architect R.M. Woolpert and originally opened its doors to moviegoers in 1940. In 2005, the American Cinematheque spearheaded a renovation of the theatre and re-opened as the Max Palevsky Theatre at the Aero in Santa Monica.\nPopular programs at the classic neighborhood theatre include Sneak Previews, Retrospectives, Revivals, Restorations, in-person discussions with filmmakers, classic films, Tuesday Matinees (free to AC Members), Midnight Movies, Screwball Comedy Festival, New Year’s Day with the Marx Brothers, HFPA Golden Globe Foreign Language Nominee screenings, and the annual All-Night Horrorthon.\nAero Theatre Screenings Formats: 35mm, 70mm, DCP",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.4952778, 34.0319444]
+    },
+    "chainName": "American Cinematheque",
+    "chainCode": "",
+    "chainLogo": "american-cinematheque-logo.jpg",
+    "linkUrl": "http://americancinemathequecalendar.com/aero_theatre_events",
+    "photo": "american-cinematheque-logo.jpg"
   }
 ]
