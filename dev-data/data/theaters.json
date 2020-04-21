@@ -420,7 +420,7 @@
     "state": "CA",
     "zipCode": "90403",
     "phone": "(310) 260-1528",
-    "description": "The Aero Theatre, its name a tribute to the aerospace industry, was built by the Douglas Aircraft Company. The Streamline Moderne-styled theatre was designed by architect R.M. Woolpert and originally opened its doors to moviegoers in 1940. In 2005, the American Cinematheque spearheaded a renovation of the theatre and re-opened as the Max Palevsky Theatre at the Aero in Santa Monica.\nPopular programs at the classic neighborhood theatre include Sneak Previews, Retrospectives, Revivals, Restorations, in-person discussions with filmmakers, classic films, Tuesday Matinees (free to AC Members), Midnight Movies, Screwball Comedy Festival, New Year’s Day with the Marx Brothers, HFPA Golden Globe Foreign Language Nominee screenings, and the annual All-Night Horrorthon.\nAero Theatre Screenings Formats: 35mm, 70mm, DCP",
+    "description": "The Aero Theatre, its name a tribute to the aerospace industry, was built by the Douglas Aircraft Company. The Streamline Moderne-styled theatre was designed by architect R.M. Woolpert and originally opened its doors to moviegoers in 1940. In 2005, the American Cinematheque spearheaded a renovation of the theatre and re-opened as the Max Palevsky Theatre at the Aero in Santa Monica.\nPopular programs at the classic neighborhood theatre include Sneak Previews, Retrospectives, Revivals, Restorations, in-person discussions with filmmakers, classic films, Tuesday Matinees (free to AC Members), Midnight Movies, Screwball Comedy Festival, New Year’s Day with the Marx Brothers, HFPA Golden Globe Foreign Language Nominee screenings, and the annual All-Night Horrorthon.\nAero Theatre Screenings Formats: 35mm, 70mm, DCP.",
     "geo": {
       "type": "Point",
       "coordinates": [-118.4952778, 34.0319444]
@@ -430,5 +430,41 @@
     "chainLogo": "american-cinematheque-logo.jpg",
     "linkUrl": "http://americancinemathequecalendar.com/aero_theatre_events",
     "photo": "american-cinematheque-logo.jpg"
+  },
+  {
+    "name": "Vintage Cinemas Vista Theatre",
+    "address": "4473 Sunset Blvd.",
+    "city": "Hollywood",
+    "state": "CA",
+    "zipCode": "90027",
+    "phone": "(323) 660-6639",
+    "description": "Timeless moviegoing since 1923. Escape to the movies while you enjoy the most legroom in Hollywood. Surround yourself with our 50 foot screen and state of the art Dolby Digital JBL Sound while nibbling on our freshly popped popcorn with real butter. Be a part of Vista's cinematic beauty and explore our rich history.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.2866825, 34.0984672]
+    },
+    "chainName": "Vintage Cinemas",
+    "chainCode": "",
+    "chainLogo": "vintage-cinemas-logo.jpg",
+    "linkUrl": "https://vintagecinemas.com/vista/",
+    "photo": "vintage-cinemas-logo.jpg"
+  },
+  {
+    "name": "Los Feliz 3",
+    "address": "1822 N. Vermont Ave.",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90027",
+    "phone": "(323) 664-2169",
+    "description": "Timeless moviegoing. Since 1934, the Los Feliz 3 cinemas is located just below the historic Griffith Observatory and situated among a flavorful selection of resaurants, shops and stores. With a gourmet selection of movies, enjoy timeless moviegoing with state of the art Sony 4K digital presentations and our freshly popped popcorn with real butter!",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.2936168, 34.1043583]
+    },
+    "chainName": "Vintage Cinemas",
+    "chainCode": "",
+    "chainLogo": "vintage-cinemas-logo.jpg",
+    "linkUrl": "http://www.vintagecinemas.com/losfeliz/",
+    "photo": "vintage-cinemas-logo.jpg"
   }
 ]
