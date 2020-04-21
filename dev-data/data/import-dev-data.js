@@ -96,7 +96,7 @@ const deleteDataTheater = async () => {
 };
 
 if (process.argv[2] === '--import') {
-  if (process.argv[3] == 'castcrew') importDataCastCrew();
+  if (process.argv[3] === 'castcrew') importDataCastCrew();
   if (process.argv[3] === 'show') importDataShow();
   if (process.argv[3] === 'theater') importDataTheater();
 } else if (process.argv[2] === '--delete') {
