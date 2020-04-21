@@ -6,13 +6,9 @@ const imgpromoSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
-    imageSmallUrl: {
-      type: String,
-      trim: true
-    },
-    imageLargeUrl: {
-      type: String,
-      trim: true
+    image: {
+      urlSmall: String,
+      urlLarge: String
     },
     caption: {
       type: String,
