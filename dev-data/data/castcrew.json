@@ -75,5 +75,49 @@
       "urlSmall": ""
     },
     "imgpromo": ""
+  },
+  {
+    "name": "Joel Silver",
+    "birthdate": "1952-07-14",
+    "biography": "Joel Silver can be credited along with Jerry Bruckheimer as practically reinventing the action film genre in the 1980s. Born in New Jersey, he attended the New York University Film School. After college, he worked at Lawrence Gordon Pictures, earning his first onscreen credit as associate producer of The Warriors (1979). He eventually became president of the motion picture division of Gordon Pictures. Together with Gordon, Silver produced 48 Hrs. (1982) and Streets of Fire (1984). In 1985 he formed Silver Pictures and continued producing hit action films such as Commando (1985), the \"Lethal Weapon\" franchise, the first two films of the \"Die Hard\" franchise and the upcoming \"Matrix\" franchise of action films. Despite these successes, he has hit some rough spots and has been banned from working on several studio lots. He was unable to produce the \"48 Hrs\" sequel Another 48 Hrs. (1990) and the third \"Die Hard\" film, Die Hard with a Vengeance (1995) because of past run-ins with studio executives. Because of his habit of wearing sport shirts and talking loudly and quickly, he has been parodied in several films, even spoofing himself in Who Framed Roger Rabbit (1988) by playing the frustrated cartoon director in the film's opening sequence. In order to perform in that role, he had to use an alias to get onto the Walt Disney lot, and his onscreen credit was not revealed to Disney executives until the very last minute. Joel Silver pioneered the practice of shooting action movies in Australia with the \"Matrix\" films, and has been credited with either inventing or reinventing the careers of Eddie Murphy, Arnold Schwarzenegger and Steven Seagal. He was mentioned in Halle Berry's Academy Award acceptance speech. Other credits include non-action pictures, ranging from Xanadu (1980) and Weird Science (1985) to HBO's long-running TV series, Tales from the Crypt (1989).",
+    "roles": ["producer"],
+    "photo": {
+      "urlLarge": "joel-silver-large.jpg",
+      "urlSmall": ""
+    },
+    "imgpromo": ""
+  },
+  {
+    "name": "Don Davis",
+    "birthdate": "1957-02-04",
+    "biography": "Davis was born in Anaheim, California. After graduating from high school, Davis enrolled at UCLA. He continued his study of musical composition with tutor Henri Lazarof. Additionally, he learned orchestration from Albert Harris.\nBest known for his work on The Matrix franchise, he has worked on numerous television and film scores, collaborating with directors including The Wachowskis, Ronny Yu, and Joe Johnston in film genres ranging from horror, to action, to comedy. He is the recipient of two Primetime Emmy Awards and four BMI Film Music Awards.",
+    "roles": ["composer"],
+    "photo": {
+      "urlLarge": "don-davis-large.jpg",
+      "urlSmall": ""
+    },
+    "imgpromo": ""
+  },
+  {
+    "name": "Bill Pope",
+    "birthdate": "1952-06-19",
+    "biography": "Pope was born in Bowling Green, Kentucky. He attended College High School and New York University, where he received his master's degree in Fine Arts. Prior to graduation, Pope worked as the cinematographer on a student film entitled The Sixth Week which won an Oscar for Achievement in Documentary at the 5th Annual Student Academy Awards on May 21, 1978.\nHe known for his collaborations with directors Sam Raimi, Barry Sonnenfeld and Edgar Wright, as well as his groundbreaking use of virtual cinematography on The Matrix trilogy. He has also photographed and directed numerous music videos for artists like Chris Isaak and Metallica, and eight episodes of the documentary series Cosmos: A Spacetime Odyssey.",
+    "roles": ["cinematographer"],
+    "photo": {
+      "urlLarge": "bill-pope-large.jpg",
+      "urlSmall": ""
+    },
+    "imgpromo": ""
+  },
+  {
+    "name": "Zach Staenberg",
+    "birthdate": "1951-08-01",
+    "biography": "Best known for his work on action films and the Matrix Trilogy, Staenberg won an Academy Award and two ACE Eddie Award for the editing of The Matrix (1999) and for HBO's Gotti (1996) for which he was also nominated for an Emmy. The Matrix films were written and directed by the Wachowskis, with whom Staenberg has had an extended collaboration dating from 1996. He is a frequent collaborator of director Andrew Niccol.\nStaenberg has been elected to membership in the American Cinema Editors.",
+    "roles": ["editor"],
+    "photo": {
+      "urlLarge": "zach-staenberg-large.jpg",
+      "urlSmall": ""
+    },
+    "imgpromo": ""
   }
 ]
