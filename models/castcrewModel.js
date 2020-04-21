@@ -15,7 +15,7 @@ const castcrewSchema = new mongoose.Schema(
       trim: true
     },
     roles: {
-      type: String,
+      type: [String],
       required: [true, 'A cast/crew must have a role!']
     },
     photo: String,
