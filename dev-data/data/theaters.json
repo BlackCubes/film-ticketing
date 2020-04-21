@@ -214,5 +214,113 @@
     "chainLogo": "regency-theatres-logo.jpg",
     "linkUrl": "https://regencymovies.com/main.php?theaterId=36",
     "photo": "regency-theatres-logo.jpg"
+  },
+  {
+    "name": "ArcLight Sherman Oaks",
+    "address": "15301 Ventura Boulevard, Building A",
+    "city": "Sherman Oaks",
+    "state": "CA",
+    "zipCode": "91403",
+    "phone": "(323) 615-2550",
+    "description": "All-reserved seating. Hassle-free experience. No late seating. Members receive $1 off, can earn/redeem points, and more. Advertising-free environment. Signature caramel corn. Dolby Atmos.\nEstablished in 2007. ArcLight Cinema Company is the most recently established subsidiary of Pacific Theatres Entertainment Corporation. An extensive evaluation of the exhibition industry and audience attitudes led to the creation of ArcLight, whose purpose is to create opportunities for transformational experiences. ArcLight exists to meet the needs and wants of moviegoers who seek a place of care and respect and who will value the experience of greater connection with its crew members, other customers, its environment, and the film.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.4671889, 34.1546861]
+    },
+    "chainName": "ArcLight Cinemas",
+    "chainCode": "",
+    "chainLogo": "arclight-cinemas-logo.png",
+    "linkUrl": "https://www.arclightcinemas.com/en/locations/los-angeles/sherman-oaks/showtimes?origin=Sherman-Oaks",
+    "photo": "arclight-cinemas-logo.png"
+  },
+  {
+    "name": "ArcLight Hollywood",
+    "address": "6360 Sunset Blvd",
+    "city": "Hollywood",
+    "state": "CA",
+    "zipCode": "90028",
+    "phone": "(323) 615-2550",
+    "description": "The ArcLight Hollywood is a 15-screen multiplex located at 6360 Sunset Boulevard in Hollywood, California. All 15 screens feature stadium seating, and carry a THX certification for optimal sound and picture presentation. The building is located adjacent to the Cinerama Dome, which is now part of the ArcLight complex. Established in 2002. The ArcLight Hollywood was the first theatre in the ArcLight chain to open, and is considered to be the company's flagship.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.3280985, 34.0975902]
+    },
+    "chainName": "ArcLight Cinemas",
+    "chainCode": "",
+    "chainLogo": "arclight-cinemas-logo.png",
+    "linkUrl": "https://www.arclightcinemas.com/en/locations/los-angeles/hollywood/showtimes?origin=Hollywood",
+    "photo": "arclight-cinemas-logo.png"
+  },
+  {
+    "name": "ArcLight Pasadena",
+    "address": "336 E. Colorado Blvd",
+    "city": "Pasadena",
+    "state": "CA",
+    "zipCode": "91101",
+    "phone": "(323) 615-2550",
+    "description": "All-reserved seating. Hassle-free experience. No late seating. Members receive $1 off, can earn/redeem points, and more. Advertising-free environment. Signature caramel corn.\nEstablished in 2010. ArcLight Cinema Company is the most recently established subsidiary of Pacific Theatres Entertainment Corporation. An extensive evaluation of the exhibition industry and audience attitudes led to the creation of ArcLight, whose purpose is to create opportunities for transformational experiences. ArcLight exists to meet the needs and wants of moviegoers who seek a place of care and respect and who will value the experience of greater connection with its crew members, other customers, its environment, and the film.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.1434803, 34.1451775]
+    },
+    "chainName": "ArcLight Cinemas",
+    "chainCode": "",
+    "chainLogo": "arclight-cinemas-logo.png",
+    "linkUrl": "https://www.arclightcinemas.com/en/locations/los-angeles/pasadena/showtimes?origin=Pasadena",
+    "photo": "arclight-cinemas-logo.png"
+  },
+  {
+    "name": "ArcLight Santa Monica",
+    "address": "395 Santa Monica Place, Suite 330",
+    "city": "Santa Monica",
+    "state": "CA",
+    "zipCode": "90401",
+    "phone": "(323) 615-2550",
+    "description": "All-reserved seating. Hassle-free experience. No late seating. Members receive $1 off, can earn/redeem points, and more. Advertising-free environment. Signature caramel corn. Dolby Atmos.\nEstablished in 2015. ArcLight Cinema Company is the most recently established subsidiary of Pacific Theatres Entertainment Corporation. An extensive evaluation of the exhibition industry and audience attitudes led to the creation of ArcLight, whose purpose is to create opportunities for transformational experiences. ArcLight exists to meet the needs and wants of moviegoers who seek a place of care and respect and who will value the experience of greater connection with its crew members, other customers, its environment, and the film.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.4927567, 34.014067]
+    },
+    "chainName": "ArcLight Cinemas",
+    "chainCode": "",
+    "chainLogo": "arclight-cinemas-logo.png",
+    "linkUrl": "https://www.arclightcinemas.com/en/locations/los-angeles/santa-monica/showtimes?origin=Santa-Monica",
+    "photo": "arclight-cinemas-logo.png"
+  },
+  {
+    "name": "ArcLight Culver City",
+    "address": "9500 Culver Blvd.",
+    "city": "Culver City",
+    "state": "CA",
+    "zipCode": "90232",
+    "phone": "(323) 615-2550",
+    "description": "All-reserved seating. Hassle-free experience. No late seating. Members receive $1 off, can earn/redeem points, and more. Advertising-free environment. Signature caramel corn.\nEstablished in 2015. ArcLight Cinema Company is the most recently established subsidiary of Pacific Theatres Entertainment Corporation. An extensive evaluation of the exhibition industry and audience attitudes led to the creation of ArcLight, whose purpose is to create opportunities for transformational experiences. ArcLight exists to meet the needs and wants of moviegoers who seek a place of care and respect and who will value the experience of greater connection with its crew members, other customers, its environment, and the film.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.3939545, 34.0234487]
+    },
+    "chainName": "ArcLight Cinemas",
+    "chainCode": "",
+    "chainLogo": "arclight-cinemas-logo.png",
+    "linkUrl": "https://www.arclightcinemas.com/en/locations/los-angeles/culver-city/showtimes?origin=Culver-City",
+    "photo": "arclight-cinemas-logo.png"
+  },
+  {
+    "name": "ArcLight Beach Cities",
+    "address": "831 S Nash St",
+    "city": "El Segundo",
+    "state": "CA",
+    "zipCode": "90245",
+    "phone": "(323) 615-2550",
+    "description": "All-reserved seating. Hassle-free experience. No late seating. Members receive $1 off, can earn/redeem points, and more. Advertising-free environment. Signature caramel corn.\nEstablished in 2010. ArcLight Cinema Company is the most recently established subsidiary of Pacific Theatres Entertainment Corporation. An extensive evaluation of the exhibition industry and audience attitudes led to the creation of ArcLight, whose purpose is to create opportunities for transformational experiences. ArcLight exists to meet the needs and wants of moviegoers who seek a place of care and respect and who will value the experience of greater connection with its crew members, other customers, its environment, and the film.",
+    "geo": {
+      "type": "Point",
+      "coordinates": [-118.388962, 33.903495]
+    },
+    "chainName": "ArcLight Cinemas",
+    "chainCode": "",
+    "chainLogo": "arclight-cinemas-logo.png",
+    "linkUrl": "https://www.arclightcinemas.com/locations/los-angeles/beach-cities/showtimes",
+    "photo": "arclight-cinemas-logo.png"
   }
 ]
