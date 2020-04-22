@@ -58,6 +58,12 @@ const theaterSchema = new mongoose.Schema(
   }
 );
 
+theaterSchema.virtual('showtimes', {
+  ref: 'Showtimes',
+  foreignField: 'theaters',
+  localField: '_id'
+});
+
 const Theater = mongoose.model('Theater', theaterSchema);
 
 module.exports = Theater;
