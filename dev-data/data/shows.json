@@ -1,0 +1,36 @@
+[
+  {
+    "title": "The Matrix",
+    "originalReleaseDate": ["1999-03-31"],
+    "duration": 150,
+    "mpaaRating": "R",
+    "overview": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "synopsis": "Neo (Keanu Reeves) believes that Morpheus (Laurence Fishburne), an elusive figure considered to be the most dangerous man alive, can answer his question -- What is the Matrix? Neo is contacted by Trinity (Carrie-Anne Moss), a beautiful stranger who leads him into an underworld where he meets Morpheus. They fight a brutal battle for their lives against a cadre of viciously intelligent secret agents. It is a truth that could cost Neo something more precious than his life.",
+    "poster": "matrix-poster-large.jpg",
+    "language": "English",
+    "subtitles": "None",
+    "contentType": "Film",
+    "price": "20",
+    "ratingsAverage": "4.4",
+    "ratingsQuantity": "45",
+    "genres": ["Sci-Fi", "Action"],
+    "director": ["5e9f6fb00c59f79605a64ebd", "5e9f6fb00c59f79605a64ebe"],
+    "actor": [
+      "5e9f6fb00c59f79605a64eb8",
+      "5e9f6fb00c59f79605a64eb9",
+      "5e9f6fb00c59f79605a64eba",
+      "5e9f6fb00c59f79605a64ebb",
+      "5e9f6fb00c59f79605a64ebc"
+    ],
+    "writer": ["5e9f6fb00c59f79605a64ebd", "5e9f6fb00c59f79605a64ebe"],
+    "producer": [
+      "5e9f6fb00c59f79605a64ebf",
+      "5e9f6fb00c59f79605a64ebd",
+      "5e9f6fb00c59f79605a64ebe"
+    ],
+    "cinematographer": ["5e9f6fb00c59f79605a64ec1"],
+    "editor": ["5e9f6fb00c59f79605a64ec2"],
+    "composer": ["5e9f6fb00c59f79605a64ec0"],
+    "eventOrganizer": ["5e9aa26cdea0485875c93c3d"]
+  }
+]
