@@ -174,6 +174,13 @@ showSchema.virtual('reviews', {
   localField: '_id'
 });
 
+// -- populate showtimes
+showSchema.virtual('showtimes', {
+  ref: 'Showtimes',
+  foreignField: 'shows',
+  localField: '_id'
+});
+
 // DOCUMENT MIDDLEWARE
 showSchema.pre('save', function(next) {
   this.slug = slugify(this.title, { lower: true });
