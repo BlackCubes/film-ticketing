@@ -183,7 +183,7 @@ showSchema.pre('save', function(next) {
 // -- populate the cast/crew
 showSchema.pre(/^find/, function(next) {
   this.populate({
-    path: 'director',
+    path: 'CastCrew',
     select: 'name'
   });
 
