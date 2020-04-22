@@ -14,3 +14,18 @@ exports.getAllTheaters = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.getTheater = catchAsync(async (req, res, next) => {
+  const theater = await Theater.findById(req.params.id);
+
+  if (!theater) {
+    return next(new AppError('There is no theater with that ID!', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      theater
+    }
+  });
+});
