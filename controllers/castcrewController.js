@@ -8,7 +8,7 @@ exports.getAllCastCrew = catchAsync(async (req, res, next) => {
     status: 'success',
     results: castcrews.length,
     data: {
-      castcrews;
+      castcrews
     }
-  })
-})
+  });
+});
