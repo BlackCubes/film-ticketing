@@ -180,6 +180,14 @@ showSchema.pre('save', function(next) {
   next();
 });
 
+// -- populate the cast/crew
+showSchema.pre(/^find/, function(next) {
+  this.populate({
+    path: 'castcrew',
+    select: 'name photo'
+  });
+});
+
 // QUERY MIDDLEWARE
 showSchema.pre(/^find/, function(next) {
   this.find({ secretShow: { $ne: true } });
