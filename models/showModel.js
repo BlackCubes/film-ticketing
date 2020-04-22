@@ -184,7 +184,7 @@ showSchema.pre('save', function(next) {
 showSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'castcrew',
-    select: 'name photo'
+    select: 'name'
   });
 
   next();
