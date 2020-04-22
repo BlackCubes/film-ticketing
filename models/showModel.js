@@ -186,6 +186,8 @@ showSchema.pre(/^find/, function(next) {
     path: 'castcrew',
     select: 'name photo'
   });
+
+  next();
 });
 
 // QUERY MIDDLEWARE
