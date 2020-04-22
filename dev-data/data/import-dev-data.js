@@ -25,9 +25,7 @@ const castcrews = JSON.parse(
   fs.readFileSync(`${__dirname}/castcrew.json`, 'utf-8')
 );
 
-const shows = JSON.parse(
-  fs.readFileSync(`${__dirname}/shows-simple.json`, 'utf-8')
-);
+const shows = JSON.parse(fs.readFileSync(`${__dirname}/shows.json`, 'utf-8'));
 
 const theaters = JSON.parse(
   fs.readFileSync(`${__dirname}/theaters.json`, 'utf-8')
