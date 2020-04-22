@@ -8,6 +8,7 @@ const hpp = require('hpp');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
+const castcrewRouter = require('./routes/castcrewRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const showRouter = require('./routes/showRoutes');
 const showtimesRouter = require('./routes/showtimesRoutes');
@@ -67,6 +68,7 @@ app.use(
 // });
 
 // ROUTES
+app.use('/api/v1/castcrews', castcrewRouter);
 app.use('/api/v1/shows', showRouter);
 app.use('/api/v1/showtimes', showtimesRouter);
 app.use('/api/v1/theaters', theaterRouter);
