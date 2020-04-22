@@ -10,6 +10,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const reviewRouter = require('./routes/reviewRoutes');
 const showRouter = require('./routes/showRoutes');
+const showtimesRouter = require('./routes/showtimesRoutes');
 const theaterRouter = require('./routes/theaterRoutes');
 const userRouter = require('./routes/userRoutes');
 
@@ -67,6 +68,7 @@ app.use(
 
 // ROUTES
 app.use('/api/v1/shows', showRouter);
+app.use('/api/v1/showtimes', showtimesRouter);
 app.use('/api/v1/theaters', theaterRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
