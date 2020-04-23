@@ -201,7 +201,7 @@ showSchema.pre(/^find/, function(next) {
 showSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'actor',
-    select: '-__v'
+    select: '-__v -photo -imgpromo -birthdate -biography'
   });
 
   next();
