@@ -1,11 +1,13 @@
 const express = require('express');
-const reviewController = require('./../controllers/reviewController');
 const showController = require('./../controllers/showController');
 const authController = require('./../controllers/authController');
+const reviewRouter = require('./reviewRoutes');
 
 const router = express.Router();
 
 // router.param('id', showController.checkID);
+
+router.use('/:showId/reviews', reviewRouter);
 
 router
   .route('/top-5-shows')
@@ -28,14 +30,6 @@ router
     authController.protect,
     authController.restrictTo('admin', 'event-owner'),
     showController.deleteShow
-  );
-
-router
-  .route('/:showId/reviews')
-  .post(
-    authController.protect,
-    authController.restrictTo('user'),
-    reviewController.createReview
   );
 
 module.exports = router;
