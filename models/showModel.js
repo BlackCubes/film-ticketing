@@ -143,14 +143,14 @@ showSchema.virtual('durationHours').get(function() {
 showSchema.virtual('reviews', {
   ref: 'Review',
   foreignField: 'show',
-  localField: '-id -createdAt -__v'
+  localField: '_id'
 });
 
 // -- populate showtimes
 showSchema.virtual('showtimes', {
   ref: 'Showtimes',
   foreignField: 'shows',
-  localField: '-id -createdAt -__v -shows'
+  localField: '_id'
 });
 
 // DOCUMENT MIDDLEWARE
