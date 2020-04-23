@@ -35,7 +35,10 @@ exports.getAllShows = catchAsync(async (req, res, next) => {
 });
 
 exports.getShow = catchAsync(async (req, res, next) => {
-  const show = await Show.findById(req.params.id).populate('reviews');
+  const show = await Show.findById(req.params.id).populate([
+    'reviews',
+    'showtimes'
+  ]);
 
   if (!show) {
     return next(new AppError('There is no show with that ID!', 404));
