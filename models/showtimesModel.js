@@ -37,7 +37,7 @@ const showtimesSchema = new mongoose.Schema(
 
 showtimesSchema.pre(/^find/, function(next) {
   this.populate({
-    path: 'shows',
+    path: 'Show',
     select: 'title'
   });
 
