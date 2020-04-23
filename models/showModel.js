@@ -143,14 +143,14 @@ showSchema.virtual('durationHours').get(function() {
 showSchema.virtual('reviews', {
   ref: 'Review',
   foreignField: 'show',
-  localField: '_id'
+  localField: '-id -createdAt -__v'
 });
 
 // -- populate showtimes
 showSchema.virtual('showtimes', {
   ref: 'Showtimes',
   foreignField: 'shows',
-  localField: '_id'
+  localField: '-id -createdAt -__v -shows'
 });
 
 // DOCUMENT MIDDLEWARE
@@ -163,7 +163,7 @@ showSchema.pre('save', function(next) {
 showSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'eventOrganizer',
-    select: '-__v -username -birthdate -gender'
+    select: '-__v -username -birthdate -gender -id'
   });
 
   next();
