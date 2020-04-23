@@ -187,11 +187,19 @@ showSchema.pre('save', function(next) {
   next();
 });
 
+// -- populate event organizer(s)
+showSchema.pre(/^find/, function(next) {
+  this.populate({
+    path: 'eventOrganizer',
+    select: '-__v -username -birthdate -gender'
+  });
+});
+
 // -- populate the cast/crew
 showSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'CastCrew',
-    select: '-__v -username -birthdate -gender'
+    select: '-__v'
   });
 
   next();
