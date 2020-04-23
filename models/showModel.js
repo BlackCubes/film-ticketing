@@ -199,10 +199,19 @@ showSchema.pre(/^find/, function(next) {
 
 // -- populate the cast/crew
 showSchema.pre(/^find/, function(next) {
-  this.populate({
-    path: 'actor',
-    select: '-__v -photo -imgpromo -birthdate -biography'
-  });
+  this.populate([
+    {
+      path: 'actor',
+      select: '-__v -photo -imgpromo -birthdate -biography'
+    },
+    { path: 'director', select: '-__v -photo -imgpromo -birthdate -biography' },
+    { path: 'writer', select: '-__v -photo -imgpromo -birthdate -biography' },
+    { path: 'producer', select: '-__v -photo -imgpromo -birthdate -biography' },
+    {
+      path: 'cinematographer',
+      select: '-__v -photo -imgpromo -birthdate -biography'
+    }
+  ]);
 
   next();
 });
