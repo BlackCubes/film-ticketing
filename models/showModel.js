@@ -224,7 +224,9 @@ showSchema.pre(/^find/, function(next) {
     {
       path: 'cinematographer',
       select: '-__v -photo -imgpromo -birthdate -biography'
-    }
+    },
+    { path: 'editor', select: '-__v -photo -imgpromo -birthdate -biography' },
+    { path: 'composer', select: '-__v -photo -imgpromo -birthdate -biography' }
   ]);
 
   next();
