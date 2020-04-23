@@ -35,6 +35,13 @@ const showtimesSchema = new mongoose.Schema(
   }
 );
 
+showtimesSchema.pre(/^find/, function(next) {
+  this.populate({
+    path: 'shows',
+    select: 'title'
+  });
+});
+
 const Showtimes = mongoose.model('Showtimes', showtimesSchema);
 
 module.exports = Showtimes;
