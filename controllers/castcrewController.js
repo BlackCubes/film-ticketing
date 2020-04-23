@@ -29,6 +29,17 @@ exports.getCastCrew = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.createCastCrew = catchAsync(async (req, res, next) => {
+  const newCastCrew = await CastCrew.create(req.body);
+
+  res.status(201).json({
+    status: 'success',
+    data: {
+      castcrew: newCastCrew
+    }
+  });
+});
+
 exports.updateCastCrew = catchAsync(async (req, res, next) => {
   const castcrew = await CastCrew.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
