@@ -4,7 +4,14 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
-router.route('/').get(castcrewConroller.getAllCastCrew);
+router
+  .route('/')
+  .get(castcrewConroller.getAllCastCrew)
+  .post(
+    authController.protect,
+    authController.restrictTo('admin'),
+    castcrewConroller.createCastCrew
+  );
 
 router
   .route('/:id')
