@@ -57,3 +57,16 @@ exports.updateCastCrew = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.deleteCastCrew = catchAsync(async (req, res, next) => {
+  const castcrew = await CastCrew.findByIdAndDelete(req.params.id);
+
+  if (!castcrew) {
+    return next(new AppError('There is no cast/crew with that id!', 404));
+  }
+
+  res.status(204).json({
+    status: 'success',
+    data: null
+  });
+});
