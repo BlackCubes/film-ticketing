@@ -70,13 +70,6 @@ const showSchema = new mongoose.Schema(
         message: 'Give the correct content! Acceptable: Film or TV.'
       }
     },
-    director: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'CastCrew',
-        required: [true, 'A show must have director(s)!']
-      }
-    ],
     castcrew: [
       {
         type: mongoose.Schema.ObjectId,
@@ -84,48 +77,6 @@ const showSchema = new mongoose.Schema(
         required: [true, 'A show must have casts and crews!']
       }
     ],
-    // actor: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'CastCrew',
-    //     required: [true, 'A show must have actor(s)!']
-    //   }
-    // ],
-    // writer: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'CastCrew',
-    //     required: [true, 'A show must have writer(s)!']
-    //   }
-    // ],
-    // producer: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'CastCrew',
-    //     required: [true, 'A show must have producer(s)!']
-    //   }
-    // ],
-    // cinematographer: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'CastCrew',
-    //     required: [true, 'A show must have cinematographer(s)!']
-    //   }
-    // ],
-    // editor: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'CastCrew',
-    //     required: [true, 'A show must have editor(s)!']
-    //   }
-    // ],
-    // composer: [
-    //   {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'CastCrew',
-    //     required: [true, 'A show must have composer(s)!']
-    //   }
-    // ],
     price: {
       type: Number,
       required: [true, 'A show must have a price!']
