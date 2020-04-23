@@ -200,7 +200,7 @@ showSchema.pre(/^find/, function(next) {
 // -- populate the cast/crew
 showSchema.pre(/^find/, function(next) {
   this.populate({
-    path: 'CastCrew',
+    path: 'actor',
     select: '-__v'
   });
 
