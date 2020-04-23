@@ -1,4 +1,5 @@
 const express = require('express');
+const reviewController = require('./../controllers/reviewController');
 const showController = require('./../controllers/showController');
 const authController = require('./../controllers/authController');
 
@@ -28,5 +29,9 @@ router
     authController.restrictTo('admin', 'event-owner'),
     showController.deleteShow
   );
+
+router
+  .route('/:showId/reviews')
+  .post(authController.protect, authController.restrictTo('user'));
 
 module.exports = router;
