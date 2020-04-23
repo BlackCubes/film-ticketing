@@ -37,7 +37,9 @@ const showtimesSchema = new mongoose.Schema(
 
 showtimesSchema.pre(/^find/, function(next) {
   this.populate({
-    path: 'shows'
+    path: 'shows',
+    select:
+      '-originalReleaseDate -castcrew -ratingsAverage -ratingsQuantity -genres -imgpromo -overview -synopsis -language -subtitles -contentType -slug -__v -id'
   });
 
   next();
@@ -45,7 +47,9 @@ showtimesSchema.pre(/^find/, function(next) {
 
 showtimesSchema.pre(/^find/, function(next) {
   this.populate({
-    path: 'theaters'
+    path: 'theaters',
+    select:
+      '-address -city -state -zipCode -phone -description -chainName -chainCode -chainLogo -linkUrl -__v -id'
   });
 
   next();
