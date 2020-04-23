@@ -77,48 +77,55 @@ const showSchema = new mongoose.Schema(
         required: [true, 'A show must have director(s)!']
       }
     ],
-    actor: [
+    castcrew: [
       {
         type: mongoose.Schema.ObjectId,
         ref: 'CastCrew',
-        required: [true, 'A show must have actor(s)!']
+        required: [true, 'A show must have casts and crews!']
       }
     ],
-    writer: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'CastCrew',
-        required: [true, 'A show must have writer(s)!']
-      }
-    ],
-    producer: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'CastCrew',
-        required: [true, 'A show must have producer(s)!']
-      }
-    ],
-    cinematographer: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'CastCrew',
-        required: [true, 'A show must have cinematographer(s)!']
-      }
-    ],
-    editor: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'CastCrew',
-        required: [true, 'A show must have editor(s)!']
-      }
-    ],
-    composer: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'CastCrew',
-        required: [true, 'A show must have composer(s)!']
-      }
-    ],
+    // actor: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'CastCrew',
+    //     required: [true, 'A show must have actor(s)!']
+    //   }
+    // ],
+    // writer: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'CastCrew',
+    //     required: [true, 'A show must have writer(s)!']
+    //   }
+    // ],
+    // producer: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'CastCrew',
+    //     required: [true, 'A show must have producer(s)!']
+    //   }
+    // ],
+    // cinematographer: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'CastCrew',
+    //     required: [true, 'A show must have cinematographer(s)!']
+    //   }
+    // ],
+    // editor: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'CastCrew',
+    //     required: [true, 'A show must have editor(s)!']
+    //   }
+    // ],
+    // composer: [
+    //   {
+    //     type: mongoose.Schema.ObjectId,
+    //     ref: 'CastCrew',
+    //     required: [true, 'A show must have composer(s)!']
+    //   }
+    // ],
     price: {
       type: Number,
       required: [true, 'A show must have a price!']
@@ -213,21 +220,10 @@ showSchema.pre(/^find/, function(next) {
 
 // -- populate the cast/crew
 showSchema.pre(/^find/, function(next) {
-  this.populate([
-    {
-      path: 'actor',
-      select: '-__v -photo -imgpromo -birthdate -biography'
-    },
-    { path: 'director', select: '-__v -photo -imgpromo -birthdate -biography' },
-    { path: 'writer', select: '-__v -photo -imgpromo -birthdate -biography' },
-    { path: 'producer', select: '-__v -photo -imgpromo -birthdate -biography' },
-    {
-      path: 'cinematographer',
-      select: '-__v -photo -imgpromo -birthdate -biography'
-    },
-    { path: 'editor', select: '-__v -photo -imgpromo -birthdate -biography' },
-    { path: 'composer', select: '-__v -photo -imgpromo -birthdate -biography' }
-  ]);
+  this.populate({
+    path: 'castcrew',
+    select: '-__v -photo -imgpromo -birthdate -biography'
+  });
 
   next();
 });
