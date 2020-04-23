@@ -35,7 +35,7 @@ exports.getAllShows = catchAsync(async (req, res, next) => {
 });
 
 exports.getShow = catchAsync(async (req, res, next) => {
-  const show = await Show.findById(req.params.id).populate('eventOrganizer');
+  const show = await Show.findById(req.params.id);
 
   if (!show) {
     return next(new AppError('There is no show with that ID!', 404));
