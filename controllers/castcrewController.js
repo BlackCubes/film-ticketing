@@ -28,3 +28,21 @@ exports.getCastCrew = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.updateCastCrew = catchAsync(async (req, res, next) => {
+  const castcrew = await CastCrew.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
+
+  if (!castcrew) {
+    return next(new AppError('There is no cast/crew with that id!', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      castcrew
+    }
+  });
+});
