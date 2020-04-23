@@ -40,6 +40,8 @@ showtimesSchema.pre(/^find/, function(next) {
     path: 'shows',
     select: 'title'
   });
+
+  next();
 });
 
 const Showtimes = mongoose.model('Showtimes', showtimesSchema);
