@@ -191,7 +191,7 @@ showSchema.pre('save', function(next) {
 showSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'CastCrew',
-    select: 'name'
+    select: '-__v -username -birthdate -gender'
   });
 
   next();
