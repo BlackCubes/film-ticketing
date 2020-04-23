@@ -39,7 +39,7 @@ showtimesSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'shows',
     select:
-      '-originalReleaseDate -castcrew -ratingsAverage -ratingsQuantity -genres -imgpromo -overview -synopsis -language -subtitles -contentType -slug -__v -id'
+      '-originalReleaseDate -castcrew -ratingsAverage -ratingsQuantity -genres -imgpromo -overview -synopsis -language -subtitles -contentType -slug -secretShow -__v -id'
   });
 
   next();
