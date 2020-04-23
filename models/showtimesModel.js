@@ -47,6 +47,8 @@ showtimesSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'theaters'
   });
+
+  next();
 });
 
 const Showtimes = mongoose.model('Showtimes', showtimesSchema);
