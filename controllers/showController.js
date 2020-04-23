@@ -36,8 +36,8 @@ exports.getAllShows = catchAsync(async (req, res, next) => {
 
 exports.getShow = catchAsync(async (req, res, next) => {
   const show = await Show.findById(req.params.id).populate([
-    { path: 'reviews', select: '-createdAt -id -__v -show' },
-    { path: 'showtimes', select: '-createdAt -id -__v -shows' }
+    'reviews',
+    'showtimes'
   ]);
 
   if (!show) {
