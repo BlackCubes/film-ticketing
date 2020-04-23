@@ -105,6 +105,20 @@ const showSchema = new mongoose.Schema(
         required: [true, 'A show must have cinematographer(s)!']
       }
     ],
+    editor: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'CastCrew',
+        required: [true, 'A show must have editor(s)!']
+      }
+    ],
+    composer: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'CastCrew',
+        required: [true, 'A show must have composer(s)!']
+      }
+    ],
     price: {
       type: Number,
       required: [true, 'A show must have a price!']
