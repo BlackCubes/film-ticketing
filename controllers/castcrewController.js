@@ -1,4 +1,5 @@
 const CastCrew = require('./../models/castcrewModel');
+const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 
 exports.getAllCastCrew = catchAsync(async (req, res, next) => {
@@ -9,6 +10,21 @@ exports.getAllCastCrew = catchAsync(async (req, res, next) => {
     results: castcrews.length,
     data: {
       castcrews
+    }
+  });
+});
+
+exports.getCastCrew = catchAsync(async (req, res, next) => {
+  const castcrew = await CastCrew.findById(req.params.id);
+
+  if (!castcrew) {
+    return next(new AppError('There is no cast/crew with that id!', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      castcrew
     }
   });
 });
