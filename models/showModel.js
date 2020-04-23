@@ -193,6 +193,8 @@ showSchema.pre(/^find/, function(next) {
     path: 'eventOrganizer',
     select: '-__v -username -birthdate -gender'
   });
+
+  next();
 });
 
 // -- populate the cast/crew
