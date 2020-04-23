@@ -32,6 +32,10 @@ router
 
 router
   .route('/:showId/reviews')
-  .post(authController.protect, authController.restrictTo('user'));
+  .post(
+    authController.protect,
+    authController.restrictTo('user'),
+    reviewController.createReview
+  );
 
 module.exports = router;
