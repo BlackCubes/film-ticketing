@@ -13,14 +13,14 @@ const showtimesSchema = new mongoose.Schema(
     shows: [
       {
         type: mongoose.Schema.ObjectId,
-        ref: 'Shows',
+        ref: 'Show',
         required: [true, 'A showtime must belong to a show!']
       }
     ],
     theaters: [
       {
         type: mongoose.Schema.ObjectId,
-        ref: 'Theaters',
+        ref: 'Theater',
         required: [true, 'A showtime must belong to a theater!']
       }
     ],
