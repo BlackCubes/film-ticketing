@@ -20,6 +20,11 @@ router
     authController.protect,
     authController.restrictTo('admin'),
     castcrewConroller.updateCastCrew
+  )
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    castcrewConroller.deleteCastCrew
   );
 
 module.exports = router;
