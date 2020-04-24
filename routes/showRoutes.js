@@ -3,6 +3,7 @@ const showController = require('./../controllers/showController');
 const authController = require('./../controllers/authController');
 const castcrewRouter = require('./castcrewRoutes');
 const reviewRouter = require('./reviewRoutes');
+const showtimeRouter = require('./showtimesRoutes');
 
 const router = express.Router();
 
@@ -10,6 +11,7 @@ const router = express.Router();
 
 router.use('/:showId/reviews', reviewRouter);
 // router.use('/:showId/castcrews', castcrewRouter);
+router.use('/:showId/theaters/:theaterId/showtimes', showtimeRouter);
 
 router
   .route('/top-5-shows')
