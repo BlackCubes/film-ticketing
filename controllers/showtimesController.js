@@ -12,3 +12,14 @@ exports.getAllShowtimes = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.createShowtime = catchAsync(async (req, res, next) => {
+  const newShowtime = await Showtimes.create(req.body);
+
+  res.status(201).json({
+    status: 'success',
+    data: {
+      newShowtime
+    }
+  });
+});
