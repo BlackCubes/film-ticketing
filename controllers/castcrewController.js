@@ -3,7 +3,10 @@ const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 
 exports.getAllCastCrew = catchAsync(async (req, res, next) => {
-  const castcrews = await CastCrew.find();
+  let filter = {};
+  if (req.params.showId) filter = { show: req.params.showId };
+
+  const castcrews = await CastCrew.find(filter);
 
   res.status(200).json({
     status: 'success',
