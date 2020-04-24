@@ -21,7 +21,7 @@ router
   .route('/:id')
   .get(theaterController.getTheater)
   .patch(
-    authController,
+    authController.protect,
     authController.restrictTo('admin'),
     theaterController.updateTheater
   );
