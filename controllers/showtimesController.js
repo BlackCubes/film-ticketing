@@ -18,6 +18,21 @@ exports.getAllShowtimes = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getShowtime = catchAsync(async (req, res, next) => {
+  const showtime = await Showtimes.findById(req.params.id);
+
+  if (!showtime) {
+    return next(new AppError('There is no showtime with that id!', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      showtime
+    }
+  });
+});
+
 exports.createShowtime = catchAsync(async (req, res, next) => {
   // LATER, CREATE CODE TO CHECK TO SEE IF DATA EXISTS, AND IF SO, THEN ERROR
   if (!req.body.shows) req.body.shows = [req.params.showId];
