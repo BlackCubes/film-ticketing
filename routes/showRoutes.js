@@ -9,7 +9,7 @@ const router = express.Router();
 // router.param('id', showController.checkID);
 
 router.use('/:showId/reviews', reviewRouter);
-router.use('/:showId/castcrews', castcrewRouter);
+// router.use('/:showId/castcrews', castcrewRouter);
 
 router
   .route('/top-5-shows')

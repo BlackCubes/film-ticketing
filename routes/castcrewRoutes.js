@@ -2,7 +2,7 @@ const express = require('express');
 const castcrewConroller = require('./../controllers/castcrewController');
 const authController = require('./../controllers/authController');
 
-const router = express.Router({ mergeParams: true });
+const router = express.Router();
 
 router
   .route('/')

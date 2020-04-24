@@ -3,10 +3,7 @@ const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 
 exports.getAllCastCrew = catchAsync(async (req, res, next) => {
-  let filter = {};
-  if (req.params.showId) filter = { show: req.params.showId };
-
-  const castcrews = await CastCrew.find(filter);
+  const castcrews = await CastCrew.find();
 
   res.status(200).json({
     status: 'success',
@@ -18,7 +15,7 @@ exports.getAllCastCrew = catchAsync(async (req, res, next) => {
 });
 
 exports.getCastCrew = catchAsync(async (req, res, next) => {
-  const castcrew = await CastCrew.findById(req.params.id).populate('shows');
+  const castcrew = await CastCrew.findById(req.params.id);
 
   if (!castcrew) {
     return next(new AppError('There is no cast/crew with that id!', 404));
