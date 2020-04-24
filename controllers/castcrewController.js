@@ -18,7 +18,7 @@ exports.getAllCastCrew = catchAsync(async (req, res, next) => {
 });
 
 exports.getCastCrew = catchAsync(async (req, res, next) => {
-  const castcrew = await CastCrew.findById(req.params.id);
+  const castcrew = await CastCrew.findById(req.params.id).populate('shows');
 
   if (!castcrew) {
     return next(new AppError('There is no cast/crew with that id!', 404));
