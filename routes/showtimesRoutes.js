@@ -19,6 +19,11 @@ router
     authController.protect,
     authController.restrictTo('event-owner'),
     showtimesController.updateShowtime
+  )
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin', 'event-owner'),
+    showtimesController.deleteShowtime
   );
 
 module.exports = router;
