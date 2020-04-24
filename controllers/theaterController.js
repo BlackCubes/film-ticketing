@@ -40,3 +40,21 @@ exports.createTheater = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.updateTheater = catchAsync(async (req, res, next) => {
+  const theater = await Theater.findOneAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
+
+  if (!theater) {
+    return next(new AppError('There is no theater with that id!', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      theater
+    }
+  });
+});
