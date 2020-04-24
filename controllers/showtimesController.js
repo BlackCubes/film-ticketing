@@ -14,8 +14,9 @@ exports.getAllShowtimes = catchAsync(async (req, res, next) => {
 });
 
 exports.createShowtime = catchAsync(async (req, res, next) => {
-  if (!req.body.shows) req.body.shows.push(req.params.showId);
-  if (!req.body.theaters) req.body.theaters.push(req.params.theaterId);
+  // LATER, CREATE CODE TO CHECK TO SEE IF DATA EXISTS, AND IF SO, THEN ERROR
+  if (!req.body.shows) req.body.shows = [req.params.showId];
+  if (!req.body.theaters) req.body.theaters = [req.params.theaterId];
 
   const newShowtime = await Showtimes.create(req.body);
 
