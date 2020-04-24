@@ -1,8 +1,11 @@
 const express = require('express');
 const castcrewConroller = require('./../controllers/castcrewController');
+const showController = require('./../controllers/showController');
 const authController = require('./../controllers/authController');
 
 const router = express.Router();
+
+router.use('/:castcrewId/shows', showController);
 
 router
   .route('/')
