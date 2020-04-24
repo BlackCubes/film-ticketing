@@ -13,4 +13,12 @@ router
     showtimesController.createShowtime
   );
 
+router
+  .route('/:id')
+  .patch(
+    authController.protect,
+    authController.restrictTo('event-owner'),
+    showtimesController.updateShowtime
+  );
+
 module.exports = router;
