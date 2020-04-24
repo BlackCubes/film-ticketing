@@ -1,7 +1,10 @@
 const express = require('express');
 const theaterController = require('./../controllers/theaterController');
+const showtimeRouter = require('./showtimesRoutes');
 
 const router = express.Router();
+
+router.use('/:theaterId/showtimes', showtimeRouter);
 
 router.route('/').get(theaterController.getAllTheaters);
 
