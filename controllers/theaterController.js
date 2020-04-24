@@ -58,3 +58,16 @@ exports.updateTheater = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.deleteTheater = catchAsync(async (req, res, next) => {
+  const theater = await Theater.findByIdAndDelete(req.params.id);
+
+  if (!theater) {
+    return next(new AppError('There is no theater with that id!', 404));
+  }
+
+  res.status(204).json({
+    status: 'success',
+    data: null
+  });
+});
