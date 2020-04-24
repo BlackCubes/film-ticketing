@@ -17,6 +17,13 @@ router
     theaterController.createTheater
   );
 
-router.route('/:id').get(theaterController.getTheater);
+router
+  .route('/:id')
+  .get(theaterController.getTheater)
+  .patch(
+    authController,
+    authController.restrictTo('admin'),
+    theaterController.updateTheater
+  );
 
 module.exports = router;
