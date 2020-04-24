@@ -5,7 +5,7 @@ const castcrewRouter = require('./castcrewRoutes');
 const reviewRouter = require('./reviewRoutes');
 const showtimeRouter = require('./showtimesRoutes');
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 // router.param('id', showController.checkID);
 
