@@ -35,12 +35,6 @@ const castcrewSchema = new mongoose.Schema(
   }
 );
 
-castcrewSchema.virtual('shows', {
-  ref: 'Show',
-  foreignField: 'castcrew',
-  localField: '_id'
-});
-
 const CastCrew = mongoose.model('CastCrew', castcrewSchema);
 
 module.exports = CastCrew;
