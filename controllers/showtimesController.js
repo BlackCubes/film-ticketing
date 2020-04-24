@@ -2,7 +2,7 @@ const Showtimes = require('./../models/showtimesModel');
 const catchAsync = require('./../utils/catchAsync');
 
 exports.getAllShowtimes = catchAsync(async (req, res, next) => {
-  let filter = {};
+  const filter = {};
   if (req.params.showId) filter.shows = req.params.showId;
   if (req.params.theaterId) filter.theaters = req.params.theaterId;
 
