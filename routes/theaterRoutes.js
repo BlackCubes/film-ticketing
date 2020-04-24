@@ -24,6 +24,11 @@ router
     authController.protect,
     authController.restrictTo('admin'),
     theaterController.updateTheater
+  )
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    theaterController.deleteTheater
   );
 
 module.exports = router;
