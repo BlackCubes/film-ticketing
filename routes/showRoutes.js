@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.use('/:showId/reviews', reviewRouter);
 // router.use('/:showId/castcrews', castcrewRouter);
+router.use('/:showId/showtimes', showtimeRouter);
 router.use('/:showId/theaters/:theaterId/showtimes', showtimeRouter);
 
 router
