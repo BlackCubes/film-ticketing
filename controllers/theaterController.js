@@ -42,7 +42,7 @@ exports.createTheater = catchAsync(async (req, res, next) => {
 });
 
 exports.updateTheater = catchAsync(async (req, res, next) => {
-  const theater = await Theater.findOneAndUpdate(req.params.id, req.body, {
+  const theater = await Theater.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true
   });
