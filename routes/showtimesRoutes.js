@@ -15,6 +15,7 @@ router
 
 router
   .route('/:id')
+  .get(showtimesController.getShowtime)
   .patch(
     authController.protect,
     authController.restrictTo('event-owner'),
