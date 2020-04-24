@@ -50,3 +50,16 @@ exports.updateShowtime = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.deleteShowtime = catchAsync(async (req, res, next) => {
+  const showtime = await Showtimes.findByIdAndDelete(req.params.id);
+
+  if (!showtime) {
+    return next(new AppError('There is no showtime with that id!', 404));
+  }
+
+  res.status(204).json({
+    status: 'success',
+    data: null
+  });
+});
