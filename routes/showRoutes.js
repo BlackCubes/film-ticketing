@@ -1,6 +1,7 @@
 const express = require('express');
 const showController = require('./../controllers/showController');
 const authController = require('./../controllers/authController');
+const castcrewRouter = require('./castcrewRoutes');
 const reviewRouter = require('./reviewRoutes');
 
 const router = express.Router();
@@ -8,6 +9,7 @@ const router = express.Router();
 // router.param('id', showController.checkID);
 
 router.use('/:showId/reviews', reviewRouter);
+router.use('/:showId/castcrews', castcrewRouter);
 
 router
   .route('/top-5-shows')
