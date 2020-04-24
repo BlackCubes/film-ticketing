@@ -1,4 +1,5 @@
 const Showtimes = require('./../models/showtimesModel');
+const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 
 exports.getAllShowtimes = catchAsync(async (req, res, next) => {
@@ -28,6 +29,24 @@ exports.createShowtime = catchAsync(async (req, res, next) => {
     status: 'success',
     data: {
       showtime: newShowtime
+    }
+  });
+});
+
+exports.updateShowtime = catchAsync(async (req, res, next) => {
+  const showtime = await Showtimes.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
+
+  if (!showtime) {
+    return next(new AppError('There is no showtime with that id!', 404));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      showtime
     }
   });
 });
