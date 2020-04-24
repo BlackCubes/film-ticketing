@@ -13,6 +13,8 @@ router
     showtimesController.createShowtime
   );
 
+router.route('/daily-plan/:date').get(showtimesController.getDailyPlan);
+
 router
   .route('/:id')
   .get(showtimesController.getShowtime)
