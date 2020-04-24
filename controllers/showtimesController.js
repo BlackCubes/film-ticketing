@@ -2,7 +2,11 @@ const Showtimes = require('./../models/showtimesModel');
 const catchAsync = require('./../utils/catchAsync');
 
 exports.getAllShowtimes = catchAsync(async (req, res, next) => {
-  const showtimes = await Showtimes.find();
+  let filter = {};
+  if (req.params.showId) filter.shows = req.params.showId;
+  if (req.params.theaterId) filter.theaters = req.params.theaterId;
+
+  const showtimes = await Showtimes.find(filter);
 
   res.status(200).json({
     status: 'success',
