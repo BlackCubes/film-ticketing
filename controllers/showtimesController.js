@@ -80,15 +80,14 @@ exports.deleteShowtime = catchAsync(async (req, res, next) => {
 });
 
 exports.getDailyPlan = catchAsync(async (req, res, next) => {
-  const date = new Date(`${req.params.date * 1}`);
-  const newDate = date.setDate(date.getDay() + 7);
+  const date = req.params.date.split('-');
 
   const plan = await Showtimes.aggregate([
     {
       $match: {
         startDateTime: {
-          $gte: date,
-          $lte: newDate
+          $gte: new Date(date[0], date[1], date[2]),
+          $lte: new Date(date[0], date[1] + 7, date[2])
         }
       }
     },
