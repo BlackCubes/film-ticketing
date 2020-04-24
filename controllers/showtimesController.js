@@ -78,3 +78,46 @@ exports.deleteShowtime = catchAsync(async (req, res, next) => {
     data: null
   });
 });
+
+exports.getDailyPlan = catchAsync(async (req, res, next) => {
+  const date = new Date(`${req.params.date * 1}`);
+  const newDate = date.setDate(date.getDay() + 7);
+
+  const plan = await Showtimes.aggregate([
+    {
+      $match: {
+        startDateTime: {
+          $gte: date,
+          $lte: newDate
+        }
+      }
+    },
+    {
+      $group: {
+        _id: { $day: '$startDateTime' },
+        numShowStarts: { $sum: 1 },
+        shows: { $push: '$shows' },
+        theaters: { $push: '$theaters' }
+      }
+    },
+    {
+      $addFields: { $day: '$_id' }
+    },
+    {
+      $project: { _id: 0 }
+    },
+    {
+      $sort: { numShowStarts: -1 }
+    },
+    {
+      $limit: 7
+    }
+  ]);
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      plan
+    }
+  });
+});
