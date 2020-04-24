@@ -86,8 +86,8 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
     {
       $match: {
         startDateTime: {
-          $gte: new Date(date[0], date[1], date[2]),
-          $lte: new Date(date[0], date[1] + 7, date[2])
+          $gte: new Date(`${date[0]}-${date[1]}-${date[2]}`),
+          $lte: new Date(`${date[0]}-${date[1] + 7}-${date[2]}`)
         }
       }
     },
