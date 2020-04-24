@@ -29,3 +29,14 @@ exports.getTheater = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+exports.createTheater = catchAsync(async (req, res, next) => {
+  const newTheater = await Theater.create(req.body);
+
+  res.status(201).json({
+    status: 'success',
+    data: {
+      theater: newTheater
+    }
+  });
+});
