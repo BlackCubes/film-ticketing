@@ -93,14 +93,14 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
     },
     {
       $group: {
-        _id: { $day: '$startDateTime' },
+        _id: { $toDate: '$startDateTime' },
         numShowStarts: { $sum: 1 },
         shows: { $push: '$shows' },
         theaters: { $push: '$theaters' }
       }
     },
     {
-      $addFields: { $day: '$_id' }
+      $addFields: { toDate: '$_id' }
     },
     {
       $project: { _id: 0 }
