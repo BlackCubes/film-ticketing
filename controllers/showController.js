@@ -16,8 +16,11 @@ exports.aliasTopShows = (req, res, next) => {
 };
 
 exports.getAllShows = catchAsync(async (req, res, next) => {
+  const filter = {};
+  if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
+
   // EXECUTE QUERY
-  const features = new APIFeatures(Show.find(), req.query)
+  const features = new APIFeatures(Show.find(filter), req.query)
     .filter()
     .sort()
     .limitFields()
