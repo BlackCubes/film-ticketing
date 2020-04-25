@@ -85,15 +85,15 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
 
   const plan = await Showtimes.aggregate([
     {
+      $unwind: '$shows'
+    },
+    {
       $lookup: {
         from: 'Show',
         localField: 'shows',
         foreignField: '_id',
-        as: 'shows'
+        as: 'show'
       }
-    },
-    {
-      $unwind: '$shows'
     },
     {
       $unwind: '$theaters'
@@ -110,7 +110,7 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
       $group: {
         _id: { $dayOfWeek: '$startDateTime' },
         numShowStarts: { $sum: 1 },
-        shows: { $push: '$shows' },
+        show: { $push: '$show' },
         theaters: { $push: '$theaters' }
       }
     },
