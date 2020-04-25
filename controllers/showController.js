@@ -75,24 +75,6 @@ exports.createShow = catchAsync(async (req, res, next) => {
       show: newShow
     }
   });
-
-  // const newId = shows[shows.length - 1].id + 1;
-  // const newShow = Object.assign({ id: newId }, req.body);
-
-  // shows.push(newShow);
-
-  // fs.writeFile(
-  //   `${__dirname}/dev-data/data/shows-simple.json`,
-  //   JSON.stringify(shows),
-  //   err => {
-  //     res.status(200).json({
-  //       status: 'success',
-  //       data: {
-  //         shows: newShow
-  //       }
-  //     });
-  //   }
-  // );
 });
 
 exports.updateShow = factory.updateOne(Show);
