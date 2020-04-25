@@ -2,20 +2,22 @@ const Review = require('./../models/reviewModel');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 
-exports.getAllReviews = catchAsync(async (req, res, next) => {
-  let filter = {};
-  if (req.params.showId) filter = { show: req.params.showId };
+exports.getAllReviews = factory.getAll(Review);
 
-  const reviews = await Review.find(filter);
+// exports.getAllReviews = catchAsync(async (req, res, next) => {
+//   let filter = {};
+//   if (req.params.showId) filter = { show: req.params.showId };
 
-  res.status(200).json({
-    status: 'success',
-    results: reviews.length,
-    data: {
-      reviews
-    }
-  });
-});
+//   const reviews = await Review.find(filter);
+
+//   res.status(200).json({
+//     status: 'success',
+//     results: reviews.length,
+//     data: {
+//       reviews
+//     }
+//   });
+// });
 
 exports.setShowUserIds = (req, res, next) => {
   if (!req.body.show) req.body.show = req.params.showId;
