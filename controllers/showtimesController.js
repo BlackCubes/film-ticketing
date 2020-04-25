@@ -99,6 +99,14 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
       $unwind: '$theaters'
     },
     {
+      $lookup: {
+        from: 'theaters',
+        localField: 'theaters',
+        foreignField: '_id',
+        as: 'theater'
+      }
+    },
+    {
       $match: {
         startDateTime: {
           $gte: new Date(new Date(date).setHours(00, 00, 00)),
@@ -111,7 +119,7 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
         _id: { $dayOfWeek: '$startDateTime' },
         numShowStarts: { $sum: 1 },
         show: { $first: '$show' },
-        theaters: { $push: '$theaters' }
+        theater: { $push: '$theater' }
       }
     },
     {
