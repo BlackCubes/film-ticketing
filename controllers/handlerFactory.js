@@ -1,3 +1,4 @@
+const APIFeatures = require('./../utils/apiFeatures');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 
@@ -60,6 +61,29 @@ exports.getOne = (Model, ...popOptions) =>
 
     res.status(200).json({
       status: 'success',
+      data: {
+        data: doc
+      }
+    });
+  });
+
+exports.getAll = Model =>
+  catchAsync(async (req, res, next) => {
+    // Nested routes, need to fix
+    const filter = {};
+    if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
+    if (req.params.showId) filter.show = req.params.showId;
+
+    const features = new APIFeatures(Model.find(filter), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    const doc = await features.query;
+
+    res.status(200).json({
+      status: 'success',
+      results: doc.length,
       data: {
         data: doc
       }
