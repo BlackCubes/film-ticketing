@@ -119,7 +119,7 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
         _id: { $dayOfWeek: '$startDateTime' },
         numShowStarts: { $sum: 1 },
         show: { $first: '$show' },
-        theater: { $push: '$theater' }
+        theater: { $first: '$theater' }
       }
     },
     {
@@ -139,7 +139,14 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
         'show.language': 0,
         'show.subtitles': 0,
         'show.slug': 0,
-        'show.__v': 0
+        'show.__v': 0,
+        'theater.description': 0,
+        'theater.chainName': 0,
+        'theater.chainCode': 0,
+        'theater.chainLogo': 0,
+        'theater.linkUrl': 0,
+        'theater.photo': 0,
+        'theater.__v': 0
       }
     },
     {
