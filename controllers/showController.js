@@ -2,6 +2,7 @@ const Show = require('./../models/showModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
+const factory = require('./handlerFactory');
 
 // const shows = JSON.parse(
 //   fs.readFileSync(`${__dirname}/../dev-data/data/shows-simple.json`)
@@ -112,18 +113,20 @@ exports.updateShow = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.deleteShow = catchAsync(async (req, res, next) => {
-  const show = await Show.findByIdAndDelete(req.params.id);
+exports.deleteShow = factory.deleteOne(Show);
 
-  if (!show) {
-    return next(new AppError('There is no show with that ID!', 404));
-  }
+// exports.deleteShow = catchAsync(async (req, res, next) => {
+//   const show = await Show.findByIdAndDelete(req.params.id);
 
-  res.status(204).json({
-    status: 'success',
-    data: null
-  });
-});
+//   if (!show) {
+//     return next(new AppError('There is no show with that ID!', 404));
+//   }
+
+//   res.status(204).json({
+//     status: 'success',
+//     data: null
+//   });
+// });
 
 exports.getShowStats = catchAsync(async (req, res, next) => {
   const stats = await Show.aggregate([
