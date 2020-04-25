@@ -146,7 +146,8 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
         'theater.chainLogo': 0,
         'theater.linkUrl': 0,
         'theater.photo': 0,
-        'theater.__v': 0
+        'theater.__v': 0,
+        'theater.phone': 0
       }
     },
     {
