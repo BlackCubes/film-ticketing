@@ -16,27 +16,29 @@ exports.aliasTopShows = (req, res, next) => {
   next();
 };
 
-exports.getAllShows = catchAsync(async (req, res, next) => {
-  const filter = {};
-  if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
+exports.getAllShows = factory.getAll(Show);
 
-  // EXECUTE QUERY
-  const features = new APIFeatures(Show.find(filter), req.query)
-    .filter()
-    .sort()
-    .limitFields()
-    .paginate();
-  const shows = await features.query;
+// exports.getAllShows = catchAsync(async (req, res, next) => {
+//   const filter = {};
+//   if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
 
-  // SEND RESPONSE
-  res.status(200).json({
-    status: 'success',
-    results: shows.length,
-    data: {
-      shows
-    }
-  });
-});
+//   // EXECUTE QUERY
+//   const features = new APIFeatures(Show.find(filter), req.query)
+//     .filter()
+//     .sort()
+//     .limitFields()
+//     .paginate();
+//   const shows = await features.query;
+
+//   // SEND RESPONSE
+//   res.status(200).json({
+//     status: 'success',
+//     results: shows.length,
+//     data: {
+//       shows
+//     }
+//   });
+// });
 
 exports.getShow = factory.getOne(Show, 'reviews', 'showtimes');
 exports.createShow = factory.createOne(Show);
