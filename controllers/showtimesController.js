@@ -85,6 +85,12 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
 
   const plan = await Showtimes.aggregate([
     {
+      $unwind: '$shows'
+    },
+    {
+      $unwind: '$theaters'
+    },
+    {
       $match: {
         startDateTime: {
           $gte: new Date(new Date(date).setHours(00, 00, 00)),
@@ -95,7 +101,9 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
     {
       $group: {
         _id: { $dayOfWeek: '$startDateTime' },
-        numShowStarts: { $sum: 1 }
+        numShowStarts: { $sum: 1 },
+        shows: { $push: '$shows' },
+        theaters: { $push: '$theaters' }
       }
     },
     {
