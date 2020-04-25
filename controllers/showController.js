@@ -38,23 +38,25 @@ exports.getAllShows = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getShow = catchAsync(async (req, res, next) => {
-  const show = await Show.findById(req.params.id).populate([
-    'reviews',
-    'showtimes'
-  ]);
+exports.getShow = factory.getOne(Show, 'reviews', 'showtimes');
 
-  if (!show) {
-    return next(new AppError('There is no show with that ID!', 404));
-  }
+// exports.getShow = catchAsync(async (req, res, next) => {
+//   const show = await Show.findById(req.params.id).populate([
+//     'reviews',
+//     'showtimes'
+//   ]);
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      show
-    }
-  });
-});
+//   if (!show) {
+//     return next(new AppError('There is no show with that ID!', 404));
+//   }
+
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       show
+//     }
+//   });
+// });
 
 exports.createShow = factory.createOne(Show);
 exports.updateShow = factory.updateOne(Show);
