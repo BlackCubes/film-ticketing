@@ -96,7 +96,7 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
           { $match: { $expr: { $eq: ['$shows._id', '$$show_id'] } } },
           { $project: { _id: 0 } }
         ],
-        as: 'shows'
+        as: 'show'
       }
     },
     {
@@ -114,7 +114,7 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
       $group: {
         _id: { $dayOfWeek: '$startDateTime' },
         numShowStarts: { $sum: 1 },
-        //shows: { $push: '$shows' },
+        shows: { $push: '$show' },
         theaters: { $push: '$theaters' }
       }
     },
