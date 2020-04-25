@@ -115,19 +115,6 @@ exports.updateShow = catchAsync(async (req, res, next) => {
 
 exports.deleteShow = factory.deleteOne(Show);
 
-// exports.deleteShow = catchAsync(async (req, res, next) => {
-//   const show = await Show.findByIdAndDelete(req.params.id);
-
-//   if (!show) {
-//     return next(new AppError('There is no show with that ID!', 404));
-//   }
-
-//   res.status(204).json({
-//     status: 'success',
-//     data: null
-//   });
-// });
-
 exports.getShowStats = catchAsync(async (req, res, next) => {
   const stats = await Show.aggregate([
     {
