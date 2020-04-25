@@ -80,28 +80,26 @@ exports.deleteShowtime = catchAsync(async (req, res, next) => {
 });
 
 exports.getDailyPlan = catchAsync(async (req, res, next) => {
-  const date = req.params.date.split('-');
+  const { date } = req.params;
   console.log(date);
 
   const plan = await Showtimes.aggregate([
     {
       $match: {
         startDateTime: {
-          $gte: new Date(date[0], date[1], date[2])
-          //$lte: new Date(date[0]-date[1] + 7-date[2])
+          $gte: new Date(new Date(date).setHours(00, 00, 00)),
+          $lt: new Date(new Date(date).setHours(23, 59, 59))
         }
       }
     },
     {
       $group: {
-        _id: { $toDate: '$startDateTime' },
-        numShowStarts: { $sum: 1 },
-        shows: { $push: '$shows' },
-        theaters: { $push: '$theaters' }
+        _id: { $dayOfWeek: '$startDateTime' },
+        numShowStarts: { $sum: 1 }
       }
     },
     {
-      $addFields: { toDate: '$_id' }
+      $addFields: { dayOfWeek: '$_id' }
     },
     {
       $project: { _id: 0 }
