@@ -95,24 +95,7 @@ exports.createShow = catchAsync(async (req, res, next) => {
   // );
 });
 
-exports.updateShow = catchAsync(async (req, res, next) => {
-  const show = await Show.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
-
-  if (!show) {
-    return next(new AppError('There is no show with that ID!', 404));
-  }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      show
-    }
-  });
-});
-
+exports.updateShow = factory.updateOne(Show);
 exports.deleteShow = factory.deleteOne(Show);
 
 exports.getShowStats = catchAsync(async (req, res, next) => {
