@@ -89,7 +89,7 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
     },
     {
       $lookup: {
-        from: 'Show',
+        from: 'shows',
         localField: 'shows',
         foreignField: '_id',
         as: 'show'
