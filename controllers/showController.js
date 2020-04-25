@@ -54,16 +54,6 @@ exports.getShow = catchAsync(async (req, res, next) => {
       show
     }
   });
-
-  // const id = req.params.id * 1;
-  // const show = shows.find(el => el.id === id);
-
-  // res.status(200).json({
-  //   status: 'success',
-  //   data: {
-  //     show
-  //   }
-  // });
 });
 
 exports.createShow = factory.createOne(Show);
