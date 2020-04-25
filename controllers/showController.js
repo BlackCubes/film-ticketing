@@ -39,25 +39,6 @@ exports.getAllShows = catchAsync(async (req, res, next) => {
 });
 
 exports.getShow = factory.getOne(Show, 'reviews', 'showtimes');
-
-// exports.getShow = catchAsync(async (req, res, next) => {
-//   const show = await Show.findById(req.params.id).populate([
-//     'reviews',
-//     'showtimes'
-//   ]);
-
-//   if (!show) {
-//     return next(new AppError('There is no show with that ID!', 404));
-//   }
-
-//   res.status(200).json({
-//     status: 'success',
-//     data: {
-//       show
-//     }
-//   });
-// });
-
 exports.createShow = factory.createOne(Show);
 exports.updateShow = factory.updateOne(Show);
 exports.deleteShow = factory.deleteOne(Show);
