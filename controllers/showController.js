@@ -66,17 +66,7 @@ exports.getShow = catchAsync(async (req, res, next) => {
   // });
 });
 
-exports.createShow = catchAsync(async (req, res, next) => {
-  const newShow = await Show.create(req.body);
-
-  res.status(201).json({
-    status: 'success',
-    data: {
-      show: newShow
-    }
-  });
-});
-
+exports.createShow = factory.createOne(Show);
 exports.updateShow = factory.updateOne(Show);
 exports.deleteShow = factory.deleteOne(Show);
 
