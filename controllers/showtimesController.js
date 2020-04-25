@@ -118,7 +118,21 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
       $addFields: { dayOfWeek: '$_id' }
     },
     {
-      $project: { _id: 0 }
+      $project: {
+        'show.originalReleaseDate': 0,
+        'show.castcrew': 0,
+        'show.genres': 0,
+        'show.imgpromo': 0,
+        'show.createdAt': 0,
+        'show.secretShow': 0,
+        'show.eventOrganizer': 0,
+        'show.overview': 0,
+        'show.synopsis': 0,
+        'show.language': 0,
+        'show.subtitles': 0,
+        'show.slug': 0,
+        'show.__v': 0
+      }
     },
     {
       $sort: { numShowStarts: -1 }
