@@ -73,6 +73,7 @@ exports.getAll = Model =>
     const filter = {};
     if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
     if (req.params.showId) filter.show = req.params.showId;
+    if (req.params.theaterId) filter.theaters = req.params.theaterId;
 
     const features = new APIFeatures(Model.find(filter), req.query)
       .filter()
