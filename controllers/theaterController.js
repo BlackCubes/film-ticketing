@@ -2,72 +2,79 @@ const Theater = require('./../models/theaterModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
+const factory = require('./handlerFactory');
 
-exports.getAllTheaters = catchAsync(async (req, res, next) => {
-  const theaters = await Theater.find();
+exports.getAllTheaters = factory.getAll(Theater);
+exports.getTheater = factory.getOne(Theater, 'showtimes');
+exports.createTheater = factory.createOne(Theater);
+exports.updateTheater = factory.updateOne(Theater);
+exports.deleteTheater = factory.deleteOne(Theater);
 
-  res.status(200).json({
-    status: 'success',
-    results: theaters.length,
-    data: {
-      theaters
-    }
-  });
-});
+// exports.getAllTheaters = catchAsync(async (req, res, next) => {
+//   const theaters = await Theater.find();
 
-exports.getTheater = catchAsync(async (req, res, next) => {
-  const theater = await Theater.findById(req.params.id).populate('showtimes');
+//   res.status(200).json({
+//     status: 'success',
+//     results: theaters.length,
+//     data: {
+//       theaters
+//     }
+//   });
+// });
 
-  if (!theater) {
-    return next(new AppError('There is no theater with that ID!', 404));
-  }
+// exports.getTheater = catchAsync(async (req, res, next) => {
+//   const theater = await Theater.findById(req.params.id).populate('showtimes');
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      theater
-    }
-  });
-});
+//   if (!theater) {
+//     return next(new AppError('There is no theater with that ID!', 404));
+//   }
 
-exports.createTheater = catchAsync(async (req, res, next) => {
-  const newTheater = await Theater.create(req.body);
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       theater
+//     }
+//   });
+// });
 
-  res.status(201).json({
-    status: 'success',
-    data: {
-      theater: newTheater
-    }
-  });
-});
+// exports.createTheater = catchAsync(async (req, res, next) => {
+//   const newTheater = await Theater.create(req.body);
 
-exports.updateTheater = catchAsync(async (req, res, next) => {
-  const theater = await Theater.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
+//   res.status(201).json({
+//     status: 'success',
+//     data: {
+//       theater: newTheater
+//     }
+//   });
+// });
 
-  if (!theater) {
-    return next(new AppError('There is no theater with that id!', 404));
-  }
+// exports.updateTheater = catchAsync(async (req, res, next) => {
+//   const theater = await Theater.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true,
+//     runValidators: true
+//   });
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      theater
-    }
-  });
-});
+//   if (!theater) {
+//     return next(new AppError('There is no theater with that id!', 404));
+//   }
 
-exports.deleteTheater = catchAsync(async (req, res, next) => {
-  const theater = await Theater.findByIdAndDelete(req.params.id);
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       theater
+//     }
+//   });
+// });
 
-  if (!theater) {
-    return next(new AppError('There is no theater with that id!', 404));
-  }
+// exports.deleteTheater = catchAsync(async (req, res, next) => {
+//   const theater = await Theater.findByIdAndDelete(req.params.id);
 
-  res.status(204).json({
-    status: 'success',
-    data: null
-  });
-});
+//   if (!theater) {
+//     return next(new AppError('There is no theater with that id!', 404));
+//   }
+
+//   res.status(204).json({
+//     status: 'success',
+//     data: null
+//   });
+// });
