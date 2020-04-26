@@ -10,6 +10,7 @@ router
   .post(
     authController.protect,
     authController.restrictTo('event-owner'),
+    showtimesController.setShowTheaterIds,
     showtimesController.createShowtime
   );
 
