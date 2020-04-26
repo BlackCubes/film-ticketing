@@ -3,7 +3,7 @@ const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 
-exports.getAllShowtimes = factory.getAll(Theater);
+exports.getAllShowtimes = factory.getAll(Showtimes);
 // exports.getAllShowtimes = catchAsync(async (req, res, next) => {
 //   const filter = {};
 //   if (req.params.showId) filter.shows = req.params.showId;
