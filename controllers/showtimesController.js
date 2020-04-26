@@ -11,7 +11,7 @@ exports.deleteShowtime = factory.deleteOne(Showtimes);
 
 exports.setShowTheaterIds = (req, res, next) => {
   if (!req.body.shows) req.body.shows = [req.params.showId];
-  if (!req.body.theaters) req.body.theaters = [req.user.theaterId];
+  if (!req.body.theaters) req.body.theaters = [req.params.theaterId];
   next();
 };
 
