@@ -4,6 +4,17 @@ const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 
 exports.getAllShowtimes = factory.getAll(Showtimes);
+exports.getShowtime = factory.getOne(Showtimes);
+exports.createShowtime = factory.createOne(Showtimes);
+exports.updateShowtime = factory.updateOne(Showtimes);
+exports.deleteShowtime = factory.deleteOne(Showtimes);
+
+exports.setShowTheaterIds = (req, res, next) => {
+  if (!req.body.shows) req.body.shows = [req.params.showId];
+  if (!req.body.theaters) req.body.theaters = [req.user.theaterId];
+  next();
+};
+
 // exports.getAllShowtimes = catchAsync(async (req, res, next) => {
 //   const filter = {};
 //   if (req.params.showId) filter.shows = req.params.showId;
@@ -20,66 +31,66 @@ exports.getAllShowtimes = factory.getAll(Showtimes);
 //   });
 // });
 
-exports.getShowtime = catchAsync(async (req, res, next) => {
-  const showtime = await Showtimes.findById(req.params.id);
+// exports.getShowtime = catchAsync(async (req, res, next) => {
+//   const showtime = await Showtimes.findById(req.params.id);
 
-  if (!showtime) {
-    return next(new AppError('There is no showtime with that id!', 404));
-  }
+//   if (!showtime) {
+//     return next(new AppError('There is no showtime with that id!', 404));
+//   }
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      showtime
-    }
-  });
-});
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       showtime
+//     }
+//   });
+// });
 
-exports.createShowtime = catchAsync(async (req, res, next) => {
-  // LATER, CREATE CODE TO CHECK TO SEE IF DATA EXISTS, AND IF SO, THEN ERROR
-  if (!req.body.shows) req.body.shows = [req.params.showId];
-  if (!req.body.theaters) req.body.theaters = [req.params.theaterId];
+// exports.createShowtime = catchAsync(async (req, res, next) => {
+//   // LATER, CREATE CODE TO CHECK TO SEE IF DATA EXISTS, AND IF SO, THEN ERROR
+//   if (!req.body.shows) req.body.shows = [req.params.showId];
+//   if (!req.body.theaters) req.body.theaters = [req.params.theaterId];
 
-  const newShowtime = await Showtimes.create(req.body);
+//   const newShowtime = await Showtimes.create(req.body);
 
-  res.status(201).json({
-    status: 'success',
-    data: {
-      showtime: newShowtime
-    }
-  });
-});
+//   res.status(201).json({
+//     status: 'success',
+//     data: {
+//       showtime: newShowtime
+//     }
+//   });
+// });
 
-exports.updateShowtime = catchAsync(async (req, res, next) => {
-  const showtime = await Showtimes.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
+// exports.updateShowtime = catchAsync(async (req, res, next) => {
+//   const showtime = await Showtimes.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true,
+//     runValidators: true
+//   });
 
-  if (!showtime) {
-    return next(new AppError('There is no showtime with that id!', 404));
-  }
+//   if (!showtime) {
+//     return next(new AppError('There is no showtime with that id!', 404));
+//   }
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      showtime
-    }
-  });
-});
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       showtime
+//     }
+//   });
+// });
 
-exports.deleteShowtime = catchAsync(async (req, res, next) => {
-  const showtime = await Showtimes.findByIdAndDelete(req.params.id);
+// exports.deleteShowtime = catchAsync(async (req, res, next) => {
+//   const showtime = await Showtimes.findByIdAndDelete(req.params.id);
 
-  if (!showtime) {
-    return next(new AppError('There is no showtime with that id!', 404));
-  }
+//   if (!showtime) {
+//     return next(new AppError('There is no showtime with that id!', 404));
+//   }
 
-  res.status(204).json({
-    status: 'success',
-    data: null
-  });
-});
+//   res.status(204).json({
+//     status: 'success',
+//     data: null
+//   });
+// });
 
 exports.getDailyPlan = catchAsync(async (req, res, next) => {
   const { date } = req.params;
