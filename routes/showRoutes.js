@@ -19,18 +19,25 @@ router
   .get(showController.aliasTopShows, showController.getAllShows);
 
 router.route('/show-stats').get(showController.getShowStats);
-router.route('/monthly-plan/:year').get(showController.getMonthlyPlan);
 router.route('/original-release/:year').get(showController.getOriginalRelease);
 
 router
   .route('/')
   .get(showController.getAllShows)
-  .post(showController.createShow);
+  .post(
+    authController.protect,
+    authController.restrictTo('admin', 'event-owner'),
+    showController.createShow
+  );
 
 router
   .route('/:id')
   .get(showController.getShow)
-  .patch(showController.updateShow)
+  .patch(
+    authController.protect,
+    authController.restrictTo('admin', 'event-owner'),
+    showController.updateShow
+  )
   .delete(
     authController.protect,
     authController.restrictTo('admin', 'event-owner'),
