@@ -72,7 +72,8 @@ exports.getAll = Model =>
     // Nested routes, need to fix
     const filter = {};
     if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
-    if (req.params.showId) filter.show = req.params.showId;
+    if (req.params.showId && Model === 'Review')
+      filter.show = req.params.showId;
     if (req.params.showId && Model === 'Showtimes')
       filter.shows = req.params.showId;
     if (req.params.theaterId) filter.theaters = req.params.theaterId;
