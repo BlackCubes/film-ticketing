@@ -1,72 +1,79 @@
 const CastCrew = require('./../models/castcrewModel');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
+const factory = require('./handlerFactory');
 
-exports.getAllCastCrew = catchAsync(async (req, res, next) => {
-  const castcrews = await CastCrew.find();
+exports.getAllCastCrew = factory.getAll(CastCrew);
+exports.getCastCrew = factory.getOne(CastCrew);
+exports.createCastCrew = factory.createOne(CastCrew);
+exports.updateCastCrew = factory.updateOne(CastCrew);
+exports.deleteCastCrew = factory.deleteOne(CastCrew);
 
-  res.status(200).json({
-    status: 'success',
-    results: castcrews.length,
-    data: {
-      castcrews
-    }
-  });
-});
+// exports.getAllCastCrew = catchAsync(async (req, res, next) => {
+//   const castcrews = await CastCrew.find();
 
-exports.getCastCrew = catchAsync(async (req, res, next) => {
-  const castcrew = await CastCrew.findById(req.params.id);
+//   res.status(200).json({
+//     status: 'success',
+//     results: castcrews.length,
+//     data: {
+//       castcrews
+//     }
+//   });
+// });
 
-  if (!castcrew) {
-    return next(new AppError('There is no cast/crew with that id!', 404));
-  }
+// exports.getCastCrew = catchAsync(async (req, res, next) => {
+//   const castcrew = await CastCrew.findById(req.params.id);
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      castcrew
-    }
-  });
-});
+//   if (!castcrew) {
+//     return next(new AppError('There is no cast/crew with that id!', 404));
+//   }
 
-exports.createCastCrew = catchAsync(async (req, res, next) => {
-  const newCastCrew = await CastCrew.create(req.body);
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       castcrew
+//     }
+//   });
+// });
 
-  res.status(201).json({
-    status: 'success',
-    data: {
-      castcrew: newCastCrew
-    }
-  });
-});
+// exports.createCastCrew = catchAsync(async (req, res, next) => {
+//   const newCastCrew = await CastCrew.create(req.body);
 
-exports.updateCastCrew = catchAsync(async (req, res, next) => {
-  const castcrew = await CastCrew.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
+//   res.status(201).json({
+//     status: 'success',
+//     data: {
+//       castcrew: newCastCrew
+//     }
+//   });
+// });
 
-  if (!castcrew) {
-    return next(new AppError('There is no cast/crew with that id!', 404));
-  }
+// exports.updateCastCrew = catchAsync(async (req, res, next) => {
+//   const castcrew = await CastCrew.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true,
+//     runValidators: true
+//   });
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      castcrew
-    }
-  });
-});
+//   if (!castcrew) {
+//     return next(new AppError('There is no cast/crew with that id!', 404));
+//   }
 
-exports.deleteCastCrew = catchAsync(async (req, res, next) => {
-  const castcrew = await CastCrew.findByIdAndDelete(req.params.id);
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       castcrew
+//     }
+//   });
+// });
 
-  if (!castcrew) {
-    return next(new AppError('There is no cast/crew with that id!', 404));
-  }
+// exports.deleteCastCrew = catchAsync(async (req, res, next) => {
+//   const castcrew = await CastCrew.findByIdAndDelete(req.params.id);
 
-  res.status(204).json({
-    status: 'success',
-    data: null
-  });
-});
+//   if (!castcrew) {
+//     return next(new AppError('There is no cast/crew with that id!', 404));
+//   }
+
+//   res.status(204).json({
+//     status: 'success',
+//     data: null
+//   });
+// });
