@@ -1,22 +1,24 @@
 const Showtimes = require('./../models/showtimesModel');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
+const factory = require('./handlerFactory');
 
-exports.getAllShowtimes = catchAsync(async (req, res, next) => {
-  const filter = {};
-  if (req.params.showId) filter.shows = req.params.showId;
-  if (req.params.theaterId) filter.theaters = req.params.theaterId;
+exports.getAllShowtimes = factory.getAll(Theater);
+// exports.getAllShowtimes = catchAsync(async (req, res, next) => {
+//   const filter = {};
+//   if (req.params.showId) filter.shows = req.params.showId;
+//   if (req.params.theaterId) filter.theaters = req.params.theaterId;
 
-  const showtimes = await Showtimes.find(filter);
+//   const showtimes = await Showtimes.find(filter);
 
-  res.status(200).json({
-    status: 'success',
-    results: showtimes.length,
-    data: {
-      showtimes
-    }
-  });
-});
+//   res.status(200).json({
+//     status: 'success',
+//     results: showtimes.length,
+//     data: {
+//       showtimes
+//     }
+//   });
+// });
 
 exports.getShowtime = catchAsync(async (req, res, next) => {
   const showtime = await Showtimes.findById(req.params.id);
