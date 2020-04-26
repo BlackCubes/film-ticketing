@@ -24,7 +24,7 @@ router.route('/original-release/:year').get(showController.getOriginalRelease);
 
 router
   .route('/')
-  .get(authController.protect, showController.getAllShows)
+  .get(showController.getAllShows)
   .post(showController.createShow);
 
 router
