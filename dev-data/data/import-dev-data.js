@@ -2,10 +2,11 @@ const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-const CastCrew = require('./../../models/castcrewModel.js');
+const CastCrew = require('./../../models/castcrewModel');
 const Show = require('./../../models/showModel');
 const Showtimes = require('./../../models/showtimesModel');
 const Theater = require('./../../models/theaterModel');
+const User = require('./../../models/userModel');
 
 dotenv.config({ path: './config.env' });
 
@@ -36,6 +37,8 @@ const showtimes = JSON.parse(
 const theaters = JSON.parse(
   fs.readFileSync(`${__dirname}/theaters.json`, 'utf-8')
 );
+
+const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
 
 // IMPORT DATA INTO DB
 const importDataCastCrew = async () => {
@@ -74,6 +77,16 @@ const importDataTheater = async () => {
     console.log('Theater data successfully imported!');
   } catch (err) {
     console.log('Could not import theater data into DB!', err);
+  }
+  process.exit();
+};
+
+const importDataUser = async () => {
+  try {
+    await User.create(users);
+    console.log('User data successfully imported!');
+  } catch (err) {
+    console.log('Could not import user data into DB!', err);
   }
   process.exit();
 };
@@ -119,14 +132,26 @@ const deleteDataTheater = async () => {
   process.exit();
 };
 
+const deleteDataUser = async () => {
+  try {
+    await User.deleteMany();
+    console.log('User data successfully deleted!');
+  } catch (err) {
+    console.log('Could not delete the user data from collection!', err);
+  }
+  process.exit();
+};
+
 if (process.argv[2] === '--import') {
   if (process.argv[3] === 'castcrew') importDataCastCrew();
   if (process.argv[3] === 'show') importDataShow();
   if (process.argv[3] === 'showtime') importDataShowtimes();
   if (process.argv[3] === 'theater') importDataTheater();
+  if (process.argv[3] === 'user') importDataUser();
 } else if (process.argv[2] === '--delete') {
   if (process.argv[3] === 'castcrew') deleteDataCastCrew();
   if (process.argv[3] === 'show') deleteDataShow();
   if (process.argv[3] === 'showtime') deleteDataShowtimes();
   if (process.argv[3] === 'theater') deleteDataTheater();
+  if (process.argv[3] === 'user') deleteDataUser();
 }
