@@ -38,7 +38,7 @@ const theaters = JSON.parse(
   fs.readFileSync(`${__dirname}/theaters.json`, 'utf-8')
 );
 
-const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
+//const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
 
 // IMPORT DATA INTO DB
 const importDataCastCrew = async () => {
