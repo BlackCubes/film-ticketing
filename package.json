@@ -1,7 +1,7 @@
 {
   "name": "kinetotickets",
   "version": "1.0.0",
-  "description": "A project website that users can locate and buy rare movie tickets from classical movies to movies released a few years ago to limited time films and to special venue films. It is also a project on learning node, express and mongoDB.",
+  "description": "A Ticketing Website that users can geographically locate, create, and buy rare tickets from classical movies to television shows, and to limited time and special venue shows with the casts and crews as special guests.",
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
