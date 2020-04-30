@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 const CastCrew = require('./../../models/castcrewModel');
+const Review = require('./../../models/reviewModel');
 const Show = require('./../../models/showModel');
 const Showtimes = require('./../../models/showtimesModel');
 const Theater = require('./../../models/theaterModel');
@@ -28,6 +29,8 @@ const castcrews = JSON.parse(
   fs.readFileSync(`${__dirname}/castcrew.json`, 'utf-8')
 );
 
+//const reviews = JSON.parse(fs.readFileSync(`${__dirname}/reviews.json`, 'utf-8'));
+
 const shows = JSON.parse(fs.readFileSync(`${__dirname}/shows.json`, 'utf-8'));
 
 const showtimes = JSON.parse(
@@ -47,6 +50,16 @@ const importDataCastCrew = async () => {
     console.log('Castcrew data successfully imported!');
   } catch (err) {
     console.log('Could not import the castcrew data into DB!', err);
+  }
+  process.exit();
+};
+
+const importDataReview = async () => {
+  try {
+    await Review.create(reviews);
+    console.log('Review data successfully imported!');
+  } catch (err) {
+    console.log('Could not import review Data into DB!', err);
   }
   process.exit();
 };
@@ -102,6 +115,16 @@ const deleteDataCastCrew = async () => {
   process.exit();
 };
 
+const deleteDataReview = async () => {
+  try {
+    await Review.deleteMany();
+    console.log('Review data successfully deleted!');
+  } catch (err) {
+    console.log('Could not delete the review data from collection!', err);
+  }
+  process.exit();
+};
+
 const deleteDataShow = async () => {
   try {
     await Show.deleteMany();
@@ -144,12 +167,14 @@ const deleteDataUser = async () => {
 
 if (process.argv[2] === '--import') {
   if (process.argv[3] === 'castcrew') importDataCastCrew();
+  if (process.argv[3] === 'review') importDataReview();
   if (process.argv[3] === 'show') importDataShow();
   if (process.argv[3] === 'showtime') importDataShowtimes();
   if (process.argv[3] === 'theater') importDataTheater();
   if (process.argv[3] === 'user') importDataUser();
 } else if (process.argv[2] === '--delete') {
   if (process.argv[3] === 'castcrew') deleteDataCastCrew();
+  if (process.argv[3] === 'review') deleteDataReview();
   if (process.argv[3] === 'show') deleteDataShow();
   if (process.argv[3] === 'showtime') deleteDataShowtimes();
   if (process.argv[3] === 'theater') deleteDataTheater();
