@@ -57,8 +57,11 @@ const showSchema = new mongoose.Schema(
       trim: true
     },
     poster: {
-      type: String,
-      required: [true, 'A show must have a poster!']
+      urlLarge: {
+        type: String,
+        required: [true, 'A show must have a poster!']
+      },
+      urlSmall: String
     },
     language: String,
     subtitles: String,
