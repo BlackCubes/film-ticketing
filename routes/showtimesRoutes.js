@@ -15,7 +15,7 @@ router
   .route('/createMyShowtime')
   .post(
     authController.restrictTo('event-owner'),
-    showtimesController.createShowtime
+    showtimesController.createMyShowtime
   );
 
 router
