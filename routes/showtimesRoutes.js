@@ -4,9 +4,13 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router({ mergeParams: true });
 
+router.route('/').get(showtimesController.getAllShowtimes);
+router.route('/:id').get(showtimesController.getShowtime);
+
+router.route('/daily-plan/:date').get(showtimesController.getDailyPlan);
+
 router
   .route('/')
-  .get(showtimesController.getAllShowtimes)
   .post(
     authController.protect,
     authController.restrictTo('event-owner'),
@@ -14,11 +18,8 @@ router
     showtimesController.createShowtime
   );
 
-router.route('/daily-plan/:date').get(showtimesController.getDailyPlan);
-
 router
   .route('/:id')
-  .get(showtimesController.getShowtime)
   .patch(
     authController.protect,
     authController.restrictTo('event-owner'),
