@@ -12,9 +12,16 @@ router.route('/daily-plan/:date').get(showtimesController.getDailyPlan);
 router.use(authController.protect);
 
 router
-  .route('/')
+  .route('/createMyShowtime')
   .post(
     authController.restrictTo('event-owner'),
+    showtimesController.createShowtime
+  );
+
+router
+  .route('/')
+  .post(
+    authController.restrictTo('admin'),
     showtimesController.setShowTheaterIds,
     showtimesController.createShowtime
   );
