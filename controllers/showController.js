@@ -12,13 +12,12 @@ exports.aliasTopShows = (req, res, next) => {
   next();
 };
 
-exports.getAllShows = factory.getAll(Show);
-
 exports.getEventOrganizer = (req, res, next) => {
   req.body.eventOrganizer = [req.user.id];
   next();
 };
 
+exports.getAllShows = factory.getAll(Show);
 exports.getShow = factory.getOne(Show, 'reviews', 'showtimes');
 exports.createShow = factory.createOne(Show);
 exports.updateShow = factory.updateOne(Show);
