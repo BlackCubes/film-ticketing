@@ -3,17 +3,17 @@ const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 
-exports.getAllShowtimes = factory.getAll(Showtimes);
-exports.getShowtime = factory.getOne(Showtimes);
-exports.createShowtime = factory.createOne(Showtimes);
-exports.updateShowtime = factory.updateOne(Showtimes);
-exports.deleteShowtime = factory.deleteOne(Showtimes);
-
 exports.setShowTheaterIds = (req, res, next) => {
   if (!req.body.shows) req.body.shows = [req.params.showId];
   if (!req.body.theaters) req.body.theaters = [req.params.theaterId];
   next();
 };
+
+exports.getAllShowtimes = factory.getAll(Showtimes);
+exports.getShowtime = factory.getOne(Showtimes);
+exports.createShowtime = factory.createOne(Showtimes);
+exports.updateShowtime = factory.updateOne(Showtimes);
+exports.deleteShowtime = factory.deleteOne(Showtimes);
 
 // exports.getAllShowtimes = catchAsync(async (req, res, next) => {
 //   const filter = {};
