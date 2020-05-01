@@ -4,6 +4,16 @@ const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
 
+const filterObj = (obj, ...allowedFields) => {
+  const newObj = {};
+
+  Object.keys(obj).forEach(el => {
+    if (allowedFields.includes(el)) newObj[el] = obj[el];
+  });
+
+  return newObj;
+};
+
 exports.aliasTopShows = (req, res, next) => {
   req.query.limit = '5';
   req.query.sort = '-ratingsAverage,price';
@@ -16,6 +26,42 @@ exports.getEventOrganizer = (req, res, next) => {
   req.body.eventOrganizer = [req.user.id];
   next();
 };
+
+exports.createMyShow = catchAsync(async (req, res, next) => {
+  if (req.body.ratingsAverage || req.body.ratingsQuantity) {
+    return next(new AppError('This route is not for making reviews!', 400));
+  }
+
+  const filteredBody = filterObj(
+    req.body,
+    'title',
+    'originalReleaseDate',
+    'duration',
+    'duration',
+    'mpaaRating',
+    'overview',
+    'synopsis',
+    'poster',
+    'language',
+    'subtitles',
+    'contentType',
+    'castcrew',
+    'price',
+    'priceDiscount',
+    'genres',
+    'specialVenue',
+    'eventOrganizer'
+  );
+
+  const newShow = await Show.create(filteredBody);
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      data: newShow
+    }
+  });
+});
 
 exports.getAllShows = factory.getAll(Show);
 exports.getShow = factory.getOne(Show, 'reviews', 'showtimes');
