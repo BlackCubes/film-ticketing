@@ -37,7 +37,6 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     'title',
     'originalReleaseDate',
     'duration',
-    'duration',
     'mpaaRating',
     'overview',
     'synopsis',
