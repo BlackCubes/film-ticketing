@@ -21,18 +21,29 @@ router
 router.route('/show-stats').get(showController.getShowStats);
 router.route('/original-release/:year').get(showController.getOriginalRelease);
 
+router.route('/').get(showController.getAllShows);
+router.route('/:id').get(showController.getShow);
+
+// PROTECT ALL OTHER ROUTES LEAKING
+router.use(authController.protect);
+
+router.get(
+  '/createMyShow',
+  authController.restrictTo('event-owner'),
+  showController.getEventOrganizer,
+  showController.createMyShow
+);
+
 router
   .route('/')
-  .get(showController.getAllShows)
   .post(
     authController.protect,
-    authController.restrictTo('admin', 'event-owner'),
+    authController.restrictTo('admin'),
     showController.createShow
   );
 
 router
   .route('/:id')
-  .get(showController.getShow)
   .patch(
     authController.protect,
     authController.restrictTo('admin', 'event-owner'),
