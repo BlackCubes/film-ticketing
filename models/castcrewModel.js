@@ -4,7 +4,8 @@ const castcrewSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'A cast/crew must have a name!']
+      required: [true, 'A cast/crew must have a name!'],
+      unique: true
     },
     birthdate: {
       type: Date,
