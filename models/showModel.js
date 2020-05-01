@@ -20,7 +20,6 @@ const showSchema = new mongoose.Schema(
       type: [Date],
       required: [true, 'A show must have an original release year!']
     },
-    releaseDate: Date,
     duration: {
       type: Number,
       required: [true, 'A show must have a duration!']
