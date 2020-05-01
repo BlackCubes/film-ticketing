@@ -4,10 +4,6 @@ const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
 
-// const shows = JSON.parse(
-//   fs.readFileSync(`${__dirname}/../dev-data/data/shows-simple.json`)
-// );
-
 exports.aliasTopShows = (req, res, next) => {
   req.query.limit = '5';
   req.query.sort = '-ratingsAverage,price';
@@ -17,28 +13,6 @@ exports.aliasTopShows = (req, res, next) => {
 };
 
 exports.getAllShows = factory.getAll(Show);
-
-// exports.getAllShows = catchAsync(async (req, res, next) => {
-//   const filter = {};
-//   if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
-
-//   // EXECUTE QUERY
-//   const features = new APIFeatures(Show.find(filter), req.query)
-//     .filter()
-//     .sort()
-//     .limitFields()
-//     .paginate();
-//   const shows = await features.query;
-
-//   // SEND RESPONSE
-//   res.status(200).json({
-//     status: 'success',
-//     results: shows.length,
-//     data: {
-//       shows
-//     }
-//   });
-// });
 
 exports.getEventOrganizer = (req, res, next) => {
   req.body.eventOrganizer = [req.user.id];
@@ -160,6 +134,28 @@ exports.getOriginalRelease = catchAsync(async (req, res, next) => {
     }
   });
 });
+
+// exports.getAllShows = catchAsync(async (req, res, next) => {
+//   const filter = {};
+//   if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
+
+//   // EXECUTE QUERY
+//   const features = new APIFeatures(Show.find(filter), req.query)
+//     .filter()
+//     .sort()
+//     .limitFields()
+//     .paginate();
+//   const shows = await features.query;
+
+//   // SEND RESPONSE
+//   res.status(200).json({
+//     status: 'success',
+//     results: shows.length,
+//     data: {
+//       shows
+//     }
+//   });
+// });
 
 // FOR WITHOUT MONGO:
 // exports.checkID = (req, res, next, val) => {
