@@ -149,10 +149,16 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
       }
     },
     {
+      $unwind: '$show'
+    },
+    {
+      $unwind: '$theater'
+    },
+    {
       $match: {
         startDateTime: {
-          $gte: new Date(new Date(date).setHours(00, 00, 00)),
-          $lt: new Date(new Date(date).setHours(23, 59, 59))
+          $gte: new Date(new Date(date).setHours(00, 00, 00))
+          //$lt: new Date(new Date(date).setHours(23, 59, 59))
         }
       }
     },
@@ -160,8 +166,8 @@ exports.getDailyPlan = catchAsync(async (req, res, next) => {
       $group: {
         _id: { $dayOfWeek: '$startDateTime' },
         numShows: { $sum: 1 },
-        show: { $first: '$show' },
-        theater: { $first: '$theater' }
+        show: { $push: '$show' },
+        theater: { $push: '$theater' }
       }
     },
     {
