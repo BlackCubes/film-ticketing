@@ -135,6 +135,9 @@ const showSchema = new mongoose.Schema(
   }
 );
 
+showSchema.index({ price: 1, ratingsAverage: -1 });
+showSchema.index({ slug: 1 });
+
 // VIRTUAL
 // -- convert mintues to hours
 showSchema.virtual('durationHours').get(function() {
