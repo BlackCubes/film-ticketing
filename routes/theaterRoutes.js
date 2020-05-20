@@ -12,6 +12,10 @@ router
   .route('/theaters-within/:distance/center/:latlng/unit/:unit')
   .get(theaterController.getTheatersWithin);
 
+router
+  .route('/distances/:latlng/unit/:unit')
+  .get(theaterController.getDistances);
+
 router.route('/').get(theaterController.getAllTheaters);
 router.route('/:id').get(theaterController.getTheater);
 
