@@ -68,10 +68,17 @@ reviewSchema.statics.calcAverageRatings = async function(showId) {
     }
   ]);
 
-  await Show.findByIdAndUpdate(showId, {
-    ratingsQuantity: stats[0].nRating,
-    ratingsAverage: stats[0].avgRating
-  });
+  if (stats.length > 0) {
+    await Show.findByIdAndUpdate(showId, {
+      ratingsQuantity: stats[0].nRating,
+      ratingsAverage: stats[0].avgRating
+    });
+  } else {
+    await Show.findByIdAndUpdate(showId, {
+      ratingsQuantity: 0,
+      ratingsAverage: 4.5
+    });
+  }
 };
 
 // Middleware for current review
