@@ -34,6 +34,8 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
+reviewSchema.index({ show: 1, user: 1 }, { unique: true });
+
 // DOCUMENT MIDDLEWARE
 // -- populate the review
 reviewSchema.pre(/^find/, function(next) {
