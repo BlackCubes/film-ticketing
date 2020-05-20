@@ -58,7 +58,7 @@ const theaterSchema = new mongoose.Schema(
   }
 );
 
-theaterSchema.index({ startLocation: '2dsphere' });
+theaterSchema.index({ geo: '2dsphere' });
 
 theaterSchema.virtual('showtimes', {
   ref: 'Showtimes',

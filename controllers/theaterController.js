@@ -26,7 +26,7 @@ exports.getTheatersWithin = catchAsync(async (req, res, next) => {
   }
 
   const theaters = await Theater.find({
-    startLocation: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
+    geo: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
   });
 
   res.status(200).json({
