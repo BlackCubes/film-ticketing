@@ -8,6 +8,10 @@ const router = express.Router();
 router.use('/:theaterId/showtimes', showtimeRouter);
 router.use('/:theaterId/shows/:showId/showtimes', showtimeRouter);
 
+router
+  .route('/theaters-within/:distance/center/:latlng/unit/:unit')
+  .get(theaterController.getTheatersWithin);
+
 router.route('/').get(theaterController.getAllTheaters);
 router.route('/:id').get(theaterController.getTheater);
 
