@@ -10,6 +10,34 @@ exports.createTheater = factory.createOne(Theater);
 exports.updateTheater = factory.updateOne(Theater);
 exports.deleteTheater = factory.deleteOne(Theater);
 
+exports.getTheatersWithin = catchAsync(async (req, res, next) => {
+  const { distance, latlng, unit } = req.params;
+  const [lat, lng] = latlng.split(',');
+
+  const radius = unit === 'mi' ? distance / 3963.2 : distance / 6378.1;
+
+  if (!lat || !lng) {
+    return next(
+      new AppError(
+        'Please provide latitude and longitude in the format lat,lng.',
+        400
+      )
+    );
+  }
+
+  const theaters = await Theater.find({
+    startLocation: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
+  });
+
+  res.status(200).json({
+    status: 'success',
+    results: theaters.length,
+    data: {
+      data: theaters
+    }
+  });
+});
+
 // exports.getAllTheaters = catchAsync(async (req, res, next) => {
 //   const theaters = await Theater.find();
 
