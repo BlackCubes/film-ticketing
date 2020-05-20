@@ -67,6 +67,11 @@ reviewSchema.statics.calcAverageRatings = async function(showId) {
       }
     }
   ]);
+
+  await Show.findByIdAndUpdate(showId, {
+    ratingsQuantity: stats[0].nRating,
+    ratingsAverage: stats[0].avgRating
+  });
 };
 
 // Middleware for current review
