@@ -19,7 +19,7 @@ exports.getTheatersWithin = catchAsync(async (req, res, next) => {
   if (!lat || !lng) {
     return next(
       new AppError(
-        'Please provide latitude and longitude in the format lat,lng.',
+        'Please provide latitude and longitude in the format of lat,lng!',
         400
       )
     );
@@ -34,6 +34,39 @@ exports.getTheatersWithin = catchAsync(async (req, res, next) => {
     results: theaters.length,
     data: {
       data: theaters
+    }
+  });
+});
+
+exports.getDistances = catchAsync(async (req, res, next) => {
+  const { latlng, unit } = req.params;
+  const [lat, lng] = latlng.split(',');
+
+  if (!lat || !lng) {
+    return next(
+      new AppError(
+        'Please provide latitude and longitude in the format of lat,lng!',
+        400
+      )
+    );
+  }
+
+  const distances = await Theater.aggregate([
+    {
+      $geoNear: {
+        near: {
+          type: 'Point',
+          coordinates: [lng * 1, lat * 1]
+        },
+        distanceField: 'distance'
+      }
+    }
+  ]);
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      data: distances
     }
   });
 });
