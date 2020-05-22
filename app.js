@@ -73,8 +73,8 @@ app.use(
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.status(200).render('base')
-})
+  res.status(200).render('base');
+});
 
 app.use('/api/v1/castcrews', castcrewRouter);
 app.use('/api/v1/shows', showRouter);
