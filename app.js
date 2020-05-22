@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const xss = require('xss-clean');
@@ -18,6 +19,10 @@ const userRouter = require('./routes/userRoutes');
 const app = express();
 
 app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
+// Static -- displaying static files
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // GLOBAL MIDDLEWARES
 // Helmet -- set security HTTP headers
@@ -60,9 +65,6 @@ app.use(
     ]
   })
 );
-
-// Static -- displaying static files
-//app.use(express.static(`${__dirname}/public`));
 
 // app.use((req, res, next) => {
 //   console.log('Hello from the middleware!');
