@@ -17,6 +17,8 @@ const userRouter = require('./routes/userRoutes');
 
 const app = express();
 
+app.set('view engine', 'pug');
+
 // GLOBAL MIDDLEWARES
 // Helmet -- set security HTTP headers
 app.use(helmet());
