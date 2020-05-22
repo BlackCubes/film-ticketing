@@ -22,7 +22,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // Static -- displaying static files
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // GLOBAL MIDDLEWARES
 // Helmet -- set security HTTP headers
