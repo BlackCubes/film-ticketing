@@ -15,6 +15,7 @@ const showRouter = require('./routes/showRoutes');
 const showtimesRouter = require('./routes/showtimesRoutes');
 const theaterRouter = require('./routes/theaterRoutes');
 const userRouter = require('./routes/userRoutes');
+const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -72,22 +73,7 @@ app.use(
 // });
 
 // ROUTES
-app.get('/', (req, res) => {
-  res.status(200).render('base');
-});
-
-app.get('/home', (req, res) => {
-  res.status(200).render('home', {
-    title: 'Rare Movie Tickets, Special Venues, Locations and Time'
-  });
-});
-
-app.get('/show', (req, res) => {
-  res.status(200).render('show', {
-    title: 'The Matrix'
-  });
-});
-
+app.use('/', viewRouter);
 app.use('/api/v1/castcrews', castcrewRouter);
 app.use('/api/v1/shows', showRouter);
 app.use('/api/v1/showtimes', showtimesRouter);
