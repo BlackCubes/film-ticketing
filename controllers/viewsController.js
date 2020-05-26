@@ -8,7 +8,7 @@ exports.getHome = catchAsync(async (req, res, next) => {
 });
 
 exports.getShows = catchAsync(async (req, res, next) => {
-  const shows = await Shows.find();
+  const shows = await Show.find();
 
   res.status(200).render('shows', {
     title: 'Multiple shows'
