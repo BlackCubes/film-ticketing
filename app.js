@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 
 app.get('/home', (req, res) => {
   res.status(200).render('home', {
-    title: 'All Shows'
+    title: 'Rare Movie Tickets, Special Venues, Locations and Time'
   });
 });
 
