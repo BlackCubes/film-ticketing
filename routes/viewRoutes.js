@@ -8,6 +8,6 @@ const router = express.Router();
 // });
 
 router.get('/', viewsController.getHome);
-router.get('/show', viewsController.getShow);
+router.get('/show-overview', viewsController.getShow);
 
 module.exports = router;
