@@ -3,12 +3,14 @@ extends base
 block content
   main.main
     .card-container
-      .card
-        .card__poster
-          .card__poster-overlay &nbsp;
-          img.card__poster-img(src="img/lawrence-poster-large.jpg", alt="Lawrence of Arabia")
-        .card__header-wrapper
-          h2.card__header.heading-secondary.heading-secondary--gradient-1 Lawrence of Arabia
-        .card__details
-          p.card__details-overview.paragraph.
-            The Story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.
+
+      each show in shows
+        .card
+          .card__poster
+            .card__poster-overlay &nbsp;
+            img.card__poster-img(src="img/lawrence-poster-large.jpg", alt="Lawrence of Arabia")
+          .card__header-wrapper
+            h2.card__header.heading-secondary.heading-secondary--gradient-1 Lawrence of Arabia
+          .card__details
+            p.card__details-overview.paragraph.
+              The Story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.
