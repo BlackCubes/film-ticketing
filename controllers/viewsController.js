@@ -11,7 +11,8 @@ exports.getShows = catchAsync(async (req, res, next) => {
   const shows = await Show.find();
 
   res.status(200).render('shows', {
-    title: 'Multiple shows'
+    title: 'Multiple shows',
+    shows
   });
 });
 
