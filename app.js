@@ -77,7 +77,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/home', (req, res) => {
-  res.status(200).render('home');
+  res.status(200).render('home', {
+    title: 'All Shows'
+  });
+});
+
+app.get('/show', (req, res) => {
+  res.status(200).render('show', {
+    title: 'The Matrix'
+  });
 });
 
 app.use('/api/v1/castcrews', castcrewRouter);
