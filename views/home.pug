@@ -3,7 +3,41 @@ extends base
 block content
   main.main
       section.section-carousel
+        .row.row--scroll
+          .row__inner
+            .tile
+              .tile__media
+                img.tile__img(src="img/lawrence-large.jpg", alt="Lawrence of Arabia")
+              .tile__details
+                .tile__title Lawrence of Arabia
+
       section.section-special-venues
+        .row.row--scroll
+          .row__inner
+            .tile
+              .tile__media
+                img.tile__img(src="img/lawrence-large.jpg", alt="Lawrence of Arabia")
+              .tile__details
+                .tile__title Lawrence of Arabia
+
       section.section-promo
+        .promo
+          .promo__image
+          .promo__header-wrapper
+            h2.promo__header.heading-secondary.heading-secondary--gradient-1 The Mandalorian
+          .promo__text-wrapper
+            p.promo__text.paragraph.
+              It is the way. Watch the entire first season of The Mandalorian at the big screen with special guests Jon Favreau, Pedro Pascal, Taika Waititi, Deborah Chow and more with Q&A session.
+            .promo__join: a.btn.btn__promo(href="#") Get Tickets Now
+
       section.section-member
+        .member
+          .member__image
+          .member__header-wrapper
+            h2.member__header.heading-secondary.heading-secondary--gradient-2 Kineto Member
+          .member__text-wrapper
+            p.member__text.paragraph.
+              Enjoy being a member by getting early notifications of upcoming films, special venues, and discounted tickets. Connect with friends, create events, leave reviews, and manage you favorite films.
+            .member__join: a.btn.btn__join(href="#") Join
+
       section.section-map
