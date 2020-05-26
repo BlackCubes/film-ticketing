@@ -7,6 +7,12 @@ exports.getHome = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getShows = catchAsync(async (req, res, next) => {
+  res.status(200).render('shows', {
+    title: 'Multiple shows'
+  });
+});
+
 exports.getShow = (req, res) => {
   res.status(200).render('show-overview', {
     title: 'The Matrix'
