@@ -8,6 +8,8 @@ exports.getHome = catchAsync(async (req, res, next) => {
 });
 
 exports.getShows = catchAsync(async (req, res, next) => {
+  const shows = await Shows.find();
+
   res.status(200).render('shows', {
     title: 'Multiple shows'
   });
