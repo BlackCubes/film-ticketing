@@ -126,11 +126,7 @@ body {
   background-color: #0067aa;
   background-image: linear-gradient(180deg, #20b2aa, #0067aa);
   margin-top: 2rem;
-  margin-bottom: 2rem;
-  /* &__header-wrapper {
-    position: relative;
-    top: -18rem;
-  } */ }
+  margin-bottom: 2rem; }
   .card__poster {
     width: 100%;
     position: relative;
@@ -153,6 +149,9 @@ body {
       width: 100%; }
     .card__poster:after {
       left: -50%; }
+  .card__header-wrapper {
+    position: relative;
+    top: -18rem; }
   .card__details {
     position: relative;
     top: -2rem;
