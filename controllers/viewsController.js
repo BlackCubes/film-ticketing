@@ -16,8 +16,14 @@ exports.getShows = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getShow = (req, res) => {
-  res.status(200).render('show-overview', {
-    title: 'The Matrix'
+exports.getShow = catchAsync(async (req, res, next) => {
+  const show = await Show.findOne({ slug: req.params.slug }).populate({
+    path: 'reviews',
+    fields: 'review rating user'
   });
-};
+
+  res.status(200).render('show-overview', {
+    title: 'The Matrix',
+    show
+  });
+});
