@@ -135,7 +135,8 @@ body {
       display: block;
       height: 68rem;
       margin-left: auto;
-      margin-right: auto; }
+      margin-right: auto;
+      border-bottom: 0.1rem solid transparent; }
     .card__poster:before, .card__poster:after {
       content: '';
       position: absolute;
@@ -150,18 +151,13 @@ body {
     .card__poster:after {
       left: -50%; }
   .card__header-wrapper {
-    position: relative;
-    top: -18rem; }
+    margin-top: 1rem; }
   .card__details {
-    position: relative;
-    top: -2rem;
     padding: 1.4rem; }
-  .card__footer {
-    margin-top: 2rem; }
-    .card__footer .btn__promo {
-      font-size: 2rem;
-      font-weight: 500;
-      text-transform: uppercase; }
+  .card__footer .btn__promo {
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase; }
 
 .row--scroll {
   overflow: scroll;
