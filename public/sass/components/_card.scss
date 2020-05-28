@@ -1,0 +1,32 @@
+.card {
+  background-color: $color-light-blue-2;
+  background-image: linear-gradient(
+    180deg,
+    $color-lightseagreen,
+    $color-light-blue-2
+  );
+
+  &__poster {
+    &-img {
+      display: none;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      height: 0;
+      border-left: 2.3rem solid transparent;
+      border-right: 2.3rem solid transparent;
+      border-bottom: 1.7rem solid $color-light-blue-2;
+      z-index: 100;
+      width: 100%;
+    }
+
+    &:after {
+      left: -50%;
+    }
+  }
+}
