@@ -124,7 +124,11 @@ body {
 
 .card {
   background-color: #0067aa;
-  background-image: linear-gradient(180deg, #20b2aa, #0067aa); }
+  background-image: linear-gradient(180deg, #20b2aa, #0067aa);
+  /* &__header-wrapper {
+    position: relative;
+    top: -18rem;
+  } */ }
   .card__poster-img {
     display: none; }
   .card__poster:before, .card__poster:after {
@@ -140,6 +144,12 @@ body {
     width: 100%; }
   .card__poster:after {
     left: -50%; }
+  .card__details {
+    position: relative;
+    top: -2rem;
+    padding: 1.4rem; }
+  .card__footer {
+    margin-top: 2rem; }
 
 .row--scroll {
   overflow: scroll;

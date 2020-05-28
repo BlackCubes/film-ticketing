@@ -29,4 +29,19 @@
       left: -50%;
     }
   }
+
+  /* &__header-wrapper {
+    position: relative;
+    top: -18rem;
+  } */
+
+  &__details {
+    position: relative;
+    top: -2rem;
+    padding: 1.4rem;
+  }
+
+  &__footer {
+    margin-top: 2rem;
+  }
 }
