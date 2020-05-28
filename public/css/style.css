@@ -1,3 +1,30 @@
+/*
+0 - 380px: Small Mobile (Max-Width 379px)
+[380px - 480px] the normal style in use (Mobile-First @ Min-Width 380px)
+480px - 600px: Big Mobile (Min-Width 480px)
+600px - 900px: Tablet Portrait (Min-Width 600px)
+900px - 1200px: Tablet Landscape (Min-Width 900px)
+1200px - 1800px: Normal Desktop (Min-Width 1200px)
+1800px + : Big Desktop (Min-Width 1800px)
+
+$breakpoint argument choices:
+ - small-mobile
+ - big-mobile
+ - tab-port
+ - tab-land
+ - desktop
+ - big-desktop; 
+
+379px/16px = 23.6875em (ratio)
+
+1em = 16px
+23.6875em = 379px
+30em = 480px
+37.5em = 600px
+56.25em = 900px
+75em = 1200px
+112.5em = 1800px
+*/
 *,
 *::before,
 *::after {
