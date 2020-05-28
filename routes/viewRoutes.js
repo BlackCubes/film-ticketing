@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.get('/', viewsController.getHome);
 router.get('/shows', viewsController.getShows);
-router.get('/show-overview', viewsController.getShow);
+router.get('/show-overview/:slug', viewsController.getShow);
 
 module.exports = router;
