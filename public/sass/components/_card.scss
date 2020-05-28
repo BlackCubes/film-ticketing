@@ -7,6 +7,10 @@
   );
 
   &__poster {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
     &-img {
       display: none;
     }

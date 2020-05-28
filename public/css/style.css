@@ -129,21 +129,25 @@ body {
     position: relative;
     top: -18rem;
   } */ }
-  .card__poster-img {
-    display: none; }
-  .card__poster:before, .card__poster:after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    height: 0;
-    border-left: 2.3rem solid transparent;
-    border-right: 2.3rem solid transparent;
-    border-bottom: 1.7rem solid #0067aa;
-    z-index: 100;
-    width: 100%; }
-  .card__poster:after {
-    left: -50%; }
+  .card__poster {
+    width: 100%;
+    position: relative;
+    overflow: hidden; }
+    .card__poster-img {
+      display: none; }
+    .card__poster:before, .card__poster:after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      height: 0;
+      border-left: 2.3rem solid transparent;
+      border-right: 2.3rem solid transparent;
+      border-bottom: 1.7rem solid #0067aa;
+      z-index: 100;
+      width: 100%; }
+    .card__poster:after {
+      left: -50%; }
   .card__details {
     position: relative;
     top: -2rem;
