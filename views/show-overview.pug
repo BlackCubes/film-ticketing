@@ -3,7 +3,7 @@ extends base
 block content
   h1= show.title
 
-  each eventOwner in show.eventOrganizer:
+  each eventOwner in show.eventOrganizer
     h3= eventOwner.name
     - if (eventOwner.role === 'event-owner')
       h3 Event Owner
