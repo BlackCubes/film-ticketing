@@ -7,7 +7,7 @@ block content
       each show in shows
         .card
           .card__poster
-            .card__poster-overlay &nbsp;
+            //- .card__poster-overlay &nbsp;
             img.card__poster-img(src=`img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
           .card__header-wrapper
             h2.card__header.heading-secondary.heading-secondary--gradient-1= show.title
