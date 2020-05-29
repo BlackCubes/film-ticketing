@@ -761,7 +761,7 @@ body {
     .heading-box__poster-img {
       width: 40%;
       height: 40%; }
-  .heading-box__info-container {
+  .heading-box__data-container {
     position: absolute;
     width: 55%;
     top: 20rem;

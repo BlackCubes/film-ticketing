@@ -9,7 +9,7 @@ block content
           img.heading-box__background-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
         .heading-box__poster
           img.heading-box__poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
-        .heading-box__info-container
+        .heading-box__data-container
           .heading-box__title
             h2.heading-secondary= show.title
           .heading-box__metadata-container
@@ -21,10 +21,11 @@ block content
               - const hours = Math.floor(show.durationHours)
               - const minutes = show.duration - hours*60
               li.heading-box__metadata-item.paragraph= `${hours}h ${minutes}m`
-        .heading-box__overview
-          p.paragraph= show.overview
-        .heading-box__buy
-          a.btn.btn__promo(href="#") Buy tickets
+        .heading-box__info-container
+          .heading-box__overview
+            p.paragraph= show.overview
+          .heading-box__buy
+            a.btn.btn__promo(href="#") Buy tickets
 
 
     //- each eventOwner in show.eventOrganizer
