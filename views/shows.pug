@@ -16,7 +16,7 @@ block content
           .card__runtime.u-center-text
             - const hours = Math.floor(show.durationHours)
             - const minutes = show.duration - hours*60
-            h3.card__runtime-length.heading-tertiary= `${hours} hours ${minutes} minutes`
+            h3.card__runtime-length.heading-tertiary= `${hours}h ${minutes}m`
           .card__ratings.u-center-text
             h3.card__ratings-star.heading-tertiary= `${show.ratingsAverage} Avg. Rating`
           .card__details
