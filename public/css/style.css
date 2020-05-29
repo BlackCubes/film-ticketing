@@ -769,5 +769,5 @@ body {
     padding: 0; }
     .heading-box__metadata-item {
       display: inline; }
-    .heading-box__metadata-item::after:not(:last-child) {
+    .heading-box__metadata-item:not(:last-child)::after {
       content: ' - '; }
