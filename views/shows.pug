@@ -12,13 +12,13 @@ block content
           .card__header-wrapper
             h2.card__header.heading-secondary= show.title
           .card__mpaa
-            .card__mpaa-type= show.mpaaRating
+            h3.card__mpaa-type.heading-tertiary= show.mpaaRating
           .card__runtime
             - const hours = Math.floor(show.durationHours)
             - const minutes = show.duration - hours*60
-            .card__runtime-length= `${hours} hours ${minutes} minutes`
+            h3.card__runtime-length.heading-tertiary= `${hours} hours ${minutes} minutes`
           .card__ratings
-            .card__ratings-star= `Average rating: ${show.ratingsAverage}`
+            h3.card__ratings-star.heading-tertiary= `Average rating: ${show.ratingsAverage}`
           .card__details
             p.card__details-overview.paragraph= show.overview
           .card__footer
