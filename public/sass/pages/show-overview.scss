@@ -45,7 +45,7 @@
   &__poster {
     position: absolute;
     top: 20rem;
-    left: 2rem;
+    left: 1rem;
 
     &-img {
       width: 40%;
@@ -53,7 +53,15 @@
     }
   }
 
+  &__info-container {
+    position: absolute;
+    width: 55%;
+    top: 20rem;
+    right: 1rem;
+  }
+
   &__metadata-container {
+    text-align: center;
     padding: 1rem;
   }
 

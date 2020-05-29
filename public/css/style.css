@@ -757,11 +757,17 @@ body {
   .heading-box__poster {
     position: absolute;
     top: 20rem;
-    left: 2rem; }
+    left: 1rem; }
     .heading-box__poster-img {
       width: 40%;
       height: 40%; }
+  .heading-box__info-container {
+    position: absolute;
+    width: 55%;
+    top: 20rem;
+    right: 1rem; }
   .heading-box__metadata-container {
+    text-align: center;
     padding: 1rem; }
   .heading-box__metadata {
     list-style-type: none;
