@@ -8,10 +8,7 @@ exports.getHome = catchAsync(async (req, res, next) => {
 });
 
 exports.getShows = catchAsync(async (req, res, next) => {
-  const shows = await Show.find().populate({
-    path: 'reviews',
-    fields: 'rating'
-  });
+  const shows = await Show.find();
 
   res.status(200).render('shows', {
     title: 'Multiple shows',
