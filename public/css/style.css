@@ -755,4 +755,5 @@ body {
       -o-object-position: 73% 22%;
       object-position: 73% 22%; }
   .heading-box__poster-img {
-    display: none; }
+    width: 20%;
+    height: 20%; }
