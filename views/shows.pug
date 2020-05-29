@@ -11,6 +11,8 @@ block content
             img.card__poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
           .card__header-wrapper
             h2.card__header.heading-secondary= show.title
+          .card__ratings
+            .card__ratings-star= `Average rating: ${show.ratingsAverage}`
           .card__details
             p.card__details-overview.paragraph= show.overview
           .card__footer
