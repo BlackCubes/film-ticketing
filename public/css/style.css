@@ -153,6 +153,8 @@ body {
       width: 100%; }
     .card__poster:after {
       left: -50%; }
+  .card__header {
+    color: #87cefa; }
   .card__mpaa, .card__runtime {
     margin-bottom: 0.3rem; }
   .card__mpaa, .card__runtime, .card__ratings {
