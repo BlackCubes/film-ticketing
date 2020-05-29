@@ -754,6 +754,10 @@ body {
       height: 100%;
       -o-object-position: 73% 22%;
       object-position: 73% 22%; }
-  .heading-box__poster-img {
-    width: 20%;
-    height: 20%; }
+  .heading-box__poster {
+    position: absolute;
+    top: 20rem;
+    left: 2rem; }
+    .heading-box__poster-img {
+      width: 40%;
+      height: 40%; }
