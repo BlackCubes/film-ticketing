@@ -761,3 +761,13 @@ body {
     .heading-box__poster-img {
       width: 40%;
       height: 40%; }
+  .heading-box__metadata-container {
+    padding: 1rem; }
+  .heading-box__metadata {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    .heading-box__metadata-item {
+      display: inline; }
+    .heading-box__metadata-item::after:not(:last-child) {
+      content: ' - '; }

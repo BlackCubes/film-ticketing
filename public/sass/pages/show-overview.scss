@@ -52,4 +52,22 @@
       height: 40%;
     }
   }
+
+  &__metadata-container {
+    padding: 1rem;
+  }
+
+  &__metadata {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    &-item {
+      display: inline;
+    }
+
+    &-item::after:not(:last-child) {
+      content: ' - ';
+    }
+  }
 }
