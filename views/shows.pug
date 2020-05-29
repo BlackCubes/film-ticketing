@@ -15,7 +15,7 @@ block content
             .card__mpaa-type= show.mpaaRating
           .card__runtime
             - const hours = Math.floor(show.durationHours)
-            - const minutes = show.duration - hours
+            - const minutes = show.duration - hours*60
             .card__runtime-length= `${hours} hours ${minutes} minutes`
           .card__ratings
             .card__ratings-star= `Average rating: ${show.ratingsAverage}`
