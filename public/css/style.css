@@ -764,7 +764,7 @@ body {
   .heading-box__data-container {
     position: absolute;
     width: 55%;
-    top: 20rem;
+    top: 27rem;
     right: 1rem; }
   .heading-box__metadata-container {
     text-align: center;
@@ -777,3 +777,8 @@ body {
       display: inline; }
     .heading-box__metadata-item:not(:last-child)::after {
       content: ' - '; }
+  .heading-box__info-container {
+    position: absolute;
+    bottom: 5rem; }
+  .heading-box__overview {
+    padding: 1rem; }
