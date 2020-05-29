@@ -11,14 +11,14 @@ block content
       .heading-box__title
         h2.heading-secondary= show.title
       .heading-box__metadata-container
-        ul.heading-box__metadata: li.heading-box__metadata-list= show.mpaaRating
+        ul.heading-box__metadata: li.heading-box__metadata-list.paragraph= show.mpaaRating
         ul.heading-box__metadata
           each genre in show.genres
-            li.heading-box__metadata-list= genre
-        ul.heading-box__metadata: li.heading-box__metadata-list= show.contentType
+            li.heading-box__metadata-list.paragraph= genre
+        ul.heading-box__metadata: li.heading-box__metadata-list.paragraph= show.contentType
         - const hours = Math.floor(show.durationHours)
         - const minutes = show.duration - hours*60
-        ul.heading-box__metadata: li.heading-box__metadata-list= `${hours}h ${minutes}m`
+        ul.heading-box__metadata: li.heading-box__metadata-list.paragraph= `${hours}h ${minutes}m`
       .heading-box__buy
         a.btn.btn__promo(href="#") Buy tickets
 
