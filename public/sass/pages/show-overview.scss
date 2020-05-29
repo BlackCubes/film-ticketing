@@ -20,14 +20,14 @@
         left top,
         right bottom,
         from(black),
-        to(#28b487)
+        to($color-light-blue-2)
       );
       background-image: linear-gradient(
         linear,
         left top,
         right bottom,
         black,
-        #28b487
+        $color-light-blue-2
       );
       opacity: 0.85;
     }
