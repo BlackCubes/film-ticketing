@@ -11,6 +11,12 @@ block content
             img.card__poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
           .card__header-wrapper
             h2.card__header.heading-secondary= show.title
+          .card__mpaa
+            .card__mpaa-type= show.mpaaRating
+          .card__runtime
+            - const hours = Math.floor(show.duration)
+            - const minutes = show.duration - hours
+            .card__runtime-length= `${hours} hours ${minutes} minutes`
           .card__ratings
             .card__ratings-star= `Average rating: ${show.ratingsAverage}`
           .card__details
