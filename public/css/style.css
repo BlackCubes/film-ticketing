@@ -153,6 +153,8 @@ body {
       width: 100%; }
     .card__poster:after {
       left: -50%; }
+  .card__mpaa, .card__runtime {
+    margin-bottom: 0.3rem; }
   .card__details {
     padding: 1.4rem; }
   .card__footer .btn__promo {
