@@ -26,7 +26,7 @@ exports.getShow = catchAsync(async (req, res, next) => {
   });
 
   res.status(200).render('show-overview', {
-    title: 'The Matrix',
+    title: show.title,
     show
   });
 });
