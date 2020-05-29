@@ -21,6 +21,8 @@ block content
               - const hours = Math.floor(show.durationHours)
               - const minutes = show.duration - hours*60
               li.heading-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+        .heading-box__overview
+          p.paragraph= show.overview
         .heading-box__buy
           a.btn.btn__promo(href="#") Buy tickets
 
