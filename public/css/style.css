@@ -731,7 +731,8 @@ body {
   margin-right: auto; }
 
 .section-show-header,
-.section-show-synopsis {
+.section-show-synopsis,
+.section-show-castcrew {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
