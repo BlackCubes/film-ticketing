@@ -179,7 +179,7 @@ showSchema.pre(/^find/, function(next) {
 showSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'castcrew',
-    select: '-__v -photo -imgpromo -birthdate -biography'
+    select: '-__v -photo.urlLarge -imgpromo -birthdate -biography'
   });
 
   next();
