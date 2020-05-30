@@ -36,6 +36,19 @@ block content
         .synopsis-box__synopsis
           p.paragraph= show.synopsis
 
+    section.section-show-castcrew
+      .castcrew-box
+        .castcrew-box__title
+          h2.heading-secondary.u-margin-top-small.u-margin-bottom-small Cast | Crew
+        .castcrew-box__list-container
+          .row--scroll
+            .row__inner
+              .tile
+                .tile__media
+                  img.tile__img(src="#", alt="#")
+                .tile__details
+                  .tile__title Show title
+
     //- each eventOwner in show.eventOrganizer
     //-   h3= eventOwner.name
     //-   - if (eventOwner.role === 'event-owner')
