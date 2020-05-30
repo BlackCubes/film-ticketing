@@ -17,10 +17,15 @@ exports.getShows = catchAsync(async (req, res, next) => {
 });
 
 exports.getShow = catchAsync(async (req, res, next) => {
-  const show = await Show.findOne({ slug: req.params.slug }).populate({
-    path: 'reviews',
-    fields: 'review rating user'
-  });
+  const show = await Show.findOne({ slug: req.params.slug })
+    .populate({
+      path: 'reviews',
+      fields: 'review rating user'
+    })
+    .populate({
+      path: 'showtimes',
+      fields: 'theaters startDateTime endDateTime' // Fix security issues
+    });
 
   res.status(200).render('show-overview', {
     title: show.title,
