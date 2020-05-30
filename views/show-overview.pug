@@ -28,6 +28,15 @@ block content
             a.btn.btn__promo(href="#") Buy tickets
 
     section.section-show-showtimes
+      .showtimes-box
+        .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
+          h2.heading-secondary Showtimes
+        .showtimes-box__theatertime-container
+          each showtime in show.showtimes
+            .showtimes-box__theatertime
+              .showtimes-box__theatertime-theater
+                p.paragraph= showtime.startDateTime
+            .showtimes-box__geolocation
 
     section.section-show-synopsis
       .synopsis-box
@@ -38,7 +47,7 @@ block content
 
     section.section-show-castcrew
       .castcrew-box
-        .castcrew-box__title.heading-secondary.u-margin-top-small.u-margin-bottom-small
+        .castcrew-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Cast | Crew
         .castcrew-box__list-container
           .row--scroll
