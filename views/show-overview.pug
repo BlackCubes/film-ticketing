@@ -46,7 +46,7 @@ block content
               each castcrew in show.castcrew
                 .tile
                   .tile__media
-                    img.tile__img(src=`#`, alt="#")
+                    img.tile__img(src=`/img/castcrew/${castcrew.urlLarge}`, alt=`${castcrew.name}`)
                   .tile__details
                     .tile__title= castcrew.name
 
