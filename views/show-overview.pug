@@ -43,11 +43,12 @@ block content
         .castcrew-box__list-container
           .row--scroll
             .row__inner
-              .tile
-                .tile__media
-                  img.tile__img(src="#", alt="#")
-                .tile__details
-                  .tile__title Show title
+              each castcrew in show.castcrew
+                .tile
+                  .tile__media
+                    img.tile__img(src=`#`, alt="#")
+                  .tile__details
+                    .tile__title= castcrew.name
 
     //- each eventOwner in show.eventOrganizer
     //-   h3= eventOwner.name
