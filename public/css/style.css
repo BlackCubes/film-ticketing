@@ -787,3 +787,6 @@ body {
     bottom: 5rem; }
   .heading-box__overview {
     padding: 1rem; }
+
+.showtimes-box__theatertime-theater-name {
+  letter-spacing: 0.5rem; }

@@ -93,3 +93,14 @@
     padding: 1rem;
   }
 }
+
+.showtimes-box {
+  // FIX TRIANGLE!
+  &__theatertime {
+    &-theater {
+      &-name {
+        letter-spacing: 0.5rem;
+      }
+    }
+  }
+}
