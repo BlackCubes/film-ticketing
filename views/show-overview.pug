@@ -38,7 +38,8 @@ block content
                 p.paragraph= `${showtime.theaters[0].name}`
               .showtimes-box__theatertime-time
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
-            .showtimes-box__geolocation
+            .showtimes-box__ticket-buy
+              a.btn.btn__promo(href="#") Buy
 
     section.section-show-synopsis
       .synopsis-box
