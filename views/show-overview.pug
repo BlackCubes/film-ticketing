@@ -35,9 +35,9 @@ block content
           each showtime in show.showtimes
             .showtimes-box__theatertime
               .showtimes-box__theatertime-theater
-                p.paragraph= `Theater: ${showtime.theaters[0].name}`
+                p.paragraph= `${showtime.theaters[0].name}`
               .showtimes-box__theatertime-time
-                p.paragraph= `Start: ${showtime.startDateTime}`
+                p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour12: true})}`
             .showtimes-box__geolocation
 
     section.section-show-synopsis
