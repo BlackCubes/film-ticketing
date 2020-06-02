@@ -35,7 +35,7 @@ block content
           each showtime in show.showtimes
             .showtimes-box__theatertime
               .showtimes-box__theatertime-theater
-                p.paragraph= `${showtime.theaters[0].name}`
+                h3.heading-tertiary= `${showtime.theaters[0].name}`
               .showtimes-box__theatertime-date
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
               .showtimes-box__theatertime-time
