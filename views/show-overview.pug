@@ -31,7 +31,7 @@ block content
       .showtimes-box
         .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Showtimes
-        .showtimes-box__theatertime-container
+        .showtimes-box__theatertime-container.u-center-text
           each showtime in show.showtimes
             .showtimes-box__theatertime
               .showtimes-box__theatertime-theater
@@ -41,6 +41,7 @@ block content
               .showtimes-box__theatertime-time
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
             .showtimes-box__ticket-buy
+              // Fix The Btn Helpers in SCSS
               a.btn.btn__promo(href="#") Buy
 
     section.section-show-synopsis
