@@ -48,7 +48,8 @@ block content
               // Fix The Btn Helpers in SCSS
               a.btn.btn__promo(href="#") Buy
             .showtimes-box__map
-              #map
+              // Possibly fix what it shows?
+              #map(data-locations=`${JSON.stringify(showtime.theaters)}`)
 
     section.section-show-synopsis
       .synopsis-box
