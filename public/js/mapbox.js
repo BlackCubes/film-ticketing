@@ -7,7 +7,8 @@ mapboxgl.accessToken =
 
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/blackcubes/ck8f2ekqy0rzk1iljn5bg3fn6'
+  style: 'mapbox://styles/blackcubes/ck8f2ekqy0rzk1iljn5bg3fn6',
+  maxZoom: 10
   // interactive: false,
   // zoom: 10,
   // scrollZoom: false
