@@ -7,7 +7,7 @@ body {
 .heading-primary {
   font-size: $font-size-primary-small;
   text-transform: uppercase;
-  letter-spacing: .3rem;
+  letter-spacing: 0.3rem;
 }
 
 .heading-secondary {
@@ -17,14 +17,23 @@ body {
 
   &--gradient-1 {
     color: transparent;
-    background-image: linear-gradient(-20deg, $color-lightseagreen, $color-light-blue-2);
+    background-image: linear-gradient(
+      -20deg,
+      $color-lightseagreen,
+      $color-light-blue-2
+    );
     -webkit-background-clip: text;
     background-clip: text;
   }
 
   &--gradient-2 {
     color: transparent;
-    background-image: linear-gradient(-270deg, $color-lightseagreen, $color-green-2, $color-light-silver);
+    background-image: linear-gradient(
+      -270deg,
+      $color-lightseagreen,
+      $color-green-2,
+      $color-light-silver
+    );
     -webkit-background-clip: text;
     background-clip: text;
   }
@@ -39,7 +48,7 @@ body {
   font-size: $default-font-size;
   font-weight: 300;
   line-height: 1.5;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 }
 
 .book-text {
@@ -54,11 +63,18 @@ body {
   font-family: inherit;
   font-size: $default-font-size;
   color: $color-white;
-  background-color: rgba($color-white, .3);
+  background-color: rgba($color-white, 0.3);
 }
 
 .label-text {
   font-size: $font-size-book;
   font-weight: 700;
   color: $color-lightseagreen;
+}
+
+// MapBox Typography
+.map-paragraph {
+  color: $color-black;
+  font-size: $default-font-size;
+  font-weight: 500;
 }
