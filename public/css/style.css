@@ -341,6 +341,10 @@ body {
     -ms-flex-basis: 30%;
     flex-basis: 30%; }
 
+.map-container {
+  position: relative;
+  height: 60rem; }
+
 .footer {
   font-family: inherit;
   color: #fff;
