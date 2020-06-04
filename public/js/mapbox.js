@@ -9,7 +9,7 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/blackcubes/ck8f2ekqy0rzk1iljn5bg3fn6',
   minZoom: 10,
-  maxZoom: 15
+  maxZoom: 19
   // interactive: false,
   // zoom: 10,
   // scrollZoom: false
