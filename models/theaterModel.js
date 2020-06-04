@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const theaterSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'A theater must have a name']
+      required: [true, 'A theater must have a name'],
+      unique: true
     },
+    slug: String,
     address: {
       type: String,
       required: [true, 'A theater must have an address!']
@@ -64,6 +67,12 @@ theaterSchema.virtual('showtimes', {
   ref: 'Showtimes',
   foreignField: 'theaters',
   localField: '_id'
+});
+
+// DOCUMENT MIDDLEWARE
+theaterSchema.pre('save', function(next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
 });
 
 const Theater = mongoose.model('Theater', theaterSchema);
