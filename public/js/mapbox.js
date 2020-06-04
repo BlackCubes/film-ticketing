@@ -33,7 +33,7 @@ locations.forEach(loc => {
     closeOnClick: false
   })
     .setLngLat(loc.geo.coordinates)
-    .setHTML(`<p>${loc.name}</p>`)
+    .setHTML(`<p class="map-paragraph">${loc.name}</p>`)
     .addTo(map);
 
   // Extend map bounds to include current location
