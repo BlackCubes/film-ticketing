@@ -45,6 +45,8 @@ block content
         .showtimes-box__theatertime-container.u-center-text
           each showtime in theater.showtimes
             .showtimes-box__theatertime
+              .showtimes-box__poster
+                img.showtimes-box__poster-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
               .showtimes-box__theatertime-theater.u-margin-bottom-small
                 // FIX BEM
                 h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.shows[0].title
