@@ -1,5 +1,10 @@
 extends base
 
+block append head
+  script(src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet')
+  //- script(src='/js/mapbox.js')
+
 block content
   main.main
     section.section-theater-header
@@ -31,7 +36,7 @@ block content
         .location-box__map.map-container
           // Possibly fix what it shows?
           - const theaterArrObj = [{ geo: theater.geo, name: theater.name }]
-          #map-test(data-locations=`${JSON.stringify(theaterArrObj)}`)
+          #map(data-locations=`${JSON.stringify(theaterArrObj)}`)
 
     section.section-theater-showtimes(id='showtimes')
       .showtimes-box
