@@ -806,7 +806,8 @@ body {
     height: 40rem; }
 
 .section-theater-location,
-.section-theater-showtmes {
+.section-theater-showtmes,
+.section-theater-about {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
