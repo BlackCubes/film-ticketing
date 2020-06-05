@@ -9,3 +9,17 @@ block content
           img.heading-box__background-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
         .heading-box__poster
           img.heading-box__poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
+        .heading-box__data-container
+          .heading-box__title
+            h2.heading-secondary= theater.name
+          .heading-box__metadata-container
+            ul.heading-box__metadata
+              li.heading-box__metadata-item.paragraph= `${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
+              li.heading-box__metadata-item.paragraph= `${theater.phone}`
+        .heading-box__info-container
+          .heading-box__overview
+            - var showtimeAns = (theater.hasShowTimes === true) ? 'Yes' : 'No'
+            - var ticketAns = (theater.isTicketing === true) ? 'Yes' : 'No'
+            p.paragraph= `A ${theater.chainName} chain. Has showtimes: ${showtimeAns}. Has tickets: ${ticketAns}.`
+          .heading-box__buy
+            a.btn.btn__promo(href="#showtimes") See showtimes
