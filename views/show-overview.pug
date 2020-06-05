@@ -45,6 +45,9 @@ block content
               .showtimes-box__theatertime-theater.u-margin-bottom-small
                 // FIX BEM
                 h3.showtimes-box__theatertime-theater-name.heading-tertiary= `${showtime.theaters[0].name}`
+              .showtimes-box__metadata-container
+                ul.showtimes-box__metadata
+                  li.showtimes-box__metadata-item.paragraph= `${showtime.theaters[0].address}, ${showtime.theaters[0].city}, ${showtime.theaters[0].state} ${showtime.theaters[0].zipCode}`
               .showtimes-box__theatertime-date
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
               .showtimes-box__theatertime-time
