@@ -826,3 +826,7 @@ body {
 .heading-box__theater-info-container {
   position: absolute;
   bottom: 1rem; }
+
+.showtimes-box__theatertime-poster-img {
+  width: 40%;
+  height: 40%; }
