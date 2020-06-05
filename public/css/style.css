@@ -744,13 +744,15 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
-.section-show-header,
-.section-show-showtimes,
 .section-show-synopsis,
 .section-show-castcrew {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+
+.section-show-header,
+.section-show-showtimes {
+  width: 100%; }
 
 .heading-box {
   position: relative;
