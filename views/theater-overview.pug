@@ -42,13 +42,13 @@ block content
                 // FIX BEM
                 h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.shows[0].title
               .showtimes-box__metadata-container
-                ul.heading-box__metadata
-                  li.heading-box__metadata-item.paragraph= showtime.shows[0].mpaaRating
+                ul.showtimes-box__metadata
+                  li.showtimes-box__metadata-item.paragraph= showtime.shows[0].mpaaRating
 
                   -const hours = Math.floor(showtime.shows[0].durationHours)
                   -const minutes = showtime.shows[0].duration - hours*60
 
-                  li.heading-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+                  li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
               .showtimes-box__theatertime-date
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
               .showtimes-box__theatertime-time
