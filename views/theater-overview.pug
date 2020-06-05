@@ -37,7 +37,7 @@ block content
           each showtime in theater.showtimes
             .showtimes-box__theatertime
               .showtimes-box__theatertime-poster
-                a.showtimes-box__theatertime-poster-link(href=`/show-overview/${showtime.shows[0].slug}`)
+                a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${showtime.shows[0].slug}`)
                   img.showtimes-box__theatertime-poster-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
               .showtimes-box__theatertime-theater.u-margin-bottom-small
                 // FIX BEM
