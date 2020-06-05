@@ -1,5 +1,6 @@
 const catchAsync = require('./../utils/catchAsync');
 const Show = require('./../models/showModel');
+const Theater = require('./../models/theaterModel');
 
 exports.getHome = catchAsync(async (req, res, next) => {
   res.status(200).render('home', {
@@ -30,5 +31,17 @@ exports.getShow = catchAsync(async (req, res, next) => {
   res.status(200).render('show-overview', {
     title: show.title,
     show
+  });
+});
+
+exports.getTheater = catchAsync(async (req, res, next) => {
+  const theater = await Theater.findOne({ slug: req.params.slug }).populate({
+    path: 'showtimes',
+    fields: 'shows startDateTime endDateTime' // Fix security issues
+  });
+
+  res.status(200).render('theater-overview', {
+    title: theater.name,
+    theater
   });
 });
