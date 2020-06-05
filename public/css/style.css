@@ -799,3 +799,21 @@ body {
 
 .showtimes-box__theatertime-theater-name {
   letter-spacing: 0.5rem; }
+
+.section-theater-header {
+  width: 100%; }
+
+.heading-box__logo {
+  position: absolute;
+  top: 4rem;
+  left: 1rem; }
+
+.heading-box__theater-data-container {
+  position: absolute;
+  width: 55%;
+  top: 4rem;
+  right: 1rem; }
+
+.heading-box__theater-info-container {
+  position: absolute;
+  bottom: 1rem; }

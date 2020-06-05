@@ -1,0 +1,23 @@
+.section-theater-header {
+  width: 100%;
+}
+
+.heading-box {
+  &__logo {
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+  }
+
+  &__theater-data-container {
+    position: absolute;
+    width: 55%;
+    top: 4rem;
+    right: 1rem;
+  }
+
+  &__theater-info-container {
+    position: absolute;
+    bottom: 1rem;
+  }
+}
