@@ -39,6 +39,9 @@ block content
         .showtimes-box__theatertime-container.u-center-text
           each showtime in show.showtimes
             .showtimes-box__theatertime
+              .showtimes-box__theatertime-poster
+                a.showtimes-box__theatertime-poster-link.picture-link(href=`/theater-overview/${showtime.theaters[0].slug}`)
+                  img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
               .showtimes-box__theatertime-theater.u-margin-bottom-small
                 // FIX BEM
                 h3.showtimes-box__theatertime-theater-name.heading-tertiary= `${showtime.theaters[0].name}`
