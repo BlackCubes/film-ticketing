@@ -44,4 +44,23 @@
       }
     }
   }
+
+  &__metadata-container {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  &__metadata {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    &-item {
+      display: inline;
+    }
+
+    &-item:not(:last-child)::after {
+      content: ' - ';
+    }
+  }
 }

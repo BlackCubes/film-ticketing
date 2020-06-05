@@ -830,3 +830,16 @@ body {
 .showtimes-box__theatertime-poster-img {
   width: 40%;
   height: 40%; }
+
+.showtimes-box__metadata-container {
+  text-align: center;
+  padding: 1rem; }
+
+.showtimes-box__metadata {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  .showtimes-box__metadata-item {
+    display: inline; }
+  .showtimes-box__metadata-item:not(:last-child)::after {
+    content: ' - '; }
