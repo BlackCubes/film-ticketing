@@ -802,6 +802,8 @@ body {
 
 .section-theater-header {
   width: 100%; }
+  .section-theater-header .heading-box {
+    height: 40rem; }
 
 .heading-box__logo {
   position: absolute;
