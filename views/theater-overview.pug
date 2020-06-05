@@ -46,7 +46,7 @@ block content
                   li.heading-box__metadata-item.paragraph= showtime.shows[0].mpaaRating
 
                   -const hours = Math.floor(showtime.shows[0].durationHours)
-                  -const minutes = showtime.shows[0].duratoin - hours*60
+                  -const minutes = showtime.shows[0].duration - hours*60
 
                   li.heading-box__metadata-item.paragraph= `${hours}h ${minutes}m`
               .showtimes-box__theatertime-date
