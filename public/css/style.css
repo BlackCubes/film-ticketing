@@ -832,8 +832,7 @@ body {
   height: 40%; }
 
 .showtimes-box__metadata-container {
-  text-align: center;
-  padding: 1rem; }
+  text-align: center; }
 
 .showtimes-box__metadata {
   list-style-type: none;
