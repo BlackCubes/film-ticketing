@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const castcrewSchema = new mongoose.Schema(
   {
@@ -7,6 +8,7 @@ const castcrewSchema = new mongoose.Schema(
       required: [true, 'A cast/crew must have a name!'],
       unique: true
     },
+    slug: String,
     birthdate: {
       type: Date,
       required: [true, 'A cast/crew must have a birthdate!']
@@ -35,6 +37,12 @@ const castcrewSchema = new mongoose.Schema(
     toObject: { virtuals: true }
   }
 );
+
+// DOCUMENT MIDDLEWARE
+castcrewSchema.pre('save', function(next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
+});
 
 const CastCrew = mongoose.model('CastCrew', castcrewSchema);
 
