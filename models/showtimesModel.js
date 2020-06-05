@@ -48,8 +48,8 @@ showtimesSchema.pre(/^find/, function(next) {
 showtimesSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'theaters',
-    select:
-      '-address -city -state -zipCode -phone -description -chainName -chainCode -chainLogo -linkUrl -__v -id'
+    select: '-description -chainName -chainCode -chainLogo -linkUrl -__v -id'
+    /*-address -city -state -zipCode -phone */
   });
 
   next();
