@@ -24,6 +24,15 @@ block content
           .heading-box__buy
             a.btn.btn__promo(href="#showtimes") See showtimes
 
+    section.section-theater-location
+      .location-box
+        .location-box__title.u-margin-top-small.u-margin-bottom-small
+          h2.heading-secondary Location
+        .location-box__map.map-container
+          // Possibly fix what it shows?
+          - const theaterArrObj = [{ geo: theater.geo, name: theater.name }]
+          #map-test(data-locations=`${JSON.stringify(theaterArrObj)}`)
+
     section.section-theater-showtimes(id='showtimes')
       .showtimes-box
         .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
