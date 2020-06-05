@@ -7,16 +7,16 @@ block content
         .heading-box__background
           .heading-box__background-overlay &nbsp;
           img.heading-box__background-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
-        .heading-box__poster
+        .heading-box__logo
           img.heading-box__poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
-        .heading-box__data-container
+        .heading-box__theater-data-container
           .heading-box__title
             h2.heading-secondary= theater.name
           .heading-box__metadata-container
             ul.heading-box__metadata
               li.heading-box__metadata-item.paragraph= `${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
               li.heading-box__metadata-item.paragraph= `${theater.phone}`
-        .heading-box__info-container
+        .heading-box__theater-info-container
           .heading-box__overview
             - var showtimeAns = (theater.hasShowTimes === true) ? 'Yes' : 'No'
             - var ticketAns = (theater.isTicketing === true) ? 'Yes' : 'No'
