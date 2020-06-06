@@ -602,12 +602,12 @@ body {
   top: 4rem;
   left: 1rem; }
   .heading-box__photo-img {
-    width: 40%;
-    height: 40%; }
+    width: 50%;
+    height: 50%; }
 
 .heading-box__castcrew-data-container {
   position: absolute;
-  width: 55%;
+  width: 45%;
   top: 4rem;
   right: 1rem; }
 
