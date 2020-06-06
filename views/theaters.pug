@@ -6,11 +6,11 @@ block content
     
       each theater in theaters
         .card
-          .card__poster
-            //- .card__poster-overlay &nbsp;
+          .card__logo
+            //- .card__logo-overlay &nbsp;
             //- Add new link helper class for cards
-            a.card__poster-link(href=`/show-overview/${theater.slug}`)
-              img.card__poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
+            a.card__logo-link(href=`/show-overview/${theater.slug}`)
+              img.card__logo-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
           .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
             h2.card__header.heading-secondary= theater.name
           .card__has-tickets.u-center-text
