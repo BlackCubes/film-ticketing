@@ -13,6 +13,12 @@
     position: relative;
     overflow: hidden;
 
+    // Add new link helper class for cards
+    &-link {
+      display: inline-block;
+      height: 68rem;
+    }
+
     &-img {
       display: block;
       height: 68rem;
