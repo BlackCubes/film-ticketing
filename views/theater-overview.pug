@@ -72,4 +72,6 @@ block content
         .about-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary About
         .about-box__description
-          p.paragraph= theater.description
+          - const biography = theater.description.split('\n');
+          each bio in biography
+            p.paragraph.u-margin-bottom-small= bio
