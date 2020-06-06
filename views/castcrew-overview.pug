@@ -16,7 +16,8 @@ block content
             ul.heading-box__metadata
               each role in castcrew.roles
                 li.heading-box__metadata-item.paragraph= role
-        .heading-box__castcrew-info-container
+        //- Fix the BTN button helper scss class for centering
+        .heading-box__castcrew-info-container.u-center-text
           .heading-box__overview
             p.paragraph= `Born on ${castcrew.birthdate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
           .heading-box__buy
