@@ -15,4 +15,7 @@ router.get('/show-overview/:slug', viewsController.getShow);
 // THEATER ROUTES
 router.get('/theater-overview/:slug', viewsController.getTheater);
 
+// CASTCREW ROUTES
+router.get('/castcrew-overview/:slug', viewsController.getCastCrew);
+
 module.exports = router;
