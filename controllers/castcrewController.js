@@ -4,7 +4,7 @@ const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 
 exports.getAllCastCrew = factory.getAll(CastCrew);
-exports.getCastCrew = factory.getOne(CastCrew);
+exports.getCastCrew = factory.getOne(CastCrew, 'shows');
 exports.createCastCrew = factory.createOne(CastCrew);
 exports.updateCastCrew = factory.updateOne(CastCrew);
 exports.deleteCastCrew = factory.deleteOne(CastCrew);
