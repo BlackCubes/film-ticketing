@@ -38,4 +38,25 @@ block content
         .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Resume
         .showtimes-box__theatertime-container.u-center-text
-          .test(data-locations=`${JSON.stringify(castcrew.shows)}`)
+          //- each show in castcrew.shows
+          .showtimes-box__theatertime
+            .showtimes-box__theatertime-poster
+              a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${castcrew.shows[0].slug}`)
+                img.showtimes-box__theatertime-poster-img(src=`/img/shows/${castcrew.shows[0].poster.urlLarge}`, alt=`${castcrew.shows[0].title}`)
+            .showtimes-box__theatertime-theater.u-margin-bottom-small
+              // FIX BEM
+              h3.showtimes-box__theatertime-theater-name.heading-tertiary= castcrew.shows[0].title
+            .showtimes-box__metadata-container
+              ul.showtimes-box__metadata
+                li.showtimes-box__metadata-item.paragraph= castcrew.shows[0].mpaaRating
+
+                - const hours = Math.floor(castcrew.shows[0].durationsHours)
+                - const minutes = castcrew.shows[0].duration - hours*60
+
+                li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+                li.showtimes-box__metadata-item.paragraph= `${castcrew.shows[0].ratingsAverage} avg. rating`
+            .showtimes-box__theatertime-date
+              p.paragraph= `Released on ${castcrew.shows[0].originalReleaseDate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+          .showtimes-box__ticket-buy
+            // Fix the Btn Helpers in SCSS, and change class names
+            a.btn.btn__promo(href=`/show-overview/${castcrew.shows[0].slug}`)
