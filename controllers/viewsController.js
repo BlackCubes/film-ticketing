@@ -51,7 +51,11 @@ exports.getTheater = catchAsync(async (req, res, next) => {
 
 // CASTCREW CONTROLLER
 exports.getCastCrew = catchAsync(async (req, res, next) => {
-  const castcrew = await CastCrew.findOne({ slug: req.params.slug });
+  const castcrew = await CastCrew.findOne({ slug: req.params.slug }).populate({
+    path: 'shows',
+    select:
+      '-castcrew -ratingsQuantity -genres -imgPromo -specialVenue -secretShow -eventOrganizer -overview -synopsis -language -subtitles -price -__v'
+  });
 
   res.status(200).render('castcrew-overview', {
     title: castcrew.name,
