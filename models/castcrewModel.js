@@ -47,7 +47,7 @@ castcrewSchema.pre('save', function(next) {
 // VIRTUAL
 // -- populate shows
 castcrewSchema.virtual('shows', {
-  ref: 'Shows',
+  ref: 'Show',
   foreignField: 'castcrew',
   localField: '_id'
 });
