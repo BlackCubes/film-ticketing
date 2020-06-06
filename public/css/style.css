@@ -599,6 +599,9 @@ body {
 
 .section-castcrew-header {
   width: 100%; }
+  .section-castcrew-header .heading-box__background-img {
+    -o-object-position: 35% 16%;
+    o-object-position: 35% 16%; }
 
 .heading-box__photo {
   position: absolute;
