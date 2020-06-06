@@ -601,6 +601,9 @@ body {
   position: absolute;
   top: 4rem;
   left: 1rem; }
+  .heading-box__photo-img {
+    width: 40%;
+    height: 40%; }
 
 .heading-box__castcrew-data-container {
   position: absolute;
