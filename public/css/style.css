@@ -110,6 +110,9 @@ body {
 .u-center-text {
   text-align: center; }
 
+.u-uppercase-text {
+  text-transform: capitalize; }
+
 .u-margin-top-small {
   margin-top: 1.5rem; }
 
