@@ -1,3 +1,23 @@
 .section-castcrew-header {
   width: 100%;
 }
+
+.heading-box {
+  &__photo {
+    position: absolute;
+    top: 4rem;
+    left: 1rem;
+  }
+
+  &__castcrew-data-container {
+    position: absolute;
+    width: 55%;
+    top: 4rem;
+    right: 1rem;
+  }
+
+  &__castcrew-info-container {
+    position: absolute;
+    bottom: 1rem;
+  }
+}
