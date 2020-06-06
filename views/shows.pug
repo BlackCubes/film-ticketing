@@ -9,7 +9,7 @@ block content
           .card__poster
             //- .card__poster-overlay &nbsp;
             //- Add new link helper class for cards
-            a.card__poster-link
+            a.card__poster-link(href=`/show-overview/${show.slug}`)
               img.card__poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
           .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
             h2.card__header.heading-secondary= show.title
