@@ -53,8 +53,10 @@ exports.getTheater = catchAsync(async (req, res, next) => {
 exports.getCastCrew = catchAsync(async (req, res, next) => {
   const castcrew = await CastCrew.findOne({ slug: req.params.slug }).populate({
     path: 'shows',
-    select:
-      '-castcrew -ratingsQuantity -genres -imgPromo -specialVenue -secretShow -eventOrganizer -overview -synopsis -language -subtitles -price -__v'
+    fields:
+      'poster originalReleaseDate ratingsAverage genres title duration mpaaRating contentType slug durationHours'
+    // select:
+    //   '-castcrew -ratingsQuantity -genres -imgPromo -specialVenue -secretShow -eventOrganizer -overview -synopsis -language -subtitles -price -__v'
   });
 
   res.status(200).render('castcrew-overview', {
