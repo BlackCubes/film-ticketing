@@ -594,6 +594,9 @@ body {
     transform: translateY(-50%) scaleY(5);
     transition: 0.2s; }
 
+.section-castcrew-header {
+  width: 100%; }
+
 .section-forgotpass {
   width: 95%;
   margin-left: auto;
