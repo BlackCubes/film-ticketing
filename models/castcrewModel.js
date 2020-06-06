@@ -44,6 +44,14 @@ castcrewSchema.pre('save', function(next) {
   next();
 });
 
+// VIRTUAL
+// -- populate shows
+castcrewSchema.virtual('shows', {
+  ref: 'Shows',
+  foreignField: 'castcrew',
+  localfield: '_id'
+});
+
 const CastCrew = mongoose.model('CastCrew', castcrewSchema);
 
 module.exports = CastCrew;
