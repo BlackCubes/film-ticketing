@@ -2,4 +2,28 @@ extends base
 
 block content
   main.main
-    h2= theaters[0].name
+    .card-container
+    
+      each theater in theaters
+        .card
+          .card__poster
+            //- .card__poster-overlay &nbsp;
+            //- Add new link helper class for cards
+            a.card__poster-link(href=`/show-overview/${theater.slug}`)
+              img.card__poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
+          .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
+            h2.card__header.heading-secondary= theater.name
+          .card__has-tickets.u-center-text
+
+            - var ticketAns = (theater.isTicketing === true) ? 'This theater IS selling tickets' : 'This theater DOES NOT have tickets'
+
+            h3.card__has-tickets-answer.heading-tertiary= ticketAns
+          .card__has-shows.u-center-text
+
+            - var showtimeAns = (theater.hasShowTimes === true) ? 'There ARE shows' : 'NO shows'
+
+            h3.card__has-shows-answer.heading-tertiary= showtimeAns
+          .card__details
+            p.card__details-overview.paragraph= `${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
+          .card__footer
+            a.btn.btn__promo(href=`/theater-overview/${theater.slug}`) More Info
