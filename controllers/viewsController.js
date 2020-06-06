@@ -1,4 +1,5 @@
 const catchAsync = require('./../utils/catchAsync');
+const CastCrew = require('./../models/castcrewModel');
 const Show = require('./../models/showModel');
 const Theater = require('./../models/theaterModel');
 
@@ -8,6 +9,7 @@ exports.getHome = catchAsync(async (req, res, next) => {
   });
 });
 
+// SHOW CONTROLLER
 exports.getShows = catchAsync(async (req, res, next) => {
   const shows = await Show.find();
 
@@ -34,6 +36,7 @@ exports.getShow = catchAsync(async (req, res, next) => {
   });
 });
 
+// THEATER CONTROLLER
 exports.getTheater = catchAsync(async (req, res, next) => {
   const theater = await Theater.findOne({ slug: req.params.slug }).populate({
     path: 'showtimes',
@@ -43,5 +46,15 @@ exports.getTheater = catchAsync(async (req, res, next) => {
   res.status(200).render('theater-overview', {
     title: theater.name,
     theater
+  });
+});
+
+// CASTCREW CONTROLLER
+exports.getCastCrew = catchAsync(async (req, res, next) => {
+  const castcrew = await CastCrew.findOne({ slug: req.params.slug });
+
+  res.status(200).render('castcrew-overview', {
+    title: castcrew.name,
+    castcrew
   });
 });
