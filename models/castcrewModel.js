@@ -49,7 +49,7 @@ castcrewSchema.pre('save', function(next) {
 castcrewSchema.virtual('shows', {
   ref: 'Shows',
   foreignField: 'castcrew',
-  localfield: '_id'
+  localField: '_id'
 });
 
 const CastCrew = mongoose.model('CastCrew', castcrewSchema);
