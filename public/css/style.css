@@ -140,7 +140,7 @@ body {
     position: relative;
     overflow: hidden; }
     .card__poster-link {
-      display: inline-block;
+      display: block;
       height: 68rem; }
     .card__poster-img {
       display: block;
