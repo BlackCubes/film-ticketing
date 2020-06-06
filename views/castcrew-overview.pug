@@ -50,7 +50,7 @@ block content
               ul.showtimes-box__metadata
                 li.showtimes-box__metadata-item.paragraph= castcrew.shows[0].mpaaRating
 
-                - const hours = Math.floor(castcrew.shows[0].durationsHours)
+                - const hours = Math.floor(castcrew.shows[0].durationHours)
                 - const minutes = castcrew.shows[0].duration - hours*60
 
                 li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
