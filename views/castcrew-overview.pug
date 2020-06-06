@@ -2,4 +2,22 @@ extends base
 
 block content
   main.main
-    h2= castcrew.name
+    section.section-castcrew-header
+      .heading-box
+        .heading-box__background
+          .heading-box__background-overlay &nbsp;
+          img.heading-box__background-img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name}`)
+        .heading-box__poster
+          img.heading-box__poster-img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name}`)
+        .heading-box__data-container
+          .heading-box__title
+            h2.heading-secondary= castcrew.name
+          .heading-box__metadata-container
+            ul.heading-box__metadata
+              each role in castcrew.roles
+                li.heading-box__metadata-item.paragraph= role
+        .heading-box__info-container
+          .heading-box__overview
+            p.paragraph= `Born on ${castcrew.birthdate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+          .heading-box__buy
+            a.btn.btn__promo(href='#resume') See Resume
