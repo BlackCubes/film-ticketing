@@ -55,13 +55,16 @@
   }
 
   &__mpaa,
-  &__runtime {
+  &__runtime,
+  &__has-tickets {
     margin-bottom: 0.3rem;
   }
 
   &__mpaa,
   &__runtime,
-  &__ratings {
+  &__ratings,
+  &__has-tickets,
+  &__has-shows {
     letter-spacing: 0.2rem;
   }
 

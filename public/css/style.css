@@ -166,9 +166,9 @@ body {
       left: -50%; }
   .card__header {
     color: #87cefa; }
-  .card__mpaa, .card__runtime {
+  .card__mpaa, .card__runtime, .card__has-tickets {
     margin-bottom: 0.3rem; }
-  .card__mpaa, .card__runtime, .card__ratings {
+  .card__mpaa, .card__runtime, .card__ratings, .card__has-tickets, .card__has-shows {
     letter-spacing: 0.2rem; }
   .card__details {
     padding: 1.4rem; }
