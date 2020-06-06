@@ -51,13 +51,15 @@ exports.getTheater = catchAsync(async (req, res, next) => {
 
 // CASTCREW CONTROLLER
 exports.getCastCrew = catchAsync(async (req, res, next) => {
-  const castcrew = await CastCrew.findOne({ slug: req.params.slug }).populate({
-    path: 'shows',
-    fields:
-      'poster originalReleaseDate ratingsAverage genres title duration mpaaRating contentType slug durationHours'
-    // select:
-    //   '-castcrew -ratingsQuantity -genres -imgPromo -specialVenue -secretShow -eventOrganizer -overview -synopsis -language -subtitles -price -__v'
-  });
+  const castcrew = await CastCrew.findOne({
+    slug: req.params.slug
+  }).populate('shows', { poster: 1 }); //.populate({
+  //path: 'shows',
+  //fields:
+  // 'poster originalReleaseDate ratingsAverage genres title duration mpaaRating contentType slug durationHours'
+  // select:
+  //   '-castcrew -ratingsQuantity -genres -imgPromo -specialVenue -secretShow -eventOrganizer -overview -synopsis -language -subtitles -price -__v'
+  //});
 
   res.status(200).render('castcrew-overview', {
     title: castcrew.name,
