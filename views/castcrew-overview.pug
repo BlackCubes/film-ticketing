@@ -22,3 +22,10 @@ block content
             p.paragraph= `Born on ${castcrew.birthdate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
           .heading-box__buy
             a.btn.btn__promo(href='#resume') See Resume
+
+    section.section-castcrew-about
+      .about-box
+        .about-box__title.u-margin-top-small.u-margin-bottom-small
+          h2.heading-secondary Biography
+        .about-box__description
+          p.paragraph= castcrew.biography
