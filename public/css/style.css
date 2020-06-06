@@ -603,6 +603,11 @@ body {
     -o-object-position: 35% 16%;
     object-position: 35% 16%; }
 
+.section-castcrew-about {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
+
 .heading-box__photo {
   position: absolute;
   top: 4rem;
