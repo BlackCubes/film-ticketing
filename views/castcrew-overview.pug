@@ -54,9 +54,14 @@ block content
                 - const minutes = castcrew.shows[0].duration - hours*60
 
                 li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
-                li.showtimes-box__metadata-item.paragraph= `${castcrew.shows[0].ratingsAverage} avg. rating`
+
+                - const genreList = castcrew.shows[0].genres.join(', ')
+
+                li.showtimes-box__metadata-item.paragraph= genreList
+            .showtimes-box__theatertime-time
+              p.paragraph.u-uppercase-text= `${castcrew.shows[0].ratingsAverage} avg. rating`
             .showtimes-box__theatertime-date
               p.paragraph= `Released on ${castcrew.shows[0].originalReleaseDate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
           .showtimes-box__ticket-buy
             // Fix the Btn Helpers in SCSS, and change class names
-            a.btn.btn__promo(href=`/show-overview/${castcrew.shows[0].slug}`)
+            a.btn.btn__promo(href=`/show-overview/${castcrew.shows[0].slug}`) View
