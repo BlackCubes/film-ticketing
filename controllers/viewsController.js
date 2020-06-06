@@ -14,7 +14,7 @@ exports.getShows = catchAsync(async (req, res, next) => {
   const shows = await Show.find();
 
   res.status(200).render('shows', {
-    title: 'Multiple shows',
+    title: 'Shows',
     shows
   });
 });
@@ -37,6 +37,15 @@ exports.getShow = catchAsync(async (req, res, next) => {
 });
 
 // THEATER CONTROLLER
+exports.getTheaters = catchAsync(async (req, res, next) => {
+  const theaters = await Theater.find();
+
+  res.status(200).render('theaters', {
+    title: 'Theaters',
+    theaters
+  });
+});
+
 exports.getTheater = catchAsync(async (req, res, next) => {
   const theater = await Theater.findOne({ slug: req.params.slug }).populate({
     path: 'showtimes',
