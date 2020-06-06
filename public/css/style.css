@@ -138,20 +138,30 @@ body {
   background-image: linear-gradient(180deg, #20b2aa, #0067aa);
   margin-top: 2rem;
   margin-bottom: 2rem; }
-  .card__poster {
+  .card__poster-link {
+    display: block;
+    height: 68rem; }
+  .card__poster-img {
+    display: block;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 0.1rem solid transparent; }
+  .card__logo-link {
+    display: block;
+    height: 34rem; }
+  .card__logo-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 0.1rem solid transparent; }
+  .card__poster, .card__logo {
     width: 100%;
     position: relative;
     overflow: hidden; }
-    .card__poster-link {
-      display: block;
-      height: 68rem; }
-    .card__poster-img {
-      display: block;
-      height: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      border-bottom: 0.1rem solid transparent; }
-    .card__poster:before, .card__poster:after {
+    .card__poster:before, .card__poster:after, .card__logo:before, .card__logo:after {
       content: '';
       position: absolute;
       bottom: -1px;
@@ -162,7 +172,7 @@ body {
       border-bottom: 1.7rem solid #0067aa;
       z-index: 100;
       width: 100%; }
-    .card__poster:after {
+    .card__poster:after, .card__logo:after {
       left: -50%; }
   .card__header {
     color: #87cefa; }
