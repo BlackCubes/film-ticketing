@@ -20,4 +20,7 @@ router.get('/theater-overview/:slug', viewsController.getTheater);
 // CASTCREW ROUTES
 router.get('/castcrew-overview/:slug', viewsController.getCastCrew);
 
+// USER ROUTES
+router.get('/login', viewsController.getLoginForm);
+
 module.exports = router;
