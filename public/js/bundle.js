@@ -8453,9 +8453,10 @@ var login = /*#__PURE__*/function () {
             res = _context.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Welcome back!'); // window.setTimeout(() => {
-              //   location.assign('/');
-              // }, 1500);
+              (0, _alerts.showAlert)('success', 'Welcome back!');
+              window.setTimeout(function () {
+                location.assign('/');
+              }, 1500);
             }
 
             _context.next = 10;
