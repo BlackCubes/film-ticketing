@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/BlackCubes/Film-Ticket-Website#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.8.3",
+    "@babel/polyfill": "^7.10.1",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
