@@ -1,4 +1,5 @@
 const express = require('express');
+const authController = require('./../controllers/authController');
 const viewsController = require('./../controllers/viewsController');
 
 const router = express.Router();
@@ -6,6 +7,8 @@ const router = express.Router();
 // router.get('/', (req, res) => {
 //   res.status(200).render('base');
 // });
+
+router.use(authController.isLoggedIn);
 
 router.get('/', viewsController.getHome);
 
