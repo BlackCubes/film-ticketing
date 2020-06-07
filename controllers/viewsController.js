@@ -2,6 +2,7 @@ const catchAsync = require('./../utils/catchAsync');
 const CastCrew = require('./../models/castcrewModel');
 const Show = require('./../models/showModel');
 const Theater = require('./../models/theaterModel');
+const User = require('./../models/userModel');
 
 exports.getHome = catchAsync(async (req, res, next) => {
   res.status(200).render('home', {
@@ -73,3 +74,10 @@ exports.getCastCrew = catchAsync(async (req, res, next) => {
     castcrew
   });
 });
+
+// USER CONTROLLER
+exports.getLoginForm = (req, res) => {
+  res.status(200).render('login', {
+    title: 'My Login'
+  });
+};
