@@ -8407,9 +8407,10 @@ var hideAlert = function hideAlert() {
 exports.hideAlert = hideAlert;
 
 var showAlert = function showAlert(type, msg) {
-  //hideAlert();
+  hideAlert();
   var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
-  document.querySelector('body').insertAdjacentHTML('afterbegin', markup); //window.setTimeout(hideAlert, 5000);
+  document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
+  window.setTimeout(hideAlert, 5000);
 };
 
 exports.showAlert = showAlert;
