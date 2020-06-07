@@ -1,8 +1,9 @@
 .container {
-  background-color: $color-bg-dark-green-blue-1;
-  background-image: linear-gradient(to bottom,
-  $color-bg-dark-green-blue-1,
-  $color-bg-dark-green-blue-2);
+  background-color: $color-black;
+  // background-color: $color-bg-dark-green-blue-1;
+  // background-image: linear-gradient(to bottom,
+  // $color-bg-dark-green-blue-1,
+  // $color-bg-dark-green-blue-2);
 }
 
 .nav {
@@ -23,7 +24,7 @@
   left: 0;
   right: 0;
   background-color: $color-lightseagreen;
-  border-top: .1rem solid $color-white;
+  border-top: 0.1rem solid $color-white;
 }
 
 .nav__region-menu {
@@ -43,11 +44,14 @@
   padding: 1rem;
 }
 
-#toggle { display: none; }
+#toggle {
+  display: none;
+}
 
 #toggle:checked {
   & ~ .nav__toggle-container .nav__toggle-button {
-    box-shadow: 0 0 0 55rem rgba($color-black, .1), inset 0 0 0 2rem rgba($color-black, .1);
+    box-shadow: 0 0 0 55rem rgba($color-black, 0.1),
+      inset 0 0 0 2rem rgba($color-black, 0.1);
 
     &:before {
       transform: translateY(-50%) rotate(45deg) scale(1);
@@ -71,7 +75,7 @@
       margin-top: 0;
       opacity: 1;
       transform: scaleY(1);
-      transition: $transition-duration, opacity .1s;
+      transition: $transition-duration, opacity 0.1s;
 
       @for $i from 1 through $items {
         &:nth-child(#{$i}) {
@@ -100,21 +104,23 @@
   border: none;
   cursor: pointer;
   border-radius: 100%;
-  transition: $transition-duration + .1;
+  transition: $transition-duration + 0.1;
 
   &:hover {
-    box-shadow: 0 0 0 .8rem rgba($color-black, .1), inset 0 0 0 2rem rgba($color-black, .1);
+    box-shadow: 0 0 0 0.8rem rgba($color-black, 0.1),
+      inset 0 0 0 2rem rgba($color-black, 0.1);
   }
 
-  &:before, &:after {
+  &:before,
+  &:after {
     position: absolute;
-    content: "";
+    content: '';
     top: 50%;
     left: 0;
     width: 60%;
     height: 2px;
     background-color: $color-white;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     transition: $transition-duration;
   }
 
@@ -145,12 +151,12 @@
   clear: both;
   color: transparent;
   font-size: 1.4rem;
-  letter-spacing: -.62rem;
-  height: .7rem;
-  line-height: .6rem;
+  letter-spacing: -0.62rem;
+  height: 0.7rem;
+  line-height: 0.6rem;
   text-transform: uppercase;
   white-space: nowrap;
-  transform: scaleY(.2);
+  transform: scaleY(0.2);
   transition: $transition-duration, opacity 1s;
 
   @for $i from 1 through $items {
@@ -164,28 +170,28 @@
   }
 
   &:nth-child(1) {
-    letter-spacing: -.8rem;
+    letter-spacing: -0.8rem;
   }
 
   &:nth-child(2) {
-    letter-spacing: -.7rem;
+    letter-spacing: -0.7rem;
   }
 
   &:nth-child(n + 4) {
-    letter-spacing: -.8rem;
-    margin-top: -.7rem;
+    letter-spacing: -0.8rem;
+    margin-top: -0.7rem;
     opacity: 0;
   }
 
   &:before {
     position: absolute;
-    content: "";
+    content: '';
     top: 50%;
     left: 0;
     width: 110%;
     height: 2px;
     background-color: $color-white;
     transform: translateY(-50%) scaleY(5);
-    transition: $transition-duration - .3;
+    transition: $transition-duration - 0.3;
   }
 }

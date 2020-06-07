@@ -459,8 +459,7 @@ body {
     width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
 .container {
-  background-color: #003733;
-  background-image: linear-gradient(to bottom, #003733, #001b19); }
+  background-color: #000; }
 
 .nav {
   overflow: hidden; }
@@ -554,13 +553,13 @@ body {
     box-shadow: 0 0 0 0.8rem rgba(0, 0, 0, 0.1), inset 0 0 0 2rem rgba(0, 0, 0, 0.1); }
   .nav__toggle-button:before, .nav__toggle-button:after {
     position: absolute;
-    content: "";
+    content: '';
     top: 50%;
     left: 0;
     width: 60%;
     height: 2px;
     background-color: #fff;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     transition: 0.5s; }
   .nav__toggle-button:before {
     transform: translateY(-50%) rotate(45deg) scale(0); }
@@ -583,9 +582,9 @@ body {
   clear: both;
   color: transparent;
   font-size: 1.4rem;
-  letter-spacing: -.62rem;
-  height: .7rem;
-  line-height: .6rem;
+  letter-spacing: -0.62rem;
+  height: 0.7rem;
+  line-height: 0.6rem;
   text-transform: uppercase;
   white-space: nowrap;
   transform: scaleY(0.2);
@@ -611,16 +610,16 @@ body {
     .nav__toggle-item:nth-child(5):before {
       transition-delay: 0.2s; }
   .nav__toggle-item:nth-child(1) {
-    letter-spacing: -.8rem; }
+    letter-spacing: -0.8rem; }
   .nav__toggle-item:nth-child(2) {
-    letter-spacing: -.7rem; }
+    letter-spacing: -0.7rem; }
   .nav__toggle-item:nth-child(n + 4) {
-    letter-spacing: -.8rem;
-    margin-top: -.7rem;
+    letter-spacing: -0.8rem;
+    margin-top: -0.7rem;
     opacity: 0; }
   .nav__toggle-item:before {
     position: absolute;
-    content: "";
+    content: '';
     top: 50%;
     left: 0;
     width: 110%;
