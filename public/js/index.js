@@ -1,7 +1,7 @@
 /* eslint-disable */
 import '@babel/polyfill';
 import { displayMap } from './mapbox';
-import { login, logout, register } from './login';
+import { login, logout, register, forgotPassword } from './login';
 
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
@@ -9,6 +9,7 @@ const loginForm = document.getElementById('loginForm');
 // Possibly change class selector to an id selector for all logout's to use
 const logoutBtn = document.querySelector('.nav__profile--logout');
 const registerForm = document.getElementById('registerForm');
+const forgotPassForm = document.getElementById('forgotPassform');
 
 // VALUES (nothing, yet)
 
@@ -60,5 +61,13 @@ if (registerForm) {
       birthdate,
       gender
     );
+  });
+}
+
+if (forgotPassForm) {
+  forgotPassForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    forgotPassword(email);
   });
 }
