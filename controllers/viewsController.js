@@ -100,3 +100,9 @@ exports.getRegisterForm = (req, res) => {
     title: 'My Registration'
   });
 };
+
+exports.getForgotPasswordForm = (req, res) => {
+  res.status(200).render('forgotPassword', {
+    title: 'Forgot My Password'
+  });
+};
