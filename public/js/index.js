@@ -28,3 +28,28 @@ if (loginForm) {
 }
 
 if (logoutBtn) logoutBtn.addEventListener('click', logout);
+
+if (registerForm) {
+  registerForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const genderSelect = document.getElementById('selectGender');
+
+    const birthMonth = document.getElementById('selectBirthMonth');
+    const birthDay = document.getElementById('selectBirthDay');
+    const birthYear = document.getElementById('selectBirthYear');
+
+    const birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+    const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+    const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+
+    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const name = document.getElementById('name').value;
+    const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+    const gender = genderSelect.options[genderSelect.selectedIndex].value;
+
+    register(email, username, password, name, birthdate, gender);
+  });
+}
