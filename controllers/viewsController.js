@@ -1,3 +1,4 @@
+const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const CastCrew = require('./../models/castcrewModel');
 const Show = require('./../models/showModel');
@@ -31,6 +32,10 @@ exports.getShow = catchAsync(async (req, res, next) => {
       fields: 'theaters startDateTime endDateTime' // Fix security issues
     });
 
+  if (!show) {
+    return next(new AppError('There is no show with that name!', 404));
+  }
+
   res.status(200).render('show-overview', {
     title: show.title,
     show
@@ -53,6 +58,10 @@ exports.getTheater = catchAsync(async (req, res, next) => {
     fields: 'shows startDateTime endDateTime' // Fix security issues
   });
 
+  if (!theater) {
+    return next(new AppError('There is no theater with that name!', 404));
+  }
+
   res.status(200).render('theater-overview', {
     title: theater.name,
     theater
@@ -68,6 +77,10 @@ exports.getCastCrew = catchAsync(async (req, res, next) => {
     fields:
       'poster originalReleaseDate ratingsAverage genres title duration mpaaRating contentType slug durationHours'
   });
+
+  if (!castcrew) {
+    return next(new AppError('There is no castcrew with that name!', 404));
+  }
 
   res.status(200).render('castcrew-overview', {
     title: castcrew.name,
