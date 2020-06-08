@@ -12,7 +12,7 @@ header.container
           a.nav__profile(href='#')= user.name.split(' ')[0]
           a.nav__profile.nav__profile--logout(href='#') Logout
         else
-          a.nav__profile(href='#') Join The Club
+          a.nav__profile(href='/register') Join The Club
           a.nav__profile(href='/login') Login
         input#toggle(type='checkbox')
         label.nav__toggle-container(for='toggle')
