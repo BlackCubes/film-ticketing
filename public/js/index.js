@@ -68,8 +68,6 @@ if (forgotPassForm) {
   forgotPassForm.addEventListener('submit', e => {
     e.preventDefault();
     const email = document.getElementById('email').value;
-    console.log(email);
-    console.log(forgotPassword(email));
     forgotPassword(email);
   });
 }

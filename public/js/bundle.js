@@ -8942,8 +8942,6 @@ if (forgotPassForm) {
   forgotPassForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = document.getElementById('email').value;
-    console.log(email);
-    console.log((0, _login.forgotPassword)(email));
     (0, _login.forgotPassword)(email);
   });
 }
