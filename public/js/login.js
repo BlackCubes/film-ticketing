@@ -71,3 +71,24 @@ export const register = async (
     showAlert('error', err.response.data.message);
   }
 };
+
+export const forgotPassword = async email => {
+  try {
+    const res = await axios({
+      method: 'POST',
+      data: { email }
+    });
+
+    if (res.data.status === 'success') {
+      showAlert(
+        'success',
+        'A password reset link has been sent to your email!'
+      );
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1500);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
