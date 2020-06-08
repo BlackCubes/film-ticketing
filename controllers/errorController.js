@@ -28,37 +28,49 @@ const handleJWTExpiredError = () =>
 const sendErrorDev = (err, req, res) => {
   // API
   if (req.originalUrl.startsWith('/api')) {
-    res.status(err.statusCode).json({
+    return res.status(err.statusCode).json({
       status: err.status,
       error: err,
       message: err.message,
       stack: err.stack
     });
-  } else {
-    // RENDERED WEBSITE
-    res.status(err.statusCode).render('error', {
-      title: 'Uh Oh! Something is wrong!',
-      msg: err.message
-    });
   }
+  // RENDERED WEBSITE
+  return res.status(err.statusCode).render('error', {
+    title: 'Uh Oh! Something is wrong!',
+    msg: err.message
+  });
 };
 
 const sendErrorProd = (err, req, res) => {
-  // OPERATIONAL, TRUSTED ERROR: SEND MESSAGE TO CLIENT
-  if (err.isOperational) {
-    res.status(err.statusCode).json({
-      status: err.status,
-      message: err.message
-    });
-
+  // FOR API
+  if (req.originalUrl.startsWith('/api')) {
+    // OPERATIONAL, TRUSTED ERROR: SEND MESSAGE TO CLIENT
+    if (err.isOperational) {
+      return res.status(err.statusCode).json({
+        status: err.status,
+        message: err.message
+      });
+    }
     // PROGRAMMING OR OTHER UNKNOWN ERROR: DON'T LEAK ERROR DETAILS
-  } else {
     console.error('ERROR!', err);
-    res.status(500).json({
+    return res.status(500).json({
       status: 'error',
       message: 'Something went very wrong!'
     });
   }
+  // FOR RENDERED WEBSITE
+  if (err.isOperational) {
+    return res.status(err.statusCode).render('error', {
+      title: 'Uh Oh! Something is wrong!',
+      msg: err.message
+    });
+  }
+  console.error('ERROR!', err);
+  return res.status(err.statusCode).render('error', {
+    title: 'Uh Oh! Something is wrong!',
+    msg: 'Please try again later!'
+  });
 };
 
 module.exports = (err, req, res, next) => {
