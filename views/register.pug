@@ -1,0 +1,71 @@
+extends base
+
+block content
+  main.main
+    section.section-register
+      .row
+        .register
+          .register__form
+            form.form(action="#")
+              .form__group
+                .form__title.u-center-text
+                  h1.heading-primary.u-margin-bottom-small Create Your Account
+
+                  small.form__info-small.small-text Use your email and password to watch your favorite shows.
+              
+              .form__group
+                input#email.form__input.input-text(type='email' placeholder='Email address' required)
+                label.form__label.label-text(for='email') Please enter a valid email address.
+              
+              .form__group
+                input#username.form__input.input-text(type='text' placeholder='Username' required)
+                label.form__label.label-text(for='username') Please enter a username
+              
+              .form__group
+                input#password.form__input.input-text(type='password' placeholder='••••••' required)
+                label.form__label.label-text(for='password') Your password must container between 8 and 60 characters.
+              
+              .form__group
+                input#name.form__input.input-text(type='text' placeholder='Name' required)
+                label.form__label.label-text(for='name') Please enter your name.
+              
+              .form__group
+                .form__birth
+                  .form__birth-month
+                    select#selectBithMonth.dropdown(name='select-birthname' tabindex='0' required)
+                      option(value) Birth Month
+
+                      - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+                      each month in months
+                        option(value=`${month}`)= month
+                  
+                  .form__birth-day
+                    select#selectBirthDay.dropdown(name='select-birthday' tabindex='0' required)
+                      option(value) Day
+
+                      - const days = [...Array(32).keys()].splice(1)
+
+                      each day in days
+                        option(value=`${day}`)= day
+                  
+                  .form__birth-year
+                    select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
+                      option(value) Year
+
+                      - const now = new Date().getFullYear()
+                      - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
+
+                      each year in years
+                        option(value=`${year}`)= year
+                
+                .form__group
+                  .form__gender
+                    select#selectGender.dropdown(name='select-gender' tabindex='0' required)
+                      option(value) Gender Select
+                      option(value='f') Female
+                      option(value='m') Male
+                      option(value='p') Prefer not to say
+                
+                .form__group
+                  button.btn.btn--blue Continue
