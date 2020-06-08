@@ -36,3 +36,28 @@ export const logout = async () => {
     showAlert('error', 'Error logging out! Please try again.');
   }
 };
+
+export const register = async (name, username, email, birthdate, gender) => {
+  try {
+    const res = await axios({
+      method: 'POST',
+      url: 'http://127.0.0.1:3000/api/v1/users/signup',
+      data: {
+        name,
+        username,
+        email,
+        birthdate,
+        gender
+      }
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', 'Welcome to the club!');
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1500);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
