@@ -8842,9 +8842,10 @@ var _login = require("./login");
 
 // DOM ELEMENTS
 var mapBox = document.getElementById('map');
-var loginForm = document.querySelector('.form'); // Possibly change class selector to an id selector for all logout's to use
+var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
 
-var logoutBtn = document.querySelector('.nav__profile--logout'); // VALUES (nothing, yet)
+var logoutBtn = document.querySelector('.nav__profile--logout');
+var registerForm = document.getElementById('registerForm'); // VALUES (nothing, yet)
 // DELEGATION
 
 if (mapBox) {
