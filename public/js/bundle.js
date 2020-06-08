@@ -8525,7 +8525,7 @@ var logout = /*#__PURE__*/function () {
 exports.logout = logout;
 
 var register = /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(email, username, password, name, birthdate, gender) {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(email, username, password, passwordConfirm, name, birthdate, gender) {
     var res;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
@@ -8540,6 +8540,7 @@ var register = /*#__PURE__*/function () {
                 email: email,
                 username: username,
                 password: password,
+                passwordConfirm: passwordConfirm,
                 name: name,
                 birthdate: birthdate,
                 gender: gender
@@ -8572,7 +8573,7 @@ var register = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 7]]);
   }));
 
-  return function register(_x3, _x4, _x5, _x6, _x7, _x8) {
+  return function register(_x3, _x4, _x5, _x6, _x7, _x8, _x9) {
     return _ref3.apply(this, arguments);
   };
 }();

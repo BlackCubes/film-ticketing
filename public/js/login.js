@@ -41,6 +41,7 @@ export const register = async (
   email,
   username,
   password,
+  passwordConfirm,
   name,
   birthdate,
   gender
@@ -53,6 +54,7 @@ export const register = async (
         email,
         username,
         password,
+        passwordConfirm,
         name,
         birthdate,
         gender
