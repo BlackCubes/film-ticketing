@@ -46,7 +46,7 @@ if (registerForm) {
     const email = document.getElementById('email').value;
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    const passwordConfirm = document.getElementById('passwordConfirm');
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
     const name = document.getElementById('name').value;
     const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
     const gender = genderSelect.options[genderSelect.selectedIndex].value;

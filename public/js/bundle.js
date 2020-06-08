@@ -8879,7 +8879,7 @@ if (registerForm) {
     var email = document.getElementById('email').value;
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
-    var passwordConfirm = document.getElementById('passwordConfirm');
+    var passwordConfirm = document.getElementById('passwordConfirm').value;
     var name = document.getElementById('name').value;
     var birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
     var gender = genderSelect.options[genderSelect.selectedIndex].value;
