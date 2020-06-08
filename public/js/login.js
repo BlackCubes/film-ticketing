@@ -37,15 +37,23 @@ export const logout = async () => {
   }
 };
 
-export const register = async (name, username, email, birthdate, gender) => {
+export const register = async (
+  email,
+  username,
+  password,
+  name,
+  birthdate,
+  gender
+) => {
   try {
     const res = await axios({
       method: 'POST',
       url: 'http://127.0.0.1:3000/api/v1/users/signup',
       data: {
-        name,
-        username,
         email,
+        username,
+        password,
+        name,
         birthdate,
         gender
       }
