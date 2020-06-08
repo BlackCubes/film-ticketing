@@ -10,7 +10,7 @@ header.container
       .nav__toggle-wrapper
         if user
           a.nav__profile(href='#')= user.name.split(' ')[0]
-          a.nav__profile(href='#') Logout
+          a.nav__profile.nav__profile--logout(href='#') Logout
         else
           a.nav__profile(href='#') Join The Club
           a.nav__profile(href='/login') Login
