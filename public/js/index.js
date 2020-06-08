@@ -1,11 +1,13 @@
 /* eslint-disable */
 import '@babel/polyfill';
 import { displayMap } from './mapbox';
-import { login } from './login';
+import { login, logout } from './login';
 
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form');
+// Possibly change class selector to an id selector for all logout's to use
+const logoutBtn = document.querySelector('.nav__profile--logout');
 
 // VALUES (nothing, yet)
 
@@ -23,3 +25,5 @@ if (loginForm) {
     login(email, password);
   });
 }
+
+if (logoutBtn) logoutBtn.addEventListener('click', logout);
