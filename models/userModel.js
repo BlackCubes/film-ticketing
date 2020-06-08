@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please provide an answer to gender!'],
     enum: {
-      values: ['Female', 'Male', 'Prefer not to say'],
+      values: ['f', 'm', 'p'],
       message:
         'Give the correct values for gender! Acceptable are: Female, Male, or Prefer not to say.'
     }
