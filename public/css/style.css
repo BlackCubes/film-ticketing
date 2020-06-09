@@ -391,13 +391,13 @@ body {
 .circlenav__btn {
   border: none;
   background: none;
-  color: #fff;
+  color: #f06060;
   text-align: center;
   font-size: 1.6rem;
   padding-bottom: 1.6rem;
   height: 5.6rem;
   width: 5.6rem;
-  background-color: #111;
+  background-color: #fff;
   position: fixed;
   left: 50%;
   margin-left: -2.8rem;
@@ -406,7 +406,7 @@ body {
   cursor: pointer;
   z-index: 11; }
   .circlenav__btn:hover, .circlenav__btn:active, .circlenav__btn:focus {
-    background-color: #222; }
+    background-color: #aa1010; }
 
 .circlenav__overlay {
   width: 100%;
@@ -418,11 +418,13 @@ body {
   bottom: 0;
   right: 0;
   opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  z-index: 2;
-  pointer-events: none; }
+  z-index: 2; }
   .circlenav__overlay-on {
-    pointer-events: auto;
+    visibility: visible;
     opacity: 1; }
 
 .csstransforms .circlenav__wrapper {
@@ -436,11 +438,21 @@ body {
   left: 50%;
   border-radius: 50%;
   margin-left: -20.8rem;
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  -moz-transform: scale(0.1);
   transform: scale(0.1);
+  pointer-events: none;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
   transition: all 0.3s ease; }
 
 .csstransforms .circlenav__opened {
   border-radius: 50%;
+  pointer-events: auto;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
   transform: scale(1); }
 
 .csstransforms .circlenav li {
@@ -448,12 +460,17 @@ body {
   font-size: 1.6rem;
   width: 16rem;
   height: 16rem;
+  -webkit-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
   transform-origin: 100% 100%;
   overflow: hidden;
   left: 50%;
   top: 50%;
   margin-top: -2.08rem;
   margin-left: -16rem;
+  -webkit-transition: border 0.3s ease;
+  -moz-transition: border 0.3s ease;
   transition: border 0.3s ease; }
   .csstransforms .circlenav li a {
     display: block;
@@ -468,20 +485,41 @@ body {
     color: #fff;
     padding-top: 2.88rem;
     text-align: center;
+    -webkit-transform: skew(-50deg) rotate(-70deg) scale(1);
+    -ms-transform: skew(-50deg) rotate(-70deg) scale(1);
+    -moz-transform: skew(-50deg) rotate(-70deg) scale(1);
     transform: skew(-50deg) rotate(-70deg) scale(1);
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: opacity 0.3s, color 0.3s;
+    -moz-transition: opacity 0.3s, color 0.3s;
     transition: opacity 0.3s, color 0.3s; }
     .csstransforms .circlenav li a span {
       font-size: 1.4rem;
       opacity: 0.7; }
   .csstransforms .circlenav li:first-child {
+    -webkit-transform: rotate(-10deg) skew(50deg);
+    -ms-transform: rotate(-10deg) skew(50deg);
+    -moz-transform: rotate(-10deg) skew(50deg);
     transform: rotate(-10deg) skew(50deg); }
   .csstransforms .circlenav li:nth-child(2) {
+    -webkit-transform: rotate(30deg) skew(50deg);
+    -ms-transform: rotate(30deg) skew(50deg);
+    -moz-transform: rotate(30deg) skew(50deg);
     transform: rotate(30deg) skew(50deg); }
   .csstransforms .circlenav li:nth-child(3) {
+    -webkit-transform: rotate(70deg) skew(50deg);
+    -ms-transform: rotate(70deg) skew(50deg);
+    -moz-transform: rotate(70deg) skew(50deg);
     transform: rotate(70deg) skew(50deg); }
   .csstransforms .circlenav li:nth-child(4) {
+    -webkit-transform: rotate(110deg) skew(50deg);
+    -ms-transform: rotate(110deg) skew(50deg);
+    -moz-transform: rotate(110deg) skew(50deg);
     transform: rotate(110deg) skew(50deg); }
   .csstransforms .circlenav li:nth-child(5) {
+    -webkit-transform: rotate(150deg) skew(50deg);
+    -ms-transform: rotate(150deg) skew(50deg);
+    -moz-transform: rotate(150deg) skew(50deg);
     transform: rotate(150deg) skew(50deg); }
   .csstransforms .circlenav li:nth-child(odd) a {
     background-color: #a11313;
@@ -509,6 +547,7 @@ body {
   overflow: hidden;
   position: fixed;
   z-index: 10;
+  left: 50%;
   border: 1px solid #ddd; }
   .no-csstransforms .circlenav__wrapper li {
     position: static;
