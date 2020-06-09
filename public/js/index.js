@@ -3,9 +3,9 @@ import '@babel/polyfill';
 require('./modernizr');
 import { displayMap } from './mapbox';
 import { login, logout, register, forgotPassword } from './login';
-import { circleNav } from './circleNav';
+// import { circleNav } from './circleNav';
 
-circleNav();
+// circleNav();
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
