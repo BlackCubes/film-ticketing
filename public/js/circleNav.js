@@ -15,7 +15,7 @@ export const circleNav = () => {
   };
 
   const handler = e => {
-    if (!e) var e = window.event; // Check deprecation
+    // if (!e) var e = window.event; // Check deprecation
     e.stopPropagation();
 
     if (!open) {

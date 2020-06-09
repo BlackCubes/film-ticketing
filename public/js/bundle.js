@@ -8891,8 +8891,7 @@ var circleNav = function circleNav() {
   };
 
   var handler = function handler(e) {
-    if (!e) var e = window.event; // Check deprecation
-
+    // if (!e) var e = window.event; // Check deprecation
     e.stopPropagation();
 
     if (!open) {
