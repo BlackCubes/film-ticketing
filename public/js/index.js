@@ -1,5 +1,6 @@
 /* eslint-disable */
 import '@babel/polyfill';
+import './modernizr';
 import { displayMap } from './mapbox';
 import { login, logout, register, forgotPassword } from './login';
 
