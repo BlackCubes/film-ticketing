@@ -4,6 +4,9 @@ require('./modernizr');
 import { displayMap } from './mapbox';
 import { login, logout, register, forgotPassword } from './login';
 
+// MODERNIZR TEST
+if (Modernizr.canvas) alert('Canvas is available and Modernizr works!');
+
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
 const loginForm = document.getElementById('loginForm');

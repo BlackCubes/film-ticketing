@@ -9133,7 +9133,9 @@ var _login = require("./login");
 
 require('./modernizr');
 
-// DOM ELEMENTS
+// MODERNIZR TEST
+if (Modernizr.canvas) alert('Canvas is available and Modernizr works!'); // DOM ELEMENTS
+
 var mapBox = document.getElementById('map');
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
 
