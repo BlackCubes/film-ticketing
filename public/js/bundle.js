@@ -8881,8 +8881,8 @@ var circleNav = function circleNav() {
   var circleNavBtn = document.getElementById('circleNavBtn');
   var circleNavWrapper = document.getElementById('circleNavWrapper');
   var circleNavOverlay = document.getElementById('circleNavOverlay');
-  var open = false;
-  circleNavBtn.addEventListener('focus', handler, false);
+  var open = false; // circleNavBtn.addEventListener('focus', handler, false);
+
   circleNavBtn.addEventListener('click', handler, false);
   circleNavWrapper.addEventListener('click', cnhandle, false);
 
