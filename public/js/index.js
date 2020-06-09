@@ -5,6 +5,8 @@ import { displayMap } from './mapbox';
 import { login, logout, register, forgotPassword } from './login';
 import { circleNav } from './circleNav';
 
+circleNav();
+
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
 //   alert('CSSTransforms is available and Modernizr works!');
