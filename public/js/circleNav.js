@@ -34,7 +34,7 @@ export const circleNav = () => {
 
   const closeNav = () => {
     open = false;
-    circleNavBtn.innerHTML = '-';
+    circleNavBtn.innerHTML = '+';
     circleNavOverlay.classList.remove('circlenav__overlay-on');
     circleNavWrapper.classList.remove('circlenav__opened');
   };

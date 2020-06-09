@@ -8911,7 +8911,7 @@ var circleNav = function circleNav() {
 
   var closeNav = function closeNav() {
     open = false;
-    circleNavBtn.innerHTML = '-';
+    circleNavBtn.innerHTML = '+';
     circleNavOverlay.classList.remove('circlenav__overlay-on');
     circleNavWrapper.classList.remove('circlenav__opened');
   };
