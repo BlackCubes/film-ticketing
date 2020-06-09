@@ -8881,6 +8881,42 @@ var circleNav = function circleNav() {
   var circleNavBtn = document.getElementById('circleNavBtn');
   var circleNavWrapper = document.getElementById('circleNavWrapper');
   var circleNavOverlay = document.getElementById('circleNavOverlay');
+  var open = false;
+  circleNavBtn.addEventListener('focus', handler, false);
+  circleNavBtn.addEventListener('click', handler, false);
+  circleNavWrapper.addEventListener('click', cnhandle, false);
+
+  var cnhandle = function cnhandle(e) {
+    e.stopPropagation();
+  };
+
+  var handler = function handler(e) {
+    if (!e) var e = window.event; // Check deprecation
+
+    e.stopPropagation();
+
+    if (!open) {
+      openNav();
+    } else {
+      closeNav();
+    }
+  };
+
+  var openNav = function openNav() {
+    open = true;
+    circleNavBtn.innerHTML = '-';
+    circleNavOverlay.classList.add('circlenav__overlay-on');
+    circleNavWrapper.classList.add('circlenav__opened');
+  };
+
+  var closeNav = function closeNav() {
+    open = false;
+    circleNavBtn.innerHTML = '-';
+    circleNavOverlay.classList.remove('circlenav__overlay-on');
+    circleNavWrapper.classList.remove('circlenav__opened');
+  };
+
+  document.addEventListener('click', closeNav);
 };
 
 exports.circleNav = circleNav;
