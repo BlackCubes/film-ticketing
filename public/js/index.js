@@ -27,6 +27,31 @@ if (mapBox) {
   displayMap(locations);
 }
 
+if (circleNavTrigger) {
+  var svg = document.getElementById('menu'),
+    items = svg.querySelectorAll('.item'),
+    label = circleNavTrigger.querySelectorAll('#label')[0],
+    open = false;
+
+  let circleNav = new CircleNav(open, gsap, items, label, svg);
+
+  gsap.set(items, { scale: 0, visibility: 'visible' });
+  svg.style.pointerEvents = 'none';
+
+  circleNavTrigger.addEventListener(
+    'click',
+    e => {
+      if (!e) var e = window.event;
+      e.stopPropagation();
+      circleNav.displayCircleNav();
+    },
+    false
+  );
+
+  svg.onclick = e => e.stopPropagation();
+  circleNav.documentClick();
+}
+
 if (loginForm) {
   loginForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -78,29 +103,4 @@ if (forgotPassForm) {
     const email = document.getElementById('email').value;
     forgotPassword(email);
   });
-}
-
-if (circleNavTrigger) {
-  var svg = document.getElementById('menu'),
-    items = svg.querySelectorAll('.item'),
-    label = circleNavTrigger.querySelectorAll('#label')[0],
-    open = false;
-
-  let circleNav = new CircleNav(open, gsap, items, label, svg);
-
-  gsap.set(items, { scale: 0, visibility: 'visible' });
-  svg.style.pointerEvents = 'none';
-
-  circleNavTrigger.addEventListener(
-    'click',
-    e => {
-      if (!e) var e = window.event;
-      e.stopPropagation();
-      circleNav.displayCircleNav();
-    },
-    false
-  );
-
-  svg.onclick = e => e.stopPropagation();
-  circleNav.documentClick();
 }
