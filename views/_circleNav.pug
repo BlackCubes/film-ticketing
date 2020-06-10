@@ -89,6 +89,11 @@
         path.sector(fill="none" stroke="#111" stroke-width="1" d="M250,250 l250,0 A250,250 0 0,0 452.25424859373686,103.05368692688171 z")
         use(xlink:href="#icon-5" href="#icon-5" width="40" height="40" x="391.6795959472656" y="177.4671173095703" transform="rotate(72 411.6795959472656 197.4671173095703)")
 
-    g#trigger.trigger.menu-trigger(role="button")
-      circle(cx="250" cy="250" r="70")
-      text#label(text-anchor="middle" x="250" y="235" fill="#fff" font-size="1.6rem") My Menu
+    if user
+      g#trigger.trigger.menu-trigger(role="button")
+        circle(cx="250" cy="250" r="70")
+        text#label(text-anchor="middle" x="250" y="235" fill="#fff" font-size="1.6rem") My Menu
+    else
+      g#no-trigger.trigger.menu-trigger(role="button")
+        circle(cx="250" cy="250" r="70")
+        text#label(text-anchor="middle" x="250" y="235" fill="#fff" font-size="1.6rem"): a(xlink:href="/login" href="/login") Sign In
