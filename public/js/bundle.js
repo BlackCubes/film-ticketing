@@ -14697,15 +14697,14 @@ var _mapbox = require("./mapbox");
 
 var _login = require("./login");
 
-var _circleNav = require("./circleNav");
+require("./circleNav");
 
 require('./modernizr');
 
-(0, _circleNav.circleNav)(); // MODERNIZR TEST
+// MODERNIZR TEST
 // if (Modernizr.csstransforms)
 //   alert('CSSTransforms is available and Modernizr works!');
 // DOM ELEMENTS
-
 var mapBox = document.getElementById('map');
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
 
