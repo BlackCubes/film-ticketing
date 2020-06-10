@@ -14699,7 +14699,7 @@ _gsap.default.set(items, {
 svg.style.pointerEvents = 'none';
 trigger.addEventListener('click', toggleMenu, false);
 
-var toggleMenu = function toggleMenu(e) {
+function toggleMenu(e) {
   if (!e) var e = window.event;
   e.stopPropagation();
   open = !open;
@@ -14727,7 +14727,7 @@ var toggleMenu = function toggleMenu(e) {
     label.innerHTML = '+';
     svg.style.pointerEvents = 'none';
   }
-};
+}
 
 svg.onclick = function (e) {
   e.stopPropagation();
