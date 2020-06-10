@@ -14403,7 +14403,7 @@ var CircleNav = /*#__PURE__*/function () {
           scale: 0,
           ease: 'back.in(0.05)'
         });
-        this.label.innerHTML = '+';
+        this.label.innerHTML = 'My Menu';
         this.svg.style.pointerEvents = 'none';
       }
     }
@@ -14416,7 +14416,7 @@ var CircleNav = /*#__PURE__*/function () {
         scale: 0,
         ease: 'back.in(0.05)'
       });
-      this.label.innerHTML = '+';
+      this.label.innerHTML = 'My Menu';
       this.svg.style.pointerEvents = 'none';
     }
   }]);

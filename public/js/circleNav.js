@@ -28,7 +28,7 @@ export default class CircleNav {
         ease: 'back.in(0.05)'
       });
 
-      this.label.innerHTML = '+';
+      this.label.innerHTML = 'My Menu';
 
       this.svg.style.pointerEvents = 'none';
     }
@@ -43,7 +43,7 @@ export default class CircleNav {
       ease: 'back.in(0.05)'
     });
 
-    this.label.innerHTML = '+';
+    this.label.innerHTML = 'My Menu';
 
     this.svg.style.pointerEvents = 'none';
   }
