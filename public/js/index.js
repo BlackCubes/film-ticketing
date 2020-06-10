@@ -108,8 +108,9 @@ const toggleMenu = e => {
     gsap.to(items, {
       duration: 0.3,
       scale: 0,
-      ease: Back.easeIn,
-      stagger: 0.05
+      ease: 'back.in(0.05)'
+      // ease: Back.easeIn,
+      // stagger: 0.05
     });
     label.innerHTML = '+';
     svg.style.pointerEvents = 'none';
@@ -125,8 +126,9 @@ document.onclick = function() {
   gsap.to(items, {
     duration: 0.3,
     scale: 0,
-    ease: Back.easeIn,
-    stagger: 0.05
+    ease: 'back.in(0.05)'
+    // ease: Back.easeIn,
+    // stagger: 0.05
   });
   label.innerHTML = '+';
   svg.style.pointerEvents = 'none';

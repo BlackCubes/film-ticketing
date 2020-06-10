@@ -14718,8 +14718,9 @@ var toggleMenu = function toggleMenu(e) {
     _gsap.default.to(items, {
       duration: 0.3,
       scale: 0,
-      ease: Back.easeIn,
-      stagger: 0.05
+      ease: 'back.in(0.05)' // ease: Back.easeIn,
+      // stagger: 0.05
+
     });
 
     label.innerHTML = '+';
@@ -14737,8 +14738,9 @@ document.onclick = function () {
   _gsap.default.to(items, {
     duration: 0.3,
     scale: 0,
-    ease: Back.easeIn,
-    stagger: 0.05
+    ease: 'back.in(0.05)' // ease: Back.easeIn,
+    // stagger: 0.05
+
   });
 
   label.innerHTML = '+';
