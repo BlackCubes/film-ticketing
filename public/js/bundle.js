@@ -14685,12 +14685,15 @@ if (forgotPassForm) {
   });
 }
 
-console.log(_gsap.default);
 var svg = document.getElementById('menu'),
     items = svg.querySelectorAll('.item'),
     trigger = document.getElementById('trigger'),
     label = trigger.querySelectorAll('#label')[0],
     open = false;
+console.log('SVG: ', svg);
+console.log('Items: ', items);
+console.log('Trigger: ', items);
+console.log('Label: ', items);
 
 _gsap.default.set(items, {
   scale: 0,
