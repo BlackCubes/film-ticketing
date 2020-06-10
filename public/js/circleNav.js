@@ -1,7 +1,7 @@
 /* eslint-disable */
 import gsap from 'gsap';
 
-const circleNav = () => {
+export const circleNav = () => {
   var svg = document.getElementById('menu'),
     items = svg.querySelectorAll('.item'),
     trigger = document.getElementById('trigger'),
