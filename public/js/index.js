@@ -80,32 +80,32 @@ if (forgotPassForm) {
   });
 }
 
-// if (circleNavTrigger) {
-var svg = document.getElementById('menu'),
-  items = svg.querySelectorAll('.item'),
-  label = circleNavTrigger.querySelectorAll('#label')[0],
-  open = false;
+if (circleNavTrigger) {
+  var svg = document.getElementById('menu'),
+    items = svg.querySelectorAll('.item'),
+    label = circleNavTrigger.querySelectorAll('#label')[0],
+    open = false;
 
-let circleNav = new CircleNav(open, gsap, items, label, svg);
+  let circleNav = new CircleNav(open, gsap, items, label, svg);
 
-gsap.set(items, { scale: 0, visibility: 'visible' });
-svg.style.pointerEvents = 'none';
+  gsap.set(items, { scale: 0, visibility: 'visible' });
+  svg.style.pointerEvents = 'none';
 
-circleNavTrigger.addEventListener(
-  'click',
-  e => {
-    if (!e) var e = window.event;
-    e.stopPropagation();
+  circleNavTrigger.addEventListener(
+    'click',
+    e => {
+      if (!e) var e = window.event;
+      e.stopPropagation();
 
-    circleNav.displayCircleNav();
-  },
-  false
-);
+      circleNav.displayCircleNav();
+    },
+    false
+  );
 
-svg.onclick = e => e.stopPropagation();
+  svg.onclick = e => e.stopPropagation();
 
-circleNav.documentClick();
-// }
+  circleNav.documentClick();
+}
 
 // var svg = document.getElementById('menu'),
 //   items = svg.querySelectorAll('.item'),
