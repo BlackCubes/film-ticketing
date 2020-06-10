@@ -4,7 +4,7 @@ require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
 import { login, logout, register, forgotPassword } from './login';
-// import './circleNav';
+import CircleNav from './circleNav';
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
