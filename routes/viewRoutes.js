@@ -8,25 +8,43 @@ const router = express.Router();
 //   res.status(200).render('base');
 // });
 
-router.use(authController.isLoggedIn);
-
-router.get('/', viewsController.getHome);
+router.get('/', authController.isLoggedIn, viewsController.getHome);
 
 // SHOW ROUTES
-router.get('/shows', viewsController.getShows);
-router.get('/show-overview/:slug', viewsController.getShow);
+router.get('/shows', authController.isLoggedIn, viewsController.getShows);
+router.get(
+  '/show-overview/:slug',
+  authController.isLoggedIn,
+  viewsController.getShow
+);
 
 // THEATER ROUTES
-router.get('/theaters', viewsController.getTheaters);
-router.get('/theater-overview/:slug', viewsController.getTheater);
+router.get('/theaters', authController.isLoggedIn, viewsController.getTheaters);
+router.get(
+  '/theater-overview/:slug',
+  authController.isLoggedIn,
+  viewsController.getTheater
+);
 
 // CASTCREW ROUTES
-router.get('/castcrew-overview/:slug', viewsController.getCastCrew);
+router.get(
+  '/castcrew-overview/:slug',
+  authController.isLoggedIn,
+  viewsController.getCastCrew
+);
 
 // USER ROUTES
-router.get('/login', viewsController.getLoginForm);
-router.get('/register', viewsController.getRegisterForm);
+router.get('/login', authController.isLoggedIn, viewsController.getLoginForm);
+router.get(
+  '/register',
+  authController.isLoggedIn,
+  viewsController.getRegisterForm
+);
 router.get('/me', viewsController.getAccount);
-router.get('/forgotPassword', viewsController.getForgotPasswordForm);
+router.get(
+  '/forgotPassword',
+  authController.isLoggedIn,
+  viewsController.getForgotPasswordForm
+);
 
 module.exports = router;
