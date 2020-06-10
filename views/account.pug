@@ -14,35 +14,35 @@ block content
               input#name.form__input.input-text(type='text' placeholder='Name' required)
               label.form__label.label-text(for='name') Please enter your name.
 
-        //-     .form__group
-        //-       .form__birth
-        //-         .form__birth-month
-        //-           select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
-        //-             option(value) Birth Month
+            .form__group
+              .form__birth
+                .form__birth-month
+                  select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
+                    option(value) Birth Month
 
-        //-             - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October' 'November', 'December']
+                    - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-        //-             each month in months
-        //-               option(value=`${month}`)= month
+                    each month in months
+                      option(value=`${month}`)= month
 
-        //-         .form__birth-day
-        //-           select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0' required)
-        //-             option(value) Day
+                .form__birth-day
+                  select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0' required)
+                    option(value) Day
 
-        //-             - const days = [...Array(32).keys()].splice(1)
+                    - const days = [...Array(32).keys()].splice(1)
 
-        //-             each day in days
-        //-               option(value=`${day}`)= day
+                    each day in days
+                      option(value=`${day}`)= day
 
-        //-         .form__birth-year
-        //-           select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
-        //-             option(value) Year
+                .form__birth-year
+                  select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
+                    option(value) Year
 
-        //-             - const now = new Date().getFullYear()
-        //-             - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
+                    - const now = new Date().getFullYear()
+                    - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
 
-        //-             each year in years
-        //-               option(value=`${year}`)= year
+                    each year in years
+                      option(value=`${year}`)= year
 
         //-     .form__group
         //-       .form__gender
