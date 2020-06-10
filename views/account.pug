@@ -25,9 +25,9 @@ block content
                     each month in months
                       - var userMonth = user.birthdate.toLocaleString('en-us', {month: 'long'})
                       
-                      - var select = (userMonth === month) ? 'selected' : ''
+                      - var selectedMonth = (userMonth === month) ? 'selected' : ''
 
-                      option(value=`${month}` `${select}`)= month
+                      option(value=`${month}` selected=`${selectedMonth}`)= month
 
                 .form__birth-day
                   select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0' required)
