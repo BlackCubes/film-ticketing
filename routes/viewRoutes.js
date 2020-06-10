@@ -29,7 +29,6 @@ router.get(
 // CASTCREW ROUTES
 router.get(
   '/castcrew-overview/:slug',
-  authController.protect,
   authController.isLoggedIn,
   viewsController.getCastCrew
 );
@@ -41,7 +40,7 @@ router.get(
   authController.isLoggedIn,
   viewsController.getRegisterForm
 );
-router.get('/me', viewsController.getAccount);
+router.get('/me', authController.protect, viewsController.getAccount);
 router.get(
   '/forgotPassword',
   authController.isLoggedIn,
