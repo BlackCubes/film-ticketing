@@ -40,11 +40,11 @@ router.get(
   authController.isLoggedIn,
   viewsController.getRegisterForm
 );
-router.get('/me', authController.protect, viewsController.getAccount);
 router.get(
   '/forgotPassword',
   authController.isLoggedIn,
   viewsController.getForgotPasswordForm
 );
+router.get('/me', authController.protect, viewsController.getAccount);
 
 module.exports = router;
