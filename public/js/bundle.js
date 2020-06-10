@@ -14690,10 +14690,6 @@ var svg = document.getElementById('menu'),
     trigger = document.getElementById('trigger'),
     label = trigger.querySelectorAll('#label')[0],
     open = false;
-console.log('SVG: ', svg);
-console.log('Items: ', items);
-console.log('Trigger: ', trigger);
-console.log('Label: ', label);
 
 _gsap.default.set(items, {
   scale: 0,
@@ -14730,6 +14726,8 @@ var toggleMenu = function toggleMenu(e) {
     svg.style.pointerEvents = 'none';
   }
 };
+
+console.log(toggleMenu);
 
 svg.onclick = function (e) {
   e.stopPropagation();

@@ -85,11 +85,6 @@ var svg = document.getElementById('menu'),
   label = trigger.querySelectorAll('#label')[0],
   open = false;
 
-console.log('SVG: ', svg);
-console.log('Items: ', items);
-console.log('Trigger: ', trigger);
-console.log('Label: ', label);
-
 gsap.set(items, { scale: 0, visibility: 'visible' });
 svg.style.pointerEvents = 'none';
 
@@ -120,6 +115,8 @@ const toggleMenu = e => {
     svg.style.pointerEvents = 'none';
   }
 };
+
+console.log(toggleMenu);
 
 svg.onclick = function(e) {
   e.stopPropagation();
