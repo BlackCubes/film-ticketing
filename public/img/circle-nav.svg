@@ -105,5 +105,6 @@
   <g id="trigger" class="trigger menu-trigger" role="button">
     <circle cx="250" cy="250" r="30"></circle>
     <!-- menu button label or icon goes here -->
+    <text id="label" text-anchor="middle" x="250" y="247" fill="#fff" font-size="2em">+</text>
   </g>
 </svg>
