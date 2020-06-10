@@ -12,6 +12,7 @@ import CircleNav from './circleNav';
 
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
+const circleNavTrigger = document.getElementById('trigger');
 const loginForm = document.getElementById('loginForm');
 // Possibly change class selector to an id selector for all logout's to use
 const logoutBtn = document.querySelector('.nav__profile--logout');
@@ -77,6 +78,33 @@ if (forgotPassForm) {
     const email = document.getElementById('email').value;
     forgotPassword(email);
   });
+}
+
+if (circleNavTrigger) {
+  var svg = document.getElementById('menu'),
+    items = svg.querySelectorAll('.item'),
+    label = circleNavTrigger.querySelectorAll('#label')[0],
+    open = false;
+
+  let circleNav = new CircleNav(open, gsap, items, label, svg);
+
+  gsap.set(items, { scale: 0, visibility: 'visible' });
+  svg.style.pointerEvents = 'none';
+
+  circleNavTrigger.addEventListener(
+    'class',
+    e => {
+      if (!e) var e = window.event;
+      e.stopPropagation();
+
+      circleNav.displayCircleNav();
+    },
+    false
+  );
+
+  svg.onclick = e => e.stopPropagation();
+
+  circleNav.documentClick();
 }
 
 // var svg = document.getElementById('menu'),

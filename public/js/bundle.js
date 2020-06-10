@@ -14701,6 +14701,7 @@ require('./modernizr');
 //   alert('CSSTransforms is available and Modernizr works!');
 // DOM ELEMENTS
 var mapBox = document.getElementById('map');
+var circleNavTrigger = document.getElementById('trigger');
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
 
 var logoutBtn = document.querySelector('.nav__profile--logout');
@@ -14751,6 +14752,32 @@ if (forgotPassForm) {
     var email = document.getElementById('email').value;
     (0, _login.forgotPassword)(email);
   });
+}
+
+if (circleNavTrigger) {
+  var svg = document.getElementById('menu'),
+      items = svg.querySelectorAll('.item'),
+      label = circleNavTrigger.querySelectorAll('#label')[0],
+      open = false;
+  var circleNav = new _circleNav.default(open, _gsap.default, items, label, svg);
+
+  _gsap.default.set(items, {
+    scale: 0,
+    visibility: 'visible'
+  });
+
+  svg.style.pointerEvents = 'none';
+  circleNavTrigger.addEventListener('class', function (e) {
+    if (!e) var e = window.event;
+    e.stopPropagation();
+    circleNav.displayCircleNav();
+  }, false);
+
+  svg.onclick = function (e) {
+    return e.stopPropagation();
+  };
+
+  circleNav.documentClick();
 } // var svg = document.getElementById('menu'),
 //   items = svg.querySelectorAll('.item'),
 //   trigger = document.getElementById('trigger'),
