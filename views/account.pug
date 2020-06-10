@@ -5,102 +5,102 @@ block content
     .user-view
       .user-view__content
         .user-view__form-container
-          form#personalUpdateForm.form(action='#')
-            .form__group
-              .form__title.u-center-text
-                h1.heading-primary Your Account Settings
+        //-   form#personalUpdateForm.form(action='#')
+        //-     .form__group
+        //-       .form__title.u-center-text
+        //-         h1.heading-primary Your Account Settings
 
-            .form__group
-              input#name.form__input.input-text(type='text' placeholder='Name' required)
-              label.form__label.label-text(for='name') Please enter your name.
+        //-     .form__group
+        //-       input#name.form__input.input-text(type='text' placeholder='Name' required)
+        //-       label.form__label.label-text(for='name') Please enter your name.
 
-            .form__group
-              .form__birth
-                .form__birth-month
-                  select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
-                    option(value) Birth Month
+        //-     .form__group
+        //-       .form__birth
+        //-         .form__birth-month
+        //-           select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
+        //-             option(value) Birth Month
 
-                    - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October' 'November', 'December']
+        //-             - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October' 'November', 'December']
 
-                    each month in months
-                      option(value=`${month}`)= month
+        //-             each month in months
+        //-               option(value=`${month}`)= month
 
-                .form__birth-day
-                  select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0' required)
-                    option(value) Day
+        //-         .form__birth-day
+        //-           select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0' required)
+        //-             option(value) Day
 
-                    - const days = [...Array(32).keys()].splice(1)
+        //-             - const days = [...Array(32).keys()].splice(1)
 
-                    each day in days
-                      option(value=`${day}`)= day
+        //-             each day in days
+        //-               option(value=`${day}`)= day
 
-                .form__birth-year
-                  select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
-                    option(value) Year
+        //-         .form__birth-year
+        //-           select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
+        //-             option(value) Year
 
-                    - const now = new Date().getFullYear()
-                    - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
+        //-             - const now = new Date().getFullYear()
+        //-             - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
 
-                    each year in years
-                      option(value=`${year}`)= year
+        //-             each year in years
+        //-               option(value=`${year}`)= year
 
-            .form__group
-              .form__gender
-                select#selectGender.dropdown(name='select-gender' tabindex='0' required)
-                  option(value) Gender Select
-                  option(value='f') Female
-                  option(value='m') Male
-                  option(value='p') Prefer not to say
+        //-     .form__group
+        //-       .form__gender
+        //-         select#selectGender.dropdown(name='select-gender' tabindex='0' required)
+        //-           option(value) Gender Select
+        //-           option(value='f') Female
+        //-           option(value='m') Male
+        //-           option(value='p') Prefer not to say
 
-            .form__group
-              button.btn.btn--blue Update Settings
+        //-     .form__group
+        //-       button.btn.btn--blue Update Settings
 
-        .line &nbsp;
+        //- .line &nbsp;
         
-        //- Change email | username
-        .user-view__form-container
-          form#changeEmailUsernameForm.form(action='#')
-            .form__group
-              .form__title.u-center-text
-                h2.heading-secondary Change Your Email | Username
-
-            .form__group
-              input#email.form__input.input-text(type='email' placeholder='Email address' required)
-              label.form__label.label-text(for='email') Please enter a valid email address.
-
-            .from__group
-              input#username.form__input.input-text(type='text' placeholder='Username' required)
-              label.form__label.label-text(for='username') Please enter a username
-
-            .form__group
-              button.btn.btn--blue Update Email/Username
-
-        .line &nbsp;
-
-        //- Upload your photo
+        //- //- Change email | username
         //- .user-view__form-container
-        //-   form#uploadPhotoForm.form(action='#')
+        //-   form#changeEmailUsernameForm.form(action='#')
+        //-     .form__group
+        //-       .form__title.u-center-text
+        //-         h2.heading-secondary Change Your Email | Username
 
-        .line &nbsp;
+        //-     .form__group
+        //-       input#email.form__input.input-text(type='email' placeholder='Email address' required)
+        //-       label.form__label.label-text(for='email') Please enter a valid email address.
 
-        //- Change password
-        .user-view__form-container
-          form#changePassForm.form(action='#')
-            .form__group
-              .form__title.u-center-text
-                h2.heading-secondary Change Your Password
+        //-     .from__group
+        //-       input#username.form__input.input-text(type='text' placeholder='Username' required)
+        //-       label.form__label.label-text(for='username') Please enter a username
+
+        //-     .form__group
+        //-       button.btn.btn--blue Update Email/Username
+
+        //- .line &nbsp;
+
+        //- //- Upload your photo
+        //- //- .user-view__form-container
+        //- //-   form#uploadPhotoForm.form(action='#')
+
+        //- .line &nbsp;
+
+        //- //- Change password
+        //- .user-view__form-container
+        //-   form#changePassForm.form(action='#')
+        //-     .form__group
+        //-       .form__title.u-center-text
+        //-         h2.heading-secondary Change Your Password
               
-            .form__group
-              input#currentPass.form__input.input-text(type='password' placeholder='••••••' required)
-              label.form__label.label-text(for='currentPass') Please enter your current password.
+        //-     .form__group
+        //-       input#currentPass.form__input.input-text(type='password' placeholder='••••••' required)
+        //-       label.form__label.label-text(for='currentPass') Please enter your current password.
 
-            .form__group
-              input#newPass.form__input.input-text(type='password' placeholder='••••••' required)
-              label.form__label.label-text(for='newPass') Your new password must contain between 8 and 60 characters.
+        //-     .form__group
+        //-       input#newPass.form__input.input-text(type='password' placeholder='••••••' required)
+        //-       label.form__label.label-text(for='newPass') Your new password must contain between 8 and 60 characters.
 
-            .form__group
-              input#confirmNewPass.form__input.input-text(type='password' placeholder='••••••' required)
-              label.form__label.label-text(for='confirmNewPass') Please confirm your new password.
+        //-     .form__group
+        //-       input#confirmNewPass.form__input.input-text(type='password' placeholder='••••••' required)
+        //-       label.form__label.label-text(for='confirmNewPass') Please confirm your new password.
 
-            .form__group
-              button.btn.btn--blue Update Password
+        //-     .form__group
+        //-       button.btn.btn--blue Update Password
