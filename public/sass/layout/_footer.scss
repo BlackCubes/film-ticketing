@@ -3,7 +3,8 @@
   color: $color-white;
   background-color: $color-dark-blue-1;
   margin-top: 2rem;
-  
+  margin-bottom: 2rem;
+
   &__follow {
     background-color: $color-lightseagreen;
     padding: 1rem;
@@ -28,8 +29,8 @@
       display: block;
       color: $color-snow;
       background-color: $color-dark-blue-1;
-      margin: 0 .5rem;
-      padding: .6rem;
+      margin: 0 0.5rem;
+      padding: 0.6rem;
       border-radius: 50%;
     }
 
@@ -52,7 +53,7 @@
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
   }
-  
+
   &__title {
     //font-size: 1.5rem;
     //text-transform: uppercase;

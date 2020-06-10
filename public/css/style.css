@@ -400,7 +400,8 @@ svg {
   font-family: inherit;
   color: #fff;
   background-color: #001b4c;
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
   .footer__follow {
     background-color: #20b2aa;
     padding: 1rem;
@@ -417,8 +418,8 @@ svg {
       display: block;
       color: #fffafa;
       background-color: #001b4c;
-      margin: 0 .5rem;
-      padding: .6rem;
+      margin: 0 0.5rem;
+      padding: 0.6rem;
       border-radius: 50%; }
     .footer__follow .fa-github, .footer__follow .fa-linkedin {
       font-size: 3.2rem;
