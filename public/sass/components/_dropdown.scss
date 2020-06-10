@@ -22,8 +22,6 @@
   transition: all 0.3s;
 
   &:focus {
-    min-width: 100%;
-    width: auto;
     outline: none !important;
     border-bottom: 0.3rem solid $color-lightseagreen;
   }
