@@ -29,6 +29,7 @@ router.get(
 // CASTCREW ROUTES
 router.get(
   '/castcrew-overview/:slug',
+  authController.protect,
   authController.isLoggedIn,
   viewsController.getCastCrew
 );
