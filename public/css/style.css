@@ -266,22 +266,24 @@ body {
   background-color: #505050;
   height: 5rem;
   width: 100%;
-  padding: .8rem 1.7rem;
+  padding: 0.8rem 1.7rem;
   border: none;
-  border-bottom: .3rem solid transparent;
-  -webkit-border-radius: .2rem;
-  -moz-border-radius: .2rem;
-  -o-border-radius: .2rem;
-  border-radius: .2rem;
+  border-bottom: 0.3rem solid transparent;
+  -webkit-border-radius: 0.2rem;
+  -moz-border-radius: 0.2rem;
+  -o-border-radius: 0.2rem;
+  border-radius: 0.2rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background-image: url(../img/down-chevron.png);
   background-repeat: no-repeat;
   background-position: right 1rem center;
-  background-size: .8rem .4rem;
-  transition: all .3s; }
+  background-size: 0.8rem 0.4rem;
+  transition: all 0.3s; }
   .dropdown:focus {
+    min-width: 100%;
+    width: auto;
     outline: none !important;
     border-bottom: 0.3rem solid #20b2aa; }
   .dropdown:focus:invalid {
