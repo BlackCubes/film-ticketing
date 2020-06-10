@@ -96,14 +96,12 @@ if (circleNavTrigger) {
     e => {
       if (!e) var e = window.event;
       e.stopPropagation();
-
       circleNav.displayCircleNav();
     },
     false
   );
 
   svg.onclick = e => e.stopPropagation();
-
   circleNav.documentClick();
 }
 
