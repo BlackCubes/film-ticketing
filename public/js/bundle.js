@@ -14727,8 +14727,6 @@ var toggleMenu = function toggleMenu(e) {
   }
 };
 
-console.log(toggleMenu);
-
 svg.onclick = function (e) {
   e.stopPropagation();
 };
