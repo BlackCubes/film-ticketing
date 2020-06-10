@@ -23,11 +23,7 @@ block content
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
                     each month in months
-                      - var userMonth = user.birthdate.toLocaleString('en-us', {month: 'long'})
-                      
-                      - var selectedMonth = (userMonth === month) ? 'selected' : ''
-
-                      option(value=`${month}` selected=`${selectedMonth}`)= month
+                      option(value=`${month}`)= month
 
                 .form__birth-day
                   select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0' required)
