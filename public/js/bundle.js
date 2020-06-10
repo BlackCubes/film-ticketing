@@ -14752,33 +14752,33 @@ if (forgotPassForm) {
     var email = document.getElementById('email').value;
     (0, _login.forgotPassword)(email);
   });
-}
+} // if (circleNavTrigger) {
 
-if (circleNavTrigger) {
-  var svg = document.getElementById('menu'),
-      items = svg.querySelectorAll('.item'),
-      label = circleNavTrigger.querySelectorAll('#label')[0],
-      open = false;
-  var circleNav = new _circleNav.default(open, _gsap.default, items, label, svg);
 
-  _gsap.default.set(items, {
-    scale: 0,
-    visibility: 'visible'
-  });
+var svg = document.getElementById('menu'),
+    items = svg.querySelectorAll('.item'),
+    label = circleNavTrigger.querySelectorAll('#label')[0],
+    open = false;
+var circleNav = new _circleNav.default(open, _gsap.default, items, label, svg);
 
-  svg.style.pointerEvents = 'none';
-  circleNavTrigger.addEventListener('class', function (e) {
-    if (!e) var e = window.event;
-    e.stopPropagation();
-    circleNav.displayCircleNav();
-  }, false);
+_gsap.default.set(items, {
+  scale: 0,
+  visibility: 'visible'
+});
 
-  svg.onclick = function (e) {
-    return e.stopPropagation();
-  };
+svg.style.pointerEvents = 'none';
+circleNavTrigger.addEventListener('class', function (e) {
+  if (!e) var e = window.event;
+  e.stopPropagation();
+  circleNav.displayCircleNav();
+}, false);
 
-  circleNav.documentClick();
-} // var svg = document.getElementById('menu'),
+svg.onclick = function (e) {
+  return e.stopPropagation();
+};
+
+circleNav.documentClick(); // }
+// var svg = document.getElementById('menu'),
 //   items = svg.querySelectorAll('.item'),
 //   trigger = document.getElementById('trigger'),
 //   label = trigger.querySelectorAll('#label')[0],
