@@ -4,10 +4,13 @@
     #menu {
       display: block;
       margin: 0 auto;
-      overflow: hidden;
+      /*overflow: visible;*/ /* uncomment this if you are using bouncing animations*/
     }
 
-    .item { visibility: hidden; }
+    a {
+      cursor: pointer; /* SVG &lt;a&gt; elements don't get this by default, so you need to explicitly set it */
+      outline: none;
+    }
 
     /* You can change these default styles any way you want */
 
@@ -18,7 +21,7 @@
     }
 
 
-    .item:hover .sector {
+    .item:hover .sector, .item:focus .sector {
       fill: #eee;
     }
 
@@ -27,8 +30,11 @@
       pointer-events: auto; /* KEEP THIS to make sure it stays clickable even when SVG's pointer events is disabled */
     }
 
-    .menu-trigger:hover {
+    .menu-trigger:hover, .menu-trigger:focus {
       cursor: pointer;
+    }
+    symbol {
+      overflow: visible; /* KEEP THIS so that text will not get cut off it it is wider than the icon width */
     }
   </style>
 
