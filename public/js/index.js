@@ -87,8 +87,8 @@ var svg = document.getElementById('menu'),
 
 console.log('SVG: ', svg);
 console.log('Items: ', items);
-console.log('Trigger: ', items);
-console.log('Label: ', items);
+console.log('Trigger: ', trigger);
+console.log('Label: ', label);
 
 gsap.set(items, { scale: 0, visibility: 'visible' });
 svg.style.pointerEvents = 'none';

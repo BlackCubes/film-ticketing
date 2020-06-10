@@ -14692,8 +14692,8 @@ var svg = document.getElementById('menu'),
     open = false;
 console.log('SVG: ', svg);
 console.log('Items: ', items);
-console.log('Trigger: ', items);
-console.log('Label: ', items);
+console.log('Trigger: ', trigger);
+console.log('Label: ', label);
 
 _gsap.default.set(items, {
   scale: 0,
