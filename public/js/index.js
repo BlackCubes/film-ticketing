@@ -99,8 +99,9 @@ const toggleMenu = e => {
     gsap.to(items, {
       duration: 0.7,
       scale: 1,
-      ease: Elastic.easeOut,
-      stagger: 0.05
+      ease: 'elastic.out(0.05)'
+      // ease: Elastic.easeOut,
+      // stagger: 0.05
     });
     label.innerHTML = '-';
     svg.style.pointerEvents = 'auto';
