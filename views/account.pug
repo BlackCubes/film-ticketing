@@ -11,7 +11,7 @@ block content
                 h1.heading-primary Your Account Settings
 
             .form__group
-              input#name.form__input.input-text(type='text' placeholder='Name' required)
+              input#name.form__input.input-text(type='text' placeholder=`${user.name}` required)
               label.form__label.label-text(for='name') Please enter your name.
 
             .form__group
@@ -65,11 +65,11 @@ block content
                 h1.heading-primary Change Your Email/Username
 
             .form__group
-              input#email.form__input.input-text(type='email' placeholder='Email address' required)
+              input#email.form__input.input-text(type='email' placeholder=`${user.email}` required)
               label.form__label.label-text(for='email') Please enter a valid email address.
 
             .form__group
-              input#username.form__input.input-text(type='text' placeholder='Username' required)
+              input#username.form__input.input-text(type='text' placeholder=`${user.username}` required)
               label.form__label.label-text(for='username') Please enter a username
 
             .form__group
