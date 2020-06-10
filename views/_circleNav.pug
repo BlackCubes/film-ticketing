@@ -11,3 +11,7 @@
 
 //-     ul: li: a.circlenav__link(href="#"): span.circlenav__span Admin
 //-   #circleNavOverlay.circlenav__overlay
+.circlenav-wrapper
+  svg
+    for num in [1, 2, 3, 4, 5]
+      use(xlink:href=`/img/circle-nav.svg#icons-${num}` href=`/img/circle-nav.svg#icons-${num}`)
