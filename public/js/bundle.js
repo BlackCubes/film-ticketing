@@ -14361,66 +14361,41 @@ exports.default = exports.gsap = gsapWithCSS;
 },{"./gsap-core.js":"../../node_modules/gsap/gsap-core.js","./CSSPlugin.js":"../../node_modules/gsap/CSSPlugin.js"}],"circleNav.js":[function(require,module,exports) {
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.circleNav = void 0;
-
 var _gsap = _interopRequireDefault(require("gsap"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* eslint-disable */
-var circleNav = function circleNav() {
-  var svg = document.getElementById('menu'),
-      items = svg.querySelectorAll('.item'),
-      trigger = document.getElementById('trigger'),
-      label = trigger.querySelectorAll('#label')[0],
-      open = false;
-
-  _gsap.default.set(items, {
-    scale: 0,
-    visibility: 'visible'
-  });
-
-  svg.style.pointerEvents = 'none';
-  trigger.addEventListener('click', toggleMenu, false);
-
-  var toggleMenu = function toggleMenu(e) {
-    if (!e) var e = window.event;
-    e.stopPropagation();
-    open = !open;
-
-    if (open) {
-      _gsap.default.to(items, {
-        duration: 0.7,
-        scale: 1,
-        ease: Elastic.easeOut,
-        stagger: 0.05
-      });
-
-      label.innerHTML = '-';
-      svg.style.pointerEvents = 'auto';
-    } else {
-      _gsap.default.to(items, {
-        duration: 0.3,
-        scale: 0,
-        ease: Back.easeIn,
-        stagger: 0.05
-      });
-
-      label.innerHTML = '+';
-      svg.style.pointerEvents = 'none';
-    }
-  };
-
-  svg.onclick = function (e) {
-    e.stopPropagation();
-  };
-
-  document.onclick = function () {
+var svg = document.getElementById('menu'),
+    items = svg.querySelectorAll('.item'),
+    trigger = document.getElementById('trigger'),
+    label = trigger.querySelectorAll('#label')[0],
     open = false;
 
+_gsap.default.set(items, {
+  scale: 0,
+  visibility: 'visible'
+});
+
+svg.style.pointerEvents = 'none';
+trigger.addEventListener('click', toggleMenu, false);
+
+var toggleMenu = function toggleMenu(e) {
+  if (!e) var e = window.event;
+  e.stopPropagation();
+  open = !open;
+
+  if (open) {
+    _gsap.default.to(items, {
+      duration: 0.7,
+      scale: 1,
+      ease: Elastic.easeOut,
+      stagger: 0.05
+    });
+
+    label.innerHTML = '-';
+    svg.style.pointerEvents = 'auto';
+  } else {
     _gsap.default.to(items, {
       duration: 0.3,
       scale: 0,
@@ -14430,10 +14405,26 @@ var circleNav = function circleNav() {
 
     label.innerHTML = '+';
     svg.style.pointerEvents = 'none';
-  };
+  }
 };
 
-exports.circleNav = circleNav;
+svg.onclick = function (e) {
+  e.stopPropagation();
+};
+
+document.onclick = function () {
+  open = false;
+
+  _gsap.default.to(items, {
+    duration: 0.3,
+    scale: 0,
+    ease: Back.easeIn,
+    stagger: 0.05
+  });
+
+  label.innerHTML = '+';
+  svg.style.pointerEvents = 'none';
+};
 },{"gsap":"../../node_modules/gsap/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
