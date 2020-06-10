@@ -79,6 +79,8 @@ if (forgotPassForm) {
   });
 }
 
+console.log(gsap);
+
 var svg = document.getElementById('menu'),
   items = svg.querySelectorAll('.item'),
   trigger = document.getElementById('trigger'),

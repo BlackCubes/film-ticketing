@@ -14685,6 +14685,7 @@ if (forgotPassForm) {
   });
 }
 
+console.log(_gsap.default);
 var svg = document.getElementById('menu'),
     items = svg.querySelectorAll('.item'),
     trigger = document.getElementById('trigger'),
