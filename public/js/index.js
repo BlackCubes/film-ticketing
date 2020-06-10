@@ -92,7 +92,7 @@ gsap.set(items, { scale: 0, visibility: 'visible' });
 svg.style.pointerEvents = 'none';
 
 circleNavTrigger.addEventListener(
-  'class',
+  'click',
   e => {
     if (!e) var e = window.event;
     e.stopPropagation();

@@ -14767,7 +14767,7 @@ _gsap.default.set(items, {
 });
 
 svg.style.pointerEvents = 'none';
-circleNavTrigger.addEventListener('class', function (e) {
+circleNavTrigger.addEventListener('click', function (e) {
   if (!e) var e = window.event;
   e.stopPropagation();
   circleNav.displayCircleNav();
