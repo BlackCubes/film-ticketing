@@ -14230,9 +14230,10 @@ var logout = /*#__PURE__*/function () {
             res = _context2.sent;
 
             if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', 'Logging out...');
               window.setTimeout(function () {
                 location.assign('/');
-              });
+              }, 1000);
             }
 
             _context2.next = 10;
