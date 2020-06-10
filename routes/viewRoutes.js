@@ -26,6 +26,7 @@ router.get('/castcrew-overview/:slug', viewsController.getCastCrew);
 // USER ROUTES
 router.get('/login', viewsController.getLoginForm);
 router.get('/register', viewsController.getRegisterForm);
+router.get('/me', viewsController.getAccount);
 router.get('/forgotPassword', viewsController.getForgotPasswordForm);
 
 module.exports = router;
