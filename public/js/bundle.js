@@ -14917,12 +14917,16 @@ if (updatePersonalForm) {
 if (updateEmailUsernameForm) {
   updateEmailUsernameForm.addEventListener('submit', function (e) {
     e.preventDefault();
+    document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
     var email = document.getElementById('email').value,
         username = document.getElementById('username').value;
     (0, _updateSettings.updateSettings)({
       email: email,
       username: username
     }, 'email/username');
+    document.getElementById('btnUpdateEmailUsername').textContent = 'Update Email/Username';
+    document.getElementById('email').value = '';
+    document.getElementById('username').value = '';
   });
 }
 

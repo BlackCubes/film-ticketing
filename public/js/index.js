@@ -138,10 +138,18 @@ if (updateEmailUsernameForm) {
   updateEmailUsernameForm.addEventListener('submit', e => {
     e.preventDefault();
 
+    document.getElementById('btnUpdateEmailUsername').textContent =
+      'Updating...';
+
     const email = document.getElementById('email').value,
       username = document.getElementById('username').value;
 
     updateSettings({ email, username }, 'email/username');
+
+    document.getElementById('btnUpdateEmailUsername').textContent =
+      'Update Email/Username';
+    document.getElementById('email').value = '';
+    document.getElementById('username').value = '';
   });
 }
 
