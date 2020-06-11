@@ -14370,7 +14370,7 @@ exports.forgotPassword = forgotPassword;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateEmailUsername = exports.updatePersonalData = void 0;
+exports.updateEmailUsernameData = exports.updatePersonalData = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14431,7 +14431,7 @@ var updatePersonalData = /*#__PURE__*/function () {
 
 exports.updatePersonalData = updatePersonalData;
 
-var updateEmailUsername = /*#__PURE__*/function () {
+var updateEmailUsernameData = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(email, username) {
     var res;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -14472,12 +14472,12 @@ var updateEmailUsername = /*#__PURE__*/function () {
     }, _callee2, null, [[0, 7]]);
   }));
 
-  return function updateEmailUsername(_x4, _x5) {
+  return function updateEmailUsernameData(_x4, _x5) {
     return _ref2.apply(this, arguments);
   };
 }();
 
-exports.updateEmailUsername = updateEmailUsername;
+exports.updateEmailUsernameData = updateEmailUsernameData;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"circleNav.js":[function(require,module,exports) {
 "use strict";
 

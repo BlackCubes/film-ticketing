@@ -22,7 +22,7 @@ export const updatePersonalData = async (name, birthdate, gender) => {
   }
 };
 
-export const updateEmailUsername = async (email, username) => {
+export const updateEmailUsernameData = async (email, username) => {
   try {
     const res = await axios({
       method: 'PATCH',
