@@ -354,7 +354,7 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
-.form__gender, .form__content-type {
+.form__gender, .form__content-type, .form__special-venue {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
