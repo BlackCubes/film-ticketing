@@ -67,10 +67,12 @@ block content
 
             fieldset
               .form__group
-                textarea#showOverviewForm.form__text-area(name='textarea-overview' placeholder='Show Overview*')
+                .form__text-area
+                  textarea#showOverviewForm.form__text-area--overview(name='textarea-overview' placeholder='Show Overview*')
 
               .form__group
-                textarea#showSynopsisForm(name='textarea-synopsis' placeholder='Show Synopsis (optional)')
+                .form__text-area
+                  textarea#showSynopsisForm.form__text-area--synopsis(name='textarea-synopsis' placeholder='Show Synopsis (optional)')
 
               .form__group
                 button.btn.btn--blue Next
