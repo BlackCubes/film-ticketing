@@ -14370,7 +14370,7 @@ exports.forgotPassword = forgotPassword;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateEmailUsernameData = exports.updatePersonalData = void 0;
+exports.updateSettings = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14382,102 +14382,86 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var updatePersonalData = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(name, birthdate, gender) {
-    var res;
+var updateSettings = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, type) {
+    var url, res;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            _context.next = 3;
+            url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+            _context.next = 4;
             return (0, _axios.default)({
               method: 'PATCH',
-              url: 'http://127.0.0.1:3000/api/v1/users/updateMe',
-              data: {
-                name: name,
-                birthdate: birthdate,
-                gender: gender
-              }
+              url: url,
+              data: data
             });
 
-          case 3:
+          case 4:
             res = _context.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Your data has been updated!');
+              (0, _alerts.showAlert)('success', "Your ".concat(type, " has been updated!"));
             }
 
-            _context.next = 10;
+            _context.next = 11;
             break;
 
-          case 7:
-            _context.prev = 7;
+          case 8:
+            _context.prev = 8;
             _context.t0 = _context["catch"](0);
             (0, _alerts.showAlert)('error', _context.t0.response.data.message);
 
-          case 10:
+          case 11:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[0, 8]]);
   }));
 
-  return function updatePersonalData(_x, _x2, _x3) {
+  return function updateSettings(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}();
+}(); // export const updatePersonalData = async (name, birthdate, gender) => {
+//   try {
+//     const res = await axios({
+//       method: 'PATCH',
+//       url: 'http://127.0.0.1:3000/api/v1/users/updateMe',
+//       data: {
+//         name,
+//         birthdate,
+//         gender
+//       }
+//     });
+//     if (res.data.status === 'success') {
+//       showAlert('success', 'Your data has been updated!');
+//     }
+//   } catch (err) {
+//     showAlert('error', err.response.data.message);
+//   }
+// };
+// export const updateEmailUsernameData = async (email, username) => {
+//   try {
+//     const res = await axios({
+//       method: 'PATCH',
+//       url: 'http://127.0.0.1:3000/api/v1/users/updateMe',
+//       data: {
+//         email,
+//         username
+//       }
+//     });
+//     if (res.data.status === 'success') {
+//       showAlert('success', 'Your email/password has been updated!');
+//     }
+//   } catch (err) {
+//     showAlert('error', err.response.data.message);
+//   }
+// };
 
-exports.updatePersonalData = updatePersonalData;
 
-var updateEmailUsernameData = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(email, username) {
-    var res;
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.prev = 0;
-            _context2.next = 3;
-            return (0, _axios.default)({
-              method: 'PATCH',
-              url: 'http://127.0.0.1:3000/api/v1/users/updateMe',
-              data: {
-                email: email,
-                username: username
-              }
-            });
-
-          case 3:
-            res = _context2.sent;
-
-            if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Your email/password has been updated!');
-            }
-
-            _context2.next = 10;
-            break;
-
-          case 7:
-            _context2.prev = 7;
-            _context2.t0 = _context2["catch"](0);
-            (0, _alerts.showAlert)('error', _context2.t0.response.data.message);
-
-          case 10:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2, null, [[0, 7]]);
-  }));
-
-  return function updateEmailUsernameData(_x4, _x5) {
-    return _ref2.apply(this, arguments);
-  };
-}();
-
-exports.updateEmailUsernameData = updateEmailUsernameData;
+exports.updateSettings = updateSettings;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"circleNav.js":[function(require,module,exports) {
 "use strict";
 
