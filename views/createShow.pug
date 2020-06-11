@@ -50,7 +50,7 @@ block content
                       option(value) Year*
 
                       - const now = new Date().getFullYear()
-                      - const years = Array(now (now - 101)).fill('').map((val, i) => now - i)
+                      - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
 
                       each year in years
                         option(value=`${year}`)= year
