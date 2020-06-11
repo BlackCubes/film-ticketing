@@ -4,6 +4,7 @@ require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
 import { login, logout, register, forgotPassword } from './login';
+import { updatePersonalData } from './updateSettings';
 import CircleNav from './circleNav';
 
 // MODERNIZR TEST
@@ -18,6 +19,10 @@ const loginForm = document.getElementById('loginForm');
 const logoutBtn = document.querySelector('.nav__profile--logout');
 const registerForm = document.getElementById('registerForm');
 const forgotPassForm = document.getElementById('forgotPassform');
+const updatePersonalForm = document.getElementById('updatePersonalForm');
+const updateEmailUsernameForm = document.getElementById(
+  'updateEmailUsernameForm'
+);
 
 // VALUES (nothing, yet)
 
@@ -102,5 +107,28 @@ if (forgotPassForm) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     forgotPassword(email);
+  });
+}
+
+if (updatePersonalForm) {
+  updatePersonalForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const selectBirthMonth = document.getElementById('selectBirthMonth'),
+      selectBirthDay = document.getElementById('selectBirthDay'),
+      selectBirthYear = document.getElementById('selectBirthYear');
+
+    const birthMonth =
+        selectBirthMonth.options[selectBirthMonth.selectedIndex].value,
+      birthDay = selectBirthDay.options[selectedBirthDay.selectedIndex].value,
+      birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
+
+    const selectGender = document.getElementById('selectGender');
+
+    const birthdate = birthYear.concat('-', birthMonth, '-', birthDay),
+      name = document.getElementById('name').value,
+      gender = selectGender.options[selectGender.selectedIndex].value;
+
+    updatePersonalData(name, birthdate, gender);
   });
 }
