@@ -112,3 +112,10 @@ exports.getAccount = (req, res) => {
     title: 'My Account'
   });
 };
+
+// -- EVENT OWNER
+exports.getEventOwnerCreateShow = (req, res) => {
+  res.status(200).render('createShow', {
+    title: 'Create My Show'
+  });
+};
