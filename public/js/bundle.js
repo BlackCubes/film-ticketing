@@ -14924,8 +14924,8 @@ if (updatePersonalForm) {
 if (updateEmailUsernameForm) {
   updateEmailUsernameForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    var email = document.getElementById('email'),
-        username = document.getElementById('username');
+    var email = document.getElementById('email').value,
+        username = document.getElementById('username').value;
     (0, _updateSettings.updateEmailUsernameData)(email, username);
   });
 }

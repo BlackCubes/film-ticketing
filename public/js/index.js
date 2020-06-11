@@ -137,8 +137,8 @@ if (updateEmailUsernameForm) {
   updateEmailUsernameForm.addEventListener('submit', e => {
     e.preventDefault();
 
-    const email = document.getElementById('email'),
-      username = document.getElementById('username');
+    const email = document.getElementById('email').value,
+      username = document.getElementById('username').value;
 
     updateEmailUsernameData(email, username);
   });
