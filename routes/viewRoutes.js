@@ -47,4 +47,11 @@ router.get(
 );
 router.get('/me', authController.protect, viewsController.getAccount);
 
+// -- EVENT OWNER ROUTES
+router.get(
+  '/createMyShow',
+  authController.protect,
+  viewsController.getEventOwnerCreateShow
+);
+
 module.exports = router;
