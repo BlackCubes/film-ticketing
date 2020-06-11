@@ -23,6 +23,7 @@ const updatePersonalForm = document.getElementById('updatePersonalForm');
 const updateEmailUsernameForm = document.getElementById(
   'updateEmailUsernameForm'
 );
+const updatePassForm = document.getElementById('updatePassForm');
 
 // VALUES (nothing, yet)
 
@@ -141,5 +142,27 @@ if (updateEmailUsernameForm) {
       username = document.getElementById('username').value;
 
     updateSettings({ email, username }, 'email/username');
+  });
+}
+
+if (updatePassForm) {
+  updatePassForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    document.getElementById('btnUpdatePass').textContent = 'Updating...';
+
+    const passwordCurrent = document.getElementById('currentPass').value,
+      password = document.getElementById('newPass').value,
+      passwordConfirm = document.getElementById('confirmNewPass').value;
+
+    await updateSettings(
+      { passwordCurrent, password, passwordConfirm },
+      'password'
+    );
+
+    document.getElementById('btnUpdatePass').textContent = 'Update Password';
+    document.getElementById('currentPass').value = '';
+    document.getElementById('newPass').value = '';
+    document.getElementById('confirmNewPass').value = '';
   });
 }
