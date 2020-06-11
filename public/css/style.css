@@ -308,12 +308,12 @@ body {
   margin-left: auto;
   margin-right: auto;
   transition: all 0.3s; }
-  .form__input :focus, .form__text-area :focus {
+  .form__input:focus, .form__text-area:focus {
     outline: none;
     border-bottom: 0.3rem solid #20b2aa; }
-  .form__input :focus:invalid, .form__text-area :focus:invalid {
+  .form__input:focus:invalid, .form__text-area:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
-  .form__input ::-webkit-input-placeholder, .form__text-area ::-webkit-input-placeholder {
+  .form__input::-webkit-input-placeholder, .form__text-area::-webkit-input-placeholder {
     color: #d3d3d3; }
 
 .form__text-area {

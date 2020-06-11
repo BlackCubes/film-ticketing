@@ -29,16 +29,16 @@
     margin-right: auto;
     transition: all 0.3s;
 
-    :focus {
+    &:focus {
       outline: none;
       border-bottom: 0.3rem solid $color-lightseagreen;
     }
 
-    :focus:invalid {
+    &:focus:invalid {
       border-bottom: 0.3rem solid $color-red;
     }
 
-    ::-webkit-input-placeholder {
+    &::-webkit-input-placeholder {
       color: $color-light-silver;
     }
   }
