@@ -4,7 +4,7 @@ require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
 import { login, logout, register, forgotPassword } from './login';
-import { updatePersonalData } from './updateSettings';
+import { updatePersonalData, updateEmailUsernameData } from './updateSettings';
 import CircleNav from './circleNav';
 
 // MODERNIZR TEST
@@ -130,5 +130,16 @@ if (updatePersonalForm) {
       gender = selectGender.options[selectGender.selectedIndex].value;
 
     updatePersonalData(name, birthdate, gender);
+  });
+}
+
+if (updateEmailUsernameForm) {
+  updateEmailUsernameForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const email = document.getElementById('email'),
+      username = document.getElementById('username');
+
+    updateEmailUsernameData(email, username);
   });
 }
