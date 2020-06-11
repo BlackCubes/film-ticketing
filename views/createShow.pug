@@ -68,9 +68,11 @@ block content
             fieldset
               .form__group
                 textarea#showOverviewForm.form__text-area.input-text(name='textarea-overview' placeholder='Show Overview*' required)
+                label.form__label.label-text(for='showOverviewFrom') Please provide a short synopsis i.e. overview or logline.
 
               .form__group
                 textarea#showSynopsisForm.form__text-area.input-text(name='textarea-synopsis' placeholder='Show Synopsis (optional)')
+                label.form__label.label-text(for='showSynopsisForm') A synopsis is a condensed overview. Don't spoil.
 
               .form__group
                 input#showLanguage.form__input.input-text(type='text' placeholder='Language (optional)')
