@@ -325,12 +325,13 @@ body {
   display: block;
   transition: all 0.3s; }
 
-.form__input:placeholder-shown + .form__label {
+.form__input:placeholder-shown + .form__label .form__text-aread:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem); }
 
-.form__input:focus:invalid + .form__label {
+.form__input:focus:invalid + .form__label,
+.form__text-area:placeholder-shown + .form__label {
   color: #ff0000; }
 
 .form__link {
