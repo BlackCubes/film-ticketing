@@ -14863,7 +14863,7 @@ if (updatePersonalForm) {
         selectBirthDay = document.getElementById('selectBirthDay'),
         selectBirthYear = document.getElementById('selectBirthYear');
     var birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value,
-        birthDay = selectBirthDay.options[selectedBirthDay.selectedIndex].value,
+        birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value,
         birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
     var selectGender = document.getElementById('selectGender');
     var birthdate = birthYear.concat('-', birthMonth, '-', birthDay),

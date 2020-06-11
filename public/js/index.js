@@ -120,7 +120,7 @@ if (updatePersonalForm) {
 
     const birthMonth =
         selectBirthMonth.options[selectBirthMonth.selectedIndex].value,
-      birthDay = selectBirthDay.options[selectedBirthDay.selectedIndex].value,
+      birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value,
       birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
 
     const selectGender = document.getElementById('selectGender');
