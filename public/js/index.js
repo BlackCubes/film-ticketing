@@ -112,8 +112,10 @@ if (forgotPassForm) {
 }
 
 if (updatePersonalForm) {
-  updatePersonalForm.addEventListener('submit', e => {
+  updatePersonalForm.addEventListener('submit', async e => {
     e.preventDefault();
+
+    document.getElementById('btnUpdateData').textContent = 'Updating...';
 
     const selectBirthMonth = document.getElementById('selectBirthMonth'),
       selectBirthDay = document.getElementById('selectBirthDay'),
@@ -130,12 +132,19 @@ if (updatePersonalForm) {
       name = document.getElementById('name').value,
       gender = selectGender.options[selectGender.selectedIndex].value;
 
-    updateSettings({ name, birthdate, gender }, 'data');
+    await updateSettings({ name, birthdate, gender }, 'data');
+
+    document.getElementById('btnUpdateData').textContent = 'Update Settings';
+    document.getElementById('name').value = '';
+    selectBirthMonth.options[selectBirthMonth.selectedIndex].value = '';
+    selectBirthDay.options[selectBirthDay.selectedIndex].value = '';
+    selectBirthYear.options[selectBirthYear.selectedIndex].value = '';
+    selectGender.options[selectGender.selectedIndex].value = '';
   });
 }
 
 if (updateEmailUsernameForm) {
-  updateEmailUsernameForm.addEventListener('submit', e => {
+  updateEmailUsernameForm.addEventListener('submit', async e => {
     e.preventDefault();
 
     document.getElementById('btnUpdateEmailUsername').textContent =
@@ -144,7 +153,7 @@ if (updateEmailUsernameForm) {
     const email = document.getElementById('email').value,
       username = document.getElementById('username').value;
 
-    updateSettings({ email, username }, 'email/username');
+    await updateSettings({ email, username }, 'email/username');
 
     document.getElementById('btnUpdateEmailUsername').textContent =
       'Update Email/Username';

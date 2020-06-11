@@ -14894,54 +14894,96 @@ if (forgotPassForm) {
 }
 
 if (updatePersonalForm) {
-  updatePersonalForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var selectBirthMonth = document.getElementById('selectBirthMonth'),
-        selectBirthDay = document.getElementById('selectBirthDay'),
-        selectBirthYear = document.getElementById('selectBirthYear');
-    var birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value,
-        birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value,
-        birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
-    var selectGender = document.getElementById('selectGender');
-    var birthdate = birthYear.concat('-', birthMonth, '-', birthDay),
-        name = document.getElementById('name').value,
-        gender = selectGender.options[selectGender.selectedIndex].value;
-    (0, _updateSettings.updateSettings)({
-      name: name,
-      birthdate: birthdate,
-      gender: gender
-    }, 'data');
-  });
-}
-
-if (updateEmailUsernameForm) {
-  updateEmailUsernameForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
-    var email = document.getElementById('email').value,
-        username = document.getElementById('username').value;
-    (0, _updateSettings.updateSettings)({
-      email: email,
-      username: username
-    }, 'email/username');
-    document.getElementById('btnUpdateEmailUsername').textContent = 'Update Email/Username';
-    document.getElementById('email').value = '';
-    document.getElementById('username').value = '';
-  });
-}
-
-if (updatePassForm) {
-  updatePassForm.addEventListener('submit', /*#__PURE__*/function () {
+  updatePersonalForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      var passwordCurrent, password, passwordConfirm;
+      var selectBirthMonth, selectBirthDay, selectBirthYear, birthMonth, birthDay, birthYear, selectGender, birthdate, name, gender;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
+              document.getElementById('btnUpdateData').textContent = 'Updating...';
+              selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');
+              birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value, birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value, birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
+              selectGender = document.getElementById('selectGender');
+              birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
+              _context.next = 8;
+              return (0, _updateSettings.updateSettings)({
+                name: name,
+                birthdate: birthdate,
+                gender: gender
+              }, 'data');
+
+            case 8:
+              document.getElementById('btnUpdateData').textContent = 'Update Settings';
+              document.getElementById('name').value = '';
+              selectBirthMonth.options[selectBirthMonth.selectedIndex].value = '';
+              selectBirthDay.options[selectBirthDay.selectedIndex].value = '';
+              selectBirthYear.options[selectBirthYear.selectedIndex].value = '';
+              selectGender.options[selectGender.selectedIndex].value = '';
+
+            case 14:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+}
+
+if (updateEmailUsernameForm) {
+  updateEmailUsernameForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(e) {
+      var email, username;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              e.preventDefault();
+              document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
+              email = document.getElementById('email').value, username = document.getElementById('username').value;
+              _context2.next = 5;
+              return (0, _updateSettings.updateSettings)({
+                email: email,
+                username: username
+              }, 'email/username');
+
+            case 5:
+              document.getElementById('btnUpdateEmailUsername').textContent = 'Update Email/Username';
+              document.getElementById('email').value = '';
+              document.getElementById('username').value = '';
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+}
+
+if (updatePassForm) {
+  updatePassForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(e) {
+      var passwordCurrent, password, passwordConfirm;
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              e.preventDefault();
               document.getElementById('btnUpdatePass').textContent = 'Updating...';
               passwordCurrent = document.getElementById('currentPass').value, password = document.getElementById('newPass').value, passwordConfirm = document.getElementById('confirmNewPass').value;
-              _context.next = 5;
+              _context3.next = 5;
               return (0, _updateSettings.updateSettings)({
                 passwordCurrent: passwordCurrent,
                 password: password,
@@ -14956,14 +14998,14 @@ if (updatePassForm) {
 
             case 9:
             case "end":
-              return _context.stop();
+              return _context3.stop();
           }
         }
-      }, _callee);
+      }, _callee3);
     }));
 
-    return function (_x) {
-      return _ref.apply(this, arguments);
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
     };
   }());
 }
