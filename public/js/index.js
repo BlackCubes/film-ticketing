@@ -4,7 +4,7 @@ require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
 import { login, logout, register, forgotPassword } from './login';
-import { updatePersonalData, updateEmailUsernameData } from './updateSettings';
+import { updateSettings } from './updateSettings';
 import CircleNav from './circleNav';
 
 // MODERNIZR TEST
@@ -129,7 +129,7 @@ if (updatePersonalForm) {
       name = document.getElementById('name').value,
       gender = selectGender.options[selectGender.selectedIndex].value;
 
-    updatePersonalData(name, birthdate, gender);
+    updateSettings({ name, birthdate, gender }, 'data');
   });
 }
 
@@ -140,6 +140,6 @@ if (updateEmailUsernameForm) {
     const email = document.getElementById('email').value,
       username = document.getElementById('username').value;
 
-    updateEmailUsernameData(email, username);
+    updateSettings({ email, username }, 'email/username');
   });
 }
