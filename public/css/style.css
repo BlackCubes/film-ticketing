@@ -355,7 +355,7 @@ body {
   margin-right: auto;
   margin-bottom: 4rem; }
 
-.form__birth {
+.form__date {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -366,15 +366,15 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 4rem; }
-  .form__birth-month {
+  .form__date-month {
     -webkit-flex-basis: 40%;
     -ms-flex-basis: 40%;
     flex-basis: 40%; }
-  .form__birth-day {
+  .form__date-day {
     -webkit-flex-basis: 25%;
     -ms-flex-basis: 25%;
     flex-basis: 25%; }
-  .form__birth-year {
+  .form__date-year {
     -webkit-flex-basis: 30%;
     -ms-flex-basis: 30%;
     flex-basis: 30%; }
