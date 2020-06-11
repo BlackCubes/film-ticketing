@@ -67,10 +67,22 @@ block content
 
             fieldset
               .form__group
-                textarea#showOverviewForm.form__text-area.input-text(name='textarea-overview' placeholder='Show Overview*')
+                textarea#showOverviewForm.form__text-area.input-text(name='textarea-overview' placeholder='Show Overview*' required)
 
               .form__group
                 textarea#showSynopsisForm.form__text-area.input-text(name='textarea-synopsis' placeholder='Show Synopsis (optional)')
+
+              .form__group
+                input#showLanguage.form__input.input-text(type='text' placeholder='Language (optional)')
+                label.form__label.label-text(for='showLanguage') What language it will have? Ex: 'French'
+
+              .form__group
+                input#showSubtitles.form__input.input-text(type='text' placeholder='Subtitles (optional)')
+                label.form__label.label-text(for='showSubtitles') Any subtitles? Ex: English
+
+              .form__group
+                input#showGenre.form__input.input-text(type='text' placeholder='Genre(s) (optional)')
+                label.form__label.label-text(for='showGenre') What genre(s) is it?
 
               .form__group
                 button.btn.btn--blue Next
