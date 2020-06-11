@@ -18,23 +18,23 @@
     //font-size: 1.5rem;
     //color: $color-white;
     padding: 1.5rem 2rem;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     //background-color: rgba($color-white, .3);
     border: none;
-    border-bottom: .3rem solid transparent;
+    border-bottom: 0.3rem solid transparent;
     width: 90%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &:focus {
       outline: none;
-      border-bottom: .3rem solid $color-lightseagreen;
+      border-bottom: 0.3rem solid $color-lightseagreen;
     }
 
     &:focus:invalid {
-      border-bottom: .3rem solid $color-red;
+      border-bottom: 0.3rem solid $color-red;
     }
 
     &::-webkit-input-placeholder {
@@ -47,9 +47,9 @@
     //font-weight: 700;
     //color: $color-lightseagreen;
     margin-left: 3rem;
-    margin-top: .7rem;
+    margin-top: 0.7rem;
     display: block;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   &__input:placeholder-shown + &__label {
@@ -88,7 +88,8 @@
     margin-right: auto;
   }
 
-  &__gender {
+  &__gender,
+  &__content-type {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
