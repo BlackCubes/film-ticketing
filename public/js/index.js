@@ -228,6 +228,30 @@ if (firstNextBtn) {
         subtitles = document.getElementById('showSubtitles').value,
         genre = document.getElementById('showGenre').value,
         price = document.getElementById('showPrice').value;
+
+      const selectMpaa = document.getElementById('selectMpaa'),
+        selectOriginalMonth = document.getElementById('showOriginalMonth'),
+        selectOriginalDay = document.getElementById('showOriginalDay'),
+        selectOriginalYear = document.getElementById('showOriginalYear'),
+        selectContentType = document.getElementById('showContentType'),
+        selectSpecialVenue = document.getElementById('showSpecialVenue');
+
+      const originalMonth =
+          selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
+        originalDay =
+          selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
+        originalYear =
+          selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+
+      const originalReleaseDate = [
+        originalYear.concat('-', originalMonth, '-', originalDay)
+      ];
+
+      const specialVenue = selectSpecialVenue === 'y' ? true : false;
+
+      const mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
+        contentType =
+          selectContentType.options[selectContentType.selectedIndex].value;
     });
   }
 }
