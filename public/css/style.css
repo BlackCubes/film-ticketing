@@ -296,7 +296,8 @@ body {
 
 .form__fieldset {
   display: none;
-  width: 25%; }
+  width: 25%;
+  border: none; }
 
 .form__title {
   width: 95%;
