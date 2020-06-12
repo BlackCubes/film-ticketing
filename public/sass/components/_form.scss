@@ -4,6 +4,8 @@
   }
 
   &__multiform {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     width: 400%;
   }
@@ -165,7 +167,8 @@
 
   &__duo-btn {
     &-previous,
-    &-next {
+    &-next,
+    &-submit {
       -webkit-flex-basis: 40%;
       -ms-flex-basis: 40%;
       flex-basis: 40%;

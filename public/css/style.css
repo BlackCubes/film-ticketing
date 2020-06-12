@@ -293,6 +293,8 @@ body {
   overflow: hidden; }
 
 .form__multiform {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 400%; }
 
@@ -400,7 +402,7 @@ body {
   -ms-flex-basis: 30%;
   flex-basis: 30%; }
 
-.form__duo-btn-previous, .form__duo-btn-next {
+.form__duo-btn-previous, .form__duo-btn-next, .form__duo-btn-submit {
   -webkit-flex-basis: 40%;
   -ms-flex-basis: 40%;
   flex-basis: 40%; }
