@@ -8,14 +8,14 @@ block content
           .form-container__title.u-center-text.u-margin-bottom-small
             h1.heading-primary.u-margin-bottom-small Create Your Show
 
-          form#eventOwnerCreateShowForm.form.form__multiform
+          form#eoCreateShowForm.form.form__multiform
             //- .form__group
             //-   .title.u-center-text
             //-     h1.heading-primary.u-margin-bottom-small Create Your Show
 
             //-     small.form__info-small.small-text Let's create your show! Fields with * are required.
 
-            fieldset.form__fieldset
+            fieldset#eoCreateShowFieldset.form__fieldset
               .form__group.u-center-text.u-margin-bottom-small
                 small.form__info-small.small-text Let's create your show! Fields with * are required.
 
@@ -69,7 +69,7 @@ block content
                     option(value='TV') TV
               
               .form__group
-                button.btn.btn--blue Next
+                button#btnNext-1.btn.btn--blue Next
 
             fieldset.form__fieldset
               .form__group.u-center-text
@@ -86,10 +86,10 @@ block content
               .form__group
                 .form__duo-btn
                   .form__duo-btn-previous
-                    button.btn.btn--blue.btn--duo Previous
+                    button#btnPrev-1.btn.btn--blue.btn--duo Previous
 
                   .form__duo-btn-next
-                    button.btn.btn--blue.btn--duo Next
+                    button#btnNext-2.btn.btn--blue.btn--duo Next
 
             fieldset.form__fieldset
               .form__group.u-center-text
@@ -110,10 +110,10 @@ block content
               .form__group
                 .form__duo-btn
                   .form__duo-btn-previous
-                    button.btn.btn--blue.btn--duo Previous
+                    button#btnPrev-2.btn.btn--blue.btn--duo Previous
 
                   .form__duo-btn-next
-                    button.btn.btn--blue.btn--duo Next
+                    button#btnNext-3.btn.btn--blue.btn--duo Next
 
             fieldset.form__fieldset
               .form__group.u-center-text
@@ -133,8 +133,8 @@ block content
               .form__group
                 .form__duo-btn
                   .form__duo-btn-previous
-                    button.btn.btn--blue.btn--duo Previous
+                    button#btnPrev-3.btn.btn--blue.btn--duo Previous
 
                   .form__duo-btn-submit
-                    button.btn.btn--blue.btn--duo Create
+                    button#btnCreateShow.btn.btn--blue.btn--duo Create
               
