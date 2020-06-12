@@ -197,22 +197,13 @@ if (firstNextBtn) {
     secondPreviousBtn = document.getElementById('btnPrev-2'),
     thirdPreviousBtn = document.getElementById('btnPrev-3');
 
-  let firstForwardSlide = new MultiForm(firstNextBtn, fieldset),
-    secondForwardSlide = new MultiForm(secondNextBtn, fieldset),
-    thirdForwardSlide = new MultiForm(thirdNextBtn, fieldset);
+  let firstForwardSlide = new MultiForm(firstNextBtn, fieldset, '-25%'),
+    secondForwardSlide = new MultiForm(secondNextBtn, fieldset, '-50%'),
+    thirdForwardSlide = new MultiForm(thirdNextBtn, fieldset, '-75%');
 
-  let firstBackSlide = new MultiForm(firstPreviousBtn, fieldset),
-    secondBackSlide = new MultiForm(secondPreviousBtn, fieldset),
-    thirdBackSlide = new MultiForm(thirdPreviousBtn, fieldset);
-
-  firstForwardSlide.formSlide('-25%');
-  firstBackSlide.formSlide('0%');
-
-  secondForwardSlide.formSlide('-50%');
-  secondBackSlide.formSlide('-25%');
-
-  thirdForwardSlide.formSlide('-75%');
-  thirdBackSlide.formSlide('-50%');
+  let firstBackSlide = new MultiForm(firstPreviousBtn, fieldset, '0%'),
+    secondBackSlide = new MultiForm(secondPreviousBtn, fieldset, '-25%'),
+    thirdBackSlide = new MultiForm(thirdPreviousBtn, fieldset, '-50%');
 
   const createShowBtn = document.getElementById('btnCreateShow');
 
