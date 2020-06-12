@@ -1,6 +1,12 @@
 /* eslint-disable */
 import { formValidator } from './errorController';
 
+// export default class Form {
+//   constructor() {
+
+//   }
+// }
+
 export class MultiForm {
   constructor(button, fieldset, percentage) {
     this.button = button;
@@ -8,15 +14,13 @@ export class MultiForm {
     this.percentage = percentage;
   }
 
+  // formSlide() {
+  //   return this.button.addEventListener('click', () => {
+  //     this.fieldset.style.marginLeft = this.percentage;
+  //   });
+  // }
+
   formSlide() {
-    return this.button.addEventListener('click', () => {
-      this.fieldset.style.marginLeft = this.percentage;
-    });
+    return (this.fieldset.style.marginLeft = this.percentage);
   }
 }
-
-// export default class Form {
-//   constructor() {
-
-//   }
-// }

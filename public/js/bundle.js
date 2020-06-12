@@ -12452,6 +12452,10 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+// export default class Form {
+//   constructor() {
+//   }
+// }
 var MultiForm = /*#__PURE__*/function () {
   function MultiForm(button, fieldset, percentage) {
     _classCallCheck(this, MultiForm);
@@ -12459,25 +12463,22 @@ var MultiForm = /*#__PURE__*/function () {
     this.button = button;
     this.fieldset = fieldset;
     this.percentage = percentage;
-  }
+  } // formSlide() {
+  //   return this.button.addEventListener('click', () => {
+  //     this.fieldset.style.marginLeft = this.percentage;
+  //   });
+  // }
+
 
   _createClass(MultiForm, [{
     key: "formSlide",
     value: function formSlide() {
-      var _this = this;
-
-      return this.button.addEventListener('click', function () {
-        _this.fieldset.style.marginLeft = _this.percentage;
-      });
+      return this.fieldset.style.marginLeft = this.percentage;
     }
   }]);
 
   return MultiForm;
-}(); // export default class Form {
-//   constructor() {
-//   }
-// }
-
+}();
 
 exports.MultiForm = MultiForm;
 },{"./errorController":"errorController.js"}],"../../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
