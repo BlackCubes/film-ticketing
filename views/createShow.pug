@@ -4,19 +4,19 @@ block content
   main.main
     .user-view
       .user-view__content
-        .user-view__form-container
+        .user-view__form-container.form-container__multiform
           .form-container__title.u-center-text.u-margin-bottom-small
             h1.heading-primary.u-margin-bottom-small Create Your Show
 
             small.form__info-small.small-text Let's create your show! Fields with * are required.
-          form#eventOwnerCreateShowForm
+          form#eventOwnerCreateShowForm.form.form__multiform
             //- .form__group
             //-   .title.u-center-text
             //-     h1.heading-primary.u-margin-bottom-small Create Your Show
 
             //-     small.form__info-small.small-text Let's create your show! Fields with * are required.
 
-            fieldset
+            fieldset.form__fieldset
               .form__group
                 input#showTitle.form__input.input-text(type='text' placeholder='Title*' required)
                 label.form__label.label-text(for='showTitle') Please give a title for your show.
