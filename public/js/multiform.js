@@ -1,19 +1,13 @@
 /* eslint-disable */
-export const multiForm = (buttons, fieldset, ward) => {
-  let count = 1,
-    percentage = 25;
+export default class MultiForm {
+  constructor(button, fieldset) {
+    this.button = button;
+    this.fieldset = fieldset;
+  }
 
-  let buttonEvents = buttons.map(button => {
-    return button.addEventListener('click', () => {
-      if (ward === 'forward') {
-        fieldset.style.marginLeft = `-${percentage * count}%`;
-        count++;
-      } else if (ward === 'backward') {
-        count--;
-        fieldset.style.marginLeft = `${percentage * count}%`;
-      }
+  formSlide(percentage) {
+    this.button.addEventListener('click', () => {
+      this.fieldset.style.marginLeft = percentage;
     });
-  });
-
-  return buttonEvents;
-};
+  }
+}

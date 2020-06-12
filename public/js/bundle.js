@@ -12428,27 +12428,38 @@ exports.default = CircleNav;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.multiForm = void 0;
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 /* eslint-disable */
-var multiForm = function multiForm(buttons, fieldset, ward) {
-  var count = 1,
-      percentage = 25;
-  var buttonEvents = buttons.map(function (button) {
-    return button.addEventListener('click', function () {
-      if (ward === 'forward') {
-        fieldset.style.marginLeft = "-".concat(percentage * count, "%");
-        count++;
-      } else if (ward === 'backward') {
-        count--;
-        fieldset.style.marginLeft = "".concat(percentage * count, "%");
-      }
-    });
-  });
-  return buttonEvents;
-};
+var MultiForm = /*#__PURE__*/function () {
+  function MultiForm(button, fieldset) {
+    _classCallCheck(this, MultiForm);
 
-exports.multiForm = multiForm;
+    this.button = button;
+    this.fieldset = fieldset;
+  }
+
+  _createClass(MultiForm, [{
+    key: "formSlide",
+    value: function formSlide(percentage) {
+      var _this = this;
+
+      this.button.addEventListener('click', function () {
+        _this.fieldset.style.marginLeft = percentage;
+      });
+    }
+  }]);
+
+  return MultiForm;
+}();
+
+exports.default = MultiForm;
 },{}],"../../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
