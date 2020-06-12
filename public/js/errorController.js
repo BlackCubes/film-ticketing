@@ -1,4 +1,4 @@
 /* eslint-disable */
-export const formValidation = () => {
+export const formValidator = () => {
   console.log('Form Validator waiting...');
 };
