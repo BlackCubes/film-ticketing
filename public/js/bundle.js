@@ -15102,7 +15102,7 @@ if (updatePassForm) {
   }());
 }
 
-if (eoFieldlist1.elements.btnNext1) {
+if (eoFieldlist1) {
   // Gather fieldlist and button DOM elements
   var eoFieldlist2 = eoCreateShowForm.elements.eoFieldlist2,
       eoFieldlist3 = eoCreateShowForm.elements.eoFieldlist3,
