@@ -12431,8 +12431,20 @@ Object.defineProperty(exports, "__esModule", {
 exports.multiForm = void 0;
 
 /* eslint-disable */
-var multiForm = function multiForm() {
-  console.log('test');
+var multiForm = function multiForm(buttons, fieldset, ward) {
+  var count = 1,
+      percentage = 25;
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      if (ward === 'forward') {
+        fieldset.style.marginLeft = "-".concat(percentage * count);
+        count++;
+      } else if (ward === 'backward') {
+        count--;
+        fieldset.style.marginLeft = "".concat(percentage * count);
+      }
+    });
+  });
 };
 
 exports.multiForm = multiForm;
