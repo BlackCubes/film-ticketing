@@ -12438,20 +12438,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /* eslint-disable */
 var MultiForm = /*#__PURE__*/function () {
-  function MultiForm(button, fieldset) {
+  function MultiForm(button, fieldset, percentage) {
     _classCallCheck(this, MultiForm);
 
     this.button = button;
     this.fieldset = fieldset;
+    this.percentage = percentage;
   }
 
   _createClass(MultiForm, [{
     key: "formSlide",
-    value: function formSlide(percentage) {
+    value: function formSlide() {
       var _this = this;
 
-      this.button.addEventListener('click', function () {
-        _this.fieldset.style.marginLeft = percentage;
+      return this.button.addEventListener('click', function () {
+        _this.fieldset.style.marginLeft = _this.percentage;
       });
     }
   }]);
