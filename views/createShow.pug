@@ -20,12 +20,12 @@ block content
                 small.form__info-small.small-text Let's create your show! Fields with * are required.
 
               .form__group
-                input#showTitle.form__input.input-text(type='text' placeholder='Title*' required)
+                input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' required)
                 label.form__label.label-text(for='showTitle') Please give a title for your show.
 
               .form__group
                 .form__mpaa
-                  select#selectMpaa.dropdown(name='select-mpaa' tabindex='0' required)
+                  select#selectMpaa.dropdown(name='selectMpaa' tabindex='0' required)
                     option(value) MPAA Rating*
 
                     - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
@@ -34,13 +34,13 @@ block content
                       option(value=`${mpaa}`)= mpaa
 
               .form__group
-                input#showDuration.form__input.input-text(type='number' placeholder='Duration*' required)
+                input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' required)
                 label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
               .form__group
                 .form__date
                   .form__date-month
-                    select#showOriginalMonth.dropdown(name='select-originalmonth' tabindex='0' required)
+                    select#showOriginalMonth.dropdown(name='selectOriginalMonth' tabindex='0' required)
                       option(value) Original Month*
 
                       - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -49,7 +49,7 @@ block content
                         option(value=`${month}`)= month
 
                   .form__date-day
-                    select#showOriginalDay.dropdown(name='select-originalday' tabindex='0' required)
+                    select#showOriginalDay.dropdown(name='selectOriginalDay' tabindex='0' required)
                       option(value) Day*
 
                       - const days = [...Array(32).keys()].splice(1)
@@ -58,7 +58,7 @@ block content
                         option(value=`${day}`)= day
 
                   .form__date-year
-                    select#showOriginalYear.dropdown(name='select-originalyear' tabindex='0' required)
+                    select#showOriginalYear.dropdown(name='selectOriginalYear' tabindex='0' required)
                       option(value) Year*
 
                       - const now = new Date().getFullYear()
@@ -69,7 +69,7 @@ block content
               
               .form__group
                 .form__content-type
-                  select#showContentType.dropdown(name='select-contenttype' tabindex='0' required)
+                  select#showContentType.dropdown(name='selectContentType' tabindex='0' required)
                     option(value) Content Select*
                     option(value='Film') Film
                     option(value='TV') TV
@@ -82,11 +82,11 @@ block content
                 small.form__info-small.small-text For inputting cast/crews information, please contact the admin.
 
               .form__group
-                textarea#showOverviewForm.form__text-area.input-text(name='textarea-overview' placeholder='Show Overview*' required)
+                textarea#showOverviewForm.form__text-area.input-text(name='textareaOverview' placeholder='Show Overview*' required)
                 label.form__label.label-text(for='showOverviewFrom') Please provide a short synopsis i.e. overview or logline.
 
               .form__group
-                textarea#showSynopsisForm.form__text-area.input-text(name='textarea-synopsis' placeholder='Show Synopsis (optional)')
+                textarea#showSynopsisForm.form__text-area.input-text(name='textareaSynopsis' placeholder='Show Synopsis (optional)')
                 label.form__label.label-text(for='showSynopsisForm') A synopsis is a condensed outline. Don't spoil.
 
               .form__group
@@ -102,15 +102,15 @@ block content
                 small.form__info-small.small-text These fields are optional, but are useful for your audience.
 
               .form__group
-                input#showLanguage.form__input.input-text(type='text' placeholder='Language (optional)')
+                input#showLanguage.form__input.input-text(type='text' name='showLanguage' placeholder='Language (optional)')
                 label.form__label.label-text(for='showLanguage') What language it will have? Ex: 'French'
 
               .form__group
-                input#showSubtitles.form__input.input-text(type='text' placeholder='Subtitles (optional)')
+                input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' placeholder='Subtitles (optional)')
                 label.form__label.label-text(for='showSubtitles') Any subtitles? Ex: English
 
               .form__group
-                input#showGenre.form__input.input-text(type='text' placeholder='Genre(s) (optional)')
+                input#showGenre.form__input.input-text(type='text' name='showGenre' placeholder='Genre(s) (optional)')
                 label.form__label.label-text(for='showGenre') What genre(s) is it?
 
               .form__group
@@ -126,12 +126,12 @@ block content
                 small.form__info-small.small-text A special venue is where guest speakers or a big event will take place, and you want to sell your show's tickets publicly. For private events where the public cannot buy tickets, please contact the admin.
 
               .form__group
-                input#showPrice.form__input.input-text(type='number' placeholder='Show Price*')
-                label.form__label.label-text(for='showDirector') Please enter your price on the show.
+                input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*')
+                label.form__label.label-text(for='showPrice') Please enter your price on the show.
               
               .form__group
                 .form__special-venue
-                  select#showSpecialVenue.dropdown(name='select-specialvenue' tabindex='0')
+                  select#showSpecialVenue.dropdown(name='selectSpecialVenue' tabindex='0')
                     option(value) Special Venue (optional)
                     option(value='y') Yes
                     option(value='n') No
