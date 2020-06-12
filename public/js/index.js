@@ -251,9 +251,9 @@ if (eoFieldlist1.elements.btnNext1) {
   const overview = eoFieldlist2.elements.textareaOverview.value,
     synopsis = eoFieldlist2.elements.textareaSynopsis.value;
 
-  if (secondNextBtn) {
-    secondForwardSlide.formSlide();
-  }
+  // if (secondNextBtn) {
+  //   secondForwardSlide.formSlide();
+  // }
 
   const language = eoFieldlist3.elements.showLanguage.value,
     subtitles = eoFieldlist3.elements.showSubtitles.value,

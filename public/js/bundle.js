@@ -15098,11 +15098,9 @@ if (eoFieldlist1.elements.btnNext1) {
 
 
   var overview = eoFieldlist2.elements.textareaOverview.value,
-      synopsis = eoFieldlist2.elements.textareaSynopsis.value;
-
-  if (secondNextBtn) {
-    secondForwardSlide.formSlide();
-  }
+      synopsis = eoFieldlist2.elements.textareaSynopsis.value; // if (secondNextBtn) {
+  //   secondForwardSlide.formSlide();
+  // }
 
   var language = eoFieldlist3.elements.showLanguage.value,
       subtitles = eoFieldlist3.elements.showSubtitles.value,
