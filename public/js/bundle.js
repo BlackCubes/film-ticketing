@@ -15054,6 +15054,7 @@ if (updatePassForm) {
 }
 
 if (eoFieldlist1.elements.btnNext1) {
+  // Gather fieldlist and button DOM elements
   var eoFieldlist2 = eoCreateShowForm.elements.eoFieldlist2,
       eoFieldlist3 = eoCreateShowForm.elements.eoFieldlist3,
       eoFieldlist4 = eoCreateShowForm.elements.eoFieldlist4;
@@ -15062,32 +15063,70 @@ if (eoFieldlist1.elements.btnNext1) {
       thirdNextBtn = eoFieldlist3.elements.btnNext3;
   var firstPreviousBtn = eoFieldlist2.elements.btnPrev1,
       secondPreviousBtn = eoFieldlist3.elements.btnPrev2,
-      thirdPreviousBtn = eoFieldlist4.elements.btnPrev3;
+      thirdPreviousBtn = eoFieldlist4.elements.btnPrev3; // Create multiform slide UI
+
   var firstForwardSlide = new _multiForm.default(firstNextBtn, eoFieldlist1, '-25%'),
       secondForwardSlide = new _multiForm.default(secondNextBtn, eoFieldlist1, '-50%'),
       thirdForwardSlide = new _multiForm.default(thirdNextBtn, eoFieldlist1, '-75%');
   var firstBackSlide = new _multiForm.default(firstPreviousBtn, eoFieldlist1, '0%'),
       secondBackSlide = new _multiForm.default(secondPreviousBtn, eoFieldlist1, '-25%'),
-      thirdBackSlide = new _multiForm.default(thirdPreviousBtn, eoFieldlist1, '-50%');
+      thirdBackSlide = new _multiForm.default(thirdPreviousBtn, eoFieldlist1, '-50%'); // Initialize all previous buttons
+
+  firstBackSlide.formSlide();
+  secondBackSlide.formSlide();
+  thirdBackSlide.formSlide(); // Form Validations before preceding to the next Fieldlist
+  // -- gather DOM elements in fieldset
+
+  var title = eoFieldlist1.elements.showTitle.value,
+      duration = eoFieldlist1.elements.showDuration.value;
+  var selectOriginalMonth = eoFieldlist1.elements.selectOriginalMonth,
+      selectOriginalDay = eoFieldlist1.elements.selectOriginalDay,
+      selectOriginalYear = eoFieldlist1.elements.selectOriginalYear,
+      selectContentType = eoFieldlist1.elements.selectContentType,
+      selectMpaa = eoFieldlist1.elements.selectMpaa;
+  var originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
+      originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
+      originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+  var originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)],
+      mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
+      contentType = selectContentType.options[selectContentType.selectedIndex].value; // -- validate
+
+  if (firstNextBtn) {
+    firstForwardSlide.formSlide();
+  } // -- initiate next slide
+  // -- repeat
+
+
+  var overview = eoFieldlist2.elements.textareaOverview.value,
+      synopsis = eoFieldlist2.elements.textareaSynopsis.value;
+
+  if (secondNextBtn) {
+    secondForwardSlide.formSlide();
+  }
+
+  var language = eoFieldlist3.elements.showLanguage.value,
+      subtitles = eoFieldlist3.elements.showSubtitles.value,
+      genre = eoFieldlist3.elements.showGenre.value;
+
+  if (thirdNextBtn) {
+    thirdForwardSlide.formSlide();
+  }
+
+  var selectSpecialVenue = eoFieldlist4.elements.selectSpecialVenue;
+  var specialVenue = selectSpecialVenue === 'y' ? true : false,
+      price = eoFieldlist4.elements.showPrice.value;
   var createShowBtn = eoFieldlist4.elements.btnCreateShow;
 
   if (createShowBtn) {
     eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
       var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
-        var selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectSpecialVenue, originalMonth, originalDay, originalYear, originalReleaseDate, specialVenue, mpaaRating, contentType, title, duration, overview, synopsis, language, subtitles, genre, price;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 e.preventDefault();
-                selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectSpecialVenue = document.getElementById('showSpecialVenue');
-                originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-                originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
-                specialVenue = selectSpecialVenue === 'y' ? true : false;
-                mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, contentType = selectContentType.options[selectContentType.selectedIndex].value;
-                title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, overview = document.getElementById('showOverviewForm').value, synopsis = document.getElementById('showSynopsisForm').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, genre = document.getElementById('showGenre').value, price = document.getElementById('showPrice').value;
 
-              case 7:
+              case 1:
               case "end":
                 return _context4.stop();
             }

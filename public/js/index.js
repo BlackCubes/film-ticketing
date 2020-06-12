@@ -188,6 +188,7 @@ if (updatePassForm) {
 }
 
 if (eoFieldlist1.elements.btnNext1) {
+  // Gather fieldlist and button DOM elements
   const eoFieldlist2 = eoCreateShowForm.elements.eoFieldlist2,
     eoFieldlist3 = eoCreateShowForm.elements.eoFieldlist3,
     eoFieldlist4 = eoCreateShowForm.elements.eoFieldlist4;
@@ -200,6 +201,7 @@ if (eoFieldlist1.elements.btnNext1) {
     secondPreviousBtn = eoFieldlist3.elements.btnPrev2,
     thirdPreviousBtn = eoFieldlist4.elements.btnPrev3;
 
+  // Create multiform slide UI
   let firstForwardSlide = new MultiForm(firstNextBtn, eoFieldlist1, '-25%'),
     secondForwardSlide = new MultiForm(secondNextBtn, eoFieldlist1, '-50%'),
     thirdForwardSlide = new MultiForm(thirdNextBtn, eoFieldlist1, '-75%');
@@ -208,44 +210,69 @@ if (eoFieldlist1.elements.btnNext1) {
     secondBackSlide = new MultiForm(secondPreviousBtn, eoFieldlist1, '-25%'),
     thirdBackSlide = new MultiForm(thirdPreviousBtn, eoFieldlist1, '-50%');
 
+  // Initialize all previous buttons
+  firstBackSlide.formSlide();
+  secondBackSlide.formSlide();
+  thirdBackSlide.formSlide();
+
+  // Form Validations before preceding to the next Fieldlist
+  // -- gather DOM elements in fieldset
+  const title = eoFieldlist1.elements.showTitle.value,
+    duration = eoFieldlist1.elements.showDuration.value;
+
+  const selectOriginalMonth = eoFieldlist1.elements.selectOriginalMonth,
+    selectOriginalDay = eoFieldlist1.elements.selectOriginalDay,
+    selectOriginalYear = eoFieldlist1.elements.selectOriginalYear,
+    selectContentType = eoFieldlist1.elements.selectContentType,
+    selectMpaa = eoFieldlist1.elements.selectMpaa;
+
+  const originalMonth =
+      selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
+    originalDay =
+      selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
+    originalYear =
+      selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+
+  const originalReleaseDate = [
+      originalYear.concat('-', originalMonth, '-', originalDay)
+    ],
+    mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
+    contentType =
+      selectContentType.options[selectContentType.selectedIndex].value;
+
+  // -- validate
+  if (firstNextBtn) {
+    firstForwardSlide.formSlide();
+  }
+
+  // -- initiate next slide
+
+  // -- repeat
+  const overview = eoFieldlist2.elements.textareaOverview.value,
+    synopsis = eoFieldlist2.elements.textareaSynopsis.value;
+
+  if (secondNextBtn) {
+    secondForwardSlide.formSlide();
+  }
+
+  const language = eoFieldlist3.elements.showLanguage.value,
+    subtitles = eoFieldlist3.elements.showSubtitles.value,
+    genre = eoFieldlist3.elements.showGenre.value;
+
+  if (thirdNextBtn) {
+    thirdForwardSlide.formSlide();
+  }
+
+  const selectSpecialVenue = eoFieldlist4.elements.selectSpecialVenue;
+
+  const specialVenue = selectSpecialVenue === 'y' ? true : false,
+    price = eoFieldlist4.elements.showPrice.value;
+
   const createShowBtn = eoFieldlist4.elements.btnCreateShow;
 
   if (createShowBtn) {
     eoCreateShowForm.addEventListener('submit', async e => {
       e.preventDefault();
-
-      const selectMpaa = document.getElementById('selectMpaa'),
-        selectOriginalMonth = document.getElementById('showOriginalMonth'),
-        selectOriginalDay = document.getElementById('showOriginalDay'),
-        selectOriginalYear = document.getElementById('showOriginalYear'),
-        selectContentType = document.getElementById('showContentType'),
-        selectSpecialVenue = document.getElementById('showSpecialVenue');
-
-      const originalMonth =
-          selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
-        originalDay =
-          selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
-        originalYear =
-          selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-
-      const originalReleaseDate = [
-        originalYear.concat('-', originalMonth, '-', originalDay)
-      ];
-
-      const specialVenue = selectSpecialVenue === 'y' ? true : false;
-
-      const mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-        contentType =
-          selectContentType.options[selectContentType.selectedIndex].value;
-
-      const title = document.getElementById('showTitle').value,
-        duration = document.getElementById('showDuration').value,
-        overview = document.getElementById('showOverviewForm').value,
-        synopsis = document.getElementById('showSynopsisForm').value,
-        language = document.getElementById('showLanguage').value,
-        subtitles = document.getElementById('showSubtitles').value,
-        genre = document.getElementById('showGenre').value,
-        price = document.getElementById('showPrice').value;
     });
   }
 }
