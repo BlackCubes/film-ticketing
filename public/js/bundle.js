@@ -15052,8 +15052,8 @@ if (eoCreateShowForm) {
         thirdPreviousBtn = document.getElementById('btnPrev-3');
     var nextBtns = [firstNextBtn, secondNextBtn, thirdNextBtn],
         previousBtns = [firstPreviousBtn, secondPreviousBtn, thirdPreviousBtn];
-    console.log('Next buttons: ', nextBtns);
-    console.log('Previous buttons: ', previousBtns);
+    console.log('Next buttons: ', (0, _multiForm.multiForm)(nextBtns, fieldset, 'forward'));
+    console.log('Previous buttons: ', (0, _multiForm.multiForm)(previousBtns, fieldset, 'backward'));
     (0, _multiForm.multiForm)(nextBtns, fieldset, 'forward');
     (0, _multiForm.multiForm)(previousBtns, fieldset, 'backward');
   });
