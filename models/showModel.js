@@ -103,7 +103,7 @@ const showSchema = new mongoose.Schema(
       type: Number,
       default: 0
     },
-    genres: [String],
+    genres: String,
     imgpromo: [
       {
         type: mongoose.Schema.ObjectId,
