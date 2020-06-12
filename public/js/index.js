@@ -190,7 +190,7 @@ if (eoCreateShowForm) {
   eoCreateShowForm.addEventListener('submit', e => {
     e.preventDefault();
 
-    const fieldset = document.getElementById('eoCreateShowForm');
+    const fieldset = document.getElementById('eoCreateShowFieldset');
 
     const firstNextBtn = document.getElementById('btnNext-1'),
       secondNextBtn = document.getElementById('btnNext-2'),
