@@ -14832,7 +14832,7 @@ var _mapbox = require("./mapbox");
 
 var _circleNav = _interopRequireDefault(require("./circleNav"));
 
-var _multiForm = require("./multiForm");
+var _multiForm = _interopRequireDefault(require("./multiForm"));
 
 var _login = require("./login");
 
@@ -15059,10 +15059,18 @@ if (firstNextBtn) {
   var firstPreviousBtn = document.getElementById('btnPrev-1'),
       secondPreviousBtn = document.getElementById('btnPrev-2'),
       thirdPreviousBtn = document.getElementById('btnPrev-3');
-  var nextBtns = [firstNextBtn, secondNextBtn, thirdNextBtn],
-      previousBtns = [firstPreviousBtn, secondPreviousBtn, thirdPreviousBtn];
-  (0, _multiForm.multiForm)(nextBtns, fieldset, 'forward')[0];
-  (0, _multiForm.multiForm)(previousBtns, fieldset, 'backward')[0];
+  var firstForwardSlide = new _multiForm.default(firstNextBtn, fieldset),
+      secondForwardSlide = new _multiForm.default(secondNextBtn, fieldset),
+      thirdForwardSlide = new _multiForm.default(thirdNextBtn, fieldset);
+  var firstBackSlide = new _multiForm.default(firstPreviousBtn, fieldset),
+      secondBackSlide = new _multiForm.default(secondPreviousBtn, fieldset),
+      thirdBackSlide = new _multiForm.default(thirdPreviousBtn, fieldset);
+  firstForwardSlide.formSlide('-25%');
+  firstBackSlide.formSlide('0%');
+  secondForwardSlide.formSlide('-50%');
+  secondBackSlide.formSlide('-25%');
+  thirdForwardSlide.formSlide('-75%');
+  thirdBackSlide.formSlide('-50%');
 } // if (eoCreateShowForm) {
 //   eoCreateShowForm.addEventListener('click', e => {
 //     // e.preventDefault();

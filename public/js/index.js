@@ -4,7 +4,7 @@ require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
 import CircleNav from './circleNav';
-import { multiForm } from './multiForm';
+import MultiForm from './multiForm';
 import { login, logout, register, forgotPassword } from './login';
 import { updateSettings } from './updateSettings';
 
@@ -197,11 +197,22 @@ if (firstNextBtn) {
     secondPreviousBtn = document.getElementById('btnPrev-2'),
     thirdPreviousBtn = document.getElementById('btnPrev-3');
 
-  const nextBtns = [firstNextBtn, secondNextBtn, thirdNextBtn],
-    previousBtns = [firstPreviousBtn, secondPreviousBtn, thirdPreviousBtn];
+  let firstForwardSlide = new MultiForm(firstNextBtn, fieldset),
+    secondForwardSlide = new MultiForm(secondNextBtn, fieldset),
+    thirdForwardSlide = new MultiForm(thirdNextBtn, fieldset);
 
-  multiForm(nextBtns, fieldset, 'forward')[0];
-  multiForm(previousBtns, fieldset, 'backward')[0];
+  let firstBackSlide = new MultiForm(firstPreviousBtn, fieldset),
+    secondBackSlide = new MultiForm(secondPreviousBtn, fieldset),
+    thirdBackSlide = new MultiForm(thirdPreviousBtn, fieldset);
+
+  firstForwardSlide.formSlide('-25%');
+  firstBackSlide.formSlide('0%');
+
+  secondForwardSlide.formSlide('-50%');
+  secondBackSlide.formSlide('-25%');
+
+  thirdForwardSlide.formSlide('-75%');
+  thirdBackSlide.formSlide('-50%');
 }
 
 // if (eoCreateShowForm) {
