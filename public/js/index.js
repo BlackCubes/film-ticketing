@@ -187,7 +187,7 @@ if (updatePassForm) {
 }
 
 if (eoCreateShowForm) {
-  eoCreateShowForm.addEventListener('submit', e => {
+  eoCreateShowForm.addEventListener('click', e => {
     e.preventDefault();
 
     const fieldset = document.getElementById('eoCreateShowFieldset');
