@@ -213,4 +213,21 @@ if (firstNextBtn) {
 
   thirdForwardSlide.formSlide('-75%');
   thirdBackSlide.formSlide('-50%');
+
+  const createShowBtn = document.getElementById('btnCreateShow');
+
+  if (createShowBtn) {
+    eoCreateShowForm.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const title = document.getElementById('showTitle').value,
+        duration = document.getElementById('showDuration').value,
+        overview = document.getElementById('showOverviewForm').value,
+        synopsis = document.getElementById('showSynopsisForm').value,
+        language = document.getElementById('showLanguage').value,
+        subtitles = document.getElementById('showSubtitles').value,
+        genre = document.getElementById('showGenre').value,
+        price = document.getElementById('showPrice').value;
+    });
+  }
 }
