@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { displayMap } from './mapbox';
 import CircleNav from './circleNav';
 import MultiForm from './multiForm';
-import { login, logout, register, forgotPassword } from './login';
+import { login, logout, register, forgotPassword, createShow } from './login';
 import { updateSettings } from './updateSettings';
 
 // MODERNIZR TEST
