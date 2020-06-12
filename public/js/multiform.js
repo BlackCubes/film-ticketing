@@ -6,11 +6,11 @@ export const multiForm = (buttons, fieldset, ward) => {
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       if (ward === 'forward') {
-        fieldset.style.marginLeft = `-${percentage * count}`;
+        fieldset.style.marginLeft = `-${percentage * count}%`;
         count++;
       } else if (ward === 'backward') {
         count--;
-        fieldset.style.marginLeft = `${percentage * count}`;
+        fieldset.style.marginLeft = `${percentage * count}%`;
       }
     });
   });
