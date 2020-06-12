@@ -3,8 +3,8 @@ export const multiForm = (buttons, fieldset, ward) => {
   let count = 1,
     percentage = 25;
 
-  buttons.map(button => {
-    button.addEventListener('click', () => {
+  let buttonEvents = buttons.map(button => {
+    return button.addEventListener('click', () => {
       if (ward === 'forward') {
         fieldset.style.marginLeft = `-${percentage * count}%`;
         count++;
@@ -14,4 +14,6 @@ export const multiForm = (buttons, fieldset, ward) => {
       }
     });
   });
+
+  return buttonEvents;
 };

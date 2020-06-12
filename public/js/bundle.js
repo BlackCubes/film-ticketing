@@ -12434,8 +12434,8 @@ exports.multiForm = void 0;
 var multiForm = function multiForm(buttons, fieldset, ward) {
   var count = 1,
       percentage = 25;
-  buttons.map(function (button) {
-    button.addEventListener('click', function () {
+  var buttonEvents = buttons.map(function (button) {
+    return button.addEventListener('click', function () {
       if (ward === 'forward') {
         fieldset.style.marginLeft = "-".concat(percentage * count, "%");
         count++;
@@ -12445,6 +12445,7 @@ var multiForm = function multiForm(buttons, fieldset, ward) {
       }
     });
   });
+  return buttonEvents;
 };
 
 exports.multiForm = multiForm;
