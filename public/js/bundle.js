@@ -15076,18 +15076,18 @@ if (firstNextBtn) {
   if (createShowBtn) {
     eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
       var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
-        var title, duration, overview, synopsis, language, subtitles, genre, price, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectSpecialVenue, originalMonth, originalDay, originalYear, originalReleaseDate, specialVenue, mpaaRating, contentType;
+        var selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectSpecialVenue, originalMonth, originalDay, originalYear, originalReleaseDate, specialVenue, mpaaRating, contentType, title, duration, overview, synopsis, language, subtitles, genre, price;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 e.preventDefault();
-                title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, overview = document.getElementById('showOverviewForm').value, synopsis = document.getElementById('showSynopsisForm').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, genre = document.getElementById('showGenre').value, price = document.getElementById('showPrice').value;
                 selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectSpecialVenue = document.getElementById('showSpecialVenue');
                 originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
                 originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
                 specialVenue = selectSpecialVenue === 'y' ? true : false;
                 mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, contentType = selectContentType.options[selectContentType.selectedIndex].value;
+                title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, overview = document.getElementById('showOverviewForm').value, synopsis = document.getElementById('showSynopsisForm').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, genre = document.getElementById('showGenre').value, price = document.getElementById('showPrice').value;
 
               case 7:
               case "end":

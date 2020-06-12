@@ -220,15 +220,6 @@ if (firstNextBtn) {
     eoCreateShowForm.addEventListener('submit', async e => {
       e.preventDefault();
 
-      const title = document.getElementById('showTitle').value,
-        duration = document.getElementById('showDuration').value,
-        overview = document.getElementById('showOverviewForm').value,
-        synopsis = document.getElementById('showSynopsisForm').value,
-        language = document.getElementById('showLanguage').value,
-        subtitles = document.getElementById('showSubtitles').value,
-        genre = document.getElementById('showGenre').value,
-        price = document.getElementById('showPrice').value;
-
       const selectMpaa = document.getElementById('selectMpaa'),
         selectOriginalMonth = document.getElementById('showOriginalMonth'),
         selectOriginalDay = document.getElementById('showOriginalDay'),
@@ -252,6 +243,15 @@ if (firstNextBtn) {
       const mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
         contentType =
           selectContentType.options[selectContentType.selectedIndex].value;
+
+      const title = document.getElementById('showTitle').value,
+        duration = document.getElementById('showDuration').value,
+        overview = document.getElementById('showOverviewForm').value,
+        synopsis = document.getElementById('showSynopsisForm').value,
+        language = document.getElementById('showLanguage').value,
+        subtitles = document.getElementById('showSubtitles').value,
+        genre = document.getElementById('showGenre').value,
+        price = document.getElementById('showPrice').value;
     });
   }
 }
