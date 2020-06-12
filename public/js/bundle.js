@@ -15155,7 +15155,7 @@ if (eoFieldlist1.elements.btnNext1) {
 
   var language = eoFieldlist3.elements.showLanguage.value,
       subtitles = eoFieldlist3.elements.showSubtitles.value,
-      genre = eoFieldlist3.elements.showGenre.value;
+      genres = eoFieldlist3.elements.showGenre.value;
 
   if (thirdNextBtn) {
     thirdForwardSlide.formSlide();
@@ -15174,8 +15174,22 @@ if (eoFieldlist1.elements.btnNext1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 e.preventDefault();
+                (0, _login.createShow)({
+                  title: title,
+                  duration: duration,
+                  originalReleaseDate: originalReleaseDate,
+                  mpaaRating: mpaaRating,
+                  contentType: contentType,
+                  overview: overview,
+                  synopsis: synopsis,
+                  language: language,
+                  subtitles: subtitles,
+                  genres: genres,
+                  specialVenue: specialVenue,
+                  price: price
+                }, 'event-owner');
 
-              case 1:
+              case 2:
               case "end":
                 return _context4.stop();
             }

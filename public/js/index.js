@@ -257,7 +257,7 @@ if (eoFieldlist1.elements.btnNext1) {
 
   const language = eoFieldlist3.elements.showLanguage.value,
     subtitles = eoFieldlist3.elements.showSubtitles.value,
-    genre = eoFieldlist3.elements.showGenre.value;
+    genres = eoFieldlist3.elements.showGenre.value;
 
   if (thirdNextBtn) {
     thirdForwardSlide.formSlide();
@@ -273,6 +273,24 @@ if (eoFieldlist1.elements.btnNext1) {
   if (createShowBtn) {
     eoCreateShowForm.addEventListener('submit', async e => {
       e.preventDefault();
+
+      createShow(
+        {
+          title,
+          duration,
+          originalReleaseDate,
+          mpaaRating,
+          contentType,
+          overview,
+          synopsis,
+          language,
+          subtitles,
+          genres,
+          specialVenue,
+          price
+        },
+        'event-owner'
+      );
     });
   }
 }
