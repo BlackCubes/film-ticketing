@@ -12434,7 +12434,7 @@ exports.multiForm = void 0;
 var multiForm = function multiForm(buttons, fieldset, ward) {
   var count = 1,
       percentage = 25;
-  buttons.forEach(function (button) {
+  buttons.map(function (button) {
     button.addEventListener('click', function () {
       if (ward === 'forward') {
         fieldset.style.marginLeft = "-".concat(percentage * count, "%");
