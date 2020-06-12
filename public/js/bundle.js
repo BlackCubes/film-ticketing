@@ -12442,27 +12442,27 @@ exports.formValidator = formValidator;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MultiForm = void 0;
+exports.MultiForm = exports.default = void 0;
 
 var _errorController = require("./errorController");
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var multiContructor = function multiContructor(obj) {
-  var newObj = {};
-  Object.keys(obj).forEach(function (el) {
-    newObj[el] = obj[el];
-  });
-  return newObj;
-}; // export default class Form {
-//   constructor() {
-//   }
-// }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var Form = function Form() {
+  _classCallCheck(this, Form);
+
+  for (var _len = arguments.length, inputs = new Array(_len), _key = 0; _key < _len; _key++) {
+    inputs[_key] = arguments[_key];
+  }
+
+  this.inputs = inputs;
+};
+
+exports.default = Form;
 
 var MultiForm = /*#__PURE__*/function () {
   function MultiForm(button, fieldset, percentage) {

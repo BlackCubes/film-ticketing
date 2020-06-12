@@ -1,21 +1,11 @@
 /* eslint-disable */
 import { formValidator } from './errorController';
 
-const multiContructor = (obj, ...inputs) => {
-  const newObj = {};
-
-  Object.keys(obj).forEach(el => {
-    newObj[el] = obj[el];
-  });
-
-  return newObj;
-};
-
-// export default class Form {
-//   constructor() {
-
-//   }
-// }
+export default class Form {
+  constructor(...inputs) {
+    this.inputs = inputs;
+  }
+}
 
 export class MultiForm {
   constructor(button, fieldset, percentage) {
