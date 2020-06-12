@@ -188,6 +188,8 @@ if (updatePassForm) {
 }
 
 if (firstNextBtn) {
+  const fieldset = document.getElementById('eoCreateShowFieldset');
+
   const secondNextBtn = document.getElementById('btnNext-2'),
     thirdNextBtn = document.getElementById('btnNext-3');
 
