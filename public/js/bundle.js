@@ -12452,10 +12452,18 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// export default class Form {
+var multiContructor = function multiContructor(obj) {
+  var newObj = {};
+  Object.keys(obj).forEach(function (el) {
+    newObj[el] = obj[el];
+  });
+  return newObj;
+}; // export default class Form {
 //   constructor() {
 //   }
 // }
+
+
 var MultiForm = /*#__PURE__*/function () {
   function MultiForm(button, fieldset, percentage) {
     _classCallCheck(this, MultiForm);
