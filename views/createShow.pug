@@ -24,8 +24,14 @@ block content
                 label.form__label.label-text(for='showTitle') Please give a title for your show.
 
               .form__group
-                input#mpaaRating.form__input.input-text(type='text' placeholder='MPAA Rating*' required)
-                label.form__label.label-text(for='mpaaRating') Please enter your show's MPAA Rating.
+                .form__mpaa
+                  select#selectMpaa.dropdown(name='select-mpaa' tabindex='0' required)
+                    option(value) MPAA Rating*
+
+                  - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
+
+                  each mpaa in mpaaList
+                    option(value=`${mpaa}`)= mpaa
 
               .form__group
                 input#showDuration.form__input.input-text(type='number' placeholder='Duration*' required)
