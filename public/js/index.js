@@ -203,10 +203,10 @@ if (eoCreateShowForm) {
     const nextBtns = [firstNextBtn, secondNextBtn, thirdNextBtn],
       previousBtns = [firstPreviousBtn, secondPreviousBtn, thirdPreviousBtn];
 
-    console.log('Next buttons: ', multiForm(nextBtns, fieldset, 'forward'));
+    console.log('Next buttons: ', multiForm(nextBtns, fieldset, 'forward')[0]);
     console.log(
       'Previous buttons: ',
-      multiForm(previousBtns, fieldset, 'backward')
+      multiForm(previousBtns, fieldset, 'backward')[0]
     );
 
     multiForm(nextBtns, fieldset, 'forward');
