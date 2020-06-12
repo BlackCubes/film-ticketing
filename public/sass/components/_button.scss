@@ -9,6 +9,10 @@
   width: 90%;
   cursor: pointer;
 
+  &--duo {
+    width: 100%;
+  }
+
   &--blue {
     background-color: $color-lightseagreen;
     color: $color-black;
