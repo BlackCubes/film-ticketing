@@ -3,9 +3,10 @@ import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
+import CircleNav from './circleNav';
+import { multiForm } from './multiForm';
 import { login, logout, register, forgotPassword } from './login';
 import { updateSettings } from './updateSettings';
-import CircleNav from './circleNav';
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
