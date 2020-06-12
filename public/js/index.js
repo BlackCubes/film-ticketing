@@ -25,8 +25,8 @@ const updateEmailUsernameForm = document.getElementById(
   'updateEmailUsernameForm'
 );
 const updatePassForm = document.getElementById('updatePassForm');
-const eoCreateShowForm = document.forms.eoCreateShowForm,
-  eoFieldlist1 = eoCreateShowForm.elements.eoFieldlist1;
+const eoCreateShowForm = document.getElementById('eoCreateShowForm'),
+  eoFieldlist1 = document.getElementById('eoFieldlist1');
 
 // VALUES (nothing, yet)
 
@@ -189,17 +189,17 @@ if (updatePassForm) {
 
 if (eoFieldlist1) {
   // Gather fieldlist and button DOM elements
-  const eoFieldlist2 = eoCreateShowForm.elements.eoFieldlist2,
-    eoFieldlist3 = eoCreateShowForm.elements.eoFieldlist3,
-    eoFieldlist4 = eoCreateShowForm.elements.eoFieldlist4;
+  const eoFieldlist2 = document.getElementById('eoFieldlist2'),
+    eoFieldlist3 = document.getElementById('eoFieldlist3'),
+    eoFieldlist4 = document.getElementById('eoFieldlist4');
 
-  const firstNextBtn = eoFieldlist1.elements.btnNext1,
-    secondNextBtn = eoFieldlist2.elements.btnNext2,
-    thirdNextBtn = eoFieldlist3.elements.btnNext3;
+  const firstNextBtn = document.getElementById('btnNext-1'),
+    secondNextBtn = document.getElementById('btnNext-2'),
+    thirdNextBtn = document.getElementById('btnNext-3');
 
-  const firstPreviousBtn = eoFieldlist2.elements.btnPrev1,
-    secondPreviousBtn = eoFieldlist3.elements.btnPrev2,
-    thirdPreviousBtn = eoFieldlist4.elements.btnPrev3;
+  const firstPreviousBtn = document.getElementById('btnPrev-1'),
+    secondPreviousBtn = document.getElementById('btnPrev-2'),
+    thirdPreviousBtn = document.getElementById('btnPrev-3');
 
   // Create multiform slide UI
   let firstForwardSlide = new MultiForm(firstNextBtn, eoFieldlist1, '-25%'),
@@ -217,14 +217,14 @@ if (eoFieldlist1) {
 
   // Form Validations before preceding to the next Fieldlist
   // -- gather DOM elements in fieldset
-  const title = eoFieldlist1.elements.showTitle.value,
-    duration = eoFieldlist1.elements.showDuration.value;
+  const title = document.getElementById('showTitle').value,
+    duration = document.getElementById('showDuration').value;
 
-  const selectOriginalMonth = eoFieldlist1.elements.selectOriginalMonth,
-    selectOriginalDay = eoFieldlist1.elements.selectOriginalDay,
-    selectOriginalYear = eoFieldlist1.elements.selectOriginalYear,
-    selectContentType = eoFieldlist1.elements.selectContentType,
-    selectMpaa = eoFieldlist1.elements.selectMpaa;
+  const selectOriginalMonth = document.getElementById('showOriginalMonth'),
+    selectOriginalDay = document.getElementById('showOriginalDay'),
+    selectOriginalYear = document.getElementById('showOriginalYear'),
+    selectContentType = document.getElementById('showContentType'),
+    selectMpaa = document.getElementById('selectMpaa');
 
   const originalMonth =
       selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
@@ -248,27 +248,30 @@ if (eoFieldlist1) {
   // -- initiate next slide
 
   // -- repeat
-  const overview = eoFieldlist2.elements.textareaOverview.value,
-    synopsis = eoFieldlist2.elements.textareaSynopsis.value;
+  const overview = document.getElementById('showOverview').value,
+    synopsis = document.getElementById('showSynopsis').value;
 
   if (secondNextBtn) {
     secondForwardSlide.formSlide();
   }
 
-  const language = eoFieldlist3.elements.showLanguage.value,
-    subtitles = eoFieldlist3.elements.showSubtitles.value,
-    genres = eoFieldlist3.elements.showGenre.value;
+  const language = document.getElementById('showLanguage').value,
+    subtitles = document.getElementById('showSubtitles').value,
+    genres = document.getElementById('showGenre').value;
 
   if (thirdNextBtn) {
     thirdForwardSlide.formSlide();
   }
 
-  const selectSpecialVenue = eoFieldlist4.elements.selectSpecialVenue;
+  const selectSpecialVenue = document.getElementById('showSpecialVenue');
 
-  const specialVenue = selectSpecialVenue === 'y' ? true : false,
-    price = eoFieldlist4.elements.showPrice.value;
+  const specialVenueValue =
+    selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
 
-  const createShowBtn = eoFieldlist4.elements.btnCreateShow;
+  const specialVenue = specialVenueValue === 'y' ? true : false,
+    price = document.getElementById('showPrice').value;
+
+  const createShowBtn = document.getElementById('btnCreateShow');
 
   if (createShowBtn) {
     eoCreateShowForm.addEventListener('submit', async e => {
