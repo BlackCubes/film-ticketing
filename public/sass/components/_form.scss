@@ -1,4 +1,18 @@
 .form {
+  &-container__multiform {
+    overflow: hidden;
+  }
+
+  &__multiform {
+    display: flex;
+    width: 400%;
+  }
+
+  &__fieldset {
+    display: none;
+    width: 25%;
+  }
+
   &__title {
     width: 95%;
     margin-left: auto;

@@ -287,6 +287,17 @@ body {
   .dropdown:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
 
+.form-container__multiform {
+  overflow: hidden; }
+
+.form__multiform {
+  display: flex;
+  width: 400%; }
+
+.form__fieldset {
+  display: none;
+  width: 25%; }
+
 .form__title {
   width: 95%;
   margin-left: auto;
