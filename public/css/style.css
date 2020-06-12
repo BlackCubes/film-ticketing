@@ -371,7 +371,7 @@ body {
   margin-right: auto;
   margin-bottom: 4rem; }
 
-.form__date {
+.form__date, .form__duo-btn {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -382,18 +382,26 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 4rem; }
-  .form__date-month {
-    -webkit-flex-basis: 40%;
-    -ms-flex-basis: 40%;
-    flex-basis: 40%; }
-  .form__date-day {
-    -webkit-flex-basis: 25%;
-    -ms-flex-basis: 25%;
-    flex-basis: 25%; }
-  .form__date-year {
-    -webkit-flex-basis: 30%;
-    -ms-flex-basis: 30%;
-    flex-basis: 30%; }
+
+.form__date-month {
+  -webkit-flex-basis: 40%;
+  -ms-flex-basis: 40%;
+  flex-basis: 40%; }
+
+.form__date-day {
+  -webkit-flex-basis: 25%;
+  -ms-flex-basis: 25%;
+  flex-basis: 25%; }
+
+.form__date-year {
+  -webkit-flex-basis: 30%;
+  -ms-flex-basis: 30%;
+  flex-basis: 30%; }
+
+.form__duo-btn-previous, .form__duo-btn-next {
+  -webkit-flex-basis: 40%;
+  -ms-flex-basis: 40%;
+  flex-basis: 40%; }
 
 .line {
   background-color: #d3d3d3;
