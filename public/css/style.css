@@ -300,7 +300,8 @@ body {
 
 .form__fieldset {
   width: 25%;
-  border: none; }
+  border: none;
+  transition: margin-left 0.3s ease-in-out; }
 
 .form__title {
   width: 95%;
