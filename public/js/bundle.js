@@ -15174,7 +15174,9 @@ if (eoFieldlist1.elements.btnNext1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 e.preventDefault();
-                (0, _login.createShow)({
+                document.getElementById('btnCreateShow').textContent = 'Creating...';
+                _context4.next = 4;
+                return (0, _login.createShow)({
                   title: title,
                   duration: duration,
                   originalReleaseDate: originalReleaseDate,
@@ -15189,7 +15191,10 @@ if (eoFieldlist1.elements.btnNext1) {
                   price: price
                 }, 'event-owner');
 
-              case 2:
+              case 4:
+                document.getElementById('btnCreateShow').textContent = 'Create';
+
+              case 5:
               case "end":
                 return _context4.stop();
             }

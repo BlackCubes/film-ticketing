@@ -274,7 +274,9 @@ if (eoFieldlist1.elements.btnNext1) {
     eoCreateShowForm.addEventListener('submit', async e => {
       e.preventDefault();
 
-      createShow(
+      document.getElementById('btnCreateShow').textContent = 'Creating...';
+
+      await createShow(
         {
           title,
           duration,
@@ -291,6 +293,8 @@ if (eoFieldlist1.elements.btnNext1) {
         },
         'event-owner'
       );
+
+      document.getElementById('btnCreateShow').textContent = 'Create';
     });
   }
 }
