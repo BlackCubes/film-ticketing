@@ -54,10 +54,7 @@ block content
                 - const minutes = castcrew.shows[0].duration - hours*60
 
                 li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
-
-                - const genreList = castcrew.shows[0].genres.join(', ')
-
-                li.showtimes-box__metadata-item.paragraph= genreList
+                li.showtimes-box__metadata-item.paragraph= castcrew.shows[0].genres
             .showtimes-box__theatertime-time
               p.paragraph.u-uppercase-text= `${castcrew.shows[0].ratingsAverage} avg. rating`
             .showtimes-box__theatertime-date
