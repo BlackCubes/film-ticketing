@@ -25,6 +25,7 @@ const updateEmailUsernameForm = document.getElementById(
   'updateEmailUsernameForm'
 );
 const updatePassForm = document.getElementById('updatePassForm');
+const eoCreateShowForm = document.getElementById('eoCreateShowForm');
 
 // VALUES (nothing, yet)
 
@@ -182,5 +183,11 @@ if (updatePassForm) {
     document.getElementById('currentPass').value = '';
     document.getElementById('newPass').value = '';
     document.getElementById('confirmNewPass').value = '';
+  });
+}
+
+if (eoCreateShowForm) {
+  eoCreateShowForm.addEventListener('submit', e => {
+    e.preventDefault();
   });
 }
