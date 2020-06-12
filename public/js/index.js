@@ -26,6 +26,7 @@ const updateEmailUsernameForm = document.getElementById(
 );
 const updatePassForm = document.getElementById('updatePassForm');
 const eoCreateShowForm = document.getElementById('eoCreateShowForm');
+const firstNextBtn = document.getElementById('btnNext-1');
 
 // VALUES (nothing, yet)
 
@@ -186,30 +187,45 @@ if (updatePassForm) {
   });
 }
 
-if (eoCreateShowForm) {
-  eoCreateShowForm.addEventListener('click', e => {
-    // e.preventDefault();
+if (firstNextBtn) {
+  const secondNextBtn = document.getElementById('btnNext-2'),
+    thirdNextBtn = document.getElementById('btnNext-3');
 
-    const fieldset = document.getElementById('eoCreateShowFieldset');
+  const firstPreviousBtn = document.getElementById('btnPrev-1'),
+    secondPreviousBtn = document.getElementById('btnPrev-2'),
+    thirdPreviousBtn = document.getElementById('btnPrev-3');
 
-    const firstNextBtn = document.getElementById('btnNext-1'),
-      secondNextBtn = document.getElementById('btnNext-2'),
-      thirdNextBtn = document.getElementById('btnNext-3');
+  const nextBtns = [firstNextBtn, secondNextBtn, thirdNextBtn],
+    previousBtns = [firstPreviousBtn, secondPreviousBtn, thirdPreviousBtn];
 
-    const firstPreviousBtn = document.getElementById('btnPrev-1'),
-      secondPreviousBtn = document.getElementById('btnPrev-2'),
-      thirdPreviousBtn = document.getElementById('btnPrev-3');
-
-    const nextBtns = [firstNextBtn, secondNextBtn, thirdNextBtn],
-      previousBtns = [firstPreviousBtn, secondPreviousBtn, thirdPreviousBtn];
-
-    console.log('Next buttons: ', multiForm(nextBtns, fieldset, 'forward')[0]);
-    console.log(
-      'Previous buttons: ',
-      multiForm(previousBtns, fieldset, 'backward')[0]
-    );
-
-    multiForm(nextBtns, fieldset, 'forward');
-    multiForm(previousBtns, fieldset, 'backward');
-  });
+  multiForm(nextBtns, fieldset, 'forward');
+  multiForm(previousBtns, fieldset, 'backward');
 }
+
+// if (eoCreateShowForm) {
+//   eoCreateShowForm.addEventListener('click', e => {
+//     // e.preventDefault();
+
+//     const fieldset = document.getElementById('eoCreateShowFieldset');
+
+//     const firstNextBtn = document.getElementById('btnNext-1'),
+//       secondNextBtn = document.getElementById('btnNext-2'),
+//       thirdNextBtn = document.getElementById('btnNext-3');
+
+//     const firstPreviousBtn = document.getElementById('btnPrev-1'),
+//       secondPreviousBtn = document.getElementById('btnPrev-2'),
+//       thirdPreviousBtn = document.getElementById('btnPrev-3');
+
+//     const nextBtns = [firstNextBtn, secondNextBtn, thirdNextBtn],
+//       previousBtns = [firstPreviousBtn, secondPreviousBtn, thirdPreviousBtn];
+
+//     console.log('Next buttons: ', multiForm(nextBtns, fieldset, 'forward')[0]);
+//     console.log(
+//       'Previous buttons: ',
+//       multiForm(previousBtns, fieldset, 'backward')[0]
+//     );
+
+//     multiForm(nextBtns, fieldset, 'forward');
+//     multiForm(previousBtns, fieldset, 'backward');
+//   });
+// }
