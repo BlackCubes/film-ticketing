@@ -28,10 +28,10 @@ block content
                   select#selectMpaa.dropdown(name='select-mpaa' tabindex='0' required)
                     option(value) MPAA Rating*
 
-                  - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
+                    - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
 
-                  each mpaa in mpaaList
-                    option(value=`${mpaa}`)= mpaa
+                    each mpaa in mpaaList
+                      option(value=`${mpaa}`)= mpaa
 
               .form__group
                 input#showDuration.form__input.input-text(type='number' placeholder='Duration*' required)
