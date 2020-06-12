@@ -200,8 +200,8 @@ if (firstNextBtn) {
   const nextBtns = [firstNextBtn, secondNextBtn, thirdNextBtn],
     previousBtns = [firstPreviousBtn, secondPreviousBtn, thirdPreviousBtn];
 
-  multiForm(nextBtns, fieldset, 'forward');
-  multiForm(previousBtns, fieldset, 'backward');
+  multiForm(nextBtns, fieldset, 'forward')[0];
+  multiForm(previousBtns, fieldset, 'backward')[0];
 }
 
 // if (eoCreateShowForm) {
