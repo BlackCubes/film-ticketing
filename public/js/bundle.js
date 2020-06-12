@@ -14255,7 +14255,7 @@ exports.showAlert = showAlert;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
+exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14470,6 +14470,55 @@ var forgotPassword = /*#__PURE__*/function () {
 }();
 
 exports.forgotPassword = forgotPassword;
+
+var createShow = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(data, role) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.prev = 0;
+            url = role === 'admin' ? 'http://127.0.0.1:3000/api/v1/shows' : 'http://127.0.0.1:3000/api/v1/shows/createMyShow';
+            _context5.next = 4;
+            return (0, _axios.default)({
+              method: 'POST',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context5.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', 'Congrats! Your show has been created!');
+              window.setTimeout(function () {
+                location.assign('/shows');
+              }, 1500);
+            }
+
+            _context5.next = 11;
+            break;
+
+          case 8:
+            _context5.prev = 8;
+            _context5.t0 = _context5["catch"](0);
+            (0, _alerts.showAlert)('error', _context5.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5, null, [[0, 8]]);
+  }));
+
+  return function createShow(_x11, _x12) {
+    return _ref5.apply(this, arguments);
+  };
+}();
+
+exports.createShow = createShow;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"updateSettings.js":[function(require,module,exports) {
 "use strict";
 

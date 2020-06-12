@@ -98,3 +98,27 @@ export const forgotPassword = async email => {
     showAlert('error', err.response.data.message);
   }
 };
+
+export const createShow = async (data, role) => {
+  try {
+    const url =
+      role === 'admin'
+        ? 'http://127.0.0.1:3000/api/v1/shows'
+        : 'http://127.0.0.1:3000/api/v1/shows/createMyShow';
+
+    const res = await axios({
+      method: 'POST',
+      url,
+      data
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', 'Congrats! Your show has been created!');
+      window.setTimeout(() => {
+        location.assign('/shows');
+      }, 1500);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
