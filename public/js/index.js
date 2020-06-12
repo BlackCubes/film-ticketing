@@ -25,8 +25,8 @@ const updateEmailUsernameForm = document.getElementById(
   'updateEmailUsernameForm'
 );
 const updatePassForm = document.getElementById('updatePassForm');
-const eoCreateShowForm = document.getElementById('eoCreateShowForm');
-const firstNextBtn = document.getElementById('btnNext-1');
+const eoCreateShowForm = document.forms.eoCreateShowForm,
+  eoFieldlist1 = eoCreateShowForm.elements.eoFieldlist1;
 
 // VALUES (nothing, yet)
 
@@ -187,25 +187,28 @@ if (updatePassForm) {
   });
 }
 
-if (firstNextBtn) {
-  const fieldset = document.getElementById('eoCreateShowFieldset');
+if (eoFieldlist1.elements.btnNext1) {
+  const eoFieldlist2 = eoCreateShowForm.elements.eoFieldlist2,
+    eoFieldlist3 = eoCreateShowForm.elements.eoFieldlist3,
+    eoFieldlist4 = eoCreateShowForm.elements.eoFieldlist4;
 
-  const secondNextBtn = document.getElementById('btnNext-2'),
-    thirdNextBtn = document.getElementById('btnNext-3');
+  const firstNextBtn = eoFieldlist1.elements.btnNext1,
+    secondNextBtn = eoFieldlist2.elements.btnNext2,
+    thirdNextBtn = eoFieldlist3.elements.btnNext3;
 
-  const firstPreviousBtn = document.getElementById('btnPrev-1'),
-    secondPreviousBtn = document.getElementById('btnPrev-2'),
-    thirdPreviousBtn = document.getElementById('btnPrev-3');
+  const firstPreviousBtn = eoFieldlist2.elements.btnPrev1,
+    secondPreviousBtn = eoFieldlist3.elements.btnPrev2,
+    thirdPreviousBtn = eoFieldlist4.elements.btnPrev3;
 
-  let firstForwardSlide = new MultiForm(firstNextBtn, fieldset, '-25%'),
-    secondForwardSlide = new MultiForm(secondNextBtn, fieldset, '-50%'),
-    thirdForwardSlide = new MultiForm(thirdNextBtn, fieldset, '-75%');
+  let firstForwardSlide = new MultiForm(firstNextBtn, eoFieldlist1, '-25%'),
+    secondForwardSlide = new MultiForm(secondNextBtn, eoFieldlist1, '-50%'),
+    thirdForwardSlide = new MultiForm(thirdNextBtn, eoFieldlist1, '-75%');
 
-  let firstBackSlide = new MultiForm(firstPreviousBtn, fieldset, '0%'),
-    secondBackSlide = new MultiForm(secondPreviousBtn, fieldset, '-25%'),
-    thirdBackSlide = new MultiForm(thirdPreviousBtn, fieldset, '-50%');
+  let firstBackSlide = new MultiForm(firstPreviousBtn, eoFieldlist1, '0%'),
+    secondBackSlide = new MultiForm(secondPreviousBtn, eoFieldlist1, '-25%'),
+    thirdBackSlide = new MultiForm(thirdPreviousBtn, eoFieldlist1, '-50%');
 
-  const createShowBtn = document.getElementById('btnCreateShow');
+  const createShowBtn = eoFieldlist4.elements.btnCreateShow;
 
   if (createShowBtn) {
     eoCreateShowForm.addEventListener('submit', async e => {

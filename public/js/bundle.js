@@ -14861,8 +14861,8 @@ var forgotPassForm = document.getElementById('forgotPassform');
 var updatePersonalForm = document.getElementById('updatePersonalForm');
 var updateEmailUsernameForm = document.getElementById('updateEmailUsernameForm');
 var updatePassForm = document.getElementById('updatePassForm');
-var eoCreateShowForm = document.getElementById('eoCreateShowForm');
-var firstNextBtn = document.getElementById('btnNext-1'); // VALUES (nothing, yet)
+var eoCreateShowForm = document.forms.eoCreateShowForm,
+    eoFieldlist1 = eoCreateShowForm.elements.eoFieldlist1; // VALUES (nothing, yet)
 // DELEGATION
 
 if (mapBox) {
@@ -15053,20 +15053,23 @@ if (updatePassForm) {
   }());
 }
 
-if (firstNextBtn) {
-  var fieldset = document.getElementById('eoCreateShowFieldset');
-  var secondNextBtn = document.getElementById('btnNext-2'),
-      thirdNextBtn = document.getElementById('btnNext-3');
-  var firstPreviousBtn = document.getElementById('btnPrev-1'),
-      secondPreviousBtn = document.getElementById('btnPrev-2'),
-      thirdPreviousBtn = document.getElementById('btnPrev-3');
-  var firstForwardSlide = new _multiForm.default(firstNextBtn, fieldset, '-25%'),
-      secondForwardSlide = new _multiForm.default(secondNextBtn, fieldset, '-50%'),
-      thirdForwardSlide = new _multiForm.default(thirdNextBtn, fieldset, '-75%');
-  var firstBackSlide = new _multiForm.default(firstPreviousBtn, fieldset, '0%'),
-      secondBackSlide = new _multiForm.default(secondPreviousBtn, fieldset, '-25%'),
-      thirdBackSlide = new _multiForm.default(thirdPreviousBtn, fieldset, '-50%');
-  var createShowBtn = document.getElementById('btnCreateShow');
+if (eoFieldlist1.elements.btnNext1) {
+  var eoFieldlist2 = eoCreateShowForm.elements.eoFieldlist2,
+      eoFieldlist3 = eoCreateShowForm.elements.eoFieldlist3,
+      eoFieldlist4 = eoCreateShowForm.elements.eoFieldlist4;
+  var firstNextBtn = eoFieldlist1.elements.btnNext1,
+      secondNextBtn = eoFieldlist2.elements.btnNext2,
+      thirdNextBtn = eoFieldlist3.elements.btnNext3;
+  var firstPreviousBtn = eoFieldlist2.elements.btnPrev1,
+      secondPreviousBtn = eoFieldlist3.elements.btnPrev2,
+      thirdPreviousBtn = eoFieldlist4.elements.btnPrev3;
+  var firstForwardSlide = new _multiForm.default(firstNextBtn, eoFieldlist1, '-25%'),
+      secondForwardSlide = new _multiForm.default(secondNextBtn, eoFieldlist1, '-50%'),
+      thirdForwardSlide = new _multiForm.default(thirdNextBtn, eoFieldlist1, '-75%');
+  var firstBackSlide = new _multiForm.default(firstPreviousBtn, eoFieldlist1, '0%'),
+      secondBackSlide = new _multiForm.default(secondPreviousBtn, eoFieldlist1, '-25%'),
+      thirdBackSlide = new _multiForm.default(thirdPreviousBtn, eoFieldlist1, '-50%');
+  var createShowBtn = eoFieldlist4.elements.btnCreateShow;
 
   if (createShowBtn) {
     eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
