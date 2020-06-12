@@ -15041,7 +15041,7 @@ if (updatePassForm) {
 
 if (eoCreateShowForm) {
   eoCreateShowForm.addEventListener('click', function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     var fieldset = document.getElementById('eoCreateShowFieldset');
     var firstNextBtn = document.getElementById('btnNext-1'),
         secondNextBtn = document.getElementById('btnNext-2'),
