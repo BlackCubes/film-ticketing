@@ -1,5 +1,7 @@
 /* eslint-disable */
-export default class MultiForm {
+import { formValidator } from './errorController';
+
+export class MultiForm {
   constructor(button, fieldset, percentage) {
     this.button = button;
     this.fieldset = fieldset;
@@ -12,3 +14,9 @@ export default class MultiForm {
     });
   }
 }
+
+// export default class Form {
+//   constructor() {
+
+//   }
+// }

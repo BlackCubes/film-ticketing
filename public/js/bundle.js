@@ -12422,13 +12422,29 @@ var CircleNav = /*#__PURE__*/function () {
 }();
 
 exports.default = CircleNav;
+},{}],"errorController.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.formValidator = void 0;
+
+/* eslint-disable */
+var formValidator = function formValidator() {
+  console.log('Form Validator waiting...');
+};
+
+exports.formValidator = formValidator;
 },{}],"multiForm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.MultiForm = void 0;
+
+var _errorController = require("./errorController");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -12436,7 +12452,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-/* eslint-disable */
 var MultiForm = /*#__PURE__*/function () {
   function MultiForm(button, fieldset, percentage) {
     _classCallCheck(this, MultiForm);
@@ -12458,10 +12473,14 @@ var MultiForm = /*#__PURE__*/function () {
   }]);
 
   return MultiForm;
-}();
+}(); // export default class Form {
+//   constructor() {
+//   }
+// }
 
-exports.default = MultiForm;
-},{}],"../../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+
+exports.MultiForm = MultiForm;
+},{"./errorController":"errorController.js"}],"../../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
