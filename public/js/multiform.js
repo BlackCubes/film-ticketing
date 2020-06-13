@@ -28,11 +28,11 @@ export class MultiForm {
       selectCount = 0,
       textareaCount = 0;
 
-    if (multiFormFieldset.querySelectorAll('input'))
+    if (multiFormFieldset.querySelectorAll('input') != null)
       inputCount += multiFormFieldset.querySelectorAll('input').length;
-    if (multiFormFieldset.querySelectorAll('select'))
+    if (multiFormFieldset.querySelectorAll('select') != null)
       selectCount += multiFormFieldset.querySelectorAll('select').length;
-    if (multiFormFieldset.querySelectorAll('textarea'))
+    if (multiFormFieldset.querySelectorAll('textarea') != null)
       textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
 
     let fieldsetElementsCount = inputCount + selectCount + textareaCount;
@@ -40,14 +40,14 @@ export class MultiForm {
     for (var i = 0; i < fieldsetElementsCount; ++i) {
       let multiFormInputs, multiFormSelects, multiFormTextareas;
 
-      if (multiFormFieldset.querySelectorAll('input'))
+      if (multiFormFieldset.querySelectorAll('input') != null)
         multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
 
-      if (multiFormFieldset.querySelectorAll('select'))
+      if (multiFormFieldset.querySelectorAll('select') != null)
         multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
 
-      if (multiFormFieldset.querySelectorAll('textarea'))
-        multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
+      if (multiFormFieldset.querySelectorAll('textarea') != null)
+        multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
 
       formValidator(multiFormInputs, 'input', multiFormVal);
       formValidator(multiFormSelects, 'select', multiFormVal);

@@ -12529,18 +12529,18 @@ var MultiForm = /*#__PURE__*/function () {
       var inputCount = 0,
           selectCount = 0,
           textareaCount = 0;
-      if (multiFormFieldset.querySelectorAll('input')) inputCount += multiFormFieldset.querySelectorAll('input').length;
-      if (multiFormFieldset.querySelectorAll('select')) selectCount += multiFormFieldset.querySelectorAll('select').length;
-      if (multiFormFieldset.querySelectorAll('textarea')) textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
+      if (multiFormFieldset.querySelectorAll('input') != null) inputCount += multiFormFieldset.querySelectorAll('input').length;
+      if (multiFormFieldset.querySelectorAll('select') != null) selectCount += multiFormFieldset.querySelectorAll('select').length;
+      if (multiFormFieldset.querySelectorAll('textarea') != null) textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
       var fieldsetElementsCount = inputCount + selectCount + textareaCount;
 
       for (var i = 0; i < fieldsetElementsCount; ++i) {
         var multiFormInputs = void 0,
             multiFormSelects = void 0,
             multiFormTextareas = void 0;
-        if (multiFormFieldset.querySelectorAll('input')) multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
-        if (multiFormFieldset.querySelectorAll('select')) multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
-        if (multiFormFieldset.querySelectorAll('textarea')) multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
+        if (multiFormFieldset.querySelectorAll('input') != null) multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+        if (multiFormFieldset.querySelectorAll('select') != null) multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
+        if (multiFormFieldset.querySelectorAll('textarea') != null) multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
         (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
         (0, _errorController.formValidator)(multiFormSelects, 'select', multiFormVal);
         (0, _errorController.formValidator)(multiFormTextareas, 'textarea', multiFormVal);
