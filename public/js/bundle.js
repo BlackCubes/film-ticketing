@@ -12468,6 +12468,11 @@ var formValidator = function formValidator(input, type, bol) {
     bol = false;
   }
 
+  if (type === 'textarea' && !input) {
+    (0, _alerts.showAlert)('error', 'Error on the textarea!');
+    bol = false;
+  }
+
   return bol;
 };
 

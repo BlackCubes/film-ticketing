@@ -12,5 +12,10 @@ export const formValidator = (input, type, bol) => {
     bol = false;
   }
 
+  if (type === 'textarea' && !input) {
+    showAlert('error', 'Error on the textarea!');
+    bol = false;
+  }
+
   return bol;
 };
