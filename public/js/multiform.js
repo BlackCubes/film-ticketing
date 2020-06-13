@@ -47,8 +47,6 @@ export class MultiForm {
     if (input === true) {
       multiFormInputs = multiFormFieldset.querySelectorAll('input');
 
-      // inputCount += multiFormFieldset.querySelectorAll('input').length;
-
       multiFormInputs.forEach(element => {
         console.log('Multiform Element: ', element);
         multiFormVal = formValidator(element.value, 'input', multiFormVal);
@@ -60,7 +58,7 @@ export class MultiForm {
 
       multiFormSelects.forEach(element => {
         let option = element.options[element.selectedIndex];
-        console.log('Options: ', option);
+        multiFormVal = formValidator(option.value, 'select', multiFormVal);
       });
       console.log('Multiform Selects', multiFormSelects);
     }

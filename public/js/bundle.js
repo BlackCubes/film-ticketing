@@ -12547,8 +12547,7 @@ var MultiForm = /*#__PURE__*/function () {
       var fieldsetElementsCount = inputCount + selectCount + textareaCount;
 
       if (input === true) {
-        multiFormInputs = multiFormFieldset.querySelectorAll('input'); // inputCount += multiFormFieldset.querySelectorAll('input').length;
-
+        multiFormInputs = multiFormFieldset.querySelectorAll('input');
         multiFormInputs.forEach(function (element) {
           console.log('Multiform Element: ', element);
           multiFormVal = (0, _errorController.formValidator)(element.value, 'input', multiFormVal);
@@ -12559,7 +12558,7 @@ var MultiForm = /*#__PURE__*/function () {
         multiFormSelects = multiFormFieldset.querySelectorAll('select');
         multiFormSelects.forEach(function (element) {
           var option = element.options[element.selectedIndex];
-          console.log('Options: ', option);
+          multiFormVal = (0, _errorController.formValidator)(option.value, 'select', multiFormVal);
         });
         console.log('Multiform Selects', multiFormSelects);
       } // if (select === true)
