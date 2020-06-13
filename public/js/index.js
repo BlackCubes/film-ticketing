@@ -249,23 +249,17 @@ if (eoFieldlist1) {
 
   multiForm.consoleDebug();
 
-  if (firstNextBtn)
-    firstNextBtn.addEventListener('click', e =>
-      multiForm.buttonNext(e, true, true)
-    );
-  if (secondNextBtn)
-    secondNextBtn.addEventListener('click', e =>
-      multiForm.buttonNext(e, false, false, true)
-    );
-  if (thirdNextBtn)
-    thirdNextBtn.addEventListener('click', e => multiForm.buttonNext(e, true));
+  firstNextBtn.addEventListener('click', e =>
+    multiForm.buttonNext(e, true, true)
+  );
+  secondNextBtn.addEventListener('click', e =>
+    multiForm.buttonNext(e, false, false, true)
+  );
+  thirdNextBtn.addEventListener('click', e => multiForm.buttonNext(e, true));
 
-  if (firstPreviousBtn)
-    firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
-  if (secondPreviousBtn)
-    secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
-  if (thirdPreviousBtn)
-    thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
+  firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
+  secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
+  thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
   // -- initiate next slide
 
