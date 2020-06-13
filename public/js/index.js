@@ -253,20 +253,20 @@ if (eoFieldlist1) {
     firstNextBtn.addEventListener('click', e =>
       multiForm.buttonNext(e, true, true)
     );
-  // if (secondNextBtn)
-  //   secondNextBtn.addEventListener(
-  //     'click',
-  //     multiForm.buttonNext(false, false, true)
-  //   );
-  // if (thirdNextBtn)
-  //   thirdNextBtn.addEventListener('click', multiForm.buttonNext(true));
+  if (secondNextBtn)
+    secondNextBtn.addEventListener(
+      'click',
+      multiForm.buttonNext(false, false, true)
+    );
+  if (thirdNextBtn)
+    thirdNextBtn.addEventListener('click', multiForm.buttonNext(true));
 
   if (firstPreviousBtn)
     firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
-  // if (secondPreviousBtn)
-  //   secondPreviousBtn.addEventListener('click', multiForm.buttonBack);
-  // if (thirdPreviousBtn)
-  //   thirdPreviousBtn.addEventListener('click', multiForm.buttonBack);
+  if (secondPreviousBtn)
+    secondPreviousBtn.addEventListener('click', multiForm.buttonBack);
+  if (thirdPreviousBtn)
+    thirdPreviousBtn.addEventListener('click', multiForm.buttonBack);
 
   // -- initiate next slide
 
