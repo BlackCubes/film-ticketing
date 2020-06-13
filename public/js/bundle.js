@@ -12522,6 +12522,11 @@ var MultiForm = /*#__PURE__*/function () {
       this.formSlide(this.count);
     }
   }, {
+    key: "consoleDebug",
+    value: function consoleDebug() {
+      console.log('Fieldlist Amount: ', document.querySelectorAll('fieldset'));
+    }
+  }, {
     key: "buttonNext",
     value: function buttonNext() {
       var multiFormVal = true,

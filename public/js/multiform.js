@@ -20,6 +20,10 @@ export class MultiForm {
     this.formSlide(this.count);
   }
 
+  consoleDebug() {
+    console.log('Fieldlist Amount: ', document.querySelectorAll('fieldset'));
+  }
+
   buttonNext() {
     let multiFormVal = true,
       multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
