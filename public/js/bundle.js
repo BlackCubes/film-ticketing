@@ -12457,7 +12457,10 @@ exports.formValidator = void 0;
 var _alerts = require("./alerts");
 
 /* eslint-disable */
-var formValidator = function formValidator(input, type, bol) {
+var formValidator = function formValidator(input) {
+  var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  var bol = arguments.length > 2 ? arguments[2] : undefined;
+
   if (type === 'input' && !input) {
     (0, _alerts.showAlert)('error', 'Error on input!');
     bol = false;
