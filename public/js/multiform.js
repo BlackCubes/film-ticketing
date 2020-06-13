@@ -48,7 +48,9 @@ export class MultiForm {
     }
 
     if (multiFormVal === true) {
+      console.log('Count: ', this.count);
       this.count++;
+      console.log('Count increment: ', this.count);
       this.formSlide(this.count);
     }
   }
