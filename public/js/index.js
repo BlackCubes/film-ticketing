@@ -4,7 +4,7 @@ require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
 import CircleNav from './circleNav';
-import MultiForm from './multiForm';
+import { MultiForm } from './multiForm';
 import { login, logout, register, forgotPassword, createShow } from './login';
 import { updateSettings } from './updateSettings';
 
@@ -244,6 +244,22 @@ if (eoFieldlist1) {
   // if (firstNextBtn) {
   //   firstForwardSlide.formSlide();
   // }
+
+  let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
+
+  if (firstNextBtn)
+    firstNextBtn.addEventListener('click', multiForm.buttonNext);
+  if (secondNextBtn)
+    secondNextBtn.addEventListener('click', multiForm.buttonNext);
+  if (thirdNextBtn)
+    thirdNextBtn.addEventListener('click', multiForm.buttonNext);
+
+  if (firstPreviousBtn)
+    firstPreviousBtn.addEventListener('click', multiForm.buttonBack);
+  if (secondPreviousBtn)
+    secondPreviousBtn.addEventListener('click', multiForm.buttonBack);
+  if (thirdPreviousBtn)
+    thirdPreviousBtn.addEventListener('click', multiForm.buttonBack);
 
   // -- initiate next slide
 

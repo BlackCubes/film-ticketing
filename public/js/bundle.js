@@ -14971,7 +14971,7 @@ var _mapbox = require("./mapbox");
 
 var _circleNav = _interopRequireDefault(require("./circleNav"));
 
-var _multiForm = _interopRequireDefault(require("./multiForm"));
+var _multiForm = require("./multiForm");
 
 var _login = require("./login");
 
@@ -15231,7 +15231,14 @@ if (eoFieldlist1) {
   // if (firstNextBtn) {
   //   firstForwardSlide.formSlide();
   // }
-  // -- initiate next slide
+
+  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1);
+  if (firstNextBtn) firstNextBtn.addEventListener('click', multiForm.buttonNext);
+  if (secondNextBtn) secondNextBtn.addEventListener('click', multiForm.buttonNext);
+  if (thirdNextBtn) thirdNextBtn.addEventListener('click', multiForm.buttonNext);
+  if (firstPreviousBtn) firstPreviousBtn.addEventListener('click', multiForm.buttonBack);
+  if (secondPreviousBtn) secondPreviousBtn.addEventListener('click', multiForm.buttonBack);
+  if (thirdPreviousBtn) thirdPreviousBtn.addEventListener('click', multiForm.buttonBack); // -- initiate next slide
   // -- repeat
 
   var overview = document.getElementById('showOverview').value,
