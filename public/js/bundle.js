@@ -12553,17 +12553,17 @@ var MultiForm = /*#__PURE__*/function () {
 
         if (input === true) {
           multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
-          (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
+          multiFormVal = (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
         }
 
         if (select === true) {
           multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
-          (0, _errorController.formValidator)(multiFormSelects, 'select', multiFormVal);
+          multiFormVal = (0, _errorController.formValidator)(multiFormSelects, 'select', multiFormVal);
         }
 
         if (textarea === true) {
           multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
-          (0, _errorController.formValidator)(multiFormTextareas, 'textarea', multiFormVal);
+          multiFormVal = (0, _errorController.formValidator)(multiFormTextareas, 'textarea', multiFormVal);
         }
       }
 

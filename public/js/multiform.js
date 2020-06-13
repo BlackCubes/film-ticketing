@@ -53,17 +53,21 @@ export class MultiForm {
 
       if (input === true) {
         multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
-        formValidator(multiFormInputs, 'input', multiFormVal);
+        multiFormVal = formValidator(multiFormInputs, 'input', multiFormVal);
       }
 
       if (select === true) {
         multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
-        formValidator(multiFormSelects, 'select', multiFormVal);
+        multiFormVal = formValidator(multiFormSelects, 'select', multiFormVal);
       }
 
       if (textarea === true) {
         multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
-        formValidator(multiFormTextareas, 'textarea', multiFormVal);
+        multiFormVal = formValidator(
+          multiFormTextareas,
+          'textarea',
+          multiFormVal
+        );
       }
     }
 
