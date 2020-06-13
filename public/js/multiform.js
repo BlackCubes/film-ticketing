@@ -52,8 +52,12 @@ export class MultiForm {
       let multiFormInputs, multiFormSelects, multiFormTextareas;
 
       if (input === true) {
-        multiFormInputs = multiFormFieldset.querySelectorAll('input')[i].value;
-        multiFormVal = formValidator(multiFormInputs, 'input', multiFormVal);
+        multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+        multiFormVal = formValidator(
+          multiFormInputs.value,
+          'input',
+          multiFormVal
+        );
       }
 
       if (select === true) {

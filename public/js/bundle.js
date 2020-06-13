@@ -12552,8 +12552,8 @@ var MultiForm = /*#__PURE__*/function () {
             multiFormTextareas = void 0;
 
         if (input === true) {
-          multiFormInputs = multiFormFieldset.querySelectorAll('input')[i].value;
-          multiFormVal = (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
+          multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+          multiFormVal = (0, _errorController.formValidator)(multiFormInputs.value, 'input', multiFormVal);
         }
 
         if (select === true) {
