@@ -12554,7 +12554,7 @@ var MultiForm = /*#__PURE__*/function () {
         if (input === true) {
           multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
           console.log('MultiformInputs: ', multiFormInputs);
-          multiFormVal = (0, _errorController.formValidator)(multiFormInputs.value, 'input', multiFormVal);
+          multiFormVal = (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
         }
 
         if (select === true) {
