@@ -37,37 +37,47 @@ export class MultiForm {
 
     let inputCount = 0,
       selectCount = 0,
-      textareaCount = 0;
-
-    if (input === true)
-      inputCount += multiFormFieldset.querySelectorAll('input').length;
-    if (select === true)
-      selectCount += multiFormFieldset.querySelectorAll('select').length;
-    if (textarea === true)
-      textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
+      textareaCount = 0,
+      multiFormInputs,
+      multiFormSelects,
+      multiFormTextareas;
 
     let fieldsetElementsCount = inputCount + selectCount + textareaCount;
+
+    if (input === true) {
+      multiFormInputs = multiFormFieldset.querySelectorAll('input');
+
+      inputCount += multiFormFieldset.querySelectorAll('input').length;
+
+      multiFormInputs.forEach(element => {
+        console.log('Multiform Element: ', element);
+        multiFormVal = formValidator(element.value, 'input', multiFormVal);
+      });
+    }
+
+    if (select === true)
+      multiFormSelects = multiFormFieldset.querySelectorAll('select');
+    selectCount += multiFormFieldset.querySelectorAll('select').length;
+    if (textarea === true)
+      textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
 
     console.log(
       'Non-iterable inputs: ',
       multiFormFieldset.querySelectorAll('input')
     );
 
+    console.log('MultiformInputs: ', multiFormInputs);
+
     console.log('Elements count: ', fieldsetElementsCount);
 
-    let multiFormInputs, multiFormSelects, multiFormTextareas;
-
     for (var i = 0; i < fieldsetElementsCount; ++i) {
-      if (input === true) {
-        multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
-        console.log('MultiformInputs: ', multiFormInputs);
-        multiFormVal = formValidator(multiFormInputs, 'input', multiFormVal);
-      }
+      // if (input === true) {
+      //   multiFormVal = formValidator(multiFormInputs[i], 'input', multiFormVal);
+      // }
 
       if (select === true) {
-        multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
         multiFormSelects =
-          multiFormSelects.options[multiFormSelects.selectedIndex].value;
+          multiFormSelects[i].options[multiFormSelects[i].selectedIndex].value;
         multiFormVal = formValidator(multiFormSelects, 'select', multiFormVal);
       }
 
