@@ -21,7 +21,10 @@ export class MultiForm {
   }
 
   consoleDebug() {
-    console.log('Fieldlist Amount: ', document.querySelectorAll('fieldset'));
+    console.log(
+      'Fieldlist Amount: ',
+      document.querySelectorAll('fieldset')[0].querySelectorAll('input')
+    );
   }
 
   buttonNext() {
