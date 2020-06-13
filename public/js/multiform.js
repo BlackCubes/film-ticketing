@@ -23,14 +23,10 @@ export class MultiForm {
   consoleDebug() {
     let ans = false;
     if (
-      document.querySelectorAll('fieldset')[1].querySelectorAll('input') !=
-      undefined
+      document.querySelectorAll('fieldset')[1].querySelectorAll('input') !== []
     )
       ans = true;
-    console.log(
-      'Fieldlist input: ',
-      document.querySelectorAll('fieldset')[1].querySelectorAll('input')
-    );
+    console.log('Fieldlist input: ', ans);
   }
 
   buttonNext() {
