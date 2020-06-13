@@ -15260,7 +15260,10 @@ if (eoFieldlist1) {
 
   var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1);
   multiForm.consoleDebug();
-  firstNextBtn.addEventListener('click', multiForm.buttonNext(true, true));
+  firstNextBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    multiForm.buttonNext(true, true);
+  });
   secondNextBtn.addEventListener('click', multiForm.buttonNext(false, false, true));
   thirdNextBtn.addEventListener('click', multiForm.buttonNext(true));
   firstPreviousBtn.addEventListener('click', multiForm.buttonBack());

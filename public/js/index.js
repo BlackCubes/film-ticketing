@@ -249,7 +249,10 @@ if (eoFieldlist1) {
 
   multiForm.consoleDebug();
 
-  firstNextBtn.addEventListener('click', multiForm.buttonNext(true, true));
+  firstNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+    multiForm.buttonNext(true, true);
+  });
   secondNextBtn.addEventListener(
     'click',
     multiForm.buttonNext(false, false, true)
