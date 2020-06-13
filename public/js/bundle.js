@@ -15264,7 +15264,10 @@ if (eoFieldlist1) {
     e.preventDefault();
     multiForm.buttonNext(true, true);
   });
-  secondNextBtn.addEventListener('click', multiForm.buttonNext(false, false, true));
+  secondNextBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    multiForm.buttonNext(false, false, true);
+  });
   thirdNextBtn.addEventListener('click', multiForm.buttonNext(true));
   firstPreviousBtn.addEventListener('click', multiForm.buttonBack());
   secondPreviousBtn.addEventListener('click', multiForm.buttonBack());
