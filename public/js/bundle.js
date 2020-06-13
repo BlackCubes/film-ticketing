@@ -12552,17 +12552,18 @@ var MultiForm = /*#__PURE__*/function () {
             multiFormTextareas = void 0;
 
         if (input === true) {
-          multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+          multiFormInputs = multiFormFieldset.querySelectorAll('input')[i].value;
           multiFormVal = (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
         }
 
         if (select === true) {
           multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
+          multiFormSelects = multiFormSelects.options[multiFormSelects.selectedIndex].value;
           multiFormVal = (0, _errorController.formValidator)(multiFormSelects, 'select', multiFormVal);
         }
 
         if (textarea === true) {
-          multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
+          multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i].value;
           multiFormVal = (0, _errorController.formValidator)(multiFormTextareas, 'textarea', multiFormVal);
         }
       }

@@ -52,17 +52,20 @@ export class MultiForm {
       let multiFormInputs, multiFormSelects, multiFormTextareas;
 
       if (input === true) {
-        multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+        multiFormInputs = multiFormFieldset.querySelectorAll('input')[i].value;
         multiFormVal = formValidator(multiFormInputs, 'input', multiFormVal);
       }
 
       if (select === true) {
         multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
+        multiFormSelects =
+          multiFormSelects.options[multiFormSelects.selectedIndex].value;
         multiFormVal = formValidator(multiFormSelects, 'select', multiFormVal);
       }
 
       if (textarea === true) {
-        multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
+        multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i]
+          .value;
         multiFormVal = formValidator(
           multiFormTextareas,
           'textarea',
