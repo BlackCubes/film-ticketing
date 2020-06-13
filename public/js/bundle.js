@@ -12458,13 +12458,17 @@ var _alerts = require("./alerts");
 
 /* eslint-disable */
 var formValidator = function formValidator(input, type) {
-  if (type === 'title' && !input) {
-    (0, _alerts.showAlert)('error', 'Error on title!');
+  var bol = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+  if (type === 'input' && !input) {
+    (0, _alerts.showAlert)('error', 'Error on input!');
+    bol = false;
     return false;
   }
 
-  if (type === 'showDuration' && !input) {
-    (0, _alerts.showAlert)('error', 'Error on the show duration!');
+  if (type === 'select' && !input) {
+    (0, _alerts.showAlert)('error', 'Error on the select!');
+    bol = false;
     return false;
   }
 };
