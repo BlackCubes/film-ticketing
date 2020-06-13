@@ -15,7 +15,8 @@ export class MultiForm {
     return (this.fieldset.style.marginLeft = `-${25 * factor}%`);
   }
 
-  buttonBack() {
+  buttonBack(e) {
+    e.preventDefault();
     this.count--;
     this.formSlide(this.count);
   }

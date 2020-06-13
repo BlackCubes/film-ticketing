@@ -12517,7 +12517,8 @@ var MultiForm = /*#__PURE__*/function () {
     }
   }, {
     key: "buttonBack",
-    value: function buttonBack() {
+    value: function buttonBack(e) {
+      e.preventDefault();
       this.count--;
       this.formSlide(this.count);
     }
