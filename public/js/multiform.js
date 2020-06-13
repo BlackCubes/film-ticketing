@@ -53,6 +53,7 @@ export class MultiForm {
 
       if (input === true) {
         multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+        console.log('MultiformInputs: ', multiFormInputs);
         multiFormVal = formValidator(
           multiFormInputs.value,
           'input',
