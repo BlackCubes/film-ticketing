@@ -12531,26 +12531,38 @@ var MultiForm = /*#__PURE__*/function () {
   }, {
     key: "buttonNext",
     value: function buttonNext() {
+      var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      var select = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var textarea = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
       var multiFormVal = true,
           multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
       var inputCount = 0,
           selectCount = 0,
           textareaCount = 0;
-      if (multiFormFieldset.querySelectorAll('input') != null) inputCount += multiFormFieldset.querySelectorAll('input').length;
-      if (multiFormFieldset.querySelectorAll('select') != null) selectCount += multiFormFieldset.querySelectorAll('select').length;
-      if (multiFormFieldset.querySelectorAll('textarea') != null) textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
+      if (input === true) inputCount += multiFormFieldset.querySelectorAll('input').length;
+      if (select === true) selectCount += multiFormFieldset.querySelectorAll('select').length;
+      if (textarea === true) textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
       var fieldsetElementsCount = inputCount + selectCount + textareaCount;
 
       for (var i = 0; i < fieldsetElementsCount; ++i) {
         var multiFormInputs = void 0,
             multiFormSelects = void 0,
             multiFormTextareas = void 0;
-        if (multiFormFieldset.querySelectorAll('input') != null) multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
-        if (multiFormFieldset.querySelectorAll('select') != null) multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
-        if (multiFormFieldset.querySelectorAll('textarea') != null) multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
-        (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
-        (0, _errorController.formValidator)(multiFormSelects, 'select', multiFormVal);
-        (0, _errorController.formValidator)(multiFormTextareas, 'textarea', multiFormVal);
+
+        if (input === true) {
+          multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+          (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
+        }
+
+        if (select === true) {
+          multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
+          (0, _errorController.formValidator)(multiFormSelects, 'select', multiFormVal);
+        }
+
+        if (textarea === true) {
+          multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
+          (0, _errorController.formValidator)(multiFormTextareas, 'textarea', multiFormVal);
+        }
       }
 
       if (multiFormVal === true) {

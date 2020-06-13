@@ -29,7 +29,7 @@ export class MultiForm {
     console.log('Fieldlist input: ', document.querySelectorAll('fieldset'));
   }
 
-  buttonNext() {
+  buttonNext(input = false, select = false, textarea = false) {
     let multiFormVal = true,
       multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
 
@@ -37,11 +37,11 @@ export class MultiForm {
       selectCount = 0,
       textareaCount = 0;
 
-    if (multiFormFieldset.querySelectorAll('input') != null)
+    if (input === true)
       inputCount += multiFormFieldset.querySelectorAll('input').length;
-    if (multiFormFieldset.querySelectorAll('select') != null)
+    if (select === true)
       selectCount += multiFormFieldset.querySelectorAll('select').length;
-    if (multiFormFieldset.querySelectorAll('textarea') != null)
+    if (textarea === true)
       textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
 
     let fieldsetElementsCount = inputCount + selectCount + textareaCount;
@@ -49,18 +49,20 @@ export class MultiForm {
     for (var i = 0; i < fieldsetElementsCount; ++i) {
       let multiFormInputs, multiFormSelects, multiFormTextareas;
 
-      if (multiFormFieldset.querySelectorAll('input') != null)
+      if (input === true) {
         multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+        formValidator(multiFormInputs, 'input', multiFormVal);
+      }
 
-      if (multiFormFieldset.querySelectorAll('select') != null)
+      if (select === true) {
         multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
+        formValidator(multiFormSelects, 'select', multiFormVal);
+      }
 
-      if (multiFormFieldset.querySelectorAll('textarea') != null)
+      if (textarea === true) {
         multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i];
-
-      formValidator(multiFormInputs, 'input', multiFormVal);
-      formValidator(multiFormSelects, 'select', multiFormVal);
-      formValidator(multiFormTextareas, 'textarea', multiFormVal);
+        formValidator(multiFormTextareas, 'textarea', multiFormVal);
+      }
     }
 
     if (multiFormVal === true) {
