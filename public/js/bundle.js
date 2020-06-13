@@ -12547,12 +12547,18 @@ var MultiForm = /*#__PURE__*/function () {
       var fieldsetElementsCount = inputCount + selectCount + textareaCount;
 
       if (input === true) {
-        multiFormInputs = multiFormFieldset.querySelectorAll('input');
-        inputCount += multiFormFieldset.querySelectorAll('input').length;
+        multiFormInputs = multiFormFieldset.querySelectorAll('input'); // inputCount += multiFormFieldset.querySelectorAll('input').length;
+
         multiFormInputs.forEach(function (element) {
           console.log('Multiform Element: ', element);
           multiFormVal = (0, _errorController.formValidator)(element.value, 'input', multiFormVal);
         });
+      }
+
+      if (select === true) {
+        multiFormSelects = multiFormFieldset.querySelectorAll('select');
+        multiFormOptions = multiFormSelects.options[multiFormSelects.selectedIndex];
+        console.log(multiFormOptions);
       } // if (select === true)
       //   multiFormSelects = multiFormFieldset.querySelectorAll('select');
       // selectCount += multiFormFieldset.querySelectorAll('select').length;

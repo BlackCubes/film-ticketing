@@ -47,12 +47,21 @@ export class MultiForm {
     if (input === true) {
       multiFormInputs = multiFormFieldset.querySelectorAll('input');
 
-      inputCount += multiFormFieldset.querySelectorAll('input').length;
+      // inputCount += multiFormFieldset.querySelectorAll('input').length;
 
       multiFormInputs.forEach(element => {
         console.log('Multiform Element: ', element);
         multiFormVal = formValidator(element.value, 'input', multiFormVal);
       });
+    }
+
+    if (select === true) {
+      multiFormSelects = multiFormFieldset.querySelectorAll('select');
+
+      multiFormOptions =
+        multiFormSelects.options[multiFormSelects.selectedIndex];
+
+      console.log(multiFormOptions);
     }
 
     // if (select === true)
