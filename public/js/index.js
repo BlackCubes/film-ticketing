@@ -250,11 +250,14 @@ if (eoFieldlist1) {
   multiForm.consoleDebug();
 
   if (firstNextBtn)
-    firstNextBtn.addEventListener('click', multiForm.buttonNext);
+    firstNextBtn.addEventListener('click', multiForm.buttonNext(true, true));
   if (secondNextBtn)
-    secondNextBtn.addEventListener('click', multiForm.buttonNext);
+    secondNextBtn.addEventListener(
+      'click',
+      multiForm.buttonNext(false, false, true)
+    );
   if (thirdNextBtn)
-    thirdNextBtn.addEventListener('click', multiForm.buttonNext);
+    thirdNextBtn.addEventListener('click', multiForm.buttonNext(true));
 
   if (firstPreviousBtn)
     firstPreviousBtn.addEventListener('click', multiForm.buttonBack);
