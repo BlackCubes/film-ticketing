@@ -1,4 +1,14 @@
 /* eslint-disable */
-export const formValidator = () => {
-  console.log('Form Validator waiting...');
+import { showAlert } from './alerts';
+
+export const formValidator = (input, type) => {
+  if (type === 'title' && !input) {
+    showAlert('error', 'Error on title!');
+    return false;
+  }
+
+  if (type === 'showDuration' && !input) {
+    showAlert('error', 'Error on the show duration!');
+    return false;
+  }
 };

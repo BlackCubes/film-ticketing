@@ -12422,6 +12422,30 @@ var CircleNav = /*#__PURE__*/function () {
 }();
 
 exports.default = CircleNav;
+},{}],"alerts.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.showAlert = exports.hideAlert = void 0;
+
+/* eslint-disable */
+var hideAlert = function hideAlert() {
+  var el = document.querySelector('.alert');
+  if (el) el.parentElement.removeChild(el);
+}; // 'type' is success or error
+
+
+exports.hideAlert = hideAlert;
+
+var showAlert = function showAlert(type, msg) {
+  hideAlert();
+  var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
+  document.querySelector('body').insertAdjacentHTML('afterbegin', markup); // window.setTimeout(hideAlert, 5000);
+};
+
+exports.showAlert = showAlert;
 },{}],"errorController.js":[function(require,module,exports) {
 "use strict";
 
@@ -12430,13 +12454,23 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.formValidator = void 0;
 
+var _alerts = require("./alerts");
+
 /* eslint-disable */
-var formValidator = function formValidator() {
-  console.log('Form Validator waiting...');
+var formValidator = function formValidator(input, type) {
+  if (type === 'title' && !input) {
+    (0, _alerts.showAlert)('error', 'Error on title!');
+    return false;
+  }
+
+  if (type === 'showDuration' && !input) {
+    (0, _alerts.showAlert)('error', 'Error on the show duration!');
+    return false;
+  }
 };
 
 exports.formValidator = formValidator;
-},{}],"multiForm.js":[function(require,module,exports) {
+},{"./alerts":"alerts.js"}],"multiForm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -14252,31 +14286,7 @@ module.exports.default = axios;
 
 },{"./utils":"../../node_modules/axios/lib/utils.js","./helpers/bind":"../../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../../node_modules/axios/lib/helpers/spread.js"}],"../../node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"../../node_modules/axios/lib/axios.js"}],"alerts.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.showAlert = exports.hideAlert = void 0;
-
-/* eslint-disable */
-var hideAlert = function hideAlert() {
-  var el = document.querySelector('.alert');
-  if (el) el.parentElement.removeChild(el);
-}; // 'type' is success or error
-
-
-exports.hideAlert = hideAlert;
-
-var showAlert = function showAlert(type, msg) {
-  hideAlert();
-  var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
-  document.querySelector('body').insertAdjacentHTML('afterbegin', markup); // window.setTimeout(hideAlert, 5000);
-};
-
-exports.showAlert = showAlert;
-},{}],"login.js":[function(require,module,exports) {
+},{"./lib/axios":"../../node_modules/axios/lib/axios.js"}],"login.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
