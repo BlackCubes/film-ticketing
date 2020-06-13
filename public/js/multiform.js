@@ -29,7 +29,8 @@ export class MultiForm {
     console.log('Fieldlist input: ', document.querySelectorAll('fieldset'));
   }
 
-  buttonNext(input = false, select = false, textarea = false) {
+  buttonNext(e, input = false, select = false, textarea = false) {
+    e.preventDefault();
     let multiFormVal = true,
       multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
 
