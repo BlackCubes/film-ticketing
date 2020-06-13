@@ -48,6 +48,11 @@ export class MultiForm {
 
     let fieldsetElementsCount = inputCount + selectCount + textareaCount;
 
+    console.log(
+      'Non-iterable inputs: ',
+      multiFormFieldset.querySelectorAll('input')
+    );
+
     for (var i = 0; i < fieldsetElementsCount; ++i) {
       let multiFormInputs, multiFormSelects, multiFormTextareas;
 

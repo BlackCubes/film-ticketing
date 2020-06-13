@@ -12545,6 +12545,7 @@ var MultiForm = /*#__PURE__*/function () {
       if (select === true) selectCount += multiFormFieldset.querySelectorAll('select').length;
       if (textarea === true) textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
       var fieldsetElementsCount = inputCount + selectCount + textareaCount;
+      console.log('Non-iterable inputs: ', multiFormFieldset.querySelectorAll('input'));
 
       for (var i = 0; i < fieldsetElementsCount; ++i) {
         var multiFormInputs = void 0,
