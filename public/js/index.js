@@ -263,9 +263,9 @@ if (eoFieldlist1) {
   if (firstPreviousBtn)
     firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   if (secondPreviousBtn)
-    secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack);
+    secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   if (thirdPreviousBtn)
-    thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack);
+    thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
   // -- initiate next slide
 

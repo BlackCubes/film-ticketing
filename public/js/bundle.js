@@ -15273,10 +15273,10 @@ if (eoFieldlist1) {
     return multiForm.buttonBack(e);
   });
   if (secondPreviousBtn) secondPreviousBtn.addEventListener('click', function (e) {
-    return multiForm.buttonBack;
+    return multiForm.buttonBack(e);
   });
   if (thirdPreviousBtn) thirdPreviousBtn.addEventListener('click', function (e) {
-    return multiForm.buttonBack;
+    return multiForm.buttonBack(e);
   }); // -- initiate next slide
   // -- repeat
 
