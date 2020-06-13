@@ -12457,20 +12457,18 @@ exports.formValidator = void 0;
 var _alerts = require("./alerts");
 
 /* eslint-disable */
-var formValidator = function formValidator(input, type) {
-  var bol = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
+var formValidator = function formValidator(input, type, bol) {
   if (type === 'input' && !input) {
     (0, _alerts.showAlert)('error', 'Error on input!');
     bol = false;
-    return false;
   }
 
   if (type === 'select' && !input) {
     (0, _alerts.showAlert)('error', 'Error on the select!');
     bol = false;
-    return false;
   }
+
+  return bol;
 };
 
 exports.formValidator = formValidator;
