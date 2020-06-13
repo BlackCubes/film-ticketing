@@ -247,6 +247,8 @@ if (eoFieldlist1) {
 
   let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
 
+  multiForm.consoleDebug();
+
   if (firstNextBtn)
     firstNextBtn.addEventListener('click', multiForm.buttonNext);
   if (secondNextBtn)
