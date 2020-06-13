@@ -26,7 +26,7 @@ export class MultiForm {
       document.querySelectorAll('fieldset')[1].querySelectorAll('input') !== []
     )
       ans = true;
-    console.log('Fieldlist input: ', document.querySelectorAll('fieldset')[1]);
+    console.log('Fieldlist input: ', document.querySelectorAll('fieldset'));
   }
 
   buttonNext() {

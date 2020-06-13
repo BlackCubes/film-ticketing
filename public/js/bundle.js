@@ -12526,7 +12526,7 @@ var MultiForm = /*#__PURE__*/function () {
     value: function consoleDebug() {
       var ans = false;
       if (document.querySelectorAll('fieldset')[1].querySelectorAll('input') !== []) ans = true;
-      console.log('Fieldlist input: ', document.querySelectorAll('fieldset')[1]);
+      console.log('Fieldlist input: ', document.querySelectorAll('fieldset'));
     }
   }, {
     key: "buttonNext",
