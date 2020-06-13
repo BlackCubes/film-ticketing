@@ -55,9 +55,9 @@ export class MultiForm {
 
     console.log('Elements count: ', fieldsetElementsCount);
 
-    for (var i = 0; i < fieldsetElementsCount; ++i) {
-      let multiFormInputs, multiFormSelects, multiFormTextareas;
+    let multiFormInputs, multiFormSelects, multiFormTextareas;
 
+    for (var i = 0; i < fieldsetElementsCount; ++i) {
       if (input === true) {
         multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
         console.log('MultiformInputs: ', multiFormInputs);
