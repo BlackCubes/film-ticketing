@@ -12522,7 +12522,9 @@ var MultiForm = /*#__PURE__*/function () {
 
     this.button = button;
     this.fieldset = fieldset;
-  }
+  } // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
+  // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
+
 
   _createClass(MultiForm, [{
     key: "formSlide",
@@ -12532,8 +12534,8 @@ var MultiForm = /*#__PURE__*/function () {
   }, {
     key: "buttonBack",
     value: function buttonBack() {
+      this.count--;
       this.formSlide(this.count);
-      this.count++;
     }
   }, {
     key: "buttonNext",
