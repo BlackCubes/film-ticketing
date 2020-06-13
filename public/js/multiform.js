@@ -24,9 +24,16 @@ export class MultiForm {
     let multiFormVal = true,
       multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
 
-    let inputCount = 0 + multiFormFieldset.querySelectorAll('input').length,
-      selectCount = 0 + multiFormFieldset.querySelectorAll('select').length,
-      textareaCount = 0 + multiFormFieldset.querySelectorAll('textarea').length;
+    let inputCount = 0,
+      selectCount = 0,
+      textareaCount = 0;
+
+    if (multiFormFieldset.querySelectorAll('input'))
+      inputCount += multiFormFieldset.querySelectorAll('input').length;
+    if (multiFormFieldset.querySelectorAll('select'))
+      selectCount += multiFormFieldset.querySelectorAll('select').length;
+    if (multiFormFieldset.querySelectorAll('textarea'))
+      textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
 
     let fieldsetElementsCount = inputCount + selectCount + textareaCount;
 

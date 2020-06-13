@@ -12526,9 +12526,12 @@ var MultiForm = /*#__PURE__*/function () {
     value: function buttonNext() {
       var multiFormVal = true,
           multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
-      var inputCount = 0 + multiFormFieldset.querySelectorAll('input').length,
-          selectCount = 0 + multiFormFieldset.querySelectorAll('select').length,
-          textareaCount = 0 + multiFormFieldset.querySelectorAll('textarea').length;
+      var inputCount = 0,
+          selectCount = 0,
+          textareaCount = 0;
+      if (multiFormFieldset.querySelectorAll('input')) inputCount += multiFormFieldset.querySelectorAll('input').length;
+      if (multiFormFieldset.querySelectorAll('select')) selectCount += multiFormFieldset.querySelectorAll('select').length;
+      if (multiFormFieldset.querySelectorAll('textarea')) textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
       var fieldsetElementsCount = inputCount + selectCount + textareaCount;
 
       for (var i = 0; i < fieldsetElementsCount; ++i) {
