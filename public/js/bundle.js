@@ -12512,9 +12512,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var MultiForm = /*#__PURE__*/function () {
   function MultiForm(button, fieldset) {
     _classCallCheck(this, MultiForm);
+
+    _defineProperty(this, "count", 0);
 
     this.button = button;
     this.fieldset = fieldset;
@@ -12526,10 +12530,16 @@ var MultiForm = /*#__PURE__*/function () {
       return this.fieldset.style.marginLeft = "-".concat(25 * factor, "%");
     }
   }, {
+    key: "buttonBack",
+    value: function buttonBack() {
+      this.formSlide(this.count);
+      this.count++;
+    }
+  }, {
     key: "buttonNext",
     value: function buttonNext() {
       var multiFormVal = true,
-          multiFormFieldset = document.querySelectorAll('fieldset')[0];
+          multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
       var inputCount = 0 + multiFormFieldset.querySelectorAll('input').length,
           selectCount = 0 + multiFormFieldset.querySelectorAll('select').length,
           textareaCount = 0 + multiFormFieldset.querySelectorAll('textarea').length;
@@ -12548,7 +12558,8 @@ var MultiForm = /*#__PURE__*/function () {
       }
 
       if (multiFormVal === true) {
-        this.formSlide(0);
+        this.count++;
+        this.formSlide(this.count);
       }
     }
   }]);

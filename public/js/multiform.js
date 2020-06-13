@@ -2,6 +2,8 @@
 import { formValidator } from './errorController';
 
 class MultiForm {
+  count = 0;
+
   constructor(button, fieldset) {
     this.button = button;
     this.fieldset = fieldset;
@@ -11,9 +13,14 @@ class MultiForm {
     return (this.fieldset.style.marginLeft = `-${25 * factor}%`);
   }
 
+  buttonBack() {
+    this.formSlide(this.count);
+    this.count++;
+  }
+
   buttonNext() {
     let multiFormVal = true,
-      multiFormFieldset = document.querySelectorAll('fieldset')[0];
+      multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
 
     let inputCount = 0 + multiFormFieldset.querySelectorAll('input').length,
       selectCount = 0 + multiFormFieldset.querySelectorAll('select').length,
@@ -39,7 +46,8 @@ class MultiForm {
     }
 
     if (multiFormVal === true) {
-      this.formSlide(0);
+      this.count++;
+      this.formSlide(this.count);
     }
   }
 }
