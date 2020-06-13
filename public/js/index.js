@@ -262,7 +262,7 @@ if (eoFieldlist1) {
   //   thirdNextBtn.addEventListener('click', multiForm.buttonNext(true));
 
   if (firstPreviousBtn)
-    firstPreviousBtn.addEventListener('click', multiForm.buttonBack);
+    firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   // if (secondPreviousBtn)
   //   secondPreviousBtn.addEventListener('click', multiForm.buttonBack);
   // if (thirdPreviousBtn)
