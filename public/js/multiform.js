@@ -15,8 +15,8 @@ export class MultiForm {
     return (this.fieldset.style.marginLeft = `-${25 * factor}%`);
   }
 
-  buttonBack(e) {
-    e.preventDefault();
+  buttonBack() {
+    // e.preventDefault();
     this.count--;
     this.formSlide(this.count);
   }
@@ -30,8 +30,8 @@ export class MultiForm {
     console.log('Fieldlist input: ', document.querySelectorAll('fieldset'));
   }
 
-  buttonNext(e, input = false, select = false, textarea = false) {
-    e.preventDefault();
+  buttonNext(input = false, select = false, textarea = false) {
+    // e.preventDefault();
     let multiFormVal = true,
       multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
 

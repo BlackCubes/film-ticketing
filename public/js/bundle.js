@@ -12517,8 +12517,8 @@ var MultiForm = /*#__PURE__*/function () {
     }
   }, {
     key: "buttonBack",
-    value: function buttonBack(e) {
-      e.preventDefault();
+    value: function buttonBack() {
+      // e.preventDefault();
       this.count--;
       this.formSlide(this.count);
     }
@@ -12531,11 +12531,11 @@ var MultiForm = /*#__PURE__*/function () {
     }
   }, {
     key: "buttonNext",
-    value: function buttonNext(e) {
-      var input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      var select = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-      var textarea = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-      e.preventDefault();
+    value: function buttonNext() {
+      var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      var select = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var textarea = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      // e.preventDefault();
       var multiFormVal = true,
           multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
       var inputCount = 0,
