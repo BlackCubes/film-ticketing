@@ -55,42 +55,42 @@ export class MultiForm {
       });
     }
 
-    if (select === true)
-      multiFormSelects = multiFormFieldset.querySelectorAll('select');
-    selectCount += multiFormFieldset.querySelectorAll('select').length;
-    if (textarea === true)
-      textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
+    // if (select === true)
+    //   multiFormSelects = multiFormFieldset.querySelectorAll('select');
+    // selectCount += multiFormFieldset.querySelectorAll('select').length;
+    // if (textarea === true)
+    //   textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
 
-    console.log(
-      'Non-iterable inputs: ',
-      multiFormFieldset.querySelectorAll('input')
-    );
+    // console.log(
+    //   'Non-iterable inputs: ',
+    //   multiFormFieldset.querySelectorAll('input')
+    // );
 
-    console.log('MultiformInputs: ', multiFormInputs);
+    // console.log('MultiformInputs: ', multiFormInputs);
 
-    console.log('Elements count: ', fieldsetElementsCount);
+    // console.log('Elements count: ', fieldsetElementsCount);
 
-    for (var i = 0; i < fieldsetElementsCount; ++i) {
-      // if (input === true) {
-      //   multiFormVal = formValidator(multiFormInputs[i], 'input', multiFormVal);
-      // }
+    // for (var i = 0; i < fieldsetElementsCount; ++i) {
+    //   // if (input === true) {
+    //   //   multiFormVal = formValidator(multiFormInputs[i], 'input', multiFormVal);
+    //   // }
 
-      if (select === true) {
-        multiFormSelects =
-          multiFormSelects[i].options[multiFormSelects[i].selectedIndex].value;
-        multiFormVal = formValidator(multiFormSelects, 'select', multiFormVal);
-      }
+    //   if (select === true) {
+    //     multiFormSelects =
+    //       multiFormSelects[i].options[multiFormSelects[i].selectedIndex].value;
+    //     multiFormVal = formValidator(multiFormSelects, 'select', multiFormVal);
+    //   }
 
-      if (textarea === true) {
-        multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i]
-          .value;
-        multiFormVal = formValidator(
-          multiFormTextareas,
-          'textarea',
-          multiFormVal
-        );
-      }
-    }
+    //   if (textarea === true) {
+    //     multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i]
+    //       .value;
+    //     multiFormVal = formValidator(
+    //       multiFormTextareas,
+    //       'textarea',
+    //       multiFormVal
+    //     );
+    //   }
+    // }
 
     if (multiFormVal === true) {
       console.log('Count: ', this.count);
