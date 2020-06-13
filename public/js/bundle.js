@@ -12513,23 +12513,43 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 var MultiForm = /*#__PURE__*/function () {
-  function MultiForm(button, fieldset, percentage) {
+  function MultiForm(button, fieldset) {
     _classCallCheck(this, MultiForm);
 
     this.button = button;
     this.fieldset = fieldset;
-    this.percentage = percentage;
-  } // formSlide() {
-  //   return this.button.addEventListener('click', () => {
-  //     this.fieldset.style.marginLeft = this.percentage;
-  //   });
-  // }
-
+  }
 
   _createClass(MultiForm, [{
     key: "formSlide",
-    value: function formSlide() {
-      return this.fieldset.style.marginLeft = this.percentage;
+    value: function formSlide(factor) {
+      return this.fieldset.style.marginLeft = "-".concat(25 * factor, "%");
+    }
+  }, {
+    key: "buttonNext",
+    value: function buttonNext() {
+      var multiFormVal = true,
+          multiFormFieldset = document.querySelectorAll('fieldset')[0];
+      var inputCount = 0 + multiFormFieldset.querySelectorAll('input').length,
+          selectCount = 0 + multiFormFieldset.querySelectorAll('select').length,
+          textareaCount = 0 + multiFormFieldset.querySelectorAll('textarea').length;
+      var fieldsetElementsCount = inputCount + selectCount + textareaCount;
+
+      for (var i = 0; i < fieldsetElementsCount; ++i) {
+        var multiFormInputs = void 0,
+            multiFormSelects = void 0,
+            multiFormTextareas = void 0;
+        if (multiFormFieldset.querySelectorAll('input')) multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+        if (multiFormFieldset.querySelectorAll('select')) multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
+        if (multiFormFieldset.querySelectorAll('textarea')) multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
+        (0, _errorController.formValidator)(multiFormInputs, 'input', multiFormVal);
+        (0, _errorController.formValidator)(multiFormSelects, 'select', multiFormVal);
+        (0, _errorController.formValidator)(multiFormTextareas, 'textarea', multiFormVal);
+      }
+
+      if (multiFormVal === true) {
+        this.formSlide(0);
+      }
     }
   }]);
 

@@ -2,20 +2,45 @@
 import { formValidator } from './errorController';
 
 class MultiForm {
-  constructor(button, fieldset, percentage) {
+  constructor(button, fieldset) {
     this.button = button;
     this.fieldset = fieldset;
-    this.percentage = percentage;
   }
 
-  // formSlide() {
-  //   return this.button.addEventListener('click', () => {
-  //     this.fieldset.style.marginLeft = this.percentage;
-  //   });
-  // }
+  formSlide(factor) {
+    return (this.fieldset.style.marginLeft = `-${25 * factor}%`);
+  }
 
-  formSlide() {
-    return (this.fieldset.style.marginLeft = this.percentage);
+  buttonNext() {
+    let multiFormVal = true,
+      multiFormFieldset = document.querySelectorAll('fieldset')[0];
+
+    let inputCount = 0 + multiFormFieldset.querySelectorAll('input').length,
+      selectCount = 0 + multiFormFieldset.querySelectorAll('select').length,
+      textareaCount = 0 + multiFormFieldset.querySelectorAll('textarea').length;
+
+    let fieldsetElementsCount = inputCount + selectCount + textareaCount;
+
+    for (var i = 0; i < fieldsetElementsCount; ++i) {
+      let multiFormInputs, multiFormSelects, multiFormTextareas;
+
+      if (multiFormFieldset.querySelectorAll('input'))
+        multiFormInputs = multiFormFieldset.querySelectorAll('input')[i];
+
+      if (multiFormFieldset.querySelectorAll('select'))
+        multiFormSelects = multiFormFieldset.querySelectorAll('select')[i];
+
+      if (multiFormFieldset.querySelectorAll('textarea'))
+        multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
+
+      formValidator(multiFormInputs, 'input', multiFormVal);
+      formValidator(multiFormSelects, 'select', multiFormVal);
+      formValidator(multiFormTextareas, 'textarea', multiFormVal);
+    }
+
+    if (multiFormVal === true) {
+      this.formSlide(0);
+    }
   }
 }
 
