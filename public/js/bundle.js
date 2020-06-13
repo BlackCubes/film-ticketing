@@ -12524,7 +12524,9 @@ var MultiForm = /*#__PURE__*/function () {
   }, {
     key: "consoleDebug",
     value: function consoleDebug() {
-      console.log('Fieldlist Amount: ', document.querySelectorAll('fieldset')[1].querySelectorAll('select'));
+      var ans = false;
+      if (document.querySelectorAll('fieldset')[1].querySelectorAll('select') != null) ans = true;
+      console.log('Fieldlist Amount: ', ans);
     }
   }, {
     key: "buttonNext",

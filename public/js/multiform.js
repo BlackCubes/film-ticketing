@@ -21,10 +21,13 @@ export class MultiForm {
   }
 
   consoleDebug() {
-    console.log(
-      'Fieldlist Amount: ',
-      document.querySelectorAll('fieldset')[1].querySelectorAll('select')
-    );
+    let ans = false;
+    if (
+      document.querySelectorAll('fieldset')[1].querySelectorAll('select') !=
+      null
+    )
+      ans = true;
+    console.log('Fieldlist Amount: ', ans);
   }
 
   buttonNext() {
