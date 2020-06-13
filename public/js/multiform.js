@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { formValidator } from './errorController';
 
-class MultiForm {
+export class MultiForm {
   count = 0;
 
   constructor(button, fieldset) {
@@ -54,27 +54,27 @@ class MultiForm {
   }
 }
 
-export default class Form extends MultiForm {
-  constructor(button, fieldset, percentage, input, type) {
-    super();
-    this.input = input;
-    this.type = type;
-  }
+// export default class Form extends MultiForm {
+//   constructor(button, fieldset, percentage, input, type) {
+//     super();
+//     this.input = input;
+//     this.type = type;
+//   }
 
-  formGetElements(DOM) {
-    this.input = document.getElementById(`${DOM}`);
-    return this.input;
-  }
+//   formGetElements(DOM) {
+//     this.input = document.getElementById(`${DOM}`);
+//     return this.input;
+//   }
 
-  formCheck() {
-    formValidator(this.formGetElements, this.type);
-  }
+//   formCheck() {
+//     formValidator(this.formGetElements, this.type);
+//   }
 
-  formMulti() {
-    if (this.button) {
-      this.button.addEventListener('click', () => {
-        this.formCheck();
-      });
-    }
-  }
-}
+//   formMulti() {
+//     if (this.button) {
+//       this.button.addEventListener('click', () => {
+//         this.formCheck();
+//       });
+//     }
+//   }
+// }
