@@ -23,7 +23,7 @@ export class MultiForm {
   consoleDebug() {
     console.log(
       'Fieldlist Amount: ',
-      document.querySelectorAll('fieldset')[1].querySelectorAll('input')
+      document.querySelectorAll('fieldset')[1].querySelectorAll('textarea')
     );
   }
 
