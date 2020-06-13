@@ -15261,17 +15261,23 @@ if (eoFieldlist1) {
   var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1);
   multiForm.consoleDebug();
   firstNextBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    multiForm.buttonNext(true, true);
+    return multiForm.buttonNext(e, true, true);
   });
   secondNextBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    multiForm.buttonNext(false, false, true);
+    return multiForm.buttonNext(e, false, false, true);
   });
-  thirdNextBtn.addEventListener('click', multiForm.buttonNext(true));
-  firstPreviousBtn.addEventListener('click', multiForm.buttonBack());
-  secondPreviousBtn.addEventListener('click', multiForm.buttonBack());
-  thirdPreviousBtn.addEventListener('click', multiForm.buttonBack()); // -- initiate next slide
+  thirdNextBtn.addEventListener('click', function (e) {
+    return multiForm.buttonNext(e, true);
+  });
+  firstPreviousBtn.addEventListener('click', function (e) {
+    return multiForm.buttonBack(e);
+  });
+  secondPreviousBtn.addEventListener('click', function (e) {
+    return multiForm.buttonBack(e);
+  });
+  thirdPreviousBtn.addEventListener('click', function (e) {
+    return multiForm.buttonBack(e);
+  }); // -- initiate next slide
   // -- repeat
 
   var overview = document.getElementById('showOverview').value,
