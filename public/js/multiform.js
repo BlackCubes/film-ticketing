@@ -58,7 +58,11 @@ export class MultiForm {
     if (select === true) {
       multiFormSelects = multiFormFieldset.querySelectorAll('select');
 
-      console.log(multiFormSelects);
+      multiFormSelects.forEach(element => {
+        let option = element.options[element.selectedIndex];
+        console.log('Options: ', option);
+      });
+      console.log('Multiform Selects', multiFormSelects);
     }
 
     // if (select === true)

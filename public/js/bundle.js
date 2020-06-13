@@ -12557,7 +12557,11 @@ var MultiForm = /*#__PURE__*/function () {
 
       if (select === true) {
         multiFormSelects = multiFormFieldset.querySelectorAll('select');
-        console.log(multiFormSelects);
+        multiFormSelects.forEach(function (element) {
+          var option = element.options[element.selectedIndex];
+          console.log('Options: ', option);
+        });
+        console.log('Multiform Selects', multiFormSelects);
       } // if (select === true)
       //   multiFormSelects = multiFormFieldset.querySelectorAll('select');
       // selectCount += multiFormFieldset.querySelectorAll('select').length;
