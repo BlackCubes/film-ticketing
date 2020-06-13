@@ -23,8 +23,7 @@ export class MultiForm {
   consoleDebug() {
     let ans = false;
     if (
-      document.querySelectorAll('fieldset')[1].querySelectorAll('select') !=
-      null
+      document.querySelectorAll('fieldset')[1].querySelectorAll('input') != null
     )
       ans = true;
     console.log('Fieldlist Amount: ', ans);
