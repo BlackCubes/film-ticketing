@@ -173,6 +173,32 @@
     }
   }
 
+  &__photo-upload {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 1.6rem;
+  }
+
+  &__user-photo {
+    width: 7.5rem;
+    height: 7.5rem;
+    margin-right: 2rem;
+    border-radius: 50%;
+  }
+
+  &__upload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
   &__duo-btn {
     &-previous,
     &-next,
