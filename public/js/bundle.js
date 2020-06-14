@@ -15237,13 +15237,13 @@ if (eoFieldlist1) {
   var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
 
   firstNextBtn.addEventListener('click', function (e) {
-    return multiForm.buttonNext(e, true, true);
+    return multiForm.buttonNext(e, false, true, true);
   });
   secondNextBtn.addEventListener('click', function (e) {
-    return multiForm.buttonNext(e, false, false, true);
+    return multiForm.buttonNext(e, false, false, false, true);
   });
   thirdNextBtn.addEventListener('click', function (e) {
-    return multiForm.buttonNext(e, true);
+    return multiForm.buttonNext(e, false, true);
   }); // Initiate previous buttons
 
   firstPreviousBtn.addEventListener('click', function (e) {
@@ -15264,14 +15264,16 @@ if (eoFieldlist1) {
   var specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
   var specialVenue = specialVenueValue === 'y' ? true : false,
       price = document.getElementById('showPrice').value;
-  var createShowBtn = document.getElementById('btnCreateShow');
-  eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
+  var createShowBtn = document.getElementById('btnCreateShow'); // eoCreateShowForm.addEventListener('submit', async e => {
+  //   e.preventDefault();
+
+  createShowBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              e.preventDefault();
+              multiForm.buttonNext(e, true, true, true);
               document.getElementById('btnCreateShow').textContent = 'Creating...';
               _context4.next = 4;
               return (0, _login.createShow)({

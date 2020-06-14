@@ -228,12 +228,14 @@ if (eoFieldlist1) {
 
   // Initiate click event listeners for multiform with specific elements
   firstNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, true, true)
+    multiForm.buttonNext(e, false, true, true)
   );
   secondNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, false, false, true)
+    multiForm.buttonNext(e, false, false, false, true)
   );
-  thirdNextBtn.addEventListener('click', e => multiForm.buttonNext(e, true));
+  thirdNextBtn.addEventListener('click', e =>
+    multiForm.buttonNext(e, false, true)
+  );
 
   // Initiate previous buttons
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
@@ -257,8 +259,10 @@ if (eoFieldlist1) {
 
   const createShowBtn = document.getElementById('btnCreateShow');
 
-  eoCreateShowForm.addEventListener('submit', async e => {
-    e.preventDefault();
+  // eoCreateShowForm.addEventListener('submit', async e => {
+  //   e.preventDefault();
+  createShowBtn.addEventListener('click', async e => {
+    multiForm.buttonNext(e, true, true, true);
 
     document.getElementById('btnCreateShow').textContent = 'Creating...';
 
