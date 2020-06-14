@@ -590,6 +590,9 @@ svg {
   padding: 0.7rem;
   align-items: center; }
 
+.nav__profile--logout {
+  margin-top: 1.1rem; }
+
 .nav__user-img {
   width: 3rem;
   height: 3rem;
