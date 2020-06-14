@@ -9,7 +9,7 @@ const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, '/public/img/users');
   },
-  file: (req, file, cb) => {
+  filename: (req, file, cb) => {
     const ext = file.mimetype.split('/')[1];
     cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
   }
