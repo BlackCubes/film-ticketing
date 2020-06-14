@@ -219,6 +219,8 @@ if (eoFieldlist1) {
   secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
+  const createShowBtn = document.getElementById('btnCreateShow');
+
   // eoCreateShowForm.addEventListener('submit', async e => {
   //   e.preventDefault();
   createShowBtn.addEventListener('click', async e => {
@@ -264,8 +266,6 @@ if (eoFieldlist1) {
 
     const specialVenue = specialVenueValue === 'y' ? true : false,
       price = document.getElementById('showPrice').value;
-
-    const createShowBtn = document.getElementById('btnCreateShow');
 
     console.log('Title: ', title);
     console.log('Duration: ', duration);
