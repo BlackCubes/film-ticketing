@@ -197,6 +197,31 @@
     overflow: hidden;
     position: absolute;
     z-index: -1;
+
+    & + label {
+      color: $color-lightseagreen;
+      display: inline-block;
+      text-decoration: none;
+      border-bottom: 1px solid $color-lightseagreen;
+      padding: 3px;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-lightseagreen;
+        color: $color-black;
+        -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
+      }
+    }
+
+    &:focus + label {
+      outline: 3px solid $color-lightseagreen;
+      outline-offset: 3px;
+    }
   }
 
   &__duo-btn {
