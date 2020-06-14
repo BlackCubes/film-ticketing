@@ -50,8 +50,10 @@
     g#symbolsContainer
       symbol#icon-1.icon.icon-(viewBox="0 0 40 40")
         - let userRole = 'Organizer'
+        - let userRoute = '#'
         if user
           - userRole = (user.role === 'admin') ? 'Admin' : 'Organizer'
+          - userRoute = (user.role === 'admin') ? '#' : '/myShows'
         text(fill="#222" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.8rem" font-weight="700")= userRole
 
       symbol#icon-2.icon.icon-(viewBox="0 0 40 40")
@@ -67,7 +69,7 @@
         text(fill="#222" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.8rem" font-weight="700") Settings
 
     g#itemsContainer
-      a#item-1.item(xlink:href="" href="" xlink:title="" role="link" tabindex="0" xlink:target="_parent" target="_parent" transform="matrix(1,0,0,1,0,0)" data-svg-origin="250 250")
+      a#item-1.item(xlink:href=`${userRoute}` href=`${userRoute}` xlink:title="" role="link" tabindex="0" xlink:target="_parent" target="_parent" transform="matrix(1,0,0,1,0,0)" data-svg-origin="250 250")
         title
         path.sector(fill="none" stroke="#111" stroke-width="1" d="M250,250 l250,0 A250,250 0 0,0 452.25424859373686,103.05368692688171 z")
         use(xlink:href="#icon-1" href="#icon-1" width="40" height="40" x="391.6795959472656" y="177.4671173095703" transform="rotate(72 411.6795959472656 197.4671173095703)")
