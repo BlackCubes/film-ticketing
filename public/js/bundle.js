@@ -15217,20 +15217,7 @@ if (eoFieldlist1) {
       thirdNextBtn = document.getElementById('btnNext-3');
   var firstPreviousBtn = document.getElementById('btnPrev-1'),
       secondPreviousBtn = document.getElementById('btnPrev-2'),
-      thirdPreviousBtn = document.getElementById('btnPrev-3'); // // Create multiform slide UI
-  // let firstForwardSlide = new MultiForm(firstNextBtn, eoFieldlist1, '-25%'),
-  //   secondForwardSlide = new MultiForm(secondNextBtn, eoFieldlist1, '-50%'),
-  //   thirdForwardSlide = new MultiForm(thirdNextBtn, eoFieldlist1, '-75%');
-  // let firstBackSlide = new MultiForm(firstPreviousBtn, eoFieldlist1, '0%'),
-  //   secondBackSlide = new MultiForm(secondPreviousBtn, eoFieldlist1, '-25%'),
-  //   thirdBackSlide = new MultiForm(thirdPreviousBtn, eoFieldlist1, '-50%');
-  // // Initialize all previous buttons
-  // firstBackSlide.formSlide();
-  // secondBackSlide.formSlide();
-  // thirdBackSlide.formSlide();
-  // Form Validations before preceding to the next Fieldlist
-  // -- gather DOM elements in fieldset
-
+      thirdPreviousBtn = document.getElementById('btnPrev-3');
   var title = document.getElementById('showTitle').value,
       duration = document.getElementById('showDuration').value;
   var selectOriginalMonth = document.getElementById('showOriginalMonth'),
@@ -15243,13 +15230,9 @@ if (eoFieldlist1) {
       originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
   var originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)],
       mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-      contentType = selectContentType.options[selectContentType.selectedIndex].value; // -- validate
-  // if (firstNextBtn) {
-  //   firstForwardSlide.formSlide();
-  // }
+      contentType = selectContentType.options[selectContentType.selectedIndex].value;
+  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
 
-  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1);
-  multiForm.consoleDebug();
   firstNextBtn.addEventListener('click', function (e) {
     return multiForm.buttonNext(e, true, true);
   });
@@ -15258,7 +15241,8 @@ if (eoFieldlist1) {
   });
   thirdNextBtn.addEventListener('click', function (e) {
     return multiForm.buttonNext(e, true);
-  });
+  }); // Initiate previous buttons
+
   firstPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);
   });
@@ -15267,20 +15251,12 @@ if (eoFieldlist1) {
   });
   thirdPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);
-  }); // -- initiate next slide
-  // -- repeat
-
+  });
   var overview = document.getElementById('showOverview').value,
-      synopsis = document.getElementById('showSynopsis').value; // if (secondNextBtn) {
-  //   secondForwardSlide.formSlide();
-  // }
-
+      synopsis = document.getElementById('showSynopsis').value;
   var language = document.getElementById('showLanguage').value,
       subtitles = document.getElementById('showSubtitles').value,
-      genres = document.getElementById('showGenre').value; // if (thirdNextBtn) {
-  //   thirdForwardSlide.formSlide();
-  // }
-
+      genres = document.getElementById('showGenre').value;
   var selectSpecialVenue = document.getElementById('showSpecialVenue');
   var specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
   var specialVenue = specialVenueValue === 'y' ? true : false,

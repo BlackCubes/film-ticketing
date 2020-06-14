@@ -201,22 +201,6 @@ if (eoFieldlist1) {
     secondPreviousBtn = document.getElementById('btnPrev-2'),
     thirdPreviousBtn = document.getElementById('btnPrev-3');
 
-  // // Create multiform slide UI
-  // let firstForwardSlide = new MultiForm(firstNextBtn, eoFieldlist1, '-25%'),
-  //   secondForwardSlide = new MultiForm(secondNextBtn, eoFieldlist1, '-50%'),
-  //   thirdForwardSlide = new MultiForm(thirdNextBtn, eoFieldlist1, '-75%');
-
-  // let firstBackSlide = new MultiForm(firstPreviousBtn, eoFieldlist1, '0%'),
-  //   secondBackSlide = new MultiForm(secondPreviousBtn, eoFieldlist1, '-25%'),
-  //   thirdBackSlide = new MultiForm(thirdPreviousBtn, eoFieldlist1, '-50%');
-
-  // // Initialize all previous buttons
-  // firstBackSlide.formSlide();
-  // secondBackSlide.formSlide();
-  // thirdBackSlide.formSlide();
-
-  // Form Validations before preceding to the next Fieldlist
-  // -- gather DOM elements in fieldset
   const title = document.getElementById('showTitle').value,
     duration = document.getElementById('showDuration').value;
 
@@ -240,15 +224,9 @@ if (eoFieldlist1) {
     contentType =
       selectContentType.options[selectContentType.selectedIndex].value;
 
-  // -- validate
-  // if (firstNextBtn) {
-  //   firstForwardSlide.formSlide();
-  // }
-
   let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
 
-  multiForm.consoleDebug();
-
+  // Initiate click event listeners for multiform with specific elements
   firstNextBtn.addEventListener('click', e =>
     multiForm.buttonNext(e, true, true)
   );
@@ -257,27 +235,17 @@ if (eoFieldlist1) {
   );
   thirdNextBtn.addEventListener('click', e => multiForm.buttonNext(e, true));
 
+  // Initiate previous buttons
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
-  // -- initiate next slide
-
-  // -- repeat
   const overview = document.getElementById('showOverview').value,
     synopsis = document.getElementById('showSynopsis').value;
-
-  // if (secondNextBtn) {
-  //   secondForwardSlide.formSlide();
-  // }
 
   const language = document.getElementById('showLanguage').value,
     subtitles = document.getElementById('showSubtitles').value,
     genres = document.getElementById('showGenre').value;
-
-  // if (thirdNextBtn) {
-  //   thirdForwardSlide.formSlide();
-  // }
 
   const selectSpecialVenue = document.getElementById('showSpecialVenue');
 
