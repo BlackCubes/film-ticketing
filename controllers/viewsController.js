@@ -121,7 +121,7 @@ exports.getEventOwnerCreateShow = (req, res) => {
 };
 
 exports.getEventOwnerGetShows = catchAsync(async (req, res) => {
-  const userShows = await User.findById(req.user.id).populate('shows');
+  const shows = await Show.findOne({ eventOrganizer: req.user.id });
 
   res.status(200).render('accountShows', {
     title: 'My Shows',
