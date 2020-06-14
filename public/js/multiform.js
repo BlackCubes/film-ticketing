@@ -48,7 +48,7 @@ export class MultiForm {
       multiFormInputs = multiFormFieldset.querySelectorAll('input');
 
       multiFormInputs.forEach(element => {
-        console.log('Multiform Element: ', element);
+        console.log('Multiform Element: ', element.getAttribute('required'));
         multiFormVal = formValidator(
           element.getAttribute('required').value,
           'input',

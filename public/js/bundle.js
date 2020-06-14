@@ -12549,7 +12549,7 @@ var MultiForm = /*#__PURE__*/function () {
       if (input === true) {
         multiFormInputs = multiFormFieldset.querySelectorAll('input');
         multiFormInputs.forEach(function (element) {
-          console.log('Multiform Element: ', element);
+          console.log('Multiform Element: ', element.getAttribute('required'));
           multiFormVal = (0, _errorController.formValidator)(element.getAttribute('required').value, 'input', multiFormVal);
         });
       }
