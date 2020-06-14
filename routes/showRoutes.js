@@ -31,6 +31,7 @@ router.post(
   '/createMyShow',
   authController.restrictTo('event-owner'),
   showController.getEventOrganizer,
+  showController.uploadShowPhoto,
   showController.createMyShow
 );
 
