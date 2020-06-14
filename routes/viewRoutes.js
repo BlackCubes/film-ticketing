@@ -54,4 +54,10 @@ router.get(
   viewsController.getEventOwnerCreateShow
 );
 
+router.get(
+  '/myShows',
+  authController.protect,
+  viewsController.getEventOwnerGetShows
+);
+
 module.exports = router;
