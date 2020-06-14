@@ -32,17 +32,10 @@ export class MultiForm {
 
   buttonNext(e, input = false, select = false, textarea = false) {
     e.preventDefault();
-    let multiFormVal = true,
-      multiFormFieldset = document.querySelectorAll('fieldset')[this.count];
+    let multiFormFieldset = document.querySelectorAll('fieldset')[this.count],
+      multiFormVal = true;
 
-    let inputCount = 0,
-      selectCount = 0,
-      textareaCount = 0,
-      multiFormInputs,
-      multiFormSelects,
-      multiFormTextareas;
-
-    let fieldsetElementsCount = inputCount + selectCount + textareaCount;
+    let multiFormInputs, multiFormSelects, multiFormTextareas;
 
     if (input === true) {
       multiFormInputs = multiFormFieldset.querySelectorAll('input');
@@ -72,43 +65,6 @@ export class MultiForm {
       });
       console.log('Multiform Textareas: ', multiFormTextareas);
     }
-
-    // if (select === true)
-    //   multiFormSelects = multiFormFieldset.querySelectorAll('select');
-    // selectCount += multiFormFieldset.querySelectorAll('select').length;
-    // if (textarea === true)
-    //   textareaCount += multiFormFieldset.querySelectorAll('textarea').length;
-
-    // console.log(
-    //   'Non-iterable inputs: ',
-    //   multiFormFieldset.querySelectorAll('input')
-    // );
-
-    // console.log('MultiformInputs: ', multiFormInputs);
-
-    // console.log('Elements count: ', fieldsetElementsCount);
-
-    // for (var i = 0; i < fieldsetElementsCount; ++i) {
-    //   // if (input === true) {
-    //   //   multiFormVal = formValidator(multiFormInputs[i], 'input', multiFormVal);
-    //   // }
-
-    //   if (select === true) {
-    //     multiFormSelects =
-    //       multiFormSelects[i].options[multiFormSelects[i].selectedIndex].value;
-    //     multiFormVal = formValidator(multiFormSelects, 'select', multiFormVal);
-    //   }
-
-    //   if (textarea === true) {
-    //     multiFormTextareas = multiFormFieldset.querySelectorAll('textarea')[i]
-    //       .value;
-    //     multiFormVal = formValidator(
-    //       multiFormTextareas,
-    //       'textarea',
-    //       multiFormVal
-    //     );
-    //   }
-    // }
 
     if (multiFormVal === true) {
       console.log('Count: ', this.count);
