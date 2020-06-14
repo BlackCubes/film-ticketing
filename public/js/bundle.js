@@ -12550,7 +12550,7 @@ var MultiForm = /*#__PURE__*/function () {
         multiFormInputs = multiFormFieldset.querySelectorAll('input');
         multiFormInputs.forEach(function (element) {
           console.log('Multiform Element: ', element);
-          multiFormVal = (0, _errorController.formValidator)(element.value, 'input', multiFormVal);
+          multiFormVal = (0, _errorController.formValidator)(element.required.value, 'input', multiFormVal);
         });
       }
 
@@ -12566,7 +12566,7 @@ var MultiForm = /*#__PURE__*/function () {
       if (textarea === true) {
         multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
         multiFormTextareas.forEach(function (element) {
-          multiFormVal = (0, _errorController.formValidator)(element.value, 'textarea', multiFormVal);
+          multiFormVal = (0, _errorController.formValidator)(element.required.value, 'textarea', multiFormVal);
         });
         console.log('Multiform Textareas: ', multiFormTextareas);
       } // if (select === true)

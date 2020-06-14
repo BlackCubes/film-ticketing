@@ -49,7 +49,11 @@ export class MultiForm {
 
       multiFormInputs.forEach(element => {
         console.log('Multiform Element: ', element);
-        multiFormVal = formValidator(element.value, 'input', multiFormVal);
+        multiFormVal = formValidator(
+          element.required.value,
+          'input',
+          multiFormVal
+        );
       });
     }
 
@@ -67,7 +71,11 @@ export class MultiForm {
       multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
 
       multiFormTextareas.forEach(element => {
-        multiFormVal = formValidator(element.value, 'textarea', multiFormVal);
+        multiFormVal = formValidator(
+          element.required.value,
+          'textarea',
+          multiFormVal
+        );
       });
       console.log('Multiform Textareas: ', multiFormTextareas);
     }
