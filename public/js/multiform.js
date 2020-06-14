@@ -49,11 +49,7 @@ export class MultiForm {
 
       multiFormInputs.forEach(element => {
         if (element.required)
-          multiFormVal = formValidator(
-            element.getAttribute('required').value,
-            'input',
-            multiFormVal
-          );
+          multiFormVal = formValidator(element.value, 'input', multiFormVal);
       });
     }
 
@@ -72,11 +68,7 @@ export class MultiForm {
 
       multiFormTextareas.forEach(element => {
         if (element.required)
-          multiFormVal = formValidator(
-            element.getAttribute('required').value,
-            'textarea',
-            multiFormVal
-          );
+          multiFormVal = formValidator(element.value, 'textarea', multiFormVal);
       });
       console.log('Multiform Textareas: ', multiFormTextareas);
     }
