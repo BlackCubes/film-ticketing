@@ -53,6 +53,12 @@ block content
                   option(value='p') Prefer not to say
 
             .form__group
+              .form__photo-upload
+                img#userPhoto.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
+                input.form__upload(type='file', accept='image/*', name='photo')
+                label(for='userPhoto') Choose new photo
+
+            .form__group
               button#btnUpdateData.btn.btn--blue Update Settings
 
         .line &nbsp;
