@@ -99,8 +99,8 @@ userSchema.pre('save', async function(next) {
 userSchema.virtual('shows', {
   ref: 'Show',
   foreignField: 'eventOrganizer',
-  localField: '_id';
-})
+  localField: '_id'
+});
 
 // INSTANCE METHODS
 // CHECK FOR CORRECT PASSWORD
