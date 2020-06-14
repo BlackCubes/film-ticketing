@@ -63,7 +63,8 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'username',
     'email',
     'birthdate',
-    'gender'
+    'gender',
+    'photo'
   );
 
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
