@@ -61,7 +61,6 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     'mpaaRating',
     'overview',
     'synopsis',
-    'poster',
     'language',
     'subtitles',
     'contentType',
