@@ -15221,19 +15221,6 @@ if (eoFieldlist1) {
   var firstPreviousBtn = document.getElementById('btnPrev-1'),
       secondPreviousBtn = document.getElementById('btnPrev-2'),
       thirdPreviousBtn = document.getElementById('btnPrev-3');
-  var title = document.getElementById('showTitle').value,
-      duration = document.getElementById('showDuration').value;
-  var selectOriginalMonth = document.getElementById('showOriginalMonth'),
-      selectOriginalDay = document.getElementById('showOriginalDay'),
-      selectOriginalYear = document.getElementById('showOriginalYear'),
-      selectContentType = document.getElementById('showContentType'),
-      selectMpaa = document.getElementById('selectMpaa');
-  var originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
-      originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
-      originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-  var originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay),
-      mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-      contentType = selectContentType.options[selectContentType.selectedIndex].value;
   var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
 
   firstNextBtn.addEventListener('click', function (e) {
@@ -15254,40 +15241,41 @@ if (eoFieldlist1) {
   });
   thirdPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);
-  });
-  var overview = document.getElementById('showOverview').value,
-      synopsis = document.getElementById('showSynopsis').value;
-  var language = document.getElementById('showLanguage').value,
-      subtitles = document.getElementById('showSubtitles').value,
-      genres = document.getElementById('showGenre').value;
-  var selectSpecialVenue = document.getElementById('showSpecialVenue');
-  var specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-  var specialVenue = specialVenueValue === 'y' ? true : false,
-      price = document.getElementById('showPrice').value;
-  var createShowBtn = document.getElementById('btnCreateShow');
-  console.log('Title: ', title);
-  console.log('Duration: ', duration);
-  console.log('OriginalRelase: ', originalReleaseDate);
-  console.log('MPAA: ', mpaaRating);
-  console.log('Content: ', contentType);
-  console.log('Overview: ', overview);
-  console.log('Synopsis: ', synopsis);
-  console.log('Language: ', language);
-  console.log('Subtitles: ', subtitles);
-  console.log('Genres: ', genres);
-  console.log('Special Venue', specialVenue);
-  console.log('Price: ', price); // eoCreateShowForm.addEventListener('submit', async e => {
+  }); // eoCreateShowForm.addEventListener('submit', async e => {
   //   e.preventDefault();
 
   createShowBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
+      var title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, createShowBtn;
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               multiForm.buttonNext(e, true, true, true);
+              title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
+              selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectMpaa = document.getElementById('selectMpaa');
+              originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+              originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay), mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, contentType = selectContentType.options[selectContentType.selectedIndex].value;
+              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
+              language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, genres = document.getElementById('showGenre').value;
+              selectSpecialVenue = document.getElementById('showSpecialVenue');
+              specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+              specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
+              createShowBtn = document.getElementById('btnCreateShow');
+              console.log('Title: ', title);
+              console.log('Duration: ', duration);
+              console.log('OriginalRelase: ', originalReleaseDate);
+              console.log('MPAA: ', mpaaRating);
+              console.log('Content: ', contentType);
+              console.log('Overview: ', overview);
+              console.log('Synopsis: ', synopsis);
+              console.log('Language: ', language);
+              console.log('Subtitles: ', subtitles);
+              console.log('Genres: ', genres);
+              console.log('Special Venue', specialVenue);
+              console.log('Price: ', price);
               document.getElementById('btnCreateShow').textContent = 'Creating...';
-              _context4.next = 4;
+              _context4.next = 26;
               return (0, _login.createShow)({
                 title: title,
                 duration: duration,
@@ -15303,10 +15291,10 @@ if (eoFieldlist1) {
                 price: price
               }, 'event-owner');
 
-            case 4:
+            case 26:
               document.getElementById('btnCreateShow').textContent = 'Create';
 
-            case 5:
+            case 27:
             case "end":
               return _context4.stop();
           }

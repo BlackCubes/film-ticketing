@@ -201,32 +201,6 @@ if (eoFieldlist1) {
     secondPreviousBtn = document.getElementById('btnPrev-2'),
     thirdPreviousBtn = document.getElementById('btnPrev-3');
 
-  const title = document.getElementById('showTitle').value,
-    duration = document.getElementById('showDuration').value;
-
-  const selectOriginalMonth = document.getElementById('showOriginalMonth'),
-    selectOriginalDay = document.getElementById('showOriginalDay'),
-    selectOriginalYear = document.getElementById('showOriginalYear'),
-    selectContentType = document.getElementById('showContentType'),
-    selectMpaa = document.getElementById('selectMpaa');
-
-  const originalMonth =
-      selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
-    originalDay =
-      selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
-    originalYear =
-      selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-
-  const originalReleaseDate = originalYear.concat(
-      '-',
-      originalMonth,
-      '-',
-      originalDay
-    ),
-    mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-    contentType =
-      selectContentType.options[selectContentType.selectedIndex].value;
-
   let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
 
   // Initiate click event listeners for multiform with specific elements
@@ -245,40 +219,66 @@ if (eoFieldlist1) {
   secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
-  const overview = document.getElementById('showOverview').value,
-    synopsis = document.getElementById('showSynopsis').value;
-
-  const language = document.getElementById('showLanguage').value,
-    subtitles = document.getElementById('showSubtitles').value,
-    genres = document.getElementById('showGenre').value;
-
-  const selectSpecialVenue = document.getElementById('showSpecialVenue');
-
-  const specialVenueValue =
-    selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-
-  const specialVenue = specialVenueValue === 'y' ? true : false,
-    price = document.getElementById('showPrice').value;
-
-  const createShowBtn = document.getElementById('btnCreateShow');
-
-  console.log('Title: ', title);
-  console.log('Duration: ', duration);
-  console.log('OriginalRelase: ', originalReleaseDate);
-  console.log('MPAA: ', mpaaRating);
-  console.log('Content: ', contentType);
-  console.log('Overview: ', overview);
-  console.log('Synopsis: ', synopsis);
-  console.log('Language: ', language);
-  console.log('Subtitles: ', subtitles);
-  console.log('Genres: ', genres);
-  console.log('Special Venue', specialVenue);
-  console.log('Price: ', price);
-
   // eoCreateShowForm.addEventListener('submit', async e => {
   //   e.preventDefault();
   createShowBtn.addEventListener('click', async e => {
     multiForm.buttonNext(e, true, true, true);
+
+    const title = document.getElementById('showTitle').value,
+      duration = document.getElementById('showDuration').value;
+
+    const selectOriginalMonth = document.getElementById('showOriginalMonth'),
+      selectOriginalDay = document.getElementById('showOriginalDay'),
+      selectOriginalYear = document.getElementById('showOriginalYear'),
+      selectContentType = document.getElementById('showContentType'),
+      selectMpaa = document.getElementById('selectMpaa');
+
+    const originalMonth =
+        selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
+      originalDay =
+        selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
+      originalYear =
+        selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+
+    const originalReleaseDate = originalYear.concat(
+        '-',
+        originalMonth,
+        '-',
+        originalDay
+      ),
+      mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
+      contentType =
+        selectContentType.options[selectContentType.selectedIndex].value;
+
+    const overview = document.getElementById('showOverview').value,
+      synopsis = document.getElementById('showSynopsis').value;
+
+    const language = document.getElementById('showLanguage').value,
+      subtitles = document.getElementById('showSubtitles').value,
+      genres = document.getElementById('showGenre').value;
+
+    const selectSpecialVenue = document.getElementById('showSpecialVenue');
+
+    const specialVenueValue =
+      selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+
+    const specialVenue = specialVenueValue === 'y' ? true : false,
+      price = document.getElementById('showPrice').value;
+
+    const createShowBtn = document.getElementById('btnCreateShow');
+
+    console.log('Title: ', title);
+    console.log('Duration: ', duration);
+    console.log('OriginalRelase: ', originalReleaseDate);
+    console.log('MPAA: ', mpaaRating);
+    console.log('Content: ', contentType);
+    console.log('Overview: ', overview);
+    console.log('Synopsis: ', synopsis);
+    console.log('Language: ', language);
+    console.log('Subtitles: ', subtitles);
+    console.log('Genres: ', genres);
+    console.log('Special Venue', specialVenue);
+    console.log('Price: ', price);
 
     document.getElementById('btnCreateShow').textContent = 'Creating...';
 
