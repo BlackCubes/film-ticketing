@@ -12,7 +12,10 @@ footer.footer
         ul.footer__list
           li.footer__item: a.footer__link.book-text(href='#') About Us
           li.footer__item: a.footer__link.book-text(href='#') Careers
-          li.footer__item: a.footer__link.book-text(href='#') My Account
+          - let userLink = '/login'
+          if user
+            - userLink = '/me'
+          li.footer__item: a.footer__link.book-text(href=`${userLink}`) My Account
       .footer__navigation
         h3.footer__title.heading-tertiary Shows | More
         ul.footer__list
