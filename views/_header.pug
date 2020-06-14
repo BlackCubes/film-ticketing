@@ -9,10 +9,10 @@ header.container
           li.nav__region-item: a.nav__region-link(href='#') Special Venues
       .nav__toggle-wrapper
         if user
+          a.nav__profile.nav__profile--logout(href='#') Logout
           a.nav__profile(href='/me')
             img.nav__user-img(src=`/img/users/${user.photo}`, alt=`${user.name}'s photo`)
             span= user.name.split(' ')[0]
-          a.nav__profile.nav__profile--logout(href='#') Logout
         else
           a.nav__profile(href='/register') Join The Club
           a.nav__profile(href='/login') Login
