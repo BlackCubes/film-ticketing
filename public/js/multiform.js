@@ -1,7 +1,24 @@
 /* eslint-disable */
 import { formValidator } from './errorController';
 
-export class MultiForm {
+// export class Form {
+//   constructor(submit = false, input = false, select = false, textarea = false) {
+//     this.submit = submit;
+//     this.input = input;
+//     this.select = select;
+//     this.textarea = textarea;
+//   }
+
+//   formCheck() {
+
+//   }
+
+//   formSubmit() {
+
+//   }
+// }
+
+export class MultiForm extends Form {
   count = 0;
 
   constructor(button, fieldset) {
@@ -63,7 +80,7 @@ export class MultiForm {
       console.log('Multiform Textareas: ', multiFormTextareas);
     }
 
-    if (multiFormVal === true) {
+    if (multiFormVal === true && submit === false) {
       console.log('Count: ', this.count);
       this.count++;
       console.log('Count increment: ', this.count);
@@ -73,28 +90,3 @@ export class MultiForm {
     }
   }
 }
-
-// export default class Form extends MultiForm {
-//   constructor(button, fieldset, percentage, input, type) {
-//     super();
-//     this.input = input;
-//     this.type = type;
-//   }
-
-//   formGetElements(DOM) {
-//     this.input = document.getElementById(`${DOM}`);
-//     return this.input;
-//   }
-
-//   formCheck() {
-//     formValidator(this.formGetElements, this.type);
-//   }
-
-//   formMulti() {
-//     if (this.button) {
-//       this.button.addEventListener('click', () => {
-//         this.formCheck();
-//       });
-//     }
-//   }
-// }
