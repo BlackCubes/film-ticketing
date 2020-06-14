@@ -123,10 +123,12 @@ const showSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
-    eventOrganizer: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'User'
-    }
+    eventOrganizer: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User'
+      }
+    ]
   },
   {
     toJSON: { virtuals: true },
