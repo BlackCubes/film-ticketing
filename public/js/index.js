@@ -255,33 +255,31 @@ if (eoFieldlist1) {
   const specialVenue = specialVenueValue === 'y' ? true : false,
     price = document.getElementById('showPrice').value;
 
-  // const createShowBtn = document.getElementById('btnCreateShow');
+  const createShowBtn = document.getElementById('btnCreateShow');
 
-  // if (createShowBtn) {
-  //   eoCreateShowForm.addEventListener('submit', async e => {
-  //     e.preventDefault();
+  eoCreateShowForm.addEventListener('submit', async e => {
+    e.preventDefault();
 
-  //     document.getElementById('btnCreateShow').textContent = 'Creating...';
+    document.getElementById('btnCreateShow').textContent = 'Creating...';
 
-  //     await createShow(
-  //       {
-  //         title,
-  //         duration,
-  //         originalReleaseDate,
-  //         mpaaRating,
-  //         contentType,
-  //         overview,
-  //         synopsis,
-  //         language,
-  //         subtitles,
-  //         genres,
-  //         specialVenue,
-  //         price
-  //       },
-  //       'event-owner'
-  //     );
+    await createShow(
+      {
+        title,
+        duration,
+        originalReleaseDate,
+        mpaaRating,
+        contentType,
+        overview,
+        synopsis,
+        language,
+        subtitles,
+        genres,
+        specialVenue,
+        price
+      },
+      'event-owner'
+    );
 
-  //     document.getElementById('btnCreateShow').textContent = 'Create';
-  //   });
-  // }
+    document.getElementById('btnCreateShow').textContent = 'Create';
+  });
 }
