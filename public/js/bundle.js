@@ -15089,25 +15089,27 @@ if (forgotPassForm) {
 if (updatePersonalForm) {
   updatePersonalForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      var selectBirthMonth, selectBirthDay, selectBirthYear, birthMonth, birthDay, birthYear, selectGender, birthdate, name, gender;
+      var form, selectBirthMonth, selectBirthDay, selectBirthYear, birthMonth, birthDay, birthYear, selectGender, birthdate, name, gender, photo;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
+              form = new FormData();
               document.getElementById('btnUpdateData').textContent = 'Updating...';
               selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');
               birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value, birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value, birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
               selectGender = document.getElementById('selectGender');
               birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
-              _context.next = 8;
-              return (0, _updateSettings.updateSettings)({
-                name: name,
-                birthdate: birthdate,
-                gender: gender
-              }, 'data');
+              photo = document.getElementById('userPhoto').files[0];
+              form.append('name', name);
+              form.append('birthdate', birthdate);
+              form.append('gender', gender);
+              form.append('photo', photo);
+              _context.next = 14;
+              return (0, _updateSettings.updateSettings)(form, 'data');
 
-            case 8:
+            case 14:
               document.getElementById('btnUpdateData').textContent = 'Update Settings';
               document.getElementById('name').value = '';
               selectBirthMonth.options[selectBirthMonth.selectedIndex].value = '';
@@ -15115,7 +15117,7 @@ if (updatePersonalForm) {
               selectBirthYear.options[selectBirthYear.selectedIndex].value = '';
               selectGender.options[selectGender.selectedIndex].value = '';
 
-            case 14:
+            case 20:
             case "end":
               return _context.stop();
           }

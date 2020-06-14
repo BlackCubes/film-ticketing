@@ -118,6 +118,8 @@ if (updatePersonalForm) {
   updatePersonalForm.addEventListener('submit', async e => {
     e.preventDefault();
 
+    const form = new FormData();
+
     document.getElementById('btnUpdateData').textContent = 'Updating...';
 
     const selectBirthMonth = document.getElementById('selectBirthMonth'),
@@ -135,7 +137,14 @@ if (updatePersonalForm) {
       name = document.getElementById('name').value,
       gender = selectGender.options[selectGender.selectedIndex].value;
 
-    await updateSettings({ name, birthdate, gender }, 'data');
+    const photo = document.getElementById('userPhoto').files[0];
+
+    form.append('name', name);
+    form.append('birthdate', birthdate);
+    form.append('gender', gender);
+    form.append('photo', photo);
+
+    await updateSettings(form, 'data');
 
     document.getElementById('btnUpdateData').textContent = 'Update Settings';
     document.getElementById('name').value = '';
