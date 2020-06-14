@@ -11,7 +11,7 @@ const multerStorage = multer.diskStorage({
   },
   file: (req, file, cb) => {
     const ext = file.mimetype.split('/')[1];
-    cb.(null, `user-${req.user.id}-${Date.now()}.${ext}`);
+    cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
   }
 });
 
@@ -19,7 +19,10 @@ const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
   } else {
-    cb(new AppError('This is not an image! Please upload only images!', 400), false);
+    cb(
+      new AppError('This is not an image! Please upload only images!', 400),
+      false
+    );
   }
 };
 
