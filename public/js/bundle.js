@@ -12523,13 +12523,6 @@ var MultiForm = /*#__PURE__*/function () {
       this.formSlide(this.count);
     }
   }, {
-    key: "consoleDebug",
-    value: function consoleDebug() {
-      var ans = false;
-      if (document.querySelectorAll('fieldset')[1].querySelectorAll('input') !== []) ans = true;
-      console.log('Fieldlist input: ', document.querySelectorAll('fieldset'));
-    }
-  }, {
     key: "buttonNext",
     value: function buttonNext(e) {
       var input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;

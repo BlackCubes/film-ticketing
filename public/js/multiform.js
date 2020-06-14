@@ -21,15 +21,6 @@ export class MultiForm {
     this.formSlide(this.count);
   }
 
-  consoleDebug() {
-    let ans = false;
-    if (
-      document.querySelectorAll('fieldset')[1].querySelectorAll('input') !== []
-    )
-      ans = true;
-    console.log('Fieldlist input: ', document.querySelectorAll('fieldset'));
-  }
-
   buttonNext(e, input = false, select = false, textarea = false) {
     e.preventDefault();
     let multiFormFieldset = document.querySelectorAll('fieldset')[this.count],
