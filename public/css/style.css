@@ -442,8 +442,8 @@ body {
     .form__upload + label:hover {
       background-color: #20b2aa;
       color: #000;
-      -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.15);
+      box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.15);
       -webkit-transform: translateY(-2px);
       transform: translateY(-2px); }
   .form__upload:focus + label {

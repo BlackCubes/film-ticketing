@@ -211,8 +211,8 @@
       &:hover {
         background-color: $color-lightseagreen;
         color: $color-black;
-        -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: 0 1rem 2rem rgba($color-white, 0.15);
+        box-shadow: 0 1rem 2rem rgba($color-white, 0.15);
         -webkit-transform: translateY(-2px);
         transform: translateY(-2px);
       }
