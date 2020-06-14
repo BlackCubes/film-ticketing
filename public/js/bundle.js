@@ -15231,7 +15231,7 @@ if (eoFieldlist1) {
   var originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
       originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
       originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-  var originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)],
+  var originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay),
       mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
       contentType = selectContentType.options[selectContentType.selectedIndex].value;
   var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements

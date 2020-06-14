@@ -217,9 +217,12 @@ if (eoFieldlist1) {
     originalYear =
       selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
 
-  const originalReleaseDate = [
-      originalYear.concat('-', originalMonth, '-', originalDay)
-    ],
+  const originalReleaseDate = originalYear.concat(
+      '-',
+      originalMonth,
+      '-',
+      originalDay
+    ),
     mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
     contentType =
       selectContentType.options[selectContentType.selectedIndex].value;
