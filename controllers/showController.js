@@ -1,8 +1,29 @@
+const multer = require('multer');
 const Show = require('./../models/showModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
+
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(
+      new AppError('This is not an image! Please upload only images!', 400),
+      false
+    );
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
+
+exports.uploadShowPhoto = upload.single('photo');
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
@@ -51,6 +72,7 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     'specialVenue',
     'eventOrganizer'
   );
+  if (req.file) filteredBody.poster.urlLarge = req.file.filenmae;
 
   const newShow = await Show.create(filteredBody);
 
