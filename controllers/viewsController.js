@@ -120,8 +120,11 @@ exports.getEventOwnerCreateShow = (req, res) => {
   });
 };
 
-exports.getEventOwnerGetShows = (req, res) => {
+exports.getEventOwnerGetShows = catchAsync(async (req, res) => {
+  const shows = await Shows.find({ eventOrganizer: req.user.id });
+
   res.status(200).render('accountShows', {
-    title: 'My Shows'
+    title: 'My Shows',
+    shows
   });
-};
+});
