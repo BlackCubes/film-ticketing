@@ -21,7 +21,13 @@ export class MultiForm {
     this.formSlide(this.count);
   }
 
-  buttonNext(e, input = false, select = false, textarea = false) {
+  buttonNext(
+    e,
+    submit = false,
+    input = false,
+    select = false,
+    textarea = false
+  ) {
     e.preventDefault();
     let multiFormFieldset = document.querySelectorAll('fieldset')[this.count],
       multiFormVal = true;
@@ -62,6 +68,8 @@ export class MultiForm {
       this.count++;
       console.log('Count increment: ', this.count);
       this.formSlide(this.count);
+    } else if (multiFormVal === true && submit === true) {
+      return true;
     }
   }
 }

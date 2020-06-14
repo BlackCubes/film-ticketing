@@ -12525,9 +12525,10 @@ var MultiForm = /*#__PURE__*/function () {
   }, {
     key: "buttonNext",
     value: function buttonNext(e) {
-      var input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      var select = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-      var textarea = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+      var submit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var input = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var select = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+      var textarea = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
       e.preventDefault();
       var multiFormFieldset = document.querySelectorAll('fieldset')[this.count],
           multiFormVal = true;
@@ -12562,6 +12563,8 @@ var MultiForm = /*#__PURE__*/function () {
         this.count++;
         console.log('Count increment: ', this.count);
         this.formSlide(this.count);
+      } else if (multiFormVal === true && submit === true) {
+        return true;
       }
     }
   }]);
