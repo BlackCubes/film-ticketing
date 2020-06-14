@@ -48,12 +48,12 @@ export class MultiForm {
       multiFormInputs = multiFormFieldset.querySelectorAll('input');
 
       multiFormInputs.forEach(element => {
-        console.log('Multiform Element: ', element.getAttribute('required'));
-        multiFormVal = formValidator(
-          element.getAttribute('required').value,
-          'input',
-          multiFormVal
-        );
+        if (element.required)
+          multiFormVal = formValidator(
+            element.getAttribute('required').value,
+            'input',
+            multiFormVal
+          );
       });
     }
 
@@ -71,11 +71,12 @@ export class MultiForm {
       multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
 
       multiFormTextareas.forEach(element => {
-        multiFormVal = formValidator(
-          element.getAttribute('required').value,
-          'textarea',
-          multiFormVal
-        );
+        if (element.required)
+          multiFormVal = formValidator(
+            element.getAttribute('required').value,
+            'textarea',
+            multiFormVal
+          );
       });
       console.log('Multiform Textareas: ', multiFormTextareas);
     }
