@@ -94,6 +94,14 @@ userSchema.pre('save', async function(next) {
   next();
 });
 
+// VIRTUAL
+// -- populate shows belonging to event owners
+userSchema.virtual('shows', {
+  ref: 'Show',
+  foreignField: 'eventOrganizer',
+  localField: '_id';
+})
+
 // INSTANCE METHODS
 // CHECK FOR CORRECT PASSWORD
 userSchema.methods.correctPassword = async function(
