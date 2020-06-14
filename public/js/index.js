@@ -262,6 +262,19 @@ if (eoFieldlist1) {
 
   const createShowBtn = document.getElementById('btnCreateShow');
 
+  console.log('Title: ', title);
+  console.log('Duration: ', duration);
+  console.log('OriginalRelase: ', originalReleaseDate);
+  console.log('MPAA: ', mpaaRating);
+  console.log('Content: ', contentType);
+  console.log('Overview: ', overview);
+  console.log('Synopsis: ', synopsis);
+  console.log('Language: ', language);
+  console.log('Subtitles: ', subtitles);
+  console.log('Genres: ', genres);
+  console.log('Special Venue', specialVenue);
+  console.log('Price: ', price);
+
   // eoCreateShowForm.addEventListener('submit', async e => {
   //   e.preventDefault();
   createShowBtn.addEventListener('click', async e => {

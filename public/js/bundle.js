@@ -15264,7 +15264,19 @@ if (eoFieldlist1) {
   var specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
   var specialVenue = specialVenueValue === 'y' ? true : false,
       price = document.getElementById('showPrice').value;
-  var createShowBtn = document.getElementById('btnCreateShow'); // eoCreateShowForm.addEventListener('submit', async e => {
+  var createShowBtn = document.getElementById('btnCreateShow');
+  console.log('Title: ', title);
+  console.log('Duration: ', duration);
+  console.log('OriginalRelase: ', originalReleaseDate);
+  console.log('MPAA: ', mpaaRating);
+  console.log('Content: ', contentType);
+  console.log('Overview: ', overview);
+  console.log('Synopsis: ', synopsis);
+  console.log('Language: ', language);
+  console.log('Subtitles: ', subtitles);
+  console.log('Genres: ', genres);
+  console.log('Special Venue', specialVenue);
+  console.log('Price: ', price); // eoCreateShowForm.addEventListener('submit', async e => {
   //   e.preventDefault();
 
   createShowBtn.addEventListener('click', /*#__PURE__*/function () {
