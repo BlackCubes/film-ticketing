@@ -23,7 +23,7 @@ exports.aliasTopShows = (req, res, next) => {
 };
 
 exports.getEventOrganizer = (req, res, next) => {
-  req.body.eventOrganizer = [req.user.id];
+  req.body.eventOrganizer = req.user.id;
   next();
 };
 
