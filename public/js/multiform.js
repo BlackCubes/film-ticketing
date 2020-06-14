@@ -64,9 +64,10 @@ export class MultiForm {
       multiFormSelects = multiFormFieldset.querySelectorAll('select');
 
       multiFormSelects.forEach(element => {
-        if (element.required)
+        if (element.required) {
           let option = element.options[element.selectedIndex];
           multiFormVal = formValidator(option.value, 'select', multiFormVal);
+        }
       });
       console.log('Multiform Selects', multiFormSelects);
     }

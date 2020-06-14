@@ -12556,8 +12556,10 @@ var MultiForm = /*#__PURE__*/function () {
       if (select === true) {
         multiFormSelects = multiFormFieldset.querySelectorAll('select');
         multiFormSelects.forEach(function (element) {
-          var option = element.options[element.selectedIndex];
-          multiFormVal = (0, _errorController.formValidator)(option.value, 'select', multiFormVal);
+          if (element.required) {
+            var option = element.options[element.selectedIndex];
+            multiFormVal = (0, _errorController.formValidator)(option.value, 'select', multiFormVal);
+          }
         });
         console.log('Multiform Selects', multiFormSelects);
       }
