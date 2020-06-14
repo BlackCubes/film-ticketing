@@ -50,7 +50,7 @@ export class MultiForm {
       multiFormInputs.forEach(element => {
         console.log('Multiform Element: ', element);
         multiFormVal = formValidator(
-          element.required.value,
+          element.getAttribute('required').value,
           'input',
           multiFormVal
         );
@@ -72,7 +72,7 @@ export class MultiForm {
 
       multiFormTextareas.forEach(element => {
         multiFormVal = formValidator(
-          element.required.value,
+          element.getAttribute('required').value,
           'textarea',
           multiFormVal
         );
