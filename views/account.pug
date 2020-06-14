@@ -11,13 +11,13 @@ block content
                 h1.heading-primary Your Account Settings
 
             .form__group
-              input#name.form__input.input-text(type='text' placeholder=`${user.name}` required)
+              input#name.form__input.input-text(type='text' placeholder=`${user.name}`)
               label.form__label.label-text(for='name') Please enter your name.
 
             .form__group
               .form__date
                 .form__date-month
-                  select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
+                  select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0')
                     option(value) Birth Month
 
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -26,7 +26,7 @@ block content
                       option(value=`${month}`)= month
 
                 .form__date-day
-                  select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0' required)
+                  select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0')
                     option(value) Day
 
                     - const days = [...Array(32).keys()].splice(1)
@@ -35,7 +35,7 @@ block content
                       option(value=`${day}`)= day
 
                 .form__date-year
-                  select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
+                  select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0')
                     option(value) Year
 
                     - const now = new Date().getFullYear()
@@ -46,7 +46,7 @@ block content
 
             .form__group
               .form__gender
-                select#selectGender.dropdown(name='select-gender' tabindex='0' required)
+                select#selectGender.dropdown(name='select-gender' tabindex='0')
                   option(value) Gender Select
                   option(value='f') Female
                   option(value='m') Male
