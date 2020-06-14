@@ -62,6 +62,10 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
   });
 });
 
+// exports.getMyShows = catchAsync(async (req, res, next) => {
+
+// })
+
 exports.getAllShows = factory.getAll(Show);
 exports.getShow = factory.getOne(Show, 'reviews', 'showtimes');
 exports.createShow = factory.createOne(Show);
