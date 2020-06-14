@@ -125,6 +125,6 @@ exports.getEventOwnerGetShows = catchAsync(async (req, res) => {
 
   res.status(200).render('accountShows', {
     title: 'My Shows',
-    userShows
+    shows
   });
 });
