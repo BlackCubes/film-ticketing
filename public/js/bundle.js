@@ -12565,6 +12565,9 @@ var MultiForm = /*#__PURE__*/function () {
 
       if (textarea === true) {
         multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
+        multiFormTextareas.forEach(function (element) {
+          console.log('Multiform values: ', element.value); // multiFormVal = formValidator(element.value, 'textarea', multiFormVal);
+        });
         console.log('Multiform Textareas: ', multiFormTextareas);
       } // if (select === true)
       //   multiFormSelects = multiFormFieldset.querySelectorAll('select');

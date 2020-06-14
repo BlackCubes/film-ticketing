@@ -66,6 +66,10 @@ export class MultiForm {
     if (textarea === true) {
       multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
 
+      multiFormTextareas.forEach(element => {
+        console.log('Multiform values: ', element.value);
+        // multiFormVal = formValidator(element.value, 'textarea', multiFormVal);
+      });
       console.log('Multiform Textareas: ', multiFormTextareas);
     }
 
