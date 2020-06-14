@@ -267,7 +267,7 @@ if (eoFieldlist1) {
     const specialVenue = specialVenueValue === 'y' ? true : false,
       price = document.getElementById('showPrice').value;
 
-    const poster = 'dummytest.jpg';
+    const poster = { urlLarge: 'dummytest.jpg' };
 
     console.log('Title: ', title);
     console.log('Duration: ', duration);

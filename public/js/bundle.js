@@ -15262,7 +15262,9 @@ if (eoFieldlist1) {
               selectSpecialVenue = document.getElementById('showSpecialVenue');
               specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
               specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
-              poster = 'dummytest.jpg';
+              poster = {
+                urlLarge: 'dummytest.jpg'
+              };
               console.log('Title: ', title);
               console.log('Duration: ', duration);
               console.log('OriginalRelase: ', originalReleaseDate);
