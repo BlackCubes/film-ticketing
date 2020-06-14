@@ -63,6 +63,12 @@ export class MultiForm {
       console.log('Multiform Selects', multiFormSelects);
     }
 
+    if (textarea === true) {
+      multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
+
+      console.log('Multiform Textareas: ', multiFormTextareas);
+    }
+
     // if (select === true)
     //   multiFormSelects = multiFormFieldset.querySelectorAll('select');
     // selectCount += multiFormFieldset.querySelectorAll('select').length;
