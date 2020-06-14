@@ -267,6 +267,8 @@ if (eoFieldlist1) {
     const specialVenue = specialVenueValue === 'y' ? true : false,
       price = document.getElementById('showPrice').value;
 
+    const poster = 'dummytest.jpg';
+
     console.log('Title: ', title);
     console.log('Duration: ', duration);
     console.log('OriginalRelase: ', originalReleaseDate);
@@ -291,6 +293,7 @@ if (eoFieldlist1) {
         contentType,
         overview,
         synopsis,
+        poster,
         language,
         subtitles,
         genres,
