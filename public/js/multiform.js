@@ -18,7 +18,7 @@ import { formValidator } from './errorController';
 //   }
 // }
 
-export class MultiForm extends Form {
+export class MultiForm {
   count = 0;
 
   constructor(button, fieldset) {
