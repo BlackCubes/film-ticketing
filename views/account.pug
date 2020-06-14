@@ -15,8 +15,8 @@ block content
               label.form__label.label-text(for='name') Please enter your name.
 
             .form__group
-              .form__birth
-                .form__birth-month
+              .form__date
+                .form__date-month
                   select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
                     option(value) Birth Month
 
@@ -25,7 +25,7 @@ block content
                     each month in months
                       option(value=`${month}`)= month
 
-                .form__birth-day
+                .form__date-day
                   select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0' required)
                     option(value) Day
 
@@ -34,7 +34,7 @@ block content
                     each day in days
                       option(value=`${day}`)= day
 
-                .form__birth-year
+                .form__date-year
                   select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
                     option(value) Year
 
