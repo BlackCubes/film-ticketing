@@ -210,6 +210,8 @@ if (eoFieldlist1) {
 
   let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
 
+  multiForm.manipulateFirstFieldset();
+
   // Initiate click event listeners for multiform with specific elements
   firstNextBtn.addEventListener('click', e =>
     multiForm.buttonNext(e, false, true, true)
