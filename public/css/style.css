@@ -304,7 +304,7 @@ body {
   width: 25%;
   border: none;
   transition: margin-left 0.3s ease-in-out; }
-  .form__fieldset--fifth:not(:first-child) {
+  .form__fieldset--fifth {
     width: 20%; }
 
 .form__title {
