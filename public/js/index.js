@@ -200,18 +200,15 @@ if (eoFieldlist1) {
   // Gather fieldlist and button DOM elements
   const eoFieldlist2 = document.getElementById('eoFieldlist2'),
     eoFieldlist3 = document.getElementById('eoFieldlist3'),
-    eoFieldlist4 = document.getElementById('eoFieldlist4'),
-    eoFieldlist5 = document.getElementById('eoFieldlist5');
+    eoFieldlist4 = document.getElementById('eoFieldlist4');
 
   const firstNextBtn = document.getElementById('btnNext-1'),
     secondNextBtn = document.getElementById('btnNext-2'),
-    thirdNextBtn = document.getElementById('btnNext-3'),
-    fourthNextBtn = document.getElementById('btnNext-4');
+    thirdNextBtn = document.getElementById('btnNext-3');
 
   const firstPreviousBtn = document.getElementById('btnPrev-1'),
     secondPreviousBtn = document.getElementById('btnPrev-2'),
-    thirdPreviousBtn = document.getElementById('btnPrev-3'),
-    fourthPreviousBtn = document.getElementById('btnPrev-4');
+    thirdPreviousBtn = document.getElementById('btnPrev-3');
 
   let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
 
@@ -225,15 +222,11 @@ if (eoFieldlist1) {
   thirdNextBtn.addEventListener('click', e =>
     multiForm.buttonNext(e, false, true)
   );
-  fourthNextBtn.addEventListener('click', e => {
-    multiForm.buttonNext(e, false, true);
-  });
 
   // Initiate previous buttons
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
-  fourthPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
   const createShowBtn = document.getElementById('btnCreateShow');
 
