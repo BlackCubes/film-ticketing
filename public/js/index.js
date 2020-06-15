@@ -282,20 +282,6 @@ if (eoFieldlist1) {
 
     const poster = document.getElementById('showPhoto').files[0];
 
-    console.log('Title: ', title);
-    console.log('Duration: ', duration);
-    console.log('OriginalRelase: ', originalReleaseDate);
-    console.log('MPAA: ', mpaaRating);
-    console.log('Content: ', contentType);
-    console.log('Overview: ', overview);
-    console.log('Synopsis: ', synopsis);
-    console.log('Language: ', language);
-    console.log('Subtitles: ', subtitles);
-    console.log('Genres: ', genres);
-    console.log('Special Venue', specialVenue);
-    console.log('Price: ', price);
-    console.log('Poster: ', poster);
-
     document.getElementById('btnCreateShow').textContent = 'Creating...';
 
     form.append('title', title);
@@ -311,8 +297,6 @@ if (eoFieldlist1) {
     form.append('specialVenue', specialVenue);
     form.append('price', price);
     form.append('poster', poster);
-
-    console.log('The form: ', form);
 
     await createShow(form, 'event-owner');
 

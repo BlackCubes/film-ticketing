@@ -15266,19 +15266,6 @@ if (eoFieldlist1) {
               specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
               specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
               poster = document.getElementById('showPhoto').files[0];
-              console.log('Title: ', title);
-              console.log('Duration: ', duration);
-              console.log('OriginalRelase: ', originalReleaseDate);
-              console.log('MPAA: ', mpaaRating);
-              console.log('Content: ', contentType);
-              console.log('Overview: ', overview);
-              console.log('Synopsis: ', synopsis);
-              console.log('Language: ', language);
-              console.log('Subtitles: ', subtitles);
-              console.log('Genres: ', genres);
-              console.log('Special Venue', specialVenue);
-              console.log('Price: ', price);
-              console.log('Poster: ', poster);
               document.getElementById('btnCreateShow').textContent = 'Creating...';
               form.append('title', title);
               form.append('duration', duration);
@@ -15293,14 +15280,13 @@ if (eoFieldlist1) {
               form.append('specialVenue', specialVenue);
               form.append('price', price);
               form.append('poster', poster);
-              console.log('The form: ', form);
-              _context4.next = 42;
+              _context4.next = 28;
               return (0, _login.createShow)(form, 'event-owner');
 
-            case 42:
+            case 28:
               document.getElementById('btnCreateShow').textContent = 'Create';
 
-            case 43:
+            case 29:
             case "end":
               return _context4.stop();
           }
