@@ -6,17 +6,17 @@ const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
 
 // MULTER
-const multerStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/img/shows');
-  },
-  filename: (req, file, cb) => {
-    const ext = file.mimetype.split('/')[1];
-    cb(null, `show-${req.user.id}-${Date.now()}.${ext}`);
-  }
-});
+// const multerStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'public/img/shows');
+//   },
+//   filename: (req, file, cb) => {
+//     const ext = file.mimetype.split('/')[1];
+//     cb(null, `show-${req.user.id}-${Date.now()}.${ext}`);
+//   }
+// });
 
-// const multerStorage = multer.memoryStorage();
+const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image')) {
