@@ -14606,7 +14606,7 @@ var createShow = /*#__PURE__*/function () {
           case 8:
             _context5.prev = 8;
             _context5.t0 = _context5["catch"](0);
-            (0, _alerts.showAlert)('error', _context5.t0.response.data);
+            (0, _alerts.showAlert)('error', _context5.t0.response);
 
           case 11:
           case "end":

@@ -119,6 +119,6 @@ export const createShow = async (data, role) => {
       }, 1500);
     }
   } catch (err) {
-    showAlert('error', err.response.data);
+    showAlert('error', err.response);
   }
 };
