@@ -120,7 +120,7 @@ export const createShow = async (data, role) => {
     }
   } catch (err) {
     console.log('Input data: ', data);
-    console.log('Error data: ', err);
+    console.log('Error data: ', err.response);
     showAlert('error', err.response.data.message);
   }
 };
