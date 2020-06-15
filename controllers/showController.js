@@ -12,7 +12,7 @@ const multerStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split('/')[1];
-    cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
+    cb(null, `show-${req.user.id}-${Date.now()}.${ext}`);
   }
 });
 
@@ -82,7 +82,7 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     'specialVenue',
     'eventOrganizer'
   );
-  if (req.file) filteredBody.poster.urlLarge = req.file.filenmae;
+  if (req.file) filteredBody.poster.urlLarge = req.file.filename;
 
   const newShow = await Show.create(filteredBody);
 
