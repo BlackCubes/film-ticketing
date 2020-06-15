@@ -15278,7 +15278,6 @@ if (eoFieldlist1) {
               console.log('Genres: ', genres);
               console.log('Special Venue', specialVenue);
               console.log('Price: ', price);
-              console.log(req.file);
               console.log('Poster: ', poster);
               document.getElementById('btnCreateShow').textContent = 'Creating...';
               form.append('title', title);
@@ -15294,13 +15293,13 @@ if (eoFieldlist1) {
               form.append('specialVenue', specialVenue);
               form.append('price', price);
               form.append('poster', poster);
-              _context4.next = 42;
+              _context4.next = 41;
               return (0, _login.createShow)(form, 'event-owner');
 
-            case 42:
+            case 41:
               document.getElementById('btnCreateShow').textContent = 'Create';
 
-            case 43:
+            case 42:
             case "end":
               return _context4.stop();
           }
