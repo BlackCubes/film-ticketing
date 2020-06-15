@@ -15213,10 +15213,12 @@ if (eoFieldlist1) {
       eoFieldlist5 = document.getElementById('eoFieldlist5');
   var firstNextBtn = document.getElementById('btnNext-1'),
       secondNextBtn = document.getElementById('btnNext-2'),
-      thirdNextBtn = document.getElementById('btnNext-3');
+      thirdNextBtn = document.getElementById('btnNext-3'),
+      fourthNextBtn = document.getElementById('btnNext-4');
   var firstPreviousBtn = document.getElementById('btnPrev-1'),
       secondPreviousBtn = document.getElementById('btnPrev-2'),
-      thirdPreviousBtn = document.getElementById('btnPrev-3');
+      thirdPreviousBtn = document.getElementById('btnPrev-3'),
+      fourthPreviousBtn = document.getElementById('btnPrev-4');
   var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
 
   firstNextBtn.addEventListener('click', function (e) {
@@ -15227,6 +15229,9 @@ if (eoFieldlist1) {
   });
   thirdNextBtn.addEventListener('click', function (e) {
     return multiForm.buttonNext(e, false, true);
+  });
+  fourthNextBtn.addEventListener('click', function (e) {
+    multiForm.buttonNext(e, false, true);
   }); // Initiate previous buttons
 
   firstPreviousBtn.addEventListener('click', function (e) {
@@ -15236,6 +15241,9 @@ if (eoFieldlist1) {
     return multiForm.buttonBack(e);
   });
   thirdPreviousBtn.addEventListener('click', function (e) {
+    return multiForm.buttonBack(e);
+  });
+  fourthPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);
   });
   var createShowBtn = document.getElementById('btnCreateShow'); // eoCreateShowForm.addEventListener('submit', async e => {
