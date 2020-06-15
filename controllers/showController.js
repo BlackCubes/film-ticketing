@@ -8,7 +8,7 @@ const factory = require('./handlerFactory');
 // MULTER
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/img/users');
+    cb(null, 'public/img/shows');
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split('/')[1];
@@ -83,7 +83,7 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     'eventOrganizer'
   );
   console.log(req.file);
-  if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
+  if (req.file) filteredBody.poster = req.file.filename;
 
   const newShow = await Show.create(filteredBody);
 
