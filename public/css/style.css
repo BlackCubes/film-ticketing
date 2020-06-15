@@ -301,6 +301,7 @@ body {
     width: 500%; }
 
 .form__fieldset {
+  width: 25%;
   border: none;
   transition: margin-left 0.3s ease-in-out; }
   .form__fieldset--fourth {

@@ -12525,7 +12525,7 @@ var MultiForm = /*#__PURE__*/function () {
   _createClass(MultiForm, [{
     key: "manipulateFirstFieldset",
     value: function manipulateFirstFieldset() {
-      return document.querySelector('.form__fieldset').style.width = '-20%';
+      return this.fieldset.classList.add('.form__fieldset--fifth');
     } // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
     // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
 
@@ -15222,8 +15222,8 @@ if (eoFieldlist1) {
       secondPreviousBtn = document.getElementById('btnPrev-2'),
       thirdPreviousBtn = document.getElementById('btnPrev-3'),
       fourthPreviousBtn = document.getElementById('btnPrev-4');
-  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // multiForm.manipulateFirstFieldset();
-  // Initiate click event listeners for multiform with specific elements
+  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1);
+  multiForm.manipulateFirstFieldset(); // Initiate click event listeners for multiform with specific elements
 
   firstNextBtn.addEventListener('click', function (e) {
     return multiForm.buttonNext(e, false, true, true);

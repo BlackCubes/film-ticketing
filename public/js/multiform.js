@@ -28,7 +28,7 @@ export class MultiForm {
   }
 
   manipulateFirstFieldset() {
-    return (document.querySelector('.form__fieldset').style.width = '-20%');
+    return this.fieldset.classList.add('.form__fieldset--fifth');
   }
 
   // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
