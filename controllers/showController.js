@@ -79,8 +79,7 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     'price',
     'priceDiscount',
     'genres',
-    'specialVenue',
-    'eventOrganizer'
+    'specialVenue'
   );
   console.log('Request file: ', req.file);
   if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
