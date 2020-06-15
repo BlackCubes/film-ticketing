@@ -15252,7 +15252,7 @@ if (eoFieldlist1) {
 
   eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
-      var form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster;
+      var form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, photo;
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -15268,7 +15268,7 @@ if (eoFieldlist1) {
               selectSpecialVenue = document.getElementById('showSpecialVenue');
               specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
               specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
-              poster = document.getElementById('showPhoto').files[0];
+              photo = document.getElementById('showPhoto').files[0];
               console.log('Title: ', title);
               console.log('Duration: ', duration);
               console.log('OriginalRelase: ', originalReleaseDate);
@@ -15281,7 +15281,7 @@ if (eoFieldlist1) {
               console.log('Genres: ', genres);
               console.log('Special Venue', specialVenue);
               console.log('Price: ', price);
-              console.log('Poster: ', poster);
+              console.log('Poster: ', photo);
               document.getElementById('btnCreateShow').textContent = 'Creating...';
               form.append('title', title);
               form.append('duration', duration);
@@ -15295,7 +15295,7 @@ if (eoFieldlist1) {
               form.append('genres', genres);
               form.append('specialVenue', specialVenue);
               form.append('price', price);
-              form.append('poster', poster);
+              form.append('poster', photo);
               console.log('The form: ', form);
               _context4.next = 42;
               return (0, _login.createShow)(form, 'event-owner');
