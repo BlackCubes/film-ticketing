@@ -294,6 +294,7 @@ if (eoFieldlist1) {
     console.log('Genres: ', genres);
     console.log('Special Venue', specialVenue);
     console.log('Price: ', price);
+    console.log(req.file);
     console.log('Poster: ', poster);
 
     document.getElementById('btnCreateShow').textContent = 'Creating...';
