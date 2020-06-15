@@ -7,7 +7,19 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 400%; // Based on how many fieldsets there are: 1 fieldset = 100%, 2 fieldsets = 200%, etc.
+
+    // For fieldsets modifier: Based on how many fieldsets there are: 2 fieldsets = 200%, 3 fieldsets = 300% etc. A 1 fieldset is not a multiform, but a regular form
+    &--second {
+      width: 200%;
+    }
+
+    &--third {
+      width: 300%;
+    }
+
+    &--fourth {
+      width: 400%;
+    }
 
     &--fifth {
       width: 500%;
@@ -15,9 +27,17 @@
   }
 
   &__fieldset {
-    // width: 25%; // For 4 fieldsets. Width decreases for every increased fieldset by 5%. Width increases for every decreased fieldset by 5%. Only one fieldset is not a multiform, but a regular form
     border: none;
     transition: margin-left 0.3s ease-in-out;
+
+    // For fieldsets modifier: Width decreases for every increased fieldset by 5%. Width increases for every decreased fieldset by 5%. A 1 fieldset is not a multiform, but a regular form
+    &--second {
+      width: 35%;
+    }
+
+    &--third {
+      width: 30%;
+    }
 
     &--fourth {
       width: 25%;

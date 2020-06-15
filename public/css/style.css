@@ -295,14 +295,23 @@ body {
 .form__multiform {
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  width: 400%; }
+  display: flex; }
+  .form__multiform--second {
+    width: 200%; }
+  .form__multiform--third {
+    width: 300%; }
+  .form__multiform--fourth {
+    width: 400%; }
   .form__multiform--fifth {
     width: 500%; }
 
 .form__fieldset {
   border: none;
   transition: margin-left 0.3s ease-in-out; }
+  .form__fieldset--second {
+    width: 35%; }
+  .form__fieldset--third {
+    width: 30%; }
   .form__fieldset--fourth {
     width: 25%; }
   .form__fieldset--fifth {
