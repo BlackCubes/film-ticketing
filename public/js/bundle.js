@@ -12525,7 +12525,7 @@ var MultiForm = /*#__PURE__*/function () {
   _createClass(MultiForm, [{
     key: "formSlide",
     value: function formSlide(factor) {
-      return this.fieldset.style.marginLeft = "-".concat(27 * factor, "%");
+      return this.fieldset.style.marginLeft = "-".concat(25 * factor, "%");
     }
   }, {
     key: "buttonBack",
