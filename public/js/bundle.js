@@ -12534,14 +12534,14 @@ var MultiForm = /*#__PURE__*/function () {
   }, {
     key: "formSlide",
     value: function formSlide(factor) {
-      return this.fieldset.style.marginLeft = "-".concat(40 - 5 * (factor - 1), "%");
+      return this.fieldset.style.marginLeft = "-".concat(factor * (40 - 5 * (this.fieldsetsTotal - 1)), "%");
     }
   }, {
     key: "buttonBack",
     value: function buttonBack(e) {
       e.preventDefault();
       this.count--;
-      this.formSlide(this.fieldsetsTotal);
+      this.formSlide(this.count);
     }
   }, {
     key: "buttonNext",
@@ -12585,7 +12585,7 @@ var MultiForm = /*#__PURE__*/function () {
         console.log('Count: ', this.count);
         this.count++;
         console.log('Count increment: ', this.count);
-        this.formSlide(this.fieldsetsTotal);
+        this.formSlide(this.count);
       } else if (multiFormVal === true && submit === true) {
         return true;
       }

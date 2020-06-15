@@ -38,13 +38,14 @@ export class MultiForm {
   // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
   // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
   formSlide(factor) {
-    return (this.fieldset.style.marginLeft = `-${40 - 5 * (factor - 1)}%`);
+    return (this.fieldset.style.marginLeft = `-${factor *
+      (40 - 5 * (this.fieldsetsTotal - 1))}%`);
   }
 
   buttonBack(e) {
     e.preventDefault();
     this.count--;
-    this.formSlide(this.fieldsetsTotal);
+    this.formSlide(this.count);
   }
 
   buttonNext(
@@ -95,7 +96,7 @@ export class MultiForm {
       console.log('Count: ', this.count);
       this.count++;
       console.log('Count increment: ', this.count);
-      this.formSlide(this.fieldsetsTotal);
+      this.formSlide(this.count);
     } else if (multiFormVal === true && submit === true) {
       return true;
     }
