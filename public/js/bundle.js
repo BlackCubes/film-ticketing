@@ -12516,6 +12516,8 @@ var MultiForm = /*#__PURE__*/function () {
 
     _defineProperty(this, "count", 0);
 
+    _defineProperty(this, "fieldsetsTotal", document.querySelectorAll('fieldset').length);
+
     this.button = button;
     this.fieldset = fieldset;
   } // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
@@ -12525,14 +12527,14 @@ var MultiForm = /*#__PURE__*/function () {
   _createClass(MultiForm, [{
     key: "formSlide",
     value: function formSlide(factor) {
-      return this.fieldset.style.marginLeft = "-".concat(20 * factor, "%");
+      return this.fieldset.style.marginLeft = "-".concat(40 - 5 * (factor - 1), "%");
     }
   }, {
     key: "buttonBack",
     value: function buttonBack(e) {
       e.preventDefault();
       this.count--;
-      this.formSlide(this.count);
+      this.formSlide(this.fieldsetsTotal);
     }
   }, {
     key: "buttonNext",
@@ -12576,7 +12578,7 @@ var MultiForm = /*#__PURE__*/function () {
         console.log('Count: ', this.count);
         this.count++;
         console.log('Count increment: ', this.count);
-        this.formSlide(this.count);
+        this.formSlide(this.fieldsetsTotal);
       } else if (multiFormVal === true && submit === true) {
         return true;
       }
