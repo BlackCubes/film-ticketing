@@ -212,17 +212,15 @@ if (eoFieldlist1) {
 
   // Initiate click event listeners for multiform with specific elements
   firstNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, false, true, true)
+    multiForm.buttonNext(e, true, true)
   );
   secondNextBtn.addEventListener('click', e => {
-    multiForm.buttonNext(e, false, true);
+    multiForm.buttonNext(e, true);
   });
   thirdNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, false, false, false, true)
+    multiForm.buttonNext(e, false, false, true)
   );
-  fourthNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, false, true)
-  );
+  fourthNextBtn.addEventListener('click', e => multiForm.buttonNext(e, true));
 
   // Initiate previous buttons
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
