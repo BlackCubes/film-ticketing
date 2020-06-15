@@ -44,7 +44,7 @@ exports.resizeShowPhotoLarge = (req, res, next) => {
 
   sharp(req.file.buffer)
     .resize({
-      width: 720,
+      width: 853,
       height: 1280,
       fit: sharp.fit.contain
     })
