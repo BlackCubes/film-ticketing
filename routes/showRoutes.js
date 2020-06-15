@@ -30,8 +30,8 @@ router.use(authController.protect);
 router.post(
   '/createMyShow',
   authController.restrictTo('event-owner'),
-  showController.getEventOrganizer,
   showController.uploadShowPhoto,
+  showController.getEventOrganizer,
   showController.createMyShow
 );
 
