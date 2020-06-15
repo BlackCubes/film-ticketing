@@ -426,6 +426,11 @@ body {
   margin-right: 2rem;
   border-radius: 50%; }
 
+.form__show-photo {
+  width: 15.5rem;
+  height: 22.5rem;
+  margin-right: 2rem; }
+
 .form__upload {
   width: 0.1px;
   height: 0.1px;
