@@ -280,7 +280,7 @@ if (eoFieldlist1) {
     const specialVenue = specialVenueValue === 'y' ? true : false,
       price = document.getElementById('showPrice').value;
 
-    const photo = document.getElementById('showPhoto').files[0];
+    const poster = document.getElementById('showPhoto').files[0];
 
     console.log('Title: ', title);
     console.log('Duration: ', duration);
@@ -294,7 +294,7 @@ if (eoFieldlist1) {
     console.log('Genres: ', genres);
     console.log('Special Venue', specialVenue);
     console.log('Price: ', price);
-    console.log('Poster: ', photo);
+    console.log('Poster: ', poster);
 
     document.getElementById('btnCreateShow').textContent = 'Creating...';
 
@@ -310,7 +310,7 @@ if (eoFieldlist1) {
     form.append('genres', genres);
     form.append('specialVenue', specialVenue);
     form.append('price', price);
-    form.append('poster', photo);
+    form.append('poster', poster);
 
     console.log('The form: ', form);
 
