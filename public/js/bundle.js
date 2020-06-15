@@ -12520,9 +12520,7 @@ var MultiForm = /*#__PURE__*/function () {
 
     this.button = button;
     this.fieldset = fieldset;
-  } // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
-  // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
-
+  }
 
   _createClass(MultiForm, [{
     key: "formSlide",
@@ -12539,10 +12537,9 @@ var MultiForm = /*#__PURE__*/function () {
   }, {
     key: "buttonNext",
     value: function buttonNext(e) {
-      var submit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      var input = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-      var select = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-      var textarea = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+      var input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var select = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var textarea = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
       e.preventDefault();
       var multiFormFieldset = document.querySelectorAll('fieldset')[this.count],
           multiFormVal = true;
@@ -12563,7 +12560,6 @@ var MultiForm = /*#__PURE__*/function () {
             multiFormVal = (0, _errorController.formValidator)(option.value, 'select', multiFormVal);
           }
         });
-        console.log('Multiform Selects', multiFormSelects);
       }
 
       if (textarea === true) {
@@ -12571,16 +12567,11 @@ var MultiForm = /*#__PURE__*/function () {
         multiFormTextareas.forEach(function (element) {
           if (element.required) multiFormVal = (0, _errorController.formValidator)(element.value, 'textarea', multiFormVal);
         });
-        console.log('Multiform Textareas: ', multiFormTextareas);
       }
 
-      if (multiFormVal === true && submit === false) {
-        console.log('Count: ', this.count);
+      if (multiFormVal === true) {
         this.count++;
-        console.log('Count increment: ', this.count);
         this.formSlide(this.count);
-      } else if (multiFormVal === true && submit === true) {
-        return true;
       }
     }
   }]);

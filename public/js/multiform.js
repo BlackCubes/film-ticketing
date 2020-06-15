@@ -27,8 +27,6 @@ export class MultiForm {
     this.fieldset = fieldset;
   }
 
-  // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
-  // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
   formSlide(factor) {
     return (this.fieldset.style.marginLeft = `-${factor *
       (40 - 5 * (this.fieldsetsTotal - 1))}%`);
@@ -40,13 +38,7 @@ export class MultiForm {
     this.formSlide(this.count);
   }
 
-  buttonNext(
-    e,
-    submit = false,
-    input = false,
-    select = false,
-    textarea = false
-  ) {
+  buttonNext(e, input = false, select = false, textarea = false) {
     e.preventDefault();
     let multiFormFieldset = document.querySelectorAll('fieldset')[this.count],
       multiFormVal = true;
@@ -71,7 +63,6 @@ export class MultiForm {
           multiFormVal = formValidator(option.value, 'select', multiFormVal);
         }
       });
-      console.log('Multiform Selects', multiFormSelects);
     }
 
     if (textarea === true) {
@@ -81,16 +72,11 @@ export class MultiForm {
         if (element.required)
           multiFormVal = formValidator(element.value, 'textarea', multiFormVal);
       });
-      console.log('Multiform Textareas: ', multiFormTextareas);
     }
 
-    if (multiFormVal === true && submit === false) {
-      console.log('Count: ', this.count);
+    if (multiFormVal === true) {
       this.count++;
-      console.log('Count increment: ', this.count);
       this.formSlide(this.count);
-    } else if (multiFormVal === true && submit === true) {
-      return true;
     }
   }
 }
