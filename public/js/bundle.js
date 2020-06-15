@@ -14600,15 +14600,17 @@ var createShow = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context5.next = 11;
+            _context5.next = 13;
             break;
 
           case 8:
             _context5.prev = 8;
             _context5.t0 = _context5["catch"](0);
-            (0, _alerts.showAlert)('error', _context5.t0);
+            console.log('Input data: ', data);
+            console.log('Error data: ', _context5.t0);
+            (0, _alerts.showAlert)('error', _context5.t0.response.data.message);
 
-          case 11:
+          case 13:
           case "end":
             return _context5.stop();
         }
