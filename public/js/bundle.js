@@ -12527,7 +12527,7 @@ var MultiForm = /*#__PURE__*/function () {
     value: function manipulateCSS() {
       document.querySelector('.form__multiform').style.width = "".concat(this.fieldsetsTotal * 100, "%");
       document.querySelector('.form__fieldset').style.width = "".concat(40 - 5 * (this.fieldsetsTotal - 1), "%");
-      console.log(fieldsetsTotal);
+      console.log(this.fieldsetsTotal);
     } // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
     // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
 
