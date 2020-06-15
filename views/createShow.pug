@@ -98,8 +98,14 @@ block content
                     button#btnNext-2.btn.btn--blue.btn--duo(name='btnNext2') Next
 
             fieldset#eoFieldlist3.form__fieldset(name='eoFieldlist3')
-              .form__group.u-center-text
-                small.form__info-small.small-text These fields are optional, but are useful for your audience.
+              .form__group.form__group--info.u-center-text
+                small.form__info-small.small-text Uploading a poster is required for your potential audiences to be curious. It adds a story and excitement on what the show is about. A poster shown below is an example on what not to do. You'll loose potential audiences. Choose wisely. Other fields are optional, but are useful for your audience.
+
+              .form__group
+                .form__photo-upload
+                  img.form__show-photo(src='/img/shows/default-poster.jpg', alt="Default photo")
+                  input#showPhoto.form__upload(type='file', accept='image/*', name='photo', required)
+                  label(for='showPhoto') Choose a better poster
 
               .form__group
                 input#showLanguage.form__input.input-text(type='text' name='showLanguage' placeholder='Language (optional)')
@@ -121,25 +127,25 @@ block content
                   .form__duo-btn-next
                     button#btnNext-3.btn.btn--blue.btn--duo(name='btnNext3') Next
 
+            //- fieldset#eoFieldlist4.form__fieldset(name='eoFieldlist4')
+            //-   .form__group.form__group--info.u-center-text
+            //-     small.form__info-small.small-text Uploading a poster is required for your potential audiences to be curious. It adds a story and excitement on what the show is about. A poster shown below is an example on what not to do. You'll loose potential audiences. Choose wisely.
+
+            //-   .form__group
+            //-     .form__photo-upload
+            //-       img.form__show-photo(src='/img/shows/default-poster.jpg', alt="Default photo")
+            //-       input#showPhoto.form__upload(type='file', accept='image/*', name='photo', required)
+            //-       label(for='showPhoto') Choose a better poster
+
+            //-   .form__group
+            //-     .form__duo-btn
+            //-       .form__duo-btn-previous
+            //-         button#btnPrev-3.btn.btn--blue.btn--duo(name='btnPrev3') Previous
+
+            //-       .form__duo-btn-next
+            //-         button#btnNext-4.btn.btn--blue.btn--duo(name='btnNext4') Next
+
             fieldset#eoFieldlist4.form__fieldset(name='eoFieldlist4')
-              .form__group.form__group--info.u-center-text
-                small.form__info-small.small-text Uploading a poster is required for your potential audiences to be curious. It adds a story and excitement on what the show is about. A poster shown below is an example on what not to do. You'll loose potential audiences. Choose wisely.
-
-              .form__group
-                .form__photo-upload
-                  img.form__show-photo(src='/img/shows/default-poster.jpg', alt="Default photo")
-                  input#showPhoto.form__upload(type='file', accept='image/*', name='photo', required)
-                  label(for='showPhoto') Choose a better poster
-
-              .form__group
-                .form__duo-btn
-                  .form__duo-btn-previous
-                    button#btnPrev-3.btn.btn--blue.btn--duo(name='btnPrev3') Previous
-
-                  .form__duo-btn-next
-                    button#btnNext-4.btn.btn--blue.btn--duo(name='btnNext4') Next
-
-            fieldset#eoFieldlist5.form__fieldset(name='eoFieldlist5')
               .form__group.form__group--info.u-center-text
                 small.form__info-small.small-text A special venue is where guest speakers or a big event will take place, and you want to sell your show's tickets publicly. For private events where the public cannot buy tickets, please contact the admin.
 
@@ -157,7 +163,7 @@ block content
               .form__group
                 .form__duo-btn
                   .form__duo-btn-previous
-                    button#btnPrev-4.btn.btn--blue.btn--duo(name='btnPrev4') Previous
+                    button#btnPrev-3.btn.btn--blue.btn--duo(name='btnPrev4') Previous
 
                   .form__duo-btn-submit
                     button#btnCreateShow.btn.btn--blue.btn--duo(type='submit' name='btnCreateShow') Create
