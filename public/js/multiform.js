@@ -29,7 +29,7 @@ export class MultiForm {
   // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
   // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
   formSlide(factor) {
-    return (this.fieldset.style.marginLeft = `-${26 * factor}%`);
+    return (this.fieldset.style.marginLeft = `-${25 * factor}%`);
   }
 
   buttonBack(e) {
