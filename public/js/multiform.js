@@ -28,7 +28,8 @@ export class MultiForm {
   }
 
   manipulateFirstFieldset() {
-    return this.fieldset.classList.add('.form__fieldset--fifth');
+    this.fieldset.classList.remove('.form__fieldset--fourth');
+    this.fieldset.classList.add('.form__fieldset--fifth');
   }
 
   // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
