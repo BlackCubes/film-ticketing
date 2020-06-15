@@ -7,7 +7,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 500%;
+    width: 500%; // Based on how many fieldsets there are: 1 fieldset = 100%, 2 fieldsets = 200%, etc.
   }
 
   &__fieldset {
