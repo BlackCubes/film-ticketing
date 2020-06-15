@@ -34,7 +34,7 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
-exports.uploadShowPhoto = upload.single('photo');
+exports.uploadShowPhoto = upload.single('poster');
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
