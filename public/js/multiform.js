@@ -32,6 +32,7 @@ export class MultiForm {
       .fieldsetsTotal * 100}%`;
     document.querySelector('.form__fieldset').style.width = `${40 -
       5 * (this.fieldsetsTotal - 1)}%`;
+    console.log(fieldsetsTotal);
   }
 
   // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
