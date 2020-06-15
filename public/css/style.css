@@ -297,6 +297,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 400%; }
+  .form__multiform--fifth {
+    width: 500%; }
 
 .form__fieldset {
   width: 25%;
