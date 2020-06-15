@@ -12525,7 +12525,7 @@ var MultiForm = /*#__PURE__*/function () {
   _createClass(MultiForm, [{
     key: "manipulateFirstFieldset",
     value: function manipulateFirstFieldset() {
-      document.querySelector('.form__fieldset--fifth').style.width = '-20%';
+      document.querySelector('.form__fieldset').style.width = '-20%';
     } // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
     // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
 
