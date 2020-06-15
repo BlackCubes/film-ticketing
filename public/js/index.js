@@ -200,7 +200,8 @@ if (eoFieldlist1) {
   // Gather fieldlist and button DOM elements
   const eoFieldlist2 = document.getElementById('eoFieldlist2'),
     eoFieldlist3 = document.getElementById('eoFieldlist3'),
-    eoFieldlist4 = document.getElementById('eoFieldlist4');
+    eoFieldlist4 = document.getElementById('eoFieldlist4'),
+    eoFieldlist5 = document.getElementById('eoFieldlist5');
 
   const firstNextBtn = document.getElementById('btnNext-1'),
     secondNextBtn = document.getElementById('btnNext-2'),
