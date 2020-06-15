@@ -15250,14 +15250,14 @@ if (eoFieldlist1) {
   var createShowBtn = document.getElementById('btnCreateShow'); // eoCreateShowForm.addEventListener('submit', async e => {
   //   e.preventDefault();
 
-  createShowBtn.addEventListener('click', /*#__PURE__*/function () {
+  eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
       var form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster;
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              multiForm.buttonNext(e, true, true, true);
+              e.preventDefault();
               form = new FormData();
               title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
               selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectMpaa = document.getElementById('selectMpaa');

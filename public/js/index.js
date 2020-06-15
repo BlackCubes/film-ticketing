@@ -234,8 +234,8 @@ if (eoFieldlist1) {
 
   // eoCreateShowForm.addEventListener('submit', async e => {
   //   e.preventDefault();
-  createShowBtn.addEventListener('click', async e => {
-    multiForm.buttonNext(e, true, true, true);
+  eoCreateShowForm.addEventListener('submit', async e => {
+    e.preventDefault();
 
     const form = new FormData();
 
