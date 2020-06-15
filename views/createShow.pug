@@ -114,6 +114,12 @@ block content
                 label.form__label.label-text(for='showGenre') What genre(s) is it?
 
               .form__group
+                .form__photo-upload
+                  img.form__show-photo(src='/img/shows/default-poster.jpg', alt="Default photo")
+                  input#showPhoto.form__upload(type='file', accept='image/*', name='photo', required)
+                  label(for='showPhoto') Choose a better poster
+
+              .form__group
                 .form__duo-btn
                   .form__duo-btn-previous
                     button#btnPrev-2.btn.btn--blue.btn--duo(name='btnPrev2') Previous
