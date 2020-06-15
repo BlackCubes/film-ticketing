@@ -235,6 +235,8 @@ if (eoFieldlist1) {
   createShowBtn.addEventListener('click', async e => {
     multiForm.buttonNext(e, true, true, true);
 
+    const form = new FormData();
+
     const title = document.getElementById('showTitle').value,
       duration = document.getElementById('showDuration').value;
 
@@ -276,7 +278,7 @@ if (eoFieldlist1) {
     const specialVenue = specialVenueValue === 'y' ? true : false,
       price = document.getElementById('showPrice').value;
 
-    const poster = { urlLarge: 'dummytest.jpg' };
+    const poster = document.getElementById('showPhoto').files[0];
 
     console.log('Title: ', title);
     console.log('Duration: ', duration);
@@ -293,24 +295,21 @@ if (eoFieldlist1) {
 
     document.getElementById('btnCreateShow').textContent = 'Creating...';
 
-    await createShow(
-      {
-        title,
-        duration,
-        originalReleaseDate,
-        mpaaRating,
-        contentType,
-        overview,
-        synopsis,
-        poster,
-        language,
-        subtitles,
-        genres,
-        specialVenue,
-        price
-      },
-      'event-owner'
-    );
+    form.append('title', title);
+    form.append('duration', duration);
+    form.append('originalReleaseDate', originalReleaseDate);
+    form.append('mpaaRating', mpaaRating);
+    form.append('contentType', contentType);
+    form.append('overview', overview);
+    form.append('synopsis', synopsis);
+    form.append('language', language);
+    form.append('subtitles', subtitles);
+    form.append('genres', genres);
+    form.append('specialVenue', specialVenue);
+    form.append('price', price);
+    form.append('poster', poster);
+
+    await createShow(form, 'event-owner');
 
     document.getElementById('btnCreateShow').textContent = 'Create';
   });

@@ -15242,12 +15242,13 @@ if (eoFieldlist1) {
 
   createShowBtn.addEventListener('click', /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
-      var title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster;
+      var form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster;
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               multiForm.buttonNext(e, true, true, true);
+              form = new FormData();
               title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
               selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectMpaa = document.getElementById('selectMpaa');
               originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
@@ -15257,9 +15258,7 @@ if (eoFieldlist1) {
               selectSpecialVenue = document.getElementById('showSpecialVenue');
               specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
               specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
-              poster = {
-                urlLarge: 'dummytest.jpg'
-              };
+              poster = document.getElementById('showPhoto').files[0];
               console.log('Title: ', title);
               console.log('Duration: ', duration);
               console.log('OriginalRelase: ', originalReleaseDate);
@@ -15273,27 +15272,26 @@ if (eoFieldlist1) {
               console.log('Special Venue', specialVenue);
               console.log('Price: ', price);
               document.getElementById('btnCreateShow').textContent = 'Creating...';
-              _context4.next = 26;
-              return (0, _login.createShow)({
-                title: title,
-                duration: duration,
-                originalReleaseDate: originalReleaseDate,
-                mpaaRating: mpaaRating,
-                contentType: contentType,
-                overview: overview,
-                synopsis: synopsis,
-                poster: poster,
-                language: language,
-                subtitles: subtitles,
-                genres: genres,
-                specialVenue: specialVenue,
-                price: price
-              }, 'event-owner');
+              form.append('title', title);
+              form.append('duration', duration);
+              form.append('originalReleaseDate', originalReleaseDate);
+              form.append('mpaaRating', mpaaRating);
+              form.append('contentType', contentType);
+              form.append('overview', overview);
+              form.append('synopsis', synopsis);
+              form.append('language', language);
+              form.append('subtitles', subtitles);
+              form.append('genres', genres);
+              form.append('specialVenue', specialVenue);
+              form.append('price', price);
+              form.append('poster', poster);
+              _context4.next = 40;
+              return (0, _login.createShow)(form, 'event-owner');
 
-            case 26:
+            case 40:
               document.getElementById('btnCreateShow').textContent = 'Create';
 
-            case 27:
+            case 41:
             case "end":
               return _context4.stop();
           }
