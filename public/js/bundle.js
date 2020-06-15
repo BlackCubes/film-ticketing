@@ -15217,9 +15217,7 @@ if (eoFieldlist1) {
       secondPreviousBtn = document.getElementById('btnPrev-2'),
       thirdPreviousBtn = document.getElementById('btnPrev-3'),
       fourthPreviousBtn = document.getElementById('btnPrev-4');
-  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Manipulate the stylesheet to suit the proper multiform
-
-  multiForm.manipulateCSS(); // Initiate click event listeners for multiform with specific elements
+  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
 
   firstNextBtn.addEventListener('click', function (e) {
     return multiForm.buttonNext(e, false, true, true);

@@ -210,9 +210,6 @@ if (eoFieldlist1) {
 
   let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
 
-  // Manipulate the stylesheet to suit the proper multiform
-  multiForm.manipulateCSS();
-
   // Initiate click event listeners for multiform with specific elements
   firstNextBtn.addEventListener('click', e =>
     multiForm.buttonNext(e, false, true, true)
