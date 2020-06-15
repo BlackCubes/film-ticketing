@@ -12520,17 +12520,11 @@ var MultiForm = /*#__PURE__*/function () {
 
     this.button = button;
     this.fieldset = fieldset;
-  }
+  } // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
+  // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
+
 
   _createClass(MultiForm, [{
-    key: "manipulateFirstFieldset",
-    value: function manipulateFirstFieldset() {
-      this.fieldset.classList.remove('.form__fieldset--fourth');
-      this.fieldset.classList.add('.form__fieldset--fifth');
-    } // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
-    // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
-
-  }, {
     key: "formSlide",
     value: function formSlide(factor) {
       return this.fieldset.style.marginLeft = "-".concat(factor * (40 - 5 * (this.fieldsetsTotal - 1)), "%");
@@ -15223,8 +15217,7 @@ if (eoFieldlist1) {
       secondPreviousBtn = document.getElementById('btnPrev-2'),
       thirdPreviousBtn = document.getElementById('btnPrev-3'),
       fourthPreviousBtn = document.getElementById('btnPrev-4');
-  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1);
-  multiForm.manipulateFirstFieldset(); // Initiate click event listeners for multiform with specific elements
+  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
 
   firstNextBtn.addEventListener('click', function (e) {
     return multiForm.buttonNext(e, false, true, true);
@@ -15285,6 +15278,7 @@ if (eoFieldlist1) {
               console.log('Genres: ', genres);
               console.log('Special Venue', specialVenue);
               console.log('Price: ', price);
+              console.log('Poster: ', poster);
               document.getElementById('btnCreateShow').textContent = 'Creating...';
               form.append('title', title);
               form.append('duration', duration);
@@ -15299,13 +15293,13 @@ if (eoFieldlist1) {
               form.append('specialVenue', specialVenue);
               form.append('price', price);
               form.append('poster', poster);
-              _context4.next = 40;
+              _context4.next = 41;
               return (0, _login.createShow)(form, 'event-owner');
 
-            case 40:
+            case 41:
               document.getElementById('btnCreateShow').textContent = 'Create';
 
-            case 41:
+            case 42:
             case "end":
               return _context4.stop();
           }
@@ -15346,7 +15340,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49946" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57016" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
