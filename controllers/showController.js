@@ -1,4 +1,5 @@
 const multer = require('multer');
+const sharp = require('sharp');
 const Show = require('./../models/showModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
@@ -35,6 +36,24 @@ const upload = multer({
 });
 
 exports.uploadShowPhoto = upload.single('poster');
+
+exports.resizeShowPhotoLarge = (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.filename = `show-${req.user.id}-${Date.now()}.jpeg`;
+
+  sharp(req.file.buffer)
+    .resize({
+      width: 720,
+      height: 1280,
+      fit: sharp.fit.contain
+    })
+    .toFormat('jpeg')
+    .jpeg({ quality: 95 })
+    .toFile(`public/img/shows/${req.file.filename}`);
+
+  next();
+};
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
