@@ -15296,13 +15296,14 @@ if (eoFieldlist1) {
               form.append('specialVenue', specialVenue);
               form.append('price', price);
               form.append('poster', poster);
-              _context4.next = 41;
+              console.log('The form: ', form);
+              _context4.next = 42;
               return (0, _login.createShow)(form, 'event-owner');
 
-            case 41:
+            case 42:
               document.getElementById('btnCreateShow').textContent = 'Create';
 
-            case 42:
+            case 43:
             case "end":
               return _context4.stop();
           }

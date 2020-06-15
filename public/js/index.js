@@ -312,6 +312,8 @@ if (eoFieldlist1) {
     form.append('price', price);
     form.append('poster', poster);
 
+    console.log('The form: ', form);
+
     await createShow(form, 'event-owner');
 
     document.getElementById('btnCreateShow').textContent = 'Create';
