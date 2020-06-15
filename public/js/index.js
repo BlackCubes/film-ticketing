@@ -197,12 +197,7 @@ if (updatePassForm) {
 }
 
 if (eoFieldlist1) {
-  // Gather fieldlist and button DOM elements
-  const eoFieldlist2 = document.getElementById('eoFieldlist2'),
-    eoFieldlist3 = document.getElementById('eoFieldlist3'),
-    eoFieldlist4 = document.getElementById('eoFieldlist4'),
-    eoFieldlist5 = document.getElementById('eoFieldlist5');
-
+  // Gather the button DOM elements
   const firstNextBtn = document.getElementById('btnNext-1'),
     secondNextBtn = document.getElementById('btnNext-2'),
     thirdNextBtn = document.getElementById('btnNext-3'),
@@ -214,6 +209,9 @@ if (eoFieldlist1) {
     fourthPreviousBtn = document.getElementById('btnPrev-4');
 
   let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
+
+  // Manipulate the stylesheet to suit the proper multiform
+  multiForm.manipulateCSS();
 
   // Initiate click event listeners for multiform with specific elements
   firstNextBtn.addEventListener('click', e =>
