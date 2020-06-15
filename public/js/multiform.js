@@ -27,6 +27,13 @@ export class MultiForm {
     this.fieldset = fieldset;
   }
 
+  manipulateCSS() {
+    document.querySelector('.form__multiform').style.width = `${this
+      .fieldsetsTotal * 100}%`;
+    document.querySelector('.form__fieldset').style.width = `${40 -
+      5 * (this.fieldsetsTotal - 1)}%`;
+  }
+
   // For forward, margin-left values start at -25% and are every -25%: -25%, -50%, -75%, etc.
   // For backward, margin-left values start at 0% and are every -25%: 0%, -25%, -50%, etc.
   formSlide(factor) {
