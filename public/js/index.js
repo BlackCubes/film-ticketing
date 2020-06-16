@@ -336,7 +336,7 @@ if (updateShowMainView) {
       duration = document.getElementById('showDuration').value,
       poster = document.getElementById('showPhoto').files[0];
 
-    document.getElementById('btnUpdateShowData').textContent = 'Creating...';
+    document.getElementById('btnUpdateShowData').textContent = 'Updating...';
 
     form.append('title', title);
     form.append('duration', duration);
@@ -354,6 +354,18 @@ if (updateShowMainView) {
 }
 
 if (updateShowPlot) {
+  updateShowPlot.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const overview = document.getElementById('showOverview').value,
+      synopsis = document.getElementById('showSynopsis');
+
+    document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
+
+    await updateShowSettings({ overview, synopsis });
+
+    document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+  });
 }
 
 if (updateShowAddl) {

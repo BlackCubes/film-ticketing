@@ -15356,7 +15356,7 @@ if (updateShowMainView) {
               originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
               mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay);
               title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, poster = document.getElementById('showPhoto').files[0];
-              document.getElementById('btnUpdateShowData').textContent = 'Creating...';
+              document.getElementById('btnUpdateShowData').textContent = 'Updating...';
               form.append('title', title);
               form.append('duration', duration);
               form.append('mpaaRating', mpaaRating);
@@ -15383,7 +15383,39 @@ if (updateShowMainView) {
   }());
 }
 
-if (updateShowPlot) {}
+if (updateShowPlot) {
+  updateShowPlot.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(e) {
+      var overview, synopsis;
+      return regeneratorRuntime.wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              e.preventDefault();
+              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis');
+              document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
+              _context6.next = 5;
+              return (0, _updateSettings.updateShowSettings)({
+                overview: overview,
+                synopsis: synopsis
+              });
+
+            case 5:
+              document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+
+            case 6:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
+    }));
+
+    return function (_x6) {
+      return _ref6.apply(this, arguments);
+    };
+  }());
+}
 
 if (updateShowAddl) {}
 
