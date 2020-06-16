@@ -50,7 +50,7 @@ block content
                     - var dayValue = show.originalReleaseDate.toLocaleString('en-us', {day: 'numeric'})
 
                     each day in days
-                      - var daySelected = (dayValue === day) ? true : false
+                      - var daySelected = (dayValue == day) ? true : false
 
                       option(value=`${day}`, selected=(daySelected))= day
 
@@ -64,7 +64,7 @@ block content
                     - var yearValue = show.originalReleaseDate.toLocaleString('en-us', {year: 'numeric'})
 
                     each year in years
-                      - var yearSelected = (yearValue === year) ? true : false
+                      - var yearSelected = (yearValue == year) ? true : false
 
                       option(value=`${year}`, selected=(yearSelected))= year
 
