@@ -108,10 +108,6 @@ block content
               - languages = ''
             unless show.subtitles
               - subtitles = ''
-            
-            - console.log('Genre: ', genres)
-            - console.log('Language: ', languages)
-            - console.log('Subtitles: ', subtitles)
 
             .form__group
               input#showGenre.form__input.input-text(type='text' name='showGenre' placeholder='Genre(s)' value=`${genres}`)
