@@ -43,7 +43,7 @@ router.post(
 );
 
 router.patch(
-  '/updateMyShow',
+  '/updateMyShow/:slug',
   authController.restrictTo('event-owner'),
   showController.uploadShowPhoto,
   showController.resizeShowPhotoLarge,
