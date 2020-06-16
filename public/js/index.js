@@ -325,12 +325,9 @@ if (updateShowMainView) {
         selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
 
     const mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-      originalReleaseDate = originalYear.concat(
-        '-',
-        originalMonth,
-        '-',
-        originalDay
-      );
+      originalReleaseDate = [
+        originalYear.concat('-', originalMonth, '-', originalDay)
+      ];
 
     const title = document.getElementById('showTitle').value,
       duration = document.getElementById('showDuration').value,

@@ -15354,7 +15354,7 @@ if (updateShowMainView) {
               form = new FormData();
               selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear');
               originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-              mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay);
+              mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
               title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, poster = document.getElementById('showPhoto').files[0];
               document.getElementById('btnUpdateShowData').textContent = 'Updating...';
               form.append('title', title);
