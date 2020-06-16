@@ -30,7 +30,7 @@ block content
               .form__date
                 .form__date-month
                   select#showOriginalMonth.dropdown(name='selectOriginalMonth' tabindex='0' required)
-                    option(value) Original Month*
+                    option(value, selected=(true)) Original Month*
 
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -43,7 +43,7 @@ block content
 
                 .form__date-day
                   select#showOriginalDay.dropdown(name='selectOriginalDay' tabindex='0' required)
-                    option(value) Day
+                    option(value, selected=(true)) Day
 
                     - const days = [...Array(32).keys()].splice(1)
 
@@ -56,7 +56,7 @@ block content
 
                 .form__date-year
                   select#showOriginalYear.dropdown(name='selectOriginalYear' tabindex='0' required)
-                    option(value) Year
+                    option(value, selected=(true)) Year
 
                     - const now = new Date().getFullYear()
                     - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
