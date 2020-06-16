@@ -87,6 +87,7 @@ const showSchema = new mongoose.Schema(
       type: Number,
       validate: {
         validator: function(val) {
+          // Only works when creating a new document, and not updating!
           return val < this.price;
         },
         message: 'A discount price ({VALUE}) must be below the regular price!'
