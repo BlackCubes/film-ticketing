@@ -15051,7 +15051,11 @@ var updatePersonalForm = document.getElementById('updatePersonalForm');
 var updateEmailUsernameForm = document.getElementById('updateEmailUsernameForm');
 var updatePassForm = document.getElementById('updatePassForm');
 var eoCreateShowForm = document.getElementById('eoCreateShowForm'),
-    eoFieldlist1 = document.getElementById('eoFieldlist1'); // VALUES (nothing, yet)
+    eoFieldlist1 = document.getElementById('eoFieldlist1');
+var updateShowMainView = document.getElementById('updateShowMainView'),
+    updateShowPlot = document.getElementById('updateShowPlot'),
+    updateShowAddl = document.getElementById('updateAddl'),
+    updateShowPrice = document.getElementById('updateShowPrice'); // VALUES (nothing, yet)
 // DELEGATION
 
 if (mapBox) {

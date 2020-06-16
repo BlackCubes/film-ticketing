@@ -27,6 +27,10 @@ const updateEmailUsernameForm = document.getElementById(
 const updatePassForm = document.getElementById('updatePassForm');
 const eoCreateShowForm = document.getElementById('eoCreateShowForm'),
   eoFieldlist1 = document.getElementById('eoFieldlist1');
+const updateShowMainView = document.getElementById('updateShowMainView'),
+  updateShowPlot = document.getElementById('updateShowPlot'),
+  updateShowAddl = document.getElementById('updateAddl'),
+  updateShowPrice = document.getElementById('updateShowPrice');
 
 // VALUES (nothing, yet)
 
