@@ -3,4 +3,151 @@ extends base
 block content
   - console.log(`${user.name} show: `, show)
   main.main
-    h1= show.title
+    .user-view
+      .user-view__content
+        .user-view__form-container
+          form#updateShowMainView.form
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary Your Show Settings
+            
+            .form__group
+              input#showTitle.form__input.input-text(type='text' name='showTitle' value=`${show.title}` placeholder='Title')
+              label.form__label.label-text(for='showTitle') Please give a title for your show.
+
+            .form__group
+              .form__mpaa
+                select#selectMpaa.dropdown(name='selectMpaa' tabindex='0')
+                  option(value) MPAA Rating
+
+                  - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
+
+                  each mpaa in mpaaList
+                    option(value=`${mpaa}`)= mpaa
+            
+            .form__group
+              .form__date
+                .form__date-month
+                  select#showOriginalMonth.dropdown(name='selectOriginalMonth' tabindex='0')
+                    option(value) Original Month
+
+                    - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+                    each month in months
+                      option(value=`${month}`)= month
+
+                .form__date-day
+                  select#showOriginalDay.dropdown(name='selectOriginalDay' tabindex='0')
+                    option(value) Day
+
+                    - const days = [...Array(32).keys()].splice(1)
+
+                    each day in days
+                      option(value=`${day}`)= day
+
+                .form__date-year
+                  select#showOriginalYear.dropdown(name='selectOriginalYear' tabindex='0')
+                    option(value) Year
+
+                    - const now = new Date().getFullYear()
+                    - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
+
+                    each year in years
+                      option(value=`${year}`)= year
+
+            .form__group
+              input#showDuration.form__input.input-text(type='number' name='showDuration' value=`${show.duration}` placeholder='Duration')
+              label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
+
+            .form__group
+              .form__photo-upload
+                img.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
+                input#showPhoto.form__upload(type='file' accept='image/*' name='poster')
+                label(for='showPhoto') Choose a different poster
+
+            .form__group
+              button#btnUpdateShowData.btn.btn--blue Update Show Settings
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#updateShowPlot
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary Change Your Show's Plot
+            
+            .form__group
+              textarea#showOverview.form__text-area.input-text(name='textareaOverview' value=`${show.overview}` placeholder='Show Overview')
+              label.form__label.label-text(for='showOverview') Please provide a short synopsis i.e. overview or logline.
+
+            .form__group
+              textarea#showSynopsis.form__text-area.input-text(name='textareaSynopsis' value=`${show.synopsis}` placeholder='Show Synopsis')
+              label.form__label.label-text(for='showSynopsis') A synopsis is a condensed outline. Don't spoil.
+
+            .form__group
+              button#btnUpdateShowPlot.btn.btn--blue Update Plot
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#updateShowAddl
+            .form__group
+              .form__title.u-center-text
+                  h1.heading-primary Change Your Show's Add'l Info
+
+            .form__group
+              .form__content-type
+                select#showContentType.dropdown(name='selectContentType' tabindex='0')
+                  option(value) Content Select
+                  option(value='Film') Film
+                  option(value='TV') TV
+
+            .form__group
+              input#showGenre.form__input.input-text(type='text' name='showGenre' value=`${show.genres}` placeholder='Genre(s)')
+              label.form__label.label-text(for='showGenre') What genre(s) is it?
+
+            .form__group
+              input#showLanguage.form__input.input-text(type='text' name='showLanguage' value=`${show.language}` placeholder='Language')
+              label.form__label.label-text(for='showLanguage') What language it will have? Ex: 'French'
+
+            .form__group
+              input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' value=`${show.subtitles}` placeholder='Subtitles')
+              label(for='showSubtitles') Any subtitles? Ex: 'English'
+
+            .form__group
+              button#btnUpdateShowPlot.btn.btn--blue Update Add'l Info
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#updateShowPrice
+            .form__group
+              .form__title.u-center-text
+                  h1.heading-primary Change Your Show's Price
+
+            .form__group
+              input#showPrice.form__input.input-text(type='number' name='showPrice' value=`${show.price}` placeholder='Show Price')
+              label.form__label.label-text(for='showPrice') Please enter your price on the show.
+
+            .form__group
+              input#showDiscount.form__input.input-text(type='number' name='showDiscount' value=`${show.priceDiscount}` placeholder='Discount')
+              label.form__label.label-text(for='showDiscount') Enter a discount below the normal price.
+
+            .form__group
+              .form__special-venue
+                select#showSpecialVenue.dropdown(name='selectSpecialVenue' tabindex='0')
+                  option(value) Special Venue
+                  option(value='y') Yes
+                  option(value='n') No
+
+            .form__group
+              button#btnUpdateShowPlot.btn.btn--blue Update Pricing
+
+        //- .line &nbsp;
+
+        //- .user-view__form-container
+        //-   form#updateShowAddl
+
+        //- .line &nbsp;
+
+        //- .user-view__form-container
