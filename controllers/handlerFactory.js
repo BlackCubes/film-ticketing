@@ -77,6 +77,7 @@ exports.getAll = Model =>
     if (req.params.showId && Model === 'Showtimes')
       filter.shows = req.params.showId;
     if (req.params.theaterId) filter.theaters = req.params.theaterId;
+    if (req.params.userId) filter.eventOrganizer = req.params.userId;
 
     const features = new APIFeatures(Model.find(filter), req.query)
       .filter()
