@@ -22,7 +22,9 @@ block content
                   - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
 
                   each mpaa in mpaaList
-                    option(value=`${mpaa}` selected=`${show.mpaa === mpaa ? 'selected' : ''}`)= mpaa
+                    - const mpaaSelected = (show.mpaa === mpaa) ? {'selected': 'selected'} : ''
+
+                    option(value=`${mpaa}`)&attributes(mpaaSelected)= mpaa
             
             .form__group
               .form__date
