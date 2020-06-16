@@ -102,13 +102,13 @@ block content
                   option(value='Film') Film
                   option(value='TV') TV
 
-            - const genres, languages, subtitles
-            if !show.genres
+            - var genres, languages, subtitles
+            unless show.genres
               - genres = ''
-            if !show.language
+            unless show.language
               - languages = ''
-            if !show.subtitles
-              - subtitles = ;
+            unless show.subtitles
+              - subtitles = ''
             
             - console.log('Genre: ', genres)
             - console.log('Language: ', languages)
