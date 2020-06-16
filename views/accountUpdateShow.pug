@@ -111,9 +111,9 @@ block content
             .form__group
               .form__content-type
                 select#showContentType.dropdown(name='selectContentType' tabindex='0' required)
-                  option(value) Content Select*
-                  option(value='Film') Film
-                  option(value='TV') TV
+                  option(value, selected=(true)) Content Select*
+                  option(value='Film', selected=(show.contentType === 'Film')) Film
+                  option(value='TV', selected=(show.contentType === 'TV')) TV
 
             - var genres, languages, subtitles
             unless show.genres
