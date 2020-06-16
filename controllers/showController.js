@@ -78,20 +78,6 @@ exports.getEventOrganizer = (req, res, next) => {
   next();
 };
 
-exports.getMyShows = catchAsync(async (req, res, next) => {
-  const filter = { eventOrganizer: req.user.id };
-
-  const shows = await Show.find(filter);
-
-  res.status(200).json({
-    status: 'success',
-    results: shows.length,
-    data: {
-      shows
-    }
-  });
-});
-
 exports.createMyShow = catchAsync(async (req, res, next) => {
   if (req.body.ratingsAverage || req.body.ratingsQuantity) {
     return next(new AppError('This route is not for making reviews!', 400));
