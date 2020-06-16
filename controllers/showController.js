@@ -113,6 +113,50 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.updateMyShow = catchAsync(async (req, res, next) => {
+  if (req.body.ratingsAverage || req.body.ratingsQuantity) {
+    return next(new AppError('This route is not for making reviews!', 400));
+  }
+
+  if (req.body.eventOrganizer)
+    return next(new AppError('This route is not for fixing yourself!', 400));
+
+  const filteredBody = filterObj(
+    req.body,
+    'title',
+    'originalReleaseDate',
+    'duration',
+    'mpaaRating',
+    'overview',
+    'synopsis',
+    'language',
+    'subtitles',
+    'contentType',
+    'castcrew',
+    'price',
+    'priceDiscount',
+    'genres',
+    'specialVenue'
+  );
+  if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
+
+  const updatedShow = await Show.findOneAndUpdate(
+    { slug: req.params.slug, eventOrganizer: req.user.id },
+    filteredBody,
+    {
+      new: true,
+      runValidators: true
+    }
+  );
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      show: updatedShow
+    }
+  });
+});
+
 exports.getAllShows = factory.getAll(Show);
 exports.getShow = factory.getOne(Show, 'reviews', 'showtimes');
 exports.createShow = factory.createOne(Show);
