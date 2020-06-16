@@ -358,7 +358,7 @@ if (updateShowPlot) {
     e.preventDefault();
 
     const overview = document.getElementById('showOverview').value,
-      synopsis = document.getElementById('showSynopsis');
+      synopsis = document.getElementById('showSynopsis').value;
 
     document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
 
@@ -391,4 +391,22 @@ if (updateShowAddl) {
 }
 
 if (updateShowPrice) {
+  updateShowPrice.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const selectSpecialVenue = document.getElementById('showSpecialVenue');
+    const specialVenueValue =
+      selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+    const specialVenue = specialVenueValue === 'y' ? true : false;
+
+    const price = document.getElementById('showPrice').value,
+      priceDiscount = document.getElementById('showDiscount').value;
+
+    document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
+
+    await updateShowSettings({ price, priceDiscount, specialVenue });
+
+    document.getElementById('btnUpdateShowPrice').textContent =
+      'Update Pricing';
+  });
 }
