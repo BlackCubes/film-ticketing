@@ -63,4 +63,8 @@ router
     showController.deleteShow
   );
 
+router
+  .route('/:userId')
+  .get(authController.restrictTo('admin'), showController.getAllShows);
+
 module.exports = router;
