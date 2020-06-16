@@ -60,4 +60,10 @@ router.get(
   viewsController.getEventOwnerGetShows
 );
 
+router.get(
+  '/myShows/:slug',
+  authController.protect,
+  viewsController.getEventOwnerShow
+);
+
 module.exports = router;
