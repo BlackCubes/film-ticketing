@@ -14679,7 +14679,7 @@ var updateSettings = /*#__PURE__*/function () {
 exports.updateSettings = updateSettings;
 
 var updateShowSettings = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data) {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data, message) {
     var slug, res;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
@@ -14698,7 +14698,7 @@ var updateShowSettings = /*#__PURE__*/function () {
             res = _context2.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Your show has been updated!');
+              (0, _alerts.showAlert)('success', "Your show's ".concat(message, " has been updated!"));
             }
 
             _context2.next = 11;
@@ -14717,7 +14717,7 @@ var updateShowSettings = /*#__PURE__*/function () {
     }, _callee2, null, [[0, 8]]);
   }));
 
-  return function updateShowSettings(_x3) {
+  return function updateShowSettings(_x3, _x4) {
     return _ref2.apply(this, arguments);
   };
 }(); // export const updatePersonalData = async (name, birthdate, gender) => {

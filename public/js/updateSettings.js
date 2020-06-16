@@ -24,7 +24,7 @@ export const updateSettings = async (data, type) => {
 };
 
 // THINK ABOUT HOW TO IMPLEMENT ADMIN!
-export const updateShowSettings = async data => {
+export const updateShowSettings = async (data, message) => {
   try {
     const slug = window.location.pathname.split('/')[2];
 
@@ -35,7 +35,7 @@ export const updateShowSettings = async data => {
     });
 
     if (res.data.status === 'success') {
-      showAlert('success', 'Your show has been updated!');
+      showAlert('success', `Your show's ${message} has been updated!`);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
