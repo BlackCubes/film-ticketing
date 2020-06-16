@@ -15363,7 +15363,7 @@ if (updateShowMainView) {
               form.append('originalReleaseDate', originalReleaseDate);
               form.append('poster', poster);
               _context5.next = 14;
-              return (0, _updateSettings.updateShowSettings)(form);
+              return (0, _updateSettings.updateShowSettings)(form, 'setting');
 
             case 14:
               document.getElementById('btnUpdateShowData').textContent = 'Update Show Settings';
@@ -15398,7 +15398,7 @@ if (updateShowPlot) {
               return (0, _updateSettings.updateShowSettings)({
                 overview: overview,
                 synopsis: synopsis
-              });
+              }, 'plot');
 
             case 5:
               document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
@@ -15436,7 +15436,7 @@ if (updateShowAddl) {
                 language: language,
                 subtitles: subtitles,
                 contentType: contentType
-              });
+              }, "add'l info");
 
             case 7:
               document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
@@ -15474,7 +15474,7 @@ if (updateShowPrice) {
                 price: price,
                 priceDiscount: priceDiscount,
                 specialVenue: specialVenue
-              });
+              }, 'pricing');
 
             case 8:
               document.getElementById('btnUpdateShowPrice').textContent = 'Update Pricing';

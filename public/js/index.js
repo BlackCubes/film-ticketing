@@ -344,7 +344,7 @@ if (updateShowMainView) {
     form.append('originalReleaseDate', originalReleaseDate);
     form.append('poster', poster);
 
-    await updateShowSettings(form);
+    await updateShowSettings(form, 'setting');
 
     document.getElementById('btnUpdateShowData').textContent =
       'Update Show Settings';
@@ -362,7 +362,7 @@ if (updateShowPlot) {
 
     document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
 
-    await updateShowSettings({ overview, synopsis });
+    await updateShowSettings({ overview, synopsis }, 'plot');
 
     document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
   });
@@ -383,7 +383,10 @@ if (updateShowAddl) {
 
     document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
 
-    await updateShowSettings({ genres, language, subtitles, contentType });
+    await updateShowSettings(
+      { genres, language, subtitles, contentType },
+      "add'l info"
+    );
 
     document.getElementById('btnUpdateShowAddl').textContent =
       "Update Add'l Info";
@@ -404,7 +407,7 @@ if (updateShowPrice) {
 
     document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
 
-    await updateShowSettings({ price, priceDiscount, specialVenue });
+    await updateShowSettings({ price, priceDiscount, specialVenue }, 'pricing');
 
     document.getElementById('btnUpdateShowPrice').textContent =
       'Update Pricing';
