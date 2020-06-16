@@ -42,6 +42,14 @@ router.post(
   showController.createMyShow
 );
 
+router.patch(
+  '/updateMyShow',
+  authController.restrictTo('event-owner'),
+  showController.uploadShowPhoto,
+  showController.resizeShowPhotoLarge,
+  showController.updateMyShow
+);
+
 router
   .route('/')
   .post(
