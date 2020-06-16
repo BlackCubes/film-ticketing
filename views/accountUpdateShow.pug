@@ -102,6 +102,10 @@ block content
                   option(value='Film') Film
                   option(value='TV') TV
 
+            - console.log('Genre: ', show.genres)
+            - console.log('Language: ', show.language)
+            - console.log('Subtitles: ', show.subtitles)
+
             .form__group
               input#showGenre.form__input.input-text(type='text' name='showGenre' value=`${show.genres}` placeholder='Genre(s)')
               label.form__label.label-text(for='showGenre') What genre(s) is it?
