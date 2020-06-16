@@ -102,20 +102,28 @@ block content
                   option(value='Film') Film
                   option(value='TV') TV
 
-            - console.log('Genre: ', show.genres)
-            - console.log('Language: ', show.language)
-            - console.log('Subtitles: ', show.subtitles)
+            - let genres, languages, subtitles
+            if !show.genres
+              - genres = ''
+            if !show.language
+              - languages = ''
+            if !show.subtitles
+              - subtitles = ;
+            
+            - console.log('Genre: ', genres)
+            - console.log('Language: ', languages)
+            - console.log('Subtitles: ', subtitles)
 
             .form__group
-              input#showGenre.form__input.input-text(type='text' name='showGenre' value=`${show.genres}` placeholder='Genre(s)')
+              input#showGenre.form__input.input-text(type='text' name='showGenre' value=`${genres}` placeholder='Genre(s)')
               label.form__label.label-text(for='showGenre') What genre(s) is it?
 
             .form__group
-              input#showLanguage.form__input.input-text(type='text' name='showLanguage' value=`${show.language}` placeholder='Language')
+              input#showLanguage.form__input.input-text(type='text' name='showLanguage' value=`${languages}` placeholder='Language')
               label.form__label.label-text(for='showLanguage') What language it will have? Ex: 'French'
 
             .form__group
-              input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' value=`${show.subtitles}` placeholder='Subtitles')
+              input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' value=`${subtitles}` placeholder='Subtitles')
               label.form__label.label-text(for='showSubtitles') Any subtitles? Ex: 'English'
 
             .form__group
