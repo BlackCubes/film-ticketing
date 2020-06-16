@@ -128,3 +128,15 @@ exports.getEventOwnerGetShows = catchAsync(async (req, res) => {
     shows
   });
 });
+
+exports.getEventOwnerShow = catchAsync(async (req, res) => {
+  const show = await Show.findOne({
+    slug: req.params.slug,
+    eventOrganizer: req.user.id
+  });
+
+  res.status(200).render('accountUpdateShow', {
+    title: `Update ${show.title}`,
+    show
+  });
+});
