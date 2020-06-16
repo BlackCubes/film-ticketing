@@ -369,6 +369,25 @@ if (updateShowPlot) {
 }
 
 if (updateShowAddl) {
+  updateShowAddl.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const selectContentType = document.getElementById('showContentType');
+
+    const contentType =
+      selectContentType.options[selectContentType.selectedIndex].value;
+
+    const genres = document.getElementById('showGenre').value,
+      language = document.getElementById('showLanguage').value,
+      subtitles = document.getElementById('showSubtitles').value;
+
+    document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
+
+    await updateShowSettings({ genres, language, subtitles, contentType });
+
+    document.getElementById('btnUpdateShowAddl').textContent =
+      "Update Add'l Info";
+  });
 }
 
 if (updateShowPrice) {
