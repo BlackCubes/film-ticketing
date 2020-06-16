@@ -11,7 +11,7 @@ block content
                 h1.heading-primary Your Show Settings
             
             .form__group
-              input#showTitle.form__input.input-text(type='text' name='showTitle' value=`${show.title}` placeholder='Title*' required)
+              input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' required)= show.title
               label.form__label.label-text(for='showTitle') Please give a title for your show.
 
             .form__group
@@ -55,7 +55,7 @@ block content
                       option(value=`${year}`)= year
 
             .form__group
-              input#showDuration.form__input.input-text(type='number' name='showDuration' value=`${show.duration}` placeholder='Duration*' required)
+              input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' required)= show.duration
               label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
             .form__group
@@ -114,15 +114,15 @@ block content
             - console.log('Subtitles: ', subtitles)
 
             .form__group
-              input#showGenre.form__input.input-text(type='text' name='showGenre' value=`${genres}` placeholder='Genre(s)')
+              input#showGenre.form__input.input-text(type='text' name='showGenre' placeholder='Genre(s)')= genres
               label.form__label.label-text(for='showGenre') What genre(s) is it?
 
             .form__group
-              input#showLanguage.form__input.input-text(type='text' name='showLanguage' value=`${languages}` placeholder='Language')
+              input#showLanguage.form__input.input-text(type='text' name='showLanguage' placeholder='Language')= languages
               label.form__label.label-text(for='showLanguage') What language it will have? Ex: 'French'
 
             .form__group
-              input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' value=`${subtitles}` placeholder='Subtitles')
+              input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' placeholder='Subtitles')= subtitles
               label.form__label.label-text(for='showSubtitles') Any subtitles? Ex: 'English'
 
             .form__group
@@ -137,11 +137,11 @@ block content
                   h1.heading-primary Change Your Show's Price
 
             .form__group
-              input#showPrice.form__input.input-text(type='number' name='showPrice' value=`${show.price}` placeholder='Show Price*' required)
+              input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' required)= show.price
               label.form__label.label-text(for='showPrice') Please enter your price on the show.
 
             .form__group
-              input#showDiscount.form__input.input-text(type='number' name='showDiscount' value=`${show.priceDiscount}` placeholder='Discount')
+              input#showDiscount.form__input.input-text(type='number' name='showDiscount' placeholder='Discount')= show.priceDiscount
               label.form__label.label-text(for='showDiscount') Enter a discount below the normal price.
 
             .form__group
