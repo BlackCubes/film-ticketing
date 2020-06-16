@@ -35,10 +35,11 @@ block content
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
                     - var monthValue = show.originalReleaseDate.toLocaleString('en-us', {month: 'long'})
-                    - console.log('Month value: ', monthValue)
 
                     each month in months
-                      option(value=`${month}`)= month
+                      - var monthSelected = (monthValue === month) ? true : false
+
+                      option(value=`${month}`, selected=(monthSelected))= month
 
                 .form__date-day
                   select#showOriginalDay.dropdown(name='selectOriginalDay' tabindex='0' required)
