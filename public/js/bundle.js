@@ -15457,7 +15457,7 @@ if (updateShowAddl) {
 if (updateShowPrice) {
   updateShowPrice.addEventListener('submit', /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(e) {
-      var selectSpecialVenue, specialVenueValue, specialVenue, price, priceDiscount;
+      var selectSpecialVenue, specialVenueValue, specialVenue, price;
       return regeneratorRuntime.wrap(function _callee8$(_context8) {
         while (1) {
           switch (_context8.prev = _context8.next) {
@@ -15466,12 +15466,11 @@ if (updateShowPrice) {
               selectSpecialVenue = document.getElementById('showSpecialVenue');
               specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
               specialVenue = specialVenueValue === 'y' ? true : false;
-              price = document.getElementById('showPrice').value, priceDiscount = parseFloat(document.getElementById('showDiscount').value);
+              price = document.getElementById('showPrice').value;
               document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
               _context8.next = 8;
               return (0, _updateSettings.updateShowSettings)({
                 price: price,
-                priceDiscount: priceDiscount,
                 specialVenue: specialVenue
               }, 'pricing');
 

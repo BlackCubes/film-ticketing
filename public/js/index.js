@@ -397,12 +397,11 @@ if (updateShowPrice) {
       selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
     const specialVenue = specialVenueValue === 'y' ? true : false;
 
-    const price = document.getElementById('showPrice').value,
-      priceDiscount = parseFloat(document.getElementById('showDiscount').value);
+    const price = document.getElementById('showPrice').value;
 
     document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
 
-    await updateShowSettings({ price, priceDiscount, specialVenue }, 'pricing');
+    await updateShowSettings({ price, specialVenue }, 'pricing');
 
     document.getElementById('btnUpdateShowPrice').textContent =
       'Update Pricing';
