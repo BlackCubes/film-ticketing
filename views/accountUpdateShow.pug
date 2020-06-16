@@ -11,13 +11,13 @@ block content
                 h1.heading-primary Your Show Settings
             
             .form__group
-              input#showTitle.form__input.input-text(type='text' name='showTitle' value=`${show.title}` placeholder='Title')
+              input#showTitle.form__input.input-text(type='text' name='showTitle' value=`${show.title}` placeholder='Title*' required)
               label.form__label.label-text(for='showTitle') Please give a title for your show.
 
             .form__group
               .form__mpaa
-                select#selectMpaa.dropdown(name='selectMpaa' tabindex='0')
-                  option(value) MPAA Rating
+                select#selectMpaa.dropdown(name='selectMpaa' tabindex='0' required)
+                  option(value) MPAA Rating*
 
                   - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
 
@@ -27,8 +27,8 @@ block content
             .form__group
               .form__date
                 .form__date-month
-                  select#showOriginalMonth.dropdown(name='selectOriginalMonth' tabindex='0')
-                    option(value) Original Month
+                  select#showOriginalMonth.dropdown(name='selectOriginalMonth' tabindex='0' required)
+                    option(value) Original Month*
 
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -36,7 +36,7 @@ block content
                       option(value=`${month}`)= month
 
                 .form__date-day
-                  select#showOriginalDay.dropdown(name='selectOriginalDay' tabindex='0')
+                  select#showOriginalDay.dropdown(name='selectOriginalDay' tabindex='0' required)
                     option(value) Day
 
                     - const days = [...Array(32).keys()].splice(1)
@@ -45,7 +45,7 @@ block content
                       option(value=`${day}`)= day
 
                 .form__date-year
-                  select#showOriginalYear.dropdown(name='selectOriginalYear' tabindex='0')
+                  select#showOriginalYear.dropdown(name='selectOriginalYear' tabindex='0' required)
                     option(value) Year
 
                     - const now = new Date().getFullYear()
@@ -55,14 +55,14 @@ block content
                       option(value=`${year}`)= year
 
             .form__group
-              input#showDuration.form__input.input-text(type='number' name='showDuration' value=`${show.duration}` placeholder='Duration')
+              input#showDuration.form__input.input-text(type='number' name='showDuration' value=`${show.duration}` placeholder='Duration*' required)
               label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
             .form__group
               .form__photo-upload
                 img.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
-                input#showPhoto.form__upload(type='file' accept='image/*' name='poster')
-                label(for='showPhoto') Choose a different poster
+                input#showPhoto.form__upload(type='file' accept='image/*' name='poster' required)
+                label(for='showPhoto') Choose a different poster*
 
             .form__group
               button#btnUpdateShowData.btn.btn--blue(type='submit' name='btnUpdateShowData') Update Show Settings
@@ -76,7 +76,7 @@ block content
                 h1.heading-primary Change Your Show's Plot
             
             .form__group
-              textarea#showOverview.form__text-area.input-text(name='textareaOverview' value=`${show.overview}` placeholder='Show Overview')
+              textarea#showOverview.form__text-area.input-text(name='textareaOverview' value=`${show.overview}` placeholder='Show Overview*' required)
               label.form__label.label-text(for='showOverview') Please provide a short synopsis i.e. overview or logline.
 
             .form__group
@@ -96,8 +96,8 @@ block content
 
             .form__group
               .form__content-type
-                select#showContentType.dropdown(name='selectContentType' tabindex='0')
-                  option(value) Content Select
+                select#showContentType.dropdown(name='selectContentType' tabindex='0' required)
+                  option(value) Content Select*
                   option(value='Film') Film
                   option(value='TV') TV
 
@@ -137,7 +137,7 @@ block content
                   h1.heading-primary Change Your Show's Price
 
             .form__group
-              input#showPrice.form__input.input-text(type='number' name='showPrice' value=`${show.price}` placeholder='Show Price')
+              input#showPrice.form__input.input-text(type='number' name='showPrice' value=`${show.price}` placeholder='Show Price*' required)
               label.form__label.label-text(for='showPrice') Please enter your price on the show.
 
             .form__group
