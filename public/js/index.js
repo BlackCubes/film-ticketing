@@ -6,7 +6,7 @@ import { displayMap } from './mapbox';
 import CircleNav from './circleNav';
 import { MultiForm } from './multiForm';
 import { login, logout, register, forgotPassword, createShow } from './login';
-import { updateSettings } from './updateSettings';
+import { updateSettings, updateShowSettings } from './updateSettings';
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
@@ -307,6 +307,50 @@ if (eoFieldlist1) {
 }
 
 if (updateShowMainView) {
+  updateShowMainView.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const form = new FormData();
+
+    const selectMpaa = document.getElementById('selectMpaa'),
+      selectOriginalMonth = document.getElementById('showOriginalMonth'),
+      selectOriginalDay = document.getElementById('showOriginalDay'),
+      selectOriginalYear = document.getElementById('showOriginalYear');
+
+    const originalMonth =
+        selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
+      originalDay =
+        selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
+      originalYear =
+        selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+
+    const mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
+      originalReleaseDate = originalYear.concat(
+        '-',
+        originalMonth,
+        '-',
+        originalDay
+      );
+
+    const title = document.getElementById('showTitle').value,
+      duration = document.getElementById('showDuration').value,
+      poster = document.getElementById('showPhoto').files[0];
+
+    document.getElementById('btnUpdateShowData').textContent = 'Creating...';
+
+    form.append('title', title);
+    form.append('duration', duration);
+    form.append('mpaaRating', mpaaRating);
+    form.append('originalReleaseDate', originalReleaseDate);
+    form.append('poster', poster);
+
+    await updateShowSettings(form);
+
+    document.getElementById('btnUpdateShowData').textContent =
+      'Update Show Settings';
+
+    document.getElementById('showPhoto').files[0] = '';
+  });
 }
 
 if (updateShowPlot) {

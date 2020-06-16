@@ -15342,7 +15342,46 @@ if (eoFieldlist1) {
   }());
 }
 
-if (updateShowMainView) {}
+if (updateShowMainView) {
+  updateShowMainView.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(e) {
+      var form, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, originalMonth, originalDay, originalYear, mpaaRating, originalReleaseDate, title, duration, poster;
+      return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              e.preventDefault();
+              form = new FormData();
+              selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear');
+              originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+              mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay);
+              title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, poster = document.getElementById('showPhoto').files[0];
+              document.getElementById('btnUpdateShowData').textContent = 'Creating...';
+              form.append('title', title);
+              form.append('duration', duration);
+              form.append('mpaaRating', mpaaRating);
+              form.append('originalReleaseDate', originalReleaseDate);
+              form.append('poster', poster);
+              _context5.next = 14;
+              return (0, _updateSettings.updateShowSettings)(form);
+
+            case 14:
+              document.getElementById('btnUpdateShowData').textContent = 'Update Show Settings';
+              document.getElementById('showPhoto').files[0] = '';
+
+            case 16:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }));
+
+    return function (_x5) {
+      return _ref5.apply(this, arguments);
+    };
+  }());
+}
 
 if (updateShowPlot) {}
 
