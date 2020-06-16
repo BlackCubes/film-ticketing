@@ -47,8 +47,12 @@ block content
 
                     - const days = [...Array(32).keys()].splice(1)
 
+                    - var dayValue = show.originalReleaseDate.toLocaleString('en-us', {day: 'numeric'})
+
                     each day in days
-                      option(value=`${day}`)= day
+                      - var daySelected = (dayValue === day) ? true : false
+
+                      option(value=`${day}`, selected=(daySelected))= day
 
                 .form__date-year
                   select#showOriginalYear.dropdown(name='selectOriginalYear' tabindex='0' required)
@@ -57,8 +61,12 @@ block content
                     - const now = new Date().getFullYear()
                     - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
 
+                    - var yearValue = show.originalReleaseDate.toLocaleString('en-us', {year: 'numeric'})
+
                     each year in years
-                      option(value=`${year}`)= year
+                      - var yearSelected = (yearValue === year) ? true : false
+
+                      option(value=`${year}`, selected=(yearSelected))= year
 
             .form__group
               input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' value=`${show.duration}` required)
