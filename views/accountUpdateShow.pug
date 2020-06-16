@@ -35,6 +35,9 @@ block content
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
                     each month in months
+                      - var monthValue = show.originalReleaseDate.toLocaleString('en-us', {month: long})
+                      - console.log('Month value: ', monthValue)
+
                       option(value=`${month}`)= month
 
                 .form__date-day
