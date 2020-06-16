@@ -14619,7 +14619,7 @@ exports.createShow = createShow;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateSettings = void 0;
+exports.updateShowSettings = exports.updateSettings = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14673,6 +14673,52 @@ var updateSettings = /*#__PURE__*/function () {
   return function updateSettings(_x, _x2) {
     return _ref.apply(this, arguments);
   };
+}(); // THINK ABOUT HOW TO IMPLEMENT ADMIN!
+
+
+exports.updateSettings = updateSettings;
+
+var updateShowSettings = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data, slug) {
+    var res;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            _context2.next = 3;
+            return (0, _axios.default)({
+              method: 'PATCH',
+              url: "http://127.0.0.1:3000/api/v1/shows/updateMyShow/".concat(slug),
+              data: data
+            });
+
+          case 3:
+            res = _context2.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', 'Your show has been updated!');
+            }
+
+            _context2.next = 10;
+            break;
+
+          case 7:
+            _context2.prev = 7;
+            _context2.t0 = _context2["catch"](0);
+            (0, _alerts.showAlert)('error', _context2.t0.response.data.message);
+
+          case 10:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, null, [[0, 7]]);
+  }));
+
+  return function updateShowSettings(_x3, _x4) {
+    return _ref2.apply(this, arguments);
+  };
 }(); // export const updatePersonalData = async (name, birthdate, gender) => {
 //   try {
 //     const res = await axios({
@@ -14710,7 +14756,7 @@ var updateSettings = /*#__PURE__*/function () {
 // };
 
 
-exports.updateSettings = updateSettings;
+exports.updateShowSettings = updateShowSettings;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
