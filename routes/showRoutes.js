@@ -27,11 +27,15 @@ router.route('/:id').get(showController.getShow);
 // PROTECT ALL OTHER ROUTES LEAKING
 router.use(authController.protect);
 
-router.get(
-  '/getMyShows',
-  authController.restrictTo('event-owner'),
-  showController.getMyShows
-);
+router
+  .route('/getMyShows')
+  .get(authController.restrictTo('event-owner'), showController.getMyShows);
+
+// router.get(
+//   '/getMyShows',
+//   authController.restrictTo('event-owner'),
+//   showController.getMyShows
+// );
 
 router.post(
   '/createMyShow',
