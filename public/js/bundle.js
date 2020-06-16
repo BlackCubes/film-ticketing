@@ -14679,44 +14679,45 @@ var updateSettings = /*#__PURE__*/function () {
 exports.updateSettings = updateSettings;
 
 var updateShowSettings = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data, slug) {
-    var res;
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data) {
+    var slug, res;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
-            _context2.next = 3;
+            slug = window.location.pathname.split('/')[2];
+            _context2.next = 4;
             return (0, _axios.default)({
               method: 'PATCH',
               url: "http://127.0.0.1:3000/api/v1/shows/updateMyShow/".concat(slug),
               data: data
             });
 
-          case 3:
+          case 4:
             res = _context2.sent;
 
             if (res.data.status === 'success') {
               (0, _alerts.showAlert)('success', 'Your show has been updated!');
             }
 
-            _context2.next = 10;
+            _context2.next = 11;
             break;
 
-          case 7:
-            _context2.prev = 7;
+          case 8:
+            _context2.prev = 8;
             _context2.t0 = _context2["catch"](0);
             (0, _alerts.showAlert)('error', _context2.t0.response.data.message);
 
-          case 10:
+          case 11:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 7]]);
+    }, _callee2, null, [[0, 8]]);
   }));
 
-  return function updateShowSettings(_x3, _x4) {
+  return function updateShowSettings(_x3) {
     return _ref2.apply(this, arguments);
   };
 }(); // export const updatePersonalData = async (name, birthdate, gender) => {
