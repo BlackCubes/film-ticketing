@@ -1,8 +1,11 @@
 const express = require('express');
 const userController = require('./../controllers/userController');
 const authController = require('./../controllers/authController');
+const showRouter = require('./showRoutes');
 
 const router = express.Router({ mergeParams: true });
+
+router.use('/:userId/shows', showRouter);
 
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
