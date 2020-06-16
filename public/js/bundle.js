@@ -15367,9 +15367,8 @@ if (updateShowMainView) {
 
             case 14:
               document.getElementById('btnUpdateShowData').textContent = 'Update Show Settings';
-              document.getElementById('showPhoto').files[0] = '';
 
-            case 16:
+            case 15:
             case "end":
               return _context5.stop();
           }

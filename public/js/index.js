@@ -345,8 +345,6 @@ if (updateShowMainView) {
 
     document.getElementById('btnUpdateShowData').textContent =
       'Update Show Settings';
-
-    document.getElementById('showPhoto').files[0] = '';
   });
 }
 
