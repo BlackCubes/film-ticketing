@@ -55,7 +55,7 @@ block content
                       option(value=`${year}`)= year
 
             .form__group
-              input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' required)= show.duration
+              input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' value=`${show.duration}` required)
               label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
             .form__group
@@ -114,15 +114,15 @@ block content
             - console.log('Subtitles: ', subtitles)
 
             .form__group
-              input#showGenre.form__input.input-text(type='text' name='showGenre' placeholder='Genre(s)')= genres
+              input#showGenre.form__input.input-text(type='text' name='showGenre' placeholder='Genre(s)' value=`${genres}`)
               label.form__label.label-text(for='showGenre') What genre(s) is it?
 
             .form__group
-              input#showLanguage.form__input.input-text(type='text' name='showLanguage' placeholder='Language')= languages
+              input#showLanguage.form__input.input-text(type='text' name='showLanguage' placeholder='Language' value=`${languages}`)
               label.form__label.label-text(for='showLanguage') What language it will have? Ex: 'French'
 
             .form__group
-              input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' placeholder='Subtitles')= subtitles
+              input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' placeholder='Subtitles' value=`${subtitles}`)
               label.form__label.label-text(for='showSubtitles') Any subtitles? Ex: 'English'
 
             .form__group
@@ -137,11 +137,11 @@ block content
                   h1.heading-primary Change Your Show's Price
 
             .form__group
-              input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' required)= show.price
+              input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' value=`${show.price}` required)
               label.form__label.label-text(for='showPrice') Please enter your price on the show.
 
             .form__group
-              input#showDiscount.form__input.input-text(type='number' name='showDiscount' placeholder='Discount')= show.priceDiscount
+              input#showDiscount.form__input.input-text(type='number' name='showDiscount' placeholder='Discount' value=`${show.priceDiscount}`)
               label.form__label.label-text(for='showDiscount') Enter a discount below the normal price.
 
             .form__group
