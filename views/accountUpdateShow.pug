@@ -17,14 +17,14 @@ block content
             .form__group
               .form__mpaa
                 select#selectMpaa.dropdown(name='selectMpaa' tabindex='0' required)
-                  option(value) MPAA Rating*
+                  option(value, selected= true) MPAA Rating*
 
                   - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
 
                   each mpaa in mpaaList
-                    - const mpaaSelected = (show.mpaa === mpaa) ? {'selected': 'selected'} : ''
+                    - var mpaaSelected = (show.mpaaRating === mpaa) ? true : false
 
-                    option(value=`${mpaa}`)&attributes(mpaaSelected)= mpaa
+                    option(value=`${mpaa}`, selected=(mpaaSelected))= mpaa
             
             .form__group
               .form__date
