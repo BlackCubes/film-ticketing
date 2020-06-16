@@ -157,9 +157,12 @@ block content
             .form__group
               .form__special-venue
                 select#showSpecialVenue.dropdown(name='selectSpecialVenue' tabindex='0')
-                  option(value) Special Venue
-                  option(value='y') Yes
-                  option(value='n') No
+
+                  - var specialVenueValue = (show.specialVenue === true) ? 'y' : 'n'
+
+                  option(value, selected=(true)) Special Venue
+                  option(value='y', selected=(specialVenueValue === 'y')) Yes
+                  option(value='n', selected=(specialVenueValue === 'n')) No
 
             .form__group
               button#btnUpdateShowPrice.btn.btn--blue(type='submit' name='btnUpdateShowPrice') Update Pricing
