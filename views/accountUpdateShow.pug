@@ -74,6 +74,8 @@ block content
             .form__group
               .form__title.u-center-text
                 h1.heading-primary Change Your Show's Plot
+
+            - console.log(show.overview)
             
             .form__group
               textarea#showOverview.form__text-area.input-text(name='textareaOverview' value=`${show.overview}` placeholder='Show Overview*' required)
