@@ -121,6 +121,9 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
   if (req.body.eventOrganizer)
     return next(new AppError('This route is not for fixing yourself!', 400));
 
+  if (req.body.priceDiscount)
+    return next(new AppError('This route is not for price discounts!'));
+
   const filteredBody = filterObj(
     req.body,
     'title',
@@ -134,7 +137,6 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'contentType',
     'castcrew',
     'price',
-    'priceDiscount',
     'genres',
     'specialVenue'
   );
