@@ -15466,7 +15466,7 @@ if (updateShowPrice) {
               selectSpecialVenue = document.getElementById('showSpecialVenue');
               specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
               specialVenue = specialVenueValue === 'y' ? true : false;
-              price = document.getElementById('showPrice').value, priceDiscount = document.getElementById('showDiscount').value;
+              price = document.getElementById('showPrice').value, priceDiscount = parseFloat(document.getElementById('showDiscount').value);
               document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
               _context8.next = 8;
               return (0, _updateSettings.updateShowSettings)({

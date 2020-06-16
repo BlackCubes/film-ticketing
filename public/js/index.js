@@ -398,7 +398,7 @@ if (updateShowPrice) {
     const specialVenue = specialVenueValue === 'y' ? true : false;
 
     const price = document.getElementById('showPrice').value,
-      priceDiscount = document.getElementById('showDiscount').value;
+      priceDiscount = parseFloat(document.getElementById('showDiscount').value);
 
     document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
 
