@@ -305,3 +305,15 @@ if (eoFieldlist1) {
     document.getElementById('btnCreateShow').textContent = 'Create';
   });
 }
+
+if (updateShowMainView) {
+}
+
+if (updateShowPlot) {
+}
+
+if (updateShowAddl) {
+}
+
+if (updateShowPrice) {
+}
