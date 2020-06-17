@@ -73,7 +73,9 @@ exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
         .jpeg({ quality: 90 })
         .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${filename}`);
 
-      req.body.imgpromo[i].image.urlLarge = filename;
+      console.log(filename);
+
+      // req.body.imgpromo.image.urlLarge = filename;
     })
   );
 
