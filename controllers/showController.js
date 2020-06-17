@@ -59,16 +59,25 @@ exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
 
 exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
   console.log(req.files);
-  // if (!req.files.imgPromo) return next();
+  if (!req.files.imgPromo) return next();
 
-  // req.body.imgPromo = `show-${req.params.slug}-${Date.now()}`;
+  req.body.imgpromo = [];
 
-  // await sharp(req.files.imgPromo[0].buffer)
-  //   .resize(2000, 1333)
-  //   .toFormat('jpeg')
-  //   .jpeg({quality: 90})
-  //   .toFile(`public/img/shows/`);
+  await Promise.all(
+    req.files.map(async (file, i) => {
+      const filename = `show-${req.params.slug}-${Date.now()}-${i + 1}.jpeg`;
 
+      await sharp(file.buffer)
+        .resize(2000, 1333)
+        .toFormat('jpeg')
+        .jpeg({ quality: 90 })
+        .toFile(`public/img/shows/${filename}`);
+
+      req.body.imgpromo.push({ image: { urlLarge: filename } });
+    })
+  );
+
+  console.log(req.body);
   next();
 });
 
