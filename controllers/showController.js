@@ -61,7 +61,7 @@ exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
   console.log(req.files);
   if (!req.files) return next();
 
-  req.body.imgpromo = [{ image: { urlLarge } }];
+  req.body.imgpromo = [{ image: { urlLarge: '' } }];
 
   await Promise.all(
     req.files.map(async (file, i) => {
