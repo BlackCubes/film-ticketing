@@ -171,7 +171,7 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'specialVenue'
   );
   if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
-  // if (req.files) filteredBody.imgpromo = req.files.map((file, i) => {
+  if (req.files) console.log(req.files);
 
   // })
 
