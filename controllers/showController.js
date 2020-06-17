@@ -67,7 +67,7 @@ exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
     req.files.map(async (file, i) => {
       const filename = `show-${req.params.slug}-${Date.now()}-${i + 1}.jpeg`;
 
-      file = filename;
+      // file = filename;
 
       await sharp(file.buffer)
         .resize(2000, 1333)
