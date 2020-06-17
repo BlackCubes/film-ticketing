@@ -171,7 +171,17 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'specialVenue'
   );
   if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
-  if (req.files) console.log(req.files);
+  if (req.files) {
+    const imgpromoData = [];
+
+    filteredBody.imgpromo = req.files.forEach(file => {
+      imgpromoData = [...imgpromoData, { image: { urlLarge: file.filename } }];
+    });
+
+    console.log('Image Promo Data: ', imgpromoData);
+  }
+
+  console.log('Filtered Body Image Promo: ', filteredBody.imgpromo);
 
   // })
 
