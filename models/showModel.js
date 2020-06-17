@@ -107,8 +107,28 @@ const showSchema = new mongoose.Schema(
     genres: String,
     imgpromo: [
       {
-        type: mongoose.Schema.ObjectId,
-        ref: 'ImgPromo'
+        type: String,
+        image: {
+          urlSmall: String,
+          urlLarge: String
+        },
+        max: [10, 'A show could only have up to 10 images!'],
+        title: {
+          type: String,
+          trim: true
+        },
+        caption: {
+          type: String,
+          trim: true
+        },
+        copyright: {
+          type: String,
+          trim: true
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now()
+        }
       }
     ],
     createdAt: {
