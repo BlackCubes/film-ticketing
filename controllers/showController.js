@@ -61,7 +61,7 @@ exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
   console.log(req.files);
   if (!req.files) return next();
 
-  req.body.imgpromo = [];
+  req.body.imgpromo = [{ image: { urlLarge } }];
 
   await Promise.all(
     req.files.map(async (file, i) => {
@@ -73,7 +73,7 @@ exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
         .jpeg({ quality: 90 })
         .toFile(`public/img/shows/${filename}`);
 
-      req.body.imgpromo.push({ image: { urlLarge: filename } });
+      req.body.imgpromo[i].image.urlLarge = filename;
     })
   );
 
