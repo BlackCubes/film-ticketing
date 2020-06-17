@@ -59,7 +59,7 @@ exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
 
 exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
   console.log(req.files);
-  if (!req.files.imgPromo) return next();
+  if (!req.files) return next();
 
   req.body.imgpromo = [];
 
