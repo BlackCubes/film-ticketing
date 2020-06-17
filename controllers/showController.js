@@ -37,6 +37,8 @@ const upload = multer({
 
 exports.uploadShowPhoto = upload.single('poster');
 
+exports.uploadShowPhotoPromo = upload.array('imgPromo', 5);
+
 exports.resizeShowPhotoLarge = (req, res, next) => {
   if (!req.file) return next();
 
