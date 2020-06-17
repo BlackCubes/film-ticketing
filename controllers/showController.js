@@ -39,12 +39,12 @@ exports.uploadShowPhoto = upload.single('poster');
 
 exports.uploadShowPhotoPromo = upload.array('imgPromo', 5);
 
-exports.resizeShowPhotoLarge = (req, res, next) => {
+exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
 
   req.file.filename = `show-${req.user.id}-${Date.now()}.jpeg`;
 
-  sharp(req.file.buffer)
+  await sharp(req.file.buffer)
     .resize({
       width: 853,
       height: 1280,
@@ -55,7 +55,7 @@ exports.resizeShowPhotoLarge = (req, res, next) => {
     .toFile(`public/img/shows/${req.file.filename}`);
 
   next();
-};
+});
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
