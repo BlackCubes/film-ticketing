@@ -45,6 +45,8 @@ router.post(
 router.patch(
   '/updateMyShow/:slug',
   authController.restrictTo('event-owner'),
+  showController.uploadShowPhotoPromo,
+  showController.resizeShowPhotoPromoLarge,
   showController.uploadShowPhoto,
   showController.resizeShowPhotoLarge,
   showController.updateMyShow
