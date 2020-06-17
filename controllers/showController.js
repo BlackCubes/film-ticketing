@@ -79,7 +79,7 @@ exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
     })
   );
 
-  console.log(req.body.imgpromo);
+  console.log(this);
   next();
 });
 
