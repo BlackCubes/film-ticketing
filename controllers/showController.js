@@ -174,9 +174,11 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
   if (req.files) {
     let imgpromoData = [];
 
-    filteredBody.imgpromo = req.files.forEach(file => {
+    req.files.forEach(file => {
       imgpromoData = [...imgpromoData, { image: { urlLarge: file.filename } }];
     });
+
+    filteredBody.imgpromo = imgpromoData;
 
     console.log('Image Promo Data: ', imgpromoData);
   }
