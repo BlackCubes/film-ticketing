@@ -112,7 +112,7 @@ const showSchema = new mongoose.Schema(
           urlSmall: String,
           urlLarge: String
         },
-        max: [10, 'A show could only have up to 10 images!'],
+        max: [5, 'A show could only have up to 5 images!'],
         title: {
           type: String,
           trim: true
