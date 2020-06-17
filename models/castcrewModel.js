@@ -27,8 +27,28 @@ const castcrewSchema = new mongoose.Schema(
     },
     imgpromo: [
       {
-        type: mongoose.Schema.ObjectId,
-        ref: 'ImgPromo'
+        type: String,
+        image: {
+          urlSmall: String,
+          urlLarge: String
+        },
+        max: [5, 'A castcrew could only have 5 images!'],
+        title: {
+          type: String,
+          trim: true
+        },
+        caption: {
+          type: String,
+          trim: true
+        },
+        copyright: {
+          type: String,
+          trim: true
+        },
+        created_at: {
+          type: Date,
+          default: Date.now()
+        }
       }
     ]
   },
