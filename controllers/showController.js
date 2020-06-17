@@ -67,13 +67,15 @@ exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
     req.files.map(async (file, i) => {
       const filename = `show-${req.params.slug}-${Date.now()}-${i + 1}.jpeg`;
 
+      file = filename;
+
       await sharp(file.buffer)
         .resize(2000, 1333)
         .toFormat('jpeg')
         .jpeg({ quality: 90 })
         .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${filename}`);
 
-      // console.log(filename);
+      console.log('File: ', file);
 
       // req.body.imgpromo.image.urlLarge = filename;
     })
@@ -169,7 +171,9 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'specialVenue'
   );
   if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
-  if (req.files) console.log(req.files);
+  // if (req.files) filteredBody.imgpromo = req.files.map((file, i) => {
+
+  // })
 
   const updatedShow = await Show.findOneAndUpdate(
     { slug: req.params.slug, eventOrganizer: req.user.id },
