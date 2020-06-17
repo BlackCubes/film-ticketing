@@ -73,13 +73,13 @@ exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
         .jpeg({ quality: 90 })
         .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${filename}`);
 
-      console.log(filename);
+      // console.log(filename);
 
       // req.body.imgpromo.image.urlLarge = filename;
     })
   );
 
-  console.log(this);
+  // console.log(this);
   next();
 });
 
@@ -169,6 +169,7 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'specialVenue'
   );
   if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
+  if (req.files) console.log(req.files);
 
   const updatedShow = await Show.findOneAndUpdate(
     { slug: req.params.slug, eventOrganizer: req.user.id },
