@@ -209,7 +209,7 @@ showSchema.pre(/^find/, function(next) {
   next();
 });
 
-// -- update the show date if any of the properties except for ratingsAverage and ratingsQuantity
+// -- update the show date if any of the properties changes except for ratingsAverage and ratingsQuantity
 showSchema.pre('save', async function(next) {
   if (
     !this.title ||
@@ -235,6 +235,14 @@ showSchema.pre('save', async function(next) {
     return next();
 
   this.showChangedAt = Date.now() - 1000;
+  next();
+});
+
+// -- update the show imagepromo date if any of the properties changes
+showSchema.pre('save', async function(next) {
+  if (!this.imgpromo) return next();
+
+  this.imgpromoChangedAt = Date.now() - 1000;
   next();
 });
 
