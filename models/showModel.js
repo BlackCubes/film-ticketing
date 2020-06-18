@@ -129,8 +129,7 @@ const showSchema = new mongoose.Schema(
         createdAt: {
           type: Date,
           default: Date.now()
-        },
-        imgpromoChangedAt: Date
+        }
       }
     ],
     createdAt: {
@@ -235,14 +234,6 @@ showSchema.pre('save', async function(next) {
     return next();
 
   this.showChangedAt = Date.now() - 1000;
-  next();
-});
-
-// -- update the show imagepromo date if any of the properties changes
-showSchema.pre('save', async function(next) {
-  if (!this.imgpromo) return next();
-
-  this.imgpromoChangedAt = Date.now() - 1000;
   next();
 });
 
