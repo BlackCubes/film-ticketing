@@ -37,7 +37,7 @@ const upload = multer({
 
 exports.uploadShowPhoto = upload.single('poster');
 
-exports.uploadShowPhotoPromo = upload.array('imgPromo', 5);
+// exports.uploadShowPhotoPromo = upload.array('imgPromo', 5);
 
 exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
@@ -57,33 +57,33 @@ exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
   next();
 });
 
-exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
-  // console.log(req.files);
-  if (!req.files) return next();
+// exports.resizeShowPhotoPromoLarge = catchAsync(async (req, res, next) => {
+//   // console.log(req.files);
+//   if (!req.files) return next();
 
-  req.body.imgpromo = [{ image: { urlLarge: '' } }];
+//   req.body.imgpromo = [{ image: { urlLarge: '' } }];
 
-  await Promise.all(
-    req.files.map(async (file, i) => {
-      const filename = `show-${req.params.slug}-${Date.now()}-${i + 1}.jpeg`;
+//   await Promise.all(
+//     req.files.map(async (file, i) => {
+//       const filename = `show-${req.params.slug}-${Date.now()}-${i + 1}.jpeg`;
 
-      file.filename = filename;
+//       file.filename = filename;
 
-      await sharp(file.buffer)
-        .resize(2000, 1333)
-        .toFormat('jpeg')
-        .jpeg({ quality: 90 })
-        .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${filename}`);
+//       await sharp(file.buffer)
+//         .resize(2000, 1333)
+//         .toFormat('jpeg')
+//         .jpeg({ quality: 90 })
+//         .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${filename}`);
 
-      console.log('File: ', file.filename);
+//       console.log('File: ', file.filename);
 
-      // req.body.imgpromo.image.urlLarge = filename;
-    })
-  );
+//       // req.body.imgpromo.image.urlLarge = filename;
+//     })
+//   );
 
-  // console.log(this);
-  next();
-});
+//   // console.log(this);
+//   next();
+// });
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
@@ -171,19 +171,19 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'specialVenue'
   );
   if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
-  if (req.files) {
-    let imgpromoData = [];
+  // if (req.files) {
+  //   let imgpromoData = [];
 
-    req.files.forEach(file => {
-      imgpromoData = [...imgpromoData, { image: { urlLarge: file.filename } }];
-    });
+  //   req.files.forEach(file => {
+  //     imgpromoData = [...imgpromoData, { image: { urlLarge: file.filename } }];
+  //   });
 
-    filteredBody.imgpromo = imgpromoData;
+  //   filteredBody.imgpromo = imgpromoData;
 
-    console.log('Image Promo Data: ', imgpromoData);
-  }
+  //   console.log('Image Promo Data: ', imgpromoData);
+  // }
 
-  console.log('Filtered Body Image Promo: ', filteredBody.imgpromo);
+  // console.log('Filtered Body Image Promo: ', filteredBody.imgpromo);
 
   // })
 
