@@ -1,3 +1,4 @@
+const fs = require('fs');
 const multer = require('multer');
 const sharp = require('sharp');
 const Show = require('./../models/showModel');
@@ -170,7 +171,10 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'genres',
     'specialVenue'
   );
-  if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
+  if (req.file) {
+    console.log(req.file.path);
+    filteredBody.poster = { urlLarge: req.file.filename };
+  }
   // if (req.files) {
   //   let imgpromoData = [];
 
