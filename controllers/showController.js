@@ -71,7 +71,7 @@ exports.deletePoster = catchAsync(async (req, res, next) => {
     return next(new AppError('This route is for updating posters!', 400));
 
   const unlinkAsync = promisify(fs.unlink);
-  const posterPath = `${__dirname}/public/img/shows/${req.params.poster}`;
+  const posterPath = `${__dirname}/public/img/shows/${req.params.showPoster}`;
 
   console.log(posterPath);
 
