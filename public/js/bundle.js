@@ -15351,7 +15351,7 @@ if (eoFieldlist1) {
 if (updateShowMainView) {
   updateShowMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(e) {
-      var form, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, originalMonth, originalDay, originalYear, mpaaRating, originalReleaseDate, title, duration, poster;
+      var form, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, originalMonth, originalDay, originalYear, mpaaRating, originalReleaseDate, title, duration, poster, posterUrlArr, posterParams;
       return regeneratorRuntime.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
@@ -15362,19 +15362,21 @@ if (updateShowMainView) {
               originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
               mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
               title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, poster = document.getElementById('showPhoto').files[0];
+              posterUrlArr = document.getElementById('posterSource').src.split('/');
+              posterParams = posterUrlArr[posterUrlArr.length - 1];
               document.getElementById('btnUpdateShowData').textContent = 'Updating...';
               form.append('title', title);
               form.append('duration', duration);
               form.append('mpaaRating', mpaaRating);
               form.append('originalReleaseDate', originalReleaseDate);
               form.append('poster', poster);
-              _context5.next = 14;
-              return (0, _updateSettings.updateShowSettings)(form, 'setting');
+              _context5.next = 16;
+              return (0, _updateSettings.updateShowSettings)(form, 'setting', posterParams);
 
-            case 14:
+            case 16:
               document.getElementById('btnUpdateShowData').textContent = 'Update Show Settings';
 
-            case 15:
+            case 17:
             case "end":
               return _context5.stop();
           }

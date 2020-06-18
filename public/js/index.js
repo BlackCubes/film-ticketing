@@ -333,6 +333,9 @@ if (updateShowMainView) {
       duration = document.getElementById('showDuration').value,
       poster = document.getElementById('showPhoto').files[0];
 
+    const posterUrlArr = document.getElementById('posterSource').src.split('/');
+    const posterParams = posterUrlArr[posterUrlArr.length - 1];
+
     document.getElementById('btnUpdateShowData').textContent = 'Updating...';
 
     form.append('title', title);
@@ -341,7 +344,7 @@ if (updateShowMainView) {
     form.append('originalReleaseDate', originalReleaseDate);
     form.append('poster', poster);
 
-    await updateShowSettings(form, 'setting');
+    await updateShowSettings(form, 'setting', posterParams);
 
     document.getElementById('btnUpdateShowData').textContent =
       'Update Show Settings';
