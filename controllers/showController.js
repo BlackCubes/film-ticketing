@@ -55,8 +55,7 @@ exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
     })
     .toFormat('jpeg')
     .jpeg({ quality: 95 })
-    .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${req.file.filename}`);
-  // .toFile(`public/img/shows/${req.file.filename}`);
+    .toFile(`public/img/shows/${req.file.filename}`);
 
   next();
 });
@@ -72,7 +71,8 @@ exports.deletePoster = catchAsync(async (req, res, next) => {
     return next(new AppError('This route is for updating posters!', 400));
 
   const unlinkAsync = promisify(fs.unlink);
-  const posterPath = path.join('public/img/shows/', req.params.showPoster);
+  // const posterPath = path.join('public/img/shows/', req.params.showPoster);
+  const posterPath = `C:\\Users\\mrdrp\\Desktop\\output\\${req.params.showPoster}`;
   console.log(posterPath);
 
   // sharp.cache(false);
