@@ -2,12 +2,17 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 
-export const updateSettings = async (data, type) => {
+export const updateSettings = async (data, type, photoParams = '') => {
   try {
-    const url =
+    let url =
       type === 'password'
         ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword'
         : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+
+    url =
+      photoParams === ''
+        ? url
+        : `http://127.0.0.1:3000/api/v1/users/updateMe/${photoParams}`;
 
     const res = await axios({
       method: 'PATCH',

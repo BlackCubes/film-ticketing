@@ -14633,41 +14633,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var updateSettings = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, type) {
-    var url, res;
+    var photoParams,
+        url,
+        res,
+        _args = arguments;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
+            photoParams = _args.length > 2 && _args[2] !== undefined ? _args[2] : '';
+            _context.prev = 1;
             url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
-            _context.next = 4;
+            url = photoParams === '' ? url : "http://127.0.0.1:3000/api/v1/users/updateMe/".concat(photoParams);
+            _context.next = 6;
             return (0, _axios.default)({
               method: 'PATCH',
               url: url,
               data: data
             });
 
-          case 4:
+          case 6:
             res = _context.sent;
 
             if (res.data.status === 'success') {
               (0, _alerts.showAlert)('success', "Your ".concat(type, " has been updated!"));
             }
 
-            _context.next = 11;
+            _context.next = 13;
             break;
 
-          case 8:
-            _context.prev = 8;
-            _context.t0 = _context["catch"](0);
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](1);
             (0, _alerts.showAlert)('error', _context.t0.response.data.message);
 
-          case 11:
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee, null, [[1, 10]]);
   }));
 
   return function updateSettings(_x, _x2) {
