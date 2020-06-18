@@ -73,6 +73,8 @@ exports.deletePoster = catchAsync(async (req, res, next) => {
   const unlinkAsync = promisify(fs.unlink);
   const posterPath = `${__dirname}/public/img/shows/${req.params.poster}`;
 
+  console.log(posterPath);
+
   await unlinkAsync(posterPath);
 
   next();
