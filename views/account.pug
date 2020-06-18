@@ -11,46 +11,58 @@ block content
                 h1.heading-primary Your Account Settings
 
             .form__group
-              input#name.form__input.input-text(type='text' placeholder=`${user.name}`)
+              input#name.form__input.input-text(type='text' placeholder='Name*' value=`${user.name}` required)
               label.form__label.label-text(for='name') Please enter your name.
 
             .form__group
               .form__date
                 .form__date-month
-                  select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0')
-                    option(value) Birth Month
+                  select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
+                    option(value, selected=(true)) Birth Month
 
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+                    - var monthValue = user.birthdate.toLocaleString('en-us', {month: 'long'})
+
                     each month in months
-                      option(value=`${month}`)= month
+                      - var monthSelected = (monthValue === month) ? true : false
+
+                      option(value=`${month}`, selected=(monthSelected))= month
 
                 .form__date-day
-                  select#selectBirthDay.dropdown(name='select-birthdat' tabindex='0')
-                    option(value) Day
+                  select#selectBirthDay.dropdown(name='select-birthday' tabindex='0' required)
+                    option(value, selected=(true)) Day
 
                     - const days = [...Array(32).keys()].splice(1)
 
+                    - var dayValue = user.birthdate.toLocaleString('en-us', {day: 'numeric'})
+
                     each day in days
-                      option(value=`${day}`)= day
+                      - var daySelected = (dayValue == day) ? true : false
+
+                      option(value=`${day}`, selected=(daySelected))= day
 
                 .form__date-year
-                  select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0')
+                  select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
                     option(value) Year
 
                     - const now = new Date().getFullYear()
                     - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
 
+                    - var yearValue = user.birthdate.toLocaleString('en-us', {year: 'numeric'})
+
                     each year in years
-                      option(value=`${year}`)= year
+                      - var yearSelected = (yearValue == year) ? true : false
+
+                      option(value=`${year}`, selected=(yearSelected))= year
 
             .form__group
               .form__gender
-                select#selectGender.dropdown(name='select-gender' tabindex='0')
-                  option(value) Gender Select
-                  option(value='f') Female
-                  option(value='m') Male
-                  option(value='p') Prefer not to say
+                select#selectGender.dropdown(name='select-gender' tabindex='0', required)
+                  option(value, selected=(true)) Gender Select
+                  option(value='f', selected=(user.gender === 'f')) Female
+                  option(value='m', selected=(user.gender === 'm')) Male
+                  option(value='p', selected=(user.gender === 'p')) Prefer not to say
 
             .form__group
               .form__photo-upload
@@ -71,11 +83,11 @@ block content
                 h1.heading-primary Change Your Email/Username
 
             .form__group
-              input#email.form__input.input-text(type='email' placeholder=`${user.email}` required)
+              input#email.form__input.input-text(type='email' placeholder='Email address*' value=`${user.email}` required)
               label.form__label.label-text(for='email') Please enter a valid email address.
 
             .form__group
-              input#username.form__input.input-text(type='text' placeholder=`${user.username}` required)
+              input#username.form__input.input-text(type='text' placeholder='Username' value=`${user.username}` required)
               label.form__label.label-text(for='username') Please enter a username
 
             .form__group
