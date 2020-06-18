@@ -24,13 +24,21 @@ export const updateSettings = async (data, type) => {
 };
 
 // THINK ABOUT HOW TO IMPLEMENT ADMIN!
-export const updateShowSettings = async (data, message) => {
+export const updateShowSettings = async (
+  data,
+  message,
+  posterParams = null
+) => {
   try {
     const slug = window.location.pathname.split('/')[2];
+    const url =
+      posterParams === null
+        ? `http://127.0.0.1:3000/api/v1/shows/updateMyShow/${slug}`
+        : `http://127.0.0.1:3000/api/v1/shows/updateMyShow/${slug}/${posterParams}`;
 
     const res = await axios({
       method: 'PATCH',
-      url: `http://127.0.0.1:3000/api/v1/shows/updateMyShow/${slug}`,
+      url,
       data
     });
 
