@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
 const multer = require('multer');
 const sharp = require('sharp');
 const User = require('./../models/userModel');
@@ -49,6 +52,24 @@ exports.resizeUserPhoto = (req, res, next) => {
 
   next();
 };
+
+exports.deletePhoto = catchAsync(async (req, res, next) => {
+  if (!req.params.userPhoto || req.params.userPhoto.split('.')[0] === 'default')
+    return next();
+  if (
+    req.params.userPhoto.split('.')[1] !== 'jpeg' ||
+    req.params.userPhoto.split('-').length !== 3 ||
+    req.params.userPhoto.split('-')[0] !== 'user'
+  )
+    return next(new AppError('This route is for updating photos!', 400));
+
+  const unlinkAsync = promisify(fs.unlink);
+  const photoPath = path.join('public/img/users/', req.params.userPhoto);
+
+  await unlinkAsync(photoPath);
+
+  next();
+});
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
