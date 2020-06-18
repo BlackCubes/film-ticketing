@@ -51,6 +51,7 @@ router.patch(
 router.patch(
   '/updateMyShow/:slug/:showPoster',
   authController.restrictTo('event-owner'),
+  showController.deletePoster,
   showController.uploadShowPhoto,
   showController.resizeShowPhotoLarge,
   showController.updateMyShow
