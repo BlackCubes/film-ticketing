@@ -71,9 +71,8 @@ exports.deletePoster = catchAsync(async (req, res, next) => {
     return next(new AppError('This route is for updating posters!', 400));
 
   const unlinkAsync = promisify(fs.unlink);
-  // const posterPath = path.join('public/img/shows/', req.params.showPoster);
-  const posterPath = `C:\\Users\\mrdrp\\Desktop\\output\\${req.params.showPoster}`;
-  console.log(posterPath);
+  const posterPath = path.join('public/img/shows/', req.params.showPoster);
+  // const posterPath = `C:\\Users\\mrdrp\\Desktop\\output\\${req.params.showPoster}`;
 
   // sharp.cache(false);
 
