@@ -53,7 +53,7 @@ exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
     })
     .toFormat('jpeg')
     .jpeg({ quality: 95 })
-    .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${filename}`);
+    .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${req.file.filename}`);
   // .toFile(`public/img/shows/${req.file.filename}`);
 
   next();
