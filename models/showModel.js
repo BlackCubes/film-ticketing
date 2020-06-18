@@ -107,12 +107,13 @@ const showSchema = new mongoose.Schema(
     genres: String,
     imgpromo: [
       {
-        type: String,
+        type: {
+          type: String
+        },
         image: {
           urlSmall: String,
           urlLarge: String
         },
-        max: [5, 'A show could only have up to 5 images!'],
         title: {
           type: String,
           trim: true
@@ -128,6 +129,12 @@ const showSchema = new mongoose.Schema(
         createdAt: {
           type: Date,
           default: Date.now()
+        },
+        validate: {
+          validator: function() {
+            return this.imgpromo.length <= 5;
+          },
+          message: 'The promotional images exceeds max of 5!'
         }
       }
     ],
