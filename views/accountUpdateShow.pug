@@ -115,10 +115,9 @@ block content
                   option(value='Film', selected=(show.contentType === 'Film')) Film
                   option(value='TV', selected=(show.contentType === 'TV')) TV
 
-            - const genres = (show.genres === '') ? '' : show.genres
-            - console.log(show.genres == '')
-            - const languages = (show.language === '') ? '' : show.language
-            - const subtitles = (show.subtitles === '') ? '' : show.subtitles
+            - const genres = (show.genres == null) ? '' : show.genres
+            - const languages = (show.language == null) ? '' : show.language
+            - const subtitles = (show.subtitles == null) ? '' : show.subtitles
 
             .form__group
               input#showGenre.form__input.input-text(type='text' name='showGenre' placeholder='Genre(s)' value=`${genres}`)
