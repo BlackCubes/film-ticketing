@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const { promisify } = require('util');
 const multer = require('multer');
 const sharp = require('sharp');
@@ -71,7 +72,10 @@ exports.deletePoster = catchAsync(async (req, res, next) => {
     return next(new AppError('This route is for updating posters!', 400));
 
   const unlinkAsync = promisify(fs.unlink);
-  const posterPath = `${__dirname}/public/img/shows/${req.params.showPoster}`;
+  const posterPath = path.join(
+    __dirname,
+    `/public/img/shows/${req.params.showPoster}`
+  );
 
   console.log(posterPath);
 
