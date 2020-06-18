@@ -173,6 +173,7 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'specialVenue'
   );
   if (req.file) {
+    sharp.cache(false);
     console.log(req.file.path);
     filteredBody.poster = { urlLarge: req.file.filename };
   }
