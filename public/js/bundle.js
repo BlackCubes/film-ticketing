@@ -15144,7 +15144,7 @@ if (forgotPassForm) {
 if (updatePersonalForm) {
   updatePersonalForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      var form, selectBirthMonth, selectBirthDay, selectBirthYear, birthMonth, birthDay, birthYear, selectGender, birthdate, name, gender, photo;
+      var form, selectBirthMonth, selectBirthDay, selectBirthYear, birthMonth, birthDay, birthYear, selectGender, birthdate, name, gender, photo, photoUrlArr, photoParams;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -15157,14 +15157,17 @@ if (updatePersonalForm) {
               selectGender = document.getElementById('selectGender');
               birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
               photo = document.getElementById('userPhoto').files[0];
+              photoUrlArr = document.getElementById('photoSource').src.split('/');
+              photoParams = photoUrlArr[photoUrlArr.length - 1];
+              if (!photo) photoParams = '';
               form.append('name', name);
               form.append('birthdate', birthdate);
               form.append('gender', gender);
               form.append('photo', photo);
-              _context.next = 14;
-              return (0, _updateSettings.updateSettings)(form, 'data');
+              _context.next = 17;
+              return (0, _updateSettings.updateSettings)(form, 'data', photoParams);
 
-            case 14:
+            case 17:
               document.getElementById('btnUpdateData').textContent = 'Update Settings';
               document.getElementById('name').value = '';
               selectBirthMonth.options[selectBirthMonth.selectedIndex].value = '';
@@ -15172,7 +15175,7 @@ if (updatePersonalForm) {
               selectBirthYear.options[selectBirthYear.selectedIndex].value = '';
               selectGender.options[selectGender.selectedIndex].value = '';
 
-            case 20:
+            case 23:
             case "end":
               return _context.stop();
           }

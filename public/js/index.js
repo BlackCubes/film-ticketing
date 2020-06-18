@@ -143,12 +143,17 @@ if (updatePersonalForm) {
 
     const photo = document.getElementById('userPhoto').files[0];
 
+    const photoUrlArr = document.getElementById('photoSource').src.split('/');
+    let photoParams = photoUrlArr[photoUrlArr.length - 1];
+
+    if (!photo) photoParams = '';
+
     form.append('name', name);
     form.append('birthdate', birthdate);
     form.append('gender', gender);
     form.append('photo', photo);
 
-    await updateSettings(form, 'data');
+    await updateSettings(form, 'data', photoParams);
 
     document.getElementById('btnUpdateData').textContent = 'Update Settings';
     document.getElementById('name').value = '';
