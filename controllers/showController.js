@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { promisify } = require('util');
 const multer = require('multer');
 const sharp = require('sharp');
 const Show = require('./../models/showModel');
@@ -55,6 +56,24 @@ exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
     .jpeg({ quality: 95 })
     .toFile(`C:\\Users\\mrdrp\\Desktop\\output\\${req.file.filename}`);
   // .toFile(`public/img/shows/${req.file.filename}`);
+
+  next();
+});
+
+exports.deletePoster = catchAsync(async (req, res, next) => {
+  if (!req.params.showPoster) return next();
+  if (
+    req.params.showPoster.split('.')[1] !== 'jpeg' ||
+    req.params.showPoster.split('-').length !== 3 ||
+    req.params.showPoster.split('-')[0] !== 'show' ||
+    req.params.showPoster.length !== 43
+  )
+    return next(new AppError('This route is for updating posters!', 400));
+
+  const unlinkAsync = promisify(fs.unlink);
+  const posterPath = `${__dirname}/public/img/shows/${req.params.poster}`;
+
+  await unlinkAsync(posterPath);
 
   next();
 });
@@ -172,11 +191,7 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'genres',
     'specialVenue'
   );
-  if (req.file) {
-    sharp.cache(false);
-    console.log(req.file.path);
-    filteredBody.poster = { urlLarge: req.file.filename };
-  }
+  if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
   // if (req.files) {
   //   let imgpromoData = [];
 
