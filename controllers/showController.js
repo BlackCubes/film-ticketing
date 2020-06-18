@@ -66,7 +66,7 @@ exports.deletePoster = catchAsync(async (req, res, next) => {
     req.params.showPoster.split('.')[1] !== 'jpeg' ||
     req.params.showPoster.split('-').length !== 3 ||
     req.params.showPoster.split('-')[0] !== 'show' ||
-    req.params.showPoster.length !== 43
+    req.params.showPoster.length !== 48
   )
     return next(new AppError('This route is for updating posters!', 400));
 
