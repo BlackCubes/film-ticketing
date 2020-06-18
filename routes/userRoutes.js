@@ -19,12 +19,17 @@ router.use(authController.protect);
 router.patch('/updateMyPassword', authController.updateMyPassword);
 
 router.get('/me', userController.getMe, userController.getUser);
+
+router.patch('/updateMe', userController.updateMe);
+
 router.patch(
-  '/updateMe',
+  '/updateMe/userPhoto',
+  userController.deletePhoto,
   userController.uploadUserPhoto,
   userController.resizeUserPhoto,
   userController.updateMe
 );
+
 router.delete('/deleteMe', userController.deleteMe);
 
 // RESTRICT ROUTES ONLY TO ADMINS
