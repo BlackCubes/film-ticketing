@@ -129,12 +129,6 @@ const showSchema = new mongoose.Schema(
         createdAt: {
           type: Date,
           default: Date.now()
-        },
-        validate: {
-          validator: function() {
-            return this.imgpromo.length <= 5;
-          },
-          message: 'The promotional images exceeds max of 5!'
         }
       }
     ],
