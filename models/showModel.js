@@ -129,7 +129,8 @@ const showSchema = new mongoose.Schema(
         createdAt: {
           type: Date,
           default: Date.now()
-        }
+        },
+        imgpromoChangedAt: Date
       }
     ],
     createdAt: {
@@ -137,6 +138,7 @@ const showSchema = new mongoose.Schema(
       default: Date.now(),
       select: false
     },
+    showChangedAt: Date,
     specialVenue: {
       type: Boolean,
       default: false
@@ -204,6 +206,35 @@ showSchema.pre(/^find/, function(next) {
     select: '-__v -imgpromo -birthdate -biography'
   });
 
+  next();
+});
+
+// -- update the show date if any of the properties except for ratingsAverage and ratingsQuantity
+showSchema.pre('save', async function(next) {
+  if (
+    !this.title ||
+    !this.originalReleaseDate ||
+    !this.slug ||
+    !this.duration ||
+    !this.mpaaRating ||
+    !this.overview ||
+    !this.synopsis ||
+    !this.poster ||
+    !this.language ||
+    !this.subtitles ||
+    !this.contentType ||
+    !this.castcrew ||
+    !this.price ||
+    !this.priceDiscount ||
+    !this.genres ||
+    !this.imgpromo ||
+    !this.specialVenue ||
+    !this.secretShow ||
+    !this.eventOrganizer
+  )
+    return next();
+
+  this.showChangedAt = Date.now() - 1000;
   next();
 });
 
