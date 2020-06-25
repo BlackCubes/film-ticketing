@@ -83,7 +83,7 @@ app.use('/api/v1/showtimes', showtimesRouter);
 app.use('/api/v1/theaters', theaterRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
-app.use('/ap/v1/tickets', ticketRouter);
+app.use('/api/v1/tickets', ticketRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Could not find ${req.originalUrl} on this server!`, 404));
