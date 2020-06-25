@@ -3,7 +3,7 @@ import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
-// import { ticketShow } from './stripe';
+import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { MultiForm } from './multiForm';
 import { login, logout, register, forgotPassword, createShow } from './login';
@@ -46,7 +46,7 @@ if (ticketBtn) {
   ticketBtn.addEventListener('click', e => {
     e.target.textContent = 'Processing...';
     const { showId } = e.target.dataset;
-    // ticketShow(showId);
+    ticketShow(showId);
   });
 }
 
