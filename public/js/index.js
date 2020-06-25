@@ -3,6 +3,7 @@ import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
 import { displayMap } from './mapbox';
+import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { MultiForm } from './multiForm';
 import { login, logout, register, forgotPassword, createShow } from './login';
@@ -14,6 +15,7 @@ import { updateSettings, updateShowSettings } from './updateSettings';
 
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
+const ticketBtn = document.getElementById('ticketShow');
 const circleNavTrigger = document.getElementById('trigger');
 const loginForm = document.getElementById('loginForm');
 // Possibly change class selector to an id selector for all logout's to use
@@ -38,6 +40,14 @@ const updateShowMainView = document.getElementById('updateShowMainView'),
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
   displayMap(locations);
+}
+
+if (ticketBtn) {
+  ticketBtn.addEventListener('click', e => {
+    e.target.textContent = 'Processing...';
+    const { showId } = e.target.dataset;
+    ticketShow(showId);
+  });
 }
 
 if (circleNavTrigger) {
