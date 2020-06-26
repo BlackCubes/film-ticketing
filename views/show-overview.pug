@@ -93,10 +93,16 @@ block content
             .row__inner
               each review in show.reviews
                 .tile-card
-                  .tile-card__media
-                    img.tile-card__img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name} Photo`)
-                  .tile-card__details
-                    p.tile-card__title= review.review
+                  .tile-card__reviewer
+                    .tile-card__reviewer-photo
+                      img.tile-card__photo-img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name} Photo`)
+                    
+                    .tile-card__reviewer-name
+                      p.paragraph= review.user.name
+
+                  .tile-card__review
+                    p.tile__card__review-stars.average-text= review.rating
+                    p.tile-card__review-text.average-text= `"${review.review}"`
               
 
     section.section-user-review

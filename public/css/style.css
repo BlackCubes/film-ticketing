@@ -274,12 +274,12 @@ body {
     width: 10rem;
     height: 10rem;
     border-radius: 50%; }
-  .tile-card__details {
+  .tile-card__review {
     width: 95%;
     margin-left: auto;
     margin-right: auto; }
-  .tile-card__title {
-    color: white; }
+    .tile-card__review-text {
+      color: white; }
 
 .dropdown {
   font-family: inherit;
