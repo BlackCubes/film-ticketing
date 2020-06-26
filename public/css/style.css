@@ -961,7 +961,8 @@ svg {
   margin-right: auto; }
 
 .section-show-synopsis,
-.section-show-castcrew {
+.section-show-castcrew,
+.section-show-reviews {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
