@@ -297,6 +297,8 @@ body {
     margin-right: auto; }
     .tile-card__review-text {
       color: white; }
+  .tile-card:first-child:hover {
+    margin-left: 5rem; }
   .tile-card:hover ~ .tile-card {
     transform: translate3d(12.5rem, 0, 0); }
 
