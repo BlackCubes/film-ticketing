@@ -52,6 +52,7 @@ router.get(
   viewsController.getForgotPasswordForm
 );
 router.get('/me', authController.protect, viewsController.getAccount);
+router.get('/myTickets', authController.protect, viewsController.getMyTickets);
 
 // -- EVENT OWNER ROUTES
 router.get(
