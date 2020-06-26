@@ -3,6 +3,7 @@ const catchAsync = require('./../utils/catchAsync');
 const CastCrew = require('./../models/castcrewModel');
 const Show = require('./../models/showModel');
 const Theater = require('./../models/theaterModel');
+const Ticket = require('./../models/ticketModel');
 const User = require('./../models/userModel');
 
 exports.getHome = catchAsync(async (req, res, next) => {
@@ -112,6 +113,19 @@ exports.getAccount = (req, res) => {
     title: 'My Account'
   });
 };
+
+exports.getMyTickets = catchAsync(async (req, res, next) => {
+  const tickets = await Ticket.find({ user: req.user.id });
+
+  const showIds = tickets.map(el => el.show);
+  const shows = await Show.find({ _id: { $in: showIds } });
+
+  // Check if you can reuse other codes!!!
+  res.status(200).render('shows', {
+    title: 'My Tickets',
+    shows
+  });
+});
 
 // -- EVENT OWNER
 exports.getEventOwnerCreateShow = (req, res) => {
