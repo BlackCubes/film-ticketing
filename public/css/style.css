@@ -614,12 +614,15 @@ svg {
   margin-top: 1.1rem; }
 
 .nav__logo {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%; }
+  display: inline-flex;
+  margin-top: 0.2rem;
+  margin-right: 1rem;
+  padding: 0.7rem;
+  align-items: center; }
   .nav__logo-img {
-    width: 100%;
-    height: 100%; }
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem; }
 
 .nav__user-img {
   width: 3rem;
