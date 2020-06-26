@@ -94,9 +94,9 @@ block content
               each review in show.reviews
                 .tile-card
                   .tile-card__media
-                    img.tile__img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name} Photo`)
+                    img.tile-card__img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name} Photo`)
                   .tile-card__details
-                    .tile__title= review.review
+                    .tile-card__title= review.review
               
 
     section.section-user-review
