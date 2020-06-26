@@ -225,9 +225,11 @@ body {
     padding-bottom: 1rem; }
     .row--scroll .row__inner:hover {
       transform: translate3d(-6.25rem, 0, 0); }
-    .row--scroll .row__inner:hover .tile {
+    .row--scroll .row__inner:hover .tile,
+    .row--scroll .row__inner:hover .tile-card {
       opacity: 0.3; }
-      .row--scroll .row__inner:hover .tile:hover {
+      .row--scroll .row__inner:hover .tile:hover,
+      .row--scroll .row__inner:hover .tile-card:hover {
         transform: scale(1.5);
         opacity: 1; }
 

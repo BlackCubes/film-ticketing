@@ -13,7 +13,8 @@
       transform: translate3d($carousel-move-left, 0, 0);
     }
 
-    &:hover .tile {
+    &:hover .tile,
+    &:hover .tile-card {
       opacity: 0.3;
 
       &:hover {
