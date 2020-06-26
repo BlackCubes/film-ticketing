@@ -1,5 +1,6 @@
 const express = require('express');
 const authController = require('./../controllers/authController');
+const ticketController = require('./../controllers/ticketController';)
 const viewsController = require('./../controllers/viewsController');
 
 const router = express.Router();
@@ -8,7 +9,7 @@ const router = express.Router();
 //   res.status(200).render('base');
 // });
 
-router.get('/', authController.isLoggedIn, viewsController.getHome);
+router.get('/', ticketController.createTicketCheckout, authController.isLoggedIn, viewsController.getHome);
 
 // SHOW ROUTES
 router.get('/shows', authController.isLoggedIn, viewsController.getShows);
