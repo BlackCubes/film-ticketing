@@ -83,6 +83,18 @@ block content
                   .tile__details
                     .tile__title= castcrew.name
 
+    section.section-show-reviews
+      .reviews-box
+        .reviews-box__title.u-margin-top-small.u-margin-bottom-small
+          h2.heading-secondary Reviews
+        .reviews-box__list-container
+        - console.log(show)
+          .row--scroll
+            .row__inner
+              
+
+    section.section-user-review
+
     //- each eventOwner in show.eventOrganizer
     //-   h3= eventOwner.name
     //-   - if (eventOwner.role === 'event-owner')
