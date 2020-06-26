@@ -266,7 +266,7 @@ body {
   height: 34rem;
   text-align: center;
   background-color: green;
-  white-space: nowrap; }
+  white-space: pre-wrap; }
   .tile-card__img {
     width: 10rem;
     height: 10rem;
