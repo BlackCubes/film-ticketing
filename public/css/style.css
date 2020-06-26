@@ -261,7 +261,7 @@ body {
   .tile:hover ~ .tile {
     transform: translate3d(12.5rem, 0, 0); }
 
-.tile--card {
+.tile-card {
   height: 34rem; }
 
 .dropdown {
