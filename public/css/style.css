@@ -271,7 +271,8 @@ body {
   background-color: green;
   white-space: pre-wrap; }
   .tile-card__reviewer {
-    background-color: crimson;
+    background-color: #0067aa;
+    background-image: linear-gradient(180deg, #20b2aa, #0067aa);
     border-bottom: 0.1rem solid black; }
     .tile-card__reviewer-photo {
       padding: 0.5rem; }
