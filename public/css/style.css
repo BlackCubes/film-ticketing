@@ -284,8 +284,6 @@ body {
       padding: 0.5rem; }
     .tile-card__reviewer-name {
       padding: 1rem; }
-    .tile-card__reviewer:hover ~ .tile-card__reviewer {
-      transform: translate3d(12.5rem, 0, 0); }
   .tile-card__photo-img {
     width: 10rem;
     height: 10rem;
@@ -297,6 +295,8 @@ body {
     margin-right: auto; }
     .tile-card__review-text {
       color: white; }
+  .tile-card:hover ~ .tile-card {
+    transform: translate3d(12.5rem, 0, 0); }
 
 .dropdown {
   font-family: inherit;

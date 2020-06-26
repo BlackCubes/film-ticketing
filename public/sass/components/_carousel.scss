@@ -101,10 +101,6 @@
     &-name {
       padding: 1rem;
     }
-
-    &:hover ~ & {
-      transform: translate3d($carousel-move-right, 0, 0);
-    }
   }
 
   &__photo-img {
@@ -122,5 +118,9 @@
     &-text {
       color: white;
     }
+  }
+
+  &:hover ~ & {
+    transform: translate3d($carousel-move-right, 0, 0);
   }
 }
