@@ -10,4 +10,18 @@ router.get(
   ticketController.getCheckoutSession
 );
 
+router.use(authController.protect);
+router.use(authController.restrictTo('admin'));
+
+router
+  .route('/')
+  .get(ticketController.getAllTickets)
+  .post(ticketController.createTicket);
+
+router
+  .route('/:id')
+  .get(ticketController.getTicket)
+  .patch(ticketController.updateTicket)
+  .delete(ticketController.deleteTicket);
+
 module.exports = router;
