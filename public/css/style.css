@@ -266,16 +266,24 @@ body {
 
 .tile-card {
   width: 30rem;
-  height: 34rem;
+  height: 45rem;
   text-align: center;
   background-color: green;
   white-space: pre-wrap; }
+  .tile-card__reviewer {
+    background-color: crimson;
+    border-bottom: 0.1rem solid black; }
+    .tile-card__reviewer-photo {
+      padding: 0.5rem; }
+    .tile-card__reviewer-name {
+      padding: 1rem; }
   .tile-card__photo-img {
     width: 10rem;
     height: 10rem;
     border-radius: 50%; }
   .tile-card__review {
     width: 95%;
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto; }
     .tile-card__review-text {

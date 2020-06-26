@@ -74,10 +74,23 @@
 
 .tile-card {
   width: 30rem;
-  height: 34rem;
+  height: 45rem;
   text-align: center;
   background-color: green;
   white-space: pre-wrap;
+
+  &__reviewer {
+    background-color: crimson;
+    border-bottom: 0.1rem solid black;
+
+    &-photo {
+      padding: 0.5rem;
+    }
+
+    &-name {
+      padding: 1rem;
+    }
+  }
 
   &__photo-img {
     width: 10rem;
@@ -87,6 +100,7 @@
 
   &__review {
     width: 95%;
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 
