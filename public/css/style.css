@@ -268,10 +268,9 @@ body {
   width: 30rem;
   height: 45rem;
   text-align: center;
-  background-color: green;
+  background-color: #0067aa;
   white-space: pre-wrap; }
   .tile-card__reviewer {
-    background-color: #0067aa;
     background-image: linear-gradient(180deg, #20b2aa, #0067aa);
     border-bottom: 0.1rem solid black; }
     .tile-card__reviewer-photo {
