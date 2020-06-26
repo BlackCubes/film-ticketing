@@ -949,11 +949,9 @@ svg {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
-  .section-register .register {
-    height: 80rem; }
-    .section-register .register__form {
-      width: 100%;
-      padding: 1rem; }
+  .section-register .register__form {
+    width: 100%;
+    padding: 1rem; }
 
 .card-container {
   width: 95%;
