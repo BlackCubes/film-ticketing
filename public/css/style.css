@@ -819,7 +819,9 @@ svg {
 
 .section-carousel,
 .section-special-venues {
-  width: 100%; }
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
 
 .section-promo {
   margin-bottom: 2rem; }
@@ -849,7 +851,7 @@ svg {
     position: relative;
     overflow: hidden; }
     .promo__image:before, .promo__image:after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: -1px;
       left: 50%;
@@ -888,7 +890,7 @@ svg {
     position: relative;
     overflow: hidden; }
     .member__image:before, .member__image:after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: -1px;
       left: 50%;
