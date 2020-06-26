@@ -40,18 +40,15 @@ reviewSchema.index({ show: 1, user: 1 }, { unique: true });
 // -- populate the review
 reviewSchema.pre(/^find/, function(next) {
   // If want to populate both show and users
+  this.populate('user').populate({
+    path: 'show',
+    select: 'title slug poster'
+  });
+
   // this.populate({
-  //   path: 'show',
-  //   select: 'title'
-  // }).populate({
   //   path: 'user',
   //   select: 'name photo'
   // });
-
-  this.populate({
-    path: 'user',
-    select: 'name photo'
-  });
 
   next();
 });
