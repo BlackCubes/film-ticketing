@@ -613,6 +613,14 @@ svg {
 .nav__profile--logout {
   margin-top: 1.1rem; }
 
+.nav__logo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%; }
+  .nav__logo-img {
+    width: 100%;
+    height: 100%; }
+
 .nav__user-img {
   width: 3rem;
   height: 3rem;
