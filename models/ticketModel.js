@@ -30,6 +30,8 @@ ticketSchema.pre(/^find/, function(next) {
     path: 'show',
     select: 'title'
   });
+
+  next();
 });
 
 const Ticket = mongoose.model('Ticket', ticketSchema);
