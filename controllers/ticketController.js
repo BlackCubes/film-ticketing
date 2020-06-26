@@ -1,7 +1,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Show = require('./../models/showModel');
+const Ticket = require('./../models/ticketModel');
 const catchAsync = require('./../utils/catchAsync');
-const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
@@ -9,7 +9,9 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
-    success_url: `${req.protocol}://${req.get('host')}/`,
+    success_url: `${req.protocol}://${req.get('host')}/?show=${
+      req.params.showId
+    }&user=${req.user.id}&price=${show.price}`,
     cancel_url: `${req.protocol}://${req.get('host')}/show-overview/${
       show.slug
     }`,
@@ -31,4 +33,14 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     status: 'success',
     session
   });
+});
+
+exports.createTicketCheckout = catchAsync(async (req, res, next) => {
+  const { show, user, price } = req.query;
+
+  if (!show && !user && !price) return next();
+
+  await Ticket.create({ show, user, price });
+
+  res.redirect(req.originalUrl.split('?')[0]);
 });
