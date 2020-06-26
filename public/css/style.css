@@ -270,7 +270,7 @@ body {
   text-align: center;
   background-color: green;
   white-space: pre-wrap; }
-  .tile-card__img {
+  .tile-card__photo-img {
     width: 10rem;
     height: 10rem;
     border-radius: 50%; }
