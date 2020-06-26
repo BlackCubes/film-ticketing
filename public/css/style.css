@@ -263,6 +263,10 @@ body {
 
 .tile-card {
   height: 34rem; }
+  .tile-card__img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%; }
 
 .dropdown {
   font-family: inherit;

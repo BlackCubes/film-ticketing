@@ -74,4 +74,10 @@
 
 .tile-card {
   height: 34rem;
+
+  &__img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+  }
 }
