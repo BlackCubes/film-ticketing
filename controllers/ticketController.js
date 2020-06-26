@@ -44,3 +44,9 @@ exports.createTicketCheckout = catchAsync(async (req, res, next) => {
 
   res.redirect(req.originalUrl.split('?')[0]);
 });
+
+exports.getAllTickets = factory.getAll(Ticket);
+exports.getTicket = factory.getOne(Ticket);
+exports.createTicket = factory.createOne(Ticket);
+exports.updateTicket = factory.updateOne(Ticket);
+exports.deleteTicket = factory.deleteOne(Ticket);
