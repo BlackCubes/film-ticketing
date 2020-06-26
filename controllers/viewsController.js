@@ -1,6 +1,7 @@
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const CastCrew = require('./../models/castcrewModel');
+const Review = require('./../models/reviewModel');
 const Show = require('./../models/showModel');
 const Theater = require('./../models/theaterModel');
 const Ticket = require('./../models/ticketModel');
@@ -124,6 +125,15 @@ exports.getMyTickets = catchAsync(async (req, res, next) => {
   res.status(200).render('shows', {
     title: 'My Tickets',
     shows
+  });
+});
+
+exports.getMyReviews = catchAsync(async (req, res, next) => {
+  const reviews = await Review.find({ user: req.user.id });
+
+  res.status(200).render('reviews', {
+    title: 'My Reviews',
+    reviews
   });
 });
 
