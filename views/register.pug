@@ -5,71 +5,81 @@ block content
     section.section-register
       .row
         .register
-          .register__form
-            form#registerForm.form
-              .form__group
-                .form__title.u-center-text
-                  h1.heading-primary.u-margin-bottom-small Create Your Account
+          .register__form.form-container__multiform
+            .form-container__title.u-center-text.u-margin-bottom-small
+              h1.heading-primary.u-margin-bottom-small Create Your Account
 
-                  small.form__info-small.small-text Use your email and password to watch your favorite shows.
+            form#registerForm.form.form__multiform.form__multiform--second
+              fieldset#registerFieldlist1.form__fieldset.form__fieldset--second(name='registerFieldlist1')
+                .form__group.u-center-text.u-margin-bottom-small
+                  small.form__info-small.small-text Use your email and password to watch your favorite shows! Fields with * are required.
               
-              .form__group
-                input#email.form__input.input-text(type='email' placeholder='Email address' required)
-                label.form__label.label-text(for='email') Please enter a valid email address.
+                .form__group
+                  input#email.form__input.input-text(type='email' placeholder='Email address*' required)
+                  label.form__label.label-text(for='email') Please enter a valid email address.
               
-              .form__group
-                input#username.form__input.input-text(type='text' placeholder='Username' required)
-                label.form__label.label-text(for='username') Please enter a username
-              
-              .form__group
-                input#password.form__input.input-text(type='password' placeholder='••••••' required)
-                label.form__label.label-text(for='password') Your password must container between 8 and 60 characters.
+                .form__group
+                  input#password.form__input.input-text(type='password' placeholder='••••••' required)
+                  label.form__label.label-text(for='password') Your password must container between 8 and 60 characters.
 
-              .form__group
-                input#passwordConfirm.form__input.input-text(type='password' placeholder='••••••' required)
-                label.form__label.label-text(for='passwordConfirm') Please confirm your password.
-              
-              .form__group
-                input#name.form__input.input-text(type='text' placeholder='Name' required)
-                label.form__label.label-text(for='name') Please enter your name.
-              
-              .form__group
-                .form__date
-                  .form__date-month
-                    select#selectBirthMonth.dropdown(name='select-birthname' tabindex='0' required)
-                      option(value) Birth Month
+                .form__group
+                  input#passwordConfirm.form__input.input-text(type='password' placeholder='••••••' required)
+                  label.form__label.label-text(for='passwordConfirm') Please confirm your password.
 
-                      - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                .form__group
+                  button#btnNext-1.btn.btn--blue(name='btnNext1') Next
 
-                      each month in months
-                        option(value=`${month}`)= month
-                  
-                  .form__date-day
-                    select#selectBirthDay.dropdown(name='select-birthday' tabindex='0' required)
-                      option(value) Day
+              fieldset#registerFieldlist1.form__fieldset.form__fieldset--second(name='registerFieldlist1')
+                .form__group
+                  input#name.form__input.input-text(type='text' placeholder='Name*' required)
+                  label.form__label.label-text(for='name') Please enter your name.
 
-                      - const days = [...Array(32).keys()].splice(1)
-
-                      each day in days
-                        option(value=`${day}`)= day
-                  
-                  .form__date-year
-                    select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
-                      option(value) Year
-
-                      - const now = new Date().getFullYear()
-                      - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
-
-                      each year in years
-                        option(value=`${year}`)= year
+                .form__group
+                  input#username.form__input.input-text(type='text' placeholder='Username*' required)
+                  label.form__label.label-text(for='username') Please enter a username
                 
-              .form__group
-                .form__gender
-                  select#selectGender.dropdown(name='select-gender' tabindex='0' required)
-                    option(value) Gender Select
-                    option(value='f') Female
-                    option(value='m') Male
-                    option(value='p') Prefer not to say
-              
-              .form__group
-                button.btn.btn--blue Continue
+                .form__group
+                  .form__date
+                    .form__date-month
+                      select#selectBirthMonth.dropdown(name='select-birthname' tabindex='0' required)
+                        option(value) Birth Month*
+
+                        - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+                        each month in months
+                          option(value=`${month}`)= month
+                    
+                    .form__date-day
+                      select#selectBirthDay.dropdown(name='select-birthday' tabindex='0' required)
+                        option(value) Day
+
+                        - const days = [...Array(32).keys()].splice(1)
+
+                        each day in days
+                          option(value=`${day}`)= day
+                    
+                    .form__date-year
+                      select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
+                        option(value) Year
+
+                        - const now = new Date().getFullYear()
+                        - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
+
+                        each year in years
+                          option(value=`${year}`)= year
+                  
+                .form__group
+                  .form__gender
+                    select#selectGender.dropdown(name='select-gender' tabindex='0' required)
+                      option(value) Gender Select*
+                      option(value='f') Female
+                      option(value='m') Male
+                      option(value='p') Prefer not to say
+                
+                .form__group
+                  .form__duo-btn
+                    .form__duo-btn-previous
+                      button#btnPrev-1.btn.btn--blue.btn--duo(name='btnPrev1') Previous
+
+                    .form__duo-btn-submit
+                      button#btnCreateAccount.btn.btn--blue.btn--duo(type='submit' name='btnCreateAccount') Continue
