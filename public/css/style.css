@@ -273,7 +273,10 @@ body {
   margin-right: 3rem;
   text-align: center;
   background-color: #0067aa;
-  white-space: pre-wrap; }
+  white-space: pre-wrap;
+  cursor: pointer;
+  transition: 450ms all;
+  transform-origin: center left; }
   .tile-card__reviewer {
     background-image: linear-gradient(180deg, #20b2aa, #0067aa);
     border-bottom: 0.1rem solid black; }
@@ -281,6 +284,8 @@ body {
       padding: 0.5rem; }
     .tile-card__reviewer-name {
       padding: 1rem; }
+    .tile-card__reviewer:hover ~ .tile-card__reviewer {
+      transform: translate3d(12.5rem, 0, 0); }
   .tile-card__photo-img {
     width: 10rem;
     height: 10rem;
