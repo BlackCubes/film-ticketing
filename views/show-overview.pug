@@ -91,6 +91,10 @@ block content
         - console.log(show.reviews)
           .row--scroll
             .row__inner
+              each review in show.reviews
+                .tile
+                  .tile__details
+                    .tile__title= review.review
               
 
     section.section-user-review
