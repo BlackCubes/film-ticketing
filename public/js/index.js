@@ -20,7 +20,8 @@ const circleNavTrigger = document.getElementById('trigger');
 const loginForm = document.getElementById('loginForm');
 // Possibly change class selector to an id selector for all logout's to use
 const logoutBtn = document.querySelector('.nav__profile--logout');
-const registerForm = document.getElementById('registerForm');
+const registerForm = document.getElementById('registerForm'),
+  registerFieldlist1 = document.getElementById('registerFieldlist1');
 const forgotPassForm = document.getElementById('forgotPassform');
 const updatePersonalForm = document.getElementById('updatePersonalForm');
 const updateEmailUsernameForm = document.getElementById(

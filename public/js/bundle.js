@@ -15121,7 +15121,8 @@ var circleNavTrigger = document.getElementById('trigger');
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
 
 var logoutBtn = document.querySelector('.nav__profile--logout');
-var registerForm = document.getElementById('registerForm');
+var registerForm = document.getElementById('registerForm'),
+    registerFieldlist1 = document.getElementById('registerFieldlist1');
 var forgotPassForm = document.getElementById('forgotPassform');
 var updatePersonalForm = document.getElementById('updatePersonalForm');
 var updateEmailUsernameForm = document.getElementById('updateEmailUsernameForm');
