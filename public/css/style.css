@@ -223,7 +223,7 @@ body {
     .row--scroll .row__inner:hover {
       transform: translate3d(-6.25rem, 0, 0); }
     .row--scroll .row__inner:hover .tile {
-      opacity: .3; }
+      opacity: 0.3; }
       .row--scroll .row__inner:hover .tile:hover {
         transform: scale(1.5);
         opacity: 1; }
@@ -260,6 +260,9 @@ body {
     opacity: 1; }
   .tile:hover ~ .tile {
     transform: translate3d(12.5rem, 0, 0); }
+
+.tile--card {
+  height: 34rem; }
 
 .dropdown {
   font-family: inherit;

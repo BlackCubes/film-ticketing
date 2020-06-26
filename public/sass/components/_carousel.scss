@@ -14,7 +14,7 @@
     }
 
     &:hover .tile {
-      opacity: .3;
+      opacity: 0.3;
 
       &:hover {
         transform: scale($carousel-grow-factor);
@@ -49,7 +49,11 @@
     top: 0;
     font-size: 1rem;
     opacity: 0;
-    background: linear-gradient(to top, rgba($color-black, .9) 0%, rgba($color-black, 0) 100%);
+    background: linear-gradient(
+      to top,
+      rgba($color-black, 0.9) 0%,
+      rgba($color-black, 0) 100%
+    );
     transition: $carousel-transition-duration opacity;
 
     .tile__title {
@@ -66,4 +70,8 @@
   &:hover ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
   }
+}
+
+.tile--card {
+  height: 34rem;
 }

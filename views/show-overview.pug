@@ -92,7 +92,7 @@ block content
           .row--scroll
             .row__inner
               each review in show.reviews
-                .tile
+                .tile--card
                   .tile__media
                     img.tile__img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name} Photo`)
                   .tile__details
