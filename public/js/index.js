@@ -87,8 +87,21 @@ if (loginForm) {
 
 if (logoutBtn) logoutBtn.addEventListener('click', logout);
 
-if (registerForm) {
-  registerForm.addEventListener('submit', e => {
+if (registerFieldlist1) {
+  const firstNextBtn = document.getElementById('btnNext-1'),
+    firstPreviousBtn = document.getElementById('btnPrev-1');
+
+  let multiForm = new MultiForm(firstNextBtn, registerFieldlist1);
+
+  firstNextBtn.addEventListener('click', e =>
+    multiForm.buttonNext(e, true, true)
+  );
+
+  firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
+
+  const createAccountBtn = document.getElementById('btnCreateAccount');
+
+  registerForm.addEventListener('submit', async e => {
     e.preventDefault();
 
     const genderSelect = document.getElementById('selectGender');
@@ -109,7 +122,9 @@ if (registerForm) {
     const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
     const gender = genderSelect.options[genderSelect.selectedIndex].value;
 
-    register(
+    document.getElementById('btnCreateAccount').textContent = 'Creating...';
+
+    await register(
       email,
       username,
       password,
@@ -118,6 +133,8 @@ if (registerForm) {
       birthdate,
       gender
     );
+
+    document.getElementById('btnCreateAccount').textContent = 'Continue';
   });
 }
 

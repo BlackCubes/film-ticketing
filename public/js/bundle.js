@@ -15097,7 +15097,7 @@ var _stripe = require("./stripe");
 
 var _circleNav = _interopRequireDefault(require("./circleNav"));
 
-var _multiForm = require("./multiForm");
+var _multiForm2 = require("./multiForm");
 
 var _login = require("./login");
 
@@ -15185,25 +15185,58 @@ if (loginForm) {
 
 if (logoutBtn) logoutBtn.addEventListener('click', _login.logout);
 
-if (registerForm) {
-  registerForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var genderSelect = document.getElementById('selectGender');
-    var birthMonth = document.getElementById('selectBirthMonth');
-    var birthDay = document.getElementById('selectBirthDay');
-    var birthYear = document.getElementById('selectBirthYear');
-    var birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-    var birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-    var birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-    var email = document.getElementById('email').value;
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-    var passwordConfirm = document.getElementById('passwordConfirm').value;
-    var name = document.getElementById('name').value;
-    var birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-    var gender = genderSelect.options[genderSelect.selectedIndex].value;
-    (0, _login.register)(email, username, password, passwordConfirm, name, birthdate, gender);
+if (registerFieldlist1) {
+  var firstNextBtn = document.getElementById('btnNext-1'),
+      firstPreviousBtn = document.getElementById('btnPrev-1');
+  var multiForm = new _multiForm2.MultiForm(firstNextBtn, registerFieldlist1);
+  firstNextBtn.addEventListener('click', function (e) {
+    return multiForm.buttonNext(e, true, true);
   });
+  firstPreviousBtn.addEventListener('click', function (e) {
+    return multiForm.buttonBack(e);
+  });
+  var createAccountBtn = document.getElementById('btnCreateAccount');
+  registerForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+      var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, name, birthdate, gender;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              genderSelect = document.getElementById('selectGender');
+              birthMonth = document.getElementById('selectBirthMonth');
+              birthDay = document.getElementById('selectBirthDay');
+              birthYear = document.getElementById('selectBirthYear');
+              birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+              birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+              birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+              email = document.getElementById('email').value;
+              username = document.getElementById('username').value;
+              password = document.getElementById('password').value;
+              passwordConfirm = document.getElementById('passwordConfirm').value;
+              name = document.getElementById('name').value;
+              birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+              gender = genderSelect.options[genderSelect.selectedIndex].value;
+              document.getElementById('btnCreateAccount').textContent = 'Creating...';
+              _context.next = 18;
+              return (0, _login.register)(email, username, password, passwordConfirm, name, birthdate, gender);
+
+            case 18:
+              document.getElementById('btnCreateAccount').textContent = 'Continue';
+
+            case 19:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
 }
 
 if (forgotPassForm) {
@@ -15216,11 +15249,11 @@ if (forgotPassForm) {
 
 if (updatePersonalForm) {
   updatePersonalForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(e) {
       var form, selectBirthMonth, selectBirthDay, selectBirthYear, birthMonth, birthDay, birthYear, selectGender, birthdate, name, gender, photo, photoUrlArr, photoParams;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
               e.preventDefault();
               form = new FormData();
@@ -15237,7 +15270,7 @@ if (updatePersonalForm) {
               form.append('birthdate', birthdate);
               form.append('gender', gender);
               form.append('photo', photo);
-              _context.next = 17;
+              _context2.next = 17;
               return (0, _updateSettings.updateSettings)(form, 'data', photoParams);
 
             case 17:
@@ -15249,42 +15282,6 @@ if (updatePersonalForm) {
               selectGender.options[selectGender.selectedIndex].value = '';
 
             case 23:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }());
-}
-
-if (updateEmailUsernameForm) {
-  updateEmailUsernameForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(e) {
-      var email, username;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              e.preventDefault();
-              document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
-              email = document.getElementById('email').value, username = document.getElementById('username').value;
-              _context2.next = 5;
-              return (0, _updateSettings.updateSettings)({
-                email: email,
-                username: username
-              }, 'email/username');
-
-            case 5:
-              document.getElementById('btnUpdateEmailUsername').textContent = 'Update Email/Username';
-              document.getElementById('email').value = '';
-              document.getElementById('username').value = '';
-
-            case 8:
             case "end":
               return _context2.stop();
           }
@@ -15298,18 +15295,54 @@ if (updateEmailUsernameForm) {
   }());
 }
 
-if (updatePassForm) {
-  updatePassForm.addEventListener('submit', /*#__PURE__*/function () {
+if (updateEmailUsernameForm) {
+  updateEmailUsernameForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(e) {
-      var passwordCurrent, password, passwordConfirm;
+      var email, username;
       return regeneratorRuntime.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               e.preventDefault();
+              document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
+              email = document.getElementById('email').value, username = document.getElementById('username').value;
+              _context3.next = 5;
+              return (0, _updateSettings.updateSettings)({
+                email: email,
+                username: username
+              }, 'email/username');
+
+            case 5:
+              document.getElementById('btnUpdateEmailUsername').textContent = 'Update Email/Username';
+              document.getElementById('email').value = '';
+              document.getElementById('username').value = '';
+
+            case 8:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }());
+}
+
+if (updatePassForm) {
+  updatePassForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
+      var passwordCurrent, password, passwordConfirm;
+      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              e.preventDefault();
               document.getElementById('btnUpdatePass').textContent = 'Updating...';
               passwordCurrent = document.getElementById('currentPass').value, password = document.getElementById('newPass').value, passwordConfirm = document.getElementById('confirmNewPass').value;
-              _context3.next = 5;
+              _context4.next = 5;
               return (0, _updateSettings.updateSettings)({
                 passwordCurrent: passwordCurrent,
                 password: password,
@@ -15324,64 +15357,69 @@ if (updatePassForm) {
 
             case 9:
             case "end":
-              return _context3.stop();
+              return _context4.stop();
           }
         }
-      }, _callee3);
+      }, _callee4);
     }));
 
-    return function (_x3) {
-      return _ref3.apply(this, arguments);
+    return function (_x4) {
+      return _ref4.apply(this, arguments);
     };
   }());
 }
 
 if (eoFieldlist1) {
   // Gather the button DOM elements
-  var firstNextBtn = document.getElementById('btnNext-1'),
+  var _firstNextBtn = document.getElementById('btnNext-1'),
       secondNextBtn = document.getElementById('btnNext-2'),
       thirdNextBtn = document.getElementById('btnNext-3'),
       fourthNextBtn = document.getElementById('btnNext-4');
-  var firstPreviousBtn = document.getElementById('btnPrev-1'),
+
+  var _firstPreviousBtn = document.getElementById('btnPrev-1'),
       secondPreviousBtn = document.getElementById('btnPrev-2'),
       thirdPreviousBtn = document.getElementById('btnPrev-3'),
       fourthPreviousBtn = document.getElementById('btnPrev-4');
-  var multiForm = new _multiForm.MultiForm(firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
 
-  firstNextBtn.addEventListener('click', function (e) {
-    return multiForm.buttonNext(e, true, true);
+  var _multiForm = new _multiForm2.MultiForm(_firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
+
+
+  _firstNextBtn.addEventListener('click', function (e) {
+    return _multiForm.buttonNext(e, true, true);
   });
+
   secondNextBtn.addEventListener('click', function (e) {
-    multiForm.buttonNext(e, true);
+    _multiForm.buttonNext(e, true);
   });
   thirdNextBtn.addEventListener('click', function (e) {
-    return multiForm.buttonNext(e, false, false, true);
+    return _multiForm.buttonNext(e, false, false, true);
   });
   fourthNextBtn.addEventListener('click', function (e) {
-    return multiForm.buttonNext(e, true);
+    return _multiForm.buttonNext(e, true);
   }); // Initiate previous buttons
 
-  firstPreviousBtn.addEventListener('click', function (e) {
-    return multiForm.buttonBack(e);
+  _firstPreviousBtn.addEventListener('click', function (e) {
+    return _multiForm.buttonBack(e);
   });
+
   secondPreviousBtn.addEventListener('click', function (e) {
-    return multiForm.buttonBack(e);
+    return _multiForm.buttonBack(e);
   });
   thirdPreviousBtn.addEventListener('click', function (e) {
-    return multiForm.buttonBack(e);
+    return _multiForm.buttonBack(e);
   });
   fourthPreviousBtn.addEventListener('click', function (e) {
-    return multiForm.buttonBack(e);
+    return _multiForm.buttonBack(e);
   });
   var createShowBtn = document.getElementById('btnCreateShow'); // eoCreateShowForm.addEventListener('submit', async e => {
   //   e.preventDefault();
 
   eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(e) {
       var form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster;
-      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      return regeneratorRuntime.wrap(function _callee5$(_context5) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context5.prev = _context5.next) {
             case 0:
               e.preventDefault();
               form = new FormData();
@@ -15409,7 +15447,7 @@ if (eoFieldlist1) {
               form.append('specialVenue', specialVenue);
               form.append('price', price);
               form.append('poster', poster);
-              _context4.next = 28;
+              _context5.next = 28;
               return (0, _login.createShow)(form, 'event-owner');
 
             case 28:
@@ -15417,25 +15455,25 @@ if (eoFieldlist1) {
 
             case 29:
             case "end":
-              return _context4.stop();
+              return _context5.stop();
           }
         }
-      }, _callee4);
+      }, _callee5);
     }));
 
-    return function (_x4) {
-      return _ref4.apply(this, arguments);
+    return function (_x5) {
+      return _ref5.apply(this, arguments);
     };
   }());
 }
 
 if (updateShowMainView) {
   updateShowMainView.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(e) {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(e) {
       var form, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, originalMonth, originalDay, originalYear, mpaaRating, originalReleaseDate, title, duration, poster, posterUrlArr, posterParams;
-      return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      return regeneratorRuntime.wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context5.prev = _context5.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
               e.preventDefault();
               form = new FormData();
@@ -15451,47 +15489,13 @@ if (updateShowMainView) {
               form.append('mpaaRating', mpaaRating);
               form.append('originalReleaseDate', originalReleaseDate);
               form.append('poster', poster);
-              _context5.next = 16;
+              _context6.next = 16;
               return (0, _updateSettings.updateShowSettings)(form, 'setting', posterParams);
 
             case 16:
               document.getElementById('btnUpdateShowData').textContent = 'Update Show Settings';
 
             case 17:
-            case "end":
-              return _context5.stop();
-          }
-        }
-      }, _callee5);
-    }));
-
-    return function (_x5) {
-      return _ref5.apply(this, arguments);
-    };
-  }());
-}
-
-if (updateShowPlot) {
-  updateShowPlot.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(e) {
-      var overview, synopsis;
-      return regeneratorRuntime.wrap(function _callee6$(_context6) {
-        while (1) {
-          switch (_context6.prev = _context6.next) {
-            case 0:
-              e.preventDefault();
-              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
-              document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
-              _context6.next = 5;
-              return (0, _updateSettings.updateShowSettings)({
-                overview: overview,
-                synopsis: synopsis
-              }, 'plot');
-
-            case 5:
-              document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
-
-            case 6:
             case "end":
               return _context6.stop();
           }
@@ -15505,31 +15509,27 @@ if (updateShowPlot) {
   }());
 }
 
-if (updateShowAddl) {
-  updateShowAddl.addEventListener('submit', /*#__PURE__*/function () {
+if (updateShowPlot) {
+  updateShowPlot.addEventListener('submit', /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(e) {
-      var selectContentType, contentType, genres, language, subtitles;
+      var overview, synopsis;
       return regeneratorRuntime.wrap(function _callee7$(_context7) {
         while (1) {
           switch (_context7.prev = _context7.next) {
             case 0:
               e.preventDefault();
-              selectContentType = document.getElementById('showContentType');
-              contentType = selectContentType.options[selectContentType.selectedIndex].value;
-              genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value;
-              document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
-              _context7.next = 7;
+              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
+              document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
+              _context7.next = 5;
               return (0, _updateSettings.updateShowSettings)({
-                genres: genres,
-                language: language,
-                subtitles: subtitles,
-                contentType: contentType
-              }, "add'l info");
+                overview: overview,
+                synopsis: synopsis
+              }, 'plot');
 
-            case 7:
-              document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
+            case 5:
+              document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
 
-            case 8:
+            case 6:
             case "end":
               return _context7.stop();
           }
@@ -15543,13 +15543,51 @@ if (updateShowAddl) {
   }());
 }
 
-if (updateShowPrice) {
-  updateShowPrice.addEventListener('submit', /*#__PURE__*/function () {
+if (updateShowAddl) {
+  updateShowAddl.addEventListener('submit', /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(e) {
-      var selectSpecialVenue, specialVenueValue, specialVenue, price;
+      var selectContentType, contentType, genres, language, subtitles;
       return regeneratorRuntime.wrap(function _callee8$(_context8) {
         while (1) {
           switch (_context8.prev = _context8.next) {
+            case 0:
+              e.preventDefault();
+              selectContentType = document.getElementById('showContentType');
+              contentType = selectContentType.options[selectContentType.selectedIndex].value;
+              genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value;
+              document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
+              _context8.next = 7;
+              return (0, _updateSettings.updateShowSettings)({
+                genres: genres,
+                language: language,
+                subtitles: subtitles,
+                contentType: contentType
+              }, "add'l info");
+
+            case 7:
+              document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
+
+            case 8:
+            case "end":
+              return _context8.stop();
+          }
+        }
+      }, _callee8);
+    }));
+
+    return function (_x8) {
+      return _ref8.apply(this, arguments);
+    };
+  }());
+}
+
+if (updateShowPrice) {
+  updateShowPrice.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(e) {
+      var selectSpecialVenue, specialVenueValue, specialVenue, price;
+      return regeneratorRuntime.wrap(function _callee9$(_context9) {
+        while (1) {
+          switch (_context9.prev = _context9.next) {
             case 0:
               e.preventDefault();
               selectSpecialVenue = document.getElementById('showSpecialVenue');
@@ -15557,7 +15595,7 @@ if (updateShowPrice) {
               specialVenue = specialVenueValue === 'y' ? true : false;
               price = document.getElementById('showPrice').value;
               document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
-              _context8.next = 8;
+              _context9.next = 8;
               return (0, _updateSettings.updateShowSettings)({
                 price: price,
                 specialVenue: specialVenue
@@ -15568,14 +15606,14 @@ if (updateShowPrice) {
 
             case 9:
             case "end":
-              return _context8.stop();
+              return _context9.stop();
           }
         }
-      }, _callee8);
+      }, _callee9);
     }));
 
-    return function (_x8) {
-      return _ref8.apply(this, arguments);
+    return function (_x9) {
+      return _ref9.apply(this, arguments);
     };
   }());
 }
