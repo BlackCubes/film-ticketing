@@ -74,6 +74,10 @@ block content
               label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
             - console.log(show)
+            if user.role === 'admin'
+              .form__group
+                input#showEventOwner.form__input.input-text(type='text' name='showEventOwner' placeholder='Event Owner*' value=`${show.eventOrganizer[0]._id}` required)
+                label.form__label.label-text(for='showEventOwner') Please enter the show's event organizer
 
             .form__group
               .form__photo-upload
