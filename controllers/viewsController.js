@@ -137,6 +137,21 @@ exports.getMyReviews = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getMyReviewForm = catchAsync(async (req, res, next) => {
+  const show = await Show.find({ slug: req.params.slug });
+
+  if (!show) {
+    return next(new AppError('There is no show with that name!', 404));
+  }
+
+  const review = await Review.find({ user: req.user.id, show: show._id });
+
+  res.status(200).render('review-overview', {
+    title: `${show.title} Review`,
+    review
+  });
+});
+
 // -- EVENT OWNER
 exports.getEventOwnerCreateShow = (req, res) => {
   res.status(200).render('createShow', {
