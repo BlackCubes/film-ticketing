@@ -73,6 +73,8 @@ block content
               input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' value=`${show.duration}` required)
               label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
+            - console.log(show)
+
             .form__group
               .form__photo-upload
                 img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
