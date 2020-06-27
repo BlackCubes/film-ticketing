@@ -183,6 +183,6 @@ exports.getEventOwnerShow = catchAsync(async (req, res) => {
 // -- ADMIN
 exports.getAdminPage = (req, res) => {
   res.status(200).render('accountAdmin', {
-    title: 'Admin Page'
+    title: 'Admin'
   });
 };
