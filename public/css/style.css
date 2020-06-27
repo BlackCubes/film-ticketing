@@ -159,6 +159,9 @@ body {
   .btn--blue {
     background-color: #20b2aa;
     color: #000; }
+  .btn--red {
+    background-color: #ff0000;
+    color: #000; }
 
 .card {
   background-color: #0067aa;
