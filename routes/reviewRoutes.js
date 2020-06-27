@@ -12,6 +12,12 @@ router.patch(
   reviewController.updateMyReview
 );
 
+router.delete(
+  '/deleteMyReview/:id',
+  authController.restrictTo('user'),
+  reviewController.deleteMyReview
+);
+
 router
   .route('/')
   .get(reviewController.getAllReviews)
