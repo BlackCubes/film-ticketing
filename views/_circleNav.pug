@@ -54,7 +54,7 @@
         - let userReviewsRoute = '#'
         if user
           - userRole = (user.role === 'admin') ? 'Admin' : 'Organizer'
-          - userRoute = (user.role === 'admin') ? '#' : '/myShows'
+          - userRoute = (user.role === 'admin') ? '/admin' : '/myShows'
           - userTicketsRoute = (user.role === 'event-owner') ? '#' : '/myTickets'
           - userReviewsRoute = (user.role === 'event-owner') ? '#' : '/myReviews'
 
