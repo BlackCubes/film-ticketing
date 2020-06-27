@@ -28,8 +28,8 @@ block content
         .user-view__eventowners-container
           .eventowners-box
             .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
-              - const title = (user.role === 'admin') ? 'Shows in System' : 'My Shows'
-              h2.heading-secondary= title
+              - const pageTitle = (user.role === 'admin') ? 'Shows in System' : 'My Shows'
+              h2.heading-secondary= pageTitle
             
             .eventowners-box__shows-container.u-center-text
               each show in shows
