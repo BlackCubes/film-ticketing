@@ -88,7 +88,8 @@ block content
           form#updateShowPlot.form
             .form__group
               .form__title.u-center-text
-                h1.heading-primary Change Your Show's Plot
+                - const showPlotTitle = (user.role === 'admin') ? 'Change Show\'s Plot' : 'Change Your Show\'s Plot'
+                h1.heading-primary= showPlotTitle
             
             .form__group
               textarea#showOverview.form__text-area.input-text(name='textareaOverview' placeholder='Show Overview*' required)= show.overview
@@ -107,7 +108,8 @@ block content
           form#updateShowAddl.form
             .form__group
               .form__title.u-center-text
-                  h1.heading-primary Change Your Show's Add'l Info
+                - const showAddlTitle = (user.role === 'admin') ? 'Change Show\'s Add\'l Info' : 'Change Your Show\'s Add\'l Info'
+                h1.heading-primary= showAddlTitle
 
             .form__group
               .form__content-type
@@ -141,9 +143,10 @@ block content
           form#updateShowPrice.form
             .form__group
               .form__title.u-center-text
-                  h1.heading-primary.u-margin-bottom-small Change Your Show's Price
+                - const showPriceTitle = (user.role === 'admin') ? 'Change Show\'s Price' : 'Change Your Show\'s Price'
+                h1.heading-primary.u-margin-bottom-small Change Your Show's Price
 
-                  small.form__info-small.small-text For adding a price discount, please contact the admin.
+                small.form__info-small.small-text For adding a price discount, please contact the admin.
 
             .form__group
               input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' value=`${show.price}` required)
