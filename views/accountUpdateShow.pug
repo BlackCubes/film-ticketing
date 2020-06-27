@@ -8,7 +8,8 @@ block content
           form#updateShowMainView.form
             .form__group
               .form__title.u-center-text
-                h1.heading-primary Your Show Settings
+                - const pageTitle = (user.role === 'admin') ? 'Show Settings' : 'Your Show Settings'
+                h1.heading-primary= pageTitle
             
             .form__group
               input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' value=`${show.title}` required)
