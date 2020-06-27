@@ -1,5 +1,26 @@
 extends base
 
+mixin showsCard(url)
+  .showtimes-box__theatertime
+    .showtimes-box__theatertime-poster
+      a.showtimes-box__theatertime-poster-link.picture-link(href=`${url}`)
+        img.showtimes-box__theatertime-poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+
+    .showtimes-box__theatertime-theater.u-margin-bottom-small
+      h3.showtimes-box__theatertime-theater-name.heading-tertiary= show.title
+    
+    .showtimes-box__metadata-container
+      ul.showtimes-box__metadata
+        li.showtimes-box__metadata-item.paragraph= show.mpaaRating
+
+        - const hours = Math.floor(show.durationHours)
+        - const minutes = show.duration - hours*60
+
+        li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+
+    .showtimes-box__ticket-buy
+      a.btn.btn__promo(href=`${url}`) Edit
+
 block content
   main.main
     .user-view
@@ -7,27 +28,33 @@ block content
         .user-view__eventowners-container
           .eventowners-box
             .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
-              h2.heading-secondary My Shows
+              - const title = (user.role === 'admin') ? 'Shows in System' : 'My Shows'
+              h2.heading-secondary= title
             
             .eventowners-box__shows-container.u-center-text
               each show in shows
-                .showtimes-box__theatertime
-                  .showtimes-box__theatertime-poster
-                    a.showtimes-box__theatertime-poster-link.picture-link(href=`/myShows/${show.slug}`)
-                      img.showtimes-box__theatertime-poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+                - const url = (user.role === 'admin') ? `/admin/shows/${show.id}` ? `/myShows/${show.slug}`
 
-                  .showtimes-box__theatertime-theater.u-margin-bottom-small
-                    h3.showtimes-box__theatertime-theater-name.heading-tertiary= show.title
+                +showCard(url)
+
+
+                //- .showtimes-box__theatertime
+                //-   .showtimes-box__theatertime-poster
+                //-     a.showtimes-box__theatertime-poster-link.picture-link(href=`/myShows/${show.slug}`)
+                //-       img.showtimes-box__theatertime-poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+
+                //-   .showtimes-box__theatertime-theater.u-margin-bottom-small
+                //-     h3.showtimes-box__theatertime-theater-name.heading-tertiary= show.title
                   
-                  .showtimes-box__metadata-container
-                    ul.showtimes-box__metadata
-                      li.showtimes-box__metadata-item.paragraph= show.mpaaRating
+                //-   .showtimes-box__metadata-container
+                //-     ul.showtimes-box__metadata
+                //-       li.showtimes-box__metadata-item.paragraph= show.mpaaRating
 
-                      - const hours = Math.floor(show.durationHours)
-                      - const minutes = show.duration - hours*60
+                //-       - const hours = Math.floor(show.durationHours)
+                //-       - const minutes = show.duration - hours*60
 
-                      li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+                //-       li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
 
-                  .showtimes-box__ticket-buy
-                    a.btn.btn__promo(href=`/myShows/${show.slug}`) Edit
+                //-   .showtimes-box__ticket-buy
+                //-     a.btn.btn__promo(href=`/myShows/${show.slug}`) Edit
           
