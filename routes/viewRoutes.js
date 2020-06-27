@@ -54,6 +54,11 @@ router.get(
 router.get('/me', authController.protect, viewsController.getAccount);
 router.get('/myTickets', authController.protect, viewsController.getMyTickets);
 router.get('/myReviews', authController.protect, viewsController.getMyReviews);
+router.get(
+  '/myReviews/:slug',
+  authController.protect,
+  viewsController.getMyReviewForm
+);
 
 // -- EVENT OWNER ROUTES
 router.get(
