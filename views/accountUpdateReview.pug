@@ -12,6 +12,9 @@ block content
                 h1.heading-primary Your Review Settings
 
             .form__group
+              input#reviewShotTitle.form__input.input-text(type='text' name='reviewShowTitle' placeholder=`${review.show.title}` disabled)
+
+            .form__group
               input#reviewRating.form__input.input-text(type='number' name='reviewRating' placeholder='Rating*' value=`${review.rating}` required)
               label.form__label.label-text(for='reviewRating') Please enter a rating.
 
