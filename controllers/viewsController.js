@@ -186,3 +186,12 @@ exports.getAdminPage = (req, res) => {
     title: 'Admin'
   });
 };
+
+exports.getAdminShows = catchAsync(async (req, res, next) => {
+  const shows = await Show.find();
+
+  res.status(200).render('accountShows', {
+    title: 'Admin - Shows',
+    shows
+  });
+});
