@@ -43,7 +43,7 @@ router.post(
 );
 
 router.patch(
-  '/updateMyShow/:slug',
+  '/updateMyShow/:id',
   authController.restrictTo('event-owner'),
   showController.updateMyShow
 );
