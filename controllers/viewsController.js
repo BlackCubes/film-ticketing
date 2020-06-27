@@ -195,3 +195,12 @@ exports.getAdminShows = catchAsync(async (req, res, next) => {
     shows
   });
 });
+
+exports.getAdminShow = catchAsync(async (req, res, next) => {
+  const show = await Show.findById(req.params.id);
+
+  res.status(200).render('accountUpdateShow', {
+    title: `Admin - Shows: ${show.title}`,
+    show
+  });
+});
