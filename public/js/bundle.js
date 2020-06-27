@@ -14913,7 +14913,7 @@ var deleteReview = /*#__PURE__*/function () {
           case 4:
             res = _context.sent;
 
-            if (res.status === 'success') {
+            if (res.status === 204) {
               (0, _alerts.showAlert)('success', 'Review deleted!');
               window.setTimeout(function () {
                 location.assign('/myReviews');
