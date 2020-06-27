@@ -15586,7 +15586,8 @@ if (eoFieldlist1) {
 if (updateShowMainView) {
   updateShowMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(e) {
-      var form, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, originalMonth, originalDay, originalYear, mpaaRating, originalReleaseDate, title, duration, poster, posterUrlArr, posterParams;
+      var form, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, originalMonth, originalDay, originalYear, mpaaRating, originalReleaseDate, title, duration, updateShowDataBtn, poster, posterUrlArr, posterParams, _updateShowDataBtn$da, showId, roleType;
+
       return regeneratorRuntime.wrap(function _callee6$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
@@ -15596,22 +15597,23 @@ if (updateShowMainView) {
               selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear');
               originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
               mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
-              title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, poster = document.getElementById('showPhoto').files[0];
+              title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value, updateShowDataBtn = document.getElementById('btnUpdateShowData'), poster = document.getElementById('showPhoto').files[0];
               posterUrlArr = document.getElementById('posterSource').src.split('/');
               posterParams = posterUrlArr[posterUrlArr.length - 1];
+              _updateShowDataBtn$da = updateShowDataBtn.dataset, showId = _updateShowDataBtn$da.showId, roleType = _updateShowDataBtn$da.roleType;
               document.getElementById('btnUpdateShowData').textContent = 'Updating...';
               form.append('title', title);
               form.append('duration', duration);
               form.append('mpaaRating', mpaaRating);
               form.append('originalReleaseDate', originalReleaseDate);
               form.append('poster', poster);
-              _context6.next = 16;
-              return (0, _updateSettings.updateShowSettings)(form, 'setting', posterParams);
-
-            case 16:
-              document.getElementById('btnUpdateShowData').textContent = 'Update Show Settings';
+              _context6.next = 17;
+              return (0, _updateSettings.updateShowSettings)(form, 'setting', showId, roleType, posterParams);
 
             case 17:
+              document.getElementById('btnUpdateShowData').textContent = 'Update Show Settings';
+
+            case 18:
             case "end":
               return _context6.stop();
           }
@@ -15628,24 +15630,26 @@ if (updateShowMainView) {
 if (updateShowPlot) {
   updateShowPlot.addEventListener('submit', /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(e) {
-      var overview, synopsis;
+      var overview, synopsis, updateShowPlotBtn, _updateShowPlotBtn$da, showId, roleType;
+
       return regeneratorRuntime.wrap(function _callee7$(_context7) {
         while (1) {
           switch (_context7.prev = _context7.next) {
             case 0:
               e.preventDefault();
-              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
+              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value, updateShowPlotBtn = document.getElementById('btnUpdateShowPlot');
+              _updateShowPlotBtn$da = updateShowPlotBtn.dataset, showId = _updateShowPlotBtn$da.showId, roleType = _updateShowPlotBtn$da.roleType;
               document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
-              _context7.next = 5;
+              _context7.next = 6;
               return (0, _updateSettings.updateShowSettings)({
                 overview: overview,
                 synopsis: synopsis
-              }, 'plot');
-
-            case 5:
-              document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+              }, 'plot', showId, roleType);
 
             case 6:
+              document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+
+            case 7:
             case "end":
               return _context7.stop();
           }
@@ -15662,7 +15666,8 @@ if (updateShowPlot) {
 if (updateShowAddl) {
   updateShowAddl.addEventListener('submit', /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(e) {
-      var selectContentType, contentType, genres, language, subtitles;
+      var selectContentType, contentType, genres, language, subtitles, updateShowAddlBtn, _updateShowAddlBtn$da, showId, roleType;
+
       return regeneratorRuntime.wrap(function _callee8$(_context8) {
         while (1) {
           switch (_context8.prev = _context8.next) {
@@ -15670,20 +15675,21 @@ if (updateShowAddl) {
               e.preventDefault();
               selectContentType = document.getElementById('showContentType');
               contentType = selectContentType.options[selectContentType.selectedIndex].value;
-              genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value;
+              genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
+              _updateShowAddlBtn$da = updateShowAddlBtn.dataset, showId = _updateShowAddlBtn$da.showId, roleType = _updateShowAddlBtn$da.roleType;
               document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
-              _context8.next = 7;
+              _context8.next = 8;
               return (0, _updateSettings.updateShowSettings)({
                 genres: genres,
                 language: language,
                 subtitles: subtitles,
                 contentType: contentType
-              }, "add'l info");
-
-            case 7:
-              document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
+              }, "add'l info", showId, roleType);
 
             case 8:
+              document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
+
+            case 9:
             case "end":
               return _context8.stop();
           }
@@ -15700,7 +15706,8 @@ if (updateShowAddl) {
 if (updateShowPrice) {
   updateShowPrice.addEventListener('submit', /*#__PURE__*/function () {
     var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(e) {
-      var selectSpecialVenue, specialVenueValue, specialVenue, price;
+      var selectSpecialVenue, specialVenueValue, specialVenue, price, updateShowPriceBtn, _updateShowPriceBtn$d, showId, roleType;
+
       return regeneratorRuntime.wrap(function _callee9$(_context9) {
         while (1) {
           switch (_context9.prev = _context9.next) {
@@ -15709,18 +15716,19 @@ if (updateShowPrice) {
               selectSpecialVenue = document.getElementById('showSpecialVenue');
               specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
               specialVenue = specialVenueValue === 'y' ? true : false;
-              price = document.getElementById('showPrice').value;
+              price = document.getElementById('showPrice').value, updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
+              _updateShowPriceBtn$d = updateShowPriceBtn.dataset, showId = _updateShowPriceBtn$d.showId, roleType = _updateShowPriceBtn$d.roleType;
               document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
-              _context9.next = 8;
+              _context9.next = 9;
               return (0, _updateSettings.updateShowSettings)({
                 price: price,
                 specialVenue: specialVenue
-              }, 'pricing');
-
-            case 8:
-              document.getElementById('btnUpdateShowPrice').textContent = 'Update Pricing';
+              }, 'pricing', showId, roleType);
 
             case 9:
+              document.getElementById('btnUpdateShowPrice').textContent = 'Update Pricing';
+
+            case 10:
             case "end":
               return _context9.stop();
           }

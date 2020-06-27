@@ -371,10 +371,13 @@ if (updateShowMainView) {
 
     const title = document.getElementById('showTitle').value,
       duration = document.getElementById('showDuration').value,
+      updateShowDataBtn = document.getElementById('btnUpdateShowData'),
       poster = document.getElementById('showPhoto').files[0];
 
     const posterUrlArr = document.getElementById('posterSource').src.split('/');
     const posterParams = posterUrlArr[posterUrlArr.length - 1];
+
+    const { showId, roleType } = updateShowDataBtn.dataset;
 
     document.getElementById('btnUpdateShowData').textContent = 'Updating...';
 
@@ -384,7 +387,7 @@ if (updateShowMainView) {
     form.append('originalReleaseDate', originalReleaseDate);
     form.append('poster', poster);
 
-    await updateShowSettings(form, 'setting', posterParams);
+    await updateShowSettings(form, 'setting', showId, roleType, posterParams);
 
     document.getElementById('btnUpdateShowData').textContent =
       'Update Show Settings';
@@ -396,11 +399,14 @@ if (updateShowPlot) {
     e.preventDefault();
 
     const overview = document.getElementById('showOverview').value,
-      synopsis = document.getElementById('showSynopsis').value;
+      synopsis = document.getElementById('showSynopsis').value,
+      updateShowPlotBtn = document.getElementById('btnUpdateShowPlot');
+
+    const { showId, roleType } = updateShowPlotBtn.dataset;
 
     document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
 
-    await updateShowSettings({ overview, synopsis }, 'plot');
+    await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
 
     document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
   });
@@ -417,13 +423,18 @@ if (updateShowAddl) {
 
     const genres = document.getElementById('showGenre').value,
       language = document.getElementById('showLanguage').value,
-      subtitles = document.getElementById('showSubtitles').value;
+      subtitles = document.getElementById('showSubtitles').value,
+      updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
+
+    const { showId, roleType } = updateShowAddlBtn.dataset;
 
     document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
 
     await updateShowSettings(
       { genres, language, subtitles, contentType },
-      "add'l info"
+      "add'l info",
+      showId,
+      roleType
     );
 
     document.getElementById('btnUpdateShowAddl').textContent =
@@ -440,11 +451,19 @@ if (updateShowPrice) {
       selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
     const specialVenue = specialVenueValue === 'y' ? true : false;
 
-    const price = document.getElementById('showPrice').value;
+    const price = document.getElementById('showPrice').value,
+      updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
+
+    const { showId, roleType } = updateShowPriceBtn.dataset;
 
     document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
 
-    await updateShowSettings({ price, specialVenue }, 'pricing');
+    await updateShowSettings(
+      { price, specialVenue },
+      'pricing',
+      showId,
+      roleType
+    );
 
     document.getElementById('btnUpdateShowPrice').textContent =
       'Update Pricing';
