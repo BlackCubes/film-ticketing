@@ -40,7 +40,7 @@ const updateShowMainView = document.getElementById('updateShowMainView'),
   updateShowAddl = document.getElementById('updateShowAddl'),
   updateShowPrice = document.getElementById('updateShowPrice');
 const updateReview = document.getElementById('updateReview'),
-  deleteReview = document.getElementById('deleteReview');
+  deleteReviewForm = document.getElementById('deleteReviewForm');
 
 // VALUES (nothing, yet)
 
@@ -474,8 +474,8 @@ if (updateReview) {
   });
 }
 
-if (deleteReview) {
-  deleteReview.addEventListener('submit', async e => {
+if (deleteReviewForm) {
+  deleteReviewForm.addEventListener('submit', async e => {
     e.preventDefault();
 
     const password = document.getElementById('password').value,
