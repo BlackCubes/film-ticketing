@@ -32,14 +32,18 @@ export const updateSettings = async (data, type, photoParams = '') => {
 export const updateShowSettings = async (
   data,
   message,
+  showId,
+  roleType,
   posterParams = null
 ) => {
   try {
-    const slug = window.location.pathname.split('/')[2];
+    const urlSub =
+      roleType === 'admin' ? `${showId}` : `updateMyShow/${showId}`;
+
     const url =
       posterParams === null
-        ? `http://127.0.0.1:3000/api/v1/shows/updateMyShow/${slug}`
-        : `http://127.0.0.1:3000/api/v1/shows/updateMyShow/${slug}/${posterParams}`;
+        ? `http://127.0.0.1:3000/api/v1/shows/${urlSub}`
+        : `http://127.0.0.1:3000/api/v1/shows/${urlSub}/${posterParams}`;
 
     const res = await axios({
       method: 'PATCH',

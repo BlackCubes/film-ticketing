@@ -14745,9 +14745,9 @@ var updateSettings = /*#__PURE__*/function () {
 exports.updateSettings = updateSettings;
 
 var updateShowSettings = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data, message) {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data, message, showId, roleType) {
     var posterParams,
-        slug,
+        urlSub,
         url,
         res,
         _args2 = arguments;
@@ -14755,10 +14755,10 @@ var updateShowSettings = /*#__PURE__*/function () {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            posterParams = _args2.length > 2 && _args2[2] !== undefined ? _args2[2] : null;
+            posterParams = _args2.length > 4 && _args2[4] !== undefined ? _args2[4] : null;
             _context2.prev = 1;
-            slug = window.location.pathname.split('/')[2];
-            url = posterParams === null ? "http://127.0.0.1:3000/api/v1/shows/updateMyShow/".concat(slug) : "http://127.0.0.1:3000/api/v1/shows/updateMyShow/".concat(slug, "/").concat(posterParams);
+            urlSub = roleType === 'admin' ? "".concat(showId) : "updateMyShow/".concat(showId);
+            url = posterParams === null ? "http://127.0.0.1:3000/api/v1/shows/".concat(urlSub) : "http://127.0.0.1:3000/api/v1/shows/".concat(urlSub, "/").concat(posterParams);
             _context2.next = 6;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -14789,7 +14789,7 @@ var updateShowSettings = /*#__PURE__*/function () {
     }, _callee2, null, [[1, 10]]);
   }));
 
-  return function updateShowSettings(_x3, _x4) {
+  return function updateShowSettings(_x3, _x4, _x5, _x6) {
     return _ref2.apply(this, arguments);
   };
 }();
@@ -14835,7 +14835,7 @@ var updateReviewSettings = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 8]]);
   }));
 
-  return function updateReviewSettings(_x5, _x6, _x7) {
+  return function updateReviewSettings(_x7, _x8, _x9) {
     return _ref3.apply(this, arguments);
   };
 }(); // export const updatePersonalData = async (name, birthdate, gender) => {
