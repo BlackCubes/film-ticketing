@@ -79,4 +79,12 @@ router.get(
   viewsController.getEventOwnerShow
 );
 
+// ADMIN ROUTES
+router.get(
+  '/admin',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminPage
+);
+
 module.exports = router;
