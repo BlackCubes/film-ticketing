@@ -12,6 +12,7 @@ import {
   updateShowSettings,
   updateReviewSettings
 } from './updateSettings';
+import { deleteReview } from './deleteSettings';
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
@@ -470,5 +471,23 @@ if (updateReview) {
 
     document.getElementById('btnUpdateReviewData').textContent =
       'Update Review Settings';
+  });
+}
+
+if (deleteReview) {
+  deleteReview.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const password = document.getElementById('password').value,
+      deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+
+    const { reviewId } = deleteReviewBtn.dataset;
+
+    document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
+
+    await deleteReview({ password }, reviewId);
+
+    document.getElementById('btnDeleteReviewData').textContent =
+      'Delete Review';
   });
 }
