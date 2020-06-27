@@ -212,7 +212,7 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
   // })
 
   const updatedShow = await Show.findOneAndUpdate(
-    { slug: req.params.slug, eventOrganizer: req.user.id },
+    { id: req.params.id, eventOrganizer: req.user.id },
     filteredBody,
     {
       new: true,

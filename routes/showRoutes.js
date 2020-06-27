@@ -49,7 +49,7 @@ router.patch(
 );
 
 router.patch(
-  '/updateMyShow/:slug/:showPoster',
+  '/updateMyShow/:id/:showPoster',
   authController.restrictTo('event-owner'),
   showController.deletePoster,
   showController.uploadShowPhoto,
