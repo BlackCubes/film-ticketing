@@ -24,7 +24,7 @@ block content
                     h3.card__ratings-star.heading-tertiary= `${review.rating} Avg. Rating`
 
                   .card__details
-                    p.crd__details-overview.paragraph= review.review
+                    p.crd__details-overview.paragraph= `"${review.review}"`
 
                   .showtimes-box__ticket-buy
                     a.btn.btn__promo(href=`/myReviews/${review.show.slug}`) Edit
