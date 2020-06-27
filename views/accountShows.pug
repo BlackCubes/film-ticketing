@@ -33,7 +33,7 @@ block content
             
             .eventowners-box__shows-container.u-center-text
               each show in shows
-                - const url = (user.role === 'admin') ? `/admin/shows/${show.id}` ? `/myShows/${show.slug}`
+                - const url = (user.role === 'admin') ? `/admin/shows/${show.id}` : `/myShows/${show.slug}`
 
                 +showCard(url)
 
