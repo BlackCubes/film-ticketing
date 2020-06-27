@@ -14680,7 +14680,7 @@ exports.createShow = createShow;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateShowSettings = exports.updateSettings = void 0;
+exports.updateReviewSettings = exports.updateShowSettings = exports.updateSettings = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14792,6 +14792,52 @@ var updateShowSettings = /*#__PURE__*/function () {
   return function updateShowSettings(_x3, _x4) {
     return _ref2.apply(this, arguments);
   };
+}();
+
+exports.updateShowSettings = updateShowSettings;
+
+var updateReviewSettings = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(data, showId, showTitle) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            url = "http://127.0.0.1:3000/api/v1/reviews/updateMyReview/".concat(showId);
+            _context3.next = 4;
+            return (0, _axios.default)({
+              method: 'PATCH',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context3.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', "Your review for ".concat(showTitle, " has been updated!"));
+            }
+
+            _context3.next = 11;
+            break;
+
+          case 8:
+            _context3.prev = 8;
+            _context3.t0 = _context3["catch"](0);
+            (0, _alerts.showAlert)('error', _context3.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, null, [[0, 8]]);
+  }));
+
+  return function updateReviewSettings(_x5, _x6, _x7) {
+    return _ref3.apply(this, arguments);
+  };
 }(); // export const updatePersonalData = async (name, birthdate, gender) => {
 //   try {
 //     const res = await axios({
@@ -14829,7 +14875,7 @@ var updateShowSettings = /*#__PURE__*/function () {
 // };
 
 
-exports.updateShowSettings = updateShowSettings;
+exports.updateReviewSettings = updateReviewSettings;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 

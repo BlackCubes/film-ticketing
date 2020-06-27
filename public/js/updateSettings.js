@@ -55,6 +55,24 @@ export const updateShowSettings = async (
   }
 };
 
+export const updateReviewSettings = async (data, showId, showTitle) => {
+  try {
+    const url = `http://127.0.0.1:3000/api/v1/reviews/updateMyReview/${showId}`;
+
+    const res = await axios({
+      method: 'PATCH',
+      url,
+      data
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', `Your review for ${showTitle} has been updated!`);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
+
 // export const updatePersonalData = async (name, birthdate, gender) => {
 //   try {
 //     const res = await axios({
