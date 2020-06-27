@@ -12,7 +12,7 @@ export const deleteReview = async (data, reviewId) => {
       data
     });
 
-    if (res.data.status === 'success') {
+    if (res.status === 'success') {
       showAlert('success', 'Review deleted!');
       window.setTimeout(() => {
         location.assign('/myReviews');
