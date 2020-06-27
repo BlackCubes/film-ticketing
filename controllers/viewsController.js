@@ -146,7 +146,7 @@ exports.getMyReviewForm = catchAsync(async (req, res, next) => {
 
   console.log(show);
 
-  const review = await Review.find({ user: req.user.id, show: show.id });
+  const review = await Review.find({ user: req.user.id, show: show[0].id });
 
   res.status(200).render('accountUpdateReview', {
     title: `${show.title} Review`,
