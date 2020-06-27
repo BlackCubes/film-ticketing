@@ -15669,15 +15669,15 @@ if (updateShowPrice) {
 if (updateReview) {
   updateReview.addEventListener('submit', /*#__PURE__*/function () {
     var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(e) {
-      var showTitle, rating, review, showId;
+      var showTitle, rating, review, updateReviewBtn, showId;
       return regeneratorRuntime.wrap(function _callee10$(_context10) {
         while (1) {
           switch (_context10.prev = _context10.next) {
             case 0:
               e.preventDefault();
               showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
-              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value;
-              showId = e.target.dataset.showId;
+              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, updateReviewBtn = document.getElementById('btnUpdateReviewData');
+              showId = updateReviewBtn.dataset.showId;
               document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
               _context10.next = 7;
               return (0, _updateSettings.updateReviewSettings)({

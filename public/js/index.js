@@ -459,9 +459,10 @@ if (updateReview) {
       .placeholder.split(' ')[2];
 
     const rating = document.getElementById('reviewRating').value,
-      review = document.getElementById('review').value;
+      review = document.getElementById('review').value,
+      updateReviewBtn = document.getElementById('btnUpdateReviewData');
 
-    const { showId } = e.target.dataset;
+    const { showId } = updateReviewBtn.dataset;
 
     document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
 
