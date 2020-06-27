@@ -80,7 +80,7 @@ block content
                 label(for='showPhoto') Choose a different poster*
 
             .form__group
-              button#btnUpdateShowData.btn.btn--blue(type='submit' name='btnUpdateShowData') Update Show Settings
+              button#btnUpdateShowData.btn.btn--blue(type='submit' name='btnUpdateShowData' data-show-id=`${show.id}`) Update Show Settings
 
         .line &nbsp;
 
@@ -100,7 +100,7 @@ block content
               label.form__label.label-text(for='showSynopsis') A synopsis is a condensed outline. Don't spoil.
 
             .form__group
-              button#btnUpdateShowPlot.btn.btn--blue(type='submit' name='btnUpdateShowPlot') Update Plot
+              button#btnUpdateShowPlot.btn.btn--blue(type='submit' name='btnUpdateShowPlot' data-show-id=`${show.id}`) Update Plot
 
         .line &nbsp;
 
@@ -135,7 +135,7 @@ block content
               label.form__label.label-text(for='showSubtitles') Any subtitles? Ex: 'English'
 
             .form__group
-              button#btnUpdateShowAddl.btn.btn--blue Update Add'l Info
+              button#btnUpdateShowAddl.btn.btn--blue(type='submit' name='btnUpdateShowAddl' data-show-id=`${show.id}`) Update Add'l Info
 
         .line &nbsp;
 
@@ -163,7 +163,7 @@ block content
                   option(value='n', selected=(specialVenueValue === 'n')) No
 
             .form__group
-              button#btnUpdateShowPrice.btn.btn--blue(type='submit' name='btnUpdateShowPrice') Update Pricing
+              button#btnUpdateShowPrice.btn.btn--blue(type='submit' name='btnUpdateShowPrice' data-show-id=`${show.id}`) Update Pricing
 
         //- .line &nbsp;
 
