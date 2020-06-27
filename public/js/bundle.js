@@ -15178,7 +15178,9 @@ var eoCreateShowForm = document.getElementById('eoCreateShowForm'),
 var updateShowMainView = document.getElementById('updateShowMainView'),
     updateShowPlot = document.getElementById('updateShowPlot'),
     updateShowAddl = document.getElementById('updateShowAddl'),
-    updateShowPrice = document.getElementById('updateShowPrice'); // VALUES (nothing, yet)
+    updateShowPrice = document.getElementById('updateShowPrice');
+var updateReview = document.getElementById('updateReview'),
+    deleteReview = document.getElementById('deleteReview'); // VALUES (nothing, yet)
 // DELEGATION
 
 if (mapBox) {
@@ -15660,6 +15662,42 @@ if (updateShowPrice) {
 
     return function (_x9) {
       return _ref9.apply(this, arguments);
+    };
+  }());
+}
+
+if (updateReview) {
+  updateReview.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(e) {
+      var showTitle, rating, review, showId;
+      return regeneratorRuntime.wrap(function _callee10$(_context10) {
+        while (1) {
+          switch (_context10.prev = _context10.next) {
+            case 0:
+              e.preventDefault();
+              showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
+              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value;
+              showId = e.target.dataset.showId;
+              document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
+              _context10.next = 7;
+              return (0, _updateSettings.updateReviewSettings)({
+                review: review,
+                rating: rating
+              }, showId, showTitle);
+
+            case 7:
+              document.getElementById('btnUpdateReviewData').textContent = 'Update Review Settings';
+
+            case 8:
+            case "end":
+              return _context10.stop();
+          }
+        }
+      }, _callee10);
+    }));
+
+    return function (_x10) {
+      return _ref10.apply(this, arguments);
     };
   }());
 }

@@ -7,7 +7,11 @@ import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { MultiForm } from './multiForm';
 import { login, logout, register, forgotPassword, createShow } from './login';
-import { updateSettings, updateShowSettings } from './updateSettings';
+import {
+  updateSettings,
+  updateShowSettings,
+  updateReviewSettings
+} from './updateSettings';
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
@@ -34,6 +38,8 @@ const updateShowMainView = document.getElementById('updateShowMainView'),
   updateShowPlot = document.getElementById('updateShowPlot'),
   updateShowAddl = document.getElementById('updateShowAddl'),
   updateShowPrice = document.getElementById('updateShowPrice');
+const updateReview = document.getElementById('updateReview'),
+  deleteReview = document.getElementById('deleteReview');
 
 // VALUES (nothing, yet)
 
@@ -441,5 +447,27 @@ if (updateShowPrice) {
 
     document.getElementById('btnUpdateShowPrice').textContent =
       'Update Pricing';
+  });
+}
+
+if (updateReview) {
+  updateReview.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const showTitle = document
+      .getElementById('reviewShowTitle')
+      .placeholder.split(' ')[2];
+
+    const rating = document.getElementById('reviewRating').value,
+      review = document.getElementById('review').value;
+
+    const { showId } = e.target.dataset;
+
+    document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
+
+    await updateReviewSettings({ review, rating }, showId, showTitle);
+
+    document.getElementById('btnUpdateReviewData').textContent =
+      'Update Review Settings';
   });
 }
