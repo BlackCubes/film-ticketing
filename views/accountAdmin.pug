@@ -4,3 +4,19 @@ block content
   main.main
     .user-view
       .user-view__content
+        .user-view__admin-container
+          .admin-box
+            .admin-box__title.u-margin-top-small.u-margin-bottom-small
+              h2.heading-secondary My Options
+
+            .admin-box__options-container.u-center-text
+              .showtimes-box__theatertime
+                .showtimes-box__theatertime-poster
+                  a.showtimes-box__theatertime-poster-link.poster-link(href='/admin/users')
+                    img.showtimes-box__theatertime-poster-img(src='/img/users/users.png', alt='Users Photo')
+
+                .showtimes-box__theatertime-theater.u-margin-bottom-small
+                  h3.showtimes-box__theatertime-theater-name.heading-tertiary Users
+
+                .showtimes-box__ticket-buy
+                  a.btn.btn__promo(href='/admin/users') Select
