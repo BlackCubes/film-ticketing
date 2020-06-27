@@ -9,6 +9,7 @@ block content
             .admin-box__title.u-margin-top-small.u-margin-bottom-small
               h2.heading-secondary My Options
 
+            //- USERS
             .admin-box__options-container.u-center-text
               .showtimes-box__theatertime
                 .showtimes-box__theatertime-poster
@@ -20,3 +21,42 @@ block content
 
                 .showtimes-box__ticket-buy
                   a.btn.btn__promo(href='/admin/users') Select
+
+            //- SHOWS
+            .admin-box__options-container.u-center-text
+              .showtimes-box__theatertime
+                .showtimes-box__theatertime-poster
+                  a.showtimes-box__theatertime-poster-link.picture-link(href='/admin/shows')
+                    img.showtimes-box__theatertime-poster-img(src='/img/shows/shows.png', alt='Shows Photo')
+
+                .showtimes-box__theatertime-theater.u-margin-bottom-small
+                  h3.showtimes-box__theatertime-theater-name.heading-tertiary Shows
+
+                .showtimes-box__ticket-buy
+                  a.btn.btn__promo(href='/admin/shows') Select
+
+            //- THEATERS
+            .admin-box__options-container.u-center-text
+              .showtimes-box__theatertime
+                .showtimes-box__theatertime-poster
+                  a.showtimes-box__theatertime-poster-link.picture-link(href='/admin/theaters')
+                    img.showtimes-box__theatertime-poster-img(src='/img/theaters/theaters.png', alt='Theaters Photo')
+
+                .showtimes-box__theatertime-theater.u-margin-bottom-small
+                  h3.showtimes-box__theatertime-theater-name.heading-tertiary Theaters
+
+                .showtimes-box__ticket-buy
+                  a.btn.btn__promo(href='/admin/theaters') Select
+
+            //- CASTCREWS
+            .admin-box__options-container.u-center-text
+              .showtimes-box__theatertime
+                .showtimes-box__theatertime-poster
+                  a.showtimes-box__theatertime-poster-link.picture-link(href='/admin/castcrews')
+                    img.showtimes-box__theatertime-poster-img(src='/img/castcrew/castcrews.png', alt='Cast and Crews Photo')
+
+                .showtimes-box__theatertime-theater.u-margin-bottom-small
+                  h3.showtimes-box__theatertime-theater-name.heading-tertiary Cast | Crews
+
+                .showtimes-box__ticket-buy
+                  a.btn.btn__promo(href='/admin/castcrews') Select
