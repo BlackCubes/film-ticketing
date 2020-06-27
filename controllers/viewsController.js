@@ -144,6 +144,8 @@ exports.getMyReviewForm = catchAsync(async (req, res, next) => {
     return next(new AppError('There is no show with that name!', 404));
   }
 
+  console.log(show);
+
   const review = await Review.find({ user: req.user.id, show: show.id });
 
   res.status(200).render('accountUpdateReview', {
