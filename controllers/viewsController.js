@@ -148,7 +148,7 @@ exports.getMyReviewForm = catchAsync(async (req, res, next) => {
 
   res.status(200).render('accountUpdateReview', {
     title: `${show.title} Review`,
-    review
+    review: review[0]
   });
 });
 
