@@ -78,6 +78,15 @@ router
     showController.deleteShow
   );
 
+router.patch(
+  '/updateMyShow/:id/:showPoster',
+  authController.restrictTo('admin'),
+  showController.deletePoster,
+  showController.uploadShowPhoto,
+  showController.resizeShowPhotoLarge,
+  showController.updateShow
+);
+
 router
   .route('/:userId')
   .get(authController.restrictTo('admin'), showController.getAllShows);
