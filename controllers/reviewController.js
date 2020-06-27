@@ -1,6 +1,8 @@
 const Review = require('./../models/reviewModel');
+const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
+const AppError = require('../utils/appError');
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
@@ -26,6 +28,25 @@ exports.updateMyReview = catchAsync(async (req, res, next) => {
     data: {
       review: updatedReview
     }
+  });
+});
+
+exports.deleteMyReview = catchAsync(async (req, res, next) => {
+  const { password } = req.body;
+
+  if (!password) return next(new AppError('Please provide a password!', 400));
+
+  const user = await User.findById(req.user.id).select('+password');
+
+  if (!user || !(await user.correctPassword(password, user.password))) {
+    return next(new AppError('Incorrect password!', 401));
+  }
+
+  await Review.findByIdAndDelete(req.params.id);
+
+  res.status(204).json({
+    status: 'success',
+    data: null
   });
 });
 
