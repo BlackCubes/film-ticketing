@@ -87,6 +87,12 @@ router.get(
   viewsController.getAdminPage
 );
 router.get(
+  '/admin/show-options',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowOptions
+);
+router.get(
   '/admin/shows',
   authController.protect,
   authController.restrictTo('admin'),
