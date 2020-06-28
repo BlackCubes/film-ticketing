@@ -15294,6 +15294,7 @@ var eoCreateShowForm = document.getElementById('eoCreateShowForm'),
     eoFieldlist1 = document.getElementById('eoFieldlist1');
 var updateShowMainView = document.getElementById('updateShowMainView'),
     updateShowPlot = document.getElementById('updateShowPlot'),
+    updateShowCastCrewForm = document.getElementById('updateShowCastCrewForm'),
     updateShowAddl = document.getElementById('updateShowAddl'),
     updateShowPrice = document.getElementById('updateShowPrice'),
     deleteShowForm = document.getElementById('deleteShowForm');
@@ -15730,33 +15731,33 @@ if (updateShowPlot) {
   }());
 }
 
-if (updateShowAddl) {
-  updateShowAddl.addEventListener('submit', /*#__PURE__*/function () {
+if (updateShowCastCrewForm) {
+  updateShowCastCrewForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(e) {
-      var selectContentType, contentType, genres, language, subtitles, updateShowAddlBtn, _updateShowAddlBtn$da, showId, roleType;
+      var castcrewValue, updateShowCastCrewBtn, _updateShowCastCrewBt, showId, roleType;
 
       return regeneratorRuntime.wrap(function _callee8$(_context8) {
         while (1) {
           switch (_context8.prev = _context8.next) {
             case 0:
               e.preventDefault();
-              selectContentType = document.getElementById('showContentType');
-              contentType = selectContentType.options[selectContentType.selectedIndex].value;
-              genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
-              _updateShowAddlBtn$da = updateShowAddlBtn.dataset, showId = _updateShowAddlBtn$da.showId, roleType = _updateShowAddlBtn$da.roleType;
-              document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
-              _context8.next = 8;
+              castcrewValue = document.getElementById('showCastCrew').value;
+              castcrewValue = castcrewValue.replace(/ /g, '');
+              castcrewValue = castcrewValue.replace(/,$/g, '');
+              castcrewValue = castcrewValue.replace(/;$/g, '');
+              castcrew = castcrewValue.split(',');
+              updateShowCastCrewBtn = document.getElementById('btnUpdateShowCastCrew');
+              _updateShowCastCrewBt = updateShowCastCrewBtn.dataset, showId = _updateShowCastCrewBt.showId, roleType = _updateShowCastCrewBt.roleType;
+              document.getElementById('btnUpdateShowCastCrew').textContent = 'Updating...';
+              _context8.next = 11;
               return (0, _updateSettings.updateShowSettings)({
-                genres: genres,
-                language: language,
-                subtitles: subtitles,
-                contentType: contentType
-              }, "add'l info", showId, roleType);
+                castcrew: castcrew
+              }, 'casts/crews', showId, roleType);
 
-            case 8:
-              document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
+            case 11:
+              document.getElementById('btnUpdateShowCastCrew').textContent = 'Update Casts | Crews';
 
-            case 9:
+            case 12:
             case "end":
               return _context8.stop();
           }
@@ -15770,14 +15771,54 @@ if (updateShowAddl) {
   }());
 }
 
-if (updateShowPrice) {
-  updateShowPrice.addEventListener('submit', /*#__PURE__*/function () {
+if (updateShowAddl) {
+  updateShowAddl.addEventListener('submit', /*#__PURE__*/function () {
     var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(e) {
-      var selectSpecialVenue, specialVenueValue, specialVenue, price, updateShowPriceBtn, _updateShowPriceBtn$d, showId, roleType, data, selectPrivateVenue, privateVenueValue, secretShow;
+      var selectContentType, contentType, genres, language, subtitles, updateShowAddlBtn, _updateShowAddlBtn$da, showId, roleType;
 
       return regeneratorRuntime.wrap(function _callee9$(_context9) {
         while (1) {
           switch (_context9.prev = _context9.next) {
+            case 0:
+              e.preventDefault();
+              selectContentType = document.getElementById('showContentType');
+              contentType = selectContentType.options[selectContentType.selectedIndex].value;
+              genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
+              _updateShowAddlBtn$da = updateShowAddlBtn.dataset, showId = _updateShowAddlBtn$da.showId, roleType = _updateShowAddlBtn$da.roleType;
+              document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
+              _context9.next = 8;
+              return (0, _updateSettings.updateShowSettings)({
+                genres: genres,
+                language: language,
+                subtitles: subtitles,
+                contentType: contentType
+              }, "add'l info", showId, roleType);
+
+            case 8:
+              document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
+
+            case 9:
+            case "end":
+              return _context9.stop();
+          }
+        }
+      }, _callee9);
+    }));
+
+    return function (_x9) {
+      return _ref9.apply(this, arguments);
+    };
+  }());
+}
+
+if (updateShowPrice) {
+  updateShowPrice.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(e) {
+      var selectSpecialVenue, specialVenueValue, specialVenue, price, updateShowPriceBtn, _updateShowPriceBtn$d, showId, roleType, data, selectPrivateVenue, privateVenueValue, secretShow;
+
+      return regeneratorRuntime.wrap(function _callee10$(_context10) {
+        while (1) {
+          switch (_context10.prev = _context10.next) {
             case 0:
               e.preventDefault();
               selectSpecialVenue = document.getElementById('showSpecialVenue');
@@ -15797,49 +15838,13 @@ if (updateShowPrice) {
               }
 
               document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
-              _context9.next = 13;
+              _context10.next = 13;
               return (0, _updateSettings.updateShowSettings)(data, 'pricing', showId, roleType);
 
             case 13:
               document.getElementById('btnUpdateShowPrice').textContent = 'Update Pricing';
 
             case 14:
-            case "end":
-              return _context9.stop();
-          }
-        }
-      }, _callee9);
-    }));
-
-    return function (_x9) {
-      return _ref9.apply(this, arguments);
-    };
-  }());
-}
-
-if (updateReview) {
-  updateReview.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(e) {
-      var showTitle, rating, review, updateReviewBtn, showId;
-      return regeneratorRuntime.wrap(function _callee10$(_context10) {
-        while (1) {
-          switch (_context10.prev = _context10.next) {
-            case 0:
-              e.preventDefault();
-              showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
-              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, updateReviewBtn = document.getElementById('btnUpdateReviewData');
-              showId = updateReviewBtn.dataset.showId;
-              document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
-              _context10.next = 7;
-              return (0, _updateSettings.updateReviewSettings)({
-                review: review,
-                rating: rating
-              }, showId, showTitle);
-
-            case 7:
-              document.getElementById('btnUpdateReviewData').textContent = 'Update Review Settings';
-
-            case 8:
             case "end":
               return _context10.stop();
           }
@@ -15853,27 +15858,29 @@ if (updateReview) {
   }());
 }
 
-if (deleteShowForm) {
-  deleteShowForm.addEventListener('submit', /*#__PURE__*/function () {
+if (updateReview) {
+  updateReview.addEventListener('submit', /*#__PURE__*/function () {
     var _ref11 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11(e) {
-      var password, deleteShowBtn, showId;
+      var showTitle, rating, review, updateReviewBtn, showId;
       return regeneratorRuntime.wrap(function _callee11$(_context11) {
         while (1) {
           switch (_context11.prev = _context11.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteShowBtn = document.getElementById('btnDeleteShowData');
-              showId = deleteShowBtn.dataset.showId;
-              document.getElementById('btnDeleteShowData').textContent = 'Deleting...';
-              _context11.next = 6;
-              return (0, _deleteSettings.deleteShow)({
-                password: password
-              }, showId);
-
-            case 6:
-              document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
+              showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
+              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, updateReviewBtn = document.getElementById('btnUpdateReviewData');
+              showId = updateReviewBtn.dataset.showId;
+              document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
+              _context11.next = 7;
+              return (0, _updateSettings.updateReviewSettings)({
+                review: review,
+                rating: rating
+              }, showId, showTitle);
 
             case 7:
+              document.getElementById('btnUpdateReviewData').textContent = 'Update Review Settings';
+
+            case 8:
             case "end":
               return _context11.stop();
           }
@@ -15887,25 +15894,25 @@ if (deleteShowForm) {
   }());
 }
 
-if (deleteReviewForm) {
-  deleteReviewForm.addEventListener('submit', /*#__PURE__*/function () {
+if (deleteShowForm) {
+  deleteShowForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref12 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee12(e) {
-      var password, deleteReviewBtn, reviewId;
+      var password, deleteShowBtn, showId;
       return regeneratorRuntime.wrap(function _callee12$(_context12) {
         while (1) {
           switch (_context12.prev = _context12.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
-              reviewId = deleteReviewBtn.dataset.reviewId;
-              document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
+              password = document.getElementById('password').value, deleteShowBtn = document.getElementById('btnDeleteShowData');
+              showId = deleteShowBtn.dataset.showId;
+              document.getElementById('btnDeleteShowData').textContent = 'Deleting...';
               _context12.next = 6;
-              return (0, _deleteSettings.deleteReview)({
+              return (0, _deleteSettings.deleteShow)({
                 password: password
-              }, reviewId);
+              }, showId);
 
             case 6:
-              document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
+              document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
 
             case 7:
             case "end":
@@ -15917,6 +15924,40 @@ if (deleteReviewForm) {
 
     return function (_x12) {
       return _ref12.apply(this, arguments);
+    };
+  }());
+}
+
+if (deleteReviewForm) {
+  deleteReviewForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref13 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee13(e) {
+      var password, deleteReviewBtn, reviewId;
+      return regeneratorRuntime.wrap(function _callee13$(_context13) {
+        while (1) {
+          switch (_context13.prev = _context13.next) {
+            case 0:
+              e.preventDefault();
+              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+              reviewId = deleteReviewBtn.dataset.reviewId;
+              document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
+              _context13.next = 6;
+              return (0, _deleteSettings.deleteReview)({
+                password: password
+              }, reviewId);
+
+            case 6:
+              document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
+
+            case 7:
+            case "end":
+              return _context13.stop();
+          }
+        }
+      }, _callee13);
+    }));
+
+    return function (_x13) {
+      return _ref13.apply(this, arguments);
     };
   }());
 }

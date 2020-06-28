@@ -37,6 +37,7 @@ const eoCreateShowForm = document.getElementById('eoCreateShowForm'),
   eoFieldlist1 = document.getElementById('eoFieldlist1');
 const updateShowMainView = document.getElementById('updateShowMainView'),
   updateShowPlot = document.getElementById('updateShowPlot'),
+  updateShowCastCrewForm = document.getElementById('updateShowCastCrewForm'),
   updateShowAddl = document.getElementById('updateShowAddl'),
   updateShowPrice = document.getElementById('updateShowPrice'),
   deleteShowForm = document.getElementById('deleteShowForm');
@@ -432,6 +433,34 @@ if (updateShowPlot) {
     await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
 
     document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+  });
+}
+
+if (updateShowCastCrewForm) {
+  updateShowCastCrewForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    let castcrewValue = document.getElementById('showCastCrew').value;
+
+    castcrewValue = castcrewValue.replace(/ /g, '');
+    castcrewValue = castcrewValue.replace(/,$/g, '');
+    castcrewValue = castcrewValue.replace(/;$/g, '');
+
+    castcrew = castcrewValue.split(',');
+
+    const updateShowCastCrewBtn = document.getElementById(
+      'btnUpdateShowCastCrew'
+    );
+
+    const { showId, roleType } = updateShowCastCrewBtn.dataset;
+
+    document.getElementById('btnUpdateShowCastCrew').textContent =
+      'Updating...';
+
+    await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
+
+    document.getElementById('btnUpdateShowCastCrew').textContent =
+      'Update Casts | Crews';
   });
 }
 
