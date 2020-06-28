@@ -164,10 +164,14 @@ block content
               if user.role === 'admin'
                 .form__group
                   .form__special-venue
-                    select#showProvateVenue.dropdown(name='selectPrivateVenue' tabindex='0')
+                    select#showPrivateVenue.dropdown(name='selectPrivateVenue' tabindex='0')
                       option(value) Private Venue (optional)
                       option(value='y') Yes
                       option(value='n') No
+
+                .form__group
+                  input#showEventOwner.form__input.input-text(type='text' name='showEventOwner' placeholder='Event Organizer ID*' required)
+                  label.form__label.label-text(for='showEventOwner') Please enter the event organizer's ID.
               
               .form__group
                 .form__duo-btn
@@ -175,5 +179,5 @@ block content
                     button#btnPrev-4.btn.btn--blue.btn--duo(name='btnPrev4') Previous
 
                   .form__duo-btn-submit
-                    button#btnCreateShow.btn.btn--blue.btn--duo(type='submit' name='btnCreateShow') Create
+                    button#btnCreateShow.btn.btn--blue.btn--duo(type='submit' name='btnCreateShow' data-role-type=`${user.role}`) Create
               
