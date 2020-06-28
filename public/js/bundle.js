@@ -15610,7 +15610,6 @@ if (updateShowMainView) {
 
               if (roleType === 'admin') {
                 eventOrganizer = [document.getElementById('showEventOwner').value];
-                console.log(eventOrganizer);
                 form.append('eventOrganizer', eventOrganizer);
               }
 
