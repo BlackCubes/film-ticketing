@@ -136,4 +136,11 @@ router.get(
   viewsController.getAdminCreateShow
 );
 
+router.get(
+  '/admin/theater-option',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminTheaterOptions
+);
+
 module.exports = router;
