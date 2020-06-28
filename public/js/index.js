@@ -325,6 +325,8 @@ if (eoFieldlist1) {
 
     const poster = document.getElementById('showPhoto').files[0];
 
+    const { roleType } = createShowBtn.dataset;
+
     document.getElementById('btnCreateShow').textContent = 'Creating...';
 
     form.append('title', title);
@@ -341,7 +343,21 @@ if (eoFieldlist1) {
     form.append('price', price);
     form.append('poster', poster);
 
-    await createShow(form, 'event-owner');
+    if (roleType === 'admin') {
+      const selectPrivateVenue = document.getElementById('showPrivateVenue');
+
+      const privateVenueValue =
+        selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+
+      const secretShow = privateVenueValue === 'y' ? true : false;
+
+      const eventOrganizer = [document.getElementById('showEventOwner').value];
+
+      form.append('secretShow', secretShow);
+      form.append('eventOrganizer', eventOrganizer);
+    }
+
+    await createShow(form, roleType);
 
     document.getElementById('btnCreateShow').textContent = 'Create';
   });

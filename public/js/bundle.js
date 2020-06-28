@@ -15582,7 +15582,7 @@ if (eoFieldlist1) {
 
   eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(e) {
-      var form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster;
+      var form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster, roleType, selectPrivateVenue, privateVenueValue, secretShow, eventOrganizer;
       return regeneratorRuntime.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
@@ -15599,6 +15599,7 @@ if (eoFieldlist1) {
               specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
               specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
               poster = document.getElementById('showPhoto').files[0];
+              roleType = createShowBtn.dataset.roleType;
               document.getElementById('btnCreateShow').textContent = 'Creating...';
               form.append('title', title);
               form.append('duration', duration);
@@ -15613,13 +15614,23 @@ if (eoFieldlist1) {
               form.append('specialVenue', specialVenue);
               form.append('price', price);
               form.append('poster', poster);
-              _context5.next = 28;
-              return (0, _login.createShow)(form, 'event-owner');
 
-            case 28:
+              if (roleType === 'admin') {
+                selectPrivateVenue = document.getElementById('showPrivateVenue');
+                privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+                secretShow = privateVenueValue === 'y' ? true : false;
+                eventOrganizer = [document.getElementById('showEventOwner').value];
+                form.append('secretShow', secretShow);
+                form.append('eventOrganizer', eventOrganizer);
+              }
+
+              _context5.next = 30;
+              return (0, _login.createShow)(form, roleType);
+
+            case 30:
               document.getElementById('btnCreateShow').textContent = 'Create';
 
-            case 29:
+            case 31:
             case "end":
               return _context5.stop();
           }
