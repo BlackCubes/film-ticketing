@@ -23,5 +23,13 @@ mixin theatersCard(theater)
 block content
   main.main
     - console.log(theaters)
-    each theater in theaters
-      +theatersCard(theater)
+    .user-view
+      .user-view__content
+        .user-view__eventowners-container
+          .eventowners-box
+            .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
+              h2.heading-secondary Theaters in System
+            
+            .eventowners-box__shows-container.u-center-text
+              each theater in theaters
+                +theatersCard(theater)
