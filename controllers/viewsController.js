@@ -188,8 +188,11 @@ exports.getAdminPage = (req, res) => {
 };
 
 exports.getAdminShowOptions = (req, res) => {
+  const show = 'show';
+
   res.status(200).render('accountAdminOptions', {
-    title: 'Admin - Show Options'
+    title: 'Admin - Show Options',
+    show
   });
 };
 
