@@ -2,3 +2,37 @@ extends base
 
 block content
   main.main
+    .user-view
+      .user-view__content
+        .user-view__admin-container
+          .admin-box
+            .admin-box__title.u-margin-top-small.u-margin-bottom-small
+              h2.heading-secondary Show Options
+
+            //- VIEW, EDIT, DELETE SHOWS
+            .admin-box__options-container.u-center-text
+              .showtimes-box__theatertime
+                .showtimes-box__theatertime-poster
+                  a.showtimes-box__theatertime-poster-link.picture-link(href='/admin/shows')
+                    img.showtimes-box__theatertime-poster-img(src='/img/users/users.png', alt='Users Photo')
+
+                .showtimes-box__theatertime-theater.u-margin-bottom-small
+                  h3.showtimes-box__theatertime-theater-name.heading-tertiary View | Edit | Delete
+
+                .showtimes-box__ticket-buy
+                  a.btn.btn__promo(href='/admin/shows') Select
+
+            //- .line &nbsp;
+
+            //- //- SHOWS
+            //- .admin-box__options-container.u-center-text
+            //-   .showtimes-box__theatertime
+            //-     .showtimes-box__theatertime-poster
+            //-       a.showtimes-box__theatertime-poster-link.picture-link(href='/admin/show-options')
+            //-         img.showtimes-box__theatertime-poster-img(src='/img/shows/shows.png', alt='Shows Photo')
+
+            //-     .showtimes-box__theatertime-theater.u-margin-bottom-small
+            //-       h3.showtimes-box__theatertime-theater-name.heading-tertiary Shows
+
+            //-     .showtimes-box__ticket-buy
+            //-       a.btn.btn__promo(href='/admin/show-options') Select
