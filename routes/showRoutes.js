@@ -69,12 +69,12 @@ router
   .route('/:id')
   .patch(
     authController.protect,
-    authController.restrictTo('admin', 'event-owner'),
+    authController.restrictTo('admin'),
     showController.updateShow
   )
   .delete(
     authController.protect,
-    authController.restrictTo('admin', 'event-owner'),
+    authController.restrictTo('admin'),
     authController.verifyPassword,
     showController.deleteShow
   );
