@@ -390,6 +390,27 @@ if (adFieldlist1) {
   thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
   const createTheaterBtn = document.getElementById('btnCreateTheater');
+
+  adCreateTheaterForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const form = new FormData();
+
+    const name = document.getElementById('theaterName').value,
+      phone = document.getElementById('theaterPhone').value,
+      linkUrl = document.getElementById('theaterLinkUrl').value,
+      address = document.getElementById('theaterAddress').value,
+      city = document.getElementById('theaterCity').value,
+      state = document.getElementById('theaterState').value,
+      zipCode = document.getElementById('theaterZipCode').value,
+      geoLong = document.getElementById('theaterGeoLong').value,
+      geoLat = document.getElementById('theaterGeoLat').value,
+      description = document.getElementById('theaterDescription').value,
+      chainName = document.getElementById('theaterChainName').value,
+      chainCode = document.getElementById('theaterChainCode').value;
+
+    const geo = [geoLong, geoLat];
+  });
 }
 
 if (updateShowMainView) {
