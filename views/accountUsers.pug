@@ -21,4 +21,13 @@ mixin usersCard(user)
 block content
   main.main
     - console.log(optionUsers)
-    +usersCard(optionUsers)
+    .user-view
+      .user-view__content
+        .user-view__eventowners-container
+          .eventowners-box
+            .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
+              h2.heading-secondary Users in System
+
+            .eventowners-box__shows-container.u-center-text
+              each user in optionUsers
+                +usersCard(user)
