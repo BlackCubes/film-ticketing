@@ -15773,7 +15773,7 @@ if (updateShowAddl) {
 if (updateShowPrice) {
   updateShowPrice.addEventListener('submit', /*#__PURE__*/function () {
     var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(e) {
-      var selectSpecialVenue, specialVenueValue, specialVenue, price, updateShowPriceBtn, _updateShowPriceBtn$d, showId, roleType;
+      var selectSpecialVenue, specialVenueValue, specialVenue, price, updateShowPriceBtn, _updateShowPriceBtn$d, showId, roleType, data, selectPrivateVenue, privateVenueValue, secretShow;
 
       return regeneratorRuntime.wrap(function _callee9$(_context9) {
         while (1) {
@@ -15785,17 +15785,25 @@ if (updateShowPrice) {
               specialVenue = specialVenueValue === 'y' ? true : false;
               price = document.getElementById('showPrice').value, updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
               _updateShowPriceBtn$d = updateShowPriceBtn.dataset, showId = _updateShowPriceBtn$d.showId, roleType = _updateShowPriceBtn$d.roleType;
-              document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
-              _context9.next = 9;
-              return (0, _updateSettings.updateShowSettings)({
-                price: price,
-                specialVenue: specialVenue
-              }, 'pricing', showId, roleType);
+              data = {};
+              data.price = price;
+              data.specialVenue = specialVenue;
 
-            case 9:
+              if (roleType === 'admin') {
+                selectPrivateVenue = document.getElementById('showPrivateVenue');
+                privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+                secretShow = privateVenueValue === 'y' ? true : false;
+                data.secretShow = secretShow;
+              }
+
+              document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
+              _context9.next = 13;
+              return (0, _updateSettings.updateShowSettings)(data, 'pricing', showId, roleType);
+
+            case 13:
               document.getElementById('btnUpdateShowPrice').textContent = 'Update Pricing';
 
-            case 10:
+            case 14:
             case "end":
               return _context9.stop();
           }

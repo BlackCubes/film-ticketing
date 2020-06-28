@@ -479,14 +479,24 @@ if (updateShowPrice) {
 
     const { showId, roleType } = updateShowPriceBtn.dataset;
 
+    const data = {};
+    data.price = price;
+    data.specialVenue = specialVenue;
+
+    if (roleType === 'admin') {
+      const selectPrivateVenue = document.getElementById('showPrivateVenue');
+
+      const privateVenueValue =
+        selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+
+      const secretShow = privateVenueValue === 'y' ? true : false;
+
+      data.secretShow = secretShow;
+    }
+
     document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
 
-    await updateShowSettings(
-      { price, specialVenue },
-      'pricing',
-      showId,
-      roleType
-    );
+    await updateShowSettings(data, 'pricing', showId, roleType);
 
     document.getElementById('btnUpdateShowPrice').textContent =
       'Update Pricing';
