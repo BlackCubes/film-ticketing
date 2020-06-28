@@ -289,3 +289,9 @@ exports.getAdminTheater = catchAsync(async (req, res, next) => {
     theater
   });
 });
+
+exports.getAdminCreateTheater = (req, res) => {
+  res.status(200).render('createTheater', {
+    title: 'Admin - Create Theater'
+  });
+};
