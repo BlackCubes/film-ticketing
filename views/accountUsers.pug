@@ -14,7 +14,15 @@ mixin usersCard(user)
         li.showtimes-box__metadata-item.paragraph= `Role: ${user.role}`
 
     .showtimes-box__ticket-buy
-      a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit
+      if user.role === 'event-owner'
+        .form__duo-btn
+          .form__duo-btn-previous
+            a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit User
+
+          .form__duo-btn-next
+            a.btn.btn__promo(href=`/admin/users/${user._id}/shows`) View Shows
+      else
+        a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit User
 
   .line &nbsp;
 
