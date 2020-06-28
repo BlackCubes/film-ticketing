@@ -272,7 +272,7 @@ exports.getAdminTheaterOptions = (req, res) => {
 exports.getAdminTheaters = catchAsync(async (req, res, next) => {
   const theaters = await Theater.find();
 
-  res.status(200).render('theaters', {
+  res.status(200).render('accountTheaters', {
     title: 'Theaters',
     theaters
   });
