@@ -118,7 +118,7 @@ block content
               
               .form__group
                 - console.log(show)
-                - const castcrewIds = show.castcrew.map(el => el.id)
+                - const castcrewIds = show.castcrew.map(el => el.id).join(', ')
                 - console.log('Castcrew IDS', castcrewIds)
 
               //-   textarea#showCastCrew.form__text-area.input-text(name='textareaCastCrew' placeholder='Casts & Crews*' required)= show.overview
