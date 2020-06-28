@@ -14882,7 +14882,7 @@ exports.updateReviewSettings = updateReviewSettings;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteReview = void 0;
+exports.deleteReview = exports.deleteShow = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14894,15 +14894,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var deleteReview = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, reviewId) {
+var deleteShow = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, showId) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/reviews/deleteMyReview/".concat(reviewId);
+            url = "http://127.0.0.1:3000/api/v1/shows/".concat(showId);
             _context.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -14914,9 +14914,9 @@ var deleteReview = /*#__PURE__*/function () {
             res = _context.sent;
 
             if (res.status === 204) {
-              (0, _alerts.showAlert)('success', 'Review deleted!');
+              (0, _alerts.showAlert)('success', 'Show deleted!');
               window.setTimeout(function () {
-                location.assign('/myReviews');
+                location.assign('/admin/shows');
               }, 1000);
             }
 
@@ -14936,8 +14936,57 @@ var deleteReview = /*#__PURE__*/function () {
     }, _callee, null, [[0, 8]]);
   }));
 
-  return function deleteReview(_x, _x2) {
+  return function deleteShow(_x, _x2) {
     return _ref.apply(this, arguments);
+  };
+}();
+
+exports.deleteShow = deleteShow;
+
+var deleteReview = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data, reviewId) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+            url = "http://127.0.0.1:3000/api/v1/reviews/deleteMyReview/".concat(reviewId);
+            _context2.next = 4;
+            return (0, _axios.default)({
+              method: 'DELETE',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context2.sent;
+
+            if (res.status === 204) {
+              (0, _alerts.showAlert)('success', 'Review deleted!');
+              window.setTimeout(function () {
+                location.assign('/myReviews');
+              }, 1000);
+            }
+
+            _context2.next = 11;
+            break;
+
+          case 8:
+            _context2.prev = 8;
+            _context2.t0 = _context2["catch"](0);
+            (0, _alerts.showAlert)('error', _context2.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2, null, [[0, 8]]);
+  }));
+
+  return function deleteReview(_x3, _x4) {
+    return _ref2.apply(this, arguments);
   };
 }();
 
