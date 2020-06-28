@@ -99,6 +99,12 @@ router.get(
   viewsController.getAdminUsers
 );
 router.get(
+  '/admin/users/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminUser
+);
+router.get(
   '/admin/show-options',
   authController.protect,
   authController.restrictTo('admin'),
