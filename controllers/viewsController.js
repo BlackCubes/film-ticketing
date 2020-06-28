@@ -268,3 +268,12 @@ exports.getAdminTheaterOptions = (req, res) => {
     option
   });
 };
+
+exports.getAdminTheaters = catchAsync(async (req, res, next) => {
+  const theaters = await Theater.find();
+
+  res.status(200).render('theaters', {
+    title: 'Theaters',
+    theaters
+  });
+});
