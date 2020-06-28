@@ -46,9 +46,10 @@ exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
 
   const photoUserId =
-    req.user.role === 'admin' ? req.body.eventOrganizer[0] : req.user.id;
+    req.user.role === 'admin' ? req.body.eventOrganizer : req.user.id;
 
   console.log(photoUserId);
+  console.log('Req.body.eventOrganizer: ', req.body.eventOrganizer);
 
   req.file.filename = `show-${photoUserId}-${Date.now()}.jpeg`;
 
