@@ -273,7 +273,19 @@ exports.getAdminTheaters = catchAsync(async (req, res, next) => {
   const theaters = await Theater.find();
 
   res.status(200).render('accountTheaters', {
-    title: 'Theaters',
+    title: 'Admin - Theaters',
     theaters
+  });
+});
+
+exports.getAdminTheater = catchAsync(async (req, res, next) => {
+  const theater = await Theater.findById(req.params.id);
+
+  if (!theater)
+    return next(new AppError('There is no theater with that id!', 404));
+
+  res.status(200).render('accountTheaters', {
+    title: `Admin - Theaters: ${theater.name}`,
+    theater
   });
 });
