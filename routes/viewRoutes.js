@@ -111,6 +111,12 @@ router.get(
   viewsController.getAdminUserShows
 );
 router.get(
+  '/admin/create-user',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCreateUser
+);
+router.get(
   '/admin/show-options',
   authController.protect,
   authController.restrictTo('admin'),
