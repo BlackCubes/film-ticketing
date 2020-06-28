@@ -35,6 +35,8 @@ const updateEmailUsernameForm = document.getElementById(
 const updatePassForm = document.getElementById('updatePassForm');
 const eoCreateShowForm = document.getElementById('eoCreateShowForm'),
   eoFieldlist1 = document.getElementById('eoFieldlist1');
+const adCreateTheaterForm = document.getElementById('adCreateTheaterForm'),
+  adFieldlist1 = document.getElementById('adFieldlist1');
 const updateShowMainView = document.getElementById('updateShowMainView'),
   updateShowPlot = document.getElementById('updateShowPlot'),
   updateShowCastCrewForm = document.getElementById('updateShowCastCrewForm'),
@@ -362,6 +364,32 @@ if (eoFieldlist1) {
 
     document.getElementById('btnCreateShow').textContent = 'Create';
   });
+}
+
+if (adFieldlist1) {
+  const firstNextBtn = document.getElementById('btnNext-1'),
+    secondNextBtn = document.getElementById('btnNext-2'),
+    thirdNextBtn = document.getElementById('btnNext-3');
+
+  const firstPreviousBtn = document.getElementById('btnPrev-1'),
+    secondPreviousBtn = document.getElementById('btnPrev-2'),
+    thirdPreviousBtn = document.getElementById('btnPrev-3');
+
+  let multiForm = new MultiForm(firstNextBtn, adFieldlist1);
+
+  firstNextBtn.addEventListener('click', e => multiForm.buttonNext(e, true));
+  secondNextBtn.addEventListener('click', e => {
+    multiForm.buttonNext(e, true);
+  });
+  thirdNextBtn.addEventListener('click', e =>
+    multiForm.buttonNext(e, true, false, true)
+  );
+
+  firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
+  secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
+  thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
+
+  const createTheaterBtn = document.getElementById('btnCreateTheater');
 }
 
 if (updateShowMainView) {

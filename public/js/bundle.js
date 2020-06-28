@@ -15258,7 +15258,7 @@ var _stripe = require("./stripe");
 
 var _circleNav = _interopRequireDefault(require("./circleNav"));
 
-var _multiForm2 = require("./multiForm");
+var _multiForm3 = require("./multiForm");
 
 var _login = require("./login");
 
@@ -15292,6 +15292,8 @@ var updateEmailUsernameForm = document.getElementById('updateEmailUsernameForm')
 var updatePassForm = document.getElementById('updatePassForm');
 var eoCreateShowForm = document.getElementById('eoCreateShowForm'),
     eoFieldlist1 = document.getElementById('eoFieldlist1');
+var adCreateTheaterForm = document.getElementById('adCreateTheaterForm'),
+    adFieldlist1 = document.getElementById('adFieldlist1');
 var updateShowMainView = document.getElementById('updateShowMainView'),
     updateShowPlot = document.getElementById('updateShowPlot'),
     updateShowCastCrewForm = document.getElementById('updateShowCastCrewForm'),
@@ -15355,7 +15357,7 @@ if (logoutBtn) logoutBtn.addEventListener('click', _login.logout);
 if (registerFieldlist1) {
   var firstNextBtn = document.getElementById('btnNext-1'),
       firstPreviousBtn = document.getElementById('btnPrev-1');
-  var multiForm = new _multiForm2.MultiForm(firstNextBtn, registerFieldlist1);
+  var multiForm = new _multiForm3.MultiForm(firstNextBtn, registerFieldlist1);
   firstNextBtn.addEventListener('click', function (e) {
     return multiForm.buttonNext(e, true, true);
   });
@@ -15548,7 +15550,7 @@ if (eoFieldlist1) {
       thirdPreviousBtn = document.getElementById('btnPrev-3'),
       fourthPreviousBtn = document.getElementById('btnPrev-4');
 
-  var _multiForm = new _multiForm2.MultiForm(_firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
+  var _multiForm = new _multiForm3.MultiForm(_firstNextBtn, eoFieldlist1); // Initiate click event listeners for multiform with specific elements
 
 
   _firstNextBtn.addEventListener('click', function (e) {
@@ -15643,6 +15645,44 @@ if (eoFieldlist1) {
       return _ref5.apply(this, arguments);
     };
   }());
+}
+
+if (adFieldlist1) {
+  var _firstNextBtn2 = document.getElementById('btnNext-1'),
+      _secondNextBtn = document.getElementById('btnNext-2'),
+      _thirdNextBtn = document.getElementById('btnNext-3');
+
+  var _firstPreviousBtn2 = document.getElementById('btnPrev-1'),
+      _secondPreviousBtn = document.getElementById('btnPrev-2'),
+      _thirdPreviousBtn = document.getElementById('btnPrev-3');
+
+  var _multiForm2 = new _multiForm3.MultiForm(_firstNextBtn2, adFieldlist1);
+
+  _firstNextBtn2.addEventListener('click', function (e) {
+    return _multiForm2.buttonNext(e, true);
+  });
+
+  _secondNextBtn.addEventListener('click', function (e) {
+    _multiForm2.buttonNext(e, true);
+  });
+
+  _thirdNextBtn.addEventListener('click', function (e) {
+    return _multiForm2.buttonNext(e, true, false, true);
+  });
+
+  _firstPreviousBtn2.addEventListener('click', function (e) {
+    return _multiForm2.buttonBack(e);
+  });
+
+  _secondPreviousBtn.addEventListener('click', function (e) {
+    return _multiForm2.buttonBack(e);
+  });
+
+  _thirdPreviousBtn.addEventListener('click', function (e) {
+    return _multiForm2.buttonBack(e);
+  });
+
+  var createTheaterBtn = document.getElementById('btnCreateTheater');
 }
 
 if (updateShowMainView) {
