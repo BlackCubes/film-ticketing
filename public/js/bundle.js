@@ -15734,7 +15734,7 @@ if (updateShowPlot) {
 if (updateShowCastCrewForm) {
   updateShowCastCrewForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(e) {
-      var castcrewValue, updateShowCastCrewBtn, _updateShowCastCrewBt, showId, roleType;
+      var castcrewValue, castcrew, updateShowCastCrewBtn, _updateShowCastCrewBt, showId, roleType;
 
       return regeneratorRuntime.wrap(function _callee8$(_context8) {
         while (1) {

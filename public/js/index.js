@@ -446,7 +446,7 @@ if (updateShowCastCrewForm) {
     castcrewValue = castcrewValue.replace(/,$/g, '');
     castcrewValue = castcrewValue.replace(/;$/g, '');
 
-    castcrew = castcrewValue.split(',');
+    const castcrew = castcrewValue.split(',');
 
     const updateShowCastCrewBtn = document.getElementById(
       'btnUpdateShowCastCrew'
