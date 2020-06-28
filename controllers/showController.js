@@ -44,9 +44,13 @@ exports.uploadShowPhoto = upload.single('poster');
 
 exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
-  if (req.body.eventOrganizer) req.user.id = req.body.eventOrganizer[0];
 
-  req.file.filename = `show-${req.user.id}-${Date.now()}.jpeg`;
+  const photoUserId =
+    req.user.role === 'admin' ? req.body.eventOrganizer[0] : req.user.id;
+
+  console.log(photoUserId);
+
+  req.file.filename = `show-${photoUserId}-${Date.now()}.jpeg`;
 
   await sharp(req.file.buffer)
     .resize({
