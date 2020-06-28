@@ -214,6 +214,19 @@ exports.getAdminUser = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAdminUserShows = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) return next(new AppError('There is no user with that id!', 404));
+
+  const shows = await Show.find({ eventOrganizer: req.params.id });
+
+  res.status(200).render('accountShows', {
+    title: `${user.name} Shows`,
+    shows
+  });
+});
+
 exports.getAdminShowOptions = (req, res) => {
   const option = 'show';
 
