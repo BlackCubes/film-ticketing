@@ -1,26 +1,24 @@
 extends base
 
-mixin usersCard(optionUser)
+mixin usersCard(user)
   .showtimes-box__theatertime
     .showtimes-box__theatertime-poster
-      a.showtimes-box__theatertime-poster-link.picture-link(href=`${url}`)
-        img.showtimes-box__theatertime-poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+      a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/users/${user._id}`)
+        img.showtimes-box__theatertime-poster-img(src=`/img/users/${user.photo}`, alt=`${user.name} Photo`)
 
     .showtimes-box__theatertime-theater.u-margin-bottom-small
-      h3.showtimes-box__theatertime-theater-name.heading-tertiary= show.title
+      h3.showtimes-box__theatertime-theater-name.heading-tertiary= user.name
     
     .showtimes-box__metadata-container
       ul.showtimes-box__metadata
-        li.showtimes-box__metadata-item.paragraph= show.mpaaRating
-
-        - const hours = Math.floor(show.durationHours)
-        - const minutes = show.duration - hours*60
-
-        li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+        li.showtimes-box__metadata-item.paragraph= `Role: ${user.role}`
 
     .showtimes-box__ticket-buy
-      a.btn.btn__promo(href=`${url}`) Edit
+      a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit
+
+  .line &nbsp;
 
 block content
   main.main
     - console.log(optionUsers)
+    +usersCard(optionUsers)
