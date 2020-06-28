@@ -62,6 +62,8 @@ router
   .post(
     authController.protect,
     authController.restrictTo('admin'),
+    showController.uploadShowPhoto,
+    showController.resizeShowPhotoLarge,
     showController.createShow
   );
 
