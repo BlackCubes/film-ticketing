@@ -188,20 +188,20 @@ exports.getAdminPage = (req, res) => {
 };
 
 exports.getAdminUserOptions = (req, res) => {
-  const user = 'user';
+  const option = 'user';
 
   res.status(200).render('accountAdminOptions', {
     title: 'Admin - Show Options',
-    user
+    option
   });
 };
 
 exports.getAdminShowOptions = (req, res) => {
-  const show = 'show';
+  const option = 'show';
 
   res.status(200).render('accountAdminOptions', {
     title: 'Admin - Show Options',
-    show
+    option
   });
 };
 
