@@ -68,13 +68,13 @@ exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
 
 exports.deletePoster = catchAsync(async (req, res, next) => {
   if (!req.params.showPoster) return next();
-  if (
-    req.params.showPoster.split('.')[1] !== 'jpeg' ||
-    req.params.showPoster.split('-').length !== 3 ||
-    req.params.showPoster.split('-')[0] !== 'show' ||
-    req.params.showPoster.length !== 48
-  )
-    return next(new AppError('This route is for updating posters!', 400));
+  // if (
+  //   req.params.showPoster.split('.')[1] !== 'jpeg' ||
+  //   req.params.showPoster.split('-').length !== 3 ||
+  //   req.params.showPoster.split('-')[0] !== 'show' ||
+  //   req.params.showPoster.length !== 48
+  // )
+  //   return next(new AppError('This route is for updating posters!', 400));
 
   const unlinkAsync = promisify(fs.unlink);
   const posterPath = path.join('public/img/shows/', req.params.showPoster);
