@@ -112,9 +112,11 @@ block content
 
           .user-view__form-container
             form#updateShowPlot.form
-              .form__group
+              .form__group.form__group--info
                 .form__title.u-center-text
                   h1.heading-primary Casts | Crews
+
+                  small.form__info-small.small-text Try not to remove the previous IDs when updating unless needed! When adding a new Cast/Crew ID, continue from the end (if any) by adding a comma and a space. Continue by separating newer IDs with commas and spaces until finished
               
               .form__group
                 - console.log(show)
