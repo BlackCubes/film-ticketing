@@ -164,9 +164,20 @@ block content
 
                   - var specialVenueValue = (show.specialVenue === true) ? 'y' : 'n'
 
-                  option(value, selected=(true)) Special Venue
+                  option(value, selected=(true)) Special Venue (optional)
                   option(value='y', selected=(specialVenueValue === 'y')) Yes
                   option(value='n', selected=(specialVenueValue === 'n')) No
+
+            if user.role === 'admin'
+              .form__group
+                .form__special-venue
+                  select#showPrivateVenue.dropdown(name='selectPrivateVenue' tabindex='0')
+
+                    - var privateVenueValue = (show.secretShow === true) ? 'y' : 'n'
+
+                    option(value, selected=(true)) Private Venue (optional)
+                    option(value='y', selected=(privateVenueValue === 'y')) Yes
+                    option(value='n', selected=(privateVenueValue === 'n')) No
 
             .form__group
               button#btnUpdateShowPrice.btn.btn--blue(type='submit' name='btnUpdateShowPrice' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Pricing
