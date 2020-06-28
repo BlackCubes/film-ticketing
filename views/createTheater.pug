@@ -1,0 +1,113 @@
+extends base
+
+block content
+  main.main
+    .user-view
+      .user-view__content
+        .user-view__form-container.form-container__multiform
+          .form-container__title.u-center-text.u-margin-bottom-small
+            h1.heading-primary.u-margin-bottom-small Create Theater
+
+          form#adCreateTheaterForm.form.form__multiform.form__multiform--fourth(name='adCreateTheaterForm')
+            fieldset#adFieldlist1.form__fieldset.form__fieldset--fourth(name='adFieldlist1')
+              .form__group.u-center-text.u-margin-bottom-small
+                small.form__info-small.small-text Let's create a theater! Fields with * are required.
+
+              .form__group
+                input#theaterName.form__input.input-text(type='text' name='theaterName' placeholder='Name*' required)
+                label.form__label.label-text(for='theaterName') Please give a name to the theater.
+
+              .form__group
+                input#theaterPhone.form__input.input-text(type='text' name='theaterPhone' placeholder='Phone Number*' required)
+                label.form__label.label-text(for='theaterPhone') Please give the theater's phone number.
+
+              .form__group
+                input#theaterLinkUrl.form__input.input-text(type='text' name='theaterLinkUrl' placeholder='Website URL')
+                label.form__label.label-text(for='theaterLinkUrl') Please give the theater's website URL.
+              
+              .form__group
+                button#btnNext-1.btn.btn--blue(name='btnNext1') Next
+
+            fieldset#adFieldlist2.form__fieldset.form__fieldset--fourth(name='adFieldlist2')
+              .form__group.form__group--info.u-center-text
+                small.form__info-small.small-text Provide a location for the theater. The geo locations are optional.
+
+              .form__group
+                input#theaterAddress.form__input.input-text(type='text' name='theaterAddress' placeholder='Address*' required)
+                label.form__label.label-text(for='theaterAddress') Please give an address for the theater.
+
+              .form__group
+                input#theaterCity.form__input.input-text(type='text' name='theaterCity' placeholder='City*' required)
+                label.form__label.label-text(for='theaterCity') Please give a city for the theater.
+
+              .form__group
+                input#theaterState.form__input.input-text(type='text' name='theaterState' placeholder='State*' required)
+                label.form__label.label-text(for='theaterState') Please give a state for the theater.
+
+              .form__group
+                input#theaterZipCode.form__input.input-text(type='text' name='theaterZipCode' placeholder='ZipCode*' required)
+                label.form__label.label-text(for='theaterZipCode') Please give a ZIP code the theater.
+
+              .form__group
+                input#theaterGeoLong.form__input.input-text(type='number' name='theaterGeoLong' placeholder='Geo Longitude Location')
+                label.form__label.label-text(for='theaterGeoLong') Please give a longitude location for the theater.
+
+              .form__group
+                input#theaterGeoLat.form__input.input-text(type='number' name='theaterGeoLat' placeholder='Geo Latitude Location')
+                label.form__label.label-text(for='theaterGeoLat') Please give a latitude location for the theater.
+
+              .form__group
+                .form__duo-btn
+                  .form__duo-btn-previous
+                    button#btnPrev-1.btn.btn--blue.btn--duo(name='btnPrev1') Previous
+
+                  .form__duo-btn-next
+                    button#btnNext-2.btn.btn--blue.btn--duo(name='btnNext2') Next
+
+            fieldset#adFieldlist3.form__fieldset.form__fieldset--fourth(name='adFieldlist3')
+              .form__group.form__group--info.u-center-text
+                small.form__info-small.small-text Provide a description and/or an image on the theater. They are optional.
+
+              .form__group
+                textarea#theaterDescription.form__text-area.input-text(name='textareaDescription' placeholder='Theater Description')
+                label.form__label.label-text(for='theaterDescription') Please provide a description.
+
+              .form__group
+                .form__photo-upload
+                  img.form__show-photo(src='/img/theaters/theaters.png', alt="Theater photo")
+                  input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto')
+                  label(for='theaterPhoto') Choose a theater photo
+
+              .form__group
+                .form__duo-btn
+                  .form__duo-btn-previous
+                    button#btnPrev-2.btn.btn--blue.btn--duo(name='btnPrev2') Previous
+
+                  .form__duo-btn-next
+                    button#btnNext-3.btn.btn--blue.btn--duo(name='btnNext3') Next
+
+            fieldset#adFieldlist4.form__fieldset.form__fieldset--fourth(name='adFieldlist4')
+              .form__group.u-center-text
+                small.form__info-small.small-text What chain does this theater belong to? The chain logo could be the same image as the theater photo. All of these are optional.
+
+              .form__group
+                input#theaterChainName.form__input.input-text(type='number' name='theaterChainName' placeholder='Chain Name')
+                label.form__label.label-text(for='theaterChainName') Please give a chain name that the theater belongs.
+              
+              .form__group
+                input#theaterChainCode.form__input.input-text(type='number' name='theaterChainCode' placeholder='Chain Code')
+                label.form__label.label-text(for='theaterChainCode') Please give a code that the chain has.
+
+              .form__group
+                .form__photo-upload
+                  img.form__show-photo(src='/img/theaters/theaters.png', alt="Theater photo")
+                  input#theaterChainLogo.form__upload(type='file', accept='image/*', name='chainPhoto')
+                  label(for='theaterChainLogo') Choose a chain logo
+
+              .form__group
+                .form__duo-btn
+                  .form__duo-btn-previous
+                    button#btnPrev-3.btn.btn--blue.btn--duo(name='btnPrev3') Previous
+
+                  .form__duo-btn-submit
+                    button#btnCreateTheater.btn.btn--blue.btn--duo(type='submit' name='btnCreateShow' data-role-type=`${user.role}`) Create
