@@ -21,17 +21,18 @@ mixin adminOption(option)
     .line &nbsp;
 
     //- CREATE
-    .admin-box__options-container.u-center-text
-      .showtimes-box__theatertime
-        .showtimes-box__theatertime-poster
-          a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/create-${option}`)
-            img.showtimes-box__theatertime-poster-img(src='/img/shows/shows.png', alt='Shows Photo')
+    if (option !== 'user')
+      .admin-box__options-container.u-center-text
+        .showtimes-box__theatertime
+          .showtimes-box__theatertime-poster
+            a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/create-${option}`)
+              img.showtimes-box__theatertime-poster-img(src='/img/shows/shows.png', alt='Shows Photo')
 
-        .showtimes-box__theatertime-theater.u-margin-bottom-small
-          h3.showtimes-box__theatertime-theater-name.heading-tertiary Create
+          .showtimes-box__theatertime-theater.u-margin-bottom-small
+            h3.showtimes-box__theatertime-theater-name.heading-tertiary Create
 
-        .showtimes-box__ticket-buy
-          a.btn.btn__promo(href=`/admin/create-${option}`) Select
+          .showtimes-box__ticket-buy
+            a.btn.btn__promo(href=`/admin/create-${option}`) Select
 
 block content
   main.main
