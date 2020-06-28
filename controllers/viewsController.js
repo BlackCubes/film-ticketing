@@ -194,11 +194,7 @@ exports.getAdminShowOptions = (req, res) => {
 };
 
 exports.getAdminShows = catchAsync(async (req, res, next) => {
-  const shows = await Show.find().aggregate([
-    {
-      $match: { $or: [{ secretShow: true }] }
-    }
-  ]);
+  const shows = await Show.find();
 
   res.status(200).render('accountShows', {
     title: 'Admin - Shows',
