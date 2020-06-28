@@ -44,6 +44,7 @@ exports.uploadShowPhoto = upload.single('poster');
 
 exports.resizeShowPhotoLarge = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
+  if (req.body.eventOrganizer) req.user.id = req.body.eventOrganizer[0];
 
   req.file.filename = `show-${req.user.id}-${Date.now()}.jpeg`;
 
