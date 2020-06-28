@@ -222,7 +222,7 @@ exports.getAdminUserShows = catchAsync(async (req, res, next) => {
   const shows = await Show.find({ eventOrganizer: req.params.id });
 
   res.status(200).render('accountShows', {
-    title: `${user.name} Shows`,
+    title: `Admin - Users: ${user.name}, Shows`,
     shows
   });
 });
