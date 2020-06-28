@@ -387,6 +387,12 @@ if (updateShowMainView) {
     form.append('originalReleaseDate', originalReleaseDate);
     form.append('poster', poster);
 
+    if (roleType === 'admin') {
+      const eventOrganizer = [document.getElementById('showEventOwner').value];
+
+      form.append('eventOrganizer', eventOrganizer);
+    }
+
     await updateShowSettings(form, 'setting', showId, roleType, posterParams);
 
     document.getElementById('btnUpdateShowData').textContent =

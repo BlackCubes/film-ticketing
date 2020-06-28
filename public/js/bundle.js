@@ -15586,7 +15586,7 @@ if (eoFieldlist1) {
 if (updateShowMainView) {
   updateShowMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(e) {
-      var form, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, originalMonth, originalDay, originalYear, mpaaRating, originalReleaseDate, title, duration, updateShowDataBtn, poster, posterUrlArr, posterParams, _updateShowDataBtn$da, showId, roleType;
+      var form, selectMpaa, selectOriginalMonth, selectOriginalDay, selectOriginalYear, originalMonth, originalDay, originalYear, mpaaRating, originalReleaseDate, title, duration, updateShowDataBtn, poster, posterUrlArr, posterParams, _updateShowDataBtn$da, showId, roleType, eventOrganizer;
 
       return regeneratorRuntime.wrap(function _callee6$(_context6) {
         while (1) {
@@ -15607,13 +15607,19 @@ if (updateShowMainView) {
               form.append('mpaaRating', mpaaRating);
               form.append('originalReleaseDate', originalReleaseDate);
               form.append('poster', poster);
-              _context6.next = 17;
+
+              if (roleType === 'admin') {
+                eventOrganizer = [document.getElementById('showEventOwner').value];
+                form.append('eventOrganizer', eventOrganizer);
+              }
+
+              _context6.next = 18;
               return (0, _updateSettings.updateShowSettings)(form, 'setting', showId, roleType, posterParams);
 
-            case 17:
+            case 18:
               document.getElementById('btnUpdateShowData').textContent = 'Update Show Settings';
 
-            case 18:
+            case 19:
             case "end":
               return _context6.stop();
           }
