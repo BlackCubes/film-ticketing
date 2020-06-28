@@ -104,5 +104,11 @@ router.get(
   authController.restrictTo('admin'),
   viewsController.getAdminShow
 );
+router.get(
+  '/admin/create-show',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCreateShow
+);
 
 module.exports = router;
