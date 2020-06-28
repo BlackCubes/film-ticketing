@@ -6,7 +6,8 @@ block content
       .user-view__content
         .user-view__form-container.form-container__multiform
           .form-container__title.u-center-text.u-margin-bottom-small
-            h1.heading-primary.u-margin-bottom-small Create Your Show
+            - const formTitle = (user.role === 'admin') ? 'Create Show' : 'Create Your Show'
+            h1.heading-primary.u-margin-bottom-small= formTitle
 
           form#eoCreateShowForm.form.form__multiform.form__multiform--fifth(name='eoCreateShowForm')
             //- .form__group
@@ -17,7 +18,8 @@ block content
 
             fieldset#eoFieldlist1.form__fieldset.form__fieldset--fifth(name='eoFieldlist1')
               .form__group.u-center-text.u-margin-bottom-small
-                small.form__info-small.small-text Let's create your show! Fields with * are required.
+                - const smallInfo1 = (user.role === 'admin') ? "Let's create a show" : "Let's create your show"
+                small.form__info-small.small-text= `${smallInfo1}! Fields with * are required.`
 
               .form__group
                 input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' required)
@@ -79,7 +81,8 @@ block content
 
             fieldset#eoFieldlist2.form__fieldset.form__fieldset--fifth(name='eoFieldlist2')
               .form__group.form__group--info.u-center-text
-                small.form__info-small.small-text A poster shown below is an example on what not to do. You'll loose potential audiences. Choose wisely.
+                - const smallInfo2 = (user.role === 'admin') ? "The event organizer will not be happy" : "You'll loose potential audiences"
+                small.form__info-small.small-text= `A poster shown below is an example on what not to do. ${smallInfo2}. Choose wisely.`
 
               .form__group
                 .form__photo-upload
@@ -97,7 +100,8 @@ block content
 
             fieldset#eoFieldlist3.form__fieldset.form__fieldset--fifth(name='eoFieldlist3')
               .form__group.u-center-text
-                small.form__info-small.small-text For inputting cast/crews information, please contact the admin.
+                - const smallInfo3 = (user.role === 'admin') ? "Add what the show is about" : "For inputting cast/crews information, please contact the admin"
+                small.form__info-small.small-text= `${smallInfo3}.`
 
               .form__group
                 textarea#showOverview.form__text-area.input-text(name='textareaOverview' placeholder='Show Overview*' required)
@@ -117,7 +121,8 @@ block content
 
             fieldset#eoFieldlist4.form__fieldset.form__fieldset--fifth(name='eoFieldlist4')
               .form__group.form__group--info.u-center-text
-                small.form__info-small.small-text Optional, but are useful for your audiences.
+                - const smallInfo4 = (user.role === 'admin') ? "Optional" : "Optional, but are useful for your audiences"
+                small.form__info-small.small-text= `${smallInfo4}.`
 
               .form__group
                 input#showLanguage.form__input.input-text(type='text' name='showLanguage' placeholder='Language (optional)')
@@ -141,7 +146,9 @@ block content
 
             fieldset#eoFieldlist5.form__fieldset.form__fieldset--fifth(name='eoFieldlist5')
               .form__group.form__group--info.u-center-text
-                small.form__info-small.small-text A special venue is where guest speakers or a big event will take place, and you want to sell your show's tickets publicly. For private events where the public cannot buy tickets, please contact the admin.
+                - const smallInfo4 = (user.role === 'admin') ? "A special venue is where guest speakers or a big event will take place, and the event organier want to sell their show's tickets publicly. Private events are where the public cannot buy tickets" : "A special venue is where guest speakers or a big event will take place, and you want to sell your show's tickets publicly. For private events where the public cannot buy tickets, please contact the admin"
+
+                small.form__info-small.small-text= `${smallInfo4}.`
 
               .form__group
                 input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' required)
