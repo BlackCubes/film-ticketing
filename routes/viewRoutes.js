@@ -154,5 +154,11 @@ router.get(
   authController.restrictTo('admin'),
   viewsController.getAdminTheater
 );
+router.get(
+  '/admin/create-theater',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCreateTheater
+);
 
 module.exports = router;
