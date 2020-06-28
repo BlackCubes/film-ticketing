@@ -187,6 +187,15 @@ exports.getAdminPage = (req, res) => {
   });
 };
 
+exports.getAdminUserOptions = (req, res) => {
+  const user = 'user';
+
+  res.status(200).render('accountAdminOptions', {
+    title: 'Admin - Show Options',
+    user
+  });
+};
+
 exports.getAdminShowOptions = (req, res) => {
   const show = 'show';
 
