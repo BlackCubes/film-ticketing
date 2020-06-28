@@ -259,3 +259,12 @@ exports.getAdminCreateShow = (req, res) => {
     title: 'Admin - Create Show'
   });
 };
+
+exports.getAdminTheaterOptions = (req, res) => {
+  const option = 'theater';
+
+  res.status(200).render('accountAdminOptions', {
+    title: 'Admin - Theater Options',
+    option
+  });
+};
