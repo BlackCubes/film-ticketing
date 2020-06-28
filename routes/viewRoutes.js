@@ -137,7 +137,7 @@ router.get(
 );
 
 router.get(
-  '/admin/theater-option',
+  '/admin/theater-options',
   authController.protect,
   authController.restrictTo('admin'),
   viewsController.getAdminTheaterOptions
