@@ -284,7 +284,7 @@ exports.getAdminTheater = catchAsync(async (req, res, next) => {
   if (!theater)
     return next(new AppError('There is no theater with that id!', 404));
 
-  res.status(200).render('accountTheaters', {
+  res.status(200).render('accountUpdateTheater', {
     title: `Admin - Theaters: ${theater.name}`,
     theater
   });
