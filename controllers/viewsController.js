@@ -205,6 +205,15 @@ exports.getAdminUsers = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAdminUser = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  res.status(200).render('account', {
+    title: `Admin - Users: ${user.name}`,
+    user
+  });
+});
+
 exports.getAdminShowOptions = (req, res) => {
   const option = 'show';
 
