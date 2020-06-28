@@ -75,6 +75,7 @@ router
   .delete(
     authController.protect,
     authController.restrictTo('admin', 'event-owner'),
+    authController.verifyPassword,
     showController.deleteShow
   );
 
