@@ -227,12 +227,6 @@ exports.getAdminUserShows = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getAdminCreateUser = (req, res) => {
-  res.status(200).render('register', {
-    title: 'Admin - Create User'
-  });
-};
-
 exports.getAdminShowOptions = (req, res) => {
   const option = 'show';
 
