@@ -187,6 +187,12 @@ exports.getAdminPage = (req, res) => {
   });
 };
 
+exports.getAdminShowOptions = (req, res) => {
+  res.status(200).render('accountAdminOptions', {
+    title: 'Admin - Show Options'
+  });
+};
+
 exports.getAdminShows = catchAsync(async (req, res, next) => {
   const shows = await Show.find();
 
