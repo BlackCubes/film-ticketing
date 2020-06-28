@@ -118,6 +118,8 @@ block content
               
               .form__group
                 - console.log(show)
+                - const castcrewIds = show.castcrew.forEach(el => el.id)
+                - console.log('Castcrew IDS', castcrewIds)
 
               //-   textarea#showCastCrew.form__text-area.input-text(name='textareaCastCrew' placeholder='Casts & Crews*' required)= show.overview
               //-   label.form__label.label-text(for='showOverview') Please provide a short synopsis i.e. overview or logline.
