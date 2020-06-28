@@ -160,6 +160,14 @@ block content
                     option(value) Special Venue (optional)
                     option(value='y') Yes
                     option(value='n') No
+
+              if user.role === 'admin'
+                .form__group
+                  .form__special-venue
+                    select#showProvateVenue.dropdown(name='selectPrivateVenue' tabindex='0')
+                      option(value) Private Venue (optional)
+                      option(value='y') Yes
+                      option(value='n') No
               
               .form__group
                 .form__duo-btn
