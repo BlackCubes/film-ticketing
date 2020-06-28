@@ -390,6 +390,8 @@ if (updateShowMainView) {
     if (roleType === 'admin') {
       const eventOrganizer = [document.getElementById('showEventOwner').value];
 
+      console.log(eventOrganizer);
+
       form.append('eventOrganizer', eventOrganizer);
     }
 
