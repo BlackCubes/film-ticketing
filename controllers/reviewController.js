@@ -42,7 +42,11 @@ exports.deleteMyReview = catchAsync(async (req, res, next) => {
     return next(new AppError('Incorrect password!', 401));
   }
 
-  await Review.findByIdAndDelete(req.params.id);
+  const review = await Review.findByIdAndDelete(req.params.id);
+
+  if (!review) {
+    return next(new AppError("The review doesn't exist!", 404));
+  }
 
   res.status(204).json({
     status: 'success',
