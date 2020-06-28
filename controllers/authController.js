@@ -234,3 +234,17 @@ exports.updateMyPassword = catchAsync(async (req, res, next) => {
 
   createSendToken(user, 200, res);
 });
+
+exports.verifyPassword = catchAsync(async (req, res, next) => {
+  const { password } = req.body;
+
+  if (!password) return next(new AppError('Please provide a password!', 400));
+
+  const user = await User.findById(req.user.id).select('+password');
+
+  if (!user || !(await user.correctPassword(password, user.password))) {
+    return next(new AppError('Incorrect password!', 401));
+  }
+
+  next();
+});
