@@ -12,7 +12,7 @@ import {
   updateShowSettings,
   updateReviewSettings
 } from './updateSettings';
-import { deleteReview } from './deleteSettings';
+import { deleteShow, deleteReview } from './deleteSettings';
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
@@ -38,7 +38,8 @@ const eoCreateShowForm = document.getElementById('eoCreateShowForm'),
 const updateShowMainView = document.getElementById('updateShowMainView'),
   updateShowPlot = document.getElementById('updateShowPlot'),
   updateShowAddl = document.getElementById('updateShowAddl'),
-  updateShowPrice = document.getElementById('updateShowPrice');
+  updateShowPrice = document.getElementById('updateShowPrice'),
+  deleteShowForm = document.getElementById('deleteShowForm');
 const updateReview = document.getElementById('updateReview'),
   deleteReviewForm = document.getElementById('deleteReviewForm');
 
@@ -496,6 +497,23 @@ if (updateReview) {
 
     document.getElementById('btnUpdateReviewData').textContent =
       'Update Review Settings';
+  });
+}
+
+if (deleteShowForm) {
+  deleteShowForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const password = document.getElementById('password').value,
+      deleteShowBtn = document.getElementById('btnDeleteShowData');
+
+    const { showId } = deleteShowBtn.dataset;
+
+    document.getElementById('btnDeleteShowData').textContent = 'Deleting...';
+
+    await deleteShow({ password }, showId);
+
+    document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
   });
 }
 

@@ -15295,7 +15295,8 @@ var eoCreateShowForm = document.getElementById('eoCreateShowForm'),
 var updateShowMainView = document.getElementById('updateShowMainView'),
     updateShowPlot = document.getElementById('updateShowPlot'),
     updateShowAddl = document.getElementById('updateShowAddl'),
-    updateShowPrice = document.getElementById('updateShowPrice');
+    updateShowPrice = document.getElementById('updateShowPrice'),
+    deleteShowForm = document.getElementById('deleteShowForm');
 var updateReview = document.getElementById('updateReview'),
     deleteReviewForm = document.getElementById('deleteReviewForm'); // VALUES (nothing, yet)
 // DELEGATION
@@ -15833,25 +15834,25 @@ if (updateReview) {
   }());
 }
 
-if (deleteReviewForm) {
-  deleteReviewForm.addEventListener('submit', /*#__PURE__*/function () {
+if (deleteShowForm) {
+  deleteShowForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref11 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11(e) {
-      var password, deleteReviewBtn, reviewId;
+      var password, deleteShowBtn, showId;
       return regeneratorRuntime.wrap(function _callee11$(_context11) {
         while (1) {
           switch (_context11.prev = _context11.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
-              reviewId = deleteReviewBtn.dataset.reviewId;
-              document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
+              password = document.getElementById('password').value, deleteShowBtn = document.getElementById('btnDeleteShowData');
+              showId = deleteShowBtn.dataset.showId;
+              document.getElementById('btnDeleteShowData').textContent = 'Deleting...';
               _context11.next = 6;
-              return (0, _deleteSettings.deleteReview)({
+              return (0, _deleteSettings.deleteShow)({
                 password: password
-              }, reviewId);
+              }, showId);
 
             case 6:
-              document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
+              document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
 
             case 7:
             case "end":
@@ -15863,6 +15864,40 @@ if (deleteReviewForm) {
 
     return function (_x11) {
       return _ref11.apply(this, arguments);
+    };
+  }());
+}
+
+if (deleteReviewForm) {
+  deleteReviewForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref12 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee12(e) {
+      var password, deleteReviewBtn, reviewId;
+      return regeneratorRuntime.wrap(function _callee12$(_context12) {
+        while (1) {
+          switch (_context12.prev = _context12.next) {
+            case 0:
+              e.preventDefault();
+              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+              reviewId = deleteReviewBtn.dataset.reviewId;
+              document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
+              _context12.next = 6;
+              return (0, _deleteSettings.deleteReview)({
+                password: password
+              }, reviewId);
+
+            case 6:
+              document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
+
+            case 7:
+            case "end":
+              return _context12.stop();
+          }
+        }
+      }, _callee12);
+    }));
+
+    return function (_x12) {
+      return _ref12.apply(this, arguments);
     };
   }());
 }
