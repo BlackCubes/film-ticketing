@@ -146,9 +146,9 @@ block content
 
             fieldset#eoFieldlist5.form__fieldset.form__fieldset--fifth(name='eoFieldlist5')
               .form__group.form__group--info.u-center-text
-                - const smallInfo4 = (user.role === 'admin') ? "A special venue is where guest speakers or a big event will take place, and the event organier want to sell their show's tickets publicly. Private events are where the public cannot buy tickets" : "A special venue is where guest speakers or a big event will take place, and you want to sell your show's tickets publicly. For private events where the public cannot buy tickets, please contact the admin"
+                - const smallInfo5 = (user.role === 'admin') ? "A special venue is where guest speakers or a big event will take place, and the event organier want to sell their show's tickets publicly. Private events are where the public cannot buy tickets" : "A special venue is where guest speakers or a big event will take place, and you want to sell your show's tickets publicly. For private events where the public cannot buy tickets, please contact the admin"
 
-                small.form__info-small.small-text= `${smallInfo4}.`
+                small.form__info-small.small-text= `${smallInfo5}.`
 
               .form__group
                 input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' required)
