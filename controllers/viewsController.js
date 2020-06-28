@@ -210,3 +210,9 @@ exports.getAdminShow = catchAsync(async (req, res, next) => {
     show
   });
 });
+
+exports.getAdminCreateShow = (req, res) => {
+  res.status(200).render('createShow', {
+    title: 'Admin - Create Show'
+  });
+};
