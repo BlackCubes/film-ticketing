@@ -264,7 +264,7 @@ exports.getAdminShowReviews = catchAsync(async (req, res, next) => {
   if (!reviews)
     return next(new AppError('There are no reviews on this show!', 404));
 
-  const reviewsOnShow = true;
+  const reviewsOnShow = show.title;
 
   res.status(200).render('reviews', {
     title: `Admin - Shows: ${show.title}, Reviews`,
