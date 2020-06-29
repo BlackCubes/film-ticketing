@@ -3,6 +3,7 @@ const catchAsync = require('./../utils/catchAsync');
 const CastCrew = require('./../models/castcrewModel');
 const Review = require('./../models/reviewModel');
 const Show = require('./../models/showModel');
+const Showtimes = require('./../models/showtimesModel');
 const Theater = require('./../models/theaterModel');
 const Ticket = require('./../models/ticketModel');
 const User = require('./../models/userModel');
@@ -334,7 +335,7 @@ exports.getAdminCreateTheater = (req, res) => {
   });
 };
 
-exports.getAdminShowtimesOptions = (req, res) => {
+exports.getAdminShowtimeOptions = (req, res) => {
   const option = 'showtime';
 
   res.status(200).render('accountAdminOptions', {
@@ -342,3 +343,5 @@ exports.getAdminShowtimesOptions = (req, res) => {
     option
   });
 };
+
+exports.getAdminShowtimes;
