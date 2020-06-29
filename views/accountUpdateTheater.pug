@@ -3,3 +3,143 @@ extends base
 block content
   main.main
     - console.log(theater)
+    .user-view
+      .user-view__content
+        .user-view__form-container
+          form#updateTheaterMainView.form
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary Theater Settings
+            
+            .form__group
+              input#theaterName.form__input.input-text(type='text' name='theaterName' placeholder='Name*' value=`${theater.name}` required)
+              label.form__label.label-text(for='theaterName') Please give a name to the theater.
+
+            .form__group
+              input#theaterPhone.form__input.input-text(type='text' name='theaterPhone' placeholder='Phone Number*' value=`${theater.phone}` required)
+              label.form__label.label-text(for='theaterPhone') Please give the theater's phone number.
+
+            .form__group
+              input#theaterLinkUrl.form__input.input-text(type='text' name='theaterLinkUrl' placeholder='Website URL' value=`${theater.linkUrl}`)
+              label.form__label.label-text(for='theaterLinkUrl') Please give the theater's website URL.
+            
+            .form__group
+              .form__photo-upload
+                img#photoSource.form__show-photo(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
+                input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto')
+                label(for='theaterPhoto') Choose a theater photo
+
+            .form__group
+              button#btnUpdateTheaterData.btn.btn--blue(type='submit' name='btnUpdateTheaterData' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Theater Settings
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#updateTheaterLocation.form
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary Change Theater's Location
+            
+            .form__group
+              input#theaterAddress.form__input.input-text(type='text' name='theaterAddress' placeholder='Address*' value=`${theater.address}` required)
+              label.form__label.label-text(for='theaterAddress') Please give an address for the theater.
+
+            .form__group
+              input#theaterCity.form__input.input-text(type='text' name='theaterCity' placeholder='City*' value=`${theater.city}` required)
+              label.form__label.label-text(for='theaterCity') Please give a city for the theater.
+
+            .form__group
+              input#theaterState.form__input.input-text(type='text' name='theaterState' placeholder='State*' value=`${theater.state}` required)
+              label.form__label.label-text(for='theaterState') Please give a state for the theater.
+
+            .form__group
+              input#theaterZipCode.form__input.input-text(type='text' name='theaterZipCode' placeholder='ZipCode*' value=`${theater.zipCode}` required)
+              label.form__label.label-text(for='theaterZipCode') Please give a ZIP code the theater.
+
+            .form__group
+              input#theaterGeoLong.form__input.input-text(type='text' name='theaterGeoLong' placeholder='Geo Longitude Location' value=`${theater.geo.coordinates[0].toString()}` required)
+              label.form__label.label-text(for='theaterGeoLong') Please give a longitude location for the theater.
+
+            .form__group
+              input#theaterGeoLat.form__input.input-text(type='text' name='theaterGeoLat' placeholder='Geo Latitude Location' value=`${theater.geo.coordinates[1].toString()}` required)
+              label.form__label.label-text(for='theaterGeoLat') Please give a latitude location for the theater.
+
+            .form__group
+              button#btnUpdateTheaterLocation.btn.btn--blue(type='submit' name='btnUpdateTheaterLocation' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Location
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#updateTheaterAddl.form
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary Change Theater's Add'l Info
+
+            .form__group
+              textarea#theaterDescription.form__text-area.input-text(name='textareaDescription' placeholder='Theater Description')= theater.description
+              label.form__label.label-text(for='theaterDescription') Please provide a description.
+
+            .form__group
+              .form__special-venue
+                select#theaterTicket.dropdown(name='selectTicket' tabindex='0')
+
+                  - var ticketValue = (theater.isTicketing === true) ? 'y' : 'n'
+
+                  option(value, selected=(true)) Is Ticketing (optional)
+                  option(value='y', selected=(ticketValue === 'y')) Yes
+                  option(value='n', selected=(ticketValue === 'n')) No
+
+            .form__group
+              .form__special-venue
+                select#theaterShowTimes.dropdown(name='selectShowTimes' tabindex='0')
+
+                  - var showtimesValue = (theater.hasShowTimes === true) ? 'y' : 'n'
+
+                  option(value, selected=(true)) Has Showtimes (optional)
+                  option(value='y', selected=(showtimesValue === 'y')) Yes
+                  option(value='n', selected=(showtimesValue === 'n')) No
+
+            .form__group
+              button#btnUpdateTheaterAddl.btn.btn--blue(type='submit' name='btnUpdateTheaterAddl' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Add'l Info
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#updateTheaterChain.form
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary.u-margin-bottom-small Update the Theater's Chain
+
+            .form__group
+              input#theaterChainName.form__input.input-text(type='text' name='theaterChainName' placeholder='Chain Name' value=`${theater.chainName}`)
+              label.form__label.label-text(for='theaterChainName') Please give a chain name that the theater belongs.
+
+            .form__group
+              input#theaterChainCode.form__input.input-text(type='text' name='theaterChainCode' placeholder='Chain Code' value=`${theater.chainCode}`)
+              label.form__label.label-text(for='theaterChainCode') Please give a code that the chain has.
+
+            .form__group
+              .form__photo-upload
+                img.form__show-photo(src=`/img/theaters/${theater.chainLogo}`, alt="Chain Logo")
+                input#theaterChainLogo.form__upload(type='file', accept='image/*', name='chainPhoto')
+                label(for='theaterChainLogo') Choose a chain logo
+
+            .form__group
+              button#btnUpdateTheaterChain.btn.btn--blue(type='submit' name='btnUpdateTheaterChain' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Chain
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#deleteTheaterForm.form
+            .form__group.form__group--info
+              .form__title.u-center-text
+                h1.heading-primary.u-margin-bottom-small Delete Theater
+
+                small.form__info-small.small-text Please enter your password to delete the theater.
+
+            .form__group
+              input#password.form__input.input-text(type='password' placeholder='••••••' required)
+              label.form__label.label-text(for='password') Please enter your password
+
+            .form__group
+              button#btnDeleteTheaterData.btn.btn--red(type='submit' name='btnDeleteTheaterData' data-theater-id=`${theater.id}`) Delete Theater
