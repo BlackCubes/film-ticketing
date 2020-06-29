@@ -15400,7 +15400,12 @@ var updateShowMainView = document.getElementById('updateShowMainView'),
     updateShowPrice = document.getElementById('updateShowPrice'),
     deleteShowForm = document.getElementById('deleteShowForm');
 var updateReview = document.getElementById('updateReview'),
-    deleteReviewForm = document.getElementById('deleteReviewForm'); // VALUES (nothing, yet)
+    deleteReviewForm = document.getElementById('deleteReviewForm');
+var updateTheaterMainView = document.getElementById('updateTheaterMainView'),
+    updateTheaterLocation = document.getElementById('updateTheaterLocation'),
+    updateTheaterAddl = document.getElementById('updateTheaterAddl'),
+    updateTheaterChain = document.getElementById('updateTheaterChain'),
+    deleteTheaterForm = document.getElementById('deleteTheaterForm'); // VALUES (nothing, yet)
 // DELEGATION
 
 if (mapBox) {
@@ -16141,6 +16146,40 @@ if (deleteReviewForm) {
 
     return function (_x14) {
       return _ref14.apply(this, arguments);
+    };
+  }());
+}
+
+if (deleteTheaterForm) {
+  deleteTheaterForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref15 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee15(e) {
+      var password, deleteTheaterBtn, theaterId;
+      return regeneratorRuntime.wrap(function _callee15$(_context15) {
+        while (1) {
+          switch (_context15.prev = _context15.next) {
+            case 0:
+              e.preventDefault();
+              password = document.getElementById('password').value, deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
+              theaterId = deleteTheaterBtn.dataset.theaterId;
+              document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...';
+              _context15.next = 6;
+              return (0, _deleteSettings.deleteTheater)({
+                password: password
+              }, theaterId);
+
+            case 6:
+              document.getElementById('btnDeleteTheaterData').textContent = 'Delete Theater';
+
+            case 7:
+            case "end":
+              return _context15.stop();
+          }
+        }
+      }, _callee15);
+    }));
+
+    return function (_x15) {
+      return _ref15.apply(this, arguments);
     };
   }());
 }

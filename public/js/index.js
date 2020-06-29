@@ -19,7 +19,7 @@ import {
   updateShowSettings,
   updateReviewSettings
 } from './updateSettings';
-import { deleteShow, deleteReview } from './deleteSettings';
+import { deleteShow, deleteReview, deleteTheater } from './deleteSettings';
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
@@ -52,6 +52,11 @@ const updateShowMainView = document.getElementById('updateShowMainView'),
   deleteShowForm = document.getElementById('deleteShowForm');
 const updateReview = document.getElementById('updateReview'),
   deleteReviewForm = document.getElementById('deleteReviewForm');
+const updateTheaterMainView = document.getElementById('updateTheaterMainView'),
+  updateTheaterLocation = document.getElementById('updateTheaterLocation'),
+  updateTheaterAddl = document.getElementById('updateTheaterAddl'),
+  updateTheaterChain = document.getElementById('updateTheaterChain'),
+  deleteTheaterForm = document.getElementById('deleteTheaterForm');
 
 // VALUES (nothing, yet)
 
@@ -666,5 +671,23 @@ if (deleteReviewForm) {
 
     document.getElementById('btnDeleteReviewData').textContent =
       'Delete Review';
+  });
+}
+
+if (deleteTheaterForm) {
+  deleteTheaterForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const password = document.getElementById('password').value,
+      deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
+
+    const { theaterId } = deleteTheaterBtn.dataset;
+
+    document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...';
+
+    await deleteTheater({ password }, theaterId);
+
+    document.getElementById('btnDeleteTheaterData').textContent =
+      'Delete Theater';
   });
 }
