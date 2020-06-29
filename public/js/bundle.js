@@ -14410,7 +14410,7 @@ exports.MultiForm = MultiForm;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
+exports.createTheater = exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14674,6 +14674,55 @@ var createShow = /*#__PURE__*/function () {
 }();
 
 exports.createShow = createShow;
+
+var createTheater = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(data) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            _context6.prev = 0;
+            url = 'http://127.0.0.1:3000/api/v1/theaters';
+            _context6.next = 4;
+            return (0, _axios.default)({
+              method: 'POST',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context6.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', 'Congrats! The theater has been created!');
+              window.setTimeout(function () {
+                location.assign('/admin/theaters');
+              }, 1500);
+            }
+
+            _context6.next = 11;
+            break;
+
+          case 8:
+            _context6.prev = 8;
+            _context6.t0 = _context6["catch"](0);
+            (0, _alerts.showAlert)('error', _context6.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6, null, [[0, 8]]);
+  }));
+
+  return function createTheater(_x13) {
+    return _ref6.apply(this, arguments);
+  };
+}();
+
+exports.createTheater = createTheater;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"updateSettings.js":[function(require,module,exports) {
 "use strict";
 
