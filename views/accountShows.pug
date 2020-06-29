@@ -20,7 +20,15 @@ mixin showsCard(show)
         li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
 
     .showtimes-box__ticket-buy
-      a.btn.btn__promo(href=`${url}`) Edit
+      if user.role === 'admin'
+        .form__duo-btn
+          .form__duo-btn-previous
+            a.btn.btn__promo(href=`${url}`) Edit Show
+
+          .form__duo-btn-next
+            a.btn.btn__promo(href=`${url}/reviews`) View Reviews
+      else
+        a.btn.btn__promo(href=`${url}`) Edit
 
   .line &nbsp;
 
