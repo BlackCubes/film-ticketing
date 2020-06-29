@@ -53,6 +53,8 @@ exports.resizeTheaterPhotos = catchAsync(async (req, res, next) => {
 });
 
 exports.geoParse = (req, res, next) => {
+  if (!req.body.geo) return next();
+
   req.body.geo = { coordinates: JSON.parse(req.body.geo) };
   next();
 };
