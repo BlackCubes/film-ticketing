@@ -130,6 +130,12 @@ router.get(
   viewsController.getAdminShow
 );
 router.get(
+  '/admin/shows/:id/reviews',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowReviews
+);
+router.get(
   '/admin/create-show',
   authController.protect,
   authController.restrictTo('admin'),
