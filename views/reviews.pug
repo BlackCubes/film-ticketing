@@ -19,18 +19,32 @@ block content
               each review in reviews
                 .showtimes-box__theatertime
                   .showtimes-box__theatertime-poster
-                    a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${review.show.slug}`)
-                      img.showtimes-box__theatertime-poster-img(src=`/img/shows/${review.show.poster.urlLarge}`, alt=`${review.show.title}`)
+                    - let showLink
+                    if user.role === 'admin'
+                      - showLink = `/admin/shows/${review.show.id}`
+                    else
+                      - showLink = `/show-overview/${review.show.slug}`
+                    a.showtimes-box__theatertime-poster-link.picture-link(href=`${showLink}`)
+                      img.showtimes-box__theatertime-poster-img(src=`/img/shows/${review.show.poster.urlLarge}`, alt=`${review.show.title} Poster`)
 
                   .showtimes-box__theatertime-theater.u-margin-bottom-small
                     h3.showtimes-box__theatertime-theater-name.heading-tertiary= review.show.title
 
                   .card__ratings.u-center-text
-                    h3.card__ratings-star.heading-tertiary= `My Rating: ${review.rating}`
+                    - let userRatingTitle
+                    if user.role === 'admin'
+                      - userRatingTitle = `${review.user.name}`
+                    else
+                      - userRatingTitle = `My`
+                      
+                    h3.card__ratings-star.heading-tertiary= `${userRatingTitle} Rating: ${review.rating}`
 
                   .card__details
                     p.crd__details-overview.paragraph= `"${review.review}"`
 
                   .showtimes-box__ticket-buy
-                    a.btn.btn__promo(href=`/myReviews/${review.show.slug}`) Edit
+                    if user.role === 'admin'
+                      a.btn.btn__promo(href=`${url}/reviews`) Delete Review
+                    else
+                      a.btn.btn__promo(href=`/myReviews/${review.show.slug}`) Edit
                   
