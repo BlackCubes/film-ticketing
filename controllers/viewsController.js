@@ -254,6 +254,22 @@ exports.getAdminShow = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAdminShowReviews = catchAsync(async (req, res, next) => {
+  const show = await Show.findById(req.params.id);
+
+  if (!show) return next(new AppError('There is no show with that id!', 404));
+
+  const reviews = await Review.find({ show: req.params.id });
+
+  if (!reviews)
+    return next(new AppError('There are no reviews on this show!', 404));
+
+  res.status(200).render('reviews', {
+    title: `Admin - Shows: ${show.title}, Reviews`,
+    reviews
+  });
+});
+
 exports.getAdminCreateShow = (req, res) => {
   res.status(200).render('createShow', {
     title: 'Admin - Create Show'
