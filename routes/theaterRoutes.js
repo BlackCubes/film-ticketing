@@ -23,7 +23,13 @@ router.route('/:id').get(theaterController.getTheater);
 router.use(authController.protect);
 router.use(authController.restrictTo('admin'));
 
-router.route('/').post(theaterController.createTheater);
+router
+  .route('/')
+  .post(
+    theaterController.uploadTheaterPhotos,
+    theaterController.resizeTheaterPhotos,
+    theaterController.createTheater
+  );
 
 router
   .route('/:id')
