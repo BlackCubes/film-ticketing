@@ -344,4 +344,11 @@ exports.getAdminShowtimeOptions = (req, res) => {
   });
 };
 
-exports.getAdminShowtimes;
+exports.getAdminShowtimes = catchAsync(async (req, res, next) => {
+  const showtimes = await Showtimes.find();
+
+  res.status(200).render('accountShowtimes', {
+    title: 'Admin - Showtimes',
+    showtimes
+  });
+});
