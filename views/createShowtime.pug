@@ -70,9 +70,6 @@ block content
                   select#showtimeEndYear.dropdown(name='selectEndYear' tabindex='0' required)
                     option(value) Year*
 
-                    //- - const now = new Date().getFullYear()
-                    //- - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
-
                     each year in years
                       option(value=`${year}`)= year
 
