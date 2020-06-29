@@ -1,0 +1,80 @@
+extends base
+
+block content
+  main.main
+    .user-view
+      .user-view__content
+        .user-view__form-container
+          form#adCreateShowtimeForm.form
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary.u-margin-bottom-small Create Showtime
+
+                small.form__info-small.small-text Let's create a showtime! Fields with * are required.
+            
+            .form__group
+              input#showtimeShow.form__input.input-text(type='text' name='showtimeShow' placeholder='Show ID*' required)
+              label.form__label.label-text(for='showtimeShow') Please add the show.
+
+            .form__group
+              input#showtimeTheater.form__input.input-text(type='text' name='showtimeTheater' placeholder='Theater ID*' required)
+              label.form__label.label-text(for='showtimeTheater') Please add the theater.
+
+            - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+            - const days = [...Array(32).keys()].splice(1)
+
+            - const now = new Date().getFullYear()
+            - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
+
+            .form__group
+              .form__date
+                .form__date-month
+                  select#showtimeStartMonth.dropdown(name='selectStartMonth' tabindex='0' required)
+                    option(value) Start Month*
+
+                    each month in months
+                      option(value=`${month}`)= month
+
+                .form__date-day
+                  select#showtimeStartDay.dropdown(name='selectStartDay' tabindex='0' required)
+                    option(value) Day*
+
+                    each day in days
+                      option(value=`${day}`)= day
+
+                .form__date-year
+                  select#showtimeStartYear.dropdown(name='selectStartYear' tabindex='0' required)
+                    option(value) Year*
+
+                    each year in years
+                      option(value=`${year}`)= year
+
+            .form__group
+              .form__date
+                .form__date-month
+                  select#showtimeEndMonth.dropdown(name='selectEndMonth' tabindex='0' required)
+                    option(value) End Month*
+
+                    each month in months
+                      option(value=`${month}`)= month
+
+                .form__date-day
+                  select#showtimeEndDay.dropdown(name='selectEndDay' tabindex='0' required)
+                    option(value) Day*
+
+                    each day in days
+                      option(value=`${day}`)= day
+
+                .form__date-year
+                  select#showtimeEndYear.dropdown(name='selectEndYear' tabindex='0' required)
+                    option(value) Year*
+
+                    //- - const now = new Date().getFullYear()
+                    //- - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
+
+                    each year in years
+                      option(value=`${year}`)= year
+
+            .form__group
+              button#btnCreateShowtime.btn.btn--blue(type='submit' name='btnCreateShowtime') Create
