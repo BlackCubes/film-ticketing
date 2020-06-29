@@ -179,5 +179,11 @@ router.get(
   authController.restrictTo('admin'),
   viewsController.getAdminShowtimeOptions
 );
+router.get(
+  '/admin/showtimes',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowtimes
+);
 
 module.exports = router;
