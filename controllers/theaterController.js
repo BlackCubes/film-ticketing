@@ -52,6 +52,11 @@ exports.resizeTheaterPhotos = catchAsync(async (req, res, next) => {
   next();
 });
 
+exports.geoParse = (req, res, next) => {
+  req.body.geo = { coordinates: JSON.parse(req.body.geo) };
+  next();
+};
+
 exports.getAllTheaters = factory.getAll(Theater);
 exports.getTheater = factory.getOne(Theater, 'showtimes');
 exports.createTheater = factory.createOne(Theater);
