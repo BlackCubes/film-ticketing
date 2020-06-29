@@ -14701,15 +14701,16 @@ var createTheater = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context6.next = 11;
+            _context6.next = 12;
             break;
 
           case 8:
             _context6.prev = 8;
             _context6.t0 = _context6["catch"](0);
+            console.log(_context6.t0);
             (0, _alerts.showAlert)('error', _context6.t0.response.data.message);
 
-          case 11:
+          case 12:
           case "end":
             return _context6.stop();
         }

@@ -140,6 +140,7 @@ export const createTheater = async data => {
       }, 1500);
     }
   } catch (err) {
+    console.log(err);
     showAlert('error', err.response.data.message);
   }
 };
