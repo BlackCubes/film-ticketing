@@ -41,6 +41,8 @@ exports.updateOne = Model =>
 exports.createOne = Model =>
   catchAsync(async (req, res, next) => {
     // if (req.file) req.body.poster = { urlLarge: req.file.filename };
+    if (req.body.geo && Model === 'Theater')
+      req.body.geo = { coordinates: req.body.geo };
 
     const doc = await Model.create(req.body);
 
