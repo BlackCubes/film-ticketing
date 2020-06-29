@@ -1,26 +1,46 @@
 extends base
 
 //- mixin showtimesCard(showtimes)
+//-   - const url = (user.role === 'admin') ? `/admin/shows/${show.id}` : `/myShows/${show.slug}`
 //-   .showtimes-box__theatertime
 //-     .showtimes-box__theatertime-poster
-//-       a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/showtimes/${showtimes.id}`)
-//-         img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
+//-       a.showtimes-box__theatertime-poster-link.picture-link(href=`${url}`)
+//-         img.showtimes-box__theatertime-poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
 
 //-     .showtimes-box__theatertime-theater.u-margin-bottom-small
-//-       h3.showtimes-box__theatertime-theater-name.heading-tertiary= theater.name
+//-       h3.showtimes-box__theatertime-theater-name.heading-tertiary= show.title
     
 //-     .showtimes-box__metadata-container
 //-       ul.showtimes-box__metadata
-//-         li.showtimes-box__metadata-item.paragraph= `Chain: ${theater.chainName}`
+//-         li.showtimes-box__metadata-item.paragraph= show.mpaaRating
 
-//-         li.showtimes-box__metadata-item.paragraph= `Address: ${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
+//-         - const hours = Math.floor(show.durationHours)
+//-         - const minutes = show.duration - hours*60
+
+//-         li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
 
 //-     .showtimes-box__ticket-buy
-//-       a.btn.btn__promo(href=`/admin/theaters/${theater.id}`) Edit
+//-       if user.role === 'admin'
+//-         .form__duo-btn
+//-           .form__duo-btn-previous
+//-             a.btn.btn__promo(href=`${url}`) Edit Show
+
+//-           .form__duo-btn-next
+//-             a.btn.btn__promo(href=`${url}/reviews`) View Reviews
+//-       else
+//-         a.btn.btn__promo(href=`${url}`) Edit
 
 //-   .line &nbsp;
 
 block content
-  - console.log('Showtimes: ', showtimes)
-  - console.log('Show: ', showtimes[0].shows[0])
-  - console.log('Theaters: ', showtimes[0].theaters[0])
+  main.main
+    .user-view
+      .user-view__content
+        .user-view__eventowners-container
+          .eventowners-box
+            .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
+              h2.heading-secondary Showtimes in System
+            
+            .eventowners-box__shows-container.u-center-text
+              each showtime in showtimes
+                - console.log(showtime)
