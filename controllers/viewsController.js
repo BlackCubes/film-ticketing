@@ -335,7 +335,7 @@ exports.getAdminCreateTheater = (req, res) => {
 };
 
 exports.getAdminShowtimesOptions = (req, res) => {
-  const option = 'showtimes';
+  const option = 'showtime';
 
   res.status(200).render('accountAdminOptions', {
     title: 'Admin - Showtimes Options',
