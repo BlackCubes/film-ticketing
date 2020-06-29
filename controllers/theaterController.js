@@ -1,8 +1,56 @@
+const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
+const multer = require('multer');
+const sharp = require('sharp');
 const Theater = require('./../models/theaterModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
+
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(
+      new AppError('This is not an image! Please upload only images!', 400),
+      false
+    );
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
+
+exports.uploadTheaterPhotos = upload.fields([
+  { name: 'theaterPhoto', maxCount: 1 },
+  { name: 'chainPhoto', maxCount: 1 }
+]);
+
+exports.resizeTheaterPhotos = catchAsync(async (req, res, next) => {
+  if (!req.files) return next();
+
+  req.body.photo = `theater-${req.user.id}-${Date.now()}.jpeg`;
+  await sharp(req.files.theaterPhoto[0].buffer)
+    .resize(800, 600)
+    .toFormat('jpeg')
+    .jpeg({ quality: 95 })
+    .toFile(`public/img/theaters/${req.body.photo}`);
+
+  req.body.chainLogo = `theater-${req.user.id}-${Date.now()}-chainlogo.jpeg`;
+  await sharp(req.files.chainPhoto[0].buffer)
+    .resize(800, 600)
+    .toFormat('jpeg')
+    .jpeg({ quality: 95 })
+    .toFile(`public/img/theaters/${req.body.chainLogo}`);
+
+  next();
+});
 
 exports.getAllTheaters = factory.getAll(Theater);
 exports.getTheater = factory.getOne(Theater, 'showtimes');
