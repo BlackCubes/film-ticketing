@@ -15758,9 +15758,13 @@ if (adFieldlist1) {
               form.append('chainCode', chainCode);
               form.append('photo', photo);
               form.append('chainLogo', chainLogo);
+              _context6.next = 21;
+              return (0, _login.createTheater)(form);
+
+            case 21:
               document.getElementById('btnCreateTheater').textContent = 'Create';
 
-            case 20:
+            case 22:
             case "end":
               return _context6.stop();
           }

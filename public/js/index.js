@@ -6,7 +6,14 @@ import { displayMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { MultiForm } from './multiForm';
-import { login, logout, register, forgotPassword, createShow } from './login';
+import {
+  login,
+  logout,
+  register,
+  forgotPassword,
+  createShow,
+  createTheater
+} from './login';
 import {
   updateSettings,
   updateShowSettings,
@@ -429,6 +436,8 @@ if (adFieldlist1) {
     form.append('chainCode', chainCode);
     form.append('photo', photo);
     form.append('chainLogo', chainLogo);
+
+    await createTheater(form);
 
     document.getElementById('btnCreateTheater').textContent = 'Create';
   });
