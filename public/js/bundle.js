@@ -15743,7 +15743,7 @@ if (adFieldlist1) {
               e.preventDefault();
               form = new FormData();
               name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value, address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), description = document.getElementById('theaterDescription').value, chainName = document.getElementById('theaterChainName').value, chainCode = document.getElementById('theaterChainCode').value;
-              geo = [geoLong, geoLat];
+              geo = JSON.stringify([geoLong, geoLat]);
               photo = document.getElementById('theaterPhoto').files[0], chainLogo = document.getElementById('theaterChainLogo').files[0];
               document.getElementById('btnCreateTheater').textContent = 'Creating...';
               form.append('name', name);
