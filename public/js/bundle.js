@@ -15757,8 +15757,8 @@ if (adFieldlist1) {
               form.append('description', description);
               form.append('chainName', chainName);
               form.append('chainCode', chainCode);
-              form.append('photo', photo);
-              form.append('chainLogo', chainLogo);
+              form.append('theaterPhoto', photo);
+              form.append('chainPhoto', chainLogo);
               _context6.next = 21;
               return (0, _login.createTheater)(form);
 
