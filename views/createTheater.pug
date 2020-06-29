@@ -30,7 +30,7 @@ block content
 
             fieldset#adFieldlist2.form__fieldset.form__fieldset--fourth(name='adFieldlist2')
               .form__group.form__group--info.u-center-text
-                small.form__info-small.small-text Provide a location for the theater. The geo locations are optional.
+                small.form__info-small.small-text Provide a location for the theater.
 
               .form__group
                 input#theaterAddress.form__input.input-text(type='text' name='theaterAddress' placeholder='Address*' required)
@@ -49,11 +49,11 @@ block content
                 label.form__label.label-text(for='theaterZipCode') Please give a ZIP code the theater.
 
               .form__group
-                input#theaterGeoLong.form__input.input-text(type='text' name='theaterGeoLong' placeholder='Geo Longitude Location')
+                input#theaterGeoLong.form__input.input-text(type='number' name='theaterGeoLong' placeholder='Geo Longitude Location' required)
                 label.form__label.label-text(for='theaterGeoLong') Please give a longitude location for the theater.
 
               .form__group
-                input#theaterGeoLat.form__input.input-text(type='text' name='theaterGeoLat' placeholder='Geo Latitude Location')
+                input#theaterGeoLat.form__input.input-text(type='number' name='theaterGeoLat' placeholder='Geo Latitude Location' required)
                 label.form__label.label-text(for='theaterGeoLat') Please give a latitude location for the theater.
 
               .form__group
