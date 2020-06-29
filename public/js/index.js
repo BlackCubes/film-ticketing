@@ -416,8 +416,7 @@ if (adFieldlist1) {
       chainName = document.getElementById('theaterChainName').value,
       chainCode = document.getElementById('theaterChainCode').value;
 
-    const geo = {};
-    geo.coordinates = [geoLong, geoLat];
+    const geo = [geoLong, geoLat];
 
     const photo = document.getElementById('theaterPhoto').files[0],
       chainLogo = document.getElementById('theaterChainLogo').files[0];
