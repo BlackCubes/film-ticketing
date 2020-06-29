@@ -352,3 +352,9 @@ exports.getAdminShowtimes = catchAsync(async (req, res, next) => {
     showtimes
   });
 });
+
+exports.getAdminCreateShowtime = (req, res) => {
+  res.status(200).render('createShowtime', {
+    title: 'Admin - Create Showtime'
+  });
+};
