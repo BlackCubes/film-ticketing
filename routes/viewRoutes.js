@@ -173,4 +173,11 @@ router.get(
   viewsController.getAdminCreateTheater
 );
 
+router.get(
+  '/admin/showtimes-options',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowtimesOptions
+);
+
 module.exports = router;
