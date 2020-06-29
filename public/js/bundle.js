@@ -14410,7 +14410,7 @@ exports.MultiForm = MultiForm;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createTheater = exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
+exports.createShowtime = exports.createTheater = exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14724,6 +14724,56 @@ var createTheater = /*#__PURE__*/function () {
 }();
 
 exports.createTheater = createTheater;
+
+var createShowtime = /*#__PURE__*/function () {
+  var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(data) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee7$(_context7) {
+      while (1) {
+        switch (_context7.prev = _context7.next) {
+          case 0:
+            _context7.prev = 0;
+            url = 'http://127.0.0.1:3000/api/v1/showtimes';
+            _context7.next = 4;
+            return (0, _axios.default)({
+              method: 'POST',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context7.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', 'Congrats! The showtime has been created!');
+              window.setTimeout(function () {
+                location.assign('/admin/showtimes');
+              }, 1500);
+            }
+
+            _context7.next = 12;
+            break;
+
+          case 8:
+            _context7.prev = 8;
+            _context7.t0 = _context7["catch"](0);
+            console.log(_context7.t0);
+            (0, _alerts.showAlert)('error', _context7.t0.response.data.message);
+
+          case 12:
+          case "end":
+            return _context7.stop();
+        }
+      }
+    }, _callee7, null, [[0, 8]]);
+  }));
+
+  return function createShowtime(_x14) {
+    return _ref7.apply(this, arguments);
+  };
+}();
+
+exports.createShowtime = createShowtime;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"updateSettings.js":[function(require,module,exports) {
 "use strict";
 

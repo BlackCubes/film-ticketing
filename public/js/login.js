@@ -144,3 +144,25 @@ export const createTheater = async data => {
     showAlert('error', err.response.data.message);
   }
 };
+
+export const createShowtime = async data => {
+  try {
+    const url = 'http://127.0.0.1:3000/api/v1/showtimes';
+
+    const res = await axios({
+      method: 'POST',
+      url,
+      data
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', 'Congrats! The showtime has been created!');
+      window.setTimeout(() => {
+        location.assign('/admin/showtimes');
+      }, 1500);
+    }
+  } catch (err) {
+    console.log(err);
+    showAlert('error', err.response.data.message);
+  }
+};
