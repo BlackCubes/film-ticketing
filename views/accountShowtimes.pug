@@ -1,4 +1,26 @@
 extends base
 
+//- mixin showtimesCard(showtimes)
+//-   .showtimes-box__theatertime
+//-     .showtimes-box__theatertime-poster
+//-       a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/showtimes/${showtimes.id}`)
+//-         img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
+
+//-     .showtimes-box__theatertime-theater.u-margin-bottom-small
+//-       h3.showtimes-box__theatertime-theater-name.heading-tertiary= theater.name
+    
+//-     .showtimes-box__metadata-container
+//-       ul.showtimes-box__metadata
+//-         li.showtimes-box__metadata-item.paragraph= `Chain: ${theater.chainName}`
+
+//-         li.showtimes-box__metadata-item.paragraph= `Address: ${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
+
+//-     .showtimes-box__ticket-buy
+//-       a.btn.btn__promo(href=`/admin/theaters/${theater.id}`) Edit
+
+//-   .line &nbsp;
+
 block content
-  - console.log(showtimes)
+  - console.log('Showtimes: ', showtimes)
+  - console.log('Show: ', showtimes.shows)
+  - console.log('Theaters: ', showtimes.theaters)
