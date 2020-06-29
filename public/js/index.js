@@ -410,8 +410,8 @@ if (adFieldlist1) {
       city = document.getElementById('theaterCity').value,
       state = document.getElementById('theaterState').value,
       zipCode = document.getElementById('theaterZipCode').value,
-      geoLong = document.getElementById('theaterGeoLong').value,
-      geoLat = document.getElementById('theaterGeoLat').value,
+      geoLong = parseFloat(document.getElementById('theaterGeoLong').value),
+      geoLat = parseFloat(document.getElementById('theaterGeoLat').value),
       description = document.getElementById('theaterDescription').value,
       chainName = document.getElementById('theaterChainName').value,
       chainCode = document.getElementById('theaterChainCode').value;
