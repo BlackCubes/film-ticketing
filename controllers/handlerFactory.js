@@ -43,6 +43,7 @@ exports.createOne = Model =>
     // if (req.file) req.body.poster = { urlLarge: req.file.filename };
     if (req.body.geo && Model === 'Theater')
       req.body.geo = { coordinates: req.body.geo };
+    console.log(req.body);
 
     const doc = await Model.create(req.body);
 
