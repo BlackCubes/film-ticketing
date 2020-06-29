@@ -410,6 +410,27 @@ if (adFieldlist1) {
       chainCode = document.getElementById('theaterChainCode').value;
 
     const geo = [geoLong, geoLat];
+
+    const photo = document.getElementById('theaterPhoto').files[0],
+      chainLogo = document.getElementById('theaterChainLogo').files[0];
+
+    document.getElementById('btnCreateTheater').textContent = 'Creating...';
+
+    form.append('name', name);
+    form.append('phone', phone);
+    form.append('linkUrl', linkUrl);
+    form.append('address', address);
+    form.append('city', city);
+    form.append('state', state);
+    form.append('zipCode', zipCode);
+    form.append('geo', geo);
+    form.append('description', description);
+    form.append('chainName', chainName);
+    form.append('chainCode', chainCode);
+    form.append('photo', photo);
+    form.append('chainLogo', chainLogo);
+
+    document.getElementById('btnCreateTheater').textContent = 'Create';
   });
 }
 

@@ -15685,7 +15685,7 @@ if (adFieldlist1) {
   var createTheaterBtn = document.getElementById('btnCreateTheater');
   adCreateTheaterForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(e) {
-      var form, name, phone, linkUrl, address, city, state, zipCode, geoLong, geoLat, description, chainName, chainCode, geo;
+      var form, name, phone, linkUrl, address, city, state, zipCode, geoLong, geoLat, description, chainName, chainCode, geo, photo, chainLogo;
       return regeneratorRuntime.wrap(function _callee6$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
@@ -15694,8 +15694,24 @@ if (adFieldlist1) {
               form = new FormData();
               name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value, address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = document.getElementById('theaterGeoLong').value, geoLat = document.getElementById('theaterGeoLat').value, description = document.getElementById('theaterDescription').value, chainName = document.getElementById('theaterChainName').value, chainCode = document.getElementById('theaterChainCode').value;
               geo = [geoLong, geoLat];
+              photo = document.getElementById('theaterPhoto').files[0], chainLogo = document.getElementById('theaterChainLogo').files[0];
+              document.getElementById('btnCreateTheater').textContent = 'Creating...';
+              form.append('name', name);
+              form.append('phone', phone);
+              form.append('linkUrl', linkUrl);
+              form.append('address', address);
+              form.append('city', city);
+              form.append('state', state);
+              form.append('zipCode', zipCode);
+              form.append('geo', geo);
+              form.append('description', description);
+              form.append('chainName', chainName);
+              form.append('chainCode', chainCode);
+              form.append('photo', photo);
+              form.append('chainLogo', chainLogo);
+              document.getElementById('btnCreateTheater').textContent = 'Create';
 
-            case 4:
+            case 20:
             case "end":
               return _context6.stop();
           }
