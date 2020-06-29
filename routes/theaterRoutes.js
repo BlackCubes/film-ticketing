@@ -28,6 +28,7 @@ router
   .post(
     theaterController.uploadTheaterPhotos,
     theaterController.resizeTheaterPhotos,
+    theaterController.geoParse,
     theaterController.createTheater
   );
 
