@@ -75,7 +75,7 @@ block content
               .form__group
                 .form__photo-upload
                   img.form__show-photo(src='/img/theaters/theaters.png', alt="Theater photo")
-                  input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto')
+                  input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto' multiple)
                   label(for='theaterPhoto') Choose a theater photo
 
               .form__group
@@ -101,7 +101,7 @@ block content
               .form__group
                 .form__photo-upload
                   img.form__show-photo(src='/img/theaters/theaters.png', alt="Theater photo")
-                  input#theaterChainLogo.form__upload(type='file', accept='image/*', name='chainPhoto')
+                  input#theaterChainLogo.form__upload(type='file', accept='image/*', name='chainPhoto' multiple)
                   label(for='theaterChainLogo') Choose a chain logo
 
               .form__group
