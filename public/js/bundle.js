@@ -14932,7 +14932,7 @@ exports.updateReviewSettings = updateReviewSettings;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteReview = exports.deleteShow = void 0;
+exports.deleteTheater = exports.deleteReview = exports.deleteShow = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -15041,6 +15041,55 @@ var deleteReview = /*#__PURE__*/function () {
 }();
 
 exports.deleteReview = deleteReview;
+
+var deleteTheater = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(data, theaterId) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            url = "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId);
+            _context3.next = 4;
+            return (0, _axios.default)({
+              method: 'DELETE',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context3.sent;
+
+            if (res.status === 204) {
+              (0, _alerts.showAlert)('success', 'Theater deleted!');
+              window.setTimeout(function () {
+                location.assign('/admin/theaters');
+              }, 1000);
+            }
+
+            _context3.next = 11;
+            break;
+
+          case 8:
+            _context3.prev = 8;
+            _context3.t0 = _context3["catch"](0);
+            (0, _alerts.showAlert)('error', _context3.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, null, [[0, 8]]);
+  }));
+
+  return function deleteTheater(_x5, _x6) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+exports.deleteTheater = deleteTheater;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 

@@ -43,3 +43,24 @@ export const deleteReview = async (data, reviewId) => {
     showAlert('error', err.response.data.message);
   }
 };
+
+export const deleteTheater = async (data, theaterId) => {
+  try {
+    const url = `http://127.0.0.1:3000/api/v1/theaters/${theaterId}`;
+
+    const res = await axios({
+      method: 'DELETE',
+      url,
+      data
+    });
+
+    if (res.status === 204) {
+      showAlert('success', 'Theater deleted!');
+      window.setTimeout(() => {
+        location.assign('/admin/theaters');
+      }, 1000);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
