@@ -227,6 +227,25 @@ exports.getAdminUserShows = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAdminUserReviews = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) return next(new AppError('There is no user with that id!', 404));
+
+  const reviews = await Review.find({ user: req.params.id });
+
+  if (!reviews)
+    return next(new AppError('There are no reviews on this user!', 404));
+
+  const reviewsOnUser = user.name;
+
+  res.status(200).render('reviews', {
+    title: `Admin - User: ${user.name}, Reviews`,
+    reviews,
+    reviewsOnUser
+  });
+});
+
 exports.getAdminShowOptions = (req, res) => {
   const option = 'show';
 
