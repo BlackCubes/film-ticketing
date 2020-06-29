@@ -430,7 +430,7 @@ if (adFieldlist1) {
     form.append('city', city);
     form.append('state', state);
     form.append('zipCode', zipCode);
-    form.append('geo', geo);
+    form.append('geoDummy', geo);
     form.append('description', description);
     form.append('chainName', chainName);
     form.append('chainCode', chainCode);
