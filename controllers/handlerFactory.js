@@ -40,7 +40,7 @@ exports.updateOne = Model =>
 
 exports.createOne = Model =>
   catchAsync(async (req, res, next) => {
-    if (req.file) req.body.poster = { urlLarge: req.file.filename };
+    // if (req.file) req.body.poster = { urlLarge: req.file.filename };
 
     const doc = await Model.create(req.body);
 
