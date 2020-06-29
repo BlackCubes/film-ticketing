@@ -110,6 +110,12 @@ router.get(
   authController.restrictTo('admin'),
   viewsController.getAdminUserShows
 );
+router.get(
+  '/admin/users/:id/reviews',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminUserReviews
+);
 
 router.get(
   '/admin/show-options',
