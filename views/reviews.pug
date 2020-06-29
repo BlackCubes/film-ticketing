@@ -8,7 +8,12 @@ block content
         .user-view__reviews-container
           .reviews-box
             .reviews-box__title.u-margin-top-small.u-margin-bottom-small
-              h2.heading-secondary My Reviews
+              - let pageTitle
+              if user.role === 'admin' && reviewsOnShow
+                - pageTitle = `Reviews For ${reviewsOnShow}`
+              else
+                - pageTitle = 'My Reviews'
+              h2.heading-secondary= pageTitle
 
             .reviews-box__reviews-container.u-center-text
               each review in reviews
