@@ -12,7 +12,8 @@ import {
   register,
   forgotPassword,
   createShow,
-  createTheater
+  createTheater,
+  createShowtime
 } from './login';
 import {
   updateSettings,
@@ -44,6 +45,7 @@ const eoCreateShowForm = document.getElementById('eoCreateShowForm'),
   eoFieldlist1 = document.getElementById('eoFieldlist1');
 const adCreateTheaterForm = document.getElementById('adCreateTheaterForm'),
   adFieldlist1 = document.getElementById('adFieldlist1');
+const adCreateShowtimeForm = document.getElementById('adCreateShowtimeForm');
 const updateShowMainView = document.getElementById('updateShowMainView'),
   updateShowPlot = document.getElementById('updateShowPlot'),
   updateShowCastCrewForm = document.getElementById('updateShowCastCrewForm'),
@@ -445,6 +447,39 @@ if (adFieldlist1) {
     await createTheater(form);
 
     document.getElementById('btnCreateTheater').textContent = 'Create';
+  });
+}
+
+if (adCreateShowtimeForm) {
+  adCreateShowtimeForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const shows = document.getElementById('showtimeShow').value,
+      theaters = document.getElementById('showtimeTheater').value;
+
+    const selectStartMonth = document.getElementById('showtimeStartMonth'),
+      selectStartDay = document.getElementById('showtimeStartDay'),
+      selectStartYear = document.getElementById('showtimeStartYear'),
+      selectEndMonth = document.getElementById('showtimeEndMonth'),
+      selectEndDay = document.getElementById('showtimeEndDay'),
+      selectEndYear = document.getElementById('showtimeEndYear');
+
+    const startMonth =
+        selectStartMonth.options[selectStartMonth.selectedIndex].value,
+      startDay = selectStartDay.options[selectStartDay.selectedIndex].value,
+      startYear = selectStartYear.options[selectStartYear.selectedIndex].value,
+      endMonth = selectEndMonth.options[selectEndMonth.selectedIndex].value,
+      endDay = selectEndDay.options[selectEndDay.selectedIndex].value,
+      endYear = selectEndYear.options[selectEndYear.selectedIndex].value;
+
+    const startDateTime = startYear.concat('-', startMonth, '-', startDay),
+      endDateTime = endYear.concat('-', endMonth, '-', endDay);
+
+    document.getElementById('btnCreateShowtime').textContent = 'Creating...';
+
+    await createShowtime({ shows, theaters, startDateTime, endDateTime });
+
+    document.getElementById('btnCreateShowtime').textContent = 'Create';
   });
 }
 
