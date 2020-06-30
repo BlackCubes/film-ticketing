@@ -460,20 +460,34 @@ if (adCreateShowtimeForm) {
     const selectStartMonth = document.getElementById('showtimeStartMonth'),
       selectStartDay = document.getElementById('showtimeStartDay'),
       selectStartYear = document.getElementById('showtimeStartYear'),
-      selectEndMonth = document.getElementById('showtimeEndMonth'),
-      selectEndDay = document.getElementById('showtimeEndDay'),
-      selectEndYear = document.getElementById('showtimeEndYear');
+      selectStartHour = document.getElementById('showtimeStartHour'),
+      selectStartMinute = document.getElementById('showtimeStartMinute'),
+      selectStartSecond = document.getElementById('showtimeStartSecond'),
+      selectEndHour = document.getElementById('showtimeEndHour'),
+      selectEndMinute = document.getElementById('showtimeEndMinute'),
+      selectEndSecond = document.getElementById('showtimeEndSecond');
 
     const startMonth =
         selectStartMonth.options[selectStartMonth.selectedIndex].value,
       startDay = selectStartDay.options[selectStartDay.selectedIndex].value,
       startYear = selectStartYear.options[selectStartYear.selectedIndex].value,
-      endMonth = selectEndMonth.options[selectEndMonth.selectedIndex].value,
-      endDay = selectEndDay.options[selectEndDay.selectedIndex].value,
-      endYear = selectEndYear.options[selectEndYear.selectedIndex].value;
+      startHour = selectStartHour.options[selectStartHour.selectedIndex].value,
+      startMinute =
+        selectStartMinute.options[selectStartMinute.selectedIndex].value,
+      startSecond =
+        selectStartSecond.options[selectStartSecond.selectedIndex].value,
+      endHour = selectEndHour.options[selectEndHour.selectedIndex].value,
+      endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value,
+      endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
 
-    const startDateTime = startYear.concat('-', startMonth, '-', startDay),
-      endDateTime = endYear.concat('-', endMonth, '-', endDay);
+    const startDateTime = new Date(
+        `${startYear}-${startMonth}-${startDay} ${startHour}:${startMinute}:${startSecond}`
+      ),
+      endDateTime = new Date(
+        `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
+      );
+    // const startDateTime = startYear.concat('-', startMonth, '-', startDay, ''),
+    //   endDateTime = endYear.concat('-', endMonth, '-', endDay);
 
     document.getElementById('btnCreateShowtime').textContent = 'Creating...';
 

@@ -15887,16 +15887,18 @@ if (adFieldlist1) {
 if (adCreateShowtimeForm) {
   adCreateShowtimeForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(e) {
-      var shows, theaters, selectStartMonth, selectStartDay, selectStartYear, selectEndMonth, selectEndDay, selectEndYear, startMonth, startDay, startYear, endMonth, endDay, endYear, startDateTime, endDateTime;
+      var shows, theaters, selectStartMonth, selectStartDay, selectStartYear, selectStartHour, selectStartMinute, selectStartSecond, selectEndHour, selectEndMinute, selectEndSecond, startMonth, startDay, startYear, startHour, startMinute, startSecond, endHour, endMinute, endSecond, startDateTime, endDateTime;
       return regeneratorRuntime.wrap(function _callee7$(_context7) {
         while (1) {
           switch (_context7.prev = _context7.next) {
             case 0:
               e.preventDefault();
               shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
-              selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectEndMonth = document.getElementById('showtimeEndMonth'), selectEndDay = document.getElementById('showtimeEndDay'), selectEndYear = document.getElementById('showtimeEndYear');
-              startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, endMonth = selectEndMonth.options[selectEndMonth.selectedIndex].value, endDay = selectEndDay.options[selectEndDay.selectedIndex].value, endYear = selectEndYear.options[selectEndYear.selectedIndex].value;
-              startDateTime = startYear.concat('-', startMonth, '-', startDay), endDateTime = endYear.concat('-', endMonth, '-', endDay);
+              selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
+              startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
+              startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)); // const startDateTime = startYear.concat('-', startMonth, '-', startDay, ''),
+              //   endDateTime = endYear.concat('-', endMonth, '-', endDay);
+
               document.getElementById('btnCreateShowtime').textContent = 'Creating...';
               _context7.next = 8;
               return (0, _login.createShowtime)({
