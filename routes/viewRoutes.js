@@ -198,5 +198,11 @@ router.get(
   authController.restrictTo('admin'),
   viewsController.getAdminCastCrewOptions
 );
+router.get(
+  '/admin/castcrews',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCastCrews
+);
 
 module.exports = router;
