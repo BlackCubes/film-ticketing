@@ -1,4 +1,32 @@
 extends base
 
+mixin castcrewsCard(castcrew)
+  .showtimes-box__theatertime
+    .showtimes-box__theatertime-poster
+      a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/castcrews/${castcrew.id}`)
+        img.showtimes-box__theatertime-poster-img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name} Photo`)
+
+    .showtimes-box__theatertime-theater.u-margin-bottom-small
+      h3.showtimes-box__theatertime-theater-name.heading-tertiary= castcrew.name
+    
+    .showtimes-box__metadata-container
+      ul.showtimes-box__metadata
+        li.showtimes-box__metadata-item.paragraph= `Role: ${castcrew.roles.join(', ')}`
+
+    .showtimes-box__ticket-buy
+      a.btn.btn__promo(href=`/admin/castcrews/${castcrew.id}`) Edit
+
+  .line &nbsp;
+
 block content
-  -console.log(castcrews)
+  main.main
+    .user-view
+      .user-view__content
+        .user-view__eventowners-container
+          .eventowners-box
+            .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
+              h2.heading-secondary Theaters in System
+            
+            .eventowners-box__shows-container.u-center-text
+              each castcrew in castcrews
+                - console.log(castcrews)
