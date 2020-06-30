@@ -367,3 +367,12 @@ exports.getAdminCastCrewOptions = (req, res) => {
     option
   });
 };
+
+exports.getAdminCastCrews = catchAsync(async (req, res, next) => {
+  const castcrews = await CastCrew.find();
+
+  res.status(200).render('accountCastCrews', {
+    title: 'Admin - Cast & Crews',
+    castcrews
+  });
+});
