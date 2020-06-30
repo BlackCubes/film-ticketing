@@ -388,3 +388,9 @@ exports.getAdminCastCrew = catchAsync(async (req, res, next) => {
     castcrew
   });
 });
+
+exports.getAdminCreateCastCrew = (req, res) => {
+  res.status(200).render('createCastCrew', {
+    title: 'Admin - Create Cast & Crew'
+  });
+};
