@@ -210,5 +210,11 @@ router.get(
   authController.restrictTo('admin'),
   viewsController.getAdminCastCrew
 );
+router.get(
+  '/admin/create-castcrew',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCreateCastCrew
+);
 
 module.exports = router;
