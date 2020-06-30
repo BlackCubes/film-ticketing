@@ -482,10 +482,10 @@ if (adCreateShowtimeForm) {
 
     const startDateTime = new Date(
         `${startYear}-${startMonth}-${startDay} ${startHour}:${startMinute}:${startSecond}`
-      ),
+      ).toISOString(),
       endDateTime = new Date(
         `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
-      );
+      ).toISOString();
     // const startDateTime = startYear.concat('-', startMonth, '-', startDay, ''),
     //   endDateTime = endYear.concat('-', endMonth, '-', endDay);
 
