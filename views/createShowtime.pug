@@ -27,6 +27,9 @@ block content
             - const now = new Date().getFullYear()
             - const years = Array(2).fill('').map((val, i) => now + i)
 
+            - const hours = [...Array(25).keys()].splice(0)
+            - const minSecs = [...Array(61).keys()].splice(0)
+
             .form__group
               .form__date
                 .form__date-month
@@ -53,25 +56,48 @@ block content
             .form__group
               .form__date
                 .form__date-month
-                  select#showtimeEndMonth.dropdown(name='selectEndMonth' tabindex='0' required)
-                    option(value) End Month*
+                  select#showtimeStartHour.dropdown(name='selectStartHour' tabindex='0' required)
+                    option(value) Start Hour*
 
-                    each month in months
-                      option(value=`${month}`)= month
+                    each hour in hours
+                      option(value=`${hour}`)= hour
 
                 .form__date-day
-                  select#showtimeEndDay.dropdown(name='selectEndDay' tabindex='0' required)
-                    option(value) Day*
+                  select#showtimeStartMinute.dropdown(name='selectStartMinute' tabindex='0' required)
+                    option(value) Minute*
 
-                    each day in days
-                      option(value=`${day}`)= day
+                    each minute in minSecs
+                      option(value=`${minute}`)= minute
 
                 .form__date-year
-                  select#showtimeEndYear.dropdown(name='selectEndYear' tabindex='0' required)
-                    option(value) Year*
+                  select#showtimeStartSecond.dropdown(name='selectStartSecond' tabindex='0' required)
+                    option(value) Seconds*
 
-                    each year in years
-                      option(value=`${year}`)= year
+                    each second in minSecs
+                      option(value=`${second}`)= second
+
+            .form__group
+              .form__date
+                .form__date-month
+                  select#showtimeEndHour.dropdown(name='selectEndHour' tabindex='0' required)
+                    option(value) End Hour*
+
+                    each hour in hours
+                      option(value=`${hour}`)= hour
+
+                .form__date-day
+                  select#showtimeEndMinute.dropdown(name='selectEndMinute' tabindex='0' required)
+                    option(value) Minute*
+
+                    each minute in minSecs
+                      option(value=`${minute}`)= minute
+
+                .form__date-year
+                  select#showtimeEndSecond.dropdown(name='selectEndSecond' tabindex='0' required)
+                    option(value) Seconds*
+
+                    each second in minSecs
+                      option(value=`${second}`)= second
 
             .form__group
               button#btnCreateShowtime.btn.btn--blue(type='submit' name='btnCreateShowtime') Create
