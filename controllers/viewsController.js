@@ -358,3 +358,12 @@ exports.getAdminCreateShowtime = (req, res) => {
     title: 'Admin - Create Showtime'
   });
 };
+
+exports.getAdminCastCrewOptions = (req, res) => {
+  const option = 'castcrew';
+
+  res.status(200).render('accountAdminOptions', {
+    title: 'Admin - Cast & Crew Options',
+    option
+  });
+};
