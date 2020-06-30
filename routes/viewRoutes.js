@@ -192,4 +192,11 @@ router.get(
   viewsController.getAdminCreateShowtime
 );
 
+router.get(
+  '/admin/castcrew-options',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCastCrewOptions
+);
+
 module.exports = router;
