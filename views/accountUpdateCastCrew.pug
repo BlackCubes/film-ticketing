@@ -2,3 +2,106 @@ extends base
 
 block content
   - console.log(castcrew)
+  main.main
+    .user-view
+      .user-view__content
+        .user-view__form-container
+          form#updateCastCrewMainView.form
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary Cast | Crew Settings
+
+            .form__group
+              input#name.form__input.input-text(type='text' placeholder='Name*' value=`${castcrew.name}` required)
+              label.form__label.label-text(for='name') Please enter a name for the cast/crew.
+
+            .form__group
+              .form__date
+                .form__date-month
+                  select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
+                    option(value, selected=(true)) Birth Month
+
+                    - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+                    - var monthValue = castcrew.birthdate.toLocaleString('en-us', {month: 'long'})
+
+                    each month in months
+                      - var monthSelected = (monthValue === month) ? true : false
+
+                      option(value=`${month}`, selected=(monthSelected))= month
+
+                .form__date-day
+                  select#selectBirthDay.dropdown(name='select-birthday' tabindex='0' required)
+                    option(value, selected=(true)) Day
+
+                    - const days = [...Array(32).keys()].splice(1)
+
+                    - var dayValue = castcrew.birthdate.toLocaleString('en-us', {day: 'numeric'})
+
+                    each day in days
+                      - var daySelected = (dayValue == day) ? true : false
+
+                      option(value=`${day}`, selected=(daySelected))= day
+
+                .form__date-year
+                  select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
+                    option(value) Year
+
+                    - const now = new Date().getFullYear()
+                    - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
+
+                    - var yearValue = castcrew.birthdate.toLocaleString('en-us', {year: 'numeric'})
+
+                    each year in years
+                      - var yearSelected = (yearValue == year) ? true : false
+
+                      option(value=`${year}`, selected=(yearSelected))= year
+
+            .form__group
+              .form__photo-upload
+                img#photoSource.form__user-photo(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name} Photo`)
+                input#castcrewPhoto.form__upload(type='file', accept='image/*', name='photo', required)
+                label(for='castcrewPhoto') Choose new photo
+
+            .form__group
+              button#btnUpdateCastCrewData.btn.btn--blue(type='submit' name='btnUpdateCastCrewData' data-castcrew-id=`${castcrew.id}`) Update Cast | Crew Settings
+
+        .line &nbsp;
+        
+        //- Change email | username
+        .user-view__form-container
+          form#updateCastCrewAddlForm.form
+            .form__group
+              .form__title.u-center-text
+                h1.heading-primary Change Cast | Crew Add'l Info
+
+            .form__group
+              textarea#castcrewBio.form__text-area.input-text(name='textareaBio' placeholder='Biography')= castcrew.biography
+              label.form__label.label-text(for='castcrewBio') Please provide a biography for the cast/crew.
+
+            - const roles = castcrew.roles.join(', ')
+
+            .form__group
+              input#castcrewRoles.form__input.input-text(type='text' placeholder='Roles*' value=`${roles}` required)
+              label.form__label.label-text(for='castcrewRoles') Please roles for cast/crew.
+
+            .form__group
+              button#btnUpdateCastCrewAddl.btn.btn--blue(type='submit' name='btnUpdateCastCrewAddl' data-castcrew-id=`${castcrew.id}`) Update Add'l Info
+
+        .line &nbsp;
+
+        //- Change password
+        .user-view__form-container
+          form#deleteCastCrewForm.form
+            .form__group.form__group--info
+              .form__title.u-center-text
+                h1.heading-primary.u-margin-bottom-small Delete Cast | Crew
+
+                small.form__info-small.small-text Please enter your password to delete the cast/crew.
+
+            .form__group
+              input#password.form__input.input-text(type='password' placeholder='••••••' required)
+              label.form__label.label-text(for='password') Please enter your password
+
+            .form__group
+              button#btnDeleteCastCrewData.btn.btn--red(type='submit' name='btnDeleteCastCrewData' data-castcrew-id=`${castcrew.id}`) Delete Cast | Crew
