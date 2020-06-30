@@ -376,3 +376,15 @@ exports.getAdminCastCrews = catchAsync(async (req, res, next) => {
     castcrews
   });
 });
+
+exports.getAdminCastCrew = catchAsync(async (req, res, next) => {
+  const castcrew = await CastCrew.findById(req.params.id);
+
+  if (!castcrew)
+    return next(new AppError('There is no cast/crew with that id!', 404));
+
+  res.status(200).render('accountUpdateCastCrew', {
+    title: `Admin - Cast & Crews: ${castcrew.name}`,
+    castcrew
+  });
+});
