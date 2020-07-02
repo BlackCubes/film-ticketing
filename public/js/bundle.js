@@ -14701,16 +14701,15 @@ var createTheater = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context6.next = 12;
+            _context6.next = 11;
             break;
 
           case 8:
             _context6.prev = 8;
             _context6.t0 = _context6["catch"](0);
-            console.log(_context6.t0);
             (0, _alerts.showAlert)('error', _context6.t0.response.data.message);
 
-          case 12:
+          case 11:
           case "end":
             return _context6.stop();
         }
@@ -14751,16 +14750,15 @@ var createShowtime = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context7.next = 12;
+            _context7.next = 11;
             break;
 
           case 8:
             _context7.prev = 8;
             _context7.t0 = _context7["catch"](0);
-            console.log(_context7.t0);
             (0, _alerts.showAlert)('error', _context7.t0.response.data.message);
 
-          case 12:
+          case 11:
           case "end":
             return _context7.stop();
         }
@@ -14801,16 +14799,15 @@ var createCastCrew = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context8.next = 12;
+            _context8.next = 11;
             break;
 
           case 8:
             _context8.prev = 8;
             _context8.t0 = _context8["catch"](0);
-            console.log(_context8.t0);
-            (0, _alerts.showAlert)('error', _context8.t0);
+            (0, _alerts.showAlert)('error', _context8.t0.response.data.message);
 
-          case 12:
+          case 11:
           case "end":
             return _context8.stop();
         }

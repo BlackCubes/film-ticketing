@@ -140,7 +140,6 @@ export const createTheater = async data => {
       }, 1500);
     }
   } catch (err) {
-    console.log(err);
     showAlert('error', err.response.data.message);
   }
 };
@@ -162,7 +161,6 @@ export const createShowtime = async data => {
       }, 1500);
     }
   } catch (err) {
-    console.log(err);
     showAlert('error', err.response.data.message);
   }
 };
@@ -184,7 +182,6 @@ export const createCastCrew = async data => {
       }, 1500);
     }
   } catch (err) {
-    console.log(err);
-    showAlert('error', err);
+    showAlert('error', err.response.data.message);
   }
 };
