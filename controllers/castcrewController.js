@@ -8,6 +8,61 @@ const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
 
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(
+      new AppError('This is not an image! Please upload only images!', 400),
+      false
+    );
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
+
+exports.uploadCastCrewPhoto = upload.single('photo');
+
+exports.resizeCastCrewPhotoLarge = catchAsync(async (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.filename = `castcrew-${req.user.id}-${Date.now()}.jpeg`;
+
+  await sharp(req.file.buffer)
+    .resize(900, 900)
+    .toFormat('jpeg')
+    .jpeg({ quality: 95 })
+    .toFile(`public/img/castcrew/${req.file.filename}`);
+
+  next();
+});
+
+// exports.deletePoster = catchAsync(async (req, res, next) => {
+//   if (!req.params.showPoster) return next();
+//   if (
+//     req.params.showPoster.split('.')[1] !== 'jpeg' ||
+//     req.params.showPoster.split('-').length !== 3 ||
+//     req.params.showPoster.split('-')[0] !== 'show' ||
+//     req.params.showPoster.length !== 48
+//   )
+//     return next(new AppError('This route is for updating posters!', 400));
+
+//   const unlinkAsync = promisify(fs.unlink);
+//   const posterPath = path.join('public/img/shows/', req.params.showPoster);
+//   // const posterPath = `C:\\Users\\mrdrp\\Desktop\\output\\${req.params.showPoster}`;
+
+//   // sharp.cache(false);
+
+//   await unlinkAsync(posterPath);
+
+//   next();
+// });
+
 exports.getAllCastCrew = factory.getAll(CastCrew);
 exports.getCastCrew = factory.getOne(CastCrew, 'shows');
 exports.createCastCrew = factory.createOne(CastCrew);
