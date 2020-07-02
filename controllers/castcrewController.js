@@ -1,3 +1,8 @@
+const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
+const multer = require('multer');
+const sharp = require('sharp');
 const CastCrew = require('./../models/castcrewModel');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
