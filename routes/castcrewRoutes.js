@@ -8,6 +8,7 @@ const router = express.Router();
 router.use('/:castcrewId/shows', showRouter);
 
 router.route('/').get(castcrewConroller.getAllCastCrew);
+router.route('/:id').get(castcrewConroller.getCastCrew);
 
 router.use(authController.protect);
 router.use(authController.restrictTo('admin'));
@@ -23,7 +24,6 @@ router
 
 router
   .route('/:id')
-  .get(castcrewConroller.getCastCrew)
   .patch(castcrewConroller.updateCastCrew)
   .delete(castcrewConroller.deleteCastCrew);
 
