@@ -13,7 +13,8 @@ import {
   forgotPassword,
   createShow,
   createTheater,
-  createShowtime
+  createShowtime,
+  createCastCrew
 } from './login';
 import {
   updateSettings,
@@ -59,6 +60,10 @@ const updateTheaterMainView = document.getElementById('updateTheaterMainView'),
   updateTheaterAddl = document.getElementById('updateTheaterAddl'),
   updateTheaterChain = document.getElementById('updateTheaterChain'),
   deleteTheaterForm = document.getElementById('deleteTheaterForm');
+const adCreateCastCrewForm = document.getElementById('adCreateCastCrewForm'),
+  adCreateCastCrewFieldlist1 = document.getElementById(
+    'adCreateCastCrewFieldlist1'
+  );
 
 // VALUES (nothing, yet)
 
@@ -494,6 +499,56 @@ if (adCreateShowtimeForm) {
     await createShowtime({ shows, theaters, startDateTime, endDateTime });
 
     document.getElementById('btnCreateShowtime').textContent = 'Create';
+  });
+}
+
+if (adCreateCastCrewFieldlist1) {
+  const firstNextBtn = document.getElementById('btnNext-1'),
+    firstPreviousBtn = document.getElementById('btnPrev-1');
+
+  let multiForm = new MultiForm(firstNextBtn, adCreateCastCrewFieldlist1);
+
+  firstNextBtn.addEventListener('click', e =>
+    multiForm.buttonNext(e, true, true)
+  ),
+    firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
+
+  const createCastCrewBtn = document.getElementById('btnCreateCastCrew');
+
+  adCreateCastCrewForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const form = new FormData();
+
+    const name = document.getElementById('name').value,
+      rolesVal = document.getElementById('castcrewRoles').value,
+      biography = document.getElementById('biography').value;
+
+    const roles = JSON.stringify(rolesVal.split(', '));
+
+    const birthMonth = document.getElementById('selectBirthMonth');
+    const birthDay = document.getElementById('selectBirthDay');
+    const birthYear = document.getElementById('selectBirthYear');
+
+    const birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+    const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+    const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+
+    const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+
+    const photo = document.getElementById('photo').files[0];
+
+    document.getElementById('btnCreateTheater').textContent = 'Creating...';
+
+    form.append('name', name);
+    form.append('roles', roles);
+    form.append('biography', biography);
+    form.append('birthdate', birthdate);
+    form.append('photo', photo);
+
+    await createCastCrew(form);
+
+    document.getElementById('btnCreateTheater').textContent = 'Create';
   });
 }
 
