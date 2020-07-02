@@ -16,7 +16,7 @@ router.use(authController.restrictTo('admin'));
 router
   .route('/')
   .post(
-    castcrewConroller.updateCastCrew,
+    castcrewConroller.uploadCastCrewPhoto,
     castcrewConroller.resizeCastCrewPhotoLarge,
     castcrewConroller.rolesParse,
     castcrewConroller.createCastCrew
