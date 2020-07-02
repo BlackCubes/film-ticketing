@@ -166,3 +166,25 @@ export const createShowtime = async data => {
     showAlert('error', err.response.data.message);
   }
 };
+
+export const createCastCrew = async data => {
+  try {
+    const url = 'http://127.0.0.1:3000/api/v1/castcrews';
+
+    const res = await axios({
+      method: 'POST',
+      url,
+      data
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', 'Congrats! The cast/crew has been created!');
+      window.setTimeout(() => {
+        location.assign('/admin/castcrews');
+      }, 1500);
+    }
+  } catch (err) {
+    console.log(err);
+    showAlert('error', err.response.data.message);
+  }
+};

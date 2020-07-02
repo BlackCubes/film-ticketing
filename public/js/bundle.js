@@ -14410,7 +14410,7 @@ exports.MultiForm = MultiForm;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createShowtime = exports.createTheater = exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
+exports.createCastCrew = exports.createShowtime = exports.createTheater = exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14774,6 +14774,56 @@ var createShowtime = /*#__PURE__*/function () {
 }();
 
 exports.createShowtime = createShowtime;
+
+var createCastCrew = /*#__PURE__*/function () {
+  var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(data) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee8$(_context8) {
+      while (1) {
+        switch (_context8.prev = _context8.next) {
+          case 0:
+            _context8.prev = 0;
+            url = 'http://127.0.0.1:3000/api/v1/castcrews';
+            _context8.next = 4;
+            return (0, _axios.default)({
+              method: 'POST',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context8.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', 'Congrats! The cast/crew has been created!');
+              window.setTimeout(function () {
+                location.assign('/admin/castcrews');
+              }, 1500);
+            }
+
+            _context8.next = 12;
+            break;
+
+          case 8:
+            _context8.prev = 8;
+            _context8.t0 = _context8["catch"](0);
+            console.log(_context8.t0);
+            (0, _alerts.showAlert)('error', _context8.t0.response.data.message);
+
+          case 12:
+          case "end":
+            return _context8.stop();
+        }
+      }
+    }, _callee8, null, [[0, 8]]);
+  }));
+
+  return function createCastCrew(_x15) {
+    return _ref8.apply(this, arguments);
+  };
+}();
+
+exports.createCastCrew = createCastCrew;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"updateSettings.js":[function(require,module,exports) {
 "use strict";
 
