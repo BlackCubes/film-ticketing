@@ -13,6 +13,8 @@ router
   .post(
     authController.protect,
     authController.restrictTo('admin'),
+    castcrewConroller.updateCastCrew,
+    castcrewConroller.resizeCastCrewPhotoLarge,
     castcrewConroller.createCastCrew
   );
 
