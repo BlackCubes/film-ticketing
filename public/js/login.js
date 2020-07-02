@@ -185,6 +185,6 @@ export const createCastCrew = async data => {
     }
   } catch (err) {
     console.log(err);
-    showAlert('error', err.response.data.message);
+    showAlert('error', err);
   }
 };

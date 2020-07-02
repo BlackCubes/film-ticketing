@@ -14808,7 +14808,7 @@ var createCastCrew = /*#__PURE__*/function () {
             _context8.prev = 8;
             _context8.t0 = _context8["catch"](0);
             console.log(_context8.t0);
-            (0, _alerts.showAlert)('error', _context8.t0.response.data.message);
+            (0, _alerts.showAlert)('error', _context8.t0);
 
           case 12:
           case "end":
