@@ -16008,7 +16008,7 @@ if (adCreateCastCrewFieldlist1) {
               birthYearVal = birthYear.options[birthYear.selectedIndex].value;
               birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
               photo = document.getElementById('photo').files[0];
-              document.getElementById('btnCreateTheater').textContent = 'Creating...';
+              document.getElementById('btnCreateCastCrew').textContent = 'Creating...';
               form.append('name', name);
               form.append('roles', roles);
               form.append('biography', biography);
@@ -16018,7 +16018,7 @@ if (adCreateCastCrewFieldlist1) {
               return (0, _login.createCastCrew)(form);
 
             case 20:
-              document.getElementById('btnCreateTheater').textContent = 'Create';
+              document.getElementById('btnCreateCastCrew').textContent = 'Create';
 
             case 21:
             case "end":

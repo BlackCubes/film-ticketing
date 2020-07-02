@@ -538,7 +538,7 @@ if (adCreateCastCrewFieldlist1) {
 
     const photo = document.getElementById('photo').files[0];
 
-    document.getElementById('btnCreateTheater').textContent = 'Creating...';
+    document.getElementById('btnCreateCastCrew').textContent = 'Creating...';
 
     form.append('name', name);
     form.append('roles', roles);
@@ -548,7 +548,7 @@ if (adCreateCastCrewFieldlist1) {
 
     await createCastCrew(form);
 
-    document.getElementById('btnCreateTheater').textContent = 'Create';
+    document.getElementById('btnCreateCastCrew').textContent = 'Create';
   });
 }
 
