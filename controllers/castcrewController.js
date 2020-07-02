@@ -64,6 +64,13 @@ exports.resizeCastCrewPhotoLarge = catchAsync(async (req, res, next) => {
 //   next();
 // });
 
+exports.rolesParse = (req, res, next) => {
+  if (!req.body.roles) return next();
+
+  req.body.roles = JSON.parse(req.body.roles);
+  next();
+};
+
 exports.getAllCastCrew = factory.getAll(CastCrew);
 exports.getCastCrew = factory.getOne(CastCrew, 'shows');
 exports.createCastCrew = factory.createOne(CastCrew);
