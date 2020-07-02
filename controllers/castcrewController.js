@@ -32,6 +32,7 @@ exports.resizeCastCrewPhotoLarge = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
 
   req.file.filename = `castcrew-${req.user.id}-${Date.now()}.jpeg`;
+  req.body.photo = { urlLarge: req.file.filename };
 
   await sharp(req.file.buffer)
     .resize(900, 900)
