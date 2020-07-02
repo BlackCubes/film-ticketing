@@ -7,12 +7,14 @@ const router = express.Router();
 
 router.use('/:castcrewId/shows', showRouter);
 
+router.route('/').get(castcrewConroller.getAllCastCrew);
+
+router.use(authController.protect);
+router.use(authController.restrictTo('admin'));
+
 router
   .route('/')
-  .get(castcrewConroller.getAllCastCrew)
   .post(
-    authController.protect,
-    authController.restrictTo('admin'),
     castcrewConroller.updateCastCrew,
     castcrewConroller.resizeCastCrewPhotoLarge,
     castcrewConroller.rolesParse,
@@ -22,15 +24,7 @@ router
 router
   .route('/:id')
   .get(castcrewConroller.getCastCrew)
-  .patch(
-    authController.protect,
-    authController.restrictTo('admin'),
-    castcrewConroller.updateCastCrew
-  )
-  .delete(
-    authController.protect,
-    authController.restrictTo('admin'),
-    castcrewConroller.deleteCastCrew
-  );
+  .patch(castcrewConroller.updateCastCrew)
+  .delete(castcrewConroller.deleteCastCrew);
 
 module.exports = router;
