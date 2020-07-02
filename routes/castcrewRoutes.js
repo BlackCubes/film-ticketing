@@ -15,6 +15,7 @@ router
     authController.restrictTo('admin'),
     castcrewConroller.updateCastCrew,
     castcrewConroller.resizeCastCrewPhotoLarge,
+    castcrewConroller.rolesParse,
     castcrewConroller.createCastCrew
   );
 
