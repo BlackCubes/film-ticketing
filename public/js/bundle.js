@@ -14827,7 +14827,7 @@ exports.createCastCrew = createCastCrew;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateReviewSettings = exports.updateShowSettings = exports.updateSettings = void 0;
+exports.updateCastCrewSettings = exports.updateReviewSettings = exports.updateShowSettings = exports.updateSettings = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14985,6 +14985,56 @@ var updateReviewSettings = /*#__PURE__*/function () {
   return function updateReviewSettings(_x7, _x8, _x9) {
     return _ref3.apply(this, arguments);
   };
+}();
+
+exports.updateReviewSettings = updateReviewSettings;
+
+var updateCastCrewSettings = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, message, castcrewId) {
+    var posterParams,
+        url,
+        res,
+        _args4 = arguments;
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            posterParams = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : null;
+            _context4.prev = 1;
+            url = posterParams === null ? "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId) : "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId, "/").concat(posterParams);
+            _context4.next = 5;
+            return (0, _axios.default)({
+              method: 'PATCH',
+              url: url,
+              data: data
+            });
+
+          case 5:
+            res = _context4.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', "Your cast/crew's ".concat(message, " has been updated!"));
+            }
+
+            _context4.next = 12;
+            break;
+
+          case 9:
+            _context4.prev = 9;
+            _context4.t0 = _context4["catch"](1);
+            (0, _alerts.showAlert)('error', _context4.t0.response.data.message);
+
+          case 12:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, null, [[1, 9]]);
+  }));
+
+  return function updateCastCrewSettings(_x10, _x11, _x12) {
+    return _ref4.apply(this, arguments);
+  };
 }(); // export const updatePersonalData = async (name, birthdate, gender) => {
 //   try {
 //     const res = await axios({
@@ -15022,7 +15072,7 @@ var updateReviewSettings = /*#__PURE__*/function () {
 // };
 
 
-exports.updateReviewSettings = updateReviewSettings;
+exports.updateCastCrewSettings = updateCastCrewSettings;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"deleteSettings.js":[function(require,module,exports) {
 "use strict";
 

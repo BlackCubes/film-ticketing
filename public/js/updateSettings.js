@@ -77,6 +77,32 @@ export const updateReviewSettings = async (data, showId, showTitle) => {
   }
 };
 
+export const updateCastCrewSettings = async (
+  data,
+  message,
+  castcrewId,
+  posterParams = null
+) => {
+  try {
+    const url =
+      posterParams === null
+        ? `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}`
+        : `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}/${posterParams}`;
+
+    const res = await axios({
+      method: 'PATCH',
+      url,
+      data
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', `Your cast/crew's ${message} has been updated!`);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
+
 // export const updatePersonalData = async (name, birthdate, gender) => {
 //   try {
 //     const res = await axios({
