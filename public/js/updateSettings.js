@@ -81,13 +81,13 @@ export const updateCastCrewSettings = async (
   data,
   message,
   castcrewId,
-  posterParams = null
+  photoParams = null
 ) => {
   try {
     const url =
-      posterParams === null
+      photoParams === null
         ? `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}`
-        : `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}/${posterParams}`;
+        : `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}/${photoParams}`;
 
     const res = await axios({
       method: 'PATCH',

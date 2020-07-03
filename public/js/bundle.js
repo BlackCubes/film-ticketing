@@ -14991,7 +14991,7 @@ exports.updateReviewSettings = updateReviewSettings;
 
 var updateCastCrewSettings = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, message, castcrewId) {
-    var posterParams,
+    var photoParams,
         url,
         res,
         _args4 = arguments;
@@ -14999,9 +14999,9 @@ var updateCastCrewSettings = /*#__PURE__*/function () {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            posterParams = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : null;
+            photoParams = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : null;
             _context4.prev = 1;
-            url = posterParams === null ? "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId) : "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId, "/").concat(posterParams);
+            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId) : "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId, "/").concat(photoParams);
             _context4.next = 5;
             return (0, _axios.default)({
               method: 'PATCH',
