@@ -19,7 +19,8 @@ import {
 import {
   updateSettings,
   updateShowSettings,
-  updateReviewSettings
+  updateReviewSettings,
+  updateCastCrewSettings
 } from './updateSettings';
 import { deleteShow, deleteReview, deleteTheater } from './deleteSettings';
 
@@ -63,7 +64,10 @@ const updateTheaterMainView = document.getElementById('updateTheaterMainView'),
 const adCreateCastCrewForm = document.getElementById('adCreateCastCrewForm'),
   adCreateCastCrewFieldlist1 = document.getElementById(
     'adCreateCastCrewFieldlist1'
-  );
+  ),
+  updateCastCrewMainView = document.getElementById('updateCastCrewMainView'),
+  updateCastCrewAddlForm = document.getElementById('updateCastCrewAddlForm'),
+  deleteCastCrewForm = document.getElementById('deleteCastCrewForm');
 
 // VALUES (nothing, yet)
 
@@ -740,6 +744,74 @@ if (updateReview) {
 
     document.getElementById('btnUpdateReviewData').textContent =
       'Update Review Settings';
+  });
+}
+
+if (updateCastCrewMainView) {
+  updateCastCrewMainView.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const form = new FormData();
+
+    const name = document.getElementById('name').value;
+
+    const birthMonth = document.getElementById('selectBirthMonth');
+    const birthDay = document.getElementById('selectBirthDay');
+    const birthYear = document.getElementById('selectBirthYear');
+
+    const birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+    const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+    const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+
+    const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+
+    const photo = document.getElementById('photo').files[0];
+
+    const { castcrewId } = document.getElementById(
+      'btnUpdateCastCrewData'
+    ).dataset;
+
+    const photoUrlArr = document.getElementById('posterSource').src.split('/');
+    const posterParams = photoUrlArr[photoUrlArr.length - 1];
+
+    document.getElementById('btnUpdateCastCrewData').textContent =
+      'Updating...';
+
+    form.append('name', name);
+    form.append('birthdate', birthdate);
+    form.append('photo', photo);
+
+    await updateCastCrewSettings(form, 'data', castcrewId, posterParams);
+
+    document.getElementById('btnUpdateCastCrewData').textContent =
+      'Update Cast | Crew Settings';
+  });
+}
+
+if (updateCastCrewAddlForm) {
+  updateCastCrewAddlForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const rolesVal = document.getElementById('castcrewRoles').value,
+      biography = document.getElementById('biography').value;
+
+    const roles = JSON.stringify(rolesVal.split(', '));
+
+    const { castcrewId } = document.getElementById(
+      'btnUpdateCastCrewData'
+    ).dataset;
+
+    document.getElementById('btnUpdateCastCrewAddl').textContent =
+      'Updating...';
+
+    await updateCastCrewSettings(
+      { biography, roles },
+      "add'l info",
+      castcrewId
+    );
+
+    document.getElementById('btnUpdateCastCrewAddl').textContent =
+      "Update Add'l Info";
   });
 }
 
