@@ -64,3 +64,24 @@ export const deleteTheater = async (data, theaterId) => {
     showAlert('error', err.response.data.message);
   }
 };
+
+export const deleteCastCrew = async (data, castcrewId) => {
+  try {
+    const url = `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}`;
+
+    const res = await axios({
+      method: 'DELETE',
+      url,
+      data
+    });
+
+    if (res.status === 204) {
+      showAlert('success', 'Cast/Crew deleted!');
+      window.setTimeout(() => {
+        location.assign('/admin/castcrews');
+      }, 1000);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};

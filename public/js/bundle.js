@@ -15079,7 +15079,7 @@ exports.updateCastCrewSettings = updateCastCrewSettings;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteTheater = exports.deleteReview = exports.deleteShow = void 0;
+exports.deleteCastCrew = exports.deleteTheater = exports.deleteReview = exports.deleteShow = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -15237,6 +15237,55 @@ var deleteTheater = /*#__PURE__*/function () {
 }();
 
 exports.deleteTheater = deleteTheater;
+
+var deleteCastCrew = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, castcrewId) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _context4.prev = 0;
+            url = "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId);
+            _context4.next = 4;
+            return (0, _axios.default)({
+              method: 'DELETE',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context4.sent;
+
+            if (res.status === 204) {
+              (0, _alerts.showAlert)('success', 'Cast/Crew deleted!');
+              window.setTimeout(function () {
+                location.assign('/admin/castcrews');
+              }, 1000);
+            }
+
+            _context4.next = 11;
+            break;
+
+          case 8:
+            _context4.prev = 8;
+            _context4.t0 = _context4["catch"](0);
+            (0, _alerts.showAlert)('error', _context4.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4, null, [[0, 8]]);
+  }));
+
+  return function deleteCastCrew(_x7, _x8) {
+    return _ref4.apply(this, arguments);
+  };
+}();
+
+exports.deleteCastCrew = deleteCastCrew;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
