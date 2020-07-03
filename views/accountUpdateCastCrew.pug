@@ -76,8 +76,8 @@ block content
                 h1.heading-primary Change Cast | Crew Add'l Info
 
             .form__group
-              textarea#castcrewBio.form__text-area.input-text(name='textareaBio' placeholder='Biography')= castcrew.biography
-              label.form__label.label-text(for='castcrewBio') Please provide a biography for the cast/crew.
+              textarea#biography.form__text-area.input-text(name='textareaBio' placeholder='Biography')= castcrew.biography
+              label.form__label.label-text(for='biography') Please provide a biography for the cast/crew.
 
             - const roles = castcrew.roles.join(', ')
 
