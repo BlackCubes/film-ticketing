@@ -22,7 +22,12 @@ import {
   updateReviewSettings,
   updateCastCrewSettings
 } from './updateSettings';
-import { deleteShow, deleteReview, deleteTheater } from './deleteSettings';
+import {
+  deleteShow,
+  deleteReview,
+  deleteTheater,
+  deleteCastCrew
+} from './deleteSettings';
 
 // MODERNIZR TEST
 // if (Modernizr.csstransforms)
@@ -865,5 +870,24 @@ if (deleteTheaterForm) {
 
     document.getElementById('btnDeleteTheaterData').textContent =
       'Delete Theater';
+  });
+}
+
+if (deleteCastCrewForm) {
+  deleteCastCrewForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const password = document.getElementById('password').value,
+      deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
+
+    const { castcrewId } = deleteCastCrewBtn.dataset;
+
+    document.getElementById('btnDeleteCastCrewData').textContent =
+      'Deleting...';
+
+    await deleteCastCrew({ password }, castcrewId);
+
+    document.getElementById('btnDeleteCastCrewData').textContent =
+      'Delete Cast | Crew';
   });
 }
