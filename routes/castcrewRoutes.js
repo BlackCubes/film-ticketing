@@ -25,7 +25,7 @@ router
 router
   .route('/:id')
   .patch(castcrewConroller.rolesParse, castcrewConroller.updateCastCrew)
-  .delete(castcrewConroller.deleteCastCrew);
+  .delete(authController.verifyPassword, castcrewConroller.deleteCastCrew);
 
 router.patch(
   '/:id/:photo',
