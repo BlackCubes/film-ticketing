@@ -776,8 +776,8 @@ if (updateCastCrewMainView) {
       'btnUpdateCastCrewData'
     ).dataset;
 
-    const photoUrlArr = document.getElementById('posterSource').src.split('/');
-    const posterParams = photoUrlArr[photoUrlArr.length - 1];
+    const photoUrlArr = document.getElementById('photoSource').src.split('/');
+    const photoParams = photoUrlArr[photoUrlArr.length - 1];
 
     document.getElementById('btnUpdateCastCrewData').textContent =
       'Updating...';
@@ -786,7 +786,7 @@ if (updateCastCrewMainView) {
     form.append('birthdate', birthdate);
     form.append('photo', photo);
 
-    await updateCastCrewSettings(form, 'data', castcrewId, posterParams);
+    await updateCastCrewSettings(form, 'data', castcrewId, photoParams);
 
     document.getElementById('btnUpdateCastCrewData').textContent =
       'Update Cast | Crew Settings';

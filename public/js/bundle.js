@@ -16385,7 +16385,7 @@ if (updateReview) {
 if (updateCastCrewMainView) {
   updateCastCrewMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref15 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee15(e) {
-      var form, name, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, birthdate, photo, castcrewId, photoUrlArr, posterParams;
+      var form, name, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, birthdate, photo, castcrewId, photoUrlArr, photoParams;
       return regeneratorRuntime.wrap(function _callee15$(_context15) {
         while (1) {
           switch (_context15.prev = _context15.next) {
@@ -16402,14 +16402,14 @@ if (updateCastCrewMainView) {
               birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
               photo = document.getElementById('castcrewPhoto').files[0];
               castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
-              photoUrlArr = document.getElementById('posterSource').src.split('/');
-              posterParams = photoUrlArr[photoUrlArr.length - 1];
+              photoUrlArr = document.getElementById('photoSource').src.split('/');
+              photoParams = photoUrlArr[photoUrlArr.length - 1];
               document.getElementById('btnUpdateCastCrewData').textContent = 'Updating...';
               form.append('name', name);
               form.append('birthdate', birthdate);
               form.append('photo', photo);
               _context15.next = 20;
-              return (0, _updateSettings.updateCastCrewSettings)(form, 'data', castcrewId, posterParams);
+              return (0, _updateSettings.updateCastCrewSettings)(form, 'data', castcrewId, photoParams);
 
             case 20:
               document.getElementById('btnUpdateCastCrewData').textContent = 'Update Cast | Crew Settings';
