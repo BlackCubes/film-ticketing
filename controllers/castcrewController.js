@@ -43,26 +43,25 @@ exports.resizeCastCrewPhotoLarge = catchAsync(async (req, res, next) => {
   next();
 });
 
-// exports.deletePoster = catchAsync(async (req, res, next) => {
-//   if (!req.params.showPoster) return next();
-//   if (
-//     req.params.showPoster.split('.')[1] !== 'jpeg' ||
-//     req.params.showPoster.split('-').length !== 3 ||
-//     req.params.showPoster.split('-')[0] !== 'show' ||
-//     req.params.showPoster.length !== 48
-//   )
-//     return next(new AppError('This route is for updating posters!', 400));
+exports.deletePhoto = catchAsync(async (req, res, next) => {
+  if (!req.params.photo) return next();
+  if (
+    req.params.photo.split('.')[1] !== 'jpeg' ||
+    req.params.photo.split('-').length !== 3 ||
+    req.params.photo.split('-')[0] !== 'castcrew'
+  )
+    return next(new AppError('This route is for updating photos!', 400));
 
-//   const unlinkAsync = promisify(fs.unlink);
-//   const posterPath = path.join('public/img/shows/', req.params.showPoster);
-//   // const posterPath = `C:\\Users\\mrdrp\\Desktop\\output\\${req.params.showPoster}`;
+  const unlinkAsync = promisify(fs.unlink);
+  const photoPath = path.join('public/img/castcrew/', req.params.photo);
+  // const posterPath = `C:\\Users\\mrdrp\\Desktop\\output\\${req.params.showPoster}`;
 
-//   // sharp.cache(false);
+  // sharp.cache(false);
 
-//   await unlinkAsync(posterPath);
+  await unlinkAsync(photoPath);
 
-//   next();
-// });
+  next();
+});
 
 exports.rolesParse = (req, res, next) => {
   if (!req.body.roles) return next();
