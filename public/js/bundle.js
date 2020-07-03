@@ -16400,7 +16400,7 @@ if (updateCastCrewMainView) {
               birthDayVal = birthDay.options[birthDay.selectedIndex].value;
               birthYearVal = birthYear.options[birthYear.selectedIndex].value;
               birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-              photo = document.getElementById('photo').files[0];
+              photo = document.getElementById('castcrewPhoto').files[0];
               castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
               photoUrlArr = document.getElementById('posterSource').src.split('/');
               posterParams = photoUrlArr[photoUrlArr.length - 1];

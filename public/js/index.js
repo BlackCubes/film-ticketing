@@ -770,7 +770,7 @@ if (updateCastCrewMainView) {
 
     const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
 
-    const photo = document.getElementById('photo').files[0];
+    const photo = document.getElementById('castcrewPhoto').files[0];
 
     const { castcrewId } = document.getElementById(
       'btnUpdateCastCrewData'
