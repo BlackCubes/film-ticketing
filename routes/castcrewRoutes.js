@@ -24,7 +24,15 @@ router
 
 router
   .route('/:id')
-  .patch(castcrewConroller.updateCastCrew)
+  .patch(castcrewConroller.rolesParse, castcrewConroller.updateCastCrew)
   .delete(castcrewConroller.deleteCastCrew);
+
+router.patch(
+  '/:id/:photo',
+  castcrewConroller.deletePhoto,
+  castcrewConroller.uploadCastCrewPhoto,
+  castcrewConroller.resizeCastCrewPhotoLarge,
+  castcrewConroller.updateCastCrew
+);
 
 module.exports = router;
