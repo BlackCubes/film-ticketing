@@ -16455,7 +16455,7 @@ if (updateTheaterMainView) {
               form.append('linkUrl', linkUrl);
               form.append('theaterPhoto', photo);
               _context15.next = 14;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'data', theaterId, photoParams);
+              return (0, _updateSettings.updateTheaterSettings)(form, 'data', theaterId, photoParams, 'theaterPhoto');
 
             case 14:
               document.getElementById('btnUpdateTheaterData').textContent = 'Update Theater Settings';
@@ -16570,7 +16570,7 @@ if (updateTheaterChain) {
               form.append('chainCode', chainCode);
               form.append('chainLogo', chainLogo);
               _context18.next = 12;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'chain', theaterId, photoParams);
+              return (0, _updateSettings.updateTheaterSettings)(form, 'chain', theaterId, photoParams, 'chainLogo');
 
             case 12:
               document.getElementById('btnUpdateTheaterChain').textContent = 'Update Chain';

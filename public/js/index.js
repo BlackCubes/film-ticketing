@@ -778,7 +778,13 @@ if (updateTheaterMainView) {
     form.append('linkUrl', linkUrl);
     form.append('theaterPhoto', photo);
 
-    await updateTheaterSettings(form, 'data', theaterId, photoParams);
+    await updateTheaterSettings(
+      form,
+      'data',
+      theaterId,
+      photoParams,
+      'theaterPhoto'
+    );
 
     document.getElementById('btnUpdateTheaterData').textContent =
       'Update Theater Settings';
@@ -874,7 +880,13 @@ if (updateTheaterChain) {
     form.append('chainCode', chainCode);
     form.append('chainLogo', chainLogo);
 
-    await updateTheaterSettings(form, 'chain', theaterId, photoParams);
+    await updateTheaterSettings(
+      form,
+      'chain',
+      theaterId,
+      photoParams,
+      'chainLogo'
+    );
 
     document.getElementById('btnUpdateTheaterChain').textContent =
       'Update Chain';
