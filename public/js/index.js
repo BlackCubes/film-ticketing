@@ -776,7 +776,7 @@ if (updateTheaterMainView) {
     form.append('name', name);
     form.append('phone', phone);
     form.append('linkUrl', linkUrl);
-    form.append('photo', photo);
+    form.append('theaterPhoto', photo);
 
     await updateTheaterSettings(form, 'data', theaterId, photoParams);
 
@@ -872,7 +872,7 @@ if (updateTheaterChain) {
 
     form.append('chainName', chainName);
     form.append('chainCode', chainCode);
-    form.append('photo', chainLogo);
+    form.append('chainLogo', chainLogo);
 
     await updateTheaterSettings(form, 'chain', theaterId, photoParams);
 
