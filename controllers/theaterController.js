@@ -42,6 +42,7 @@ exports.uploadTheaterPhoto = catchAsync(async (req, res, next) => {
 
 exports.resizeTheaterPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
+  console.log(req.file);
 
   if (req.file.fieldname === 'theaterPhoto') {
     req.body.photo = `theater-${req.user.id}-${Date.now()}.jpeg`;
