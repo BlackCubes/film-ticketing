@@ -31,6 +31,7 @@ const upload = multer({
 exports.uploadTheaterPhoto = (req, res, next) => {
   if (req.params.type === 'theaterPhoto') {
     upload.single(`${req.params.type}`);
+    console.log('Success!!!!!!!');
   } else if (req.params.type === 'chainLogo') {
     upload.single(`${req.params.type}`);
   }
