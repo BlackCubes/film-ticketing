@@ -37,4 +37,12 @@ router
   .patch(theaterController.geoParse, theaterController.updateTheater)
   .delete(authController.verifyPassword, theaterController.deleteTheater);
 
+router.patch(
+  '/:id/:photo',
+  theaterController.deletePhoto,
+  theaterController.uploadTheaterPhoto,
+  theaterController.resizeTheaterPhoto,
+  theaterController.updateTheater
+);
+
 module.exports = router;
