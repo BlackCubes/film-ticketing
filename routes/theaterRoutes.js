@@ -34,7 +34,7 @@ router
 
 router
   .route('/:id')
-  .patch(theaterController.updateTheater)
+  .patch(theaterController.geoParse, theaterController.updateTheater)
   .delete(authController.verifyPassword, theaterController.deleteTheater);
 
 module.exports = router;
