@@ -27,14 +27,9 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
-// exports.uploadTheaterPhoto = upload.single('photo');
+exports.uploadTheaterPhoto = upload.single('photo');
 exports.uploadTheaterPhoto = (req, res, next) => {
-  if (req.params.type === 'theaterPhoto') {
-    upload.single(`${req.params.type}`);
-    console.log('Success!!!!!!!');
-  } else if (req.params.type === 'chainLogo') {
-    upload.single(`${req.params.type}`);
-  }
+  upload.single(`${req.params.type}`);
   next();
 };
 
