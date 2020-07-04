@@ -31,14 +31,16 @@ const upload = multer({
 exports.uploadTheaterPhoto = (req, res, next) => {
   if (req.params.type === 'theaterPhoto') {
     upload.single(`${req.params.type}`);
-    next();
   } else if (req.params.type === 'chainLogo') {
     upload.single(`${req.params.type}`);
   }
+  next();
 };
 
 exports.resizeTheaterPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
+
+  console.log(req.file);
 
   if (req.params.type === 'theaterPhoto') {
     req.body.photo = `theater-${req.user.id}-${Date.now()}.jpeg`;
