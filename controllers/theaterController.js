@@ -84,12 +84,12 @@ exports.resizeTheaterPhotos = catchAsync(async (req, res, next) => {
 
 exports.deletePhoto = catchAsync(async (req, res, next) => {
   if (!req.params.photo) return next();
-  // if (
-  //   req.params.photo.split('.')[1] !== 'jpeg' ||
-  //   req.params.photo.split('-').length !== 3 ||
-  //   req.params.photo.split('-')[0] !== 'theater'
-  // )
-  //   return next(new AppError('This route is for updating photos!', 400));
+  if (
+    req.params.photo.split('.')[1] !== 'jpeg' ||
+    req.params.photo.split('-').length !== 3 ||
+    req.params.photo.split('-')[0] !== 'theater'
+  )
+    return next(new AppError('This route is for updating photos!', 400));
 
   const unlinkAsync = promisify(fs.unlink);
   const photoPath = path.join('public/img/theaters/', req.params.photo);
