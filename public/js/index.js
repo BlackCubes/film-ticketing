@@ -776,7 +776,7 @@ if (updateTheaterMainView) {
     form.append('name', name);
     form.append('phone', phone);
     form.append('linkUrl', linkUrl);
-    form.append('theaterPhoto', photo);
+    form.append('photo', photo);
 
     await updateTheaterSettings(
       form,
@@ -878,7 +878,7 @@ if (updateTheaterChain) {
 
     form.append('chainName', chainName);
     form.append('chainCode', chainCode);
-    form.append('chainLogo', chainLogo);
+    form.append('photo', chainLogo);
 
     await updateTheaterSettings(
       form,
