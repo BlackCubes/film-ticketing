@@ -30,12 +30,11 @@ const upload = multer({
 // exports.uploadTheaterPhoto = upload.single('photo');
 exports.uploadTheaterPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
-  console.log(req.file);
 
-  if (req.file.fieldname === 'theaterPhoto') {
-    upload.single(`${req.file.fieldname}`);
-  } else if (req.file.fieldname === 'chainLogo') {
-    upload.single(`${req.file.fieldname}`);
+  if (req.params.type === 'theaterPhoto') {
+    upload.single(`${req.params.type}`);
+  } else if (req.params.type === 'chainLogo') {
+    upload.single(`${req.params.type}`);
   }
 
   next();
@@ -43,9 +42,8 @@ exports.uploadTheaterPhoto = catchAsync(async (req, res, next) => {
 
 exports.resizeTheaterPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
-  console.log(req.file);
 
-  if (req.file.fieldname === 'theaterPhoto') {
+  if (req.params.type === 'theaterPhoto') {
     req.body.photo = `theater-${req.user.id}-${Date.now()}.jpeg`;
 
     await sharp(req.file.buffer)
@@ -53,7 +51,7 @@ exports.resizeTheaterPhoto = catchAsync(async (req, res, next) => {
       .toFormat('jpeg')
       .jpeg({ quality: 95 })
       .toFile(`public/img/theaters/${req.body.photo}`);
-  } else if (req.file.fieldname === 'chainLogo') {
+  } else if (req.params.type === 'chainLogo') {
     req.body.chainLogo = `theater-${req.user.id}-${Date.now()}-chainlogo.jpeg`;
 
     await sharp(req.file.buffer)
@@ -99,8 +97,6 @@ exports.deletePhoto = catchAsync(async (req, res, next) => {
   //   req.params.photo.split('-')[0] !== 'theater'
   // )
   //   return next(new AppError('This route is for updating photos!', 400));
-
-  console.log('Req.file: ', req.file);
 
   const unlinkAsync = promisify(fs.unlink);
   const photoPath = path.join('public/img/theaters/', req.params.photo);
