@@ -29,8 +29,6 @@ const upload = multer({
 
 // exports.uploadTheaterPhoto = upload.single('photo');
 exports.uploadTheaterPhoto = catchAsync(async (req, res, next) => {
-  if (!req.file) return next();
-
   if (req.params.type === 'theaterPhoto') {
     upload.single(`${req.params.type}`);
   } else if (req.params.type === 'chainLogo') {
