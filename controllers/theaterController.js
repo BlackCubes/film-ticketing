@@ -100,6 +100,8 @@ exports.deletePhoto = catchAsync(async (req, res, next) => {
   // )
   //   return next(new AppError('This route is for updating photos!', 400));
 
+  console.log('Req.file: ', req.file);
+
   const unlinkAsync = promisify(fs.unlink);
   const photoPath = path.join('public/img/theaters/', req.params.photo);
 
