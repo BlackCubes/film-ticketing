@@ -27,7 +27,6 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
-exports.uploadTheaterPhoto = upload.single('photo');
 exports.uploadTheaterPhoto = (req, res, next) => {
   upload.single(`${req.params.type}`);
   next();
