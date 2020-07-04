@@ -27,6 +27,43 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
+// exports.uploadTheaterPhoto = upload.single('photo');
+exports.uploadTheaterPhoto = catchAsync(async (req, res, next) => {
+  if (!req.file) return next();
+
+  if (req.file.fieldname === 'theaterPhoto') {
+    upload.single(`${req.file.fieldname}`);
+  } else if (req.file.fieldname === 'chainLogo') {
+    upload.single(`${req.file.fieldname}`);
+  }
+
+  next();
+});
+
+exports.resizeTheaterPhoto = catchAsync(async (req, res, next) => {
+  if (!req.file) return next();
+
+  if (req.file.fieldname === 'theaterPhoto') {
+    req.body.photo = `theater-${req.user.id}-${Date.now()}.jpeg`;
+
+    await sharp(req.file.buffer)
+      .resize(800, 600)
+      .toFormat('jpeg')
+      .jpeg({ quality: 95 })
+      .toFile(`public/img/theaters/${req.body.photo}`);
+  } else if (req.file.fieldname === 'chainLogo') {
+    req.body.chainLogo = `theater-${req.user.id}-${Date.now()}-chainlogo.jpeg`;
+
+    await sharp(req.file.buffer)
+      .resize(800, 600)
+      .toFormat('jpeg')
+      .jpeg({ quality: 95 })
+      .toFile(`public/img/theaters/${req.body.chainLogo}`);
+  }
+
+  next();
+});
+
 exports.uploadTheaterPhotos = upload.fields([
   { name: 'theaterPhoto', maxCount: 1 },
   { name: 'chainPhoto', maxCount: 1 }
@@ -48,6 +85,23 @@ exports.resizeTheaterPhotos = catchAsync(async (req, res, next) => {
     .toFormat('jpeg')
     .jpeg({ quality: 95 })
     .toFile(`public/img/theaters/${req.body.chainLogo}`);
+
+  next();
+});
+
+exports.deletePhoto = catchAsync(async (req, res, next) => {
+  if (!req.params.photo) return next();
+  if (
+    req.params.photo.split('.')[1] !== 'jpeg' ||
+    req.params.photo.split('-').length !== 3 ||
+    req.params.photo.split('-')[0] !== 'theater'
+  )
+    return next(new AppError('This route is for updating photos!', 400));
+
+  const unlinkAsync = promisify(fs.unlink);
+  const photoPath = path.join('public/img/theaters/', req.params.photo);
+
+  await unlinkAsync(photoPath);
 
   next();
 });
