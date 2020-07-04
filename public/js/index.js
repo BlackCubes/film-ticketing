@@ -866,9 +866,7 @@ if (updateTheaterChain) {
       chainLogo = document.getElementById('theaterChainLogo').files[0],
       updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
 
-    const photoUrlArr = document
-      .getElementById('theaterChainLogo')
-      .src.split('/');
+    const photoUrlArr = document.getElementById('chainLogo').src.split('/');
     const photoParams = photoUrlArr[photoUrlArr.length - 1];
 
     const { theaterId } = updateTheaterChainBtn.dataset;

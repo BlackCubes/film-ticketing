@@ -16562,7 +16562,7 @@ if (updateTheaterChain) {
               e.preventDefault();
               form = new FormData();
               chainName = document.getElementById('theaterChainName').value, chainCode = document.getElementById('theaterChainCode').value, chainLogo = document.getElementById('theaterChainLogo').files[0], updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
-              photoUrlArr = document.getElementById('theaterChainLogo').src.split('/');
+              photoUrlArr = document.getElementById('chainLogo').src.split('/');
               photoParams = photoUrlArr[photoUrlArr.length - 1];
               theaterId = updateTheaterChainBtn.dataset.theaterId;
               document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';

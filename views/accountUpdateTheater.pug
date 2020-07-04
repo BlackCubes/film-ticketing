@@ -119,7 +119,7 @@ block content
 
             .form__group
               .form__photo-upload
-                img.form__show-photo(src=`/img/theaters/${theater.chainLogo}`, alt="Chain Logo")
+                img#chainLogo.form__show-photo(src=`/img/theaters/${theater.chainLogo}`, alt="Chain Logo")
                 input#theaterChainLogo.form__upload(type='file', accept='image/*', name='chainPhoto')
                 label(for='theaterChainLogo') Choose a chain logo
 
