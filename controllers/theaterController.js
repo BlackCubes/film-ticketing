@@ -30,6 +30,7 @@ const upload = multer({
 // exports.uploadTheaterPhoto = upload.single('photo');
 exports.uploadTheaterPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
+  console.log(req.file);
 
   if (req.file.fieldname === 'theaterPhoto') {
     upload.single(`${req.file.fieldname}`);
