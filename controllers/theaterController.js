@@ -28,9 +28,10 @@ const upload = multer({
 });
 
 // exports.uploadTheaterPhoto = upload.single('photo');
-exports.uploadTheaterPhoto = (req, res) => {
+exports.uploadTheaterPhoto = (req, res, next) => {
   if (req.params.type === 'theaterPhoto') {
-    upload.single('theaterPhoto');
+    upload.single(`${req.params.type}`);
+    next();
   } else if (req.params.type === 'chainLogo') {
     upload.single(`${req.params.type}`);
   }
