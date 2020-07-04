@@ -795,6 +795,8 @@ if (updateTheaterLocation) {
   updateTheaterLocation.addEventListener('submit', async e => {
     e.preventDefault();
 
+    const form = new FormData();
+
     const address = document.getElementById('theaterAddress').value,
       city = document.getElementById('theaterCity').value,
       state = document.getElementById('theaterState').value,
@@ -812,11 +814,13 @@ if (updateTheaterLocation) {
     document.getElementById('btnUpdateTheaterLocation').textContent =
       'Updating...';
 
-    await updateTheaterSettings(
-      { address, city, state, zipCode, geo },
-      'location',
-      theaterId
-    );
+    form.append('address', address);
+    form.append('city', city);
+    form.append('state', state);
+    form.append('zipCode', zipCode);
+    form.append('geo', geo);
+
+    await updateTheaterSettings(form, 'location', theaterId);
 
     document.getElementById('btnUpdateTheaterLocation').textContent =
       'Update Location';

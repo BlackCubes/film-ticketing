@@ -16477,29 +16477,29 @@ if (updateTheaterMainView) {
 if (updateTheaterLocation) {
   updateTheaterLocation.addEventListener('submit', /*#__PURE__*/function () {
     var _ref16 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee16(e) {
-      var address, city, state, zipCode, geoLong, geoLat, updateTheaterLocationBtn, geo, theaterId;
+      var form, address, city, state, zipCode, geoLong, geoLat, updateTheaterLocationBtn, geo, theaterId;
       return regeneratorRuntime.wrap(function _callee16$(_context16) {
         while (1) {
           switch (_context16.prev = _context16.next) {
             case 0:
               e.preventDefault();
+              form = new FormData();
               address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), updateTheaterLocationBtn = document.getElementById('btnUpdateTheaterLocation');
               geo = JSON.stringify([geoLong, geoLat]);
               theaterId = updateTheaterLocationBtn.dataset.theaterId;
               document.getElementById('btnUpdateTheaterLocation').textContent = 'Updating...';
-              _context16.next = 7;
-              return (0, _updateSettings.updateTheaterSettings)({
-                address: address,
-                city: city,
-                state: state,
-                zipCode: zipCode,
-                geo: geo
-              }, 'location', theaterId);
+              form.append('address', address);
+              form.append('city', city);
+              form.append('state', state);
+              form.append('zipCode', zipCode);
+              form.append('geo', geo);
+              _context16.next = 13;
+              return (0, _updateSettings.updateTheaterSettings)(form, 'location', theaterId);
 
-            case 7:
+            case 13:
               document.getElementById('btnUpdateTheaterLocation').textContent = 'Update Location';
 
-            case 8:
+            case 14:
             case "end":
               return _context16.stop();
           }
