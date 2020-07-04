@@ -38,7 +38,7 @@ router
   .delete(authController.verifyPassword, theaterController.deleteTheater);
 
 router.patch(
-  '/:id/:photo',
+  '/:id/:photo/:type',
   theaterController.deletePhoto,
   theaterController.uploadTheaterPhoto,
   theaterController.resizeTheaterPhoto,
