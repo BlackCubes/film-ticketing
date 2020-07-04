@@ -15003,7 +15003,7 @@ var updateTheaterSettings = /*#__PURE__*/function () {
             photoParams = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : null;
             typeParams = _args4.length > 4 && _args4[4] !== undefined ? _args4[4] : null;
             _context4.prev = 2;
-            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId) : "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId, "/").concat(photoParams, "/").concat(type);
+            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId) : "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId, "/").concat(photoParams, "/").concat(typeParams);
             _context4.next = 6;
             return (0, _axios.default)({
               method: 'PATCH',
