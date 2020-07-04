@@ -14827,7 +14827,7 @@ exports.createCastCrew = createCastCrew;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateCastCrewSettings = exports.updateReviewSettings = exports.updateShowSettings = exports.updateSettings = void 0;
+exports.updateCastCrewSettings = exports.updateTheaterSettings = exports.updateReviewSettings = exports.updateShowSettings = exports.updateSettings = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14989,8 +14989,8 @@ var updateReviewSettings = /*#__PURE__*/function () {
 
 exports.updateReviewSettings = updateReviewSettings;
 
-var updateCastCrewSettings = /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, message, castcrewId) {
+var updateTheaterSettings = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, message, theaterId) {
     var photoParams,
         url,
         res,
@@ -15001,7 +15001,7 @@ var updateCastCrewSettings = /*#__PURE__*/function () {
           case 0:
             photoParams = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : null;
             _context4.prev = 1;
-            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId) : "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId, "/").concat(photoParams);
+            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId) : "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId, "/").concat(photoParams);
             _context4.next = 5;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -15013,7 +15013,7 @@ var updateCastCrewSettings = /*#__PURE__*/function () {
             res = _context4.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', "Your cast/crew's ".concat(message, " has been updated!"));
+              (0, _alerts.showAlert)('success', "Your theater's ".concat(message, " has been updated!"));
             }
 
             _context4.next = 12;
@@ -15032,8 +15032,58 @@ var updateCastCrewSettings = /*#__PURE__*/function () {
     }, _callee4, null, [[1, 9]]);
   }));
 
-  return function updateCastCrewSettings(_x10, _x11, _x12) {
+  return function updateTheaterSettings(_x10, _x11, _x12) {
     return _ref4.apply(this, arguments);
+  };
+}();
+
+exports.updateTheaterSettings = updateTheaterSettings;
+
+var updateCastCrewSettings = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(data, message, castcrewId) {
+    var photoParams,
+        url,
+        res,
+        _args5 = arguments;
+    return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            photoParams = _args5.length > 3 && _args5[3] !== undefined ? _args5[3] : null;
+            _context5.prev = 1;
+            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId) : "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId, "/").concat(photoParams);
+            _context5.next = 5;
+            return (0, _axios.default)({
+              method: 'PATCH',
+              url: url,
+              data: data
+            });
+
+          case 5:
+            res = _context5.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', "Your cast/crew's ".concat(message, " has been updated!"));
+            }
+
+            _context5.next = 12;
+            break;
+
+          case 9:
+            _context5.prev = 9;
+            _context5.t0 = _context5["catch"](1);
+            (0, _alerts.showAlert)('error', _context5.t0.response.data.message);
+
+          case 12:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5, null, [[1, 9]]);
+  }));
+
+  return function updateCastCrewSettings(_x13, _x14, _x15) {
+    return _ref5.apply(this, arguments);
   };
 }(); // export const updatePersonalData = async (name, birthdate, gender) => {
 //   try {

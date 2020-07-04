@@ -77,6 +77,32 @@ export const updateReviewSettings = async (data, showId, showTitle) => {
   }
 };
 
+export const updateTheaterSettings = async (
+  data,
+  message,
+  theaterId,
+  photoParams = null
+) => {
+  try {
+    const url =
+      photoParams === null
+        ? `http://127.0.0.1:3000/api/v1/theaters/${theaterId}`
+        : `http://127.0.0.1:3000/api/v1/theaters/${theaterId}/${photoParams}`;
+
+    const res = await axios({
+      method: 'PATCH',
+      url,
+      data
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', `Your theater's ${message} has been updated!`);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
+
 export const updateCastCrewSettings = async (
   data,
   message,
