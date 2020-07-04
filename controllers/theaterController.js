@@ -87,6 +87,7 @@ exports.deletePhoto = catchAsync(async (req, res, next) => {
   if (
     req.params.photo.split('.')[1] !== 'jpeg' ||
     req.params.photo.split('-').length !== 3 ||
+    req.params.photo.split('-').length !== 4 ||
     req.params.photo.split('-')[0] !== 'theater'
   )
     return next(new AppError('This route is for updating photos!', 400));
