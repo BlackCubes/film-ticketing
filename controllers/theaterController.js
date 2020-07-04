@@ -31,7 +31,7 @@ const upload = multer({
 //   upload.single(`${req.params.type}`);
 //   next();
 // };
-exports.uploadTheaterPhoto = upload.single('theaterPhoto');
+exports.uploadTheaterPhoto = typeParams => upload.single(`${typeParams}`);
 
 exports.resizeTheaterPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
