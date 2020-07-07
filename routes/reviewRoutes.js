@@ -9,7 +9,7 @@ router.use(authController.protect);
 router.post(
   '/createMyReview/:showId',
   authController.restrictTo('user'),
-  reviewController.setShowUserIds,
+  // reviewController.setShowUserIds,
   reviewController.createMyReview
 );
 
