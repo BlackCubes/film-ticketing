@@ -26,15 +26,11 @@ router
     showtimesController.createShowtime
   );
 
+app.use(authController.restrictTo('admin'));
+
 router
   .route('/:id')
-  .patch(
-    authController.restrictTo('admin', 'event-owner'),
-    showtimesController.updateShowtime
-  )
-  .delete(
-    authController.restrictTo('admin', 'event-owner'),
-    showtimesController.deleteShowtime
-  );
+  .patch(showtimesController.updateShowtime)
+  .delete(authController.verifyPassword, showtimesController.deleteShowtime);
 
 module.exports = router;
