@@ -43,6 +43,13 @@ const showtimesSchema = new mongoose.Schema(
   }
 );
 
+showtimesSchema.virtual('soldOut').get(function() {
+  if (this.participants < this.maxGroupSize) {
+    return false;
+  }
+  return true;
+});
+
 showtimesSchema.pre(/^find/, function(next) {
   this.populate({
     path: 'shows',
