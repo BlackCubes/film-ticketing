@@ -1,5 +1,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Show = require('./../models/showModel');
+const Showtimes = require('./../models/showtimesModel');
+const Theater = require('./../models/theaterModel');
 const Ticket = require('./../models/ticketModel');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
@@ -11,7 +13,9 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     payment_method_types: ['card'],
     success_url: `${req.protocol}://${req.get('host')}/?show=${
       req.params.showId
-    }&user=${req.user.id}&price=${show.price}`,
+    }&theater=${req.params.theaterId}&showtime=${req.params.showtimeId}&user=${
+      req.user.id
+    }&price=${show.price}`,
     cancel_url: `${req.protocol}://${req.get('host')}/show-overview/${
       show.slug
     }`,
@@ -36,11 +40,11 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 });
 
 exports.createTicketCheckout = catchAsync(async (req, res, next) => {
-  const { show, user, price } = req.query;
+  const { show, theater, showtime, user, price } = req.query;
 
-  if (!show && !user && !price) return next();
+  if (!show && !theater && !showtime && !user && !price) return next();
 
-  await Ticket.create({ show, user, price });
+  await Ticket.create({ show, theater, showtime, user, price });
 
   res.redirect(req.originalUrl.split('?')[0]);
 });
