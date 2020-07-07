@@ -402,7 +402,8 @@ body {
   margin-left: 3rem;
   margin-top: 0.7rem;
   display: block;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  text-align: left; }
 
 .form__input:placeholder-shown + .form__label,
 .form__text-area:placeholder-shown + .form__label {
