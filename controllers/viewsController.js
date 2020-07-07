@@ -33,24 +33,19 @@ exports.getShow = catchAsync(async (req, res, next) => {
     .populate({
       path: 'showtimes',
       fields: 'theaters startDateTime endDateTime' // Fix security issues
+    })
+    .populate({
+      path: 'tickets',
+      fields: 'show user'
     });
-  // .populate({
-  //   path: 'tickets',
-  //   fields: 'show user'
-  // });
 
   if (!show) {
     return next(new AppError('There is no show with that name!', 404));
   }
 
-  const ticket = await Ticket.find();
-
-  console.log('User: ', req.user);
-
   res.status(200).render('show-overview', {
     title: show.title,
-    show,
-    ticket
+    show
   });
 });
 
