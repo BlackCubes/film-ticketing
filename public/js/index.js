@@ -28,6 +28,7 @@ import {
   deleteShow,
   deleteReview,
   deleteTheater,
+  deleteShowtime,
   deleteCastCrew
 } from './deleteSettings';
 
@@ -1094,6 +1095,25 @@ if (deleteTheaterForm) {
 
     document.getElementById('btnDeleteTheaterData').textContent =
       'Delete Theater';
+  });
+}
+
+if (deleteShowtimeForm) {
+  deleteShowtimeForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const password = document.getElementById('password').value,
+      deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
+
+    const { showtimeId } = deleteShowtimeBtn.dataset;
+
+    document.getElementById('btnDeleteShowtimeData').textContent =
+      'Deleting...';
+
+    await deleteShowtime({ password }, showtimeId);
+
+    document.getElementById('btnDeleteShowtimeData').textContent =
+      'Delete Showtime';
   });
 }
 
