@@ -353,6 +353,18 @@ exports.getAdminShowtimes = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAdminShowtime = catchAsync(async (req, res, next) => {
+  const showtime = await Showtimes.findById(req.params.id);
+
+  if (!showtime)
+    return next(new AppError('There is no showtime with that id!', 404));
+
+  res.status(200).render('accountShowtimes', {
+    title: `Admin - Showtimes: ${showtime.shows[0].title} at ${showtime.theaters[0].name}`,
+    showtime
+  });
+});
+
 exports.getAdminCreateShowtime = (req, res) => {
   res.status(200).render('createShowtime', {
     title: 'Admin - Create Showtime'
