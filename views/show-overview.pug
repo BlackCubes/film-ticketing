@@ -8,10 +8,9 @@ block append head
 
 block content
   main.main
-    - console.log(user)
     - console.log('Show: ', show)
     each ticket in show.tickets
-      - console.log(ticket)
+      //- - console.log(ticket)
       if user.id === ticket.user.id && Date.now() >= show.showtimes[0].endDateTime
         - console.log('Yes!!')
     section.section-show-header
