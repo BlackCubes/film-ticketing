@@ -1,7 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Show = require('./../models/showModel');
-const Showtimes = require('./../models/showtimesModel');
-const Theater = require('./../models/theaterModel');
 const Ticket = require('./../models/ticketModel');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
