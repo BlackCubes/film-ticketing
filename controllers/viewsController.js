@@ -359,7 +359,7 @@ exports.getAdminShowtime = catchAsync(async (req, res, next) => {
   if (!showtime)
     return next(new AppError('There is no showtime with that id!', 404));
 
-  res.status(200).render('accountShowtimes', {
+  res.status(200).render('accountUpdateShowtime', {
     title: `Admin - Showtimes: ${showtime.shows[0].title} at ${showtime.theaters[0].name}`,
     showtime
   });
