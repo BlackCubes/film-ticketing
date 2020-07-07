@@ -6,6 +6,13 @@ const router = express.Router({ mergeParams: true });
 
 router.use(authController.protect);
 
+router.post(
+  '/createMyReview/:showId',
+  authController.restrictTo('user'),
+  reviewController.setShowUserIds,
+  reviewController.createMyReview
+);
+
 router.patch(
   '/updateMyReview/:showId',
   authController.restrictTo('user'),
