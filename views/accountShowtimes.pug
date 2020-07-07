@@ -13,7 +13,7 @@ mixin showtimesCard(showtime)
       a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/theaters/${showtime.theaters[0].id}`)
         img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
 
-    .showtimes-box__theatertime-theater.u-margin-bottom-small
+    .showtimes-box__theatertime-theater.u-margin-top-small.u-margin-bottom-small
       h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.theaters[0].name
     
     .showtimes-box__theatertime-date
