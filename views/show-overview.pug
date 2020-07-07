@@ -12,6 +12,8 @@ block content
     - console.log('Show: ', show)
     each ticket in show.tickets
       - console.log(ticket)
+      if user.id === ticket.user.id
+        - console.log('Yes!!')
     section.section-show-header
       .heading-box
         .heading-box__background
