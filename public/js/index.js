@@ -12,6 +12,7 @@ import {
   register,
   forgotPassword,
   createShow,
+  createReview,
   createTheater,
   createShowtime,
   createCastCrew
@@ -65,7 +66,8 @@ const updateShowMainView = document.getElementById('updateShowMainView'),
   updateShowAddl = document.getElementById('updateShowAddl'),
   updateShowPrice = document.getElementById('updateShowPrice'),
   deleteShowForm = document.getElementById('deleteShowForm');
-const updateReview = document.getElementById('updateReview'),
+const createReviewForm = document.getElementById('createReviewForm'),
+  updateReview = document.getElementById('updateReview'),
   deleteReviewForm = document.getElementById('deleteReviewForm');
 const updateTheaterMainView = document.getElementById('updateTheaterMainView'),
   updateTheaterLocation = document.getElementById('updateTheaterLocation'),
@@ -275,6 +277,24 @@ if (updatePassForm) {
     document.getElementById('currentPass').value = '';
     document.getElementById('newPass').value = '';
     document.getElementById('confirmNewPass').value = '';
+  });
+}
+
+if (createReviewForm) {
+  createReviewForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const rating = document.getElementById('reviewRating').value,
+      review = document.getElementById('review').value,
+      createReviewBtn = document.getElementById('btnCreateReview');
+
+    const { showId, roleType } = createReviewBtn.dataset;
+
+    document.getElementById('btnCreateReview').textContent = 'Creating...';
+
+    await createReview({ review, rating }, showId, roleType);
+
+    document.getElementById('btnCreateReview').textContent = 'Create Review';
   });
 }
 
