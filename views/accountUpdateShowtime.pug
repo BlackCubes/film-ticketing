@@ -106,11 +106,11 @@ block content
                 small.form__info-small.small-text Change the show and theater belonging to the showtime.
 
             .form__group
-              input#showtimeShow.form__input.input-text(type='text' name='showtimeShow' placeholder='Show ID*' required)
+              input#showtimeShow.form__input.input-text(type='text' name='showtimeShow' placeholder='Show ID*' value=`${showtime.shows[0].id}` required)
               label.form__label.label-text(for='showtimeShow') Please add the show.
 
             .form__group
-              input#showtimeTheater.form__input.input-text(type='text' name='showtimeTheater' placeholder='Theater ID*' required)
+              input#showtimeTheater.form__input.input-text(type='text' name='showtimeTheater' placeholder='Theater ID*' value=`${showtime.theaters[0].id}` required)
               label.form__label.label-text(for='showtimeTheater') Please add the theater.
 
             .form__group
