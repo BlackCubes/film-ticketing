@@ -43,7 +43,7 @@ exports.getShow = catchAsync(async (req, res, next) => {
     return next(new AppError('There is no show with that name!', 404));
   }
 
-  const ticket = await Ticket.find({ user: req.user.id });
+  const ticket = await Ticket.find();
 
   res.status(200).render('show-overview', {
     title: show.title,
