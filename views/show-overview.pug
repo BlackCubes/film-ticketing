@@ -106,8 +106,17 @@ block content
                           p.paragraph Create a review!
 
                       .tile-card__review
-                        p.tile__card__review-stars.average-text Test rating
-                        p.tile-card__review-text.average-text Test text
+                        form#createReviewForm.form
+                          .form__group
+                            input#reviewRating.form__input.input-text(type='number' name='reviewRating' placeholder='Rating*' required)
+                            label.form__label.label-text(for='reviewRating') Please enter a rating.
+
+                          .form__group
+                            textarea#review.form__text-area.input-text(name='textareaReview' placeholder='Your Review*' required)= review.review
+                            label.form__label.label-text(for='review') Please provide your review.
+
+                          .form__group
+                            button#btnCreateReview.btn.btn--blue(type='submit' name='btnCreateReview' data-show-id=`${show.id}`) Create Review
 
               each review in show.reviews
                 .tile-card
