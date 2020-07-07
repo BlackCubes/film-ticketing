@@ -23,28 +23,35 @@ block content
             - const hours = [...Array(25).keys()].splice(0)
             - const minSecs = [...Array(61).keys()].splice(0)
 
+            - var monthValue = showtime.startDateTime.toLocaleString('en-us', {month: 'long'})
+            - var dayValue = showtime.startDateTime.toLocaleString('en-us', {day: 'numeric'})
+            -var yearValue = showtime.startDateTime.toLocaleString('en-us', {year: 'numeric'})
+
             .form__group
               .form__date
                 .form__date-month
                   select#showtimeStartMonth.dropdown(name='selectStartMonth' tabindex='0' required)
-                    option(value) Start Month*
+                    option(value, selected=(true)) Start Month*
 
                     each month in months
-                      option(value=`${month}`)= month
+                      - var monthSelected = (monthValue === month) ? true : false
+                      option(value=`${month}`, selected=(monthSelected))= month
 
                 .form__date-day
                   select#showtimeStartDay.dropdown(name='selectStartDay' tabindex='0' required)
                     option(value) Day*
 
                     each day in days
-                      option(value=`${day}`)= day
+                      - var daySelected = (dayValue == day) ? true : false
+                      option(value=`${day}`, selected=(daySelected))= day
 
                 .form__date-year
                   select#showtimeStartYear.dropdown(name='selectStartYear' tabindex='0' required)
                     option(value) Year*
 
                     each year in years
-                      option(value=`${year}`)= year
+                      - var yearSelected = (yearValue == year) ? true : false
+                      option(value=`${year}`, selected=(yearSelected))= year
 
             .form__group
               .form__date
