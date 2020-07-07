@@ -9,10 +9,6 @@ block append head
 block content
   main.main
     - console.log('Show: ', show)
-    each ticket in show.tickets
-      - console.log('Tickets: ', ticket)
-      if user.id === ticket.user.id && Date.now() >= ticket.showtime.endDateTime && show.showtimes.filter(showtime => showtime.id === ticket.showtime.id).length > 0
-        - console.log('Yes!!')
     section.section-show-header
       .heading-box
         .heading-box__background
@@ -97,6 +93,23 @@ block content
         .reviews-box__list-container
           .row--scroll
             .row__inner
+              if show.tickets.filter(ticket => ticket.user.id === user.id).length > 0
+                each ticket in show.tickets
+                  - console.log('Tickets: ', ticket)
+                  if Date.now() >= ticket.showtime.endDateTime && show.showtimes.filter(showtime => showtime.id === ticket.showtime.id).length > 0
+                    - console.log('Yes!!')
+                    .tile-card
+                      .tile-card__reviewer
+                        .tile-card__reviewer-photo
+                          img.tile-card__photo-img(src=`/img/users/${user.photo}`, alt=`${user.name} Photo`)
+
+                        .tile-card__reviewer-name
+                          p.paragraph Create a review!
+
+                        .tile-card__review
+                          p.tile__card__review-stars.average-text Test rating
+                          p.tile-card__review-text.average-text Test text
+                          
               each review in show.reviews
                 .tile-card
                   .tile-card__reviewer
