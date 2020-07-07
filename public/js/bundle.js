@@ -15177,7 +15177,7 @@ exports.updateCastCrewSettings = updateCastCrewSettings;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteCastCrew = exports.deleteTheater = exports.deleteReview = exports.deleteShow = void 0;
+exports.deleteCastCrew = exports.deleteShowtime = exports.deleteTheater = exports.deleteReview = exports.deleteShow = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -15336,15 +15336,15 @@ var deleteTheater = /*#__PURE__*/function () {
 
 exports.deleteTheater = deleteTheater;
 
-var deleteCastCrew = /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, castcrewId) {
+var deleteShowtime = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, showtimeId) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId);
+            url = "http://127.0.0.1:3000/api/v1/showtimes/".concat(showtimeId);
             _context4.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -15356,9 +15356,9 @@ var deleteCastCrew = /*#__PURE__*/function () {
             res = _context4.sent;
 
             if (res.status === 204) {
-              (0, _alerts.showAlert)('success', 'Cast/Crew deleted!');
+              (0, _alerts.showAlert)('success', 'Showtime deleted!');
               window.setTimeout(function () {
-                location.assign('/admin/castcrews');
+                location.assign('/admin/showtimes');
               }, 1000);
             }
 
@@ -15378,8 +15378,57 @@ var deleteCastCrew = /*#__PURE__*/function () {
     }, _callee4, null, [[0, 8]]);
   }));
 
-  return function deleteCastCrew(_x7, _x8) {
+  return function deleteShowtime(_x7, _x8) {
     return _ref4.apply(this, arguments);
+  };
+}();
+
+exports.deleteShowtime = deleteShowtime;
+
+var deleteCastCrew = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(data, castcrewId) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            _context5.prev = 0;
+            url = "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId);
+            _context5.next = 4;
+            return (0, _axios.default)({
+              method: 'DELETE',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context5.sent;
+
+            if (res.status === 204) {
+              (0, _alerts.showAlert)('success', 'Cast/Crew deleted!');
+              window.setTimeout(function () {
+                location.assign('/admin/castcrews');
+              }, 1000);
+            }
+
+            _context5.next = 11;
+            break;
+
+          case 8:
+            _context5.prev = 8;
+            _context5.t0 = _context5["catch"](0);
+            (0, _alerts.showAlert)('error', _context5.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5, null, [[0, 8]]);
+  }));
+
+  return function deleteCastCrew(_x9, _x10) {
+    return _ref5.apply(this, arguments);
   };
 }();
 
