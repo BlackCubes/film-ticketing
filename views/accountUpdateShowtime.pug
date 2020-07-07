@@ -27,6 +27,14 @@ block content
             - var dayValue = showtime.startDateTime.toLocaleString('en-us', {day: 'numeric'})
             -var yearValue = showtime.startDateTime.toLocaleString('en-us', {year: 'numeric'})
 
+            - var startHourValue = showtime.startDateTime.toLocaleString('en-us', {hour12: false, hour: '2-digit'})
+            - var startMinuteValue = showtime.startDateTime.toLocaleString('en-us', {hour12: false, minute: '2-digit'})
+            - var startSecondValue = showtime.startDateTime.toLocaleString('en-us', {hour12: false, second: '2-digit'})
+
+            - var endHourValue = showtime.endDateTime.toLocaleString('en-us', {hour12: false, hour: '2-digit'})
+            - var endMinuteValue = showtime.endDateTime.toLocaleString('en-us', {hour12: false, minute: '2-digit'})
+            - var endSecondValue = showtime.endDateTime.toLocaleString('en-us', {hour12: false, second: '2-digit'})
+
             .form__group
               .form__date
                 .form__date-month
@@ -60,21 +68,24 @@ block content
                     option(value) Start Hour*
 
                     each hour in hours
-                      option(value=`${hour}`)= hour
+                      - var hourSelected = (startHourValue == hour) ? true : false
+                      option(value=`${hour}`, selected=(hourSelected))= hour
 
                 .form__date-day
                   select#showtimeStartMinute.dropdown(name='selectStartMinute' tabindex='0' required)
                     option(value) Minute*
 
                     each minute in minSecs
-                      option(value=`${minute}`)= minute
+                      - var minuteSelected = (startMinuteValue == minute) ? true : false
+                      option(value=`${minute}`, selected=(minuteSelected))= minute
 
                 .form__date-year
                   select#showtimeStartSecond.dropdown(name='selectStartSecond' tabindex='0' required)
                     option(value) Seconds*
 
                     each second in minSecs
-                      option(value=`${second}`)= second
+                      - var secondSelected = (startSecondValue == second) ? true : false
+                      option(value=`${second}`, selected=(secondSelected))= second
 
             .form__group
               .form__date
@@ -83,21 +94,24 @@ block content
                     option(value) End Hour*
 
                     each hour in hours
-                      option(value=`${hour}`)= hour
+                      - var hourSelected = (endHourValue == hour) ? true : false
+                      option(value=`${hour}`, selected=(hourSelected))= hour
 
                 .form__date-day
                   select#showtimeEndMinute.dropdown(name='selectEndMinute' tabindex='0' required)
                     option(value) Minute*
 
                     each minute in minSecs
-                      option(value=`${minute}`)= minute
+                      - var minuteSelected = (endMinuteValue == minute) ? true : false
+                      option(value=`${minute}`, selected=(minuteSelected))= minute
 
                 .form__date-year
                   select#showtimeEndSecond.dropdown(name='selectEndSecond' tabindex='0' required)
                     option(value) Seconds*
 
                     each second in minSecs
-                      option(value=`${second}`)= second
+                      - var secondSelected = (endSecondValue == second) ? true : false
+                      option(value=`${second}`, selected=(secondSelected))= second
 
             .form__group
               button#btnUpdateShowtimeData.btn.btn--blue(type='submit' name='btnUpdateShowtimeData' data-showtime-id=`${showtime.id}`) Update Showtime Settings
