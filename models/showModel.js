@@ -182,6 +182,13 @@ showSchema.virtual('showtimes', {
   localField: '_id'
 });
 
+// -- populate tickets
+showSchema.virtual('tickets', {
+  ref: 'Ticket',
+  foreignField: 'show',
+  localField: '_id'
+});
+
 // DOCUMENT MIDDLEWARE
 showSchema.pre('save', function(next) {
   this.slug = slugify(this.title, { lower: true });
