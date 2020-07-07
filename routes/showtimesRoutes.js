@@ -26,7 +26,7 @@ router
     showtimesController.createShowtime
   );
 
-app.use(authController.restrictTo('admin'));
+router.use(authController.restrictTo('admin'));
 
 router
   .route('/:id')
