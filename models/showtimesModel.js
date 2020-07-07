@@ -10,6 +10,14 @@ const showtimesSchema = new mongoose.Schema(
       type: Date,
       required: [true, 'A show must have an end datetime!']
     },
+    participants: {
+      type: Number,
+      default: 0
+    },
+    maxGroupSize: {
+      type: Number,
+      default: 20
+    },
     shows: [
       {
         type: mongoose.Schema.ObjectId,
