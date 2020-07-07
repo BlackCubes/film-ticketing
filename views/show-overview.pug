@@ -11,7 +11,7 @@ block content
     - console.log('Show: ', show)
     each ticket in show.tickets
       - console.log('Tickets: ', ticket)
-      if user.id === ticket.user.id && Date.now() >= ticket.showtime.endDateTime && show.showtimes[0].id === ticket.showtime.id
+      if user.id === ticket.user.id && Date.now() >= ticket.showtime.endDateTime && show.showtimes.filter(showtime => showtime.id === ticket.showtime.id).length > 0
         - console.log('Yes!!')
     section.section-show-header
       .heading-box
