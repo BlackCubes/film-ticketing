@@ -60,7 +60,13 @@ block content
               if user && show.tickets.filter(ticket => ticket.user.id === user.id).length > 0
                 button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
 
-              else if user && Date.now() <= showtime.startDateTime
+              else if user && Date.now() > showtime.endDateTime
+                button#ticketExpired.btn.btn--red(disabled) Expired!
+              
+              else if user && showtime.soldOut
+                button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
+
+              else if user && Date.now() <= showtime.startDateTime && !showtime.soldOut
                 button#ticketShow.btn.btn--blue(data-show-id=`${show.id}` data-theater-id=`${showtime.theaters[0].id}` data-showtime-id=`${showtime.id}`) Buy!
 
               else
