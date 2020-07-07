@@ -29,7 +29,7 @@ router
 router
   .route('/:id')
   .patch(
-    authController.restrictTo('event-owner'),
+    authController.restrictTo('admin', 'event-owner'),
     showtimesController.updateShowtime
   )
   .delete(
