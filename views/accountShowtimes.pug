@@ -9,6 +9,10 @@ mixin showtimesCard(showtime)
     .showtimes-box__theatertime-theater.u-margin-bottom-small
       h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.shows[0].title
 
+    .showtimes-box__theatertime-poster
+      a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/theaters/${showtime.theaters[0].id}`)
+        img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
+
     .showtimes-box__theatertime-theater.u-margin-bottom-small
       h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.theaters[0].name
     
