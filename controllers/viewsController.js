@@ -33,11 +33,11 @@ exports.getShow = catchAsync(async (req, res, next) => {
     .populate({
       path: 'showtimes',
       fields: 'theaters startDateTime endDateTime' // Fix security issues
-    })
-    .populate({
-      path: 'tickets',
-      fields: 'show user'
     });
+  // .populate({
+  //   path: 'tickets',
+  //   fields: 'show user'
+  // });
 
   if (!show) {
     return next(new AppError('There is no show with that name!', 404));

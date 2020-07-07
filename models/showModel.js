@@ -183,11 +183,11 @@ showSchema.virtual('showtimes', {
 });
 
 // -- populate tickets
-showSchema.virtual('tickets', {
-  ref: 'Ticket',
-  foreignField: 'show',
-  localField: '_id'
-});
+// showSchema.virtual('tickets', {
+//   ref: 'Ticket',
+//   foreignField: 'show',
+//   localField: '_id'
+// });
 
 // DOCUMENT MIDDLEWARE
 showSchema.pre('save', function(next) {
