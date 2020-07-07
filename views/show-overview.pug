@@ -21,7 +21,8 @@ block content
           .heading-box__metadata-container
             ul.heading-box__metadata
               li.heading-box__metadata-item.paragraph= show.mpaaRating
-              li.heading-box__metadata-item.paragraph= show.genres
+              if show.genres
+                li.heading-box__metadata-item.paragraph= show.genres
               li.heading-box__metadata-item.paragraph= show.contentType
               - const hours = Math.floor(show.durationHours)
               - const minutes = show.duration - hours*60
