@@ -21,6 +21,7 @@ import {
   updateShowSettings,
   updateReviewSettings,
   updateTheaterSettings,
+  updateShowtimeSettings,
   updateCastCrewSettings
 } from './updateSettings';
 import {
@@ -53,7 +54,10 @@ const eoCreateShowForm = document.getElementById('eoCreateShowForm'),
   eoFieldlist1 = document.getElementById('eoFieldlist1');
 const adCreateTheaterForm = document.getElementById('adCreateTheaterForm'),
   adFieldlist1 = document.getElementById('adFieldlist1');
-const adCreateShowtimeForm = document.getElementById('adCreateShowtimeForm');
+const adCreateShowtimeForm = document.getElementById('adCreateShowtimeForm'),
+  updateShowtimeMainView = document.getElementById('updateShowtimeMainView'),
+  updateShowtimeAddl = document.getElementById('updateShowtimeAddl'),
+  deleteShowtimeForm = document.getElementById('deleteShowtimeForm');
 const updateShowMainView = document.getElementById('updateShowMainView'),
   updateShowPlot = document.getElementById('updateShowPlot'),
   updateShowCastCrewForm = document.getElementById('updateShowCastCrewForm'),
@@ -892,6 +896,83 @@ if (updateTheaterChain) {
 
     document.getElementById('btnUpdateTheaterChain').textContent =
       'Update Chain';
+  });
+}
+
+if (updateShowtimeMainView) {
+  updateShowtimeMainView.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const selectStartMonth = document.getElementById('showtimeStartMonth'),
+      selectStartDay = document.getElementById('showtimeStartDay'),
+      selectStartYear = document.getElementById('showtimeStartYear'),
+      selectStartHour = document.getElementById('showtimeStartHour'),
+      selectStartMinute = document.getElementById('showtimeStartMinute'),
+      selectStartSecond = document.getElementById('showtimeStartSecond'),
+      selectEndHour = document.getElementById('showtimeEndHour'),
+      selectEndMinute = document.getElementById('showtimeEndMinute'),
+      selectEndSecond = document.getElementById('showtimeEndSecond');
+
+    const startMonth =
+        selectStartMonth.options[selectStartMonth.selectedIndex].value,
+      startDay = selectStartDay.options[selectStartDay.selectedIndex].value,
+      startYear = selectStartYear.options[selectStartYear.selectedIndex].value,
+      startHour = selectStartHour.options[selectStartHour.selectedIndex].value,
+      startMinute =
+        selectStartMinute.options[selectStartMinute.selectedIndex].value,
+      startSecond =
+        selectStartSecond.options[selectStartSecond.selectedIndex].value,
+      endHour = selectEndHour.options[selectEndHour.selectedIndex].value,
+      endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value,
+      endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
+
+    const startDateTime = new Date(
+        `${startYear}-${startMonth}-${startDay} ${startHour}:${startMinute}:${startSecond}`
+      ).toISOString(),
+      endDateTime = new Date(
+        `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
+      ).toISOString();
+
+    const updateShowtimeDataBtn = document.getElementById(
+      'btnUpdateShowtimeData'
+    );
+
+    const { showtimeId } = updateShowtimeDataBtn.dataset;
+
+    document.getElementById('btnUpdateShowtimeData').textContent =
+      'Updating...';
+
+    await updateShowtimeSettings(
+      { startDateTime, endDateTime },
+      'data',
+      showtimeId
+    );
+
+    document.getElementById('btnUpdateShowtimeData').textContent =
+      'Update Showtime Settings';
+  });
+}
+
+if (updateShowtimeAddl) {
+  updateShowtimeAddl.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const shows = document.getElementById('showtimeShow').value,
+      theaters = document.getElementById('showtimeTheater').value;
+
+    const updateShowtimeAddlBtn = document.getElementById(
+      'btnUpdateShowtimeAddl'
+    );
+
+    const { showtimeId } = updateShowtimeAddlBtn.dataset;
+
+    document.getElementById('btnUpdateShowtimeAddl').textContent =
+      'Updating...';
+
+    await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
+
+    document.getElementById('btnUpdateShowtimeAddl').textContent =
+      "Update Add'l Info";
   });
 }
 
