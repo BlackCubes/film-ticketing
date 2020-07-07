@@ -14698,7 +14698,7 @@ var createReview = /*#__PURE__*/function () {
               (0, _alerts.showAlert)('success', 'Congrats! Your review has been created!');
               window.setTimeout(function () {
                 location.reload();
-              }, 1500);
+              }, 1000);
             }
 
             _context6.next = 11;

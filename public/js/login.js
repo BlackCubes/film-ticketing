@@ -140,7 +140,7 @@ export const createReview = async (data, showId, role) => {
       showAlert('success', 'Congrats! Your review has been created!');
       window.setTimeout(() => {
         location.reload();
-      }, 1500);
+      }, 1000);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
