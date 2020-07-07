@@ -10,7 +10,7 @@ block content
   main.main
     - console.log('Show: ', show)
     each ticket in show.tickets
-      //- - console.log(ticket)
+      - console.log('Tickets: ', ticket)
       if user.id === ticket.user.id && Date.now() >= show.showtimes[0].endDateTime
         - console.log('Yes!!')
     section.section-show-header
