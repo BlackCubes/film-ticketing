@@ -97,7 +97,6 @@ block content
                 each ticket in show.tickets
                   - console.log('Tickets: ', ticket)
                   if Date.now() >= ticket.showtime.endDateTime && show.showtimes.filter(showtime => showtime.id === ticket.showtime.id).length > 0
-                    - console.log('Yes!!')
                     .tile-card
                       .tile-card__reviewer
                         .tile-card__reviewer-photo
