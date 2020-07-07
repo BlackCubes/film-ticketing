@@ -44,6 +44,7 @@ block content
           h2.heading-secondary Showtimes
         .showtimes-box__theatertime-container.u-center-text
           each showtime in show.showtimes
+            - console.log('Showtimes: ', showtime)
             .showtimes-box__theatertime
               .showtimes-box__theatertime-poster
                 a.showtimes-box__theatertime-poster-link.picture-link(href=`/theater-overview/${showtime.theaters[0].slug}`)
