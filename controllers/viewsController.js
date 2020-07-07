@@ -45,6 +45,8 @@ exports.getShow = catchAsync(async (req, res, next) => {
 
   const ticket = await Ticket.find();
 
+  console.log('User: ', req.user);
+
   res.status(200).render('show-overview', {
     title: show.title,
     show,
