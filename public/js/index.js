@@ -91,8 +91,8 @@ if (mapBox) {
 if (ticketBtn) {
   ticketBtn.addEventListener('click', e => {
     e.target.textContent = 'Processing...';
-    const { showId } = e.target.dataset;
-    ticketShow(showId);
+    const { showId, theaterId, showtimeId } = e.target.dataset;
+    ticketShow(showId, theaterId, showtimeId);
   });
 }
 

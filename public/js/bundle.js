@@ -15768,8 +15768,11 @@ if (mapBox) {
 if (ticketBtn) {
   ticketBtn.addEventListener('click', function (e) {
     e.target.textContent = 'Processing...';
-    var showId = e.target.dataset.showId;
-    (0, _stripe.ticketShow)(showId);
+    var _e$target$dataset = e.target.dataset,
+        showId = _e$target$dataset.showId,
+        theaterId = _e$target$dataset.theaterId,
+        showtimeId = _e$target$dataset.showtimeId;
+    (0, _stripe.ticketShow)(showId, theaterId, showtimeId);
   });
 }
 
