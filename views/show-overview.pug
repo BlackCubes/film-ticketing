@@ -58,7 +58,7 @@ block content
             .showtimes-box__ticket-buy
               // Fix The Btn Helpers in SCSS
               if user && show.tickets.filter(ticket => ticket.user.id === user.id).length > 0
-                button#ticketShow.btn.btn--blue(disabled) Already Bought!
+                button#ticketBought.btn.btn--blue(disabled) Already Bought!
 
               else if user
                 button#ticketShow.btn.btn--blue(data-show-id=`${show.id}` data-theater-id=`${showtime.theaters[0].id}` data-showtime-id=`${showtime.id}`) Buy!
