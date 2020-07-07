@@ -6,6 +6,16 @@ const ticketSchema = new mongoose.Schema({
     ref: 'Show',
     required: [true, 'Ticket(s) must belong to a show!']
   },
+  theater: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Theater',
+    required: [true, 'Ticket(s) must belong to a theater!']
+  },
+  showtime: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Showtimes',
+    required: [true, 'Ticket(s) must belong to a showtime!']
+  },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
