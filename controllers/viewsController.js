@@ -33,6 +33,10 @@ exports.getShow = catchAsync(async (req, res, next) => {
     .populate({
       path: 'showtimes',
       fields: 'theaters startDateTime endDateTime' // Fix security issues
+    })
+    .populate({
+      path: 'tickets',
+      fields: 'show user'
     });
 
   if (!show) {
