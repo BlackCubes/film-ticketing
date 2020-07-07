@@ -2,12 +2,12 @@ extends base
 
 mixin showtimesCard(showtime)
   .showtimes-box__theatertime
+    .showtimes-box__theatertime-theater.u-margin-bottom-small
+      h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.shows[0].title
+
     .showtimes-box__theatertime-poster
       a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/shows/${showtime.shows[0].id}`)
         img.showtimes-box__theatertime-poster-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
-
-    .showtimes-box__theatertime-theater.u-margin-bottom-small
-      h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.shows[0].title
 
     .showtimes-box__theatertime-poster
       a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/theaters/${showtime.theaters[0].id}`)
