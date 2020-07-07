@@ -9,7 +9,7 @@ mixin showtimesCard(showtime)
       a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/shows/${showtime.shows[0].id}`)
         img.showtimes-box__theatertime-poster-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
 
-    .showtimes-box__theatertime-poster
+    .showtimes-box__theatertime-poster.u-margin-top-small
       a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/theaters/${showtime.theaters[0].id}`)
         img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
 
