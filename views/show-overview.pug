@@ -60,7 +60,7 @@ block content
               if user && show.tickets.filter(ticket => ticket.user.id === user.id).length > 0
                 button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
 
-              else if user
+              else if user && Date.now() <= showtime.startDateTime
                 button#ticketShow.btn.btn--blue(data-show-id=`${show.id}` data-theater-id=`${showtime.theaters[0].id}` data-showtime-id=`${showtime.id}`) Buy!
 
               else
