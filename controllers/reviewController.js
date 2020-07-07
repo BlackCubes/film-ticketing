@@ -17,6 +17,9 @@ const filterObj = (obj, ...allowedFields) => {
 exports.createMyReview = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(req.body, 'review', 'rating');
 
+  if (!filteredBody.show) filteredBody.show = req.params.showId;
+  if (!filteredBody.user) filteredBody.user = req.user.id;
+
   const newReview = await Review.create(filteredBody);
 
   res.status(200).json({
