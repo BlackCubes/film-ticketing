@@ -104,6 +104,24 @@ export const updateTheaterSettings = async (
   }
 };
 
+export const updateShowtimeSettings = async (data, message, showtimeId) => {
+  try {
+    const url = `http://127.0.0.1:3000/api/v1/showtimes/${showtimeId}`;
+
+    const res = await axios({
+      method: 'PATCH',
+      url,
+      data
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', `Your showtime's ${message} has been updated!`);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
+
 export const updateCastCrewSettings = async (
   data,
   message,
