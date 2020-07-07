@@ -123,6 +123,30 @@ export const createShow = async (data, role) => {
   }
 };
 
+export const createReview = async (data, showId, role) => {
+  try {
+    const url =
+      role === 'admin'
+        ? 'http://127.0.0.1:3000/api/v1/reviews'
+        : `http://127.0.0.1:3000/api/v1/reviews/createMyReview/${showId}`;
+
+    const res = await axios({
+      method: 'POST',
+      url,
+      data
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', 'Congrats! Your review has been created!');
+      window.setTimeout(() => {
+        location.reload();
+      }, 1500);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
+
 export const createTheater = async data => {
   try {
     const url = 'http://127.0.0.1:3000/api/v1/theaters';

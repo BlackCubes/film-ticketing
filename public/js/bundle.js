@@ -14410,7 +14410,7 @@ exports.MultiForm = MultiForm;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createCastCrew = exports.createShowtime = exports.createTheater = exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
+exports.createCastCrew = exports.createShowtime = exports.createTheater = exports.createReview = exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -14675,15 +14675,15 @@ var createShow = /*#__PURE__*/function () {
 
 exports.createShow = createShow;
 
-var createTheater = /*#__PURE__*/function () {
-  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(data) {
+var createReview = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(data, showId, role) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee6$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/theaters';
+            url = role === 'admin' ? 'http://127.0.0.1:3000/api/v1/reviews' : "http://127.0.0.1:3000/api/v1/reviews/createMyReview/".concat(showId);
             _context6.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -14695,9 +14695,9 @@ var createTheater = /*#__PURE__*/function () {
             res = _context6.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Congrats! The theater has been created!');
+              (0, _alerts.showAlert)('success', 'Congrats! Your review has been created!');
               window.setTimeout(function () {
-                location.assign('/admin/theaters');
+                location.reload();
               }, 1500);
             }
 
@@ -14717,14 +14717,14 @@ var createTheater = /*#__PURE__*/function () {
     }, _callee6, null, [[0, 8]]);
   }));
 
-  return function createTheater(_x13) {
+  return function createReview(_x13, _x14, _x15) {
     return _ref6.apply(this, arguments);
   };
 }();
 
-exports.createTheater = createTheater;
+exports.createReview = createReview;
 
-var createShowtime = /*#__PURE__*/function () {
+var createTheater = /*#__PURE__*/function () {
   var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(data) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee7$(_context7) {
@@ -14732,7 +14732,7 @@ var createShowtime = /*#__PURE__*/function () {
         switch (_context7.prev = _context7.next) {
           case 0:
             _context7.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/showtimes';
+            url = 'http://127.0.0.1:3000/api/v1/theaters';
             _context7.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -14744,9 +14744,9 @@ var createShowtime = /*#__PURE__*/function () {
             res = _context7.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Congrats! The showtime has been created!');
+              (0, _alerts.showAlert)('success', 'Congrats! The theater has been created!');
               window.setTimeout(function () {
-                location.assign('/admin/showtimes');
+                location.assign('/admin/theaters');
               }, 1500);
             }
 
@@ -14766,14 +14766,14 @@ var createShowtime = /*#__PURE__*/function () {
     }, _callee7, null, [[0, 8]]);
   }));
 
-  return function createShowtime(_x14) {
+  return function createTheater(_x16) {
     return _ref7.apply(this, arguments);
   };
 }();
 
-exports.createShowtime = createShowtime;
+exports.createTheater = createTheater;
 
-var createCastCrew = /*#__PURE__*/function () {
+var createShowtime = /*#__PURE__*/function () {
   var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(data) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee8$(_context8) {
@@ -14781,7 +14781,7 @@ var createCastCrew = /*#__PURE__*/function () {
         switch (_context8.prev = _context8.next) {
           case 0:
             _context8.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/castcrews';
+            url = 'http://127.0.0.1:3000/api/v1/showtimes';
             _context8.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -14793,9 +14793,9 @@ var createCastCrew = /*#__PURE__*/function () {
             res = _context8.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Congrats! The cast/crew has been created!');
+              (0, _alerts.showAlert)('success', 'Congrats! The showtime has been created!');
               window.setTimeout(function () {
-                location.assign('/admin/castcrews');
+                location.assign('/admin/showtimes');
               }, 1500);
             }
 
@@ -14815,8 +14815,57 @@ var createCastCrew = /*#__PURE__*/function () {
     }, _callee8, null, [[0, 8]]);
   }));
 
-  return function createCastCrew(_x15) {
+  return function createShowtime(_x17) {
     return _ref8.apply(this, arguments);
+  };
+}();
+
+exports.createShowtime = createShowtime;
+
+var createCastCrew = /*#__PURE__*/function () {
+  var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(data) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee9$(_context9) {
+      while (1) {
+        switch (_context9.prev = _context9.next) {
+          case 0:
+            _context9.prev = 0;
+            url = 'http://127.0.0.1:3000/api/v1/castcrews';
+            _context9.next = 4;
+            return (0, _axios.default)({
+              method: 'POST',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context9.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', 'Congrats! The cast/crew has been created!');
+              window.setTimeout(function () {
+                location.assign('/admin/castcrews');
+              }, 1500);
+            }
+
+            _context9.next = 11;
+            break;
+
+          case 8:
+            _context9.prev = 8;
+            _context9.t0 = _context9["catch"](0);
+            (0, _alerts.showAlert)('error', _context9.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context9.stop();
+        }
+      }
+    }, _callee9, null, [[0, 8]]);
+  }));
+
+  return function createCastCrew(_x18) {
+    return _ref9.apply(this, arguments);
   };
 }();
 
