@@ -14,6 +14,19 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 
+exports.createMyReview = catchAsync(async (req, res, next) => {
+  const filteredBody = filterObj(req.body, 'review', 'rating');
+
+  const newReview = await Review.create(filteredBody);
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      data: newReview
+    }
+  });
+});
+
 exports.updateMyReview = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(req.body, 'review', 'rating');
 
