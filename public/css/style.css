@@ -901,10 +901,13 @@ svg {
 
 .section-home-promo,
 .section-home-member,
-.section-home-map {
+.home-map {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+
+.section-home-map {
+  width: 100%; }
 
 .section-home-promo,
 .section-home-member {
