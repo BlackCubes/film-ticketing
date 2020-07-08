@@ -999,7 +999,7 @@ svg {
 .home-map {
   padding-bottom: 2rem; }
   .home-map__header-wrapper {
-    margin-top: 2rem; }
+    margin-top: 5rem; }
   .home-map__header {
     font-weight: 400;
     letter-spacing: 0.5rem; }
@@ -1023,7 +1023,7 @@ svg {
   margin-left: auto;
   margin-right: auto; }
   .join-organizer__header-wrapper {
-    padding-top: 2rem;
+    padding-top: 5rem;
     padding-bottom: 2rem; }
   .join-organizer__header {
     font-weight: 400;
