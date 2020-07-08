@@ -221,6 +221,7 @@
 
 .section-home-join {
   background-color: $color-snow;
+  padding-bottom: 1rem;
 }
 
 .join-organizer {
@@ -261,8 +262,14 @@
 
 .join-signup {
   width: 95%;
+  margin-top: 10rem;
   margin-left: auto;
   margin-right: auto;
+
+  &__header-wrapper {
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
 
   &__header {
     color: $color-black;

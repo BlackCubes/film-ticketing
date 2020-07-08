@@ -1015,7 +1015,8 @@ svg {
     color: #d3d3d3; }
 
 .section-home-join {
-  background-color: #fffafa; }
+  background-color: #fffafa;
+  padding-bottom: 1rem; }
 
 .join-organizer {
   width: 95%;
@@ -1046,8 +1047,12 @@ svg {
 
 .join-signup {
   width: 95%;
+  margin-top: 10rem;
   margin-left: auto;
   margin-right: auto; }
+  .join-signup__header-wrapper {
+    margin-bottom: 2rem;
+    padding: 1rem; }
   .join-signup__header {
     color: #000;
     font-weight: 400; }
