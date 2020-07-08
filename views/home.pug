@@ -12,11 +12,11 @@ block content
           .row__inner
             each showtime in showtimes
               - console.log(showtime)
-              .tile
-                .tile__media
+              .tile-show
+                .tile-show__media
                   img.tile__poster(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
-                .tile__details
-                  .tile__title= showtime.shows[0].title
+                .tile-show__details
+                  .tile-show__title= showtime.shows[0].title
             //- .tile
             //-   .tile__media
             //-     img.tile__img(src="/img/lawrence-large.jpg", alt="Lawrence of Arabia")
