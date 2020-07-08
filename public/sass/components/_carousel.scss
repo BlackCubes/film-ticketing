@@ -42,6 +42,11 @@
     object-fit: cover;
   }
 
+  &__poster {
+    width: $tile-width;
+    object-fit: cover;
+  }
+
   &__details {
     position: absolute;
     bottom: 0;

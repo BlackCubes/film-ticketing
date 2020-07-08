@@ -253,6 +253,9 @@ body {
     width: 25rem;
     height: 14.0625rem;
     object-fit: cover; }
+  .tile__poster {
+    width: 25rem;
+    object-fit: cover; }
   .tile__details {
     position: absolute;
     bottom: 0;
