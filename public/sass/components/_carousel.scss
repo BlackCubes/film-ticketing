@@ -113,7 +113,7 @@
     );
     transition: $carousel-transition-duration opacity;
 
-    .tile__title {
+    .tile-show__title {
       position: absolute;
       bottom: 0;
       padding: 1rem;
