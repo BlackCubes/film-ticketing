@@ -137,7 +137,7 @@ export const displayHomeMap = () => {
       id: 'route',
       type: 'line',
       source: {
-        type: 'geoJson',
+        type: 'geojson',
         data: {
           type: 'Feature',
           properties: {},
