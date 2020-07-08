@@ -22,7 +22,7 @@
 .section-home-map {
   width: 100%;
   background-color: $color-light-blue-2;
-  background-image: linear-gradient(0deg, $color-black, $color-light-blue-2);
+  // background-image: linear-gradient(0deg, $color-black, $color-light-blue-2);
 }
 
 .section-home-promo,
@@ -180,4 +180,10 @@
 .home-map {
   padding-top: 2rem;
   padding-bottom: 2rem;
+
+  &__text-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }

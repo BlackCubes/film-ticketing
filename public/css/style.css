@@ -907,8 +907,7 @@ svg {
 
 .section-home-map {
   width: 100%;
-  background-color: #0067aa;
-  background-image: linear-gradient(0deg, #000, #0067aa); }
+  background-color: #0067aa; }
 
 .section-home-promo,
 .section-home-member {
@@ -995,6 +994,10 @@ svg {
 .home-map {
   padding-top: 2rem;
   padding-bottom: 2rem; }
+  .home-map__text-wrapper {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem; }
 
 .section-login {
   width: 95%;
