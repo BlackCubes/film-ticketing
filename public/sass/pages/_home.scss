@@ -5,10 +5,6 @@
   margin-right: auto;
 }
 
-.section-promo {
-  margin-bottom: 2rem;
-}
-
 // .section-map {
 //   position: relative;
 //   height: 30rem;
@@ -21,6 +17,11 @@
   width: 95%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.section-promo,
+.section-member {
+  margin-bottom: 2rem;
 }
 
 .promo {
