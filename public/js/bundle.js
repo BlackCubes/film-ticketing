@@ -12400,7 +12400,7 @@ var displayHomeMap = function displayHomeMap() {
     el.className = 'marker';
     new mapboxgl.Marker({
       element: el,
-      anchor: bottom
+      anchor: 'bottom'
     }).setLngLat(marker.geometry.coordinates).addTo(map);
     new mapboxgl.Popup({
       offset: 30,
