@@ -181,9 +181,19 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 
+  &__header {
+    color: $color-black;
+    font-weight: 400;
+    letter-spacing: 0.5rem;
+  }
+
   &__text-wrapper {
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
+  }
+
+  &__text {
+    color: $color-light-silver;
   }
 }

@@ -994,10 +994,16 @@ svg {
 .home-map {
   padding-top: 2rem;
   padding-bottom: 2rem; }
+  .home-map__header {
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 0.5rem; }
   .home-map__text-wrapper {
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem; }
+  .home-map__text {
+    color: #d3d3d3; }
 
 .section-login {
   width: 95%;
