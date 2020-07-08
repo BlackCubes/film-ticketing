@@ -12390,7 +12390,7 @@ var displayHomeMap = function displayHomeMap() {
     }]
   };
   var map = new mapboxgl.Map({
-    container: 'map',
+    container: 'mapHome',
     style: 'mapbox://styles/blackcubes/ck8f2ekqy0rzk1iljn5bg3fn6',
     scrollZoom: false
   });
