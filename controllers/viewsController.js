@@ -9,13 +9,11 @@ const Ticket = require('./../models/ticketModel');
 const User = require('./../models/userModel');
 
 exports.getHome = catchAsync(async (req, res, next) => {
-  const shows = await Show.find();
-  const theaters = await Theater.find();
+  const shows = await Show.find().populate('showtimes');
 
   res.status(200).render('home', {
     title: 'Rare Movie Tickets, Special Venues, Locations and Time',
-    shows,
-    theaters
+    shows
   });
 });
 
