@@ -2,7 +2,7 @@
 import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
-import { displayMap } from './mapbox';
+import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { MultiForm } from './multiForm';
@@ -38,7 +38,8 @@ import {
 //   alert('CSSTransforms is available and Modernizr works!');
 
 // DOM ELEMENTS
-const mapBox = document.getElementById('map');
+const mapBox = document.getElementById('map'),
+  mapBoxHome = document.getElementById('mapHome');
 const ticketBtn = document.getElementById('ticketShow');
 const circleNavTrigger = document.getElementById('trigger');
 const loginForm = document.getElementById('loginForm');
@@ -88,6 +89,10 @@ const adCreateCastCrewForm = document.getElementById('adCreateCastCrewForm'),
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
   displayMap(locations);
+}
+
+if (mapBoxHome) {
+  displayHomeMap();
 }
 
 if (ticketBtn) {

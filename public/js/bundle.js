@@ -15859,7 +15859,8 @@ require('./modernizr');
 // if (Modernizr.csstransforms)
 //   alert('CSSTransforms is available and Modernizr works!');
 // DOM ELEMENTS
-var mapBox = document.getElementById('map');
+var mapBox = document.getElementById('map'),
+    mapBoxHome = document.getElementById('mapHome');
 var ticketBtn = document.getElementById('ticketShow');
 var circleNavTrigger = document.getElementById('trigger');
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
@@ -15903,6 +15904,10 @@ var adCreateCastCrewForm = document.getElementById('adCreateCastCrewForm'),
 if (mapBox) {
   var locations = JSON.parse(mapBox.dataset.locations);
   (0, _mapbox.displayMap)(locations);
+}
+
+if (mapBoxHome) {
+  (0, _mapbox.displayHomeMap)();
 }
 
 if (ticketBtn) {
