@@ -69,13 +69,18 @@
 
   &__header-wrapper {
     position: relative;
-    top: -18rem;
+    top: -20rem;
     //color: transparent;
     //font-size: 2.5rem;
     //text-align: center;
     //background-image: linear-gradient(-20deg, $color-lightseagreen, $color-light-blue-2);
     //background-clip: text;
     //-webkit-background-clip: text;
+  }
+
+  &__header {
+    font-weight: 400;
+    letter-spacing: 0.5rem;
   }
 
   &__text-wrapper {
@@ -143,13 +148,18 @@
 
   &__header-wrapper {
     position: relative;
-    top: -18rem;
+    top: -20rem;
     //color: transparent;
     //font-size: 2.5rem;
     //text-align: center;
     //background-image: linear-gradient(-270deg, $color-lightseagreen, $color-green-2, $color-light-silver);
     //background-clip: text;
     //-webkit-background-clip: text;
+  }
+
+  &__header {
+    font-weight: 400;
+    letter-spacing: 0.5rem;
   }
 
   &__text-wrapper {

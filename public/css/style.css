@@ -940,7 +940,10 @@ svg {
       left: -50%; }
   .promo__header-wrapper {
     position: relative;
-    top: -18rem; }
+    top: -20rem; }
+  .promo__header {
+    font-weight: 400;
+    letter-spacing: 0.5rem; }
   .promo__text-wrapper {
     position: relative;
     top: -2rem;
@@ -979,7 +982,10 @@ svg {
       left: -50%; }
   .member__header-wrapper {
     position: relative;
-    top: -18rem; }
+    top: -20rem; }
+  .member__header {
+    font-weight: 400;
+    letter-spacing: 0.5rem; }
   .member__text-wrapper {
     position: relative;
     top: -2rem;
