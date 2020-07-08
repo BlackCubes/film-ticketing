@@ -269,6 +269,8 @@ body {
       padding: 1rem; }
   .tile:hover .tile__details {
     opacity: 1; }
+  .tile:first-child:hover {
+    margin-left: 5rem; }
   .tile:hover ~ .tile {
     transform: translate3d(7.5rem, 0, 0); }
 

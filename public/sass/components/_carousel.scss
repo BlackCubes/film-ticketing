@@ -68,6 +68,10 @@
     opacity: 1;
   }
 
+  &:first-child:hover {
+    margin-left: 5rem;
+  }
+
   &:hover ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
   }
