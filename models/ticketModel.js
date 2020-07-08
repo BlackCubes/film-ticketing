@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+// const Theater = require('./theaterModel');
+const Showtimes = require('./showtimesModel');
 
 const ticketSchema = new mongoose.Schema({
   show: {
@@ -45,6 +47,43 @@ ticketSchema.pre(/^find/, function(next) {
     });
 
   next();
+});
+
+ticketSchema.statics.calcParticipants = async function(showtimeId) {
+  const participants = await this.aggregate([
+    {
+      $match: { showtime: showtimeId }
+    },
+    {
+      $group: {
+        _id: '$showtime',
+        nParticipant: { $sum: 1 }
+      }
+    }
+  ]);
+
+  if (participants.length > 0) {
+    await Showtimes.findByIdAndUpdate(showtimeId, {
+      participants: participants[0].nParticipant
+    });
+  } else {
+    await Showtimes.findByIdAndUpdate(showtimeId, {
+      participants: 0
+    });
+  }
+};
+
+ticketSchema.post('save', function() {
+  this.constructor.calcParticipants(this.showtime);
+});
+
+ticketSchema.pre(/^findOneAnd/, async function(next) {
+  this.p = await this.findOne();
+  next();
+});
+
+ticketSchema.post(/^findOneAnd/, async function() {
+  await this.p.constructor.calcParticipants(this.p.showtime);
 });
 
 const Ticket = mongoose.model('Ticket', ticketSchema);
