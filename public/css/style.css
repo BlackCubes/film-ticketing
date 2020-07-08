@@ -997,6 +997,8 @@ svg {
 
 .home-map {
   padding-bottom: 2rem; }
+  .home-map__header-wrapper {
+    margin-top: 2rem; }
   .home-map__header {
     font-weight: 400;
     letter-spacing: 0.5rem; }
