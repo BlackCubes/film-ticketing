@@ -893,21 +893,21 @@ svg {
       width: 100%;
       padding: 1rem; }
 
-.section-carousel,
-.section-special-venues {
+.section-home-carousel,
+.section-home-special-venues {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
 
-.section-promo,
-.section-member,
+.section-home-promo,
+.section-home-member,
 .section-home-map {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
 
-.section-promo,
-.section-member {
+.section-home-promo,
+.section-home-member {
   margin-bottom: 2rem; }
 
 .promo {
