@@ -1044,6 +1044,14 @@ svg {
     margin-top: 1.5rem;
     margin-bottom: 3rem; }
 
+.join-signup {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
+  .join-signup__header {
+    color: #000;
+    font-weight: 400; }
+
 .section-login {
   width: 95%;
   margin-left: auto;

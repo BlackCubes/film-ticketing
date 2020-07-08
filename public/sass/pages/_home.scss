@@ -258,3 +258,14 @@
     margin-bottom: 3rem;
   }
 }
+
+.join-signup {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+
+  &__header {
+    color: $color-black;
+    font-weight: 400;
+  }
+}
