@@ -169,32 +169,3 @@
     }
   }
 }
-
-#map,
-#mapHome {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-
-  .marker {
-    background-image: url('../img/map_marker.svg');
-    background-size: cover;
-    width: 3.2rem;
-    height: 4rem;
-    cursor: pointer;
-  }
-
-  .mapboxgl-popup {
-    max-width: 25rem;
-  }
-
-  .mapboxgl-popup-content {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    padding: 1.5rem !important;
-    font-size: 1.4rem;
-    -webkit-box-shadow: 0 1rem 3rem rgba($color-black, 0.15) !important;
-    box-shadow: 0 1rem 3rem rgba($color-black, 0.15) !important;
-  }
-}

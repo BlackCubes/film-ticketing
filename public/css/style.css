@@ -544,6 +544,31 @@ body {
   position: relative;
   height: 60rem; }
 
+#map,
+#mapHome {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0; }
+  #map .marker,
+  #mapHome .marker {
+    background-image: url("../img/map_marker.svg");
+    background-size: cover;
+    width: 3.2rem;
+    height: 4rem;
+    cursor: pointer; }
+  #map .mapboxgl-popup,
+  #mapHome .mapboxgl-popup {
+    max-width: 25rem; }
+  #map .mapboxgl-popup-content,
+  #mapHome .mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1.5rem !important;
+    font-size: 1.4rem;
+    -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important; }
+
 svg {
   position: fixed;
   bottom: 0;
@@ -961,31 +986,6 @@ svg {
       font-size: 2rem;
       font-weight: 500;
       text-transform: uppercase; }
-
-#map,
-#mapHome {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  bottom: 0; }
-  #map .marker,
-  #mapHome .marker {
-    background-image: url("../img/map_marker.svg");
-    background-size: cover;
-    width: 3.2rem;
-    height: 4rem;
-    cursor: pointer; }
-  #map .mapboxgl-popup,
-  #mapHome .mapboxgl-popup {
-    max-width: 25rem; }
-  #map .mapboxgl-popup-content,
-  #mapHome .mapboxgl-popup-content {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    padding: 1.5rem !important;
-    font-size: 1.4rem;
-    -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important; }
 
 .section-login {
   width: 95%;
