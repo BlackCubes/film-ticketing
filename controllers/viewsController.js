@@ -10,10 +10,12 @@ const User = require('./../models/userModel');
 
 exports.getHome = catchAsync(async (req, res, next) => {
   const shows = await Show.find();
+  const theaters = await Theater.find();
 
   res.status(200).render('home', {
     title: 'Rare Movie Tickets, Special Venues, Locations and Time',
-    shows
+    shows,
+    theaters
   });
 });
 
