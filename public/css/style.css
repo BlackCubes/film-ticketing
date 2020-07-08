@@ -1015,19 +1015,34 @@ svg {
     color: #d3d3d3; }
 
 .section-home-join {
-  background-color: #fff; }
+  background-color: #fffafa; }
 
 .join-organizer {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+  .join-organizer__header-wrapper {
+    padding-top: 2rem;
+    padding-bottom: 2rem; }
   .join-organizer__header {
     font-weight: 400;
     color: #000; }
   .join-organizer__text-wrapper {
-    text-align: center; }
+    text-align: center;
+    background-color: #fff;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+    padding: 2rem;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); }
   .join-organizer__text {
-    color: #0086dc; }
+    color: #0086dc;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem; }
 
 .section-login {
   width: 95%;

@@ -220,13 +220,18 @@
 }
 
 .section-home-join {
-  background-color: $color-white;
+  background-color: $color-snow;
 }
 
 .join-organizer {
   width: 95%;
   margin-left: auto;
   margin-right: auto;
+
+  &__header-wrapper {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 
   &__header {
     font-weight: 400;
@@ -235,9 +240,21 @@
 
   &__text-wrapper {
     text-align: center;
+    background-color: $color-white;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+    padding: 2rem;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba($color-black, 0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba($color-black, 0.5);
+    box-shadow: 0px 0px 5px 0px rgba($color-black, 0.5);
   }
 
   &__text {
     color: $color-light-blue;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
   }
 }
