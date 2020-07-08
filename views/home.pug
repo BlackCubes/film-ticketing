@@ -10,6 +10,8 @@ block content
       section.section-home-carousel
         .row.row--scroll
           .row__inner
+            each showtime in showtimes
+              - console.log(showtime)
             //- .tile
             //-   .tile__media
             //-     img.tile__img(src="/img/lawrence-large.jpg", alt="Lawrence of Arabia")
