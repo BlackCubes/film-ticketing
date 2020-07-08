@@ -18,7 +18,8 @@
   margin-right: auto;
 }
 
-.section-home-map {
+.section-home-map,
+.section-home-join {
   width: 100%;
   // background-color: $color-light-blue-2;
   // background-image: linear-gradient(0deg, $color-black, $color-light-blue-2);
@@ -215,5 +216,28 @@
 
   &__text {
     color: $color-light-silver;
+  }
+}
+
+.section-home-join {
+  background-color: $color-white;
+}
+
+.join-organizer {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+
+  &__header {
+    font-weight: 400;
+    color: $color-black;
+  }
+
+  &__text-wrapper {
+    text-align: center;
+  }
+
+  &__text {
+    color: $color-light-blue;
   }
 }

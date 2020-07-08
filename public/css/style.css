@@ -904,7 +904,8 @@ svg {
   margin-left: auto;
   margin-right: auto; }
 
-.section-home-map {
+.section-home-map,
+.section-home-join {
   width: 100%; }
 
 .section-home-promo,
@@ -1012,6 +1013,21 @@ svg {
     margin-bottom: 2rem; }
   .home-map__text {
     color: #d3d3d3; }
+
+.section-home-join {
+  background-color: #fff; }
+
+.join-organizer {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
+  .join-organizer__header {
+    font-weight: 400;
+    color: #000; }
+  .join-organizer__text-wrapper {
+    text-align: center; }
+  .join-organizer__text {
+    color: #0086dc; }
 
 .section-login {
   width: 95%;
