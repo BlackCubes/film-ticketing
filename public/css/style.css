@@ -962,20 +962,24 @@ svg {
       font-weight: 500;
       text-transform: uppercase; }
 
-#map {
+#map,
+#mapHome {
   position: absolute;
   width: 100%;
   top: 0;
   bottom: 0; }
-  #map .marker {
+  #map .marker,
+  #mapHome .marker {
     background-image: url("../img/map_marker.svg");
     background-size: cover;
     width: 3.2rem;
     height: 4rem;
     cursor: pointer; }
-  #map .mapboxgl-popup {
+  #map .mapboxgl-popup,
+  #mapHome .mapboxgl-popup {
     max-width: 25rem; }
-  #map .mapboxgl-popup-content {
+  #map .mapboxgl-popup-content,
+  #mapHome .mapboxgl-popup-content {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     padding: 1.5rem !important;
