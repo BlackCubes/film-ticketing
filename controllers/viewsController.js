@@ -171,7 +171,7 @@ exports.getEventOwnerCreateShow = (req, res) => {
 exports.getEventOwnerGetShows = catchAsync(async (req, res) => {
   const shows = await Show.find({ eventOrganizer: req.user.id });
 
-  res.status(200).render('accountShows', {
+  res.status(200).render('account/viewShows', {
     title: 'My Shows',
     shows
   });
@@ -208,7 +208,7 @@ exports.getAdminUserOptions = (req, res) => {
 exports.getAdminUsers = catchAsync(async (req, res, next) => {
   const optionUsers = await User.find();
 
-  res.status(200).render('accountUsers', {
+  res.status(200).render('account/viewUsers', {
     title: 'Admin - Users',
     optionUsers
   });
@@ -230,7 +230,7 @@ exports.getAdminUserShows = catchAsync(async (req, res, next) => {
 
   const shows = await Show.find({ eventOrganizer: req.params.id });
 
-  res.status(200).render('accountShows', {
+  res.status(200).render('account/viewShows', {
     title: `Admin - Users: ${user.name}, Shows`,
     shows
   });
@@ -267,7 +267,7 @@ exports.getAdminShowOptions = (req, res) => {
 exports.getAdminShows = catchAsync(async (req, res, next) => {
   const shows = await Show.find();
 
-  res.status(200).render('accountShows', {
+  res.status(200).render('account/viewShows', {
     title: 'Admin - Shows',
     shows
   });
@@ -319,7 +319,7 @@ exports.getAdminTheaterOptions = (req, res) => {
 exports.getAdminTheaters = catchAsync(async (req, res, next) => {
   const theaters = await Theater.find();
 
-  res.status(200).render('accountTheaters', {
+  res.status(200).render('account/viewTheaters', {
     title: 'Admin - Theaters',
     theaters
   });
@@ -355,7 +355,7 @@ exports.getAdminShowtimeOptions = (req, res) => {
 exports.getAdminShowtimes = catchAsync(async (req, res, next) => {
   const showtimes = await Showtimes.find();
 
-  res.status(200).render('accountShowtimes', {
+  res.status(200).render('account/viewShowtimes', {
     title: 'Admin - Showtimes',
     showtimes
   });
@@ -391,7 +391,7 @@ exports.getAdminCastCrewOptions = (req, res) => {
 exports.getAdminCastCrews = catchAsync(async (req, res, next) => {
   const castcrews = await CastCrew.find();
 
-  res.status(200).render('accountCastCrews', {
+  res.status(200).render('account/viewCastCrews', {
     title: 'Admin - Cast & Crews',
     castcrews
   });
