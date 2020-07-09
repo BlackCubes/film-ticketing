@@ -224,12 +224,12 @@ body {
   overflow: scroll;
   width: 100%; }
   .row--scroll .row__inner--poster {
-    margin: 5.35714rem 0 !important; }
+    margin: 4.16667rem 0 5.35714rem 0 !important; }
   .row--scroll .row__inner {
     transition: 450ms transform;
     font-size: 0;
     white-space: nowrap;
-    margin: 7.03125rem 0;
+    margin: 3.51563rem 0 7.03125rem 0;
     padding-bottom: 1rem; }
     .row--scroll .row__inner:hover {
       transform: translate3d(-3.75rem, 0, 0); }

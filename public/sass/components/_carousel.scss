@@ -3,14 +3,14 @@
   width: 100%;
 
   .row__inner--poster {
-    margin: ($tile-height-poster / 7) 0 !important;
+    margin: ($tile-height-poster / 9) 0 ($tile-height-poster / 7) 0 !important;
   }
 
   .row__inner {
     transition: $carousel-transition-duration transform;
     font-size: 0;
     white-space: nowrap;
-    margin: ($tile-height / 2) 0;
+    margin: ($tile-height / 4) 0 ($tile-height / 2) 0;
     padding-bottom: 1rem;
 
     &:hover {
