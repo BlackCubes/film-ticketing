@@ -224,7 +224,7 @@ body {
   overflow: scroll;
   width: 100%; }
   .row--scroll .row__inner--poster {
-    margin: 7.5rem 0 !important; }
+    margin: 5.35714rem 0 !important; }
   .row--scroll .row__inner {
     transition: 450ms transform;
     font-size: 0;
