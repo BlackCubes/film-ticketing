@@ -191,7 +191,7 @@ exports.getEventOwnerShow = catchAsync(async (req, res) => {
 
 // -- ADMIN
 exports.getAdminPage = (req, res) => {
-  res.status(200).render('/account/admin', {
+  res.status(200).render('account/admin', {
     title: 'Admin'
   });
 };
@@ -199,7 +199,7 @@ exports.getAdminPage = (req, res) => {
 exports.getAdminUserOptions = (req, res) => {
   const option = 'user';
 
-  res.status(200).render('accountAdminOptions', {
+  res.status(200).render('account/adminOptions', {
     title: 'Admin - Show Options',
     option
   });
@@ -258,7 +258,7 @@ exports.getAdminUserReviews = catchAsync(async (req, res, next) => {
 exports.getAdminShowOptions = (req, res) => {
   const option = 'show';
 
-  res.status(200).render('accountAdminOptions', {
+  res.status(200).render('account/adminOptions', {
     title: 'Admin - Show Options',
     option
   });
@@ -310,7 +310,7 @@ exports.getAdminCreateShow = (req, res) => {
 exports.getAdminTheaterOptions = (req, res) => {
   const option = 'theater';
 
-  res.status(200).render('accountAdminOptions', {
+  res.status(200).render('account/adminOptions', {
     title: 'Admin - Theater Options',
     option
   });
@@ -346,7 +346,7 @@ exports.getAdminCreateTheater = (req, res) => {
 exports.getAdminShowtimeOptions = (req, res) => {
   const option = 'showtime';
 
-  res.status(200).render('accountAdminOptions', {
+  res.status(200).render('account/adminOptions', {
     title: 'Admin - Showtimes Options',
     option
   });
@@ -382,7 +382,7 @@ exports.getAdminCreateShowtime = (req, res) => {
 exports.getAdminCastCrewOptions = (req, res) => {
   const option = 'castcrew';
 
-  res.status(200).render('accountAdminOptions', {
+  res.status(200).render('account/adminOptions', {
     title: 'Admin - Cast & Crew Options',
     option
   });
