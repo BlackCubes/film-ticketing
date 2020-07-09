@@ -119,7 +119,7 @@ exports.getForgotPasswordForm = (req, res) => {
 };
 
 exports.getAccount = (req, res) => {
-  res.status(200).render('account', {
+  res.status(200).render('account/account', {
     title: 'My Account'
   });
 };
