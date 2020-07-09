@@ -1260,6 +1260,21 @@ svg {
   margin-left: auto;
   margin-right: auto; }
 
+.additional-box__organizer-text {
+  display: inline-flex;
+  align-items: center; }
+
+.additional-box__organizer-link {
+  display: inherit;
+  align-items: inherit;
+  margin-left: 2rem; }
+
+.additional-box__organizer-img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-right: 1rem; }
+
 .section-theater-header {
   width: 100%; }
   .section-theater-header .heading-box {
