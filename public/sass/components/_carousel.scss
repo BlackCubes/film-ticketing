@@ -2,6 +2,10 @@
   overflow: scroll;
   width: 100%;
 
+  .row__inner--poster {
+    margin: ($tile-height / 2) 0;
+  }
+
   .row__inner {
     transition: $carousel-transition-duration transform;
     font-size: 0;
