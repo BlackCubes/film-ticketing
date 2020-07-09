@@ -307,7 +307,10 @@ body {
       left: 50%;
       transform: translate(-50%, -50%); }
   .tile-show__link {
+    display: none;
     font-size: 1.6rem; }
+  .tile-show:focus .tile-show__link {
+    display: block; }
   .tile-show:hover .tile-show__details {
     opacity: 1; }
   .tile-show:first-child:hover {
