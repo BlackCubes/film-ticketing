@@ -155,7 +155,7 @@ exports.getMyReviewForm = catchAsync(async (req, res, next) => {
 
   const review = await Review.find({ user: req.user.id, show: show[0].id });
 
-  res.status(200).render('accountUpdateReview', {
+  res.status(200).render('account/updateReview', {
     title: `${show[0].title} Review`,
     review: review[0]
   });
@@ -183,7 +183,7 @@ exports.getEventOwnerShow = catchAsync(async (req, res) => {
     eventOrganizer: req.user.id
   });
 
-  res.status(200).render('accountUpdateShow', {
+  res.status(200).render('account/updateShow', {
     title: `Update ${show.title}`,
     show
   });
@@ -276,7 +276,7 @@ exports.getAdminShows = catchAsync(async (req, res, next) => {
 exports.getAdminShow = catchAsync(async (req, res, next) => {
   const show = await Show.findById(req.params.id);
 
-  res.status(200).render('accountUpdateShow', {
+  res.status(200).render('account/updateShow', {
     title: `Admin - Shows: ${show.title}`,
     show
   });
@@ -331,7 +331,7 @@ exports.getAdminTheater = catchAsync(async (req, res, next) => {
   if (!theater)
     return next(new AppError('There is no theater with that id!', 404));
 
-  res.status(200).render('accountUpdateTheater', {
+  res.status(200).render('account/updateTheater', {
     title: `Admin - Theaters: ${theater.name}`,
     theater
   });
@@ -367,7 +367,7 @@ exports.getAdminShowtime = catchAsync(async (req, res, next) => {
   if (!showtime)
     return next(new AppError('There is no showtime with that id!', 404));
 
-  res.status(200).render('accountUpdateShowtime', {
+  res.status(200).render('account/updateShowtime', {
     title: `Admin - Showtimes: ${showtime.shows[0].title} at ${showtime.theaters[0].name}`,
     showtime
   });
@@ -403,7 +403,7 @@ exports.getAdminCastCrew = catchAsync(async (req, res, next) => {
   if (!castcrew)
     return next(new AppError('There is no cast/crew with that id!', 404));
 
-  res.status(200).render('accountUpdateCastCrew', {
+  res.status(200).render('account/updateCastCrew', {
     title: `Admin - Cast & Crews: ${castcrew.name}`,
     castcrew
   });
