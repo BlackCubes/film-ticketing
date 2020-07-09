@@ -85,3 +85,51 @@
     }
   }
 }
+
+// ACCOUNT
+.footer-account {
+  height: 10rem;
+
+  &__created {
+    height: 10rem;
+
+    &-container {
+      text-align: center;
+      padding: 2rem;
+      list-style: none;
+    }
+
+    &-title {
+      color: $color-grey-blue;
+      padding-bottom: 1rem;
+
+      & > span {
+        font-size: 1.5rem;
+        color: $color-dark-blue-1;
+        text-transform: uppercase;
+      }
+    }
+
+    &-list {
+      padding: 0;
+      margin: 0;
+    }
+
+    &-item {
+      display: inline-block;
+
+      &:nth-child(2)::before {
+        content: ' | ';
+        margin: 0 0.8rem;
+      }
+    }
+
+    &-link {
+      color: $color-grey-blue;
+
+      &:hover {
+        color: rgb(61, 70, 78);
+      }
+    }
+  }
+}

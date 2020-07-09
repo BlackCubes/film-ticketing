@@ -675,6 +675,34 @@ svg {
       display: block;
       padding: 1.5rem 0; }
 
+.footer-account {
+  height: 10rem; }
+  .footer-account__created {
+    height: 10rem; }
+    .footer-account__created-container {
+      text-align: center;
+      padding: 2rem;
+      list-style: none; }
+    .footer-account__created-title {
+      color: #546c84;
+      padding-bottom: 1rem; }
+      .footer-account__created-title > span {
+        font-size: 1.5rem;
+        color: #001b4c;
+        text-transform: uppercase; }
+    .footer-account__created-list {
+      padding: 0;
+      margin: 0; }
+    .footer-account__created-item {
+      display: inline-block; }
+      .footer-account__created-item:nth-child(2)::before {
+        content: ' | ';
+        margin: 0 0.8rem; }
+    .footer-account__created-link {
+      color: #546c84; }
+      .footer-account__created-link:hover {
+        color: #3d464e; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
