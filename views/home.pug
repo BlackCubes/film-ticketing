@@ -62,9 +62,14 @@ block content
           .member__header-wrapper
             h2.member__header.heading-secondary.heading-secondary--gradient-2 Kineto Member
           .member__text-wrapper.u-center-text
+            - memberLink = '/register'
+            - memberTextContent = 'Join'
+            if user
+              - memberLink = '/me'
+              - memberTextContent = 'View Account'
             p.member__text.paragraph.
               Enjoy being a member by getting early notifications of upcoming films, special venues, and discounted tickets. Connect with friends, create events, leave reviews, and manage you favorite films.
-            .member__join: a.btn.btn__join(href="#") Join
+            .member__join: a.btn.btn__join(href=`${memberLink}`)= `${memberTextContent}`
 
       section.section-home-map
         .home-map
@@ -84,10 +89,22 @@ block content
             h2.join-organizer__header.heading-secondary Create Events
 
           .join-organizer__text-wrapper.u-center-text
+            - let organizerLink = '#'
+            if user && user.role === 'event-owner'
+              - organizerLink = '/createMyShow'
+            else if user && user.role === 'admin'
+              - organizerLink = '/admin/create-show'
+
+            - let organizerTextContent = 'Select Organizer'
+            if user && user.role === 'event-owner'
+              - organizerTextContent = 'Create Show'
+            else if user && user.role === 'admin'
+              - organizerTextContent = 'Create Admin Show'
+            
             p.join-organizer__text.paragraph.
               Whether it's a special or secret event, bring the excitement to life by becoming an Event Organizer in coordination with theaters.
           
-            .join-organizer__join: a.btn.btn--blue(href="#") Select Organizer
+            .join-organizer__join: a.btn.btn--blue(href=`${organizerLink}`)= `${organizerTextContent}`
 
         .join-signup
           .join-signup__header-wrapper.u-margin-bottom-small
