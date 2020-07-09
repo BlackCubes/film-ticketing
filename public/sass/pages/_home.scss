@@ -39,6 +39,13 @@
   }
 }
 
+.home-special-venues {
+  &__header {
+    color: $color-white;
+    font-weight: 400;
+  }
+}
+
 .promo {
   background-color: $color-light-blue-2;
   background-image: linear-gradient(
