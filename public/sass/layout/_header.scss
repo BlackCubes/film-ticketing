@@ -224,3 +224,16 @@
     transition: $transition-duration - 0.3;
   }
 }
+
+// ACCOUNT
+.nav-account {
+  height: 8rem;
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+
+    // &-img {}
+  }
+}

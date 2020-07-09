@@ -890,6 +890,13 @@ svg {
     transform: translateY(-50%) scaleY(5);
     transition: 0.2s; }
 
+.nav-account {
+  height: 8rem; }
+  .nav-account__logo {
+    display: flex;
+    justify-content: center;
+    padding: 1rem; }
+
 .user-view {
   width: 95%;
   margin-left: auto;
