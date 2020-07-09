@@ -70,7 +70,7 @@ block content
                 button#ticketShow.btn.btn--blue(data-show-id=`${show.id}` data-theater-id=`${showtime.theaters[0].id}` data-showtime-id=`${showtime.id}`) Buy!
 
               else
-                a.btn.btn__promo.btn--blue(href='/login') Login to buy
+                a.btn.btn__promo.btn--light-silver(href='/login') Login to buy
             .showtimes-box__map.map-container
               // Possibly fix what it shows?
               #map(data-locations=`${JSON.stringify(showtime.theaters)}`)
