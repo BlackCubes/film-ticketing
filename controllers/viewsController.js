@@ -101,7 +101,7 @@ exports.getCastCrew = catchAsync(async (req, res, next) => {
 
 // USER CONTROLLER
 exports.getLoginForm = (req, res) => {
-  res.status(200).render('login', {
+  res.status(200).render('account/login', {
     title: 'My Login'
   });
 };
