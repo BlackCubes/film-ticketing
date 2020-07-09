@@ -304,16 +304,15 @@ body {
     .tile-show__details .tile-show__title {
       position: absolute;
       top: 0;
-      left: 0;
-      transform: translate(-50%, -50%); }
+      left: 0; }
   .tile-show__link {
     font-size: 1.6rem; }
   .tile-show:hover .tile-show__details {
     opacity: 1; }
-    .tile-show:hover .tile-show__details .title-show__title {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%); }
+  .tile-show:hover .tile-show__title {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
   .tile-show:first-child:hover {
     margin-left: 5rem; }
   .tile-show:hover ~ .tile-show {
