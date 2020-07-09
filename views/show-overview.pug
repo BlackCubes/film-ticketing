@@ -103,7 +103,7 @@ block content
         .reviews-box__list-container
           .row--scroll
             .row__inner
-              if show.tickets.filter(ticket => ticket.user.id === user.id).length > 0 && show.reviews.filter(review => review.user.id === user.id).length === 0
+              if user && show.tickets.filter(ticket => ticket.user.id === user.id).length > 0 && show.reviews.filter(review => review.user.id === user.id).length === 0
                 each ticket in show.tickets
                   if Date.now() >= ticket.showtime.endDateTime && show.showtimes.filter(showtime => showtime.id === ticket.showtime.id).length > 0
                     .tile-card
