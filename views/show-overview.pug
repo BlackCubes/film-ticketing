@@ -141,7 +141,33 @@ block content
                     p.tile-card__review-text.average-text= `"${review.review}"`
               
 
-    section.section-user-review
+    section.section-show-additional
+      .additional-box
+        .additional-box__title.u-margin-top-small.u-margin-bottom-small
+          h2.heading-secondary Additional Details
+
+        .additional-box__organizer
+          p.paragraph= `Event Organizerd by: ${show.eventOrganizer[0].name}`
+
+        .additional-box__original-release
+          p.paragraph= `Original Release Date: ${show.originalReleaseDate[0].toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+
+        .additional-box__language
+          - const languageVal = (!show.language) ? 'Film' : show.language
+          p.paragraph= `Language Type: ${languageVal}`
+
+        .additional-box__subtitles
+          - const subtitlesVal = (!show.subtitles) ? 'None' : show.subtitles
+          p.paragraph= `Subtitles: ${subtitlesVal}`
+
+        .additional-box__content
+          - const contentVal = (!show.contentType) ? 'Film' : show.contentType
+          p.paragraph= `Content: ${contentVal}`
+
+        .additional-box__special-venue
+         - const specialVenueVal = (show.specialVenue === true) ? 'Yes' : 'No'
+          p.paragraph= `Special Venue: ${specialVenueVal}`
+
 
     //- each eventOwner in show.eventOrganizer
     //-   h3= eventOwner.name
