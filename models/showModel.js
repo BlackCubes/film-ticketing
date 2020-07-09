@@ -63,8 +63,14 @@ const showSchema = new mongoose.Schema(
       },
       urlSmall: String
     },
-    language: String,
-    subtitles: String,
+    language: {
+      type: String,
+      default: 'English'
+    },
+    subtitles: {
+      type: String,
+      default: 'None'
+    },
     contentType: {
       type: String,
       enum: {
