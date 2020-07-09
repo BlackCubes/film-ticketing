@@ -1,4 +1,4 @@
-extends base
+extends baseAccount
 
 mixin showsCard(show)
   - const url = (user.role === 'admin') ? `/admin/shows/${show.id}` : `/myShows/${show.slug}`
