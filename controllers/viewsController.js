@@ -107,7 +107,7 @@ exports.getLoginForm = (req, res) => {
 };
 
 exports.getRegisterForm = (req, res) => {
-  res.status(200).render('register', {
+  res.status(200).render('account/register', {
     title: 'My Registration'
   });
 };
