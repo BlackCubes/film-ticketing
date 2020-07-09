@@ -272,8 +272,11 @@ body {
     transition: 450ms opacity; }
     .tile__details .tile__title {
       position: absolute;
-      bottom: 0;
-      padding: 1rem; }
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+  .tile__link {
+    font-size: 1.6rem; }
   .tile:hover .tile__details {
     opacity: 1; }
   .tile:first-child:hover {
