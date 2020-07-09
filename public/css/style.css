@@ -676,7 +676,10 @@ svg {
       padding: 1.5rem 0; }
 
 .footer-account {
-  height: 10rem; }
+  height: 10rem;
+  -webkit-box-shadow: 0rem 0.1rem 2rem 0rem rgba(32, 178, 170, 0.7);
+  -moz-box-shadow: 0rem 0.1rem 2rem 0rem rgba(32, 178, 170, 0.7);
+  box-shadow: 0rem 0.1rem 2rem 0rem rgba(32, 178, 170, 0.7); }
   .footer-account__created {
     height: 10rem; }
     .footer-account__created-container {

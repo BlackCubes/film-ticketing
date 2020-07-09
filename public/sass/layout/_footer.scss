@@ -89,6 +89,9 @@
 // ACCOUNT
 .footer-account {
   height: 10rem;
+  -webkit-box-shadow: 0rem 0.1rem 2rem 0rem rgba($color-lightseagreen, 0.7);
+  -moz-box-shadow: 0rem 0.1rem 2rem 0rem rgba($color-lightseagreen, 0.7);
+  box-shadow: 0rem 0.1rem 2rem 0rem rgba($color-lightseagreen, 0.7);
 
   &__created {
     height: 10rem;
