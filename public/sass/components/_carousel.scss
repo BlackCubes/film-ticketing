@@ -116,11 +116,9 @@
 
     .tile-show__title {
       position: absolute;
-      top: 0;
-      left: 0;
-      // top: 50%;
-      // left: 50%;
-      // transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -130,18 +128,6 @@
 
   &:hover &__details {
     opacity: 1;
-
-    // .title-show__title {
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate(-50%, -50%);
-    // }
-  }
-
-  &:hover &__title {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
   &:first-child:hover {
