@@ -94,7 +94,7 @@ block content
                   .tile__media
                     img.tile__img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name}`)
                   .tile__details
-                    .tile__title= castcrew.name
+                    .tile__title: a.tile__link(href=`/castcrew-overview/${castcrew.slug}`)= castcrew.name
 
     section.section-show-reviews
       .reviews-box
