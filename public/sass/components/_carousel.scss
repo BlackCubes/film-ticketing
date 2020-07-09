@@ -123,12 +123,7 @@
   }
 
   &__link {
-    display: none;
     font-size: 1.6rem;
-  }
-
-  &:focus &__link {
-    display: block;
   }
 
   &:hover &__details {
