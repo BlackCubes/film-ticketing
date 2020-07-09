@@ -228,6 +228,9 @@
 // ACCOUNT
 .nav-account {
   height: 10rem;
+  -webkit-box-shadow: 0rem 0.4rem 0.2rem -0.4rem rgba($color-lightseagreen, 0.7);
+  -moz-box-shadow: 0rem 0.4rem 0.2rem -0.4rem rgba($color-lightseagreen, 0.7);
+  box-shadow: 0rem 0.4rem 0.2rem -0.4rem rgba($color-lightseagreen, 0.7);
 
   &__logo {
     display: flex;
