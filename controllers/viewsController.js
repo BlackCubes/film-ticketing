@@ -163,7 +163,7 @@ exports.getMyReviewForm = catchAsync(async (req, res, next) => {
 
 // -- EVENT OWNER
 exports.getEventOwnerCreateShow = (req, res) => {
-  res.status(200).render('createShow', {
+  res.status(200).render('account/createShow', {
     title: 'Create My Show'
   });
 };
@@ -302,7 +302,7 @@ exports.getAdminShowReviews = catchAsync(async (req, res, next) => {
 });
 
 exports.getAdminCreateShow = (req, res) => {
-  res.status(200).render('createShow', {
+  res.status(200).render('account/createShow', {
     title: 'Admin - Create Show'
   });
 };
@@ -338,7 +338,7 @@ exports.getAdminTheater = catchAsync(async (req, res, next) => {
 });
 
 exports.getAdminCreateTheater = (req, res) => {
-  res.status(200).render('createTheater', {
+  res.status(200).render('account/createTheater', {
     title: 'Admin - Create Theater'
   });
 };
@@ -374,7 +374,7 @@ exports.getAdminShowtime = catchAsync(async (req, res, next) => {
 });
 
 exports.getAdminCreateShowtime = (req, res) => {
-  res.status(200).render('createShowtime', {
+  res.status(200).render('account/createShowtime', {
     title: 'Admin - Create Showtime'
   });
 };
