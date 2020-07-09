@@ -217,7 +217,7 @@ exports.getAdminUsers = catchAsync(async (req, res, next) => {
 exports.getAdminUser = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 
-  res.status(200).render('account', {
+  res.status(200).render('account/account', {
     title: `Admin - Users: ${user.name}`,
     user
   });
