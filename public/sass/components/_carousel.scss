@@ -122,6 +122,10 @@
     }
   }
 
+  &__link {
+    font-size: 1.6rem;
+  }
+
   &:hover &__details {
     opacity: 1;
   }
