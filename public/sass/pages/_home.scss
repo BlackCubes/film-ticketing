@@ -36,6 +36,7 @@
   &__header {
     color: $color-white;
     font-weight: 400;
+    letter-spacing: 0.5rem;
   }
 }
 
@@ -45,6 +46,7 @@
   &__header {
     color: $color-white;
     font-weight: 400;
+    letter-spacing: 0.5rem;
   }
 }
 
@@ -256,6 +258,7 @@
   &__header {
     font-weight: 400;
     color: $color-black;
+    letter-spacing: 0.5rem;
   }
 
   &__text-wrapper {
@@ -292,5 +295,6 @@
   &__header {
     color: $color-black;
     font-weight: 400;
+    letter-spacing: 0.1rem;
   }
 }

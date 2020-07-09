@@ -966,13 +966,15 @@ svg {
   margin-top: 5rem; }
   .home-carousel__header {
     color: #fff;
-    font-weight: 400; }
+    font-weight: 400;
+    letter-spacing: 0.5rem; }
 
 .home-special-venues {
   margin-top: 2rem; }
   .home-special-venues__header {
     color: #fff;
-    font-weight: 400; }
+    font-weight: 400;
+    letter-spacing: 0.5rem; }
 
 .promo {
   background-color: #0067aa;
@@ -1090,7 +1092,8 @@ svg {
     padding-bottom: 2rem; }
   .join-organizer__header {
     font-weight: 400;
-    color: #000; }
+    color: #000;
+    letter-spacing: 0.5rem; }
   .join-organizer__text-wrapper {
     text-align: center;
     background-color: #fff;
@@ -1117,7 +1120,8 @@ svg {
     padding: 1rem; }
   .join-signup__header {
     color: #000;
-    font-weight: 400; }
+    font-weight: 400;
+    letter-spacing: 0.1rem; }
 
 .section-login {
   width: 95%;
