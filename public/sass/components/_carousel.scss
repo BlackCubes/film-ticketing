@@ -3,7 +3,7 @@
   width: 100%;
 
   .row__inner--poster {
-    margin: ($tile-height-poster / 2) 0;
+    margin: ($tile-height-poster / 2) 0 !important;
   }
 
   .row__inner {
