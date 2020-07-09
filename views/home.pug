@@ -94,4 +94,7 @@ block content
             h2.join-signup__header.heading-secondary Watch Hundreds of Rare Shows and Special Guests on the Big Screen
 
           .join-signup__button-wrapper.u-center-text
-            .join-signup__button: a.btn.btn--blue(href='#') Start Your Journey
+            - let journeyLink = '/register'
+            if user
+              - journeyLink = '/me'
+            .join-signup__button: a.btn.btn--blue(href=`${journeyLink}`) Start Your Journey
