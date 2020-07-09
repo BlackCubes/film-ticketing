@@ -40,6 +40,8 @@
 }
 
 .home-special-venues {
+  margin-top: 2rem;
+
   &__header {
     color: $color-white;
     font-weight: 400;
@@ -53,6 +55,7 @@
     $color-lightseagreen,
     $color-light-blue-2
   );
+  margin-top: 5rem;
 
   &__image {
     background-image: url(../img/mandalorian-large.jpg);

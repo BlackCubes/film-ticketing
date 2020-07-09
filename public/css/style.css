@@ -968,13 +968,16 @@ svg {
     color: #fff;
     font-weight: 400; }
 
-.home-special-venues__header {
-  color: #fff;
-  font-weight: 400; }
+.home-special-venues {
+  margin-top: 2rem; }
+  .home-special-venues__header {
+    color: #fff;
+    font-weight: 400; }
 
 .promo {
   background-color: #0067aa;
-  background-image: linear-gradient(180deg, #20b2aa, #0067aa); }
+  background-image: linear-gradient(180deg, #20b2aa, #0067aa);
+  margin-top: 5rem; }
   .promo__image {
     background-image: url(../img/mandalorian-large.jpg);
     background-color: #fff;
