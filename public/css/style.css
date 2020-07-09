@@ -962,9 +962,11 @@ svg {
 .section-home-member {
   margin-bottom: 2rem; }
 
-.home-carousel__header {
-  color: #fff;
-  font-weight: 400; }
+.home-carousel {
+  margin-top: 5rem; }
+  .home-carousel__header {
+    color: #fff;
+    font-weight: 400; }
 
 .promo {
   background-color: #0067aa;
