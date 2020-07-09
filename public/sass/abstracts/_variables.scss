@@ -59,6 +59,7 @@ $transition-delay: 0.05s;
 $carousel-transition-duration: 450ms;
 $tile-width: 25rem;
 $tile-height: ($tile-width / (16/9));
+$tile-height-poster: ($tile-width / (9/16));
 $carousel-grow-factor: 1.3;
 $carousel-move-left: -($tile-width * ($carousel-grow-factor - 1) / 2);
 $carousel-move-right: $tile-width * ($carousel-grow-factor - 1);
