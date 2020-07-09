@@ -73,6 +73,7 @@ const showSchema = new mongoose.Schema(
     },
     contentType: {
       type: String,
+      default: 'Film',
       enum: {
         values: ['Film', 'TV'],
         message: 'Give the correct content! Acceptable: Film or TV.'
