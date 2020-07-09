@@ -31,7 +31,7 @@ block content
                 .tile__media
                   img.tile__img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
                 .tile__details
-                  .tile__title= showtime.theaters[0].name
+                  .tile__title: a.tile__link(href='#')= showtime.theaters[0].name
             //- .tile
             //-   .tile__media
             //-     img.tile__img(src="/img/lawrence-large.jpg", alt="Lawrence of Arabia")
