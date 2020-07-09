@@ -152,23 +152,28 @@ block content
               Event Organizerd by: #[a(class='additional-box__organizer-link', href=`mailto:${show.eventOrganizer[0].email}`) #[img(class='additional-box__organizer-img', src=`/img/users/${show.eventOrganizer[0].photo}`, alt=`${show.eventOrganizer[0].name}'s Photo`)] #[span #{show.eventOrganizer[0].name}]]
 
           .additional-box__original-release
-            p.paragraph= `Original Release Date: ${show.originalReleaseDate[0].toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+            p.paragraph.
+              Original Release Date: #[span #{show.originalReleaseDate[0].toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}]
 
           .additional-box__language
             - const languageVal = (!show.language) ? 'Film' : show.language
-            p.paragraph= `Language Type: ${languageVal}`
+            p.paragraph.
+              Language Type: #[span #{languageVal}]
 
           .additional-box__subtitles
             - const subtitlesVal = (!show.subtitles) ? 'None' : show.subtitles
-            p.paragraph= `Subtitles: ${subtitlesVal}`
+            p.paragraph.
+              Subtitles: #[span #{subtitlesVal}]
 
           .additional-box__content
             - const contentVal = (!show.contentType) ? 'Film' : show.contentType
-            p.paragraph= `Content: ${contentVal}`
+            p.paragraph.
+              Content: #[span #{contentVal}]
 
           .additional-box__special-venue
           - const specialVenueVal = (show.specialVenue === true) ? 'Yes' : 'No'
-            p.paragraph= `Special Venue: ${specialVenueVal}`
+            p.paragraph.
+              Special Venue: #[span #{specialVenueVal}]
 
 
     //- each eventOwner in show.eventOrganizer
