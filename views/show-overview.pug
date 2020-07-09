@@ -148,7 +148,7 @@ block content
 
         .additional-box__organizer
           p.paragraph.
-            Event Organizerd by: #[a(href=`mailto:${show.eventOrganizer[0].email}`) #[img(class='additional-box__organizer-img')] #[span #{show.eventOrganizer[0].name}]]
+            Event Organizerd by: #[a(href=`mailto:${show.eventOrganizer[0].email}`) #[img(class='additional-box__organizer-img', src=`/img/users/${show.eventOrganizer[0].photo}`, alt=`${show.eventOrganizer[0].name}'s Photo`)] #[span #{show.eventOrganizer[0].name}]]
 
         .additional-box__original-release
           p.paragraph= `Original Release Date: ${show.originalReleaseDate[0].toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
