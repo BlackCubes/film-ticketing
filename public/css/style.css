@@ -962,6 +962,10 @@ svg {
 .section-home-member {
   margin-bottom: 2rem; }
 
+.home-carousel__header {
+  color: #fff;
+  font-weight: 400; }
+
 .promo {
   background-color: #0067aa;
   background-image: linear-gradient(180deg, #20b2aa, #0067aa); }
