@@ -313,7 +313,8 @@ body {
       left: 50%;
       transform: translate(-50%, -50%); }
   .tile-show__link {
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    text-shadow: 0px 2px 1px black; }
   .tile-show:hover .tile-show__details {
     opacity: 1; }
   .tile-show:first-child:hover {
