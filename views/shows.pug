@@ -32,7 +32,10 @@ block content
             h3.card__runtime-length.heading-tertiary= `${hours}h ${minutes}m`
 
           .card__ratings.u-center-text
-            h3.card__ratings-star.heading-tertiary= `${show.ratingsAverage} Avg. Rating`
+            - let addlInfo = `${show.ratingsAverage} Avg. Rating`
+            if user && title === 'My Tickets'
+              - addlInfo = show.showtimes[0].startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})
+            h3.card__ratings-star.heading-tertiary= `${addlInfo}`
 
           .card__details.u-center-text
             p.card__details-overview.paragraph= show.overview
