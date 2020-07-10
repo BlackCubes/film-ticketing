@@ -39,6 +39,10 @@ block content
         .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Showtimes
         .showtimes-box__theatertime-container.u-center-text
+          - let checkFilter = []
+          if user
+            - checkFilter = show.tickets.map(ticket => (ticket.user.id === user.id) ? ticket.showtime.id : '')
+
           each showtime in show.showtimes
             - console.log('Showtimes: ', showtime)
             .showtimes-box__theatertime
@@ -57,7 +61,7 @@ block content
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
             .showtimes-box__ticket-buy
               // Fix The Btn Helpers in SCSS
-              if user && show.tickets.filter(ticket => ticket.user.id === user.id).length > 0
+              if user && checkFilter.filter(id => id === showtime.id).length > 0
                 button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
 
               else if user && Date.now() > showtime.endDateTime
