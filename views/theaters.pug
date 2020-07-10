@@ -23,7 +23,7 @@ block content
             - var showtimeAns = (theater.hasShowTimes === true) ? 'There ARE shows' : 'NO shows'
 
             h3.card__has-shows-answer.heading-tertiary= showtimeAns
-          .card__details
+          .card__details.u-center-text
             p.card__details-overview.paragraph= `${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
-          .card__footer
+          .card__footer.u-center-text
             a.btn.btn__promo(href=`/theater-overview/${theater.slug}`) More Info
