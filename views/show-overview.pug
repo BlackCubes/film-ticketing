@@ -14,23 +14,31 @@ block content
         .heading-box__background
           .heading-box__background-overlay &nbsp;
           img.heading-box__background-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+
         .heading-box__poster
           img.heading-box__poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+
         .heading-box__data-container
           .heading-box__title
             h2.heading-secondary= show.title
+
           .heading-box__metadata-container
             ul.heading-box__metadata
               li.heading-box__metadata-item.paragraph= show.mpaaRating
+
               if show.genres
                 li.heading-box__metadata-item.paragraph= show.genres
+
               li.heading-box__metadata-item.paragraph= show.contentType
               - const hours = Math.floor(show.durationHours)
               - const minutes = show.duration - hours*60
+
               li.heading-box__metadata-item.paragraph= `${hours}h ${minutes}m`
-        .heading-box__info-container
+
+        .heading-box__info-container.u-center-text
           .heading-box__overview
             p.paragraph= show.overview
+
           .heading-box__buy
             a.btn.btn__promo(href="#showtimes") See showtimes
 
