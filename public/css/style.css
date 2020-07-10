@@ -1229,6 +1229,7 @@ svg {
   margin-left: auto;
   margin-right: auto; }
 
+.section-show-showtimes,
 .section-show-synopsis,
 .section-show-castcrew,
 .section-show-reviews,
@@ -1237,8 +1238,7 @@ svg {
   margin-left: auto;
   margin-right: auto; }
 
-.section-show-header,
-.section-show-showtimes {
+.section-show-header {
   width: 100%; }
 
 .section-show-additional {
@@ -1306,9 +1306,7 @@ svg {
     margin-right: auto;
     margin-top: 1rem; }
   .showtimes-box__map {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
     margin-top: 1rem; }
 
 .synopsis-box {
