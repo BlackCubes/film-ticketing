@@ -973,6 +973,9 @@ svg {
   margin-left: auto;
   margin-right: auto; }
 
+.section-castcrew-resume {
+  margin-bottom: 3rem; }
+
 .heading-box__photo {
   position: absolute;
   top: 4rem;
@@ -994,6 +997,11 @@ svg {
   right: 0;
   margin-left: auto;
   margin-right: auto; }
+
+.about-box {
+  margin-top: 5rem; }
+  .about-box__description {
+    margin-top: 3rem; }
 
 .section-forgotpass {
   width: 95%;

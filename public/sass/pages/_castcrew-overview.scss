@@ -14,6 +14,10 @@
   margin-right: auto;
 }
 
+.section-castcrew-resume {
+  margin-bottom: 3rem;
+}
+
 .heading-box {
   &__photo {
     position: absolute;
@@ -40,5 +44,13 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+.about-box {
+  margin-top: 5rem;
+
+  &__description {
+    margin-top: 3rem;
   }
 }
