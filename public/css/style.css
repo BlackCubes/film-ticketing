@@ -1308,10 +1308,8 @@ svg {
     width: 100%;
     margin-top: 1rem; }
 
-.synopsis-box {
-  margin-top: 7rem; }
-  .synopsis-box__synopsis {
-    margin-top: 3rem; }
+.synopsis-box__synopsis {
+  margin-top: 3rem; }
 
 .castcrew-box {
   margin-top: 7rem; }
