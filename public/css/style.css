@@ -1274,14 +1274,24 @@ svg {
   .heading-box__overview {
     padding: 1rem; }
 
-.showtimes-box__theatertime-theater-name {
-  letter-spacing: 0.5rem; }
+.showtimes-box {
+  margin-top: 5rem; }
+  .showtimes-box__theatertime-theater-name {
+    letter-spacing: 0.5rem; }
+  .showtimes-box__ticket-buy {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem; }
+  .showtimes-box__map {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem; }
 
-.showtimes-box__map {
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2rem; }
+.synopsis-box,
+.castcrew-box {
+  margin-top: 7rem; }
 
 .additional-box__organizer-link {
   display: inline-flex;
