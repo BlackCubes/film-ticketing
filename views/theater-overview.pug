@@ -37,8 +37,6 @@ block content
           - testFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
           - console.log('Ticket: ', testFilter)
           each showtime in theater.showtimes
-            if user && testFilter.filter(id => id === showtime.id).length > 0
-              - console.log('Filter Test: True')
             //- - console.log('Showtime: ', showtime)
             .showtimes-box__theatertime
               .showtimes-box__theatertime-poster
@@ -61,7 +59,20 @@ block content
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
             .showtimes-box__ticket-buy
               // Fix the Btn Helpers in SCSS
-              a.btn.btn__promo(href="#") Buy
+              if user && testFilter.filter(id => id === showtime.id).length > 0
+                button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
+
+              else if user && Date.now() > showtime.endDateTime
+                button#ticketExpired.btn.btn--red(disabled) Expired!
+
+              else if user && showtime.soldOut
+                button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
+
+              else if user && Date.now() <= showtime.startDateTime && !showtime.soldOut
+                button#ticketShow.btn.btn--blue(data-show-id=`${showtime.shows[0].id}` data-theater-id=`${theater.id}` data-showtime-id=`${showtime.id}`) Buy!
+
+              else
+                a.btn.btn__promo.btn--light-silver(href='/login') Login to buy
 
     section.section-theater-location
       .location-box
