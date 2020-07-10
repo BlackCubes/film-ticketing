@@ -149,19 +149,19 @@ block content
         .table.paragraph
           .tbody
             .additional-box__organizer.trow
-              .additional-box__organizer-title.td Event Organizerd by:
+              .additional-box__organizer-title.td Event Organizerd:
 
               .additional-box__organizer-value.td.
                 #[a(class='additional-box__organizer-link', href=`mailto:${show.eventOrganizer[0].email}`) #[img(class='additional-box__organizer-img', src=`/img/users/${show.eventOrganizer[0].photo}`, alt=`${show.eventOrganizer[0].name}'s Photo`)] #[span #{show.eventOrganizer[0].name}]]
             
             .additional-box__original-release.trow
-              .additional-box__original-release-title.td Original Release Date:
+              .additional-box__original-release-title.td Original Release:
 
               .additional-box__original-release-value.td= `${show.originalReleaseDate[0].toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
 
             .additional-box__language.trow
               - const languageVal = (!show.language) ? 'Film' : show.language
-              .additional-box__language-title.td Language Type:
+              .additional-box__language-title.td Language:
 
               .additional-box__language-value.td= `${languageVal}`
 
