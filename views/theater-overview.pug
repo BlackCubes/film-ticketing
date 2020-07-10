@@ -34,7 +34,7 @@ block content
         .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Showtimes
         .showtimes-box__theatertime-container.u-center-text
-          - testFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? 'Yes' : 'No')
+          - testFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
           - console.log('Ticket: ', testFilter)
           each showtime in theater.showtimes
             //- - console.log('Showtime: ', showtime)
