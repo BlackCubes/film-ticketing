@@ -934,6 +934,19 @@ svg {
     .nav-account__logo-img {
       width: 20rem; }
 
+.table {
+  display: table;
+  width: 100%; }
+
+.tbody {
+  display: table-row-group; }
+
+.trow {
+  display: table-row; }
+
+.td {
+  display: table-cell; }
+
 .user-view {
   width: 95%;
   margin-left: auto;
