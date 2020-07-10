@@ -23,6 +23,11 @@ router.get(
   authController.isLoggedIn,
   viewsController.getShow
 );
+router.get(
+  '/special-venues',
+  authController.isLoggedIn,
+  viewsController.getSpecialvenues
+);
 
 // THEATER ROUTES
 router.get('/theaters', authController.isLoggedIn, viewsController.getTheaters);
