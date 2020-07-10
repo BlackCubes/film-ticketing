@@ -1332,6 +1332,9 @@ svg {
   margin-left: auto;
   margin-right: auto; }
 
+.section-theater-about {
+  margin-bottom: 5rem; }
+
 .heading-box__logo {
   position: absolute;
   top: 4rem;
@@ -1346,6 +1349,11 @@ svg {
 .heading-box__theater-info-container {
   position: absolute;
   bottom: 1rem; }
+
+.location-box {
+  margin-top: 5rem; }
+  .location-box__map {
+    margin-top: 3rem; }
 
 .showtimes-box__theatertime-poster-img {
   width: 100%;

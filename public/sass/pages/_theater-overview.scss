@@ -14,6 +14,10 @@
   margin-right: auto;
 }
 
+.section-theater-about {
+  margin-bottom: 5rem;
+}
+
 .heading-box {
   &__logo {
     position: absolute;
@@ -31,6 +35,14 @@
   &__theater-info-container {
     position: absolute;
     bottom: 1rem;
+  }
+}
+
+.location-box {
+  margin-top: 5rem;
+
+  &__map {
+    margin-top: 3rem;
   }
 }
 
