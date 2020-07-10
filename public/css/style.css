@@ -1276,6 +1276,8 @@ svg {
 
 .showtimes-box {
   margin-top: 5rem; }
+  .showtimes-box__theatertime-container {
+    margin-top: 3rem; }
   .showtimes-box__theatertime-theater-name {
     letter-spacing: 0.5rem; }
   .showtimes-box__ticket-buy {
@@ -1289,9 +1291,16 @@ svg {
     margin-right: auto;
     margin-top: 1rem; }
 
-.synopsis-box,
+.synopsis-box {
+  margin-top: 7rem; }
+  .synopsis-box__synopsis {
+    margin-top: 3rem; }
+
 .castcrew-box {
   margin-top: 7rem; }
+
+.additional-box__container {
+  margin-top: 3rem; }
 
 .additional-box__organizer-link {
   display: inline-flex;

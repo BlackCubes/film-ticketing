@@ -106,6 +106,10 @@
 .showtimes-box {
   margin-top: 5rem;
 
+  &__theatertime-container {
+    margin-top: 3rem;
+  }
+
   // FIX TRIANGLE!!
   &__theatertime {
     &-theater {
@@ -130,12 +134,23 @@
   }
 }
 
-.synopsis-box,
+.synopsis-box {
+  margin-top: 7rem;
+
+  &__synopsis {
+    margin-top: 3rem;
+  }
+}
+
 .castcrew-box {
   margin-top: 7rem;
 }
 
 .additional-box {
+  &__container {
+    margin-top: 3rem;
+  }
+
   &__organizer {
     &-link {
       display: inline-flex;
