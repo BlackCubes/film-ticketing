@@ -12,20 +12,26 @@ block content
         .heading-box__background
           .heading-box__background-overlay &nbsp;
           img.heading-box__background-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
+
         .heading-box__logo
           img.heading-box__poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
+
         .heading-box__theater-data-container
           .heading-box__title
             h2.heading-secondary= theater.name
+
           .heading-box__metadata-container
             ul.heading-box__metadata
               li.heading-box__metadata-item.paragraph= `${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
+
               li.heading-box__metadata-item.paragraph= `${theater.phone}`
+
         .heading-box__theater-info-container
           .heading-box__overview
             - var showtimeAns = (theater.hasShowTimes === true) ? 'Yes' : 'No'
             - var ticketAns = (theater.isTicketing === true) ? 'Yes' : 'No'
             p.paragraph= `A ${theater.chainName} chain. Has showtimes: ${showtimeAns}. Has tickets: ${ticketAns}.`
+            
           .heading-box__buy
             a.btn.btn__promo(href="#showtimes") See showtimes
 
@@ -34,17 +40,20 @@ block content
         .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Showtimes
         .showtimes-box__theatertime-container.u-center-text
+
           - testFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
-          - console.log('Ticket: ', testFilter)
+
           each showtime in theater.showtimes
             //- - console.log('Showtime: ', showtime)
             .showtimes-box__theatertime
               .showtimes-box__theatertime-poster
                 a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${showtime.shows[0].slug}`)
                   img.showtimes-box__theatertime-poster-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
+
               .showtimes-box__theatertime-theater.u-margin-bottom-small
                 // FIX BEM
                 h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.shows[0].title
+
               .showtimes-box__metadata-container
                 ul.showtimes-box__metadata
                   li.showtimes-box__metadata-item.paragraph= showtime.shows[0].mpaaRating
@@ -53,10 +62,13 @@ block content
                   -const minutes = showtime.shows[0].duration - hours*60
 
                   li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+
               .showtimes-box__theatertime-date
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+
               .showtimes-box__theatertime-time
                 p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
+
             .showtimes-box__ticket-buy
               // Fix the Btn Helpers in SCSS
               if user && testFilter.filter(id => id === showtime.id).length > 0
@@ -78,6 +90,7 @@ block content
       .location-box
         .location-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Location
+
         .location-box__map.map-container
           // Possibly fix what it shows?
           - const theaterArrObj = [{ geo: theater.geo, name: theater.name }]
@@ -87,6 +100,7 @@ block content
       .about-box
         .about-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary About
+
         .about-box__description
           - const biography = theater.description.split('\n');
           each bio in biography
