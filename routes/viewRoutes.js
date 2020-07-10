@@ -26,7 +26,7 @@ router.get(
 router.get(
   '/special-venues',
   authController.isLoggedIn,
-  viewsController.getSpecialvenues
+  viewsController.getSpecialVenues
 );
 
 // THEATER ROUTES
