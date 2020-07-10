@@ -69,6 +69,12 @@ theaterSchema.virtual('showtimes', {
   localField: '_id'
 });
 
+theaterSchema.virtual('tickets', {
+  ref: 'Ticket',
+  foreignField: 'theater',
+  localField: '_id'
+});
+
 // DOCUMENT MIDDLEWARE
 theaterSchema.pre('save', function(next) {
   this.slug = slugify(this.name, { lower: true });
