@@ -40,7 +40,9 @@ block content
         .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Showtimes
         .showtimes-box__theatertime-container.u-center-text
-          - checkFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
+          - let checkFilter = []
+          if user
+            - checkFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
 
           .row--scroll
             .row__inner--ticket
