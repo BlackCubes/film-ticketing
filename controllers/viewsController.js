@@ -142,7 +142,9 @@ exports.getMyTickets = catchAsync(async (req, res, next) => {
   const tickets = await Ticket.find({ user: req.user.id });
 
   const showIds = tickets.map(el => el.show);
-  const shows = await Show.find({ _id: { $in: showIds } });
+  const shows = await Show.find({ _id: { $in: showIds } }).populate(
+    'showtimes'
+  );
 
   // Check if you can reuse other codes!!!
   res.status(200).render('shows', {
