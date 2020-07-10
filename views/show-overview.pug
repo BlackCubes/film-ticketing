@@ -43,39 +43,42 @@ block content
           if user
             - checkFilter = show.tickets.map(ticket => (ticket.user.id === user.id) ? ticket.showtime.id : '')
 
-          each showtime in show.showtimes
-            - console.log('Showtimes: ', showtime)
-            .showtimes-box__theatertime
-              .showtimes-box__theatertime-poster
-                a.showtimes-box__theatertime-poster-link.picture-link(href=`/theater-overview/${showtime.theaters[0].slug}`)
-                  img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
-              .showtimes-box__theatertime-theater.u-margin-bottom-small
-                // FIX BEM
-                h3.showtimes-box__theatertime-theater-name.heading-tertiary= `${showtime.theaters[0].name}`
-              .showtimes-box__metadata-container
-                ul.showtimes-box__metadata
-                  li.showtimes-box__metadata-item.paragraph= `${showtime.theaters[0].address}, ${showtime.theaters[0].city}, ${showtime.theaters[0].state} ${showtime.theaters[0].zipCode}`
-              .showtimes-box__theatertime-date
-                p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
-              .showtimes-box__theatertime-time
-                p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
-              .showtimes-box__ticket-buy
-                // Fix The Btn Helpers in SCSS
-                if user && checkFilter.filter(id => id === showtime.id).length > 0
-                  button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
+          .row--scroll
+            .row__inner--ticket
+              each showtime in show.showtimes
+                - console.log('Showtimes: ', showtime)
+                .tile-ticket
+                  .showtimes-box__theatertime
+                    .showtimes-box__theatertime-poster
+                      a.showtimes-box__theatertime-poster-link.picture-link(href=`/theater-overview/${showtime.theaters[0].slug}`)
+                        img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
+                    .showtimes-box__theatertime-theater.u-margin-bottom-small
+                      // FIX BEM
+                      h3.showtimes-box__theatertime-theater-name.heading-tertiary= `${showtime.theaters[0].name}`
+                    .showtimes-box__metadata-container
+                      ul.showtimes-box__metadata
+                        li.showtimes-box__metadata-item.paragraph= `${showtime.theaters[0].address}, ${showtime.theaters[0].city}, ${showtime.theaters[0].state} ${showtime.theaters[0].zipCode}`
+                    .showtimes-box__theatertime-date
+                      p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+                    .showtimes-box__theatertime-time
+                      p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
+                    .showtimes-box__ticket-buy
+                      // Fix The Btn Helpers in SCSS
+                      if user && checkFilter.filter(id => id === showtime.id).length > 0
+                        button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
 
-                else if user && Date.now() > showtime.endDateTime
-                  button#ticketExpired.btn.btn--red(disabled) Expired!
-                
-                else if user && showtime.soldOut
-                  button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
+                      else if user && Date.now() > showtime.endDateTime
+                        button#ticketExpired.btn.btn--red(disabled) Expired!
+                      
+                      else if user && showtime.soldOut
+                        button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
 
-                else if user && Date.now() <= showtime.startDateTime && !showtime.soldOut
-                  button#ticketShow.btn.btn--blue(data-show-id=`${show.id}` data-theater-id=`${showtime.theaters[0].id}` data-showtime-id=`${showtime.id}`) Buy!
+                      else if user && Date.now() <= showtime.startDateTime && !showtime.soldOut
+                        button#ticketShow.btn.btn--blue(data-show-id=`${show.id}` data-theater-id=`${showtime.theaters[0].id}` data-showtime-id=`${showtime.id}`) Buy!
 
-                else
-                  a.btn.btn__promo.btn--light-silver(href='/login') Login to buy
-                  
+                      else
+                        a.btn.btn__promo.btn--light-silver(href='/login') Login to buy
+
             .showtimes-box__map.map-container
               // Possibly fix what it shows?
               #map(data-locations=`${JSON.stringify(showtime.theaters)}`)
