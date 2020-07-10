@@ -9,6 +9,14 @@
 
 .trow {
   display: table-row;
+
+  & > .td:first-child {
+    float: left;
+  }
+
+  & > .td:last-child {
+    float: right;
+  }
 }
 
 .td {
