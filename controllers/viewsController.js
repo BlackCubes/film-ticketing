@@ -28,6 +28,15 @@ exports.getShows = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getSpecialVenues = catchAsync(async (req, res, next) => {
+  const shows = await Show.find({ specialVenue: true });
+
+  res.status(200).render('shows', {
+    title: 'Special Venues',
+    shows
+  });
+});
+
 exports.getShow = catchAsync(async (req, res, next) => {
   const show = await Show.findOne({ slug: req.params.slug })
     .populate({
