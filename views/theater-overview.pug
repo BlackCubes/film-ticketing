@@ -37,6 +37,8 @@ block content
           - testFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
           - console.log('Ticket: ', testFilter)
           each showtime in theater.showtimes
+            if user && testFilter.filter(id => id === showtime.id).length > 0
+              - console.log('Filter Test: True')
             //- - console.log('Showtime: ', showtime)
             .showtimes-box__theatertime
               .showtimes-box__theatertime-poster
