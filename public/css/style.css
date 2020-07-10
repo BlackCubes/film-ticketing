@@ -1221,6 +1221,9 @@ svg {
 .section-show-showtimes {
   width: 100%; }
 
+.section-show-additional {
+  margin-bottom: 5rem; }
+
 .heading-box {
   position: relative;
   width: 100%; }
