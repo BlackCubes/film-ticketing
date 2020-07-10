@@ -2,8 +2,8 @@ extends base
 
 block append head
   script(src='https://js.stripe.com/v3/')
-  script(src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js')
-  link(href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet')
+  //- script(src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js')
+  //- link(href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet')
   //- script(src='/js/mapbox.js')
 
 block content
@@ -79,9 +79,9 @@ block content
                       else
                         a.btn.btn__promo.btn--light-silver(href='/login') Login to buy
 
-                  .showtimes-box__map.map-container
-                    // Possibly fix what it shows?
-                    #map(data-locations=`${JSON.stringify(showtime.theaters)}`)
+                  //- .showtimes-box__map.map-container
+                  //-   // Possibly fix what it shows?
+                  //-   #map(data-locations=`${JSON.stringify(showtime.theaters)}`)
 
     section.section-show-synopsis
       .synopsis-box
