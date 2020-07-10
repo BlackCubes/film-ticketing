@@ -36,7 +36,7 @@ block content
         .showtimes-box__theatertime-container.u-center-text
           - console.log('Theater: ', theater)
           each showtime in theater.showtimes
-            - console.log('Showtime: ', showtime)
+            //- - console.log('Showtime: ', showtime)
             .showtimes-box__theatertime
               .showtimes-box__theatertime-poster
                 a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${showtime.shows[0].slug}`)
