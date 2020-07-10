@@ -64,10 +64,15 @@ exports.getTheaters = catchAsync(async (req, res, next) => {
 });
 
 exports.getTheater = catchAsync(async (req, res, next) => {
-  const theater = await Theater.findOne({ slug: req.params.slug }).populate({
-    path: 'showtimes',
-    fields: 'shows startDateTime endDateTime' // Fix security issues
-  });
+  const theater = await Theater.findOne({ slug: req.params.slug })
+    .populate({
+      path: 'showtimes',
+      fields: 'shows startDateTime endDateTime' // Fix security issues
+    })
+    .populate({
+      path: 'tickets',
+      fields: 'show user'
+    });
 
   if (!theater) {
     return next(new AppError('There is no theater with that name!', 404));
