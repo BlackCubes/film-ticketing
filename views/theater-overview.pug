@@ -40,7 +40,7 @@ block content
         .showtimes-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Showtimes
         .showtimes-box__theatertime-container.u-center-text
-          - testFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
+          - checkFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
 
           .row--scroll
             .row__inner--ticket
@@ -72,7 +72,7 @@ block content
 
                     .showtimes-box__ticket-buy
                       // Fix the Btn Helpers in SCSS
-                      if user && testFilter.filter(id => id === showtime.id).length > 0
+                      if user && checkFilter.filter(id => id === showtime.id).length > 0
                         button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
 
                       else if user && Date.now() > showtime.endDateTime
