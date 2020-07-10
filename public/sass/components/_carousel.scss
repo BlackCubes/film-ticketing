@@ -8,6 +8,9 @@
 
   .row__inner--ticket {
     transition: $carousel-transition-duration transform;
+    white-space: nowrap;
+    margin: ($tile-height / 4) 0 ($tile-height / 2) 0;
+    padding-bottom: 1rem;
   }
 
   .row__inner {
