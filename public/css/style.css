@@ -207,6 +207,12 @@ body {
       width: 100%; }
     .card__poster:after, .card__logo:after {
       left: -50%; }
+  .card__page-title-wrapper {
+    margin-top: 7rem;
+    margin-bottom: 3rem; }
+  .card__page-title {
+    font-weight: 400;
+    letter-spacing: 1rem; }
   .card__header {
     color: #87cefa; }
   .card__mpaa, .card__runtime, .card__has-tickets {

@@ -69,6 +69,16 @@
   //   margin-top: 1rem;
   // }
 
+  &__page-title-wrapper {
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+  }
+
+  &__page-title {
+    font-weight: 400;
+    letter-spacing: 1rem;
+  }
+
   &__header {
     color: #87cefa; // lightskyblue
   }
