@@ -13,6 +13,24 @@
 //-   #circleNavOverlay.circlenav__overlay
 .circlenav-wrapper
   svg#menu(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-100 -100 700 350")
+    defs
+      linearGradient(id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%")
+        stop(offset="0%" style="stop-color:rgb(32, 178, 170);stop-opacity:1")
+
+        stop(offset="100%" style="stop-color:rgb(0, 103, 170);stop-opacity:1")
+
+      linearGradient(id="gradBlueShadow" x1="0%" y1="0%" x2="100%" y2="0%")
+        stop(offset="0%" style="stop-color:rgb(32, 178, 170);stop-opacity:.95")
+
+        stop(offset="100%" style="stop-color:rgb(0, 103, 170);stop-opacity:.95")
+
+      linearGradient(id="gradGreen" x1="0%" y1="0%" x2="0%" y2="100%")
+        stop(offset="0%" style="stop-color:rgb(32, 178, 170);stop-opacity:1")
+
+        stop(offset="100%" style="stop-color:rgb(0, 120, 105);stop-opacity:1")
+
+        stop(offset="50%" style="stop-color:rgb(211, 211, 211);stop-opacity:.8")
+
     style.
       #menu {
         display: block;
@@ -26,17 +44,17 @@
 
       .item .sector {
         transition: all .1s linear;
-        fill: #fff;
-        stroke: #111;
+        fill: url(#gradBlue);
+        stroke: url(#gradGreen);
       }
 
 
       .item:hover .sector {
-        fill: #eee;
+        fill: url(#gradBlueShadow);
       }
 
       .menu-trigger {
-        fill: #EA2A55;
+        fill: url(#gradGreen);
         pointer-events: auto; /* KEEP THIS to make sure it stays clickable even when SVG's pointer events is disabled */
       }
 
@@ -58,19 +76,19 @@
           - userTicketsRoute = (user.role === 'event-owner') ? '#' : '/myTickets'
           - userReviewsRoute = (user.role === 'event-owner') ? '#' : '/myReviews'
 
-        text(fill="#222" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.8rem" font-weight="700")= userRole
+        text(fill="#fffafa" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.6rem" font-weight="400")= userRole
 
       symbol#icon-2.icon.icon-(viewBox="0 0 40 40")
-        text(fill="#222" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.8rem" font-weight="700") Billing
+        text(fill="#fffafa" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.6rem" font-weight="400") Billing
 
       symbol#icon-3.icon.icon-(viewBox="0 0 40 40")
-        text(fill="#222" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.8rem" font-weight="700") Reviews
+        text(fill="#fffafa" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.6rem" font-weight="400") Reviews
       
       symbol#icon-4.icon.icon-(viewBox="0 0 40 40")
-        text(fill="#222" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.8rem" font-weight="700") Tickets
+        text(fill="#fffafa" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.6rem" font-weight="400") Tickets
       
       symbol#icon-5.icon.icon-(viewBox="0 0 40 40")
-        text(fill="#222" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.8rem" font-weight="700") Settings
+        text(fill="#fffafa" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.6rem" font-weight="400") Settings
 
     g#itemsContainer
       a#item-1.item(xlink:href=`${userRoute}` href=`${userRoute}` xlink:title="" role="link" tabindex="0" xlink:target="_parent" target="_parent" transform="matrix(1,0,0,1,0,0)" data-svg-origin="250 250")
