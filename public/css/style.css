@@ -366,7 +366,6 @@ body {
 .tile-ticket {
   position: relative;
   display: inline-block;
-  margin-right: 1rem;
   transition: 450ms all;
   transform-origin: center left; }
 
