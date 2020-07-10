@@ -225,6 +225,8 @@ body {
   width: 100%; }
   .row--scroll .row__inner--poster {
     margin: 3.40909rem 0 5.35714rem 0 !important; }
+  .row--scroll .row__inner--ticket {
+    transition: 450ms transform; }
   .row--scroll .row__inner {
     transition: 450ms transform;
     font-size: 0;

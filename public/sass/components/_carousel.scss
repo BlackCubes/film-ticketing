@@ -6,6 +6,10 @@
     margin: ($tile-height-poster / 11) 0 ($tile-height-poster / 7) 0 !important;
   }
 
+  .row__inner--ticket {
+    transition: $carousel-transition-duration transform;
+  }
+
   .row__inner {
     transition: $carousel-transition-duration transform;
     font-size: 0;
