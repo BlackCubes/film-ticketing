@@ -1280,7 +1280,8 @@ svg {
 .showtimes-box__map {
   width: 95%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-top: 2rem; }
 
 .additional-box__organizer-link {
   display: inline-flex;
