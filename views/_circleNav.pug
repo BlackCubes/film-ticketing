@@ -69,12 +69,15 @@
       symbol#icon-1.icon.icon-(viewBox="0 0 40 40")
         - let userRole = 'Organizer'
         - let userRoute = '#'
-        - let userReviewsRoute = '#'
-        if user
-          - userRole = (user.role === 'admin') ? 'Admin' : 'Organizer'
-          - userRoute = (user.role === 'admin') ? '/admin' : '/myShows'
-          - userTicketsRoute = (user.role === 'event-owner') ? '#' : '/myTickets'
-          - userReviewsRoute = (user.role === 'event-owner') ? '#' : '/myReviews'
+        - let userReviewsRoute = '/myReviews'
+        - let userTicketRoute = '/myTickets'
+        if user && user.role === 'admin'
+          - userRole = 'Admin'
+          - userRoute = '/admin'
+        if user && user.role === 'event-owner'
+          - userRoute = '/myShows'
+          - userTicketsRoute = '#'
+          - userReviewsRoute = '#'
 
         text(fill="#fffafa" x="50%" y="50%" dy=".3em" text-anchor="middle" font-size="1.6rem" font-weight="400" letter-spacing=".2rem")= userRole
 
