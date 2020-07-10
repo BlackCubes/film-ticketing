@@ -360,6 +360,13 @@ body {
   .tile-card:hover ~ .tile-card {
     transform: translate3d(7.5rem, 0, 0); }
 
+.tile-ticket {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+  transition: 450ms all;
+  transform-origin: center left; }
+
 .dropdown {
   font-family: inherit;
   font-size: 1.5rem;

@@ -210,3 +210,11 @@
     transform: translate3d($carousel-move-right, 0, 0);
   }
 }
+
+.tile-ticket {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+  transition: $carousel-transition-duration all;
+  transform-origin: center left;
+}
