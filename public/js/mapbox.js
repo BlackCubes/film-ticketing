@@ -49,6 +49,8 @@ export const displayMap = locations => {
       right: 50
     }
   });
+
+  map.resize();
 };
 
 export const displayHomeMap = () => {

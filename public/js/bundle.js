@@ -12352,6 +12352,7 @@ var displayMap = function displayMap(locations) {
       right: 50
     }
   });
+  map.resize();
 };
 
 exports.displayMap = displayMap;
