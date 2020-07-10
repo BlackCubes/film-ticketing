@@ -944,6 +944,8 @@ svg {
 .trow {
   display: table-row; }
   .trow > .td:first-child {
+    color: #546c84;
+    font-weight: 700;
     float: left; }
   .trow > .td:last-child {
     float: right; }
