@@ -13,17 +13,29 @@ block content
             //- Add new link helper class for cards
             a.card__poster-link(href=`/show-overview/${show.slug}`)
               img.card__poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+
           .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
             h2.card__header.heading-secondary= show.title
+
+          - console.log(show)
+
+          if user && title === 'My Tickets'
+            .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
+              h3.card__header.heading-tertiary= `Testing`
+
           .card__mpaa.u-center-text
             h3.card__mpaa-type.heading-tertiary= show.mpaaRating
+
           .card__runtime.u-center-text
             - const hours = Math.floor(show.durationHours)
             - const minutes = show.duration - hours*60
             h3.card__runtime-length.heading-tertiary= `${hours}h ${minutes}m`
+
           .card__ratings.u-center-text
             h3.card__ratings-star.heading-tertiary= `${show.ratingsAverage} Avg. Rating`
+
           .card__details.u-center-text
             p.card__details-overview.paragraph= show.overview
+
           .card__footer.u-center-text
             a.btn.btn__promo(href=`/show-overview/${show.slug}`) More Info
