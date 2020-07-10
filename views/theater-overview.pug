@@ -31,7 +31,7 @@ block content
             - var showtimeAns = (theater.hasShowTimes === true) ? 'Yes' : 'No'
             - var ticketAns = (theater.isTicketing === true) ? 'Yes' : 'No'
             p.paragraph= `A ${theater.chainName} chain. Has showtimes: ${showtimeAns}. Has tickets: ${ticketAns}.`
-            
+
           .heading-box__buy
             a.btn.btn__promo(href="#showtimes") See showtimes
 
@@ -44,7 +44,6 @@ block content
           - testFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
 
           each showtime in theater.showtimes
-            //- - console.log('Showtime: ', showtime)
             .showtimes-box__theatertime
               .showtimes-box__theatertime-poster
                 a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${showtime.shows[0].slug}`)
