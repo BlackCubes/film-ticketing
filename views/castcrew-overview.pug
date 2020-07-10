@@ -59,6 +59,6 @@ block content
               p.paragraph.u-uppercase-text= `${castcrew.shows[0].ratingsAverage} avg. rating`
             .showtimes-box__theatertime-date
               p.paragraph= `Released on ${castcrew.shows[0].originalReleaseDate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
-          .showtimes-box__ticket-buy
-            // Fix the Btn Helpers in SCSS, and change class names
-            a.btn.btn__promo(href=`/show-overview/${castcrew.shows[0].slug}`) View
+            .showtimes-box__ticket-buy
+              // Fix the Btn Helpers in SCSS, and change class names
+              a.btn.btn__promo(href=`/show-overview/${castcrew.shows[0].slug}`) View
