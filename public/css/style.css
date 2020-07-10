@@ -1362,10 +1362,8 @@ svg {
   position: absolute;
   bottom: 1rem; }
 
-.location-box {
-  margin-top: 5rem; }
-  .location-box__map {
-    margin-top: 3rem; }
+.location-box__map {
+  margin-top: 3rem; }
 
 .showtimes-box__theatertime-poster-img {
   width: 100%;
