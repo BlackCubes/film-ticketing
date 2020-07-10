@@ -118,16 +118,10 @@
 
 .additional-box {
   &__organizer {
-    // &-text {
-    //   display: inline-flex;
-    //   align-items: center;
-    // }
-
-    // &-link {
-    //   display: inherit;
-    //   align-items: inherit;
-    //   margin-left: 2rem;
-    // }
+    &-link {
+      display: inline-flex;
+      align-items: center;
+    }
 
     &-img {
       width: 3rem;

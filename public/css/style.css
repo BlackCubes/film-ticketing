@@ -943,6 +943,10 @@ svg {
 
 .trow {
   display: table-row; }
+  .trow > .td:first-child {
+    float: left; }
+  .trow > .td:last-child {
+    float: right; }
 
 .td {
   display: table-cell; }
@@ -1272,6 +1276,10 @@ svg {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+
+.additional-box__organizer-link {
+  display: inline-flex;
+  align-items: center; }
 
 .additional-box__organizer-img {
   width: 3rem;
