@@ -21,7 +21,7 @@ block content
 
           if user && title === 'My Tickets'
             .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
-              h3.card__header.heading-tertiary= `Testing`
+              h3.card__header.heading-tertiary= `@ ${show.showtimes[0].theaters[0].name}`
 
           .card__mpaa.u-center-text
             h3.card__mpaa-type.heading-tertiary= show.mpaaRating
