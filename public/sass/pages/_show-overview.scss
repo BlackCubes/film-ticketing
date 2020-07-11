@@ -6,6 +6,10 @@
   width: 95%;
   margin-left: auto;
   margin-right: auto;
+
+  @include respond(tab-port) {
+    width: 93%;
+  }
 }
 
 .section-show-header {
@@ -22,6 +26,10 @@
 
   &__background {
     height: 100%;
+
+    @include respond(tab-port) {
+      height: 90vh;
+    }
 
     &-overlay {
       position: absolute;
@@ -61,6 +69,11 @@
     top: 20rem;
     left: 1rem;
 
+    @include respond(tab-port) {
+      top: 10rem;
+      left: 2rem;
+    }
+
     &-img {
       width: 40%;
       height: 40%;
@@ -72,6 +85,10 @@
     width: 55%;
     top: 27rem;
     right: 1rem;
+
+    @include respond(tab-port) {
+      top: 17rem;
+    }
   }
 
   &__metadata-container {
@@ -96,6 +113,15 @@
   &__info-container {
     position: absolute;
     bottom: 5rem;
+
+    @include respond(tab-port) {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      bottom: 7rem;
+      left: 0;
+      right: 0;
+    }
   }
 
   &__overview {
@@ -113,6 +139,10 @@
   // FIX TRIANGLE!!
   &__theatertime {
     &-theater {
+      @include respond(tab-port) {
+        margin-top: 1.5rem;
+      }
+
       &-name {
         letter-spacing: 0.5rem;
       }
@@ -124,6 +154,10 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
+
+    @include respond(tab-port) {
+      margin-top: 1.5rem;
+    }
   }
 
   &__map {
@@ -160,6 +194,11 @@
       height: 3rem;
       border-radius: 50%;
       margin-right: 1rem;
+
+      @include respond(tab-port) {
+        width: 4rem;
+        height: 4rem;
+      }
     }
   }
 }

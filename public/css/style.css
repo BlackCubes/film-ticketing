@@ -1271,6 +1271,13 @@ svg {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+  @media (min-width: 37.5em) {
+    .section-show-showtimes,
+    .section-show-synopsis,
+    .section-show-castcrew,
+    .section-show-reviews,
+    .section-show-additional {
+      width: 93%; } }
 
 .section-show-header {
   width: 100%; }
@@ -1283,6 +1290,9 @@ svg {
   width: 100%; }
   .heading-box__background {
     height: 100%; }
+    @media (min-width: 37.5em) {
+      .heading-box__background {
+        height: 90vh; } }
     .heading-box__background-overlay {
       position: absolute;
       width: 100%;
@@ -1303,6 +1313,10 @@ svg {
     position: absolute;
     top: 20rem;
     left: 1rem; }
+    @media (min-width: 37.5em) {
+      .heading-box__poster {
+        top: 10rem;
+        left: 2rem; } }
     .heading-box__poster-img {
       width: 40%;
       height: 40%; }
@@ -1311,6 +1325,9 @@ svg {
     width: 55%;
     top: 27rem;
     right: 1rem; }
+    @media (min-width: 37.5em) {
+      .heading-box__data-container {
+        top: 17rem; } }
   .heading-box__metadata-container {
     text-align: center;
     padding: 1rem; }
@@ -1325,6 +1342,14 @@ svg {
   .heading-box__info-container {
     position: absolute;
     bottom: 5rem; }
+    @media (min-width: 37.5em) {
+      .heading-box__info-container {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: 7rem;
+        left: 0;
+        right: 0; } }
   .heading-box__overview {
     padding: 1rem; }
 
@@ -1332,6 +1357,9 @@ svg {
   margin-top: 5rem; }
   .showtimes-box__theatertime-container {
     margin-top: 3rem; }
+  @media (min-width: 37.5em) {
+    .showtimes-box__theatertime-theater {
+      margin-top: 1.5rem; } }
   .showtimes-box__theatertime-theater-name {
     letter-spacing: 0.5rem; }
   .showtimes-box__ticket-buy {
@@ -1339,6 +1367,9 @@ svg {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem; }
+    @media (min-width: 37.5em) {
+      .showtimes-box__ticket-buy {
+        margin-top: 1.5rem; } }
   .showtimes-box__map {
     width: 100%;
     margin-top: 1rem; }
@@ -1361,6 +1392,10 @@ svg {
   height: 3rem;
   border-radius: 50%;
   margin-right: 1rem; }
+  @media (min-width: 37.5em) {
+    .additional-box__organizer-img {
+      width: 4rem;
+      height: 4rem; } }
 
 .section-theater-header {
   width: 100%; }
