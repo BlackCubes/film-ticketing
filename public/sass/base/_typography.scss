@@ -74,10 +74,18 @@ body {
 
 .book-text {
   font-size: $font-size-book;
+
+  @include respond(tab-port) {
+    font-size: $font-size-book--tab-port;
+  }
 }
 
 .small-text {
   font-size: $font-size-small;
+
+  @include respond(tab-port) {
+    font-size: $font-size-small--tab-port;
+  }
 }
 
 .input-text {
