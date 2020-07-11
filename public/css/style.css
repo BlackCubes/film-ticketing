@@ -56,6 +56,9 @@ html {
 
 main {
   margin-top: 3.7rem; }
+  @media (min-width: 37.5em) {
+    main {
+      margin-top: 4.4rem; } }
 
 body {
   box-sizing: border-box;

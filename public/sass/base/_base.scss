@@ -41,6 +41,10 @@ html {
 
 main {
   margin-top: 3.7rem;
+
+  @include respond(tab-port) {
+    margin-top: 4.4rem;
+  }
 }
 
 body {
