@@ -802,7 +802,7 @@ svg {
   border-top: 0.1rem solid #fff; }
   @media (min-width: 37.5em) {
     .nav__region {
-      top: 5.5%; } }
+      top: 5.5rem; } }
 
 .nav__region-menu {
   list-style: none;

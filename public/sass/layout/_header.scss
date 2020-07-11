@@ -27,7 +27,7 @@
   border-top: 0.1rem solid $color-white;
 
   @include respond(tab-port) {
-    top: 5.5%;
+    top: 5.5rem;
   }
 }
 
