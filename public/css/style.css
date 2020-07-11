@@ -18,7 +18,7 @@ $breakpoint argument choices:
 379px/16px = 23.6875em (ratio)
 
 1em = 16px
-23.6875em = 379px
+25em = 400px
 30em = 480px
 37.5em = 600px
 56.25em = 900px
@@ -38,7 +38,7 @@ $breakpoint argument choices:
 
 html {
   font-size: 62.5%; }
-  @media (max-width: 23.6875em) {
+  @media (max-width: 25em) {
     html {
       font-size: 50%; } }
   @media (min-width: 56.25em) {
