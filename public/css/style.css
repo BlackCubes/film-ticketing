@@ -129,7 +129,7 @@ body {
   font-size: 1.1rem; }
   @media (min-width: 37.5em) {
     .small-text {
-      font-size: 1.2rem; } }
+      font-size: 1.25rem; } }
 
 .input-text {
   font-family: inherit;
