@@ -112,6 +112,9 @@ body {
 
 .average-text {
   font-size: 1.4rem; }
+  @media (min-width: 37.5em) {
+    .average-text {
+      font-size: 1.6rem; } }
 
 .book-text {
   font-size: 1.2rem; }
