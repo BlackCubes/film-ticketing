@@ -695,6 +695,9 @@ svg {
     padding: 1rem;
     list-style: none;
     text-align: center; }
+    @media (min-width: 37.5em) {
+      .footer__follow {
+        padding: 1.5rem; } }
     .footer__follow-title {
       padding-bottom: 1rem; }
     .footer__follow-list {
@@ -714,6 +717,11 @@ svg {
       color: #fffafa;
       width: 3.1rem;
       height: 3.1rem; }
+      @media (min-width: 37.5em) {
+        .footer__follow .fa-github, .footer__follow .fa-linkedin {
+          font-size: 4.2rem;
+          width: 4.1rem;
+          height: 4.1rem; } }
   .footer__main {
     text-align: center; }
   .footer__navigation {
@@ -729,6 +737,9 @@ svg {
     margin-left: auto;
     margin-right: auto;
     padding: 2.5rem 0 2.5rem; }
+    @media (min-width: 37.5em) {
+      .footer__copyright {
+        padding: 1.5rem 0 3.5rem; } }
     .footer__copyright-content {
       display: block;
       padding: 1.5rem 0; }

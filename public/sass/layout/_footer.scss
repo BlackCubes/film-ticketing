@@ -11,6 +11,10 @@
     list-style: none;
     text-align: center;
 
+    @include respond(tab-port) {
+      padding: 1.5rem;
+    }
+
     &-title {
       //font-size: 1.5rem;
       padding-bottom: 1rem;
@@ -41,6 +45,12 @@
         color: $color-snow;
         width: 3.1rem;
         height: 3.1rem;
+
+        @include respond(tab-port) {
+          font-size: 4.2rem;
+          width: 4.1rem;
+          height: 4.1rem;
+        }
       }
     }
   }
@@ -77,6 +87,10 @@
     margin-left: auto;
     margin-right: auto;
     padding: 2.5rem 0 2.5rem;
+
+    @include respond(tab-port) {
+      padding: 1.5rem 0 3.5rem;
+    }
 
     &-content {
       display: block;
