@@ -25,6 +25,10 @@
   right: 0;
   background-color: $color-dark-blue-1;
   border-top: 0.1rem solid $color-white;
+
+  @include respond(tab-port) {
+    top: 5.5%;
+  }
 }
 
 .nav__region-menu {
@@ -46,6 +50,10 @@
   margin-top: 0.5rem;
   padding: 0.7rem;
   align-items: center;
+
+  @include respond(tab-port) {
+    font-size: 1.6rem;
+  }
 }
 
 .nav__profile--logout {
@@ -63,6 +71,11 @@
     width: 3rem;
     height: 3rem;
     margin-right: 1rem;
+
+    @include respond(tab-port) {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
   }
 }
 
@@ -71,6 +84,12 @@
   height: 3rem;
   margin-right: 1rem;
   border-radius: 50%;
+}
+
+.nav__toggle-wrapper {
+  @include respond(tab-port) {
+    padding-top: 0.2rem;
+  }
 }
 
 #toggle {
@@ -135,6 +154,11 @@
   border-radius: 100%;
   transition: $transition-duration + 0.1;
 
+  @include respond(tab-port) {
+    width: 3rem;
+    height: 2.5rem;
+  }
+
   &:hover {
     box-shadow: 0 0 0 0.8rem rgba($color-black, 0.1),
       inset 0 0 0 2rem rgba($color-black, 0.1);
@@ -151,6 +175,11 @@
     background-color: $color-white;
     border-radius: 0.5rem;
     transition: $transition-duration;
+
+    @include respond(tab-port) {
+      width: 80%;
+      height: 3px;
+    }
   }
 
   &:before {
@@ -188,6 +217,10 @@
   transform: scaleY(0.2);
   transition: $transition-duration, opacity 1s;
 
+  @include respond(tab-port) {
+    font-size: 1.7rem;
+  }
+
   @for $i from 1 through $items {
     &:nth-child(#{$i}) {
       $delay: ($i - 1) * $transition-delay;
@@ -204,6 +237,10 @@
 
   &:nth-child(2) {
     letter-spacing: -0.7rem;
+
+    @include respond(tab-port) {
+      letter-spacing: -0.8rem;
+    }
   }
 
   &:nth-child(n + 4) {
@@ -222,6 +259,11 @@
     background-color: $color-white;
     transform: translateY(-50%) scaleY(5);
     transition: $transition-duration - 0.3;
+
+    @include respond(tab-port) {
+      width: 120%;
+      height: 0.3rem;
+    }
   }
 }
 
