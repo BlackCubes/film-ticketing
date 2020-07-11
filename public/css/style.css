@@ -866,6 +866,9 @@ svg {
   margin-bottom: 10rem;
   pointer-events: auto;
   transform: translate(0rem, 7rem); }
+  @media (min-width: 37.5em) {
+    #toggle:checked ~ .nav__toggle-menu {
+      transform: translate(0rem, 8rem); } }
   #toggle:checked ~ .nav__toggle-menu .nav__toggle-item {
     color: #fff;
     letter-spacing: 0;

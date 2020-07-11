@@ -115,6 +115,10 @@
     pointer-events: auto;
     transform: translate(0rem, 7rem);
 
+    @include respond(tab-port) {
+      transform: translate(0rem, 8rem);
+    }
+
     .nav__toggle-item {
       color: $color-white;
       letter-spacing: 0;
