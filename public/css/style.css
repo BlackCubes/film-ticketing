@@ -1427,7 +1427,8 @@ svg {
     margin-top: 1rem; }
     @media (min-width: 37.5em) {
       .showtimes-box__ticket-buy {
-        margin-top: 1.5rem; } }
+        margin-top: 1.5rem;
+        width: 60%; } }
   .showtimes-box__map {
     width: 100%;
     margin-top: 1rem; }
