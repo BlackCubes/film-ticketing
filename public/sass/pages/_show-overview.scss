@@ -70,13 +70,18 @@
     left: 1rem;
 
     @include respond(tab-port) {
-      top: 10rem;
-      left: 2rem;
+      top: 7rem;
+      left: 1rem;
     }
 
     &-img {
       width: 40%;
       height: 40%;
+
+      @include respond(tab-port) {
+        width: 50%;
+        height: 50%;
+      }
     }
   }
 
@@ -87,7 +92,9 @@
     right: 1rem;
 
     @include respond(tab-port) {
-      top: 17rem;
+      width: 50%;
+      top: 14rem;
+      right: 0.5rem;
     }
   }
 
@@ -118,7 +125,7 @@
       width: 95%;
       margin-left: auto;
       margin-right: auto;
-      bottom: 7rem;
+      bottom: 2rem;
       left: 0;
       right: 0;
     }
