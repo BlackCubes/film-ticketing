@@ -22,20 +22,20 @@ html {
   //   font-size: 50%;
   // }
 
-  // @include respond(tab-port) {
-  //   font-size: 50%;
-  // }
-
-  @include respond(tab-land) {
+  @include respond(tab-port) {
     font-size: 68.75%; // 1rem = 11px, 11/16 = 68.75%
   }
 
-  @include respond(desktop) {
+  @include respond(tab-land) {
     font-size: 75%; // 1rem = 12px, 12/16 = 75%
   }
 
+  @include respond(desktop) {
+    font-size: 81.25%; // 1rem = 13px, 13/16 = 81.25%
+  }
+
   @include respond(big-desktop) {
-    font-size: 87.5%; // 1rem = 14px, 14/16 = 87.5%
+    font-size: 93.75%; // 1rem = 15px, 15/16 = 93.75%
   }
 }
 

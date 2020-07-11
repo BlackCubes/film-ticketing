@@ -41,15 +41,18 @@ html {
   @media (max-width: 25em) {
     html {
       font-size: 50%; } }
-  @media (min-width: 56.25em) {
+  @media (min-width: 37.5em) {
     html {
       font-size: 68.75%; } }
-  @media (min-width: 75em) {
+  @media (min-width: 56.25em) {
     html {
       font-size: 75%; } }
+  @media (min-width: 75em) {
+    html {
+      font-size: 81.25%; } }
   @media (min-width: 112.5em) {
     html {
-      font-size: 87.5%; } }
+      font-size: 93.75%; } }
 
 main {
   margin-top: 3.7rem; }
