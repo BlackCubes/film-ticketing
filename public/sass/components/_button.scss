@@ -9,6 +9,10 @@
   width: 90%;
   cursor: pointer;
 
+  @include respond(tab-port) {
+    font-size: 1.9rem;
+  }
+
   &--duo {
     width: 100%;
   }

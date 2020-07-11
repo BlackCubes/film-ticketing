@@ -179,6 +179,9 @@ body {
   border: none;
   width: 90%;
   cursor: pointer; }
+  @media (min-width: 37.5em) {
+    .btn {
+      font-size: 1.9rem; } }
   .btn--duo {
     width: 100%; }
   .btn--blue {
