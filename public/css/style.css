@@ -892,6 +892,9 @@ svg {
         @media (min-width: 37.5em) {
           .footer-account__created-title > span {
             font-size: 1.7rem; } }
+        @media (min-width: 56.25em) {
+          .footer-account__created-title > span {
+            font-size: 1.9rem; } }
     .footer-account__created-list {
       padding: 0;
       margin: 0; }

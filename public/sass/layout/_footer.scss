@@ -150,6 +150,10 @@
         @include respond(tab-port) {
           font-size: 1.7rem;
         }
+
+        @include respond(tab-land) {
+          font-size: 1.9rem;
+        }
       }
     }
 
