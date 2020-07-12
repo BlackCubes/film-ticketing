@@ -133,7 +133,7 @@ body {
   font-size: 1.1rem; }
   @media (min-width: 37.5em) {
     .small-text {
-      font-size: 1.25rem; } }
+      font-size: 1.35rem; } }
   @media (min-width: 56.25em) {
     .small-text {
       line-height: 2; } }
