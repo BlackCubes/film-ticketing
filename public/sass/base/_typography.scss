@@ -73,7 +73,7 @@ body {
   }
 
   @include respond(tab-land) {
-    // font-size: $default-font-size--tab-land;
+    font-size: $default-font-size--tab-land;
     line-height: 2.1;
   }
 }
