@@ -23,4 +23,11 @@
 
 .td {
   display: table-cell;
+
+  &:not(.additional-box__organizer-title),
+  &:not(.additional-box__organizer-value) {
+    @include respond(tab-land) {
+      margin-top: 1rem;
+    }
+  }
 }

@@ -1066,6 +1066,9 @@ svg {
 
 .td {
   display: table-cell; }
+  @media (min-width: 56.25em) {
+    .td:not(.additional-box__organizer-title), .td:not(.additional-box__organizer-value) {
+      margin-top: 1rem; } }
 
 .user-view {
   width: 95%;
