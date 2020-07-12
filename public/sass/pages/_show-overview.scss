@@ -10,6 +10,10 @@
   @include respond(tab-port) {
     width: 93%;
   }
+
+  @include respond(tab-land) {
+    width: 90%;
+  }
 }
 
 .section-show-header {
@@ -166,6 +170,10 @@
       margin-top: 1.5rem;
       width: 60%;
     }
+
+    @include respond(tab-land) {
+      width: 70%;
+    }
   }
 
   &__map {
@@ -206,6 +214,12 @@
       @include respond(tab-port) {
         width: 4rem;
         height: 4rem;
+      }
+
+      @include respond(tab-land) {
+        width: 5rem;
+        height: 5rem;
+        margin-right: 2rem;
       }
     }
   }

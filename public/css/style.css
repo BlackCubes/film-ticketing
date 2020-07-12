@@ -1349,6 +1349,13 @@ svg {
     .section-show-reviews,
     .section-show-additional {
       width: 93%; } }
+  @media (min-width: 56.25em) {
+    .section-show-showtimes,
+    .section-show-synopsis,
+    .section-show-castcrew,
+    .section-show-reviews,
+    .section-show-additional {
+      width: 90%; } }
 
 .section-show-header {
   width: 100%; }
@@ -1448,6 +1455,9 @@ svg {
       .showtimes-box__ticket-buy {
         margin-top: 1.5rem;
         width: 60%; } }
+    @media (min-width: 56.25em) {
+      .showtimes-box__ticket-buy {
+        width: 70%; } }
   .showtimes-box__map {
     width: 100%;
     margin-top: 1rem; }
@@ -1474,6 +1484,11 @@ svg {
     .additional-box__organizer-img {
       width: 4rem;
       height: 4rem; } }
+  @media (min-width: 56.25em) {
+    .additional-box__organizer-img {
+      width: 5rem;
+      height: 5rem;
+      margin-right: 2rem; } }
 
 .section-theater-header {
   width: 100%; }
