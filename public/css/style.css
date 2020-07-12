@@ -1509,6 +1509,11 @@ svg {
   .section-register .register__form {
     width: 100%;
     padding: 1rem; }
+    @media (min-width: 37.5em) {
+      .section-register .register__form {
+        max-width: 55rem;
+        margin-left: auto;
+        margin-right: auto; } }
 
 .card-container {
   width: 95%;
