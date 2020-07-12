@@ -71,7 +71,7 @@ a {
 .body-account {
   position: relative;
   min-height: 100vh; }
-  @media (min-width: 37.5em) {
+  @media (min-width: 56.25em) {
     .body-account {
       min-height: 100vw; } }
 
