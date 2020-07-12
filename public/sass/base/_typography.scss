@@ -94,6 +94,10 @@ body {
   @include respond(tab-port) {
     font-size: $font-size-average--tab-port;
   }
+
+  @include respond(tab-land) {
+    font-size: $font-size-average--tab-land;
+  }
 }
 
 .book-text {
@@ -103,9 +107,9 @@ body {
     font-size: $font-size-book--tab-port;
   }
 
-  // @include respond(tab-land) {
-  //   font-size: $font-size-book--tab-land;
-  // }
+  @include respond(tab-land) {
+    font-size: $font-size-book--tab-land;
+  }
 }
 
 .small-text {
