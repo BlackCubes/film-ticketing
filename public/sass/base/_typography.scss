@@ -86,9 +86,10 @@ body {
 .average-text {
   font-size: $font-size-average;
 
-  // @include respond(tab-port) {
-  //   font-size: $font-size-average--tab-port;
-  // }
+  // Check on this for all pages!!!!
+  @include respond(tab-port) {
+    font-size: $font-size-average--tab-port;
+  }
 }
 
 .book-text {
