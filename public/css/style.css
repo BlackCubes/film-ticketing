@@ -530,7 +530,7 @@ body {
     .dropdown {
       font-size: 2rem;
       height: 6vh; } }
-  @media (min-width: 37.5em) {
+  @media (min-width: 56.25em) {
     .dropdown {
       font-size: 2.3rem;
       height: 6vw; } }
