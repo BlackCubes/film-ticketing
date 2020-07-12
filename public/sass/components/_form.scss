@@ -105,6 +105,10 @@
       @include respond(tab-port) {
         border-bottom: 0.4rem solid $color-lightseagreen;
       }
+
+      @include respond(tab-land) {
+        border-bottom: 0.45rem solid $color-lightseagreen;
+      }
     }
 
     &:focus:invalid {
@@ -112,6 +116,10 @@
 
       @include respond(tab-port) {
         border-bottom: 0.4rem solid $color-red;
+      }
+
+      @include respond(tab-land) {
+        border-bottom: 0.45rem solid $color-lightseagreen;
       }
     }
 
@@ -123,6 +131,9 @@
   &__input {
     @include respond(tab-port) {
       height: 6vh;
+    }
+    @include respond(tab-land) {
+      height: 6vw;
     }
   }
 
