@@ -85,6 +85,9 @@ body {
   @media (min-width: 37.5em) {
     .heading-secondary {
       font-size: 3rem; } }
+  @media (min-width: 56.25em) {
+    .heading-secondary {
+      font-size: 3.5rem; } }
   .heading-secondary--gradient-1 {
     color: transparent;
     background-image: linear-gradient(-20deg, #20b2aa, #0067aa);
@@ -102,6 +105,9 @@ body {
   @media (min-width: 37.5em) {
     .heading-tertiary {
       font-size: 2rem; } }
+  @media (min-width: 56.25em) {
+    .heading-tertiary {
+      font-size: 2.5rem; } }
 
 .paragraph {
   font-size: 1.6rem;
@@ -112,6 +118,10 @@ body {
     .paragraph {
       font-size: 1.8rem;
       line-height: 1.8; } }
+  @media (min-width: 56.25em) {
+    .paragraph {
+      font-size: 2rem;
+      line-height: 2.1; } }
 
 .average-text {
   font-size: 1.4rem; }

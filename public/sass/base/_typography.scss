@@ -19,6 +19,10 @@ body {
     font-size: $font-size-secondary-medium;
   }
 
+  @include respond(tab-land) {
+    font-size: $font-size-secondary-large;
+  }
+
   &--gradient-1 {
     color: transparent;
     background-image: linear-gradient(
@@ -50,6 +54,10 @@ body {
   @include respond(tab-port) {
     font-size: $font-size-tertiary-medium;
   }
+
+  @include respond(tab-land) {
+    font-size: $font-size-tertiary-large;
+  }
 }
 
 .paragraph {
@@ -61,6 +69,11 @@ body {
   @include respond(tab-port) {
     font-size: $default-font-size--tab-port;
     line-height: 1.8;
+  }
+
+  @include respond(tab-land) {
+    font-size: $default-font-size--tab-land;
+    line-height: 2.1;
   }
 }
 
