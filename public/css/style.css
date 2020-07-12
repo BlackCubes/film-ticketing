@@ -239,12 +239,18 @@ body {
       margin-bottom: 6rem;
       margin-left: auto;
       margin-right: auto; } }
+  @media (min-width: 56.25em) {
+    .card {
+      height: 80vh; } }
   .card__poster-link {
     display: block;
     height: 68rem; }
     @media (min-width: 37.5em) {
       .card__poster-link {
         height: 78vh; } }
+    @media (min-width: 56.25em) {
+      .card__poster-link {
+        height: 78vw; } }
   .card__poster-img {
     display: block;
     height: 100%;

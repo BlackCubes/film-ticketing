@@ -16,6 +16,10 @@
     margin-right: auto;
   }
 
+  @include respond(tab-land) {
+    height: 80vh;
+  }
+
   &__poster {
     // Add new link helper class for cards
     &-link {
@@ -24,6 +28,10 @@
 
       @include respond(tab-port) {
         height: 78vh;
+      }
+
+      @include respond(tab-land) {
+        height: 78vw;
       }
     }
 
