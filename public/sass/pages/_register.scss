@@ -3,6 +3,14 @@
   margin-left: auto;
   margin-right: auto;
 
+  @include respond(tab-port) {
+    width: 93%;
+  }
+
+  @include respond(tab-land) {
+    width: 90%;
+  }
+
   .register {
     // height: 80rem;
 

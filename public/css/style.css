@@ -1497,6 +1497,12 @@ svg {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+  @media (min-width: 37.5em) {
+    .section-register {
+      width: 93%; } }
+  @media (min-width: 56.25em) {
+    .section-register {
+      width: 90%; } }
   .section-register .register__form {
     width: 100%;
     padding: 1rem; }
