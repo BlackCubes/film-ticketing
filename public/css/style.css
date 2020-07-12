@@ -1381,6 +1381,12 @@ svg {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+  @media (min-width: 37.5em) {
+    .section-login {
+      width: 93%; } }
+  @media (min-width: 56.25em) {
+    .section-login {
+      width: 90%; } }
   .section-login .login {
     height: 50rem; }
     .section-login .login__form {
