@@ -719,6 +719,9 @@ svg {
     @media (min-width: 37.5em) {
       .footer__follow {
         padding: 1.5rem; } }
+    @media (min-width: 56.25em) {
+      .footer__follow {
+        padding: 2rem; } }
     .footer__follow-title {
       padding-bottom: 1rem; }
     .footer__follow-list {
@@ -733,6 +736,9 @@ svg {
       margin: 0 0.5rem;
       padding: 0.6rem;
       border-radius: 50%; }
+      @media (min-width: 56.25em) {
+        .footer__follow-link {
+          margin: 0 1rem; } }
     .footer__follow .fa-github, .footer__follow .fa-linkedin {
       font-size: 3.2rem;
       color: #fffafa;
@@ -743,11 +749,20 @@ svg {
           font-size: 4.2rem;
           width: 4.1rem;
           height: 4.1rem; } }
+      @media (min-width: 56.25em) {
+        .footer__follow .fa-github, .footer__follow .fa-linkedin {
+          font-size: 4.7rem;
+          width: 4.6rem;
+          height: 4.6rem; } }
   .footer__main {
     text-align: center; }
   .footer__navigation {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem; }
+    @media (min-width: 56.25em) {
+      .footer__navigation {
+        display: inline-block;
+        width: 50%; } }
   .footer__item {
     padding: 1rem; }
   .footer__lower {
