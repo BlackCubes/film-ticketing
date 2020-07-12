@@ -526,11 +526,27 @@ body {
   background-position: right 1rem center;
   background-size: 0.8rem 0.4rem;
   transition: all 0.3s; }
+  @media (min-width: 37.5em) {
+    .dropdown {
+      font-size: 2rem;
+      height: 6vh; } }
   .dropdown:focus {
     outline: none !important;
     border-bottom: 0.3rem solid #20b2aa; }
+    @media (min-width: 37.5em) {
+      .dropdown:focus {
+        border-bottom: 0.4rem solid #20b2aa; } }
+    @media (min-width: 56.25em) {
+      .dropdown:focus {
+        border-bottom: 0.45rem solid #20b2aa; } }
   .dropdown:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
+    @media (min-width: 37.5em) {
+      .dropdown:focus:invalid {
+        border-bottom: 0.4rem solid #20b2aa; } }
+    @media (min-width: 56.25em) {
+      .dropdown:focus:invalid {
+        border-bottom: 0.45rem solid #20b2aa; } }
 
 @media (min-width: 37.5em) {
   .form {

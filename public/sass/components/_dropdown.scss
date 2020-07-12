@@ -21,13 +21,34 @@
   background-size: 0.8rem 0.4rem;
   transition: all 0.3s;
 
+  @include respond(tab-port) {
+    font-size: 2rem;
+    height: 6vh;
+  }
+
   &:focus {
     outline: none !important;
     border-bottom: 0.3rem solid $color-lightseagreen;
+
+    @include respond(tab-port) {
+      border-bottom: 0.4rem solid $color-lightseagreen;
+    }
+
+    @include respond(tab-land) {
+      border-bottom: 0.45rem solid $color-lightseagreen;
+    }
   }
 
   &:focus:invalid {
     border-bottom: 0.3rem solid $color-red;
+
+    @include respond(tab-port) {
+      border-bottom: 0.4rem solid $color-lightseagreen;
+    }
+
+    @include respond(tab-land) {
+      border-bottom: 0.45rem solid $color-lightseagreen;
+    }
   }
 }
 
