@@ -8,6 +8,11 @@ body {
   font-size: $font-size-primary-small;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
+
+  @include respond(tab-port) {
+    font-size: $font-size-primary-medium;
+    letter-spacing: 1rem;
+  }
 }
 
 .heading-secondary {
@@ -103,6 +108,7 @@ body {
 
   @include respond(tab-port) {
     font-size: $font-size-small--tab-port;
+    line-height: 1.7;
   }
 
   @include respond(tab-land) {
@@ -116,12 +122,20 @@ body {
   font-size: $default-font-size;
   color: $color-white;
   background-color: rgba($color-white, 0.3);
+
+  @include respond(tab-port) {
+    font-size: $default-font-size--tab-land;
+  }
 }
 
 .label-text {
   font-size: $font-size-book;
   font-weight: 700;
   color: $color-lightseagreen;
+
+  @include respond(tab-port) {
+    font-size: $font-size-book--tab-port;
+  }
 }
 
 // MapBox Typography
