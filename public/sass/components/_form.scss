@@ -72,7 +72,7 @@
     margin-bottom: 2rem;
 
     @include respond(tab-port) {
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
   }
 
@@ -246,6 +246,10 @@
       padding-bottom: 1rem;
     }
 
+    @include respond(tab-land) {
+      padding-bottom: 1.5rem;
+    }
+
     &-month {
       -webkit-flex-basis: 40%;
       -ms-flex-basis: 40%;
@@ -268,6 +272,10 @@
   &__gender {
     @include respond(tab-port) {
       padding-bottom: 1rem;
+    }
+
+    @include respond(tab-land) {
+      padding-bottom: 1.5rem;
     }
   }
 
