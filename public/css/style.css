@@ -863,6 +863,9 @@ svg {
         font-size: 1.5rem;
         color: #0067aa;
         text-transform: uppercase; }
+        @media (min-width: 37.5em) {
+          .footer-account__created-title > span {
+            font-size: 1.7rem; } }
     .footer-account__created-list {
       padding: 0;
       margin: 0; }
