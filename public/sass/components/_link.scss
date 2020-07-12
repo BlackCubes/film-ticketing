@@ -2,4 +2,9 @@
   display: inline-block;
   width: 40%;
   height: 40%;
+
+  @include respond(tab-port) {
+    width: 50%;
+    height: 50vh;
+  }
 }
