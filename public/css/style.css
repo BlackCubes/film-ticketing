@@ -204,6 +204,9 @@ body {
   @media (min-width: 37.5em) {
     .btn {
       font-size: 1.9rem; } }
+  @media (min-width: 56.25em) {
+    .btn {
+      font-size: 2.2rem; } }
   .btn--duo {
     width: 100%; }
   .btn--blue {
