@@ -20,7 +20,7 @@ body {
   }
 
   @include respond(tab-land) {
-    font-size: $font-size-secondary-large;
+    // font-size: $font-size-secondary-large;
     letter-spacing: 0.5rem;
   }
 
@@ -56,9 +56,9 @@ body {
     font-size: $font-size-tertiary-medium;
   }
 
-  @include respond(tab-land) {
-    font-size: $font-size-tertiary-large;
-  }
+  // @include respond(tab-land) {
+  //   font-size: $font-size-tertiary-large;
+  // }
 }
 
 .paragraph {
@@ -73,7 +73,7 @@ body {
   }
 
   @include respond(tab-land) {
-    font-size: $default-font-size--tab-land;
+    // font-size: $default-font-size--tab-land;
     line-height: 2.1;
   }
 }
@@ -81,9 +81,9 @@ body {
 .average-text {
   font-size: $font-size-average;
 
-  @include respond(tab-port) {
-    font-size: $font-size-average--tab-port;
-  }
+  // @include respond(tab-port) {
+  //   font-size: $font-size-average--tab-port;
+  // }
 }
 
 .book-text {
@@ -93,9 +93,9 @@ body {
     font-size: $font-size-book--tab-port;
   }
 
-  @include respond(tab-land) {
-    font-size: $font-size-book--tab-land;
-  }
+  // @include respond(tab-land) {
+  //   font-size: $font-size-book--tab-land;
+  // }
 }
 
 .small-text {
@@ -106,7 +106,7 @@ body {
   }
 
   @include respond(tab-land) {
-    font-size: $font-size-small--tab-land;
+    // font-size: $font-size-small--tab-land;
     line-height: 2;
   }
 }
