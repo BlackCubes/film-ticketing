@@ -257,6 +257,9 @@ body {
     @media (min-width: 37.5em) {
       .card__logo-link {
         height: 44vh; } }
+    @media (min-width: 56.25em) {
+      .card__logo-link {
+        height: 44vw; } }
   .card__logo-img {
     display: block;
     width: 100%;

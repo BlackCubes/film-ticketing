@@ -44,6 +44,10 @@
       @include respond(tab-port) {
         height: 44vh;
       }
+
+      @include respond(tab-land) {
+        height: 44vw;
+      }
     }
 
     &-img {
