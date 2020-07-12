@@ -87,7 +87,8 @@ body {
       font-size: 3rem; } }
   @media (min-width: 56.25em) {
     .heading-secondary {
-      font-size: 3.5rem; } }
+      font-size: 3.5rem;
+      letter-spacing: 0.5rem; } }
   .heading-secondary--gradient-1 {
     color: transparent;
     background-image: linear-gradient(-20deg, #20b2aa, #0067aa);

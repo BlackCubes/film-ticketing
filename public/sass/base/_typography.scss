@@ -21,6 +21,7 @@ body {
 
   @include respond(tab-land) {
     font-size: $font-size-secondary-large;
+    letter-spacing: 0.5rem;
   }
 
   &--gradient-1 {
