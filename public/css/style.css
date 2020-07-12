@@ -602,7 +602,7 @@ body {
 
 @media (min-width: 56.25em) {
   .form__input {
-    height: 6vw; } }
+    height: 6.5vw; } }
 
 .form__text-area {
   height: 20rem; }
