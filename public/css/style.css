@@ -767,7 +767,7 @@ svg {
   .footer__navigation {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem; }
-    @media (min-width: 56.25em) {
+    @media (min-width: 37.5em) {
       .footer__navigation {
         display: inline-block;
         width: 50%;
