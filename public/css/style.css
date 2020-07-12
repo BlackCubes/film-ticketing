@@ -71,6 +71,9 @@ a {
 .body-account {
   position: relative;
   min-height: 100vh; }
+  @media (min-width: 37.5em) {
+    .body-account {
+      min-height: 100vw; } }
 
 body {
   font-family: 'Montserrat', sans-serif;

@@ -61,4 +61,8 @@ a {
 .body-account {
   position: relative;
   min-height: 100vh;
+
+  @include respond(tab-port) {
+    min-height: 100vw;
+  }
 }
