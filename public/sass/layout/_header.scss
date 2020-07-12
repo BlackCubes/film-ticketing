@@ -278,6 +278,10 @@
   -moz-box-shadow: 0rem 0.1rem 2rem 0rem rgba($color-lightseagreen, 0.7);
   box-shadow: 0rem 0.1rem 2rem 0rem rgba($color-lightseagreen, 0.7);
 
+  @include respond(tab-port) {
+    height: 13rem;
+  }
+
   &__logo {
     display: flex;
     justify-content: center;
@@ -285,6 +289,10 @@
 
     &-img {
       width: 20rem;
+
+      @include respond(tab-port) {
+        width: 25rem;
+      }
     }
   }
 }
