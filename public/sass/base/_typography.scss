@@ -13,6 +13,10 @@ body {
     font-size: $font-size-primary-medium;
     letter-spacing: 1rem;
   }
+
+  @include respond(tab-land) {
+    letter-spacing: 2rem;
+  }
 }
 
 .heading-secondary {
@@ -113,7 +117,7 @@ body {
   }
 
   @include respond(tab-land) {
-    // font-size: $font-size-small--tab-land;
+    font-size: $font-size-small--tab-land;
     line-height: 2;
   }
 }
@@ -127,6 +131,10 @@ body {
   @include respond(tab-port) {
     font-size: $default-font-size--tab-land;
   }
+
+  @include respond(tab-land) {
+    font-size: 2.4rem;
+  }
 }
 
 .label-text {
@@ -136,6 +144,10 @@ body {
 
   @include respond(tab-port) {
     font-size: $font-size-book--tab-port;
+  }
+
+  @include respond(tab-land) {
+    font-size: $font-size-book--tab-land;
   }
 }
 
