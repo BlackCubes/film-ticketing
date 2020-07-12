@@ -68,6 +68,10 @@ a {
   text-decoration: none;
   color: #fff; }
 
+.body-account {
+  position: relative;
+  min-height: 100vh; }
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
