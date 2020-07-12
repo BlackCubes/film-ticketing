@@ -135,12 +135,19 @@ body {
   @media (min-width: 37.5em) {
     .book-text {
       font-size: 1.4rem; } }
+  @media (min-width: 56.25em) {
+    .book-text {
+      font-size: 1.6rem; } }
 
 .small-text {
   font-size: 1.1rem; }
   @media (min-width: 37.5em) {
     .small-text {
       font-size: 1.25rem; } }
+  @media (min-width: 56.25em) {
+    .small-text {
+      font-size: 1.5rem;
+      line-height: 2; } }
 
 .input-text {
   font-family: inherit;

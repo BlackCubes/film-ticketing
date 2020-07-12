@@ -92,6 +92,10 @@ body {
   @include respond(tab-port) {
     font-size: $font-size-book--tab-port;
   }
+
+  @include respond(tab-land) {
+    font-size: $font-size-book--tab-land;
+  }
 }
 
 .small-text {
@@ -99,6 +103,11 @@ body {
 
   @include respond(tab-port) {
     font-size: $font-size-small--tab-port;
+  }
+
+  @include respond(tab-land) {
+    font-size: $font-size-small--tab-land;
+    line-height: 2;
   }
 }
 
