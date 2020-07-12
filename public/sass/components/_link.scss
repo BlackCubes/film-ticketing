@@ -3,12 +3,12 @@
   width: 40%;
   height: 40%;
 
-  @include respond(tab-port) {
-    width: 50%;
-    height: 50vh;
-  }
+  // @include respond(tab-port) {
+  //   width: 50%;
+  //   height: 50vh;
+  // }
 
-  @include respond(tab-land) {
-    height: 60vh;
-  }
+  // @include respond(tab-land) {
+  //   height: 60vh;
+  // }
 }

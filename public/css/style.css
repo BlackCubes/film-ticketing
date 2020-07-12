@@ -672,13 +672,6 @@ body {
   display: inline-block;
   width: 40%;
   height: 40%; }
-  @media (min-width: 37.5em) {
-    .picture-link {
-      width: 50%;
-      height: 50vh; } }
-  @media (min-width: 56.25em) {
-    .picture-link {
-      height: 60vh; } }
 
 .map-container {
   position: relative;
