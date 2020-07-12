@@ -542,6 +542,9 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
+  @media (min-width: 37.5em) {
+    .form__multiform {
+      max-width: 55rem; } }
   .form__multiform--second {
     width: 286%; }
   .form__multiform--third {
