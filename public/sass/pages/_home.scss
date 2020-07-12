@@ -5,6 +5,14 @@
   width: 95%;
   margin-left: auto;
   margin-right: auto;
+
+  @include respond(tab-port) {
+    width: 93%;
+  }
+
+  @include respond(tab-land) {
+    width: 90%;
+  }
 }
 
 // .section-map {
