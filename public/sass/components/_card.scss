@@ -40,6 +40,10 @@
     &-link {
       display: block;
       height: 34rem;
+
+      @include respond(tab-port) {
+        height: 44vh;
+      }
     }
 
     &-img {
