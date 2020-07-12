@@ -253,10 +253,12 @@ body {
         height: 78vmax; } }
   .card__poster-img {
     display: block;
+    width: 100%;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
-    border-bottom: 0.1rem solid transparent; }
+    border-bottom: 0.1rem solid transparent;
+    object-fit: cover; }
   .card__logo-link {
     display: block;
     height: 34rem; }
