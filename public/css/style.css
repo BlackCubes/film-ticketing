@@ -76,7 +76,10 @@ a {
       min-height: 100vw; } }
 
 .main-account {
-  padding-bottom: 13rem; }
+  padding-bottom: 10rem; }
+  @media (min-width: 37.5em) {
+    .main-account {
+      padding-bottom: 13rem; } }
 
 body {
   font-family: 'Montserrat', sans-serif;

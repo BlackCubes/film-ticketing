@@ -68,5 +68,9 @@ a {
 }
 
 .main-account {
-  padding-bottom: 13rem;
+  padding-bottom: 10rem;
+
+  @include respond(tab-port) {
+    padding-bottom: 13rem;
+  }
 }
