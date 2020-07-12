@@ -675,6 +675,9 @@ body {
     .picture-link {
       width: 50%;
       height: 50vh; } }
+  @media (min-width: 56.25em) {
+    .picture-link {
+      height: 60vh; } }
 
 .map-container {
   position: relative;
