@@ -1400,9 +1400,15 @@ svg {
       width: 90%; } }
   .section-login .login {
     height: 50rem; }
+    @media (min-width: 37.5em) {
+      .section-login .login {
+        height: inherit; } }
     .section-login .login__form {
       width: 100%;
       padding: 1rem; }
+      @media (min-width: 37.5em) {
+        .section-login .login__form {
+          padding: 3rem; } }
 
 .section-register {
   width: 95%;
