@@ -241,7 +241,7 @@ body {
       margin-right: auto; } }
   @media (min-width: 56.25em) {
     .card {
-      width: 85vmin; } }
+      width: 90vh; } }
   .card__poster-link {
     display: block;
     height: 68rem; }
@@ -250,7 +250,7 @@ body {
         height: 78vh; } }
     @media (min-width: 56.25em) {
       .card__poster-link {
-        height: 78vmax; } }
+        height: 78vw; } }
   .card__poster-img {
     display: block;
     width: 100%;
