@@ -390,6 +390,11 @@ body {
     -webkit-flex-basis: 40%;
     -ms-flex-basis: 40%;
     flex-basis: 40%; }
+    @media (min-width: 37.5em) {
+      .card-account__footer-duo-btn-1, .card-account__footer-duo-btn-2 {
+        -webkit-flex-basis: 50%;
+        -ms-flex-basis: 50%;
+        flex-basis: 50%; } }
 
 .row--scroll {
   overflow: scroll;
