@@ -148,3 +148,44 @@
     }
   }
 }
+
+.card-account {
+  &__content {
+    &-photo-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-type {
+      @include respond(tab-port) {
+        margin-top: 1.5rem;
+      }
+
+      &-name {
+        letter-spacing: 0.5rem;
+      }
+    }
+  }
+
+  &__metadata-container {
+    text-align: center;
+  }
+
+  &__metadata {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    &-item {
+      display: inline;
+
+      &:not(:last-child)::after {
+        content: ' - ';
+      }
+    }
+
+    // &__footer {
+
+    // }
+  }
+}

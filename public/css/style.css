@@ -352,6 +352,29 @@ body {
         font-size: 2.3rem;
         margin-bottom: 1rem; } }
 
+.card-account__content-photo-img {
+  width: 100%;
+  height: 100%; }
+
+@media (min-width: 37.5em) {
+  .card-account__content-type {
+    margin-top: 1.5rem; } }
+
+.card-account__content-type-name {
+  letter-spacing: 0.5rem; }
+
+.card-account__metadata-container {
+  text-align: center; }
+
+.card-account__metadata {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  .card-account__metadata-item {
+    display: inline; }
+    .card-account__metadata-item:not(:last-child)::after {
+      content: ' - '; }
+
 .row--scroll {
   overflow: scroll;
   width: 100%; }
