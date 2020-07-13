@@ -9,7 +9,7 @@ block content
           form#updateReview.form
             .form__group
               .form__title.u-center-text
-                h1.heading-primary Your Review Settings
+                h2.heading-secondary Your Review Settings
 
             .form__group
               input#reviewShowTitle.form__input.input-text(type='text' name='reviewShowTitle' placeholder=`Show Title: ${review.show.title}` disabled)
@@ -31,7 +31,7 @@ block content
           form#deleteReviewForm.form
             .form__group.form__group--info
               .form__title.u-center-text
-                h1.heading-primary.u-margin-bottom-small Delete Your Review
+                h2.heading-secondary.u-margin-bottom-small Delete Your Review
 
                 small.form__info-small.small-text= `Please enter your password to delete your review for ${review.show.title}.`
 
