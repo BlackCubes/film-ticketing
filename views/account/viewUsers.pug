@@ -1,32 +1,32 @@
 extends baseAccount
 
 mixin usersCard(user)
-  .showtimes-box__theatertime
-    .showtimes-box__theatertime-poster
-      a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/users/${user._id}`)
-        img.showtimes-box__theatertime-poster-img(src=`/img/users/${user.photo}`, alt=`${user.name} Photo`)
+  .card-account__content
+    .card-account__content-photo
+      a.card-account__content-photo-link.picture-link(href=`/admin/users/${user._id}`)
+        img.card-account__content-photo-img(src=`/img/users/${user.photo}`, alt=`${user.name} Photo`)
 
-    .showtimes-box__theatertime-theater.u-margin-bottom-small
-      h3.showtimes-box__theatertime-theater-name.heading-tertiary= user.name
+    .card-account__content-type.u-margin-bottom-small
+      h3.card-account__content-type-name.heading-tertiary= user.name
     
-    .showtimes-box__metadata-container
-      ul.showtimes-box__metadata
-        li.showtimes-box__metadata-item.paragraph= `Role: ${user.role}`
+    .card-account__metadata-container
+      ul.card-account__metadata
+        li.card-account__metadata-item.paragraph= `Role: ${user.role}`
 
-    .showtimes-box__ticket-buy
+    .card-account__footer
       if user.role === 'event-owner'
-        .form__duo-btn
-          .form__duo-btn-previous
-            a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit You
+        .card-account__footer-duo-btn
+          .card-account__footer-duo-btn-1
+            a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit Organizer
 
-          .form__duo-btn-next
+          .card-account__footer-duo-btn-2
             a.btn.btn__promo(href=`/admin/users/${user._id}/shows`) View Shows
       else
-        .form__duo-btn
-          .form__duo-btn-previous
+        .card-account__footer-duo-btn
+          .card-account__footer-duo-btn-1
             a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit User
 
-          .form__duo-btn-next
+          .card-account__footer-duo-btn-2
             a.btn.btn__promo(href=`/admin/users/${user._id}/reviews`) View Reviews
 
   .line &nbsp;
