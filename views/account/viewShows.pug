@@ -23,10 +23,10 @@ mixin showsCard(show)
       if user.role === 'admin'
         .form__duo-btn
           .form__duo-btn-previous
-            a.btn.btn__promo(href=`${url}`) Edit Show
+            a.btn.btn__promo.btn--duo(href=`${url}`) Edit Show
 
           .form__duo-btn-next
-            a.btn.btn__promo(href=`${url}/reviews`) View Reviews
+            a.btn.btn__promo.btn--duo(href=`${url}/reviews`) View Reviews
       else
         a.btn.btn__promo(href=`${url}`) Edit
 
