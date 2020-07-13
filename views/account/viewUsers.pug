@@ -36,11 +36,11 @@ block content
     - console.log(optionUsers)
     .user-view
       .user-view__content
-        .user-view__eventowners-container
-          .eventowners-box
-            .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
+        .user-view__account-container
+          .account-box
+            .account-box__title.u-margin-top-small.u-margin-bottom-small
               h2.heading-secondary Users in System
 
-            .eventowners-box__shows-container.u-center-text
+            .account-box__card-container.u-center-text
               each user in optionUsers
                 +usersCard(user)
