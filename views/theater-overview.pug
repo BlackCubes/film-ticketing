@@ -49,46 +49,84 @@ block content
             .row__inner--ticket
               each showtime in theater.showtimes
                 .tile-ticket
-                  .showtimes-box__theatertime
-                    .showtimes-box__theatertime-poster
-                      a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${showtime.shows[0].slug}`)
-                        img.showtimes-box__theatertime-poster-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
+                  .tile-ticket__media
+                    a.tile-ticket__media-link.tile-ticket__media-link--poster(href=`/show-overview/${showtime.shows[0].slug}`)
+                      img.tile-ticket__media-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
+                  
+                  .tile-ticket__title.u-margin-bottom-small
+                    h3.tile-ticket__title-content.heading-tertiary= showtime.shows[0].title
 
-                    .showtimes-box__theatertime-theater.u-margin-bottom-small
-                      // FIX BEM
-                      h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.shows[0].title
+                  .tile-ticket__metadata-container.u-center-text
+                    ul.tile-ticket__metadata
+                      li.tile-ticket__metadata-item.paragraph= showtime.shows[0].mpaaRating
 
-                    .showtimes-box__metadata-container
-                      ul.showtimes-box__metadata
-                        li.showtimes-box__metadata-item.paragraph= showtime.shows[0].mpaaRating
+                      - const hours = Math.floor(showtime.shows[0].durationHours)
+                      - const minutes = showtime.shows[0].duration - hours*60
 
-                        -const hours = Math.floor(showtime.shows[0].durationHours)
-                        -const minutes = showtime.shows[0].duration - hours*60
+                      li.tile-ticket__metadata-item.paragraph= `${hours}h ${minutes}m`
+                  
+                  .tile-ticket__datetime
+                    p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
 
-                        li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+                    p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
 
-                    .showtimes-box__theatertime-date
-                      p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+                  .tile-ticket__options
+                    if user && checkFilter.filter(id => id === showtime.id).length > 0
+                      button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
 
-                    .showtimes-box__theatertime-time
-                      p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
+                    else if user && Date.now() > showtime.endDateTime
+                      button#ticketExpired.btn.btn--red(disabled) Expired!
 
-                    .showtimes-box__ticket-buy
-                      // Fix the Btn Helpers in SCSS
-                      if user && checkFilter.filter(id => id === showtime.id).length > 0
-                        button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
+                    else if user && showtime.soldOut
+                      button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
 
-                      else if user && Date.now() > showtime.endDateTime
-                        button#ticketExpired.btn.btn--red(disabled) Expired!
+                    else if user && Date.now() <= showtime.startDateTime && !showtime.soldOut
+                      button#ticketShow.btn.btn--blue(data-show-id=`${showtime.shows[0].id}` data-theater-id=`${theater.id}` data-showtime-id=`${showtime.id}`) Buy!
 
-                      else if user && showtime.soldOut
-                        button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
+                    else
+                      a.btn.btn__promo.btn--light-silver(href='/login') Login to buy
 
-                      else if user && Date.now() <= showtime.startDateTime && !showtime.soldOut
-                        button#ticketShow.btn.btn--blue(data-show-id=`${showtime.shows[0].id}` data-theater-id=`${theater.id}` data-showtime-id=`${showtime.id}`) Buy!
+                //- .tile-ticket
+                //-   .showtimes-box__theatertime
+                //-     .showtimes-box__theatertime-poster
+                //-       a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${showtime.shows[0].slug}`)
+                //-         img.showtimes-box__theatertime-poster-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
 
-                      else
-                        a.btn.btn__promo.btn--light-silver(href='/login') Login to buy
+                //-     .showtimes-box__theatertime-theater.u-margin-bottom-small
+                //-       // FIX BEM
+                //-       h3.showtimes-box__theatertime-theater-name.heading-tertiary= showtime.shows[0].title
+
+                //-     .showtimes-box__metadata-container
+                //-       ul.showtimes-box__metadata
+                //-         li.showtimes-box__metadata-item.paragraph= showtime.shows[0].mpaaRating
+
+                //-         -const hours = Math.floor(showtime.shows[0].durationHours)
+                //-         -const minutes = showtime.shows[0].duration - hours*60
+
+                //-         li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+
+                //-     .showtimes-box__theatertime-date
+                //-       p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+
+                //-     .showtimes-box__theatertime-time
+                //-       p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
+
+                //-     .showtimes-box__ticket-buy
+                //-       // Fix the Btn Helpers in SCSS
+                //-       if user && checkFilter.filter(id => id === showtime.id).length > 0
+                //-         button#ticketBought.btn.btn--light-silver(disabled) Already Bought!
+
+                //-       else if user && Date.now() > showtime.endDateTime
+                //-         button#ticketExpired.btn.btn--red(disabled) Expired!
+
+                //-       else if user && showtime.soldOut
+                //-         button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
+
+                //-       else if user && Date.now() <= showtime.startDateTime && !showtime.soldOut
+                //-         button#ticketShow.btn.btn--blue(data-show-id=`${showtime.shows[0].id}` data-theater-id=`${theater.id}` data-showtime-id=`${showtime.id}`) Buy!
+
+                //-       else
+                //-         a.btn.btn__promo.btn--light-silver(href='/login') Login to buy
 
     section.section-theater-location
       .location-box
