@@ -20,13 +20,13 @@ mixin showsCard(show)
         li.card-account__metadata-item.paragraph= `${hours}h ${minutes}m`
 
     .card-account__footer
-      if user.role === 'admin'
+      if user && user.role === 'admin'
         .card-account__footer-duo-btn
           .card-account__footer-duo-btn-1
-            a.btn.btn__promo.btn--duo(href=`${url}`) Edit Show
+            a.btn.btn__promo.btn--duo(href=`${url}`) Edit
 
           .card-account__footer-duo-btn-2
-            a.btn.btn__promo.btn--duo(href=`${url}/reviews`) View Reviews
+            a.btn.btn__promo.btn--duo(href=`${url}/reviews`) Reviews
       else
         a.btn.btn__promo(href=`${url}`) Edit
 
