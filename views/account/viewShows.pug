@@ -42,7 +42,7 @@ block content
               - const pageTitle = (user.role === 'admin') ? 'Shows in System' : 'My Shows'
               h2.heading-secondary= pageTitle
             
-            .account-box__container.u-center-text
+            .account-box__card-container.u-center-text
               each show in shows
                 +showsCard(show)
 
