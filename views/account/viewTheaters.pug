@@ -1,21 +1,21 @@
 extends baseAccount
 
 mixin theatersCard(theater)
-  .showtimes-box__theatertime
-    .showtimes-box__theatertime-poster
-      a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/theaters/${theater.id}`)
-        img.showtimes-box__theatertime-poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
+  .card-account__theatertime
+    .card-account__theatertime-poster
+      a.card-account__theatertime-poster-link.picture-link(href=`/admin/theaters/${theater.id}`)
+        img.card-account__theatertime-poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
 
-    .showtimes-box__theatertime-theater.u-margin-bottom-small
-      h3.showtimes-box__theatertime-theater-name.heading-tertiary= theater.name
+    .card-account__theatertime-theater.u-margin-bottom-small
+      h3.card-account__theatertime-theater-name.heading-tertiary= theater.name
     
-    .showtimes-box__metadata-container
-      ul.showtimes-box__metadata
-        li.showtimes-box__metadata-item.paragraph= `Chain: ${theater.chainName}`
+    .card-account__metadata-container
+      ul.card-account__metadata
+        li.card-account__metadata-item.paragraph= `Chain: ${theater.chainName}`
 
-        li.showtimes-box__metadata-item.paragraph= `Address: ${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
+        li.card-account__metadata-item.paragraph= `Address: ${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
 
-    .showtimes-box__ticket-buy
+    .card-account__ticket-buy
       a.btn.btn__promo(href=`/admin/theaters/${theater.id}`) Edit
 
   .line &nbsp;
