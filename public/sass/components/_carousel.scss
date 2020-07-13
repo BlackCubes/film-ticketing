@@ -220,8 +220,10 @@
   transition: $carousel-transition-duration all;
   transform-origin: center left;
 
-  @include respond(tab-port) {
-    margin-right: 5rem;
+  .tile-ticket:not(:first-child) {
+    @include respond(tab-port) {
+      margin-left: 5rem;
+    }
   }
 
   &__media-link {
