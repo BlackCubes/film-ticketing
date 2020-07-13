@@ -7,7 +7,7 @@ mixin reviewsCard(type)
 
     .card-account__content-photo
       - let showLink
-      if user.role === 'admin'
+      if user && user.role === 'admin'
         - showLink = `/admin/shows/${type.show.id}`
       else
         - showLink = `/show-overview/${type.show.slug}`
@@ -17,7 +17,7 @@ mixin reviewsCard(type)
 
     .card-account_content-type.u-center-text
       - let userRatingTitle
-      if user.role === 'admin'
+      if user && user.role === 'admin'
         - userRatingTitle = `${type.user.name}`
       else
         - userRatingTitle = `My`
@@ -29,20 +29,22 @@ mixin reviewsCard(type)
         li.card-account__metadata-item.paragraph= `"${type.review}"`
 
     .card-account__footer
-      if user.role === 'admin' && reviewsOnShow
+      if user && user.role === 'admin' && reviewsOnShow
         .card-account__footer-duo-btn
           .card-account__footer-duo-btn-1
             a.btn.btn__promo.btn--duo(href=`/admin/users/${type.user.id}/reviews`) View User's Reviews
 
           .card-account__footer-duo-btn-2
             a.btn.btn__promo.btn--duo(href=`#`) Delete Review
-      else if user.role === 'admin' && reviewsOnUser
+
+      else if user && user.role === 'admin' && reviewsOnUser
         .card-account__footer-duo-btn
           .card-account__footer-duo-btn-1
-            a.btn.btn__promo.btn--duo(href=`/admin/users/${type.user.id}/reviews`) View Show's Reviews
+            a.btn.btn__promo.btn--duo(href=`/admin/shows/${type.show.id}/reviews`) View Show's Reviews
 
           .card-account__footer-duo-btn-2
             a.btn.btn__promo.btn--duo(href=`#`) Delete Review
+
       else
         a.btn.btn__promo(href=`/myReviews/${type.show.slug}`) Edit
 
@@ -55,9 +57,9 @@ block content
           .account-box
             .account-box__title.u-margin-top-small.u-margin-bottom-small
               - let pageTitle
-              if user.role === 'admin' && reviewsOnShow
+              if user && user.role === 'admin' && reviewsOnShow
                 - pageTitle = `Reviews For ${reviewsOnShow}`
-              else if user.role === 'admin' && reviewsOnUser
+              else if user &&  user.role === 'admin' && reviewsOnUser
                 - pageTitle = `Reviews For ${reviewsOnUser}`
               else
                 - pageTitle = 'My Reviews'
