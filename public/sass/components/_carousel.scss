@@ -237,11 +237,19 @@
         height: $tile-height-poster;
       }
     }
+
+    &--logo {
+      @include respond(tab-port) {
+        width: $tile-width;
+        height: $tile-height;
+      }
+    }
   }
 
   &__media-img {
     width: 100%;
     height: 100%;
+    // object-fit: cover;
   }
 
   &__title {
