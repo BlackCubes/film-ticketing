@@ -9,7 +9,7 @@ block content
             .form__group
               .form__title.u-center-text
                 - const pageTitle = (user.role === 'admin') ? 'Show Settings' : 'Your Show Settings'
-                h1.heading-primary= pageTitle
+                h2.heading-secondary= pageTitle
             
             .form__group
               input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' value=`${show.title}` required)
@@ -94,7 +94,7 @@ block content
             .form__group
               .form__title.u-center-text
                 - const showPlotTitle = (user.role === 'admin') ? 'Change Show\'s Plot' : 'Change Your Show\'s Plot'
-                h1.heading-primary= showPlotTitle
+                h2.heading-secondary= showPlotTitle
             
             .form__group
               textarea#showOverview.form__text-area.input-text(name='textareaOverview' placeholder='Show Overview*' required)= show.overview
@@ -114,7 +114,7 @@ block content
             form#updateShowCastCrewForm.form
               .form__group.form__group--info
                 .form__title.u-center-text
-                  h1.heading-primary.u-margin-bottom-small Casts | Crews
+                  h2.heading-secondary.u-margin-bottom-small Casts | Crews
 
                   small.form__info-small.small-text Try not to remove the previous IDs when updating unless needed! When adding a new Cast/Crew ID, continue from the end (if any) by adding a comma and a space. Continue by separating newer IDs with commas and spaces until finished
               
@@ -135,7 +135,7 @@ block content
             .form__group
               .form__title.u-center-text
                 - const showAddlTitle = (user.role === 'admin') ? 'Change Show\'s Add\'l Info' : 'Change Your Show\'s Add\'l Info'
-                h1.heading-primary= showAddlTitle
+                h2.heading-secondary= showAddlTitle
 
             .form__group
               .form__content-type
@@ -170,7 +170,7 @@ block content
             .form__group
               .form__title.u-center-text
                 - const showPriceTitle = (user.role === 'admin') ? 'Change Show\'s Price' : 'Change Your Show\'s Price'
-                h1.heading-primary.u-margin-bottom-small= showPriceTitle
+                h2.heading-secondary.u-margin-bottom-small= showPriceTitle
 
                 small.form__info-small.small-text For adding a price discount, please contact the admin.
 
@@ -210,7 +210,7 @@ block content
               .form__title.u-center-text
                 - const deleteShowTitle = (user.role === 'admin') ? 'Delete Show' : 'Delete Your Show'
 
-                h1.heading-primary.u-margin-bottom-small= deleteShowTitle
+                h2.heading-secondary.u-margin-bottom-small= deleteShowTitle
 
                 - const deleteMoreInfo = (user.role === 'admin') ? 'Please enter your password to delete the show.' : 'If you wish to delete your show, please contact the administrator.'
 
@@ -230,7 +230,7 @@ block content
         //-   form#updateShowImagePromo
         //-     .form__group
         //-       .form__title.u-center-text
-        //-           h1.heading-primary.u-margin-bottom-small Add Promotional Images
+        //-           h2.heading-primary.u-margin-bottom-small Add Promotional Images
 
         //-           small.form__info-small.small-text Upload promotional images related to your show. They could be BTS photography, or during the night of your show. A limit of 5 uploads.
 
