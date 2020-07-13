@@ -220,11 +220,9 @@
   transition: $carousel-transition-duration all;
   transform-origin: center left;
 
-  // @include respond(tab-port) {
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  //   margin-right: 10rem; // Delete if need to!
-  // }
+  @include respond(tab-port) {
+    margin-right: 5rem;
+  }
 
   &__media-link {
     display: inline-block;
