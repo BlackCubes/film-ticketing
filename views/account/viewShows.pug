@@ -36,13 +36,13 @@ block content
   main.main.main-account
     .user-view
       .user-view__content
-        .user-view__eventowners-container
-          .eventowners-box
-            .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
+        .user-view__account-container
+          .account-box
+            .account-box__title.u-margin-top-small.u-margin-bottom-small
               - const pageTitle = (user.role === 'admin') ? 'Shows in System' : 'My Shows'
               h2.heading-secondary= pageTitle
             
-            .eventowners-box__shows-container.u-center-text
+            .account-box__shows-container.u-center-text
               each show in shows
                 +showsCard(show)
 
