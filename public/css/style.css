@@ -1273,6 +1273,12 @@ svg {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+  @media (min-width: 37.5em) {
+    .user-view {
+      width: 93%; } }
+  @media (min-width: 56.25em) {
+    .user-view {
+      width: 90%; } }
   .user-view__form-container {
     width: 100%;
     padding: 1rem; }
