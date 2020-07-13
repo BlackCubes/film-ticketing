@@ -575,8 +575,7 @@ body {
     margin-top: 1rem; }
     @media (min-width: 37.5em) {
       .tile-ticket__options {
-        margin-top: 1.5rem;
-        width: 60%; } }
+        margin-top: 1.5rem; } }
     @media (min-width: 56.25em) {
       .tile-ticket__options {
         width: 70%; } }

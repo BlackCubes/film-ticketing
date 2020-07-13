@@ -276,7 +276,7 @@
 
     @include respond(tab-port) {
       margin-top: 1.5rem;
-      width: 60%;
+      // width: 60%;
     }
 
     @include respond(tab-land) {
