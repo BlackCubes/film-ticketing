@@ -29,11 +29,11 @@ block content
   main.main.main-account
     .user-view
       .user-view__content
-        .user-view__eventowners-container
-          .eventowners-box
-            .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
+        .user-view__account-container
+          .account-box
+            .account-box__title.u-margin-top-small.u-margin-bottom-small
               h2.heading-secondary Showtimes in System
             
-            .eventowners-box__shows-container.u-center-text
+            .account-box__card-container.u-center-text
               each showtime in showtimes
                 +showtimesCard(showtime)
