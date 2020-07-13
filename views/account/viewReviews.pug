@@ -1,13 +1,16 @@
 extends baseAccount
 
+mixin reviewsCard(type)
+  
+
 block content
   main.main
     - console.log(reviews)
     .user-view
       .user-view__content
-        .user-view__reviews-container
-          .reviews-box
-            .reviews-box__title.u-margin-top-small.u-margin-bottom-small
+        .user-view__account-container
+          .account-box
+            .account-box__title.u-margin-top-small.u-margin-bottom-small
               - let pageTitle
               if user.role === 'admin' && reviewsOnShow
                 - pageTitle = `Reviews For ${reviewsOnShow}`
@@ -17,7 +20,7 @@ block content
                 - pageTitle = 'My Reviews'
               h2.heading-secondary= pageTitle
 
-            .reviews-box__reviews-container.u-center-text
+            .account-box__card-container.u-center-text
               each review in reviews
                 .showtimes-box__theatertime
                   .showtimes-box__theatertime-poster
