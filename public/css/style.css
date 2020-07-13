@@ -1324,6 +1324,9 @@ svg {
     width: 100%;
     padding: 1rem; }
 
+.account-box__card-container > .line:last-child {
+  display: none; }
+
 .section-castcrew-header {
   width: 100%; }
   .section-castcrew-header .heading-box__background-img {
