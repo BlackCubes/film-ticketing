@@ -18,6 +18,12 @@
 
   @include respond(tab-port) {
     font-size: 1.8rem;
+    width: 50vw;
+  }
+
+  @include respond(tab-land) {
+    font-size: 2rem;
+    width: 60vh;
   }
 
   &--success {
