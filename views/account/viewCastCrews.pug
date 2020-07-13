@@ -1,19 +1,19 @@
 extends baseAccount
 
 mixin castcrewsCard(castcrew)
-  .showtimes-box__theatertime
-    .showtimes-box__theatertime-poster
-      a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/castcrews/${castcrew.id}`)
-        img.showtimes-box__theatertime-poster-img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name} Photo`)
+  .card-account__content
+    .card-account__content-photo
+      a.card-account__content-photo-link.picture-link(href=`/admin/castcrews/${castcrew.id}`)
+        img.card-account__content-photo-img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name} Photo`)
 
-    .showtimes-box__theatertime-theater.u-margin-bottom-small
-      h3.showtimes-box__theatertime-theater-name.heading-tertiary= castcrew.name
+    .card-account__content-type.u-margin-bottom-small
+      h3.card-account__content-type-name.heading-tertiary= castcrew.name
     
-    .showtimes-box__metadata-container
-      ul.showtimes-box__metadata
-        li.showtimes-box__metadata-item.paragraph.u-uppercase-text= `Role: ${castcrew.roles.join(', ')}`
+    .card-account__metadata-container
+      ul.card-account__metadata
+        li.card-account__metadata-item.paragraph.u-uppercase-text= `Role: ${castcrew.roles.join(', ')}`
 
-    .showtimes-box__ticket-buy
+    .card-account__footer
       a.btn.btn__promo(href=`/admin/castcrews/${castcrew.id}`) Edit
 
   .line &nbsp;
@@ -22,11 +22,11 @@ block content
   main.main.main-account
     .user-view
       .user-view__content
-        .user-view__eventowners-container
-          .eventowners-box
-            .eventowners-box__title.u-margin-top-small.u-margin-bottom-small
+        .user-view__account-container
+          .account-box
+            .account-box__title.u-margin-top-small.u-margin-bottom-small
               h2.heading-secondary Casts | Crews in System
             
-            .eventowners-box__shows-container.u-center-text
+            .account-box__card-container.u-center-text
               each castcrew in castcrews
                 +castcrewsCard(castcrew)
