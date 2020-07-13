@@ -1,13 +1,13 @@
 extends baseAccount
 
 mixin theatersCard(theater)
-  .card-account__theatertime
-    .card-account__theatertime-poster
-      a.card-account__theatertime-poster-link.picture-link(href=`/admin/theaters/${theater.id}`)
-        img.card-account__theatertime-poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
+  .card-account__content
+    .card-account__content-photo
+      a.card-account__content-photo-link.picture-link(href=`/admin/theaters/${theater.id}`)
+        img.card-account__content-photo-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
 
-    .card-account__theatertime-theater.u-margin-bottom-small
-      h3.card-account__theatertime-theater-name.heading-tertiary= theater.name
+    .card-account__content-type.u-margin-bottom-small
+      h3.card-account__content-type-name.heading-tertiary= theater.name
     
     .card-account__metadata-container
       ul.card-account__metadata
@@ -15,7 +15,7 @@ mixin theatersCard(theater)
 
         li.card-account__metadata-item.paragraph= `Address: ${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
 
-    .card-account__ticket-buy
+    .card-account__footer
       a.btn.btn__promo(href=`/admin/theaters/${theater.id}`) Edit
 
   .line &nbsp;
