@@ -17,14 +17,14 @@ mixin usersCard(user)
       if user.role === 'event-owner'
         .card-account__footer-duo-btn
           .card-account__footer-duo-btn-1
-            a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit User
+            a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit
 
           .card-account__footer-duo-btn-2
             a.btn.btn__promo(href=`/admin/users/${user._id}/shows`) Shows
       else
         .card-account__footer-duo-btn
           .card-account__footer-duo-btn-1
-            a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit User
+            a.btn.btn__promo(href=`/admin/users/${user._id}`) Edit
 
           .card-account__footer-duo-btn-2
             a.btn.btn__promo(href=`/admin/users/${user._id}/reviews`) Reviews
