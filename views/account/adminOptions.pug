@@ -18,10 +18,10 @@ mixin adminOption(option)
         .showtimes-box__ticket-buy
           a.btn.btn__promo(href=`/admin/${option}s`) Select
 
-    .line &nbsp;
-
     //- CREATE
     if (option !== 'user')
+      .line &nbsp;
+
       .admin-box__options-container.u-center-text
         .showtimes-box__theatertime
           .showtimes-box__theatertime-poster
