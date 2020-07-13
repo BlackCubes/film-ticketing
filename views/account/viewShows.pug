@@ -21,11 +21,11 @@ mixin showsCard(show)
 
     .card-account__footer
       if user.role === 'admin'
-        .form__duo-btn
-          .form__duo-btn-previous
+        .form__footer-duo-btn
+          .form__footer-duo-btn-1
             a.btn.btn__promo.btn--duo(href=`${url}`) Edit Show
 
-          .form__duo-btn-next
+          .form__footer-duo-btn-2
             a.btn.btn__promo.btn--duo(href=`${url}/reviews`) View Reviews
       else
         a.btn.btn__promo(href=`${url}`) Edit
