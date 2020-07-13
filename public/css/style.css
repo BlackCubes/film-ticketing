@@ -544,11 +544,6 @@ body {
   display: inline-block;
   transition: 450ms all;
   transform-origin: center left; }
-  @media (min-width: 37.5em) {
-    .tile-ticket {
-      left: 50%;
-      transform: translateX(-50%);
-      margin-right: 10rem; } }
 
 .dropdown {
   font-family: inherit;
