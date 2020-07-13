@@ -183,9 +183,27 @@
         content: ' - ';
       }
     }
+  }
 
-    // &__footer {
+  &__footer {
+    &-duo-btn {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 90%;
+      -webkit-justify-content: space-between;
+      -ms-justify-content: space-between;
+      justify-content: space-between;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 4rem;
 
-    // }
+      &-1,
+      &-2 {
+        -webkit-flex-basis: 40%;
+        -ms-flex-basis: 40%;
+        flex-basis: 40%;
+      }
+    }
   }
 }
