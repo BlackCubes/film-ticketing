@@ -558,7 +558,8 @@ body {
         height: 14.0625rem; } }
   .tile-ticket__media-img {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    object-fit: cover; }
   @media (min-width: 37.5em) {
     .tile-ticket__title {
       margin-top: 1.5rem; } }
