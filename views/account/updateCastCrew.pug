@@ -9,7 +9,7 @@ block content
           form#updateCastCrewMainView.form
             .form__group
               .form__title.u-center-text
-                h1.heading-primary Cast | Crew Settings
+                h2.heading-secondary Cast | Crew Settings
 
             .form__group
               input#name.form__input.input-text(type='text' placeholder='Name*' value=`${castcrew.name}` required)
@@ -73,7 +73,7 @@ block content
           form#updateCastCrewAddlForm.form
             .form__group
               .form__title.u-center-text
-                h1.heading-primary Change Cast | Crew Add'l Info
+                h2.heading-secondary Change Cast | Crew Add'l Info
 
             .form__group
               textarea#biography.form__text-area.input-text(name='textareaBio' placeholder='Biography')= castcrew.biography
@@ -95,7 +95,7 @@ block content
           form#deleteCastCrewForm.form
             .form__group.form__group--info
               .form__title.u-center-text
-                h1.heading-primary.u-margin-bottom-small Delete Cast | Crew
+                h2.heading-secondary.u-margin-bottom-small Delete Cast | Crew
 
                 small.form__info-small.small-text Please enter your password to delete the cast/crew.
 
