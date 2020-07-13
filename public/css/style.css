@@ -387,9 +387,9 @@ body {
   margin-right: auto;
   margin-bottom: 4rem; }
   .card-account__footer-duo-btn-1, .card-account__footer-duo-btn-2 {
-    -webkit-flex-basis: 45%;
-    -ms-flex-basis: 45%;
-    flex-basis: 45%; }
+    -webkit-flex-basis: 40%;
+    -ms-flex-basis: 40%;
+    flex-basis: 40%; }
 
 .row--scroll {
   overflow: scroll;
