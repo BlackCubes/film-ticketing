@@ -54,15 +54,15 @@
   }
 }
 
-.section-theater-showtimes {
-  .showtimes-box__theatertime-container {
-    @include respond(tab-land) {
-      width: 70%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-}
+// .section-theater-showtimes {
+//   .showtimes-box__theatertime-container {
+//     @include respond(tab-land) {
+//       width: 70%;
+//       margin-left: auto;
+//       margin-right: auto;
+//     }
+//   }
+// }
 
 .showtimes-box {
   &__theatertime {
