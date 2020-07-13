@@ -5,17 +5,17 @@ mixin adminOption(option)
     .admin-box__title.u-margin-top-small.u-margin-bottom-small
       h2.heading-secondary= `${option.charAt(0).toUpperCase() + option.slice(1)} Options`
 
-    //- VIEW, EDIT, DELETE SHOWS
+    //- VIEW, EDIT, DELETE
     .admin-box__options-container.u-center-text
-      .showtimes-box__theatertime
-        .showtimes-box__theatertime-poster
-          a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/${option}s`)
-            img.showtimes-box__theatertime-poster-img(src='/img/users/users.png', alt='Users Photo')
+      .card-account__content
+        .card-account__content-photo
+          a.card-account__content-photo-link.picture-link(href=`/admin/${option}s`)
+            img.card-account__content-photo-img(src='/img/users/users.png', alt='Users Photo')
 
-        .showtimes-box__theatertime-theater.u-margin-bottom-small
-          h3.showtimes-box__theatertime-theater-name.heading-tertiary View | Edit | Delete
+        .card-account__content-type.u-margin-bottom-small
+          h3.card-account__content-type-name.heading-tertiary View | Edit | Delete
 
-        .showtimes-box__ticket-buy
+        .card-account__footer
           a.btn.btn__promo(href=`/admin/${option}s`) Select
 
     //- CREATE
@@ -23,16 +23,49 @@ mixin adminOption(option)
       .line &nbsp;
 
       .admin-box__options-container.u-center-text
-        .showtimes-box__theatertime
-          .showtimes-box__theatertime-poster
-            a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/create-${option}`)
-              img.showtimes-box__theatertime-poster-img(src='/img/shows/shows.png', alt='Shows Photo')
+        .card-account__content
+          .card-account__content-photo
+            a.card-account__content-photo-link.picture-link(href=`/admin/create-${option}`)
+              img.card-account__content-photo-img(src='/img/shows/shows.png', alt='Shows Photo')
 
-          .showtimes-box__theatertime-theater.u-margin-bottom-small
-            h3.showtimes-box__theatertime-theater-name.heading-tertiary Create
+          .card-account__content-type.u-margin-bottom-small
+            h3.card-account__content-type-name.heading-tertiary Create
 
-          .showtimes-box__ticket-buy
+          .card-account__footer
             a.btn.btn__promo(href=`/admin/create-${option}`) Select
+
+  //- .admin-box
+  //-   .admin-box__title.u-margin-top-small.u-margin-bottom-small
+  //-     h2.heading-secondary= `${option.charAt(0).toUpperCase() + option.slice(1)} Options`
+
+  //-   //- VIEW, EDIT, DELETE SHOWS
+  //-   .admin-box__options-container.u-center-text
+  //-     .showtimes-box__theatertime
+  //-       .showtimes-box__theatertime-poster
+  //-         a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/${option}s`)
+  //-           img.showtimes-box__theatertime-poster-img(src='/img/users/users.png', alt='Users Photo')
+
+  //-       .showtimes-box__theatertime-theater.u-margin-bottom-small
+  //-         h3.showtimes-box__theatertime-theater-name.heading-tertiary View | Edit | Delete
+
+  //-       .showtimes-box__ticket-buy
+  //-         a.btn.btn__promo(href=`/admin/${option}s`) Select
+
+  //-   //- CREATE
+  //-   if (option !== 'user')
+  //-     .line &nbsp;
+
+  //-     .admin-box__options-container.u-center-text
+  //-       .showtimes-box__theatertime
+  //-         .showtimes-box__theatertime-poster
+  //-           a.showtimes-box__theatertime-poster-link.picture-link(href=`/admin/create-${option}`)
+  //-             img.showtimes-box__theatertime-poster-img(src='/img/shows/shows.png', alt='Shows Photo')
+
+  //-         .showtimes-box__theatertime-theater.u-margin-bottom-small
+  //-           h3.showtimes-box__theatertime-theater-name.heading-tertiary Create
+
+  //-         .showtimes-box__ticket-buy
+  //-           a.btn.btn__promo(href=`/admin/create-${option}`) Select
 
 block content
   main.main.main-account
