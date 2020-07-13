@@ -156,7 +156,7 @@ exports.getMyTickets = catchAsync(async (req, res, next) => {
 exports.getMyReviews = catchAsync(async (req, res, next) => {
   const reviews = await Review.find({ user: req.user.id });
 
-  res.status(200).render('reviews', {
+  res.status(200).render('account/viewReviews', {
     title: 'My Reviews',
     reviews
   });
@@ -264,7 +264,7 @@ exports.getAdminUserReviews = catchAsync(async (req, res, next) => {
 
   const reviewsOnUser = user.name;
 
-  res.status(200).render('reviews', {
+  res.status(200).render('account/viewReviews', {
     title: `Admin - User: ${user.name}, Reviews`,
     reviews,
     reviewsOnUser
@@ -310,7 +310,7 @@ exports.getAdminShowReviews = catchAsync(async (req, res, next) => {
 
   const reviewsOnShow = show.title;
 
-  res.status(200).render('reviews', {
+  res.status(200).render('account/viewReviews', {
     title: `Admin - Shows: ${show.title}, Reviews`,
     reviews,
     reviewsOnShow
