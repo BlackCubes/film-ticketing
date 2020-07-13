@@ -565,6 +565,11 @@ body {
 
 .form-container__multiform {
   overflow: hidden; }
+  @media (min-width: 37.5em) {
+    .form-container__multiform--fifth {
+      max-width: 55rem;
+      margin-left: auto;
+      margin-right: auto; } }
 
 .form__multiform {
   display: -webkit-flex;
