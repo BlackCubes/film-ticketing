@@ -244,7 +244,7 @@ body {
   display: inline-block;
   border-radius: 1rem;
   border: none;
-  width: 90%;
+  width: 100%;
   cursor: pointer; }
   @media (min-width: 37.5em) {
     .btn {
