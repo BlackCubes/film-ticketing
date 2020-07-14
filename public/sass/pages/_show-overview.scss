@@ -32,9 +32,9 @@
   &__background {
     height: 100%;
 
-    // @include respond(tab-port) {
-    //   height: 90vh;
-    // }
+    @include respond(tab-land) {
+      height: 85vw;
+    }
 
     &-overlay {
       position: absolute;
@@ -84,6 +84,10 @@
     //   left: 1rem;
     // }
 
+    @include respond(tab-land) {
+      left: 3rem;
+    }
+
     &-img {
       width: 40%;
       // height: 40%;
@@ -91,6 +95,11 @@
 
       @include respond(tab-port) {
         width: 45vw;
+        // height: 50%;
+      }
+
+      @include respond(tab-land) {
+        width: 50vh;
         // height: 50%;
       }
     }
@@ -106,6 +115,10 @@
       width: 50%;
       top: 14rem;
       right: 0.5rem;
+    }
+
+    @include respond(tab-land) {
+      right: 2.5rem;
     }
   }
 

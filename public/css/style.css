@@ -1696,6 +1696,9 @@ svg {
   height: 85vh; }
   .heading-box__background {
     height: 100%; }
+    @media (min-width: 56.25em) {
+      .heading-box__background {
+        height: 85vw; } }
     .heading-box__background-overlay {
       position: absolute;
       width: 100%;
@@ -1720,12 +1723,18 @@ svg {
     position: absolute;
     top: 7rem;
     left: 1rem; }
+    @media (min-width: 56.25em) {
+      .heading-box__poster {
+        left: 3rem; } }
     .heading-box__poster-img {
       width: 40%;
       height: auto; }
       @media (min-width: 37.5em) {
         .heading-box__poster-img {
           width: 45vw; } }
+      @media (min-width: 56.25em) {
+        .heading-box__poster-img {
+          width: 50vh; } }
   .heading-box__data-container {
     position: absolute;
     width: 55%;
@@ -1736,6 +1745,9 @@ svg {
         width: 50%;
         top: 14rem;
         right: 0.5rem; } }
+    @media (min-width: 56.25em) {
+      .heading-box__data-container {
+        right: 2.5rem; } }
   .heading-box__metadata-container {
     text-align: center;
     padding: 1rem; }
