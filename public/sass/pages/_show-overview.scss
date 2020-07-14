@@ -32,9 +32,9 @@
   &__background {
     height: 100%;
 
-    @include respond(tab-port) {
-      height: 90vh;
-    }
+    // @include respond(tab-port) {
+    //   height: 90vh;
+    // }
 
     &-overlay {
       position: absolute;
@@ -66,6 +66,11 @@
       object-position: 73% 22%;
       filter: blur(0.3rem);
       opacity: 0.15;
+
+      @include respond(tab-port) {
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
     }
   }
 
@@ -74,10 +79,10 @@
     top: 7rem;
     left: 1rem;
 
-    @include respond(tab-port) {
-      top: 7rem;
-      left: 1rem;
-    }
+    // @include respond(tab-port) {
+    //   top: 7rem;
+    //   left: 1rem;
+    // }
 
     &-img {
       width: 40%;
@@ -85,9 +90,8 @@
       height: auto;
 
       @include respond(tab-port) {
-        width: 50%;
+        width: 45vw;
         // height: 50%;
-        height: auto;
       }
     }
   }
