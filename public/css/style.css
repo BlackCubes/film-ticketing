@@ -1731,7 +1731,7 @@ svg {
       height: auto; }
       @media (min-width: 37.5em) {
         .heading-box__poster-img {
-          width: 45vw; } }
+          width: 40vw; } }
       @media (min-width: 56.25em) {
         .heading-box__poster-img {
           width: 50vh; } }
