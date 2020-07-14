@@ -1692,7 +1692,8 @@ svg {
 
 .heading-box {
   position: relative;
-  width: 100%; }
+  width: 100%;
+  height: 85vh; }
   .heading-box__background {
     height: 100%; }
     @media (min-width: 37.5em) {
@@ -1716,7 +1717,7 @@ svg {
       opacity: 0.15; }
   .heading-box__poster {
     position: absolute;
-    top: 20rem;
+    top: 7rem;
     left: 1rem; }
     @media (min-width: 37.5em) {
       .heading-box__poster {
@@ -1724,15 +1725,15 @@ svg {
         left: 1rem; } }
     .heading-box__poster-img {
       width: 40%;
-      height: 40%; }
+      height: auto; }
       @media (min-width: 37.5em) {
         .heading-box__poster-img {
           width: 50%;
-          height: 50%; } }
+          height: auto; } }
   .heading-box__data-container {
     position: absolute;
     width: 55%;
-    top: 27rem;
+    top: 13rem;
     right: 1rem; }
     @media (min-width: 37.5em) {
       .heading-box__data-container {
