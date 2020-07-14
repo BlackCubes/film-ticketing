@@ -1,6 +1,12 @@
 .row--scroll {
   overflow: scroll;
   width: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .row__inner--poster {
     margin: ($tile-height-poster / 11) 0 ($tile-height-poster / 7) 0 !important;
