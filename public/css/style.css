@@ -1723,6 +1723,9 @@ svg {
     position: absolute;
     top: 7rem;
     left: 1rem; }
+    @media (min-width: 37.5em) {
+      .heading-box__poster {
+        top: 5rem; } }
     @media (min-width: 56.25em) {
       .heading-box__poster {
         left: 3rem; } }
@@ -1767,11 +1770,17 @@ svg {
         width: 95%;
         margin-left: auto;
         margin-right: auto;
-        bottom: 2rem;
+        bottom: 1rem;
         left: 0;
         right: 0; } }
   .heading-box__overview {
     padding: 1rem; }
+    @media (min-width: 37.5em) {
+      .heading-box__overview {
+        padding: 0; } }
+    @media (min-width: 37.5em) {
+      .heading-box__overview > .paragraph {
+        line-height: 1.5; } }
 
 .showtimes-box {
   margin-top: 5rem; }
