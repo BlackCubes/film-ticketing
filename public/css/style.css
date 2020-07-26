@@ -1781,6 +1781,13 @@ svg {
     @media (min-width: 37.5em) {
       .heading-box__overview > .paragraph {
         line-height: 1.5; } }
+  .heading-box__buy {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto; }
+    @media (min-width: 37.5em) {
+      .heading-box__buy {
+        width: 50%; } }
 
 .showtimes-box {
   margin-top: 5rem; }
