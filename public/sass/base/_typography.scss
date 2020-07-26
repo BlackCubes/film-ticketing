@@ -17,6 +17,10 @@ body {
   @include respond(tab-land) {
     letter-spacing: 2rem;
   }
+
+  @include respond(desktop) {
+    font-size: $font-size-primary-large;
+  }
 }
 
 .heading-secondary {
@@ -31,6 +35,10 @@ body {
   @include respond(tab-land) {
     // font-size: $font-size-secondary-large;
     letter-spacing: 0.5rem;
+  }
+
+  @include respond(desktop) {
+    font-size: $font-size-secondary-large;
   }
 
   &--gradient-1 {
@@ -68,6 +76,10 @@ body {
   // @include respond(tab-land) {
   //   font-size: $font-size-tertiary-large;
   // }
+
+  @include respond(desktop) {
+    font-size: $font-size-tertiary-large;
+  }
 }
 
 .paragraph {
