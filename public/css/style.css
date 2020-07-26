@@ -1846,6 +1846,12 @@ svg {
   width: 100%; }
   .section-theater-header .heading-box {
     height: 40rem; }
+    @media (min-width: 37.5em) {
+      .section-theater-header .heading-box {
+        height: 55vh; } }
+    @media (min-width: 56.25em) {
+      .section-theater-header .heading-box {
+        height: 55vw; } }
 
 .section-theater-location,
 .section-theater-showtimes,

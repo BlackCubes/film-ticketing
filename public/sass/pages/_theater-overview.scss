@@ -3,6 +3,14 @@
 
   .heading-box {
     height: 40rem;
+
+    @include respond(tab-port) {
+      height: 55vh;
+    }
+
+    @include respond(tab-land) {
+      height: 55vw;
+    }
   }
 }
 
