@@ -60,5 +60,10 @@
 
   &__description {
     margin-top: 3rem;
+
+    @include respond(desktop) {
+      margin-top: 0;
+      padding: 5rem;
+    }
   }
 }

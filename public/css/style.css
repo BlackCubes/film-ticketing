@@ -1468,6 +1468,10 @@ svg {
   margin-top: 5rem; }
   .about-box__description {
     margin-top: 3rem; }
+    @media (min-width: 75em) {
+      .about-box__description {
+        margin-top: 0;
+        padding: 5rem; } }
 
 .section-forgotpass {
   width: 95%;
