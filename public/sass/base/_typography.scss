@@ -78,9 +78,9 @@ body {
   //   font-size: $font-size-tertiary-large;
   // }
 
-  @include respond(desktop) {
-    font-size: $font-size-tertiary-large;
-  }
+  // @include respond(desktop) {
+  //   font-size: $font-size-tertiary-large;
+  // }
 }
 
 .paragraph {
