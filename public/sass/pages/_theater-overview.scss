@@ -103,6 +103,10 @@
 
   &__map {
     margin-top: 3rem;
+
+    @include respond(desktop) {
+      margin-top: 4rem;
+    }
   }
 }
 

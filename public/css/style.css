@@ -2039,6 +2039,9 @@ svg {
 
 .location-box__map {
   margin-top: 3rem; }
+  @media (min-width: 75em) {
+    .location-box__map {
+      margin-top: 4rem; } }
 
 .showtimes-box__theatertime-poster-img {
   width: 100%;
