@@ -1733,6 +1733,9 @@ svg {
       background-image: -webkit-gradient(linear, left top, right bottom, from(black), to(#0067aa));
       background-image: linear-gradient(linear, left top, right bottom, black, #0067aa);
       opacity: 0.85; }
+      @media (min-width: 75em) {
+        .heading-box__background-overlay {
+          display: none; } }
     .heading-box__background-img {
       -o-object-fit: none;
       object-fit: none;
@@ -1746,6 +1749,9 @@ svg {
         .heading-box__background-img {
           -o-object-fit: cover;
           object-fit: cover; } }
+      @media (min-width: 75em) {
+        .heading-box__background-img {
+          display: none; } }
   .heading-box__poster {
     position: absolute;
     top: 7rem;
@@ -1756,6 +1762,9 @@ svg {
     @media (min-width: 56.25em) {
       .heading-box__poster {
         left: 3rem; } }
+    @media (min-width: 75em) {
+      .heading-box__poster {
+        display: none; } }
     .heading-box__poster-img {
       width: 40%;
       height: auto; }

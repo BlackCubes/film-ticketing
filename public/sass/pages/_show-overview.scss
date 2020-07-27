@@ -55,6 +55,10 @@
         $color-light-blue-2
       );
       opacity: 0.85;
+
+      @include respond(desktop) {
+        display: none;
+      }
     }
 
     &-img {
@@ -71,6 +75,10 @@
         -o-object-fit: cover;
         object-fit: cover;
       }
+
+      @include respond(desktop) {
+        display: none;
+      }
     }
   }
 
@@ -85,6 +93,10 @@
 
     @include respond(tab-land) {
       left: 3rem;
+    }
+
+    @include respond(desktop) {
+      display: none;
     }
 
     &-img {
