@@ -1732,6 +1732,9 @@ svg {
   @media (min-width: 56.25em) {
     .heading-box {
       height: 85vw; } }
+  @media (min-width: 75em) {
+    .heading-box {
+      height: 63rem; } }
   .heading-box__background {
     height: 100%; }
     .heading-box__background-overlay {
@@ -1795,6 +1798,13 @@ svg {
     @media (min-width: 56.25em) {
       .heading-box__data-container {
         right: 2.5rem; } }
+    @media (min-width: 75em) {
+      .heading-box__data-container {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0; } }
   .heading-box__metadata-container {
     text-align: center;
     padding: 1rem; }
@@ -1832,6 +1842,10 @@ svg {
     @media (min-width: 37.5em) {
       .heading-box__buy {
         width: 50%; } }
+    @media (min-width: 75em) {
+      .heading-box__buy {
+        margin-top: 3rem;
+        margin-bottom: 2rem; } }
 
 .showtimes-box {
   margin-top: 5rem; }

@@ -33,6 +33,10 @@
     height: 85vw;
   }
 
+  @include respond(desktop) {
+    height: 63rem;
+  }
+
   &__background {
     height: 100%;
 
@@ -131,6 +135,14 @@
     @include respond(tab-land) {
       right: 2.5rem;
     }
+
+    @include respond(desktop) {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+    }
   }
 
   &__metadata-container {
@@ -187,6 +199,11 @@
 
     @include respond(tab-port) {
       width: 50%;
+    }
+
+    @include respond(desktop) {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
     }
   }
 }
