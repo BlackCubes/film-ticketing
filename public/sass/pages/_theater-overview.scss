@@ -18,7 +18,6 @@
   }
 }
 
-.section-theater-location,
 .section-theater-showtimes,
 .section-theater-about {
   width: 95%;
@@ -35,6 +34,24 @@
 
   @include respond(desktop) {
     width: 95%;
+  }
+}
+
+.section-theater-location {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include respond(tab-port) {
+    width: 93%;
+  }
+
+  @include respond(tab-land) {
+    width: 90%;
+  }
+
+  @include respond(desktop) {
+    width: 100%;
   }
 }
 
@@ -80,7 +97,9 @@
 }
 
 .location-box {
-  // margin-top: 5rem;
+  @include respond(desktop) {
+    margin-top: 7rem;
+  }
 
   &__map {
     margin-top: 3rem;

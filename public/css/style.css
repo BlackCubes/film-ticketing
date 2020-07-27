@@ -1968,27 +1968,37 @@ svg {
       .section-theater-header .heading-box {
         height: 63rem; } }
 
-.section-theater-location,
 .section-theater-showtimes,
 .section-theater-about {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
   @media (min-width: 37.5em) {
-    .section-theater-location,
     .section-theater-showtimes,
     .section-theater-about {
       width: 93%; } }
   @media (min-width: 56.25em) {
-    .section-theater-location,
     .section-theater-showtimes,
     .section-theater-about {
       width: 90%; } }
   @media (min-width: 75em) {
-    .section-theater-location,
     .section-theater-showtimes,
     .section-theater-about {
       width: 95%; } }
+
+.section-theater-location {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (min-width: 37.5em) {
+    .section-theater-location {
+      width: 93%; } }
+  @media (min-width: 56.25em) {
+    .section-theater-location {
+      width: 90%; } }
+  @media (min-width: 75em) {
+    .section-theater-location {
+      width: 100%; } }
 
 .section-theater-about {
   margin-bottom: 5rem; }
@@ -2022,6 +2032,10 @@ svg {
   left: 0;
   right: 0;
   bottom: 1rem; }
+
+@media (min-width: 75em) {
+  .location-box {
+    margin-top: 7rem; } }
 
 .location-box__map {
   margin-top: 3rem; }
