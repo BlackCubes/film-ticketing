@@ -14,6 +14,10 @@
   @include respond(tab-land) {
     width: 90%;
   }
+
+  @include respond(desktop) {
+    width: 95%;
+  }
 }
 
 .section-show-header {

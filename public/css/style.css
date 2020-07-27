@@ -1718,6 +1718,13 @@ svg {
     .section-show-reviews,
     .section-show-additional {
       width: 90%; } }
+  @media (min-width: 75em) {
+    .section-show-showtimes,
+    .section-show-synopsis,
+    .section-show-castcrew,
+    .section-show-reviews,
+    .section-show-additional {
+      width: 95%; } }
 
 .section-show-header {
   width: 100%; }
