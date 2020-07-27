@@ -13,6 +13,12 @@ block content
       .heading-box
         .heading-box__background
           .heading-box__background-overlay &nbsp;
+
+          video.heading-box__background-video
+            source(src='video/the-matrix-background-video.mp4')
+            source(src='video/the-matrix-background-video.webm')
+            | Sorry, your browser does not support embedded videos!
+
           img.heading-box__background-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
 
         .heading-box__poster
