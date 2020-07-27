@@ -32,6 +32,10 @@
     top: 4rem;
     left: 1rem;
 
+    @include respond(desktop) {
+      display: none;
+    }
+
     &-img {
       width: 50%;
       height: 50%;
@@ -43,6 +47,15 @@
     width: 45%;
     top: 4rem;
     right: 1rem;
+
+    @include respond(desktop) {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: 14rem;
+    }
   }
 
   &__castcrew-info-container {

@@ -1446,6 +1446,9 @@ svg {
   position: absolute;
   top: 4rem;
   left: 1rem; }
+  @media (min-width: 75em) {
+    .heading-box__photo {
+      display: none; } }
   .heading-box__photo-img {
     width: 50%;
     height: 50%; }
@@ -1455,6 +1458,14 @@ svg {
   width: 45%;
   top: 4rem;
   right: 1rem; }
+  @media (min-width: 75em) {
+    .heading-box__castcrew-data-container {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: 14rem; } }
 
 .heading-box__castcrew-info-container {
   position: absolute;
