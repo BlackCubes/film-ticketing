@@ -39,6 +39,7 @@ body {
 
   @include respond(desktop) {
     font-size: $font-size-secondary-large;
+    letter-spacing: 1.5rem;
   }
 
   &--gradient-1 {
@@ -96,6 +97,11 @@ body {
   @include respond(tab-land) {
     font-size: $default-font-size--tab-land;
     line-height: 2.1;
+  }
+
+  @include respond(desktop) {
+    font-size: $default-font-size;
+    letter-spacing: 0.13rem;
   }
 }
 
