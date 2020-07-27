@@ -149,6 +149,12 @@
     }
   }
 
+  &__title > h2 {
+    @include respond(desktop) {
+      letter-spacing: 1.5rem;
+    }
+  }
+
   &__metadata-container {
     text-align: center;
     padding: 1rem;
@@ -255,24 +261,49 @@
 }
 
 .synopsis-box {
-  // margin-top: 7rem;
+  text-align: center;
+
+  @include respond(desktop) {
+    margin-top: 7rem;
+  }
 
   &__synopsis {
     margin-top: 3rem;
 
     @include respond(desktop) {
-      padding: 1rem;
+      margin-top: 0;
+      padding: 5rem;
     }
   }
 }
 
 .castcrew-box {
   margin-top: 7rem;
+
+  &__list-container {
+    @include respond(desktop) {
+      margin-top: 4rem;
+    }
+  }
+}
+
+.reviews-box {
+  @include respond(desktop) {
+    margin-top: 7rem;
+  }
 }
 
 .additional-box {
+  @include respond(desktop) {
+    margin-top: 7rem;
+  }
+
   &__container {
     margin-top: 3rem;
+
+    @include respond(desktop) {
+      margin-top: 6rem;
+    }
   }
 
   &__organizer {
