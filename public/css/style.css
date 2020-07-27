@@ -1877,6 +1877,9 @@ svg {
 
 .showtimes-box {
   margin-top: 5rem; }
+  @media (min-width: 75em) {
+    .showtimes-box {
+      margin-top: 10rem; } }
   .showtimes-box__theatertime-container {
     margin-top: 3rem; }
   @media (min-width: 37.5em) {

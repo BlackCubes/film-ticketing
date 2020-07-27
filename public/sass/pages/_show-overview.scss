@@ -221,6 +221,10 @@
 .showtimes-box {
   margin-top: 5rem;
 
+  @include respond(desktop) {
+    margin-top: 10rem;
+  }
+
   &__theatertime-container {
     margin-top: 3rem;
   }
