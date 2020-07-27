@@ -1,0 +1,22 @@
+.bg-video {
+  display: none;
+
+  @include respond(desktop) {
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // z-index: -1;
+    opacity: 0.2;
+    overflow: hidden;
+  }
+
+  &__content {
+    @include respond(desktop) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
