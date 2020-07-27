@@ -12,14 +12,15 @@ block content
     section.section-show-header
       .heading-box
         .heading-box__background
+
           .heading-box__background-overlay &nbsp;
-
-          video.bg-video(autoplay muted loop)
-            source(src='video/the-matrix-background-video.mp4', type='video/mp4')
-            source(src='video/the-matrix-background-video.webm', type='video/webm')
-            | Sorry, your browser does not support embedded videos!
-
           img.heading-box__background-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+
+          .bg-video
+            video.bg-video__content(autoplay muted loop)
+              source(src='video/the-matrix-background-video.mp4', type='video/mp4')
+              source(src='video/the-matrix-background-video.webm', type='video/webm')
+              | Sorry, your browser does not support embedded videos!
 
         .heading-box__poster
           img.heading-box__poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
