@@ -38,8 +38,8 @@ body {
   }
 
   @include respond(desktop) {
-    font-size: $font-size-secondary-large;
-    letter-spacing: 1.5rem;
+    // font-size: $font-size-secondary-large;
+    letter-spacing: 1rem;
   }
 
   &--gradient-1 {
