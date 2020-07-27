@@ -1815,7 +1815,7 @@ svg {
         right: 0; } }
   @media (min-width: 75em) {
     .heading-box__title > h2 {
-      letter-spacing: 1.5rem; } }
+      letter-spacing: 2rem; } }
   .heading-box__metadata-container {
     text-align: center;
     padding: 1rem; }

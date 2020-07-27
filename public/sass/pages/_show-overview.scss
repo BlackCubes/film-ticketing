@@ -151,7 +151,7 @@
 
   &__title > h2 {
     @include respond(desktop) {
-      letter-spacing: 1.5rem;
+      letter-spacing: 2rem;
     }
   }
 
