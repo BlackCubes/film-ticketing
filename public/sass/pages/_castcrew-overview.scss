@@ -58,6 +58,12 @@
 .about-box {
   margin-top: 5rem;
 
+  &__title {
+    @include respond(desktop) {
+      margin-bottom: 0;
+    }
+  }
+
   &__description {
     margin-top: 3rem;
 

@@ -1466,6 +1466,9 @@ svg {
 
 .about-box {
   margin-top: 5rem; }
+  @media (min-width: 75em) {
+    .about-box__title {
+      margin-bottom: 0; } }
   .about-box__description {
     margin-top: 3rem; }
     @media (min-width: 75em) {
