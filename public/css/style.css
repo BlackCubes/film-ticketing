@@ -1886,6 +1886,9 @@ svg {
 
 .synopsis-box__synopsis {
   margin-top: 3rem; }
+  @media (min-width: 75em) {
+    .synopsis-box__synopsis {
+      padding: 1rem; } }
 
 .castcrew-box {
   margin-top: 7rem; }

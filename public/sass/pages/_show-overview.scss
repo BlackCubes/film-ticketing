@@ -259,6 +259,10 @@
 
   &__synopsis {
     margin-top: 3rem;
+
+    @include respond(desktop) {
+      padding: 1rem;
+    }
   }
 }
 
