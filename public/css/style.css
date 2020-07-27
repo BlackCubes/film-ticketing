@@ -1997,12 +1997,22 @@ svg {
   position: absolute;
   top: 4rem;
   left: 1rem; }
+  @media (min-width: 75em) {
+    .heading-box__logo {
+      display: none; } }
 
 .heading-box__theater-data-container {
   position: absolute;
   width: 55%;
   top: 4rem;
   right: 1rem; }
+  @media (min-width: 75em) {
+    .heading-box__theater-data-container {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0; } }
 
 .heading-box__theater-info-container {
   position: absolute;
