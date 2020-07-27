@@ -161,6 +161,9 @@ body {
   @media (min-width: 56.25em) {
     .book-text {
       font-size: 1.6rem; } }
+  @media (min-width: 75em) {
+    .book-text {
+      font-size: 1.2rem; } }
 
 .small-text {
   font-size: 1.1rem; }
@@ -172,6 +175,9 @@ body {
     .small-text {
       font-size: 1.5rem;
       line-height: 2; } }
+  @media (min-width: 75em) {
+    .small-text {
+      font-size: 1.1rem; } }
 
 .input-text {
   font-family: inherit;
