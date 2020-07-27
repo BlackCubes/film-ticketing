@@ -2009,6 +2009,9 @@ svg {
 
 .section-theater-about {
   margin-bottom: 5rem; }
+  @media (min-width: 75em) {
+    .section-theater-about {
+      margin-top: 7rem; } }
 
 .heading-box__logo {
   position: absolute;
