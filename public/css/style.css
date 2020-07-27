@@ -1365,6 +1365,11 @@ svg {
 .table {
   display: table;
   width: 100%; }
+  @media (min-width: 75em) {
+    .table {
+      width: 80rem;
+      margin-left: auto;
+      margin-right: auto; } }
 
 .tbody {
   display: table-row-group; }

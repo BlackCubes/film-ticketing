@@ -1,6 +1,12 @@
 .table {
   display: table;
   width: 100%;
+
+  @include respond(desktop) {
+    width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .tbody {
