@@ -22,6 +22,9 @@
     &-title {
       //font-size: 1.5rem;
       padding-bottom: 1rem;
+      @include respond(desktop) {
+        font-size: 1.5rem;
+      }
     }
 
     &-list {
@@ -65,6 +68,12 @@
           width: 4.6rem;
           height: 4.6rem;
         }
+
+        @include respond(desktop) {
+          font-size: 3.2rem;
+          width: 3.1rem;
+          height: 3.1rem;
+        }
       }
     }
   }
@@ -83,11 +92,19 @@
       vertical-align: top;
       overflow: hidden;
     }
+
+    @include respond(desktop) {
+      width: 25%;
+    }
   }
 
   &__title {
     //font-size: 1.5rem;
     //text-transform: uppercase;
+
+    @include respond(desktop) {
+      font-size: 1.5rem;
+    }
   }
 
   &__item {

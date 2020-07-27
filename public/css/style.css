@@ -994,6 +994,9 @@ svg {
         padding: 2rem; } }
     .footer__follow-title {
       padding-bottom: 1rem; }
+      @media (min-width: 75em) {
+        .footer__follow-title {
+          font-size: 1.5rem; } }
     .footer__follow-list {
       padding: 0;
       margin: 0; }
@@ -1024,6 +1027,11 @@ svg {
           font-size: 4.7rem;
           width: 4.6rem;
           height: 4.6rem; } }
+      @media (min-width: 75em) {
+        .footer__follow .fa-github, .footer__follow .fa-linkedin {
+          font-size: 3.2rem;
+          width: 3.1rem;
+          height: 3.1rem; } }
   .footer__main {
     text-align: center; }
   .footer__navigation {
@@ -1035,6 +1043,12 @@ svg {
         width: 50%;
         vertical-align: top;
         overflow: hidden; } }
+    @media (min-width: 75em) {
+      .footer__navigation {
+        width: 25%; } }
+  @media (min-width: 75em) {
+    .footer__title {
+      font-size: 1.5rem; } }
   .footer__item {
     padding: 1rem; }
   .footer__lower {
