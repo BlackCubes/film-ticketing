@@ -1964,6 +1964,9 @@ svg {
     @media (min-width: 56.25em) {
       .section-theater-header .heading-box {
         height: 55vw; } }
+    @media (min-width: 75em) {
+      .section-theater-header .heading-box {
+        height: 63rem; } }
 
 .section-theater-location,
 .section-theater-showtimes,
@@ -1981,6 +1984,11 @@ svg {
     .section-theater-showtimes,
     .section-theater-about {
       width: 90%; } }
+  @media (min-width: 75em) {
+    .section-theater-location,
+    .section-theater-showtimes,
+    .section-theater-about {
+      width: 95%; } }
 
 .section-theater-about {
   margin-bottom: 5rem; }
