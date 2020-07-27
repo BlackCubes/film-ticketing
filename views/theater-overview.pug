@@ -11,8 +11,15 @@ block content
     section.section-theater-header
       .heading-box
         .heading-box__background
+
           .heading-box__background-overlay &nbsp;
           img.heading-box__background-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
+
+          .bg-video
+            video.bg-video__content(autoplay muted loop)
+              source(src='/video/theaters/theater-bg-video.mp4', type='video/mp4')
+              source(src='/video/theaters/theater-bg-video.webm', type='video/webm')
+              | Sorry, your browser does not support embedded videos!
 
         .heading-box__logo
           img.heading-box__poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
