@@ -162,7 +162,8 @@
   &__mpaa-type,
   &__runtime-length,
   &__ratings-star,
-  &__has-tickets-answer {
+  &__has-tickets-answer,
+  &__has-shows-answer {
     @include respond(desktop) {
       font-size: 0.9rem !important;
     }
