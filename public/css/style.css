@@ -781,6 +781,8 @@ body {
   @media (min-width: 75em) {
     .form__title {
       margin-bottom: 5rem; } }
+  .form__title > h2 {
+    font-size: 2rem !important; }
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
