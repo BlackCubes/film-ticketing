@@ -313,6 +313,9 @@ body {
   @media (min-width: 56.25em) {
     .card {
       width: 90vh; } }
+  @media (min-width: 75em) {
+    .card {
+      width: 20rem; } }
   .card__poster-link {
     display: block;
     height: 68rem; }
@@ -322,6 +325,9 @@ body {
     @media (min-width: 56.25em) {
       .card__poster-link {
         height: 78vw; } }
+    @media (min-width: 75em) {
+      .card__poster-link {
+        height: inherit; } }
   .card__poster-img {
     display: block;
     width: 100%;
@@ -371,12 +377,21 @@ body {
     letter-spacing: 1rem; }
   .card__header {
     color: #87cefa; }
+    @media (min-width: 75em) {
+      .card__header {
+        font-size: 1.2rem !important; } }
   .card__mpaa, .card__runtime, .card__has-tickets {
     margin-bottom: 0.3rem; }
   .card__mpaa, .card__runtime, .card__ratings, .card__has-tickets, .card__has-shows {
     letter-spacing: 0.2rem; }
+  @media (min-width: 75em) {
+    .card__mpaa-type, .card__runtime-length, .card__ratings-star {
+      font-size: 0.9rem !important; } }
   .card__details {
     padding: 1.4rem; }
+    @media (min-width: 75em) {
+      .card__details {
+        display: none; } }
   .card__footer .btn__promo {
     font-size: 2rem;
     font-weight: 500;
@@ -385,6 +400,9 @@ body {
       .card__footer .btn__promo {
         font-size: 2.3rem;
         margin-bottom: 1rem; } }
+    @media (min-width: 75em) {
+      .card__footer .btn__promo {
+        font-size: 1.2rem !important; } }
 
 .card-account__content-photo-img {
   width: 100%;

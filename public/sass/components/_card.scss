@@ -21,6 +21,10 @@
     // width: 85vmin;
   }
 
+  @include respond(desktop) {
+    width: 20rem;
+  }
+
   &__poster {
     // Add new link helper class for cards
     &-link {
@@ -34,6 +38,10 @@
       @include respond(tab-land) {
         height: 78vw;
         // height: 78vmax;
+      }
+
+      @include respond(desktop) {
+        height: inherit;
       }
     }
 
@@ -113,6 +121,10 @@
 
   &__header {
     color: #87cefa; // lightskyblue
+
+    @include respond(desktop) {
+      font-size: 1.2rem !important;
+    }
   }
 
   &__mpaa,
@@ -129,8 +141,20 @@
     letter-spacing: 0.2rem;
   }
 
+  &__mpaa-type,
+  &__runtime-length,
+  &__ratings-star {
+    @include respond(desktop) {
+      font-size: 0.9rem !important;
+    }
+  }
+
   &__details {
     padding: 1.4rem;
+
+    @include respond(desktop) {
+      display: none;
+    }
   }
 
   &__footer {
@@ -144,6 +168,10 @@
       @include respond(tab-port) {
         font-size: 2.3rem;
         margin-bottom: 1rem;
+      }
+
+      @include respond(desktop) {
+        font-size: 1.2rem !important;
       }
     }
   }
