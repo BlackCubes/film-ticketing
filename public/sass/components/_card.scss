@@ -82,6 +82,10 @@
       @include respond(tab-land) {
         height: 44vw;
       }
+
+      @include respond(desktop) {
+        height: 20rem;
+      }
     }
 
     &-img {
@@ -157,7 +161,8 @@
 
   &__mpaa-type,
   &__runtime-length,
-  &__ratings-star {
+  &__ratings-star,
+  &__has-tickets-answer {
     @include respond(desktop) {
       font-size: 0.9rem !important;
     }

@@ -357,6 +357,9 @@ body {
     @media (min-width: 56.25em) {
       .card__logo-link {
         height: 44vw; } }
+    @media (min-width: 75em) {
+      .card__logo-link {
+        height: 20rem; } }
   .card__logo-img {
     display: block;
     width: 100%;
@@ -397,7 +400,7 @@ body {
   .card__mpaa, .card__runtime, .card__ratings, .card__has-tickets, .card__has-shows {
     letter-spacing: 0.2rem; }
   @media (min-width: 75em) {
-    .card__mpaa-type, .card__runtime-length, .card__ratings-star {
+    .card__mpaa-type, .card__runtime-length, .card__ratings-star, .card__has-tickets-answer {
       font-size: 0.9rem !important; } }
   .card__details {
     padding: 1.4rem; }
