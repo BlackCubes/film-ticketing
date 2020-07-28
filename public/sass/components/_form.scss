@@ -18,6 +18,10 @@
       margin-right: auto;
     }
 
+    @include respond(desktop) {
+      width: 40rem;
+    }
+
     // &--fifth {
     //   @include respond(tab-port) {
     //     max-width: 55rem;
@@ -255,6 +259,10 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4rem;
+
+    @include respond(desktop) {
+      margin-bottom: 2rem;
+    }
   }
 
   &__date {
