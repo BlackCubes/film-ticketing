@@ -738,7 +738,7 @@ body {
       margin-right: auto; } }
   @media (min-width: 75em) {
     .form-container__multiform {
-      width: 40rem; } }
+      width: 40rem !important; } }
 
 .form__multiform {
   display: -webkit-flex;
