@@ -315,6 +315,7 @@ body {
       width: 90vh; } }
   @media (min-width: 75em) {
     .card {
+      display: inline-block;
       width: 20rem; } }
   @media (min-width: 75em) {
     .card-wrapper {
@@ -325,7 +326,8 @@ body {
   @media (min-width: 75em) {
     .card-wrapper:after {
       content: ' ';
-      display: inline-block; } }
+      display: inline-block;
+      width: 100%; } }
   .card__poster-link {
     display: block;
     height: 68rem; }
