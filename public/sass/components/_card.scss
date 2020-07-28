@@ -25,6 +25,22 @@
     width: 20rem;
   }
 
+  &-wrapper {
+    @include respond(desktop) {
+      width: 85%;
+      text-align: justify;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &:after {
+      @include respond(desktop) {
+        content: ' ';
+        display: inline-block;
+      }
+    }
+  }
+
   &__poster {
     // Add new link helper class for cards
     &-link {
