@@ -1764,6 +1764,9 @@ svg {
 
 .section-show-header {
   width: 100%; }
+  @media (min-width: 75em) {
+    .section-show-header video {
+      transform: scale(1.5); } }
 
 .section-show-additional {
   margin-bottom: 5rem; }

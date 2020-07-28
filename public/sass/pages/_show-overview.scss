@@ -22,6 +22,12 @@
 
 .section-show-header {
   width: 100%;
+
+  & video {
+    @include respond(desktop) {
+      transform: scale(1.5);
+    }
+  }
 }
 
 .section-show-additional {
