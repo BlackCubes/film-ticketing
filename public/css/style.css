@@ -250,6 +250,10 @@ body {
     .alert {
       font-size: 2rem;
       width: 60vh; } }
+  @media (min-width: 75em) {
+    .alert {
+      font-size: 1.6rem;
+      width: 35rem; } }
   .alert--success {
     background-color: #001b4c; }
   .alert--error {
