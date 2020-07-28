@@ -18,9 +18,9 @@ body {
     letter-spacing: 2rem;
   }
 
-  // @include respond(desktop) {
-  //   font-size: $font-size-primary-large;
-  // }
+  @include respond(desktop) {
+    font-size: $font-size-primary-small;
+  }
 }
 
 .heading-secondary {
