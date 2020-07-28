@@ -5,6 +5,10 @@
     margin-right: auto;
   }
 
+  @include respond(desktop) {
+    width: 40rem;
+  }
+
   &-container__multiform {
     overflow: hidden;
 
@@ -80,6 +84,10 @@
     width: 95%;
     margin-left: auto;
     margin-right: auto;
+
+    @include respond(desktop) {
+      margin-bottom: 5rem;
+    }
   }
 
   &__group:not(:last-child) {
@@ -156,6 +164,10 @@
     }
     @include respond(tab-land) {
       height: 6.5vw;
+    }
+
+    @include respond(desktop) {
+      height: 4.5rem;
     }
   }
 

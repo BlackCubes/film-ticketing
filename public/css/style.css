@@ -714,6 +714,10 @@ body {
     margin-left: auto;
     margin-right: auto; } }
 
+@media (min-width: 75em) {
+  .form {
+    width: 40rem; } }
+
 .form-container__multiform {
   overflow: hidden; }
   @media (min-width: 37.5em) {
@@ -757,6 +761,9 @@ body {
   width: 95%;
   margin-left: auto;
   margin-right: auto; }
+  @media (min-width: 75em) {
+    .form__title {
+      margin-bottom: 5rem; } }
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
@@ -812,6 +819,10 @@ body {
 @media (min-width: 56.25em) {
   .form__input {
     height: 6.5vw; } }
+
+@media (min-width: 75em) {
+  .form__input {
+    height: 4.5rem; } }
 
 .form__text-area {
   height: 20rem; }
