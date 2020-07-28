@@ -1413,6 +1413,9 @@ svg {
   @media (min-width: 37.5em) {
     .nav-account {
       height: 13rem; } }
+  @media (min-width: 75em) {
+    .nav-account {
+      height: 11rem; } }
   .nav-account__logo {
     display: flex;
     justify-content: center;
@@ -1422,6 +1425,9 @@ svg {
       @media (min-width: 37.5em) {
         .nav-account__logo-img {
           width: 25rem; } }
+      @media (min-width: 75em) {
+        .nav-account__logo-img {
+          width: 20rem; } }
 
 .table {
   display: table;

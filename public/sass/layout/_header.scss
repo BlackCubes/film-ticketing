@@ -282,6 +282,10 @@
     height: 13rem;
   }
 
+  @include respond(desktop) {
+    height: 11rem;
+  }
+
   &__logo {
     display: flex;
     justify-content: center;
@@ -292,6 +296,10 @@
 
       @include respond(tab-port) {
         width: 25rem;
+      }
+
+      @include respond(desktop) {
+        width: 20rem;
       }
     }
   }
