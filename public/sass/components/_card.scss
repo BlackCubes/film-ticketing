@@ -1,3 +1,15 @@
+.card-wrapper {
+  @include respond(desktop) {
+    display: grid;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: space-evenly;
+    grid-template-columns: auto auto auto auto;
+    gap: 1rem;
+  }
+}
+
 .card {
   background-color: $color-light-blue-2;
   background-image: linear-gradient(
@@ -22,25 +34,9 @@
   }
 
   @include respond(desktop) {
-    display: inline-block;
     width: 20rem;
-  }
-
-  &-wrapper {
-    @include respond(desktop) {
-      width: 85%;
-      text-align: justify;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    &:after {
-      @include respond(desktop) {
-        content: ' ';
-        display: inline-block;
-        width: 100%;
-      }
-    }
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 
   &__poster {
@@ -59,7 +55,7 @@
       }
 
       @include respond(desktop) {
-        height: inherit;
+        height: 30rem;
       }
     }
 

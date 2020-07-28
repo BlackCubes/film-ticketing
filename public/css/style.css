@@ -298,6 +298,16 @@ body {
     background-color: #ff0000;
     color: #000; }
 
+@media (min-width: 75em) {
+  .card-wrapper {
+    display: grid;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: space-evenly;
+    grid-template-columns: auto auto auto auto;
+    gap: 1rem; } }
+
 .card {
   background-color: #0067aa;
   background-image: linear-gradient(180deg, #20b2aa, #0067aa);
@@ -315,19 +325,9 @@ body {
       width: 90vh; } }
   @media (min-width: 75em) {
     .card {
-      display: inline-block;
-      width: 20rem; } }
-  @media (min-width: 75em) {
-    .card-wrapper {
-      width: 85%;
-      text-align: justify;
-      margin-left: auto;
-      margin-right: auto; } }
-  @media (min-width: 75em) {
-    .card-wrapper:after {
-      content: ' ';
-      display: inline-block;
-      width: 100%; } }
+      width: 20rem;
+      margin-top: 4rem;
+      margin-bottom: 4rem; } }
   .card__poster-link {
     display: block;
     height: 68rem; }
@@ -339,7 +339,7 @@ body {
         height: 78vw; } }
     @media (min-width: 75em) {
       .card__poster-link {
-        height: inherit; } }
+        height: 30rem; } }
   .card__poster-img {
     display: block;
     width: 100%;
