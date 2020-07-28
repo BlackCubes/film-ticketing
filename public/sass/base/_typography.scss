@@ -116,6 +116,10 @@ body {
   @include respond(tab-land) {
     font-size: $font-size-average--tab-land;
   }
+
+  @include respond(desktop) {
+    font-size: $font-size-average;
+  }
 }
 
 .book-text {
