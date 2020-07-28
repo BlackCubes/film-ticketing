@@ -1007,6 +1007,10 @@ body {
   display: inline-block;
   width: 40%;
   height: 40%; }
+  @media (min-width: 75em) {
+    .picture-link {
+      width: 25%;
+      height: 25%; } }
 
 .map-container {
   position: relative;
