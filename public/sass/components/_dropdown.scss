@@ -31,6 +31,11 @@
     height: 6vw;
   }
 
+  @include respond(desktop) {
+    font-size: 1.2rem;
+    height: 4.5rem;
+  }
+
   &:focus {
     outline: none !important;
     border-bottom: 0.3rem solid $color-lightseagreen;
