@@ -6,26 +6,28 @@ block content
       .card__page-title-wrapper
         h2.card__page-title.heading-secondary Theaters
     
-      each theater in theaters
-        .card
-          .card__logo
-            //- .card__logo-overlay &nbsp;
-            //- Add new link helper class for cards
-            a.card__logo-link(href=`/theater-overview/${theater.slug}`)
-              img.card__logo-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
-          .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
-            h2.card__header.heading-secondary= theater.name
-          .card__has-tickets.u-center-text
+      .card-wrapper
+        each theater in theaters
+          .card
+            .card__logo
+              //- .card__logo-overlay &nbsp;
+              //- Add new link helper class for cards
+              a.card__logo-link(href=`/theater-overview/${theater.slug}`)
+                img.card__logo-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
 
-            - var ticketAns = (theater.isTicketing === true) ? 'This theater IS selling tickets' : 'This theater DOES NOT have tickets'
+            .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
+              h2.card__header.heading-secondary= theater.name
+            .card__has-tickets.u-center-text
 
-            h3.card__has-tickets-answer.heading-tertiary= ticketAns
-          .card__has-shows.u-center-text
+              - var ticketAns = (theater.isTicketing === true) ? 'This theater IS selling tickets' : 'This theater DOES NOT have tickets'
 
-            - var showtimeAns = (theater.hasShowTimes === true) ? 'There ARE shows' : 'NO shows'
+              h3.card__has-tickets-answer.heading-tertiary= ticketAns
+            .card__has-shows.u-center-text
 
-            h3.card__has-shows-answer.heading-tertiary= showtimeAns
-          .card__details.u-center-text
-            p.card__details-overview.paragraph= `${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
-          .card__footer.u-center-text
-            a.btn.btn__promo(href=`/theater-overview/${theater.slug}`) More Info
+              - var showtimeAns = (theater.hasShowTimes === true) ? 'There ARE shows' : 'NO shows'
+
+              h3.card__has-shows-answer.heading-tertiary= showtimeAns
+            .card__details.u-center-text
+              p.card__details-overview.paragraph= `${theater.address}, ${theater.city}, ${theater.state} ${theater.zipCode}`
+            .card__footer.u-center-text
+              a.btn.btn__promo(href=`/theater-overview/${theater.slug}`) More Info
