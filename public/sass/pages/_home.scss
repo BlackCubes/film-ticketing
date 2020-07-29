@@ -226,6 +226,34 @@
   @include respond(desktop) {
     position: relative;
     height: 50rem;
+    overflow: hidden;
+    background-color: $color-black;
+    background-image: none;
+  }
+
+  &__parallax {
+    display: none;
+
+    @include respond(desktop) {
+      display: block;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    &-img {
+      @include respond(desktop) {
+        background-image: url(../img/theatre-friends-large-1.jpg);
+        background-color: $color-white;
+        background-size: cover;
+        background-position: center;
+        height: 120%;
+        width: 100%;
+        position: absolute;
+        top: -18rem;
+        opacity: 0.9;
+        // overflow: hidden;
+      }
+    }
   }
 
   &__image {
@@ -239,7 +267,8 @@
     overflow: hidden;
 
     @include respond(desktop) {
-      height: 100%;
+      display: none;
+      // height: 100%;
     }
 
     &:before,

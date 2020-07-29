@@ -1729,7 +1729,28 @@ svg {
   @media (min-width: 75em) {
     .member {
       position: relative;
-      height: 50rem; } }
+      height: 50rem;
+      overflow: hidden;
+      background-color: #000;
+      background-image: none; } }
+  .member__parallax {
+    display: none; }
+    @media (min-width: 75em) {
+      .member__parallax {
+        display: block;
+        height: 100%;
+        overflow: hidden; } }
+    @media (min-width: 75em) {
+      .member__parallax-img {
+        background-image: url(../img/theatre-friends-large-1.jpg);
+        background-color: #fff;
+        background-size: cover;
+        background-position: center;
+        height: 120%;
+        width: 100%;
+        position: absolute;
+        top: -18rem;
+        opacity: 0.9; } }
   .member__image {
     background-image: url(../img/theatre-friends-large-1.jpg);
     background-color: #fff;
@@ -1741,7 +1762,7 @@ svg {
     overflow: hidden; }
     @media (min-width: 75em) {
       .member__image {
-        height: 100%; } }
+        display: none; } }
     .member__image:before, .member__image:after {
       content: '';
       position: absolute;
