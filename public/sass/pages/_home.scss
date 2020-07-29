@@ -85,6 +85,30 @@
     overflow: hidden;
   }
 
+  &__parallax {
+    display: none;
+
+    @include respond(desktop) {
+      display: block;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    &-img {
+      @include respond(desktop) {
+        // display: block;
+        background-image: url(../img/mandalorian-large.jpg);
+        background-color: $color-white;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 110%;
+        // position: absolute;
+        // overflow: hidden;
+      }
+    }
+  }
+
   &__image {
     background-image: url(../img/mandalorian-large.jpg);
     background-color: $color-white;
@@ -100,22 +124,6 @@
     // }
     @include respond(desktop) {
       display: none;
-    }
-
-    &--parallax {
-      display: none;
-
-      @include respond(desktop) {
-        display: block;
-        background-image: url(../img/mandalorian-large.jpg);
-        background-color: $color-white;
-        background-size: cover;
-        background-position: center;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        overflow: hidden;
-      }
     }
 
     &:before,

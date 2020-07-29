@@ -1641,6 +1641,21 @@ svg {
       position: relative;
       height: 50rem;
       overflow: hidden; } }
+  .promo__parallax {
+    display: none; }
+    @media (min-width: 75em) {
+      .promo__parallax {
+        display: block;
+        height: 100%;
+        overflow: hidden; } }
+    @media (min-width: 75em) {
+      .promo__parallax-img {
+        background-image: url(../img/mandalorian-large.jpg);
+        background-color: #fff;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 110%; } }
   .promo__image {
     background-image: url(../img/mandalorian-large.jpg);
     background-color: #fff;
@@ -1653,19 +1668,6 @@ svg {
     @media (min-width: 75em) {
       .promo__image {
         display: none; } }
-    .promo__image--parallax {
-      display: none; }
-      @media (min-width: 75em) {
-        .promo__image--parallax {
-          display: block;
-          background-image: url(../img/mandalorian-large.jpg);
-          background-color: #fff;
-          background-size: cover;
-          background-position: center;
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          overflow: hidden; } }
     .promo__image:before, .promo__image:after {
       content: '';
       position: absolute;
