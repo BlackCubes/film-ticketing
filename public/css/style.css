@@ -1640,7 +1640,9 @@ svg {
     .promo {
       position: relative;
       height: 50rem;
-      overflow: hidden; } }
+      overflow: hidden;
+      background-color: #000;
+      background-image: none; } }
   .promo__parallax {
     display: none; }
     @media (min-width: 75em) {

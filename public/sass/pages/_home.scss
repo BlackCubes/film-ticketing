@@ -83,6 +83,8 @@
     position: relative;
     height: 50rem;
     overflow: hidden;
+    background-color: $color-black;
+    background-image: none;
   }
 
   &__parallax {
