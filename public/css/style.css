@@ -1614,6 +1614,10 @@ svg {
 .section-home-member {
   margin-bottom: 2rem; }
 
+@media (min-width: 75em) {
+  .section-home-promo {
+    margin-bottom: 0.5rem !important; } }
+
 .home-carousel {
   margin-top: 7rem; }
   .home-carousel__header {

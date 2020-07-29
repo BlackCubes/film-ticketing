@@ -44,6 +44,12 @@
   margin-bottom: 2rem;
 }
 
+.section-home-promo {
+  @include respond(desktop) {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
 .home-carousel {
   margin-top: 7rem;
 
