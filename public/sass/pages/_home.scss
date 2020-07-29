@@ -222,8 +222,16 @@
   // padding-top: 2rem;
   padding-bottom: 2rem;
 
+  @include respond(desktop) {
+    padding-bottom: 4rem;
+  }
+
   &__header-wrapper {
     margin-top: 5rem;
+
+    @include respond(desktop) {
+      margin-top: 7rem;
+    }
   }
 
   &__header {
@@ -243,6 +251,11 @@
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
+
+    @include respond(desktop) {
+      max-width: 80rem;
+      padding: 2rem;
+    }
   }
 
   &__text {
