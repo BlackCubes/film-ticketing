@@ -64,15 +64,22 @@ block content
 
       section.section-home-member
         .member
+
+          .member__parallax
+            img.member__parallax-img.rellax(data-rellax-desktop-speed='-2', data-rellax-zindex='-1')
+
           .member__image
+
           .member__header-wrapper
             h2.member__header.heading-secondary.heading-secondary--gradient-2 Kineto Member
+
           .member__text-wrapper.u-center-text
             - memberLink = '/register'
             - memberTextContent = 'Join'
             if user
               - memberLink = '/me'
               - memberTextContent = 'View Account'
+
             p.member__text.paragraph.
               Enjoy being a member by getting early notifications of upcoming films, special venues, and discounted tickets. Connect with friends, create events, leave reviews, and manage you favorite films.
             .member__join: a.btn.btn__join(href=`${memberLink}`)= `${memberTextContent}`
