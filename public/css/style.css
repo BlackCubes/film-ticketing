@@ -1664,7 +1664,7 @@ svg {
           background-position: center;
           height: 100%;
           width: 100%;
-          position: relative;
+          position: absolute;
           overflow: hidden; } }
     .promo__image:before, .promo__image:after {
       content: '';
