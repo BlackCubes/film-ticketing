@@ -16413,12 +16413,11 @@ if (mapBox) {
 
 if (mapBoxHome) {
   (0, _mapbox.displayHomeMap)();
-} // if (rellaxClass) {
-//   var rellax = new Rellax(rellaxClass);
-// }
+}
 
-
-var rellax = new _rellax.default(rellaxClass);
+if (rellaxClass) {
+  var rellax = new _rellax.default(rellaxClass);
+}
 
 if (ticketBtn) {
   ticketBtn.addEventListener('click', function (e) {
