@@ -13,6 +13,10 @@
   @include respond(tab-land) {
     width: 90%;
   }
+
+  @include respond(desktop) {
+    width: 98%;
+  }
 }
 
 // .section-map {
@@ -148,6 +152,11 @@
     $color-light-silver
   );
 
+  @include respond(desktop) {
+    position: relative;
+    height: 50rem;
+  }
+
   &__image {
     background-image: url(../img/theatre-friends-large-1.jpg);
     background-color: $color-white;
@@ -157,6 +166,10 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+
+    @include respond(desktop) {
+      height: 100%;
+    }
 
     &:before,
     &:after {
@@ -170,10 +183,18 @@
       border-bottom: 1.7rem solid $color-lightseagreen;
       z-index: 100;
       width: 100%;
+
+      @include respond(desktop) {
+        display: none;
+      }
     }
 
     &:after {
       left: -50%;
+
+      @include respond(desktop) {
+        display: none;
+      }
     }
   }
 
@@ -186,6 +207,13 @@
     //background-image: linear-gradient(-270deg, $color-lightseagreen, $color-green-2, $color-light-silver);
     //background-clip: text;
     //-webkit-background-clip: text;
+
+    @include respond(desktop) {
+      position: absolute;
+      width: 40rem;
+      margin-left: 1rem;
+      top: 10rem;
+    }
   }
 
   &__header {
@@ -197,6 +225,15 @@
     position: relative;
     top: -2rem;
     padding: 1.4rem;
+
+    @include respond(desktop) {
+      position: absolute;
+      width: 40rem;
+      height: 25rem;
+      margin-left: 1rem;
+      padding: 0;
+      top: 22rem;
+    }
   }
 
   &__text {
