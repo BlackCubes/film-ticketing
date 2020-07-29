@@ -82,6 +82,7 @@
   @include respond(desktop) {
     position: relative;
     height: 50rem;
+    overflow: hidden;
   }
 
   &__image {
