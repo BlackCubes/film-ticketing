@@ -40,6 +40,7 @@ import {
 // DOM ELEMENTS
 const mapBox = document.getElementById('map'),
   mapBoxHome = document.getElementById('mapHome');
+const rellaxClass = document.querySelector('.rellax');
 const ticketBtn = document.getElementById('ticketShow');
 const circleNavTrigger = document.getElementById('trigger');
 const loginForm = document.getElementById('loginForm');
@@ -93,6 +94,10 @@ if (mapBox) {
 
 if (mapBoxHome) {
   displayHomeMap();
+}
+
+if (rellaxClass) {
+  var rellax = new Rellax(rellaxClass);
 }
 
 if (ticketBtn) {

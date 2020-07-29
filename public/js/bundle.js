@@ -15862,6 +15862,7 @@ require('./modernizr');
 // DOM ELEMENTS
 var mapBox = document.getElementById('map'),
     mapBoxHome = document.getElementById('mapHome');
+var rellaxClass = document.querySelector('.rellax');
 var ticketBtn = document.getElementById('ticketShow');
 var circleNavTrigger = document.getElementById('trigger');
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
@@ -15909,6 +15910,10 @@ if (mapBox) {
 
 if (mapBoxHome) {
   (0, _mapbox.displayHomeMap)();
+}
+
+if (rellaxClass) {
+  var rellax = new Rellax(rellaxClass);
 }
 
 if (ticketBtn) {
