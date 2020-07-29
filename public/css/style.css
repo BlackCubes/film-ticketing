@@ -1674,7 +1674,7 @@ svg {
       .promo__header-wrapper {
         position: absolute;
         width: 40rem;
-        margin-left: 1rem;
+        margin-left: 2rem;
         top: 10rem; } }
   .promo__header {
     font-weight: 400;
@@ -1688,7 +1688,7 @@ svg {
         position: absolute;
         width: 40rem;
         height: 25rem;
-        margin-left: 1rem;
+        margin-left: 2rem;
         padding: 0;
         top: 22rem; } }
   .promo__join {
@@ -1743,7 +1743,7 @@ svg {
       .member__header-wrapper {
         position: absolute;
         width: 40rem;
-        margin-left: 1rem;
+        margin-left: 2rem;
         top: 10rem; } }
   .member__header {
     font-weight: 400;
@@ -1757,7 +1757,7 @@ svg {
         position: absolute;
         width: 40rem;
         height: 25rem;
-        margin-left: 1rem;
+        margin-left: 2rem;
         padding: 0;
         top: 22rem; } }
   .member__join {
