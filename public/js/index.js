@@ -2,6 +2,7 @@
 import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
+import lax from 'lax.js';
 import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
@@ -40,6 +41,7 @@ import {
 // DOM ELEMENTS
 const mapBox = document.getElementById('map'),
   mapBoxHome = document.getElementById('mapHome');
+const laxJs = document.getElementsByClassName('lax');
 const ticketBtn = document.getElementById('ticketShow');
 const circleNavTrigger = document.getElementById('trigger');
 const loginForm = document.getElementById('loginForm');
@@ -93,6 +95,19 @@ if (mapBox) {
 
 if (mapBoxHome) {
   displayHomeMap();
+}
+
+if (laxJs) {
+  window.onload = function() {
+    lax.setup(); // init
+
+    const updateLax = () => {
+      lax.update(window.scrollY);
+      window.requestAnimationFrame(updateLax);
+    };
+
+    window.requestAnimationFrame(updateLax);
+  };
 }
 
 if (ticketBtn) {
