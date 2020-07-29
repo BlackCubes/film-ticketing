@@ -260,9 +260,17 @@
   margin-left: auto;
   margin-right: auto;
 
+  @include respond(desktop) {
+    width: 98%;
+  }
+
   &__header-wrapper {
     padding-top: 5rem;
     padding-bottom: 2rem;
+
+    @include respond(desktop) {
+      padding-top: 7rem;
+    }
   }
 
   &__header {
@@ -283,6 +291,11 @@
     -webkit-box-shadow: 0px 0px 5px 0px rgba($color-black, 0.5);
     -moz-box-shadow: 0px 0px 5px 0px rgba($color-black, 0.5);
     box-shadow: 0px 0px 5px 0px rgba($color-black, 0.5);
+
+    @include respond(desktop) {
+      width: 50rem;
+      padding: 4rem;
+    }
   }
 
   &__text {
@@ -298,6 +311,11 @@
   margin-left: auto;
   margin-right: auto;
 
+  @include respond(desktop) {
+    width: 50rem;
+    padding: 2rem;
+  }
+
   &__header-wrapper {
     padding: 1rem;
   }
@@ -306,5 +324,11 @@
     color: $color-black;
     font-weight: 400;
     letter-spacing: 0.1rem;
+  }
+
+  &__button-wrapper {
+    @include respond(desktop) {
+      padding: 1rem;
+    }
   }
 }
