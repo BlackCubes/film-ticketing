@@ -2,6 +2,7 @@
 import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
+import Rellax from 'rellax';
 import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
