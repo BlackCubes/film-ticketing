@@ -1653,10 +1653,10 @@ svg {
     @media (min-width: 75em) {
       .promo__image {
         display: none; } }
-    .promo__image--paralax {
+    .promo__image--parallax {
       display: none; }
       @media (min-width: 75em) {
-        .promo__image--paralax {
+        .promo__image--parallax {
           display: block;
           background-image: url(../img/mandalorian-large.jpg);
           background-color: #fff;
