@@ -1654,8 +1654,8 @@ svg {
         background-color: #fff;
         background-size: cover;
         background-position: center;
-        height: 100%;
-        width: 110%; } }
+        height: 120%;
+        width: 100%; } }
   .promo__image {
     background-image: url(../img/mandalorian-large.jpg);
     background-color: #fff;
