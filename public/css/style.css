@@ -1651,7 +1651,20 @@ svg {
     overflow: hidden; }
     @media (min-width: 75em) {
       .promo__image {
-        height: 100%; } }
+        display: none; } }
+    .promo__image--paralax {
+      display: none; }
+      @media (min-width: 75em) {
+        .promo__image--paralax {
+          display: block;
+          background-image: url(../img/mandalorian-large.jpg);
+          background-color: #fff;
+          background-size: cover;
+          background-position: center;
+          height: 100%;
+          width: 100%;
+          position: relative;
+          overflow: hidden; } }
     .promo__image:before, .promo__image:after {
       content: '';
       position: absolute;

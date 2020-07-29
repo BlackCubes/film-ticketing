@@ -94,8 +94,27 @@
     position: relative;
     overflow: hidden;
 
+    // @include respond(desktop) {
+    //   height: 100%;
+    // }
     @include respond(desktop) {
-      height: 100%;
+      display: none;
+    }
+
+    &--paralax {
+      display: none;
+
+      @include respond(desktop) {
+        display: block;
+        background-image: url(../img/mandalorian-large.jpg);
+        background-color: $color-white;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
     }
 
     &:before,
