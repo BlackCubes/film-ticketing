@@ -16419,6 +16419,8 @@ if (rellaxClass) {
   var rellax = new _rellax.default(rellaxClass);
 }
 
+var rellax2 = new _rellax.default('.rellax-2');
+
 if (ticketBtn) {
   ticketBtn.addEventListener('click', function (e) {
     e.target.textContent = 'Processing...';
