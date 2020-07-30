@@ -16416,10 +16416,9 @@ if (mapBoxHome) {
 }
 
 if (rellaxClass) {
-  var rellax = new _rellax.default(rellaxClass);
-}
+  var rellax = new _rellax.default('.rellax');
+} // var rellax2 = new Rellax('.rellax-2');
 
-var rellax2 = new _rellax.default('.rellax-2');
 
 if (ticketBtn) {
   ticketBtn.addEventListener('click', function (e) {

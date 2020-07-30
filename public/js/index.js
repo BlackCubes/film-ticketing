@@ -98,10 +98,10 @@ if (mapBoxHome) {
 }
 
 if (rellaxClass) {
-  var rellax = new Rellax(rellaxClass);
+  var rellax = new Rellax('.rellax');
 }
 
-var rellax2 = new Rellax('.rellax-2');
+// var rellax2 = new Rellax('.rellax-2');
 
 if (ticketBtn) {
   ticketBtn.addEventListener('click', e => {
