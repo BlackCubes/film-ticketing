@@ -56,26 +56,53 @@ block content
             .row__inner--ticket
               each show in castcrew.shows
                 .tile-ticket
-                  .showtimes-box__theatertime
-                    .showtimes-box__theatertime-poster
-                      a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${show.slug}`)
-                        img.showtimes-box__theatertime-poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
-                    .showtimes-box__theatertime-theater.u-margin-bottom-small
-                      // FIX BEM
-                      h3.showtimes-box__theatertime-theater-name.heading-tertiary= show.title
-                    .showtimes-box__metadata-container
-                      ul.showtimes-box__metadata
-                        li.showtimes-box__metadata-item.paragraph= show.mpaaRating
+                  .tile-ticket__media
+                    a.tile-ticket__media-link.tile-ticket__media-link--poster(href=`/show-overview/${show.slug}`)
+                      img.tile-ticket__media-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+                  
+                  .tile-ticket__title.u-margin-bottom-small
+                    h3.tile-ticket__title-content.heading-tertiary= show.title
 
-                        - const hours = Math.floor(show.durationHours)
-                        - const minutes = show.duration - hours*60
+                  .tile-ticket__metadata-container.u-center-text
+                    ul.tile-ticket__metadata
+                      li.tile-ticket__metadata-item.paragraph= show.mpaaRating
 
-                        li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
-                        li.showtimes-box__metadata-item.paragraph= show.genres
-                    .showtimes-box__theatertime-time
-                      p.paragraph.u-uppercase-text= `${show.ratingsAverage} avg. rating`
-                    .showtimes-box__theatertime-date
-                      p.paragraph= `Released on ${show.originalReleaseDate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
-                    .showtimes-box__ticket-buy
-                      // Fix the Btn Helpers in SCSS, and change class names
-                      a.btn.btn--blue(href=`/show-overview/${show.slug}`) View
+                      - const hours = Math.floor(show.durationHours)
+                      - const minutes = show.duration - hours*60
+
+                      li.tile-ticket__metadata-item.paragraph= `${hours}h ${minutes}m`
+
+                      li.tile-ticket__metadata-item.paragraph= show.genres
+                  
+                  .tile-ticket__rating
+                    p.paragraph.u-uppercase-text= `${show.ratingsAverage} avg. rating`
+
+                  .tile-ticket__datetime
+                    p.paragraph= `Released on ${show.originalReleaseDate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+
+                  .tile-ticket__options
+                    a.btn.btn--blue(href=`/show-overview/${show.slug}`) View
+
+                  //- .showtimes-box__theatertime
+                  //-   .showtimes-box__theatertime-poster
+                  //-     a.showtimes-box__theatertime-poster-link.picture-link(href=`/show-overview/${show.slug}`)
+                  //-       img.showtimes-box__theatertime-poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+                  //-   .showtimes-box__theatertime-theater.u-margin-bottom-small
+                  //-     // FIX BEM
+                  //-     h3.showtimes-box__theatertime-theater-name.heading-tertiary= show.title
+                  //-   .showtimes-box__metadata-container
+                  //-     ul.showtimes-box__metadata
+                  //-       li.showtimes-box__metadata-item.paragraph= show.mpaaRating
+
+                  //-       - const hours = Math.floor(show.durationHours)
+                  //-       - const minutes = show.duration - hours*60
+
+                  //-       li.showtimes-box__metadata-item.paragraph= `${hours}h ${minutes}m`
+                  //-       li.showtimes-box__metadata-item.paragraph= show.genres
+                  //-   .showtimes-box__theatertime-time
+                  //-     p.paragraph.u-uppercase-text= `${show.ratingsAverage} avg. rating`
+                  //-   .showtimes-box__theatertime-date
+                  //-     p.paragraph= `Released on ${show.originalReleaseDate.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})}`
+                  //-   .showtimes-box__ticket-buy
+                  //-     // Fix the Btn Helpers in SCSS, and change class names
+                  //-     a.btn.btn--blue(href=`/show-overview/${show.slug}`) View
