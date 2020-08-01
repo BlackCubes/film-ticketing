@@ -1,12 +1,21 @@
 header.container
   nav.nav
-    .nav__left: a.nav__logo(href='/'): img.nav__logo-img(src='/img/icon-large.png', alt="Home Logo")
-    .nav__right
+    .nav__left
       .nav__region
         ul.nav__region-menu.average-text
           li.nav__region-item: a.nav__region-link(href='/shows') The Shows
           li.nav__region-item: a.nav__region-link(href='/theaters') The Theaters
           li.nav__region-item: a.nav__region-link(href='/special-venues') Special Venues
+
+      a.nav__logo(href='/'): img.nav__logo-img(src='/img/icon-large.png', alt="Home Logo")
+
+    .nav__right
+      //- .nav__region
+      //-   ul.nav__region-menu.average-text
+      //-     li.nav__region-item: a.nav__region-link(href='/shows') The Shows
+      //-     li.nav__region-item: a.nav__region-link(href='/theaters') The Theaters
+      //-     li.nav__region-item: a.nav__region-link(href='/special-venues') Special Venues
+
       .nav__toggle-wrapper
         if user
           a.nav__profile.nav__profile--logout Logout
