@@ -12,6 +12,15 @@
 
 .nav__left {
   float: right;
+
+  @include respond(desktop) {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
 }
 
 .nav__right {
@@ -28,6 +37,12 @@
 
   @include respond(tab-port) {
     top: 5.5rem;
+  }
+
+  @include respond(desktop) {
+    position: static;
+    background-color: transparent;
+    border-top: none;
   }
 }
 

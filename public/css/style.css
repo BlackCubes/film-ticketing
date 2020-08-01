@@ -1214,6 +1214,14 @@ svg {
 
 .nav__left {
   float: right; }
+  @media (min-width: 75em) {
+    .nav__left {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: justify;
+      justify-content: space-between; } }
 
 .nav__right {
   float: left; }
@@ -1228,6 +1236,11 @@ svg {
   @media (min-width: 37.5em) {
     .nav__region {
       top: 5.5rem; } }
+  @media (min-width: 75em) {
+    .nav__region {
+      position: static;
+      background-color: transparent;
+      border-top: none; } }
 
 .nav__region-menu {
   list-style: none;
