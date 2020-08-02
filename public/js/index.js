@@ -6,6 +6,7 @@ import Rellax from 'rellax';
 import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
+import { asideNav } from './dropdown';
 import { MultiForm } from './multiForm';
 import {
   login,
@@ -44,6 +45,8 @@ const mapBox = document.getElementById('map'),
 const rellaxClass = document.querySelector('.rellax');
 const ticketBtn = document.getElementById('ticketShow');
 const circleNavTrigger = document.getElementById('trigger');
+const checkboxNav = document.getElementById('navToggle'),
+  navAside = document.querySelector('.nav__aside');
 const loginForm = document.getElementById('loginForm');
 // Possibly change class selector to an id selector for all logout's to use
 const logoutBtn = document.querySelector('.nav__profile--logout');
@@ -95,6 +98,10 @@ if (mapBox) {
 
 if (mapBoxHome) {
   displayHomeMap();
+}
+
+if (navAside) {
+  asideNav(checkboxNav, navAside);
 }
 
 if (rellaxClass) {
