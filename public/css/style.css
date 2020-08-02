@@ -1214,8 +1214,10 @@ svg {
 
 .nav__aside {
   display: none; }
+  .nav__aside.aside-close {
+    display: none; }
   @media (min-width: 75em) {
-    .nav__aside {
+    .nav__aside.aside-open {
       display: block;
       position: fixed;
       width: 32.5rem;
