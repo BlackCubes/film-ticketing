@@ -91,12 +91,12 @@
       opacity: 0;
       transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
 
-      // @for $i from 1 through $items {
-      //   &:nth-child(#{$i}) {
-      //     transform-origin: bottom center;
-      //     @include rotateX-animation(rotateX, 0deg, -20deg, -90deg, $i);
-      //   }
-      // }
+      @for $i from 1 through $items {
+        &:nth-child(#{$i}) {
+          transform-origin: bottom center;
+          @include rotateX-animation(rotateX, 90deg, 20deg, 0deg, $i);
+        }
+      }
     }
 
     &:not(:last-child) {
