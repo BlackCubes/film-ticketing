@@ -441,6 +441,12 @@
     // display: block;
     // width: 10rem;
   }
+
+  &:hover > .nav__toggle-button {
+    @include respond(desktop) {
+      color: $color-dark-blue-1;
+    }
+  }
 }
 
 .nav__toggle-menu {

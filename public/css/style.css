@@ -1622,6 +1622,9 @@ svg {
       padding: 2.5rem 2rem;
       cursor: pointer;
       user-select: none; } }
+  @media (min-width: 75em) {
+    .nav__toggle-container:hover > .nav__toggle-button {
+      color: #001b4c; } }
 
 .nav__toggle-menu {
   display: inline-block;
