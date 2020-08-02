@@ -1,0 +1,15 @@
+@mixin rotate-mixin($name, $angle1, $angle2, $angle3) {
+  @keyframes #{$name} {
+    0% {
+      opacity: 0;
+      transform: $name($angle1);
+    }
+    50% {
+      transform: $name($angle2);
+    }
+    100% {
+      opacity: 1;
+      transform: $name($angle3);
+    }
+  }
+}
