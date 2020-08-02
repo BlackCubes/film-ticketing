@@ -1,7 +1,7 @@
 @mixin rotateX-animation($name, $angle1, $angle2, $angle3, $i) {
   @include prefix-property(
     animation,
-    $name 300ms ($i * 60ms) ease-in-out forwards
+    $name 300ms ($i * 100ms) ease-in-out forwards
   );
 
   @keyframes #{$name} {
