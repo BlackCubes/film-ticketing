@@ -1222,7 +1222,7 @@ svg {
       max-height: 0;
       margin-left: 1rem;
       text-align: left;
-      background: grey;
+      background: #001b4c;
       left: 0;
       top: 6rem;
       bottom: 0rem;
@@ -1446,7 +1446,7 @@ svg {
       height: inherit;
       padding: 0 2rem;
       align-items: center;
-      background: linear-gradient(to top, grey 0, grey 50%, #000 50%, #000 100%) grey;
+      background: linear-gradient(to top, grey 0, grey 50%, #001b4c 50%, #001b4c 100%) grey;
       background-size: 100% 200%;
       transition: background-position 0.3s linear 0s, color 0.3s linear 0s; } }
   @media (min-width: 75em) {

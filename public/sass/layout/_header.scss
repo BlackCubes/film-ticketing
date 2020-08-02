@@ -21,7 +21,7 @@
     max-height: 0;
     margin-left: 1rem;
     text-align: left;
-    background: grey;
+    background: $color-dark-blue-1;
     left: 0;
     top: 6rem;
     bottom: 0rem;
@@ -210,8 +210,8 @@
         to top,
         grey 0,
         grey 50%,
-        $color-black 50%,
-        $color-black 100%
+        $color-dark-blue-1 50%,
+        $color-dark-blue-1 100%
       )
       grey;
     background-size: 100% 200%;
