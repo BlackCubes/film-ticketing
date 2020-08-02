@@ -1216,7 +1216,38 @@ svg {
   display: none; }
   @media (min-width: 75em) {
     .nav__aside {
+      display: block;
+      position: fixed;
+      width: 32.5rem;
+      height: auto;
+      margin-left: 1rem;
+      text-align: left;
+      background: grey;
+      left: 0;
+      top: 6rem;
+      bottom: 0rem;
+      transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
+      z-index: 1000; } }
+  @media (min-width: 75em) {
+    .nav__aside-menu {
+      padding: 0;
+      list-style: none;
+      text-transform: uppercase; } }
+  @media (min-width: 75em) {
+    .nav__aside-item {
       display: block; } }
+  @media (min-width: 75em) {
+    .nav__aside-item:not(:last-child) {
+      border-bottom: 1px solid #000; } }
+  @media (min-width: 75em) {
+    .nav__aside-link {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.17rem;
+      padding: 1.8rem 2rem 1.6rem;
+      line-height: 1;
+      cursor: pointer; } }
 
 @media (min-width: 75em) {
   .nav__left,
