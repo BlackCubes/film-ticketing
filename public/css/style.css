@@ -1354,6 +1354,12 @@ svg {
     .nav__toggle-button {
       width: 3rem;
       height: 2.5rem; } }
+  @media (min-width: 75em) {
+    .nav__toggle-button {
+      display: block;
+      height: 3.5rem;
+      border-radius: 0;
+      background: #fff; } }
   .nav__toggle-button:hover {
     box-shadow: 0 0 0 0.8rem rgba(0, 0, 0, 0.1), inset 0 0 0 2rem rgba(0, 0, 0, 0.1); }
   .nav__toggle-button:before, .nav__toggle-button:after {
@@ -1370,19 +1376,37 @@ svg {
       .nav__toggle-button:before, .nav__toggle-button:after {
         width: 80%;
         height: 3px; } }
+    @media (min-width: 75em) {
+      .nav__toggle-button:before, .nav__toggle-button:after {
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0; } }
   .nav__toggle-button:before {
     transform: translateY(-50%) rotate(45deg) scale(0); }
+    @media (min-width: 75em) {
+      .nav__toggle-button:before {
+        transform: translateY(-1rem); } }
   .nav__toggle-button:after {
     transform: translateY(50%) rotate(-45deg) scale(0); }
+    @media (min-width: 75em) {
+      .nav__toggle-button:after {
+        transform: translateY(1rem); } }
 
 .nav__toggle-container {
   float: left; }
+  @media (min-width: 75em) {
+    .nav__toggle-container {
+      width: 10rem; } }
 
 .nav__toggle-menu {
   display: inline-block;
   margin: 1.5rem;
   pointer-events: none;
   transition: 0.5s; }
+  @media (min-width: 75em) {
+    .nav__toggle-menu {
+      display: block; } }
 
 .nav__toggle-item {
   position: relative;
@@ -1401,6 +1425,9 @@ svg {
   @media (min-width: 37.5em) {
     .nav__toggle-item {
       font-size: 1.7rem; } }
+  @media (min-width: 75em) {
+    .nav__toggle-item {
+      transform: none; } }
   .nav__toggle-item:nth-child(1) {
     transition-delay: 0s; }
     .nav__toggle-item:nth-child(1):before {
