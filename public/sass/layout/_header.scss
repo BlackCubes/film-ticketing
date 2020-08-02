@@ -94,7 +94,7 @@
       @for $i from 1 through $items {
         &:nth-child(#{$i}) {
           transform-origin: bottom center;
-          @include rotateX-animation(rotateX, 90deg, 20deg, 0deg, $i);
+          @include rotateX-animation(rotateX, -90deg, -20deg, 0deg, $i);
         }
       }
     }
