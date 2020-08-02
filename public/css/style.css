@@ -1298,7 +1298,8 @@ svg {
   @media (min-width: 75em) {
     #toggle:checked ~ .nav__toggle-container .nav__toggle-button {
       box-shadow: none;
-      background: transparent; } }
+      background: transparent;
+      transition: -4s; } }
   #toggle:checked ~ .nav__toggle-container .nav__toggle-button:before {
     transform: translateY(-50%) rotate(45deg) scale(1); }
   #toggle:checked ~ .nav__toggle-container .nav__toggle-button:after {
@@ -1364,7 +1365,7 @@ svg {
       height: 3.5px;
       border-radius: 0;
       background: #fff;
-      transition: 0.5s; } }
+      transition: 1.5s; } }
   .nav__toggle-button:hover {
     box-shadow: 0 0 0 0.8rem rgba(0, 0, 0, 0.1), inset 0 0 0 2rem rgba(0, 0, 0, 0.1); }
   .nav__toggle-button:before, .nav__toggle-button:after {

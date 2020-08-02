@@ -119,6 +119,7 @@
     @include respond(desktop) {
       box-shadow: none;
       background: transparent;
+      transition: $transition-duration - 4.5;
     }
 
     &:before {
@@ -188,7 +189,7 @@
     height: 3.5px;
     border-radius: 0;
     background: $color-white;
-    transition: $transition-duration;
+    transition: $transition-duration + 1;
   }
 
   &:hover {
