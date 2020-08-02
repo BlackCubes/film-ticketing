@@ -1419,6 +1419,7 @@ svg {
   @media (min-width: 75em) {
     .nav__region {
       position: static;
+      height: 100%;
       background-color: transparent;
       border-top: none; } }
 
@@ -1427,10 +1428,27 @@ svg {
   display: flex;
   justify-content: space-between;
   text-align: center; }
+  @media (min-width: 75em) {
+    .nav__region-menu {
+      height: 100%;
+      justify-content: flex-end; } }
+
+@media (min-width: 75em) {
+  .nav__region-item {
+    height: inherit; } }
 
 .nav__region-link {
   display: block;
   padding: 1rem; }
+  @media (min-width: 75em) {
+    .nav__region-link {
+      display: inline-flex;
+      height: inherit;
+      padding: 0 2rem;
+      align-items: center;
+      background: linear-gradient(to top, #000 0, #000 50%, grey 50%, grey 100%) #000;
+      background-size: 100% 200%;
+      transition: background-position 0.3s linear 0s, color 0.3s linear 0s; } }
 
 .nav__profile {
   display: inline-flex;

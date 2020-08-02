@@ -173,6 +173,7 @@
 
   @include respond(desktop) {
     position: static;
+    height: 100%;
     background-color: transparent;
     border-top: none;
   }
@@ -183,11 +184,39 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
+
+  @include respond(desktop) {
+    height: 100%;
+    justify-content: flex-end;
+  }
+}
+
+.nav__region-item {
+  @include respond(desktop) {
+    height: inherit;
+  }
 }
 
 .nav__region-link {
   display: block;
   padding: 1rem;
+
+  @include respond(desktop) {
+    display: inline-flex;
+    height: inherit;
+    padding: 0 2rem;
+    align-items: center;
+    background: linear-gradient(
+        to top,
+        $color-black 0,
+        $color-black 50%,
+        grey 50%,
+        grey 100%
+      )
+      $color-black;
+    background-size: 100% 200%;
+    transition: background-position 0.3s linear 0s, color 0.3s linear 0s;
+  }
 }
 
 .nav__profile {
