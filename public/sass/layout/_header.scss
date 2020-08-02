@@ -208,12 +208,12 @@
     align-items: center;
     background: linear-gradient(
         to top,
-        grey 0,
-        grey 50%,
+        $color-dark-blue-1 0,
         $color-dark-blue-1 50%,
-        $color-dark-blue-1 100%
+        $color-black 50%,
+        $color-black 100%
       )
-      grey;
+      $color-dark-blue-1;
     background-size: 100% 200%;
     transition: background-position 0.3s linear 0s, color 0.3s linear 0s;
   }
