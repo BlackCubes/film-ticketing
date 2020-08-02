@@ -221,7 +221,7 @@
   &:hover {
     @include respond(desktop) {
       background-position: 0 100%;
-      color: grey;
+      color: $color-black;
     }
   }
 }

@@ -1452,7 +1452,7 @@ svg {
   @media (min-width: 75em) {
     .nav__region-link:hover {
       background-position: 0 100%;
-      color: grey; } }
+      color: #000; } }
 
 .nav__profile {
   display: inline-flex;
