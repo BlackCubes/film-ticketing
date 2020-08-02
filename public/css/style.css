@@ -1237,7 +1237,7 @@ svg {
         max-height: 100%; }
         .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(1) {
           transform-origin: top center;
-          animation: rotateX 300ms 100ms ease-in-out forwards; }
+          animation: rotateX 300ms 60ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1249,7 +1249,7 @@ svg {
         transform: rotateX 0deg; } }
         .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(2) {
           transform-origin: top center;
-          animation: rotateX 300ms 200ms ease-in-out forwards; }
+          animation: rotateX 300ms 120ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1261,7 +1261,7 @@ svg {
         transform: rotateX 0deg; } }
         .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(3) {
           transform-origin: top center;
-          animation: rotateX 300ms 300ms ease-in-out forwards; }
+          animation: rotateX 300ms 180ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1273,7 +1273,7 @@ svg {
         transform: rotateX 0deg; } }
         .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(4) {
           transform-origin: top center;
-          animation: rotateX 300ms 400ms ease-in-out forwards; }
+          animation: rotateX 300ms 240ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1285,7 +1285,7 @@ svg {
         transform: rotateX 0deg; } }
         .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(5) {
           transform-origin: top center;
-          animation: rotateX 300ms 500ms ease-in-out forwards; }
+          animation: rotateX 300ms 300ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1314,7 +1314,7 @@ svg {
       transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s; }
       .nav__aside-item:nth-child(1) {
         transform-origin: bottom center;
-        animation: rotateX 300ms 100ms ease-in-out forwards; }
+        animation: rotateX 300ms 60ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1326,7 +1326,7 @@ svg {
         transform: rotateX 0deg; } }
       .nav__aside-item:nth-child(2) {
         transform-origin: bottom center;
-        animation: rotateX 300ms 200ms ease-in-out forwards; }
+        animation: rotateX 300ms 120ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1338,7 +1338,7 @@ svg {
         transform: rotateX 0deg; } }
       .nav__aside-item:nth-child(3) {
         transform-origin: bottom center;
-        animation: rotateX 300ms 300ms ease-in-out forwards; }
+        animation: rotateX 300ms 180ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1350,7 +1350,7 @@ svg {
         transform: rotateX 0deg; } }
       .nav__aside-item:nth-child(4) {
         transform-origin: bottom center;
-        animation: rotateX 300ms 400ms ease-in-out forwards; }
+        animation: rotateX 300ms 240ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1362,7 +1362,7 @@ svg {
         transform: rotateX 0deg; } }
       .nav__aside-item:nth-child(5) {
         transform-origin: bottom center;
-        animation: rotateX 300ms 500ms ease-in-out forwards; }
+        animation: rotateX 300ms 300ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
