@@ -1357,7 +1357,7 @@ svg {
   @media (min-width: 75em) {
     .nav__toggle-button {
       display: block;
-      height: 3.5rem;
+      height: 3.5px;
       border-radius: 0;
       background: #fff; } }
   .nav__toggle-button:hover {
