@@ -243,6 +243,10 @@
   @include respond(desktop) {
     font-size: 1.4rem;
   }
+
+  &:hover {
+    color: $color-dark-blue-1;
+  }
 }
 
 .nav__profile--logout {

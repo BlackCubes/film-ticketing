@@ -1469,6 +1469,8 @@ svg {
   @media (min-width: 75em) {
     .nav__profile {
       font-size: 1.4rem; } }
+  .nav__profile:hover {
+    color: #001b4c; }
 
 .nav__profile--logout {
   margin-top: 1.1rem; }
