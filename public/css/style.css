@@ -1314,64 +1314,44 @@ svg {
       transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s; }
       .nav__aside-item:nth-child(1) {
         transform-origin: top center;
-        animation: rotateX 300ms 60ms ease-in-out forwards; }
-    @keyframes rotateX {
+        animation: rotateY 300ms ease-in-out forwards; }
+    @keyframes rotateY {
       0% {
-        opacity: 0;
-        transform: rotateX -90deg; }
-      50% {
-        transform: rotateX -20deg; }
+        transform: rotateY 1; }
       100% {
-        opacity: 1;
-        transform: rotateX 0deg; } }
+        transform: rotateY 0; } }
       .nav__aside-item:nth-child(2) {
         transform-origin: top center;
-        animation: rotateX 300ms 120ms ease-in-out forwards; }
-    @keyframes rotateX {
+        animation: rotateY 300ms ease-in-out forwards; }
+    @keyframes rotateY {
       0% {
-        opacity: 0;
-        transform: rotateX -90deg; }
-      50% {
-        transform: rotateX -20deg; }
+        transform: rotateY 1; }
       100% {
-        opacity: 1;
-        transform: rotateX 0deg; } }
+        transform: rotateY 0; } }
       .nav__aside-item:nth-child(3) {
         transform-origin: top center;
-        animation: rotateX 300ms 180ms ease-in-out forwards; }
-    @keyframes rotateX {
+        animation: rotateY 300ms ease-in-out forwards; }
+    @keyframes rotateY {
       0% {
-        opacity: 0;
-        transform: rotateX -90deg; }
-      50% {
-        transform: rotateX -20deg; }
+        transform: rotateY 1; }
       100% {
-        opacity: 1;
-        transform: rotateX 0deg; } }
+        transform: rotateY 0; } }
       .nav__aside-item:nth-child(4) {
         transform-origin: top center;
-        animation: rotateX 300ms 240ms ease-in-out forwards; }
-    @keyframes rotateX {
+        animation: rotateY 300ms ease-in-out forwards; }
+    @keyframes rotateY {
       0% {
-        opacity: 0;
-        transform: rotateX -90deg; }
-      50% {
-        transform: rotateX -20deg; }
+        transform: rotateY 1; }
       100% {
-        opacity: 1;
-        transform: rotateX 0deg; } }
+        transform: rotateY 0; } }
       .nav__aside-item:nth-child(5) {
         transform-origin: top center;
-        animation: rotateX 300ms 300ms ease-in-out forwards; }
-    @keyframes rotateX {
+        animation: rotateY 300ms ease-in-out forwards; }
+    @keyframes rotateY {
       0% {
-        opacity: 0;
-        transform: rotateX -90deg; }
-      50% {
-        transform: rotateX -20deg; }
+        transform: rotateY 1; }
       100% {
-        opacity: 1;
-        transform: rotateX 0deg; } } }
+        transform: rotateY 0; } } }
   @media (min-width: 75em) {
     .nav__aside-item:not(:last-child) {
       border-bottom: 1px solid #000; } }
