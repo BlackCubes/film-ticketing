@@ -17,13 +17,17 @@
       @include prefix-property(transform, $name($angle3));
     }
   }
+}
 
-  @keyframes scaleY {
+@mixin rotateY-animation($name, $from, $to) {
+  @include prefix-property(animation, $name 300ms ease-in-out forwards);
+
+  @keyframes #{$name} {
     0% {
-      @include prefix-property(transform, scaleY(0));
+      @include prefix-property(transform, $name($from));
     }
     100% {
-      @include prefix-property(transform, scaleY(1));
+      @include prefix-property(transform, $name($to));
     }
   }
 }
