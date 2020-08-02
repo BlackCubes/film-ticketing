@@ -14871,13 +14871,15 @@ Object.defineProperty(exports, "__esModule", {
 exports.asideNav = void 0;
 
 /* eslint-disable */
-var asideNav = function asideNav(checkbox, navAside) {
+var asideNav = function asideNav(checkbox, navAside, navButton) {
   checkbox.addEventListener('change', function (e) {
     if (e.target.checked) {
       // navAside.classList.remove('aside-close');
       navAside.classList.add('open');
+      navButton.classList.add('open');
     } else {
-      navAside.classList.remove('open'); // navAside.classList.add('aside-close');
+      navAside.classList.remove('open');
+      navButton.classList.add('open'); // navAside.classList.add('aside-close');
     }
   });
 };
