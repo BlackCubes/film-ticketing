@@ -1623,7 +1623,9 @@ svg {
       cursor: pointer;
       user-select: none; } }
   @media (min-width: 75em) {
-    .nav__toggle-container:hover > .nav__toggle-button {
+    .nav__toggle-container:hover > .nav__toggle-button,
+    .nav__toggle-container:hover > .nav__toggle-button:before,
+    .nav__toggle-container:hover > .nav__toggle-button:after {
       background: #001b4c; } }
 
 .nav__toggle-menu {
