@@ -58,6 +58,13 @@
       padding: 1.8rem 2rem 1.6rem;
       line-height: 1;
       cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    &::hover {
+      @include respond(desktop) {
+        color: $color-black;
+      }
     }
   }
 }
