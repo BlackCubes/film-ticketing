@@ -38,8 +38,8 @@
         @for $i from 1 through $items {
           & .nav__aside-item:nth-child(#{$i}) {
             transform-origin: top center;
-            @include rotate-animation(rotateX, -90deg, -20deg, 0deg, $i)
-              // animation: {@include rotate-mixin(rotateX, -90deg, -20deg, 0)} 300ms ($i*60ms) ease-in-out forwards;;;
+            @include rotateX-animation(rotateX, -90deg, -20deg, 0deg, $i)
+              // animation: {@include rotate-mixin(rotateX, -90deg, -20deg, 0)} 300ms ($i*60ms) ease-in-out forwards;;;;
           }
         }
       }
