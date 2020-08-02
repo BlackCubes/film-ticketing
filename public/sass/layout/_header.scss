@@ -122,6 +122,11 @@
       transition: $transition-duration - 0.45;
     }
 
+    &:before,
+    &:after {
+      transition: $transition-duration - 0.2;
+    }
+
     &:before {
       transform: translateY(-50%) rotate(45deg) scale(1);
     }
