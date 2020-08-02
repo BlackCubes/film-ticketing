@@ -132,21 +132,27 @@
 .nav__left,
 .nav__right {
   @include respond(desktop) {
+    display: -ms-flexbox;
+    display: flex;
     height: 6rem;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
   }
 }
 
 .nav__left {
   float: right;
 
-  @include respond(desktop) {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
+  // @include respond(desktop) {
+  //   display: -ms-flexbox;
+  //   display: flex;
+  //   -ms-flex-align: center;
+  //   align-items: center;
+  //   -ms-flex-pack: justify;
+  //   justify-content: space-between;
+  // }
 }
 
 .nav__right {
@@ -199,6 +205,10 @@
 
 .nav__profile--logout {
   margin-top: 1.1rem;
+
+  @include respond(desktop) {
+    margin-top: 0.9rem;
+  }
 }
 
 .nav__logo {

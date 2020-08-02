@@ -1392,18 +1392,16 @@ svg {
 @media (min-width: 75em) {
   .nav__left,
   .nav__right {
-    height: 6rem; } }
+    display: -ms-flexbox;
+    display: flex;
+    height: 6rem;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between; } }
 
 .nav__left {
   float: right; }
-  @media (min-width: 75em) {
-    .nav__left {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      -ms-flex-pack: justify;
-      justify-content: space-between; } }
 
 .nav__right {
   float: left; }
@@ -1447,6 +1445,9 @@ svg {
 
 .nav__profile--logout {
   margin-top: 1.1rem; }
+  @media (min-width: 75em) {
+    .nav__profile--logout {
+      margin-top: 0.9rem; } }
 
 .nav__logo {
   display: inline-flex;
