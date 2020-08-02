@@ -1449,6 +1449,10 @@ svg {
       background: linear-gradient(to top, #000 0, #000 50%, grey 50%, grey 100%) #000;
       background-size: 100% 200%;
       transition: background-position 0.3s linear 0s, color 0.3s linear 0s; } }
+  @media (min-width: 75em) {
+    .nav__region-link:hover {
+      background-position: 0 100%;
+      color: grey; } }
 
 .nav__profile {
   display: inline-flex;

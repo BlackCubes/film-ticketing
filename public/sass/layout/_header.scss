@@ -217,6 +217,13 @@
     background-size: 100% 200%;
     transition: background-position 0.3s linear 0s, color 0.3s linear 0s;
   }
+
+  &:hover {
+    @include respond(desktop) {
+      background-position: 0 100%;
+      color: grey;
+    }
+  }
 }
 
 .nav__profile {
