@@ -1312,7 +1312,7 @@ svg {
       padding: 0;
       opacity: 0;
       transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
-      transform-origin: top center;
+      transform-origin: bottom center;
       animation: rotateY 300ms ease-in-out forwards; }
     @keyframes rotateY {
       0% {
