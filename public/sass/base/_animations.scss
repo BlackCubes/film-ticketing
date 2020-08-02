@@ -1,5 +1,8 @@
 @mixin rotate-animation($name, $angle1, $angle2, $angle3, $i) {
-  @include prefix-property(animation, $name 300ms ($i*60ms) ease-in-out forwards);
+  @include prefix-property(
+    animation,
+    $name 300ms ($i * 60ms) ease-in-out forwards
+  );
 
   @keyframes #{$name} {
     0% {
@@ -36,4 +39,4 @@
 //       transform: $name($angle3);
 //     }
 //   }
-}
+// }
