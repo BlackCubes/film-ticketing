@@ -8,6 +8,17 @@
 
 .nav {
   overflow: hidden;
+
+  @include respond(desktop) {
+    position: fixed;
+    min-height: 0;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $color-black;
+    z-index: 1000;
+  }
 }
 
 .nav__aside {

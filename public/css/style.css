@@ -1211,6 +1211,16 @@ svg {
 
 .nav {
   overflow: hidden; }
+  @media (min-width: 75em) {
+    .nav {
+      position: fixed;
+      min-height: 0;
+      height: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #000;
+      z-index: 1000; } }
 
 .nav__aside {
   display: none; }
