@@ -7,7 +7,7 @@ export const asideNav = (checkbox, navAside, navButton) => {
       navButton.classList.add('open');
     } else {
       navAside.classList.remove('open');
-      navButton.classList.add('open');
+      navButton.classList.remove('open');
       // navAside.classList.add('aside-close');
     }
   });

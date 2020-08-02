@@ -14879,7 +14879,7 @@ var asideNav = function asideNav(checkbox, navAside, navButton) {
       navButton.classList.add('open');
     } else {
       navAside.classList.remove('open');
-      navButton.classList.add('open'); // navAside.classList.add('aside-close');
+      navButton.classList.remove('open'); // navAside.classList.add('aside-close');
     }
   });
 };
