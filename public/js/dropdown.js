@@ -1,7 +1,7 @@
 /* eslint-disable */
 export const asideNav = (checkbox, navAside) => {
-  checkbox.addEventListener('change', () => {
-    if (this.checked) {
+  checkbox.addEventListener('change', e => {
+    if (e.checked) {
       navAside.classList.remove('aside-close');
       navAside.classList.add('aside-open');
     } else {

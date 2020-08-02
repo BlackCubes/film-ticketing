@@ -14870,12 +14870,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.asideNav = void 0;
 
-var _this = void 0;
-
 /* eslint-disable */
 var asideNav = function asideNav(checkbox, navAside) {
-  checkbox.addEventListener('change', function () {
-    if (_this.checked) {
+  checkbox.addEventListener('change', function (e) {
+    if (e.checked) {
       navAside.classList.remove('aside-close');
       navAside.classList.add('aside-open');
     } else {
