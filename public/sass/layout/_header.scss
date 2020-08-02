@@ -61,7 +61,7 @@
       transition: color 0.3s;
     }
 
-    &::hover {
+    &:hover {
       @include respond(desktop) {
         color: $color-black;
       }

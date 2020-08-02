@@ -1251,7 +1251,7 @@ svg {
       cursor: pointer;
       transition: color 0.3s; } }
   @media (min-width: 75em) {
-    .nav__aside-link::hover {
+    .nav__aside-link:hover {
       color: #000; } }
 
 @media (min-width: 75em) {
