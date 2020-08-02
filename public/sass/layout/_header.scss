@@ -179,11 +179,11 @@
   }
 }
 
-#toggle {
+#navToggle {
   display: none;
 }
 
-#toggle:checked {
+#navToggle:checked {
   & ~ .nav__toggle-container .nav__toggle-button {
     box-shadow: 0 0 0 55rem rgba($color-black, 0.1),
       inset 0 0 0 2rem rgba($color-black, 0.1);
