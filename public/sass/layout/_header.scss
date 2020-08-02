@@ -10,6 +10,14 @@
   overflow: hidden;
 }
 
+.nav__aside {
+  display: none;
+
+  @include respond(desktop) {
+    display: block;
+  }
+}
+
 .nav__left,
 .nav__right {
   @include respond(desktop) {

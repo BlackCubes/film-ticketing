@@ -1212,6 +1212,12 @@ svg {
 .nav {
   overflow: hidden; }
 
+.nav__aside {
+  display: none; }
+  @media (min-width: 75em) {
+    .nav__aside {
+      display: block; } }
+
 @media (min-width: 75em) {
   .nav__left,
   .nav__right {
