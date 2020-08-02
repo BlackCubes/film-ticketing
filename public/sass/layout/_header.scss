@@ -35,8 +35,8 @@
       opacity: 1;
 
       & .nav__aside-menu {
-        transform-origin: top center;
-        @include rotateY-animation(rotateY, 0, 1);
+        // transform-origin: top center;
+        // @include rotateY-animation(rotateY, 0, 1);
 
         @for $i from 1 through $items {
           & .nav__aside-item:nth-child(#{$i}) {
