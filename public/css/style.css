@@ -1212,6 +1212,11 @@ svg {
 .nav {
   overflow: hidden; }
 
+@media (min-width: 75em) {
+  .nav__left,
+  .nav__right {
+    height: 6rem; } }
+
 .nav__left {
   float: right; }
   @media (min-width: 75em) {
@@ -1420,7 +1425,7 @@ svg {
   transition: 0.5s; }
   @media (min-width: 75em) {
     .nav__toggle-menu {
-      display: block; } }
+      display: none; } }
 
 .nav__toggle-item {
   position: relative;

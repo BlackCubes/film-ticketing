@@ -10,6 +10,13 @@
   overflow: hidden;
 }
 
+.nav__left,
+.nav__right {
+  @include respond(desktop) {
+    height: 6rem;
+  }
+}
+
 .nav__left {
   float: right;
 
@@ -267,7 +274,8 @@
   transition: $transition-duration;
 
   @include respond(desktop) {
-    display: block;
+    // display: block;
+    display: none;
   }
 }
 
