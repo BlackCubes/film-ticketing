@@ -14875,9 +14875,9 @@ var asideNav = function asideNav(checkbox, navAside) {
   checkbox.addEventListener('change', function (e) {
     if (e.target.checked) {
       // navAside.classList.remove('aside-close');
-      navAside.classList.add('aside-open');
+      navAside.classList.add('open');
     } else {
-      navAside.classList.remove('aside-open'); // navAside.classList.add('aside-close');
+      navAside.classList.remove('open'); // navAside.classList.add('aside-close');
     }
   });
 };
