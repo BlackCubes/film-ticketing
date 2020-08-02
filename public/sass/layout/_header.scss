@@ -91,7 +91,7 @@
       opacity: 0;
       transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
       transform-origin: bottom center;
-      @include rotateY-animation(rotateY, 1, 0);
+      @include rotateY-animation(rotateY, 0, 1);
 
       // @for $i from 1 through $items {
       //   &:nth-child(#{$i}) {
