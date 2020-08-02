@@ -1235,7 +1235,8 @@ svg {
       text-transform: uppercase; } }
   @media (min-width: 75em) {
     .nav__aside-item {
-      display: block; } }
+      display: block;
+      padding: 0; } }
   @media (min-width: 75em) {
     .nav__aside-item:not(:last-child) {
       border-bottom: 1px solid #000; } }

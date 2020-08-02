@@ -39,6 +39,7 @@
   &-item {
     @include respond(desktop) {
       display: block;
+      padding: 0;
     }
 
     &:not(:last-child) {
