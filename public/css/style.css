@@ -1463,7 +1463,7 @@ svg {
   padding: 0.7rem;
   align-items: center;
   cursor: pointer;
-  transition: color 0.3s linear 0s; }
+  transition: color 0.2s linear 0s; }
   @media (min-width: 37.5em) {
     .nav__profile {
       font-size: 1.6rem; } }
