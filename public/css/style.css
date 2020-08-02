@@ -1317,60 +1317,60 @@ svg {
         animation: rotateX 300ms 60ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
-        opacity: 1;
+        opacity: 0;
         transform: rotateX 0deg; }
       50% {
         transform: rotateX -20deg; }
       100% {
-        opacity: 0;
+        opacity: 1;
         transform: rotateX -90deg; } }
       .nav__aside-item:nth-child(2) {
         transform-origin: bottom center;
         animation: rotateX 300ms 120ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
-        opacity: 1;
+        opacity: 0;
         transform: rotateX 0deg; }
       50% {
         transform: rotateX -20deg; }
       100% {
-        opacity: 0;
+        opacity: 1;
         transform: rotateX -90deg; } }
       .nav__aside-item:nth-child(3) {
         transform-origin: bottom center;
         animation: rotateX 300ms 180ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
-        opacity: 1;
+        opacity: 0;
         transform: rotateX 0deg; }
       50% {
         transform: rotateX -20deg; }
       100% {
-        opacity: 0;
+        opacity: 1;
         transform: rotateX -90deg; } }
       .nav__aside-item:nth-child(4) {
         transform-origin: bottom center;
         animation: rotateX 300ms 240ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
-        opacity: 1;
+        opacity: 0;
         transform: rotateX 0deg; }
       50% {
         transform: rotateX -20deg; }
       100% {
-        opacity: 0;
+        opacity: 1;
         transform: rotateX -90deg; } }
       .nav__aside-item:nth-child(5) {
         transform-origin: bottom center;
         animation: rotateX 300ms 300ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
-        opacity: 1;
+        opacity: 0;
         transform: rotateX 0deg; }
       50% {
         transform: rotateX -20deg; }
       100% {
-        opacity: 0;
+        opacity: 1;
         transform: rotateX -90deg; } } }
   @media (min-width: 75em) {
     .nav__aside-item:not(:last-child) {
