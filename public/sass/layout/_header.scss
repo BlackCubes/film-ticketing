@@ -444,7 +444,7 @@
 
   &:hover > .nav__toggle-button {
     @include respond(desktop) {
-      color: $color-dark-blue-1;
+      background: $color-dark-blue-1;
     }
   }
 }
