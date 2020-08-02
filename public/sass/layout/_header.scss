@@ -186,7 +186,9 @@
 
   @include respond(desktop) {
     display: block;
+    position: relative;
     height: 3.5px;
+    margin: 0;
     border-radius: 0;
     background: $color-white;
     transition: $transition-duration + 1;
@@ -243,8 +245,13 @@
   float: left;
 
   @include respond(desktop) {
+    display: inline-block;
+    position: relative;
+    padding: 2.5rem 2rem;
+    cursor: pointer;
+    user-select: none;
     // display: block;
-    width: 10rem;
+    // width: 10rem;
   }
 }
 

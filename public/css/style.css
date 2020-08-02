@@ -1362,7 +1362,9 @@ svg {
   @media (min-width: 75em) {
     .nav__toggle-button {
       display: block;
+      position: relative;
       height: 3.5px;
+      margin: 0;
       border-radius: 0;
       background: #fff;
       transition: 1.5s; } }
@@ -1403,7 +1405,11 @@ svg {
   float: left; }
   @media (min-width: 75em) {
     .nav__toggle-container {
-      width: 10rem; } }
+      display: inline-block;
+      position: relative;
+      padding: 2.5rem 2rem;
+      cursor: pointer;
+      user-select: none; } }
 
 .nav__toggle-menu {
   display: inline-block;
