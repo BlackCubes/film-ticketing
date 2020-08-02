@@ -39,10 +39,14 @@
           & .nav__aside-item:nth-child(#{$i}) {
             transform-origin: top center;
             @include rotate-animation(rotateX, -90deg, -20deg, 0deg, $i)
-              // animation: {@include rotate-mixin(rotateX, -90deg, -20deg, 0)} 300ms ($i*60ms) ease-in-out forwards;;
+              // animation: {@include rotate-mixin(rotateX, -90deg, -20deg, 0)} 300ms ($i*60ms) ease-in-out forwards;;;
           }
         }
       }
+    }
+
+    & .nav__aside-item {
+      display: block;
     }
     // @include respond(desktop) {
     //   display: block;
@@ -70,8 +74,10 @@
 
   &-item {
     @include respond(desktop) {
-      display: block;
+      // display: block;
+      display: none;
       padding: 0;
+      opacity: 0;
     }
 
     &:not(:last-child) {
