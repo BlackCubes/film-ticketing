@@ -1466,12 +1466,12 @@ svg {
   @media (min-width: 37.5em) {
     .nav__profile {
       font-size: 1.6rem; } }
+  @media (min-width: 75em) {
+    .nav__profile {
+      font-size: 1.4rem; } }
 
 .nav__profile--logout {
   margin-top: 1.1rem; }
-  @media (min-width: 75em) {
-    .nav__profile--logout {
-      margin-top: 0.9rem; } }
 
 .nav__logo {
   display: inline-flex;
