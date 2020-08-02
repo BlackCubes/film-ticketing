@@ -17,6 +17,15 @@
       @include prefix-property(transform, $name($angle3));
     }
   }
+
+  @keyframes scaleY {
+    0% {
+      @include prefix-property(transform, scaleY(0));
+    }
+    100% {
+      @include prefix-property(transform, scaleY(1));
+    }
+  }
 }
 
 @mixin prefix-property($name, $value...) {
