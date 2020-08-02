@@ -16394,7 +16394,8 @@ var rellaxClass = document.querySelector('.rellax');
 var ticketBtn = document.getElementById('ticketShow');
 var circleNavTrigger = document.getElementById('trigger');
 var checkboxNav = document.getElementById('navToggle'),
-    navAside = document.querySelector('.nav__aside');
+    navAside = document.querySelector('.nav__aside'),
+    navButton = document.querySelector('.nav__toggle-container');
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
 
 var logoutBtn = document.querySelector('.nav__profile--logout');
@@ -16443,7 +16444,7 @@ if (mapBoxHome) {
 }
 
 if (navAside) {
-  (0, _dropdown.asideNav)(checkboxNav, navAside);
+  (0, _dropdown.asideNav)(checkboxNav, navAside, navButton);
 }
 
 if (rellaxClass) {
