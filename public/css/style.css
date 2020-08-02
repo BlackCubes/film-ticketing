@@ -1435,7 +1435,8 @@ svg {
 
 @media (min-width: 75em) {
   .nav__region-item {
-    height: inherit; } }
+    height: inherit;
+    border-right: 1px solid transparent; } }
 
 .nav__region-link {
   display: block;

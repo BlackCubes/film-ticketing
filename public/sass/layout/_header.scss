@@ -194,6 +194,7 @@
 .nav__region-item {
   @include respond(desktop) {
     height: inherit;
+    border-right: 1px solid transparent;
   }
 }
 
