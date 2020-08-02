@@ -33,13 +33,13 @@
     @include respond(desktop) {
       height: auto;
       opacity: 1;
-
-      & .nav__aside-menu {
+      transform-origin: top center;
+      @include rotateY-animation(rotateY, 0, 1) & .nav__aside-menu {
         @for $i from 1 through $items {
           & .nav__aside-item:nth-child(#{$i}) {
             transform-origin: top center;
             @include rotateX-animation(rotateX, -90deg, -20deg, 0deg, $i)
-              // animation: {@include rotate-mixin(rotateX, -90deg, -20deg, 0)} 300ms ($i*60ms) ease-in-out forwards;;;;
+              // animation: {@include rotate-mixin(rotateX, -90deg, -20deg, 0)} 300ms ($i*60ms) ease-in-out forwards;;;;;
           }
         }
       }
