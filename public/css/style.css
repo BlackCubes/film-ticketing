@@ -1461,7 +1461,8 @@ svg {
   font-size: 1.4rem;
   margin-top: 0.5rem;
   padding: 0.7rem;
-  align-items: center; }
+  align-items: center;
+  cursor: pointer; }
   @media (min-width: 37.5em) {
     .nav__profile {
       font-size: 1.6rem; } }

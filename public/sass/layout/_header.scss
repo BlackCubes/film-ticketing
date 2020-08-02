@@ -234,6 +234,7 @@
   margin-top: 0.5rem;
   padding: 0.7rem;
   align-items: center;
+  cursor: pointer;
 
   @include respond(tab-port) {
     font-size: 1.6rem;
