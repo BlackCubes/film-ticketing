@@ -90,16 +90,16 @@
       padding: 0;
       opacity: 0;
       transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
-      transform-origin: bottom center;
-      @include rotateY-animation(rotateY, 0, 1);
+      // transform-origin: bottom center;
+      // @include rotateY-animation(rotateY, 0, 1);
 
-      // @for $i from 1 through $items {
-      //   &:nth-child(#{$i}) {
-      //     transform-origin: top center;
-      //     // @include rotateX-animation(rotateX, -90deg, -20deg, 0deg, $i);
-      //     @include rotateY-animation(rotateY, 1, 0);
-      //   }
-      // }
+      @for $i from 1 through $items {
+        &:nth-child(#{$i}) {
+          transform-origin: bottom top;
+          @include rotateX-animation(rotateX, -90deg, -20deg, 0deg, $i);
+          // @include rotateY-animation(rotateY, 1, 0);
+        }
+      }
     }
 
     &:not(:last-child) {
