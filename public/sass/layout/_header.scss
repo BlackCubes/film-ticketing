@@ -442,6 +442,14 @@
     // width: 10rem;
   }
 
+  &.open > .nav__toggle-button,
+  &.open > .nav__toggle-button:before,
+  &.open > .nav__toggle-button:after {
+    @include respond(desktop) {
+      background: $color-dark-blue-1;
+    }
+  }
+
   &:hover > .nav__toggle-button,
   &:hover > .nav__toggle-button:before,
   &:hover > .nav__toggle-button:after {
