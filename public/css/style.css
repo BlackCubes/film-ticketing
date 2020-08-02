@@ -1219,22 +1219,25 @@ svg {
       display: block;
       position: fixed;
       width: 32.5rem;
+      max-height: 0;
       margin-left: 1rem;
       text-align: left;
       background: grey;
       left: 0;
       top: 6rem;
       bottom: 0rem;
-      opacity: 0;
+      overflow: hidden;
       transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
       z-index: 1000; } }
   @media (min-width: 75em) {
     .nav__aside.open {
       height: auto;
-      opacity: 1; }
-      .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(1) {
-        transform-origin: top center;
-        animation: rotateX 300ms 60ms ease-in-out forwards; }
+      max-height: 60rem; }
+      .nav__aside.open .nav__aside-menu {
+        max-height: 100%; }
+        .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(1) {
+          transform-origin: top center;
+          animation: rotateX 300ms 60ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1244,9 +1247,9 @@ svg {
       100% {
         opacity: 1;
         transform: rotateX 0deg; } }
-      .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(2) {
-        transform-origin: top center;
-        animation: rotateX 300ms 120ms ease-in-out forwards; }
+        .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(2) {
+          transform-origin: top center;
+          animation: rotateX 300ms 120ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1256,9 +1259,9 @@ svg {
       100% {
         opacity: 1;
         transform: rotateX 0deg; } }
-      .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(3) {
-        transform-origin: top center;
-        animation: rotateX 300ms 180ms ease-in-out forwards; }
+        .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(3) {
+          transform-origin: top center;
+          animation: rotateX 300ms 180ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1268,9 +1271,9 @@ svg {
       100% {
         opacity: 1;
         transform: rotateX 0deg; } }
-      .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(4) {
-        transform-origin: top center;
-        animation: rotateX 300ms 240ms ease-in-out forwards; }
+        .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(4) {
+          transform-origin: top center;
+          animation: rotateX 300ms 240ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1280,9 +1283,9 @@ svg {
       100% {
         opacity: 1;
         transform: rotateX 0deg; } }
-      .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(5) {
-        transform-origin: top center;
-        animation: rotateX 300ms 300ms ease-in-out forwards; }
+        .nav__aside.open .nav__aside-menu .nav__aside-item:nth-child(5) {
+          transform-origin: top center;
+          animation: rotateX 300ms 300ms ease-in-out forwards; }
     @keyframes rotateX {
       0% {
         opacity: 0;
@@ -1296,9 +1299,12 @@ svg {
     display: block; }
   @media (min-width: 75em) {
     .nav__aside-menu {
+      max-height: 0;
       padding: 0;
       list-style: none;
-      text-transform: uppercase; } }
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: max-height 0.3s; } }
   @media (min-width: 75em) {
     .nav__aside-item {
       display: none;

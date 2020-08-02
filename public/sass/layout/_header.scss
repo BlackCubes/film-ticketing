@@ -18,13 +18,15 @@
     position: fixed;
     width: 32.5rem;
     // height: auto;
+    max-height: 0;
     margin-left: 1rem;
     text-align: left;
     background: grey;
     left: 0;
     top: 6rem;
     bottom: 0rem;
-    opacity: 0;
+    // opacity: 0;
+    overflow: hidden;
     transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
     z-index: 1000;
   }
@@ -32,9 +34,11 @@
   &.open {
     @include respond(desktop) {
       height: auto;
-      opacity: 1;
+      max-height: 60rem;
+      // opacity: 1;
 
       & .nav__aside-menu {
+        max-height: 100%;
         // transform-origin: top center;
         // @include rotateY-animation(rotateY, 0, 1);
 
@@ -68,9 +72,12 @@
 
   &-menu {
     @include respond(desktop) {
+      max-height: 0;
       padding: 0;
       list-style: none;
       text-transform: uppercase;
+      overflow: hidden;
+      transition: max-height 0.3s;
     }
   }
 
