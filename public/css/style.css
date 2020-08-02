@@ -1214,22 +1214,24 @@ svg {
 
 .nav__aside {
   display: none; }
-  .nav__aside.aside-close {
-    display: none; }
   @media (min-width: 75em) {
-    .nav__aside.aside-open {
+    .nav__aside {
       display: block;
       position: fixed;
       width: 32.5rem;
-      height: auto;
       margin-left: 1rem;
       text-align: left;
       background: grey;
       left: 0;
       top: 6rem;
       bottom: 0rem;
+      opacity: 0;
       transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
       z-index: 1000; } }
+  @media (min-width: 75em) {
+    .nav__aside.open {
+      height: auto;
+      opacity: 1; } }
   @media (min-width: 75em) {
     .nav__aside-menu {
       padding: 0;
