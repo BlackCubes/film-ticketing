@@ -53,6 +53,8 @@
 
     & .nav__aside-item {
       display: block;
+
+      transition: all 1s ease-out 0s, opacity 1s ease-out 0s;
     }
     // @include respond(desktop) {
     //   display: block;
@@ -83,10 +85,18 @@
 
   &-item {
     @include respond(desktop) {
-      // display: block;
-      display: none;
+      display: block;
+      // display: none;
       padding: 0;
       opacity: 0;
+      transition: all 0.3s ease-out 0s, opacity 0.3s ease-out 0s;
+
+      @for $i from 1 through $items {
+        &:nth-child(#{$i}) {
+          transform-origin: bottom center;
+          @include rotateX-animation(rotateX, -90deg, -20deg, 0deg, $i);
+        }
+      }
     }
 
     &:not(:last-child) {
