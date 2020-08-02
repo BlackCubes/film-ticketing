@@ -1299,7 +1299,7 @@ svg {
     #toggle:checked ~ .nav__toggle-container .nav__toggle-button {
       box-shadow: none;
       background: transparent;
-      transition: -4s; } }
+      transition: 0.05s; } }
   #toggle:checked ~ .nav__toggle-container .nav__toggle-button:before {
     transform: translateY(-50%) rotate(45deg) scale(1); }
   #toggle:checked ~ .nav__toggle-container .nav__toggle-button:after {

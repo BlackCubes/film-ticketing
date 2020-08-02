@@ -119,7 +119,7 @@
     @include respond(desktop) {
       box-shadow: none;
       background: transparent;
-      transition: $transition-duration - 4.5;
+      transition: $transition-duration - 0.45;
     }
 
     &:before {
