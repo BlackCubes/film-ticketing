@@ -116,6 +116,11 @@
     box-shadow: 0 0 0 55rem rgba($color-black, 0.1),
       inset 0 0 0 2rem rgba($color-black, 0.1);
 
+    @include respond(desktop) {
+      box-shadow: none;
+      background: transparent;
+    }
+
     &:before {
       transform: translateY(-50%) rotate(45deg) scale(1);
     }
@@ -183,6 +188,7 @@
     height: 3.5px;
     border-radius: 0;
     background: $color-white;
+    transition: $transition-duration;
   }
 
   &:hover {
