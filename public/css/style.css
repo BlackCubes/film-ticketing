@@ -1579,7 +1579,7 @@ svg {
       margin: 0;
       border-radius: 0;
       background: #fff;
-      transition: 1.5s; } }
+      transition: 0.5s; } }
   .nav__toggle-button:hover {
     box-shadow: 0 0 0 0.8rem rgba(0, 0, 0, 0.1), inset 0 0 0 2rem rgba(0, 0, 0, 0.1); }
   .nav__toggle-button:before, .nav__toggle-button:after {
