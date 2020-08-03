@@ -141,11 +141,15 @@ block content
       .castcrew-box
         .castcrew-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Cast | Crew
+
         .castcrew-box__list-container
-          .row--scroll
-            .row__inner
+          .row--scroll.swiper-container
+            .swiper-button-prev
+            .swiper-button-next
+
+            .row__inner.swiper-wrapper
               each castcrew in show.castcrew
-                .tile
+                .tile.swiper-slide
                   .tile__media
                     img.tile__img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name}`)
                   .tile__details
