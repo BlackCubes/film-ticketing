@@ -1049,6 +1049,15 @@ svg {
   max-width: 60rem;
   border-radius: 12.5rem 12.5rem 0 0;
   z-index: 101; }
+  @media (min-width: 75em) {
+    svg {
+      width: 53rem; } }
+  @media (min-width: 75em) {
+    svg .icon {
+      font-size: 1.2rem; } }
+  @media (min-width: 75em) {
+    svg .menu-trigger > a {
+      font-size: 1.6rem; } }
 
 .footer {
   font-family: inherit;
