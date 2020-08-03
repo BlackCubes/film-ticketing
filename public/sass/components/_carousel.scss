@@ -47,7 +47,7 @@
     &:hover .tile-show:last-child:hover,
     &:hover .tile-card:last-child:hover {
       // margin: 0 -3rem;
-      transform: translate3d($carousel-move-left, 0, 10rem);
+      transform: translate3d($carousel-move-left, 10rem, 0);
     }
   }
 }
