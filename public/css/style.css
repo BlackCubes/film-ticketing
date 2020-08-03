@@ -502,7 +502,7 @@ body {
     .row--scroll .row__inner:hover .tile-show,
     .row--scroll .row__inner:hover .tile-card {
       opacity: 0.3;
-      transition: 450ms all; }
+      transition: 450ms all ease-out; }
       .row--scroll .row__inner:hover .tile:hover,
       .row--scroll .row__inner:hover .tile-show:hover,
       .row--scroll .row__inner:hover .tile-card:hover {
