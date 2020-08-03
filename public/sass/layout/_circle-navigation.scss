@@ -11,7 +11,7 @@ svg {
     width: 53rem;
   }
 
-  & .icon {
+  & .icon > text {
     @include respond(desktop) {
       font-size: 1.2rem;
     }
