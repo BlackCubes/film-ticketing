@@ -508,10 +508,6 @@ body {
       .row--scroll .row__inner:hover .tile-card:hover {
         transform: scale(1.3);
         opacity: 1; }
-    .row--scroll .row__inner:hover .tile:last-child:hover,
-    .row--scroll .row__inner:hover .tile-show:last-child:hover,
-    .row--scroll .row__inner:hover .tile-card:last-child:hover {
-      margin-right: 5rem; }
 
 .tile {
   position: relative;
@@ -589,6 +585,8 @@ body {
     opacity: 1; }
   .tile-show:hover ~ .tile-show {
     transform: translate3d(7.5rem, 0, 0); }
+  .tile-show:hover .tile-show {
+    transform: translate3d(-3.75rem, 0, 0); }
 
 .tile-card {
   display: inline-table;

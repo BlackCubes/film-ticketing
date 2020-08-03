@@ -42,12 +42,12 @@
       }
     }
 
-    // ADD WITH JS
-    &:hover .tile:last-child:hover,
-    &:hover .tile-show:last-child:hover,
-    &:hover .tile-card:last-child:hover {
-      margin-right: 5rem;
-    }
+    // // ADD WITH JS
+    // &:hover .tile:last-child:hover,
+    // &:hover .tile-show:last-child:hover,
+    // &:hover .tile-card:last-child:hover {
+    //   margin-right: 5rem;
+    // }
   }
 }
 
@@ -170,6 +170,11 @@
 
   &:hover ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
+  }
+
+  // ADD ALL WITH JS
+  &:hover & {
+    transform: translate3d($carousel-move-left, 0, 0);
   }
 }
 
