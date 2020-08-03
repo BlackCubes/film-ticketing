@@ -34,6 +34,7 @@
     &:hover .tile-show,
     &:hover .tile-card {
       opacity: 0.3;
+      transition: $carousel-transition-duration opacity;
 
       &:hover {
         transform: scale($carousel-grow-factor);
