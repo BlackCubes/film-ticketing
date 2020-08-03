@@ -3,8 +3,8 @@ import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
 import Rellax from 'rellax';
-// import Swiper, { Navigation } from 'swiper';
-import Swiper from 'swiper/bundle';
+import { Swiper, Navigation } from 'swiper';
+// import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
@@ -114,9 +114,11 @@ if (rellaxClass) {
 }
 
 if (swiperClass) {
+  Swiper.use([Navigation]);
+
   const swiper = new Swiper('.swiper-container', {
-    observer: true,
-    observeParents: true,
+    // observer: true,
+    // observeParents: true,
     slidesPerView: 4,
     spaceBetween: 5,
     slidesPerGroup: 2,
