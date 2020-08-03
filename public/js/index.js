@@ -3,6 +3,8 @@ import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
 import Rellax from 'rellax';
+import Swiper, { Navigation } from 'swiper';
+import 'swiper/swiper-bundle.css';
 import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
@@ -43,6 +45,7 @@ import {
 const mapBox = document.getElementById('map'),
   mapBoxHome = document.getElementById('mapHome');
 const rellaxClass = document.querySelector('.rellax');
+const swiperClass = document.querySelector('.swiper-container');
 const ticketBtn = document.getElementById('ticketShow');
 const circleNavTrigger = document.getElementById('trigger');
 const checkboxNav = document.getElementById('navToggle'),
@@ -107,6 +110,15 @@ if (navAside) {
 
 if (rellaxClass) {
   var rellax = new Rellax('.rellax');
+}
+
+if (swiperClass) {
+  var swiper = new Swiper('.swiper-container', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  });
 }
 
 // var rellax2 = new Rellax('.rellax-2');
