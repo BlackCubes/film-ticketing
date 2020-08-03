@@ -30,10 +30,13 @@ block content
           .home-special-venues__header-wrapper
               h2.home-special-venues__header.heading-secondary Active Theaters
 
-          .row.row--scroll
-            .row__inner
+          .row.row--scroll.swiper-container
+            .swiper-button-prev
+            .swiper-button-next
+
+            .row__inner.swiper-wrapper
               each showtime in showtimes
-                .tile
+                .tile.swiper-slide
                   .tile__media
                     img.tile__img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
                   .tile__details
