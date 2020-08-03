@@ -109,9 +109,10 @@
     opacity: 1;
   }
 
-  &:first-child:hover {
-    margin-left: 5rem;
-  }
+  // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+  // &:first-child:hover {
+  //   margin-left: 5rem;
+  // }
 
   &:hover ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
