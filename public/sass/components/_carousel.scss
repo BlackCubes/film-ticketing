@@ -61,11 +61,12 @@
   margin-right: 1rem;
   font-size: 2rem;
   cursor: pointer;
-  transition: $carousel-transition-duration all;
+  transition: $carousel-transition-duration all ease-out; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED EASE-OUT IN JS
   transform-origin: center left;
 
   &__img {
-    width: $tile-width;
+    // width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+    width: 100%;
     height: $tile-height;
     object-fit: cover;
   }
@@ -125,7 +126,7 @@
   margin-right: 1rem;
   font-size: 2rem;
   cursor: pointer;
-  transition: $carousel-transition-duration all ease-out; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED THE EASE-OUT
+  transition: $carousel-transition-duration all ease-out; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED THE EASE-OUT IN JS
   transform-origin: center left;
 
   &__poster {
