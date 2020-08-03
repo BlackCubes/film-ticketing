@@ -116,7 +116,7 @@
   margin-right: 1rem;
   font-size: 2rem;
   cursor: pointer;
-  transition: $carousel-transition-duration all;
+  transition: $carousel-transition-duration all ease-out; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED THE EASE-OUT
   transform-origin: center left;
 
   &__poster {
