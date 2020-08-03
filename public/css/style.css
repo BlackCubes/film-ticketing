@@ -585,8 +585,6 @@ body {
     opacity: 1; }
   .tile-show:hover ~ .tile-show {
     transform: translate3d(7.5rem, 0, 0); }
-  .tile-show:hover .tile-show {
-    transform: translate3d(-3.75rem, 0, 0); }
 
 .tile-card {
   display: inline-table;

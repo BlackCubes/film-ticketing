@@ -173,9 +173,9 @@
   }
 
   // ADD ALL WITH JS
-  &:hover & {
-    transform: translate3d($carousel-move-left, 0, 0);
-  }
+  // &:hover & {
+  //   transform: translate3d($carousel-move-left, 0, 0);
+  // }
 }
 
 .tile-card {
