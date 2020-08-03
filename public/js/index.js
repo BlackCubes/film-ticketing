@@ -4,7 +4,7 @@ require('./modernizr');
 import gsap from 'gsap';
 import Rellax from 'rellax';
 // import Swiper, { Navigation } from 'swiper';
-import swiper from 'swiper/bundle';
+import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';

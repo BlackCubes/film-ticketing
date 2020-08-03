@@ -28087,7 +28087,7 @@ if (rellaxClass) {
 }
 
 if (swiperClass) {
-  var _swiper = new Swiper('.swiper-container', {
+  var swiper = new _bundle.default('.swiper-container', {
     observer: true,
     observeParents: true,
     slidesPerView: 4,
