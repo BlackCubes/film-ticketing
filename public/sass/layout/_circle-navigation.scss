@@ -17,7 +17,8 @@ svg {
     }
   }
 
-  & .menu-trigger > a {
+  & .menu-trigger > a,
+  & .menu-trigger > text {
     @include respond(desktop) {
       font-size: 1.6rem;
     }
