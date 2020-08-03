@@ -1437,7 +1437,8 @@ svg {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  text-align: center; }
+  text-align: center;
+  text-transform: uppercase; }
   @media (min-width: 75em) {
     .nav__region-menu {
       height: 100%;
@@ -1472,6 +1473,7 @@ svg {
   margin-top: 0.5rem;
   padding: 0.7rem;
   align-items: center;
+  text-transform: uppercase;
   cursor: pointer;
   transition: color 0.2s linear 0s; }
   @media (min-width: 37.5em) {
