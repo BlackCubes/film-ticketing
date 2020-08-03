@@ -1051,7 +1051,7 @@ svg {
   z-index: 101; }
   @media (min-width: 75em) {
     svg {
-      width: 53rem; } }
+      width: 52rem; } }
   @media (min-width: 75em) {
     svg .icon > text {
       font-size: 1.2rem; } }

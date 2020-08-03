@@ -8,7 +8,7 @@ svg {
   z-index: 101;
 
   @include respond(desktop) {
-    width: 53rem;
+    width: 52rem;
   }
 
   & .icon > text {
