@@ -28204,8 +28204,8 @@ if (swiperClass) {
   _swiper.Swiper.use([_swiper.Navigation]);
 
   var swiper = new _swiper.Swiper('.swiper-container', {
-    // observer: true,
-    // observeParents: true,
+    observer: true,
+    observeParents: true,
     slidesPerView: 4,
     spaceBetween: 5,
     slidesPerGroup: 2,

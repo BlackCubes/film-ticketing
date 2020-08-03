@@ -117,8 +117,8 @@ if (swiperClass) {
   Swiper.use([Navigation]);
 
   var swiper = new Swiper('.swiper-container', {
-    // observer: true,
-    // observeParents: true,
+    observer: true,
+    observeParents: true,
     slidesPerView: 4,
     spaceBetween: 5,
     slidesPerGroup: 2,
