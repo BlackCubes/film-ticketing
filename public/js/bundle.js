@@ -28206,6 +28206,9 @@ if (rellaxClass) {
 
 if (swiperClass) {
   var swiper = new _swiper.default('.swiper-container', {
+    slidesPerView: 6,
+    spaceBetween: 10,
+    slidesPerGroup: 2,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
