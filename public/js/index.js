@@ -120,7 +120,7 @@ if (swiperClass) {
     observer: true,
     observeParents: true,
     direction: 'horizontal',
-    slidesPerView: 4,
+    slidesPerView: 5,
     // spaceBetween: 5,
     slidesPerGroup: 2,
     navigation: {
