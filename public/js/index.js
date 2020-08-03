@@ -121,7 +121,7 @@ if (swiperClass) {
     observeParents: true,
     direction: 'horizontal',
     slidesPerView: 5,
-    // spaceBetween: 5,
+    spaceBetween: 5,
     slidesPerGroup: 2,
     navigation: {
       nextEl: '.swiper-button-next',
