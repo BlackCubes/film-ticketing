@@ -2452,7 +2452,7 @@ svg {
     @media (min-width: 75em) {
       .synopsis-box__synopsis {
         margin-top: 0;
-        padding: 5rem; } }
+        padding: 5rem 3rem; } }
 
 .castcrew-box {
   margin-top: 7rem; }
