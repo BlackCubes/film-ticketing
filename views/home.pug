@@ -14,7 +14,8 @@ block content
 
           .swiper-container
             .swiper-wrapper
-              .swiper-slide
+              each showtime in showtimes
+                .swiper-slide: img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`)
             
             .swiper-button-prev
             .swiper-button-next
