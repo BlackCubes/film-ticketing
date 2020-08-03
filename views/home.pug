@@ -13,6 +13,9 @@ block content
               h2.home-carousel__header.heading-secondary Upcoming Shows
 
           .row.row--scroll.swiper-container
+            .swiper-button-prev
+            .swiper-button-next
+            
             .row__inner.row__inner--poster.swiper-wrapper
               each showtime in showtimes
                 - console.log(showtime)
@@ -21,8 +24,6 @@ block content
                     img.tile__poster(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
                   .tile-show__details
                     .tile-show__title: a.tile-show__link(href=`/show-overview/${showtime.shows[0].slug}`)= showtime.shows[0].title
-            .swiper-button-prev
-            .swiper-button-next
 
       section.section-home-special-venues
         .home-special-venues
