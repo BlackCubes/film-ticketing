@@ -61,7 +61,8 @@
   }
 
   &__poster {
-    width: $tile-width;
+    // width: $tile-width;
+    width: 100%; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
     object-fit: cover;
   }
 
