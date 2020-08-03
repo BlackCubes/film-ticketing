@@ -40,11 +40,13 @@
         transform: scale($carousel-grow-factor);
         opacity: 1;
       }
+    }
 
-      // ADD WITH JS
-      &:last-child:hover {
-        margin-right: 5rem;
-      }
+    // ADD WITH JS
+    &:hover .tile:last-child:hover,
+    &:hover .tile-show:last-child:hover,
+    &:hover .tile-card:last-child:hover {
+      margin-right: 5rem;
     }
   }
 }
