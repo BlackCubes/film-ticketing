@@ -103,6 +103,10 @@
   &__link {
     font-size: 1.6rem;
     text-shadow: 0px 2px 1px rgba($color-black, 1);
+
+    @include respond(desktop) {
+      font-size: 1.4rem;
+    }
   }
 
   &:hover &__details {
