@@ -115,7 +115,7 @@ if (rellaxClass) {
 if (swiperClass) {
   var swiper = new Swiper('.swiper-container', {
     slidesPerView: 4,
-    spaceBetween: 10,
+    spaceBetween: 5,
     slidesPerGroup: 2,
     navigation: {
       nextEl: '.swiper-button-next',
