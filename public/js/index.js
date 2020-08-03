@@ -116,7 +116,7 @@ if (rellaxClass) {
 if (swiperClass) {
   Swiper.use([Navigation]);
 
-  const swiper = new Swiper('.swiper-container', {
+  var swiper = new Swiper('.swiper-container', {
     // observer: true,
     // observeParents: true,
     slidesPerView: 4,
