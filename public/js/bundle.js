@@ -28206,6 +28206,8 @@ if (rellaxClass) {
 
 if (swiperClass) {
   var swiper = new _swiper.default('.swiper-container', {
+    observer: true,
+    observeParents: true,
     slidesPerView: 4,
     spaceBetween: 5,
     slidesPerGroup: 2,
