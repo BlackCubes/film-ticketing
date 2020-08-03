@@ -24,7 +24,7 @@
     font-size: 0;
     white-space: nowrap;
     margin: ($tile-height / 4) 0 ($tile-height / 2) 0;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
 
     &:hover {
       transform: translate3d($carousel-move-left, 0, 0);
