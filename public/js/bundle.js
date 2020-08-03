@@ -28206,6 +28206,7 @@ if (swiperClass) {
   var swiper = new _swiper.Swiper('.swiper-container', {
     observer: true,
     observeParents: true,
+    direction: 'horizontal',
     slidesPerView: 4,
     spaceBetween: 5,
     slidesPerGroup: 2,
