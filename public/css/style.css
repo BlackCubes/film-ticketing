@@ -1460,7 +1460,7 @@ svg {
       align-items: center;
       background: linear-gradient(to top, #001b4c 0, #001b4c 50%, #000 50%, #000 100%) #001b4c;
       background-size: 100% 200%;
-      transition: background-position 0.3s linear 0s, color 0.2s linear 0s; } }
+      transition: background-position 0.265s linear 0s, color 0.235s linear 0s; } }
   @media (min-width: 75em) {
     .nav__region-link:hover {
       background-position: 0 100%;
