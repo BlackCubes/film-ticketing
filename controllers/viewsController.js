@@ -57,13 +57,6 @@ exports.getShow = catchAsync(async (req, res, next) => {
     return next(new AppError('There is no show with that name!', 404));
   }
 
-  // show.showtimes.forEach(el => {
-  //   el.id = cryptography.encrypt(el.id);
-  //   el.theaters[0].id = cryptography.encrypt(el.theaters[0].id);
-  // });
-
-  show.showtimes.find(el => el.id).id = '23';
-
   res.status(200).render('show-overview', {
     title: show.title,
     show
