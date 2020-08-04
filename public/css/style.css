@@ -587,6 +587,9 @@ body {
       @media (min-width: 56.25em) {
         .tile.swiper-slide .tile__link {
           font-size: 0.85rem; } }
+      @media (min-width: 75em) {
+        .tile.swiper-slide .tile__link {
+          font-size: 1rem; } }
     .tile.swiper-slide:first-child:hover {
       margin-left: 0; }
 
@@ -639,6 +642,9 @@ body {
       @media (min-width: 56.25em) {
         .tile-show.swiper-slide .tile-show__link {
           font-size: 0.85rem; } }
+      @media (min-width: 75em) {
+        .tile-show.swiper-slide .tile-show__link {
+          font-size: 1rem; } }
     .tile-show.swiper-slide:first-child:hover {
       margin-left: 0; }
 
