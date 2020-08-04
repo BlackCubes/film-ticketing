@@ -133,10 +133,12 @@ if (swiperClass) {
         spaceBetween: 20
       },
       900: {
-        slidesPerView: 4
+        slidesPerView: 4,
+        spaceBetween: 15
       },
       1200: {
-        slidesPerView: 5
+        slidesPerView: 5,
+        spaceBetween: 10
       }
     }
   });
