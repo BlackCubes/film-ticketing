@@ -270,14 +270,16 @@
 
     &--poster {
       @include respond(tab-port) {
-        width: $tile-width;
+        // width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+        width: 100%;
         height: $tile-height-poster;
       }
     }
 
     &--logo {
       @include respond(tab-port) {
-        width: $tile-width;
+        // width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+        width: 100%;
         height: $tile-height;
       }
     }
@@ -327,5 +329,10 @@
     // @include respond(tab-land) {
     //   width: 70%;
     // }
+
+    // USE JS TO ADD/REMOVE!!!
+    & > button {
+      padding: 0;
+    }
   }
 }
