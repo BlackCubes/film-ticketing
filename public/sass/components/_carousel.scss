@@ -238,6 +238,11 @@
   &.swiper-slide {
     transition: $carousel-transition-duration all ease-out;
 
+    & .tile__img,
+    & .tile__poster {
+      width: 100%;
+    }
+
     &:first-child:hover {
       margin-left: 0;
     }

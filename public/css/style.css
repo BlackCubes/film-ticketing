@@ -620,6 +620,9 @@ body {
     transform: translate3d(7.5rem, 0, 0); }
   .tile-show.swiper-slide {
     transition: 450ms all ease-out; }
+    .tile-show.swiper-slide .tile__img,
+    .tile-show.swiper-slide .tile__poster {
+      width: 100%; }
     .tile-show.swiper-slide:first-child:hover {
       margin-left: 0; }
 
