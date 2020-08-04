@@ -1819,7 +1819,7 @@ svg {
   @media (min-width: 56.25em) {
     .section-castcrew-about,
     .section-castcrew-resume {
-      width: 90%; } }
+      width: 98%; } }
 
 .section-castcrew-resume {
   margin-bottom: 3rem; }
@@ -1867,7 +1867,7 @@ svg {
     @media (min-width: 75em) {
       .about-box__description {
         margin-top: 0;
-        padding: 5rem; } }
+        padding: 5rem 7rem; } }
 
 .section-forgotpass {
   width: 95%;
