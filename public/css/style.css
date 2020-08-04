@@ -1055,9 +1055,11 @@ svg {
   @media (min-width: 75em) {
     svg {
       width: 52rem; } }
-  @media (min-width: 75em) {
-    svg .icon > text {
-      font-size: 1.2rem; } }
+  svg .icon > text {
+    transition: fill 0.2s linear 0s; }
+    @media (min-width: 75em) {
+      svg .icon > text {
+        font-size: 1.2rem; } }
   svg .menu-trigger > a,
   svg .menu-trigger > text {
     transition: fill 0.2s linear 0s; }
@@ -1067,6 +1069,7 @@ svg {
         font-size: 1.6rem; } }
   svg .menu-trigger.open > text {
     fill: #000; }
+  svg .icon:hover > text,
   svg .menu-trigger:hover > text {
     fill: #000;
     transition: fill 0.2s linear 0s; }
