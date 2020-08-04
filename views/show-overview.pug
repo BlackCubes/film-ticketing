@@ -8,7 +8,7 @@ block append head
 
 block content
   main.main
-    - console.log('Show: ', show)
+    //- - console.log('Show: ', show)
     section.section-show-header
       .heading-box
         .heading-box__background
@@ -61,6 +61,7 @@ block content
           .row--scroll
             .row__inner--ticket
               each showtime in show.showtimes
+                - console.log('Showtime: ', showtime)
                 .tile-ticket
                   .tile-ticket__media
                     a.tile-ticket__media-link.tile-ticket__media-link--logo(href=`/theater-overview/${showtime.theaters[0].slug}`)
