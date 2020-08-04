@@ -19,6 +19,8 @@ svg {
 
   & .menu-trigger > a,
   & .menu-trigger > text {
+    transition: fill 0.2s linear 0s;
+
     @include respond(desktop) {
       font-size: 1.6rem;
     }
