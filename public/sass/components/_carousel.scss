@@ -24,7 +24,7 @@
     font-size: 0;
     white-space: nowrap;
     margin: ($tile-height / 4) 0 ($tile-height / 2) 0;
-    // padding-bottom: 1rem; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+    padding-bottom: 1rem; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
 
     &:hover {
       transform: translate3d($carousel-move-left, 0, 0);
@@ -34,7 +34,7 @@
     &:hover .tile-show,
     &:hover .tile-card {
       opacity: 0.3;
-      transition: $carousel-transition-duration all ease-out; // ADD BY JS!
+      // transition: $carousel-transition-duration all ease-out; // ADD BY JS! SWIPERJS
 
       &:hover {
         transform: scale($carousel-grow-factor);
@@ -42,19 +42,41 @@
       }
     }
 
-    // ADD WITH JS
+    // ADD WITH JS. SWIPERJS
     &:hover .tile:last-child:hover,
     &:hover .tile-show:last-child:hover,
     &:hover .tile-card:last-child:hover {
-      // margin: 0 -3rem;
-      transform: translate3d($carousel-move-left, 0, 0)
-        scale($carousel-grow-factor);
+      margin: 0 -3rem;
+      // transform: translate3d($carousel-move-left, 0, 0)
+      //   scale($carousel-grow-factor); // SWIPERJS
+    }
+  }
+
+  // FIX WITH RESPONSIVE!!!
+  &.swiper-container {
+    & .row__inner {
+      padding-bottom: 0;
+
+      &:hover .tile,
+      &:hover .tile-show,
+      &:hover .tile-card {
+        transition: $carousel-transition-duration all ease-out;
+      }
+
+      &:hover .tile:last-child:hover,
+      &:hover .tile-show:last-child:hover,
+      &:hover .tile-card:last-child:hover {
+        margin: 0;
+        transform: translate3d($carousel-move-left, 0, 0)
+          scale($carousel-grow-factor);
+      }
     }
   }
 }
 
-// ADD THIS WITH JS!!
-.reviews-box__list-container > .row--scroll {
+// ADD THIS WITH JS!! SWIPERJS
+// FIX WITH RESPONSIVE!!!
+.reviews-box__list-container > .row--scroll.swiper-container {
   @include respond(desktop) {
     height: 45rem;
   }
@@ -68,19 +90,19 @@
   margin-right: 1rem;
   font-size: 2rem;
   cursor: pointer;
-  transition: $carousel-transition-duration all ease-out; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED EASE-OUT IN JS
+  transition: $carousel-transition-duration all; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED EASE-OUT IN JS. SWIPERJS
   transform-origin: center left;
 
   &__img {
-    // width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-    width: 100%;
+    width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+    // width: 100%; // SWIPERJS
     height: $tile-height;
     object-fit: cover;
   }
 
   &__poster {
-    // width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-    width: 100%;
+    width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+    // width: 100%; // SWIPERJS
     object-fit: cover;
   }
 
@@ -121,12 +143,26 @@
   }
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-  // &:first-child:hover {
-  //   margin-left: 5rem;
-  // }
+  &:first-child:hover {
+    margin-left: 5rem;
+  }
 
   &:hover ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
+  }
+
+  // FIX WITH RESPONSIVE!!!
+  &.swiper-slide {
+    transition: $carousel-transition-duration all ease-out;
+
+    & .tile__img,
+    & .tile__poster {
+      width: 100%;
+    }
+
+    &:first-child:hover {
+      margin-left: 0;
+    }
   }
 }
 
@@ -138,7 +174,7 @@
   margin-right: 1rem;
   font-size: 2rem;
   cursor: pointer;
-  transition: $carousel-transition-duration all ease-out; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED THE EASE-OUT IN JS
+  transition: $carousel-transition-duration all; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED THE EASE-OUT IN JS. SWIPERJS
   transform-origin: center left;
 
   &__poster {
@@ -179,9 +215,9 @@
   }
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-  // &:first-child:hover {
-  //   margin-left: 5rem;
-  // }
+  &:first-child:hover {
+    margin-left: 5rem;
+  }
 
   &:hover ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
@@ -191,6 +227,15 @@
   // &:hover & {
   //   transform: translate3d($carousel-move-left, 0, 0);
   // }
+
+  // FIX WITH RESPONSIVE!!!
+  &.swiper-slide {
+    transition: $carousel-transition-duration all ease-out;
+
+    &:first-child:hover {
+      margin-left: 0;
+    }
+  }
 }
 
 .tile-card {
@@ -204,7 +249,7 @@
   background-color: $color-light-blue-2;
   white-space: pre-wrap;
   cursor: pointer;
-  transition: $carousel-transition-duration all ease-out; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED THE EASE-OUT IN JS
+  transition: $carousel-transition-duration all; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED THE EASE-OUT IN JS. SWIPERJS
   transform-origin: center left;
 
   &__reviewer {
@@ -225,7 +270,7 @@
   }
 
   &__photo-img {
-    // width: 10rem; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+    width: 10rem; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
     height: 10rem;
     border-radius: 50%;
   }
@@ -242,12 +287,25 @@
   }
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-  // &:first-child:hover {
-  //   margin-left: 5rem;
-  // }
+  &:first-child:hover {
+    margin-left: 5rem;
+  }
 
   &:hover ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
+  }
+
+  // FIX WITH RESPONSIVE!!!
+  &.swiper-slide {
+    transition: $carousel-transition-duration all ease-out;
+
+    & .tile-card__photo-img {
+      width: 100%;
+    }
+
+    &:first-child:hover {
+      margin-left: 0;
+    }
   }
 }
 
@@ -270,16 +328,16 @@
 
     &--poster {
       @include respond(tab-port) {
-        // width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-        width: 100%;
+        width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+        // width: 100%; // SWIPERJS
         height: $tile-height-poster;
       }
     }
 
     &--logo {
       @include respond(tab-port) {
-        // width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-        width: 100%;
+        width: $tile-width; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+        // width: 100%; // SWIPERJS
         height: $tile-height;
       }
     }
@@ -330,8 +388,27 @@
     //   width: 70%;
     // }
 
-    // USE JS TO ADD/REMOVE!!!
-    & > button {
+    // USE JS TO ADD/REMOVE!!! SWIPERJS
+    // & > button {
+    //   padding: 0;
+    // }
+  }
+
+  // FIX WITH RESPONSIVE!!!
+  &.swiper-slide {
+    & .tile-ticket__media-link--poster {
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+
+    & .tile-ticket__media-link--logo {
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+
+    & .tile-ticket__options > button {
       padding: 0;
     }
   }
