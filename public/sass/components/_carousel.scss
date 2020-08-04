@@ -459,8 +459,14 @@
       }
     }
 
+    & .tile-ticket__title-content,
+    & .tile-ticket__metadata-item,
+    & .tile-ticket__datatime > p {
+      font-size: 1.2rem;
+    }
+
     & .tile-ticket__options > button {
-      padding: 0;
+      padding: 0.5rem;
     }
   }
 }

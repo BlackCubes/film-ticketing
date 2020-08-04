@@ -744,8 +744,12 @@ body {
     @media (min-width: 37.5em) {
       .tile-ticket.swiper-slide .tile-ticket__media-link--logo {
         width: 100%; } }
+  .tile-ticket.swiper-slide .tile-ticket__title-content,
+  .tile-ticket.swiper-slide .tile-ticket__metadata-item,
+  .tile-ticket.swiper-slide .tile-ticket__datatime > p {
+    font-size: 1.2rem; }
   .tile-ticket.swiper-slide .tile-ticket__options > button {
-    padding: 0; }
+    padding: 0.5rem; }
 
 .dropdown {
   font-family: inherit;
