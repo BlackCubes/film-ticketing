@@ -23,4 +23,8 @@ svg {
       font-size: 1.6rem;
     }
   }
+
+  & .menu-trigger:hover > text {
+    fill: $color-black;
+  }
 }
