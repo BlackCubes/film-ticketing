@@ -750,7 +750,8 @@ body {
   .tile-ticket.swiper-slide .tile-ticket__datetime > p {
     font-size: 1.2rem; }
   .tile-ticket.swiper-slide .tile-ticket__options > button {
-    padding: 0.5rem; }
+    font-size: 1.4rem;
+    padding: 0.7rem; }
 
 .dropdown {
   font-family: inherit;
