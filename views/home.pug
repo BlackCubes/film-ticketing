@@ -10,16 +10,22 @@ block content
       section.section-home-carousel
         .home-carousel
           .home-carousel__header-wrapper
-              h2.home-carousel__header.heading-secondary Upcoming Shows
+            h2.home-carousel__header.heading-secondary Upcoming Shows
 
-          .row.row--scroll.swiper-container
+          - let swiperContainerClass = '', swiperWrapperClass = '', swiperSlideClass = ''
+          if showtimes.length > 1
+            - swiperContainerClass = 'swiper-container'
+            - swiperWrapperClass = 'swiper-wrapper'
+            - swiperSlideClass = 'swiper-slide'
+
+          .row.row--scroll(class=`${swiperContainerClass}`)
             .swiper-button-prev
             .swiper-button-next
 
-            .row__inner.row__inner--poster.swiper-wrapper
+            .row__inner.row__inner--poster(class=`${swiperWrapperClass}`)
               each showtime in showtimes
                 - console.log(showtime)
-                .tile-show.swiper-slide
+                .tile-show.(class=`${swiperSlideClass}`)
                   .tile-show__media
                     img.tile__poster(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
                   .tile-show__details
@@ -28,15 +34,15 @@ block content
       section.section-home-special-venues
         .home-special-venues
           .home-special-venues__header-wrapper
-              h2.home-special-venues__header.heading-secondary Active Theaters
+            h2.home-special-venues__header.heading-secondary Active Theaters
 
-          .row.row--scroll.swiper-container
+          .row.row--scroll(class=`${swiperContainerClass}`)
             .swiper-button-prev
             .swiper-button-next
 
-            .row__inner.swiper-wrapper
+            .row__inner(class=`${swiperWrapperClass}`)
               each showtime in showtimes
-                .tile.swiper-slide
+                .tile(class=`${swiperSlideClass}`)
                   .tile__media
                     img.tile__img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
                   .tile__details
