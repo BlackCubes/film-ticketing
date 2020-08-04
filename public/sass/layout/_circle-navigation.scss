@@ -26,6 +26,10 @@ svg {
     }
   }
 
+  & .menu-trigger.open > text {
+    fill: $color-black;
+  }
+
   & .menu-trigger:hover > text {
     fill: $color-black;
     transition: fill 0.2s linear 0s;

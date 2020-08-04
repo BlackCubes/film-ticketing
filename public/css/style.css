@@ -1065,6 +1065,8 @@ svg {
       svg .menu-trigger > a,
       svg .menu-trigger > text {
         font-size: 1.6rem; } }
+  svg .menu-trigger.open > text {
+    fill: #000; }
   svg .menu-trigger:hover > text {
     fill: #000;
     transition: fill 0.2s linear 0s; }
