@@ -28232,8 +28232,7 @@ if (swiperClass) {
       }
     }
   });
-} // var rellax2 = new Rellax('.rellax-2');
-
+}
 
 if (ticketBtn) {
   ticketBtn.addEventListener('click', function (e) {
