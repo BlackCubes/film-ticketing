@@ -602,7 +602,7 @@ body {
   background-color: #0067aa;
   white-space: pre-wrap;
   cursor: pointer;
-  transition: 450ms all;
+  transition: 450ms all ease-out;
   transform-origin: center left; }
   .tile-card__reviewer {
     background-image: linear-gradient(180deg, #20b2aa, #0067aa);
@@ -612,7 +612,6 @@ body {
     .tile-card__reviewer-name {
       padding: 1rem; }
   .tile-card__photo-img {
-    width: 10rem;
     height: 10rem;
     border-radius: 50%; }
   .tile-card__review {
@@ -622,8 +621,6 @@ body {
     margin-right: auto; }
     .tile-card__review-text {
       color: white; }
-  .tile-card:first-child:hover {
-    margin-left: 5rem; }
   .tile-card:hover ~ .tile-card {
     transform: translate3d(7.5rem, 0, 0); }
 

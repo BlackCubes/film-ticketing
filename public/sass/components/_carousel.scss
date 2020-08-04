@@ -197,7 +197,7 @@
   background-color: $color-light-blue-2;
   white-space: pre-wrap;
   cursor: pointer;
-  transition: $carousel-transition-duration all;
+  transition: $carousel-transition-duration all ease-out; // ADD THE ENTIRE TRANSITION PROPERTY SINCE ADDED THE EASE-OUT IN JS
   transform-origin: center left;
 
   &__reviewer {
@@ -218,7 +218,7 @@
   }
 
   &__photo-img {
-    width: 10rem;
+    // width: 10rem; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
     height: 10rem;
     border-radius: 50%;
   }
@@ -234,9 +234,10 @@
     }
   }
 
-  &:first-child:hover {
-    margin-left: 5rem;
-  }
+  // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
+  // &:first-child:hover {
+  //   margin-left: 5rem;
+  // }
 
   &:hover ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
