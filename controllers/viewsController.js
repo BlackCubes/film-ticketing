@@ -1,5 +1,6 @@
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
+const cryptography = require('./../utils/cryptography');
 const CastCrew = require('./../models/castcrewModel');
 const Review = require('./../models/reviewModel');
 const Show = require('./../models/showModel');
@@ -55,6 +56,11 @@ exports.getShow = catchAsync(async (req, res, next) => {
   if (!show) {
     return next(new AppError('There is no show with that name!', 404));
   }
+
+  show.showtimes.forEach(el => {
+    el.id = cryptography.encrypt(el.id);
+    el.theaters[0].id = cryptography.encrypt(el.theaters[0].id);
+  });
 
   res.status(200).render('show-overview', {
     title: show.title,
