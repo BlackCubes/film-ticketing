@@ -443,15 +443,19 @@
 
   // FIX WITH RESPONSIVE!!!
   &.swiper-slide {
-    & .tile-ticket__media-link--poster {
-      @include respond(tab-port) {
-        width: 100%;
-      }
-    }
+    & .tile-ticket__media-link {
+      width: 100%;
 
-    & .tile-ticket__media-link--logo {
-      @include respond(tab-port) {
-        width: 100%;
+      &--poster {
+        @include respond(tab-port) {
+          width: 100%;
+        }
+      }
+
+      &--logo {
+        @include respond(tab-port) {
+          width: 100%;
+        }
       }
     }
 

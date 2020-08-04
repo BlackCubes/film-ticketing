@@ -736,12 +736,14 @@ body {
     @media (min-width: 37.5em) {
       .tile-ticket__options {
         margin-top: 1.5rem; } }
-  @media (min-width: 37.5em) {
-    .tile-ticket.swiper-slide .tile-ticket__media-link--poster {
-      width: 100%; } }
-  @media (min-width: 37.5em) {
-    .tile-ticket.swiper-slide .tile-ticket__media-link--logo {
-      width: 100%; } }
+  .tile-ticket.swiper-slide .tile-ticket__media-link {
+    width: 100%; }
+    @media (min-width: 37.5em) {
+      .tile-ticket.swiper-slide .tile-ticket__media-link--poster {
+        width: 100%; } }
+    @media (min-width: 37.5em) {
+      .tile-ticket.swiper-slide .tile-ticket__media-link--logo {
+        width: 100%; } }
   .tile-ticket.swiper-slide .tile-ticket__options > button {
     padding: 0; }
 
