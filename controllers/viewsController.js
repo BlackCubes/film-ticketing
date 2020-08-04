@@ -62,9 +62,7 @@ exports.getShow = catchAsync(async (req, res, next) => {
   //   el.theaters[0].id = cryptography.encrypt(el.theaters[0].id);
   // });
 
-  show.showtimes.find(el => el.id).id = cryptography.encrypt(
-    show.showtimes.find(el => el.id).id
-  );
+  show.showtimes.find(el => el.id).id = '23';
 
   res.status(200).render('show-overview', {
     title: show.title,
