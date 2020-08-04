@@ -126,6 +126,11 @@ if (swiperClass) {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
+    },
+    breakpoints: {
+      900: {
+        slidesPerView: 4
+      }
     }
   });
 }
