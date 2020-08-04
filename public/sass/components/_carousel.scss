@@ -473,6 +473,10 @@
       @include respond(tab-port) {
         padding: 1rem;
       }
+
+      @include respond(desktop) {
+        padding: 0.1rem;
+      }
     }
   }
 }

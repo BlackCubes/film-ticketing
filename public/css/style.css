@@ -755,6 +755,9 @@ body {
     @media (min-width: 37.5em) {
       .tile-ticket.swiper-slide .tile-ticket__options > button {
         padding: 1rem; } }
+    @media (min-width: 75em) {
+      .tile-ticket.swiper-slide .tile-ticket__options > button {
+        padding: 0.1rem; } }
 
 .dropdown {
   font-family: inherit;
