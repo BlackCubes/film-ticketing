@@ -52,10 +52,16 @@ block content
           if user
             - checkFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
 
-          .row--scroll
-            .row__inner--ticket
+          - let swiperContainerClass = '', swiperWrapperClass = '', swiperSlideClass = ''
+          if theater.showtimes.length > 1
+            - swiperContainerClass = 'swiper-container'
+            - swiperWrapperClass = 'swiper-wrapper'
+            - swiperSlideClass = 'swiper-slide'
+
+          .row--scroll(class=`${swiperContainerClass}`)
+            .row__inner--ticket(class=`${swiperWrapperClass}`)
               each showtime in theater.showtimes
-                .tile-ticket
+                .tile-ticket(class=`${swiperSlideClass}`)
                   .tile-ticket__media
                     a.tile-ticket__media-link.tile-ticket__media-link--poster(href=`/show-overview/${showtime.shows[0].slug}`)
                       img.tile-ticket__media-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
