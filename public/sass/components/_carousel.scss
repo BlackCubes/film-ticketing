@@ -77,8 +77,10 @@
 // ADD THIS WITH JS!! SWIPERJS
 // FIX WITH RESPONSIVE!!!
 .reviews-box__list-container > .row--scroll.swiper-container {
+  height: 45rem;
+
   @include respond(desktop) {
-    height: 45rem;
+    // height: 45rem;
   }
 }
 
