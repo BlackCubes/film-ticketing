@@ -160,13 +160,17 @@ block content
       .reviews-box
         .reviews-box__title.u-margin-top-small.u-margin-bottom-small
           h2.heading-secondary Reviews
+
         .reviews-box__list-container
-          .row--scroll
-            .row__inner
+          .row--scroll.swiper-container
+            .swiper-button-prev
+            .swiper-button-next
+
+            .row__inner.swiper-wrapper
               if user && show.tickets.filter(ticket => ticket.user.id === user.id).length > 0 && show.reviews.filter(review => review.user.id === user.id).length === 0
                 each ticket in show.tickets
                   if Date.now() >= ticket.showtime.endDateTime && show.showtimes.filter(showtime => showtime.id === ticket.showtime.id).length > 0
-                    .tile-card
+                    .tile-card.swiper-slide
                       .tile-card__reviewer
                         .tile-card__reviewer-photo
                           img.tile-card__photo-img(src=`/img/users/${user.photo}`, alt=`${user.name} Photo`)
@@ -188,7 +192,7 @@ block content
                             button#btnCreateReview.btn.btn--blue(type='submit' name='btnCreateReview' data-show-id=`${show.id}` data-role-type=`${user.role}`) Create Review
 
               each review in show.reviews
-                .tile-card
+                .tile-card.swiper-slide
                   .tile-card__reviewer
                     .tile-card__reviewer-photo
                       img.tile-card__photo-img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name} Photo`)
