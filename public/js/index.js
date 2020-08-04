@@ -129,7 +129,8 @@ if (swiperClass) {
     },
     breakpoints: {
       600: {
-        slidesPerView: 3
+        slidesPerView: 3,
+        spaceBetween: 20
       },
       900: {
         slidesPerView: 4
