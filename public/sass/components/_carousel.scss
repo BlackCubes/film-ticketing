@@ -172,6 +172,10 @@
       @include respond(tab-port) {
         font-size: 1rem;
       }
+
+      @include respond(tab-land) {
+        font-size: 0.8rem;
+      }
     }
 
     &:first-child:hover {
@@ -256,6 +260,10 @@
 
       @include respond(tab-port) {
         font-size: 1rem;
+      }
+
+      @include respond(tab-land) {
+        font-size: 0.8rem;
       }
     }
 
