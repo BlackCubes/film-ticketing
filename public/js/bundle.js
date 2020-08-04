@@ -28219,7 +28219,7 @@ if (swiperClass) {
     },
     breakpoints: {
       600: {
-        slidesPerView: 4
+        slidesPerView: 3
       },
       900: {
         slidesPerView: 4
