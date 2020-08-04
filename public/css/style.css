@@ -740,7 +740,8 @@ body {
     width: 100%; }
     @media (min-width: 37.5em) {
       .tile-ticket.swiper-slide .tile-ticket__media-link--poster {
-        width: 100%; } }
+        width: 100%;
+        height: 100%; } }
     @media (min-width: 37.5em) {
       .tile-ticket.swiper-slide .tile-ticket__media-link--logo {
         width: 100%; } }
