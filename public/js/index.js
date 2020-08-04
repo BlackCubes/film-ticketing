@@ -146,7 +146,14 @@ if (circleNavTrigger) {
     label = circleNavTrigger.querySelectorAll('#label')[0],
     open = false;
 
-  let circleNav = new CircleNav(open, gsap, items, label, svg);
+  let circleNav = new CircleNav(
+    open,
+    gsap,
+    items,
+    label,
+    circleNavTrigger,
+    svg
+  );
 
   gsap.set(items, { scale: 0, visibility: 'visible' });
   svg.style.pointerEvents = 'none';

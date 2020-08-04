@@ -28237,7 +28237,7 @@ if (circleNavTrigger) {
       items = svg.querySelectorAll('.item'),
       label = circleNavTrigger.querySelectorAll('#label')[0],
       open = false;
-  var circleNav = new _circleNav.default(open, _gsap.default, items, label, svg);
+  var circleNav = new _circleNav.default(open, _gsap.default, items, label, circleNavTrigger, svg);
 
   _gsap.default.set(items, {
     scale: 0,
