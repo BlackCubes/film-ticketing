@@ -586,7 +586,7 @@ body {
           font-size: 1rem; } }
       @media (min-width: 56.25em) {
         .tile.swiper-slide .tile__link {
-          font-size: 0.8rem; } }
+          font-size: 0.85rem; } }
     .tile.swiper-slide:first-child:hover {
       margin-left: 0; }
 
@@ -638,7 +638,7 @@ body {
           font-size: 1rem; } }
       @media (min-width: 56.25em) {
         .tile-show.swiper-slide .tile-show__link {
-          font-size: 0.8rem; } }
+          font-size: 0.85rem; } }
     .tile-show.swiper-slide:first-child:hover {
       margin-left: 0; }
 
