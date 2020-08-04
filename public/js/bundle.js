@@ -28220,7 +28220,7 @@ if (swiperClass) {
     breakpoints: {
       600: {
         slidesPerView: 3,
-        spaceBetween: 20
+        spaceBetween: 15
       },
       900: {
         slidesPerView: 4,
