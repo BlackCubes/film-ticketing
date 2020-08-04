@@ -26555,13 +26555,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /* eslint-disable */
 var CircleNav = /*#__PURE__*/function () {
-  function CircleNav(open, gsap, items, label, svg) {
+  function CircleNav(open, gsap, items, label, menuTrigger, svg) {
     _classCallCheck(this, CircleNav);
 
     this.open = open;
     this.gsap = gsap;
     this.items = items;
     this.label = label;
+    this.menuTrigger = menuTrigger;
     this.svg = svg;
   }
 
@@ -26577,6 +26578,7 @@ var CircleNav = /*#__PURE__*/function () {
           ease: 'elastic.out(0.05)'
         });
         this.label.innerHTML = '-';
+        this.menuTrigger.classList.add('open');
         this.svg.style.pointerEvents = 'auto';
       } else {
         this.gsap.to(this.items, {
@@ -26585,6 +26587,7 @@ var CircleNav = /*#__PURE__*/function () {
           ease: 'back.in(0.05)'
         });
         this.label.innerHTML = 'My Menu';
+        this.menuTrigger.classList.remove('open');
         this.svg.style.pointerEvents = 'none';
       }
     }

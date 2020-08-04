@@ -1,10 +1,11 @@
 /* eslint-disable */
 export default class CircleNav {
-  constructor(open, gsap, items, label, svg) {
+  constructor(open, gsap, items, label, menuTrigger, svg) {
     this.open = open;
     this.gsap = gsap;
     this.items = items;
     this.label = label;
+    this.menuTrigger = menuTrigger;
     this.svg = svg;
   }
 
@@ -19,6 +20,7 @@ export default class CircleNav {
       });
 
       this.label.innerHTML = '-';
+      this.menuTrigger.classList.add('open');
 
       this.svg.style.pointerEvents = 'auto';
     } else {
@@ -29,6 +31,7 @@ export default class CircleNav {
       });
 
       this.label.innerHTML = 'My Menu';
+      this.menuTrigger.classList.remove('open');
 
       this.svg.style.pointerEvents = 'none';
     }
