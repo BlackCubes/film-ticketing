@@ -581,6 +581,9 @@ body {
       width: 100%; }
     .tile.swiper-slide .tile__link {
       font-size: 1.2rem; }
+      @media (min-width: 37.5em) {
+        .tile.swiper-slide .tile__link {
+          font-size: 1rem; } }
     .tile.swiper-slide:first-child:hover {
       margin-left: 0; }
 
@@ -627,6 +630,9 @@ body {
       width: 100%; }
     .tile-show.swiper-slide .tile-show__link {
       font-size: 1.2rem; }
+      @media (min-width: 37.5em) {
+        .tile-show.swiper-slide .tile-show__link {
+          font-size: 1rem; } }
     .tile-show.swiper-slide:first-child:hover {
       margin-left: 0; }
 

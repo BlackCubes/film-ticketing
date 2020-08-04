@@ -168,6 +168,10 @@
 
     & .tile__link {
       font-size: 1.2rem;
+
+      @include respond(tab-port) {
+        font-size: 1rem;
+      }
     }
 
     &:first-child:hover {
@@ -249,6 +253,10 @@
 
     & .tile-show__link {
       font-size: 1.2rem;
+
+      @include respond(tab-port) {
+        font-size: 1rem;
+      }
     }
 
     &:first-child:hover {
