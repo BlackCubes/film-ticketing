@@ -746,7 +746,7 @@ body {
         width: 100%; } }
   .tile-ticket.swiper-slide .tile-ticket__title-content,
   .tile-ticket.swiper-slide .tile-ticket__metadata-item,
-  .tile-ticket.swiper-slide .tile-ticket__datatime > p {
+  .tile-ticket.swiper-slide .tile-ticket__datetime > p {
     font-size: 1.2rem; }
   .tile-ticket.swiper-slide .tile-ticket__options > button {
     padding: 0.5rem; }
