@@ -1063,7 +1063,8 @@ svg {
     svg .menu-trigger > text {
       font-size: 1.6rem; } }
   svg .menu-trigger:hover > text {
-    fill: #000; }
+    fill: #000;
+    transition: fill 0.2s linear 0s; }
 
 .footer {
   font-family: inherit;
