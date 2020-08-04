@@ -28220,6 +28220,9 @@ if (swiperClass) {
     breakpoints: {
       900: {
         slidesPerView: 4
+      },
+      1200: {
+        slidesPerView: 5
       }
     }
   });
