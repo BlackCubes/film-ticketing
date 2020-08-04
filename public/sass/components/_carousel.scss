@@ -55,7 +55,9 @@
 
 // ADD THIS WITH JS!!
 .reviews-box__list-container > .row--scroll {
-  height: 45rem;
+  @include respond(desktop) {
+    height: 45rem;
+  }
 }
 
 .tile {
