@@ -658,8 +658,9 @@ body {
     transform: translate3d(7.5rem, 0, 0); }
   .tile-card.swiper-slide {
     transition: 450ms all ease-out; }
-    .tile-card.swiper-slide .tile-card__photo-img {
-      width: 100%; }
+    @media (min-width: 37.5em) {
+      .tile-card.swiper-slide .tile-card__photo-img {
+        width: 100%; } }
     .tile-card.swiper-slide:first-child:hover {
       margin-left: 0; }
 

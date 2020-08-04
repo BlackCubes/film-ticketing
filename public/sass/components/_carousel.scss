@@ -300,7 +300,11 @@
     transition: $carousel-transition-duration all ease-out;
 
     & .tile-card__photo-img {
-      width: 100%;
+      // width: 10rem;
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
     }
 
     &:first-child:hover {
