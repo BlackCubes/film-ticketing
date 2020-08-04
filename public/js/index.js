@@ -128,6 +128,9 @@ if (swiperClass) {
       prevEl: '.swiper-button-prev'
     },
     breakpoints: {
+      600: {
+        slidesPerView: 4
+      },
       900: {
         slidesPerView: 4
       },
