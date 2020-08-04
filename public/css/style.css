@@ -526,6 +526,9 @@ body {
 
 .reviews-box__list-container > .row--scroll.swiper-container {
   height: 45rem; }
+  @media (min-width: 37.5em) {
+    .reviews-box__list-container > .row--scroll.swiper-container {
+      height: 50rem; } }
 
 .tile {
   position: relative;
@@ -659,7 +662,7 @@ body {
     transition: 450ms all ease-out; }
     @media (min-width: 37.5em) {
       .tile-card.swiper-slide .tile-card__photo-img {
-        width: 100%; } }
+        width: 11rem; } }
     .tile-card.swiper-slide:first-child:hover {
       margin-left: 0; }
 

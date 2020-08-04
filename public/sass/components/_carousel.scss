@@ -79,6 +79,10 @@
 .reviews-box__list-container > .row--scroll.swiper-container {
   height: 45rem;
 
+  @include respond(tab-port) {
+    height: 50rem;
+  }
+
   @include respond(desktop) {
     // height: 45rem;
   }
@@ -305,7 +309,7 @@
       // width: 10rem;
 
       @include respond(tab-port) {
-        width: 100%;
+        width: 11rem;
       }
     }
 
