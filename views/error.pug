@@ -1,13 +1,13 @@
 extends ./account/baseAccount
 
 block content
-  main.main
-    .error
-      .error__background
-        img.error__background-img(src='/img/error-main.jpg')
+  main.main.main--error
+    .error-page
+      .error-page__background
+        img.error-page__background-img(src='/img/error-main.jpg')
 
-      .error__title
+      .error-page__title
         h2.heading-secondary.heading-secondary--error I don't judge websites by their worst mistakes
 
-      .error__message
+      .error-page__message
         p.paragraph= msg
