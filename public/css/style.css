@@ -1200,7 +1200,11 @@ svg {
   svg .menu-trigger.open > text {
     fill: #000; }
   svg .icon:hover > text,
-  svg .menu-trigger:hover > text {
+  svg .icon:focus > text,
+  svg .icon:active > text,
+  svg .menu-trigger:hover > text,
+  svg .menu-trigger:focus > text,
+  svg .menu-trigger:active > text {
     fill: #000;
     transition: fill 0.2s linear 0s; }
 

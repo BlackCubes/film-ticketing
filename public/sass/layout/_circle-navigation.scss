@@ -33,7 +33,11 @@ svg {
   }
 
   & .icon:hover > text,
-  & .menu-trigger:hover > text {
+  & .icon:focus > text,
+  & .icon:active > text,
+  & .menu-trigger:hover > text,
+  & .menu-trigger:focus > text,
+  & .menu-trigger:active > text {
     fill: $color-black;
     transition: fill 0.2s linear 0s;
   }
