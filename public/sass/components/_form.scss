@@ -362,7 +362,9 @@
       transition: all 0.2s;
       cursor: pointer;
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: $color-lightseagreen;
         color: $color-black;
         -webkit-box-shadow: 0 1rem 2rem rgba($color-white, 0.15);

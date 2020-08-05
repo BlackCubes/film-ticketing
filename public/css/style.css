@@ -1114,7 +1114,7 @@ body {
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
     cursor: pointer; }
-    .form__upload + label:hover {
+    .form__upload + label:hover, .form__upload + label:focus, .form__upload + label:active {
       background-color: #20b2aa;
       color: #000;
       -webkit-box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.15);
