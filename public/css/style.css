@@ -2060,6 +2060,9 @@ svg {
     left: 0;
     margin-left: auto;
     margin-right: auto; }
+    @media (min-width: 37.5em) {
+      .error-page__description {
+        width: 93%; } }
     @media (min-width: 75em) {
       .error-page__description {
         width: 60rem;
