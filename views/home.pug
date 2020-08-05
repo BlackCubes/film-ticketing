@@ -12,7 +12,9 @@ block content
           .home-carousel__header-wrapper
             h2.home-carousel__header.heading-secondary Upcoming Shows
 
-          - let swiperContainerClass = 'none', swiperWrapperClass = 'none', swiperSlideClass = 'none'
+          - let swiperContainerClass = 'none'
+          - let swiperWrapperClass = 'none'
+          - let swiperSlideClass = 'none'
           if showtimes.length > 1
             - swiperContainerClass = 'container'
             - swiperWrapperClass = 'wrapper'
