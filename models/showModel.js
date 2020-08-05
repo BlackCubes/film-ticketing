@@ -51,11 +51,19 @@ const showSchema = new mongoose.Schema(
     overview: {
       type: String,
       required: [true, 'A show must have an overview!'],
-      trim: true
+      trim: true,
+      maxlength: [
+        183,
+        'An overview must be less than or equal to 183 characters!'
+      ]
     },
     synopsis: {
       type: String,
-      trim: true
+      trim: true,
+      maxlength: [
+        1100,
+        'A synopsis must be less than or equal to 1100 characters!'
+      ]
     },
     poster: {
       urlLarge: {
