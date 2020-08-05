@@ -11,7 +11,7 @@ block content
                 h2.heading-secondary Your Account Settings
 
             .form__group
-              input#name.form__input.input-text(type='text' placeholder='Name*' value=`${user.name}` required)
+              input#name.form__input.input-text(type='text' placeholder='Name*' value=`${user.name}` minlength='2' required)
               label.form__label.label-text(for='name') Please enter your name.
 
             .form__group
@@ -87,7 +87,7 @@ block content
               label.form__label.label-text(for='email') Please enter a valid email address.
 
             .form__group
-              input#username.form__input.input-text(type='text' placeholder='Username' value=`${user.username}` required)
+              input#username.form__input.input-text(type='text' placeholder='Username' value=`${user.username}` minlength='3' required)
               label.form__label.label-text(for='username') Please enter a username
 
             .form__group
@@ -103,15 +103,15 @@ block content
                 h2.heading-secondary Change Your Password
               
             .form__group
-              input#currentPass.form__input.input-text(type='password' placeholder='••••••' required)
+              input#currentPass.form__input.input-text(type='password' placeholder='••••••••' required)
               label.form__label.label-text(for='currentPass') Please enter your current password.
 
             .form__group
-              input#newPass.form__input.input-text(type='password' placeholder='••••••' required)
+              input#newPass.form__input.input-text(type='password' placeholder='••••••••' minlength='8' maxlength='60' required)
               label.form__label.label-text(for='newPass') New password must contain between 8 and 60 characters.
 
             .form__group
-              input#confirmNewPass.form__input.input-text(type='password' placeholder='••••••' required)
+              input#confirmNewPass.form__input.input-text(type='password' placeholder='••••••••' required)
               label.form__label.label-text(for='confirmNewPass') Please confirm your new password.
 
             .form__group
