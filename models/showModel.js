@@ -22,7 +22,8 @@ const showSchema = new mongoose.Schema(
     },
     duration: {
       type: Number,
-      required: [true, 'A show must have a duration!']
+      required: [true, 'A show must have a duration!'],
+      min: [10, 'A show must be greater than or equal to 10 minutes!']
     },
     mpaaRating: {
       type: String,
