@@ -18,11 +18,11 @@ block content
                 label.form__label.label-text(for='email') Please enter a valid email address.
             
               .form__group
-                input#password.form__input.input-text(type='password' placeholder='••••••' required)
+                input#password.form__input.input-text(type='password' placeholder='••••••••' minlength='8' maxlength='60' required)
                 label.form__label.label-text(for='password') Your password must container between 8 and 60 characters.
 
               .form__group
-                input#passwordConfirm.form__input.input-text(type='password' placeholder='••••••' required)
+                input#passwordConfirm.form__input.input-text(type='password' placeholder='••••••••' required)
                 label.form__label.label-text(for='passwordConfirm') Please confirm your password.
 
               .form__group
@@ -30,11 +30,11 @@ block content
 
             fieldset#registerFieldlist2.form__fieldset.form__fieldset--second(name='registerFieldlist2')
               .form__group
-                input#name.form__input.input-text(type='text' placeholder='Name*' required)
+                input#name.form__input.input-text(type='text' placeholder='Name*' minlength='2' required)
                 label.form__label.label-text(for='name') Please enter your name.
 
               .form__group
-                input#username.form__input.input-text(type='text' placeholder='Username*' required)
+                input#username.form__input.input-text(type='text' placeholder='Username*' minlength='3' required)
                 label.form__label.label-text(for='username') Please enter a username
               
               .form__group
