@@ -2028,34 +2028,59 @@ svg {
     display: inline-block;
     position: absolute;
     color: #000;
-    top: 0;
+    top: 5rem;
     left: 0; }
+    @media (min-width: 75em) {
+      .error-page__background {
+        top: 0; } }
     .error-page__background-img {
       width: 100%;
       height: 100%;
-      object-fit: none;
+      object-fit: contain;
       border-top-right-radius: 10rem;
       border-bottom-right-radius: 10rem; }
+      @media (min-width: 75em) {
+        .error-page__background-img {
+          object-fit: none; } }
     .error-page__background:after {
       content: '';
       display: block;
       position: absolute;
       width: 100%;
       height: 100%;
-      top: 0;
+      top: 5rem;
       left: 0;
       border-collapse: separate;
       box-shadow: inset 0 0 6rem 5.6rem; }
+      @media (min-width: 75em) {
+        .error-page__background:after {
+          top: 0; } }
   .error-page__description {
     position: absolute;
-    width: 60rem;
-    top: 5rem;
-    right: 5rem; }
+    width: 95%;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto; }
+    @media (min-width: 75em) {
+      .error-page__description {
+        width: 60rem;
+        top: 5rem;
+        right: 5rem;
+        left: auto;
+        margin-left: 0;
+        margin-right: 0; } }
     .error-page__description-title {
       padding: 2rem; }
     .error-page__description-message {
+      margin-top: 10rem;
       padding: 2rem;
-      text-align: right; }
+      text-align: center; }
+      @media (min-width: 75em) {
+        .error-page__description-message {
+          margin-top: 0;
+          text-align: right; } }
       .error-page__description-message > a {
         color: #0067aa; }
 
