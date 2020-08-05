@@ -54,6 +54,7 @@
 
     @include respond(tab-port) {
       width: 93%;
+      top: 7rem;
     }
 
     @include respond(desktop) {
