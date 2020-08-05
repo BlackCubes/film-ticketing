@@ -27,20 +27,25 @@
     padding-bottom: 1rem; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
 
     &:hover,
+    &:focus,
     &:active {
       transform: translate3d($carousel-move-left, 0, 0);
     }
 
     &:hover .tile,
+    &:focus .tile,
     &:active .tile,
     &:hover .tile-show,
+    &:focus .tile-show,
     &:active .tile-show,
     &:hover .tile-card,
+    &:focus .tile-card,
     &:active .tile-card {
       opacity: 0.3;
       // transition: $carousel-transition-duration all ease-out; // ADD BY JS! SWIPERJS
 
       &:hover,
+      &:focus,
       &:active {
         transform: scale($carousel-grow-factor);
         opacity: 1;
@@ -63,10 +68,13 @@
       padding-bottom: 0;
 
       &:hover .tile,
+      &:focus .tile,
       &:active .tile,
       &:hover .tile-show,
+      &:focus .tile-show,
       &:active .tile-show,
       &:hover .tile-card,
+      &:focus .tile-card,
       &:active .tile-card {
         transition: $carousel-transition-duration all ease-out;
       }
@@ -153,17 +161,20 @@
   }
 
   &:hover &__details,
+  &:focus &__details,
   &:active &__details {
     opacity: 1;
   }
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
   &:first-child:hover,
+  &:first-child:focus,
   &:first-child:active {
     margin-left: 5rem;
   }
 
   &:hover ~ &,
+  &:focus ~ &,
   &:active ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
   }
@@ -194,6 +205,7 @@
     }
 
     &:first-child:hover,
+    &:first-child:focus,
     &:first-child:active {
       margin-left: 0;
     }
@@ -245,17 +257,20 @@
   }
 
   &:hover &__details,
+  &:focus &__details,
   &:active &__details {
     opacity: 1;
   }
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
   &:first-child:hover,
+  &:first-child:focus,
   &:first-child:active {
     margin-left: 5rem;
   }
 
   &:hover ~ &,
+  &:focus ~ &,
   &:active ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
   }
@@ -291,6 +306,7 @@
     }
 
     &:first-child:hover,
+    &:first-child:focus,
     &:first-child:active {
       margin-left: 0;
     }
@@ -347,11 +363,13 @@
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
   &:first-child:hover,
+  &:first-child:focus,
   &:first-child:active {
     margin-left: 5rem;
   }
 
   &:hover ~ &,
+  &:focus ~ &,
   &:active ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
   }
@@ -369,6 +387,7 @@
     }
 
     &:first-child:hover,
+    &:first-child:focus,
     &:first-child:active {
       margin-left: 0;
     }
