@@ -175,7 +175,7 @@ block content
                 small.form__info-small.small-text For adding a price discount, please contact the admin.
 
             .form__group
-              input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' value=`${show.price}` required)
+              input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' min='5' value=`${show.price}` required)
               label.form__label.label-text(for='showPrice') Please enter your price on the show.
 
             .form__group
@@ -218,7 +218,7 @@ block content
 
             if user.role === 'admin'
               .form__group
-                input#password.form__input.input-text(type='password' placeholder='••••••' required)
+                input#password.form__input.input-text(type='password' placeholder='••••••••' required)
                 label.form__label.label-text(for='password') Please enter your password
 
               .form__group
