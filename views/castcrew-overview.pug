@@ -52,10 +52,16 @@ block content
         .showtimes-box__theatertime-container.u-center-text
           //- each show in castcrew.shows
 
-          .row-scroll
-            .row__inner--ticket
+          - let swiperContainerClass = 'none', swiperWrapperClass = 'none', swiperSlideClass = 'none'
+          if castcrew.shows.length > 1
+            - swiperContainerClass = 'container'
+            - swiperWrapperClass = 'wrapper'
+            - swiperSlideClass = 'slide'
+
+          .row-scroll(class=`swiper-${swiperContainerClass}`)
+            .row__inner--ticket(class=`swiper-${swiperWrapperClass}`)
               each show in castcrew.shows
-                .tile-ticket
+                .tile-ticket(class=`swiper-${swiperSlideClass}`)
                   .tile-ticket__media
                     a.tile-ticket__media-link.tile-ticket__media-link--poster(href=`/show-overview/${show.slug}`)
                       img.tile-ticket__media-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
