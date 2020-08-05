@@ -57,6 +57,11 @@
       top: 7rem;
     }
 
+    @include respond(tab-land) {
+      width: 90%;
+      top: 0;
+    }
+
     @include respond(desktop) {
       width: 60rem;
       top: 5rem;
@@ -75,9 +80,14 @@
       padding: 2rem;
       text-align: center;
 
+      @include respond(tab-land) {
+        margin-top: 5rem;
+        text-align: right;
+      }
+
       @include respond(desktop) {
         margin-top: 0;
-        text-align: right;
+        // text-align: right;
       }
 
       & > a {
