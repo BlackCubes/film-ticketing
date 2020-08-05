@@ -31,16 +31,23 @@
     }
   }
 
-  &__title {
+  &__description {
     position: absolute;
-    width: 50rem;
+    width: 60rem;
     top: 2rem;
-    right: 0;
-  }
-
-  &__message {
-    position: absolute;
-    top: 17rem;
     right: 10rem;
+
+    &-title {
+      // position: absolute;
+      // width: 50rem;
+      // top: 2rem;
+      // right: 0;
+    }
+
+    &-message {
+    //   position: absolute;
+    //   top: 17rem;
+    //   right: 10rem;
+    // }
   }
 }
