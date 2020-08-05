@@ -198,7 +198,9 @@
     &-link {
       color: $color-grey-blue;
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         color: rgb(61, 70, 78);
       }
     }

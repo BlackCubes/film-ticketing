@@ -1335,7 +1335,7 @@ svg {
         margin: 0 0.8rem; }
     .footer-account__created-link {
       color: #546c84; }
-      .footer-account__created-link:hover {
+      .footer-account__created-link:hover, .footer-account__created-link:focus, .footer-account__created-link:active {
         color: #3d464e; }
 
 .row {
