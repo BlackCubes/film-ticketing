@@ -15,11 +15,11 @@ block content
               label.form__label.label-text(for='theaterName') Please give a name to the theater.
 
             .form__group
-              input#theaterPhone.form__input.input-text(type='text' name='theaterPhone' placeholder='Phone Number*' value=`${theater.phone}` required)
+              input#theaterPhone.form__input.input-text(type='text' name='theaterPhone' placeholder='Phone Number*' value=`${theater.phone}` pattern='[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}' title='(000)000-0000, or a space between (000) 000-0000' required)
               label.form__label.label-text(for='theaterPhone') Please give the theater's phone number.
 
             .form__group
-              input#theaterLinkUrl.form__input.input-text(type='text' name='theaterLinkUrl' placeholder='Website URL' value=`${theater.linkUrl}`)
+              input#theaterLinkUrl.form__input.input-text(type='text' name='theaterLinkUrl' placeholder='Website URL' value=`${theater.linkUrl}` pattern='http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?')
               label.form__label.label-text(for='theaterLinkUrl') Please give the theater's website URL.
             
             .form__group
@@ -52,7 +52,7 @@ block content
               label.form__label.label-text(for='theaterState') Please give a state for the theater.
 
             .form__group
-              input#theaterZipCode.form__input.input-text(type='text' name='theaterZipCode' placeholder='ZipCode*' value=`${theater.zipCode}` required)
+              input#theaterZipCode.form__input.input-text(type='text' name='theaterZipCode' placeholder='ZipCode*' value=`${theater.zipCode}` pattern='\d{5}' title='90095, 5 characters min & max' required)
               label.form__label.label-text(for='theaterZipCode') Please give a ZIP code the theater.
 
             .form__group
@@ -137,7 +137,7 @@ block content
                 small.form__info-small.small-text Please enter your password to delete the theater.
 
             .form__group
-              input#password.form__input.input-text(type='password' placeholder='••••••' required)
+              input#password.form__input.input-text(type='password' placeholder='••••••••' required)
               label.form__label.label-text(for='password') Please enter your password
 
             .form__group
