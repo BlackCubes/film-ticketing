@@ -12,7 +12,7 @@ block content
                 h2.heading-secondary= pageTitle
             
             .form__group
-              input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' value=`${show.title}` required)
+              input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' value=`${show.title}` minlength='1' maxlength='100' required)
               label.form__label.label-text(for='showTitle') Please give a title for your show.
 
             .form__group
@@ -70,7 +70,7 @@ block content
                       option(value=`${year}`, selected=(yearSelected))= year
 
             .form__group
-              input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' value=`${show.duration}` required)
+              input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' value=`${show.duration}` min='10' required)
               label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
             if user.role === 'admin'
@@ -97,11 +97,11 @@ block content
                 h2.heading-secondary= showPlotTitle
             
             .form__group
-              textarea#showOverview.form__text-area.input-text(name='textareaOverview' placeholder='Show Overview*' required)= show.overview
+              textarea#showOverview.form__text-area.input-text(name='textareaOverview' placeholder='Show Overview*' maxlength='183' required)= show.overview
               label.form__label.label-text(for='showOverview') Please provide a short synopsis i.e. overview or logline.
 
             .form__group
-              textarea#showSynopsis.form__text-area.input-text(name='textareaSynopsis' placeholder='Show Synopsis')= show.synopsis
+              textarea#showSynopsis.form__text-area.input-text(name='textareaSynopsis' placeholder='Show Synopsis' maxlength='1100')= show.synopsis
               label.form__label.label-text(for='showSynopsis') A synopsis is a condensed outline. Don't spoil.
 
             .form__group
