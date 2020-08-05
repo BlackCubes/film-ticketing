@@ -26,17 +26,22 @@
     margin: ($tile-height / 4) 0 ($tile-height / 2) 0;
     padding-bottom: 1rem; // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
 
-    &:hover {
+    &:hover,
+    &:active {
       transform: translate3d($carousel-move-left, 0, 0);
     }
 
     &:hover .tile,
+    &:active .tile,
     &:hover .tile-show,
-    &:hover .tile-card {
+    &:active .tile-show,
+    &:hover .tile-card,
+    &:active .tile-card {
       opacity: 0.3;
       // transition: $carousel-transition-duration all ease-out; // ADD BY JS! SWIPERJS
 
-      &:hover {
+      &:hover,
+      &:active {
         transform: scale($carousel-grow-factor);
         opacity: 1;
       }
@@ -58,8 +63,11 @@
       padding-bottom: 0;
 
       &:hover .tile,
+      &:active .tile,
       &:hover .tile-show,
-      &:hover .tile-card {
+      &:active .tile-show,
+      &:hover .tile-card,
+      &:active .tile-card {
         transition: $carousel-transition-duration all ease-out;
       }
 
@@ -144,16 +152,19 @@
     }
   }
 
-  &:hover &__details {
+  &:hover &__details,
+  &:active &__details {
     opacity: 1;
   }
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-  &:first-child:hover {
+  &:first-child:hover,
+  &:first-child:active {
     margin-left: 5rem;
   }
 
-  &:hover ~ & {
+  &:hover ~ &,
+  &:active ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
   }
 
@@ -182,7 +193,8 @@
       }
     }
 
-    &:first-child:hover {
+    &:first-child:hover,
+    &:first-child:active {
       margin-left: 0;
     }
   }
@@ -232,16 +244,19 @@
     text-shadow: 0px 2px 1px rgba($color-black, 1);
   }
 
-  &:hover &__details {
+  &:hover &__details,
+  &:active &__details {
     opacity: 1;
   }
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-  &:first-child:hover {
+  &:first-child:hover,
+  &:first-child:active {
     margin-left: 5rem;
   }
 
-  &:hover ~ & {
+  &:hover ~ &,
+  &:active ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
   }
 
@@ -275,7 +290,8 @@
       }
     }
 
-    &:first-child:hover {
+    &:first-child:hover,
+    &:first-child:active {
       margin-left: 0;
     }
   }
@@ -330,11 +346,13 @@
   }
 
   // DO NO DELETE NOR COMMENT! USE JS TO REMOVE!!!
-  &:first-child:hover {
+  &:first-child:hover,
+  &:first-child:active {
     margin-left: 5rem;
   }
 
-  &:hover ~ & {
+  &:hover ~ &,
+  &:active ~ & {
     transform: translate3d($carousel-move-right, 0, 0);
   }
 
@@ -350,7 +368,8 @@
       }
     }
 
-    &:first-child:hover {
+    &:first-child:hover,
+    &:first-child:active {
       margin-left: 0;
     }
   }

@@ -497,15 +497,26 @@ body {
     white-space: nowrap;
     margin: 3.51563rem 0 7.03125rem 0;
     padding-bottom: 1rem; }
-    .row--scroll .row__inner:hover {
+    .row--scroll .row__inner:hover, .row--scroll .row__inner:active {
       transform: translate3d(-3.75rem, 0, 0); }
     .row--scroll .row__inner:hover .tile,
+    .row--scroll .row__inner:active .tile,
     .row--scroll .row__inner:hover .tile-show,
-    .row--scroll .row__inner:hover .tile-card {
+    .row--scroll .row__inner:active .tile-show,
+    .row--scroll .row__inner:hover .tile-card,
+    .row--scroll .row__inner:active .tile-card {
       opacity: 0.3; }
-      .row--scroll .row__inner:hover .tile:hover,
+      .row--scroll .row__inner:hover .tile:hover, .row--scroll .row__inner:hover .tile:active,
+      .row--scroll .row__inner:active .tile:hover,
+      .row--scroll .row__inner:active .tile:active,
       .row--scroll .row__inner:hover .tile-show:hover,
-      .row--scroll .row__inner:hover .tile-card:hover {
+      .row--scroll .row__inner:hover .tile-show:active,
+      .row--scroll .row__inner:active .tile-show:hover,
+      .row--scroll .row__inner:active .tile-show:active,
+      .row--scroll .row__inner:hover .tile-card:hover,
+      .row--scroll .row__inner:hover .tile-card:active,
+      .row--scroll .row__inner:active .tile-card:hover,
+      .row--scroll .row__inner:active .tile-card:active {
         transform: scale(1.3);
         opacity: 1; }
     .row--scroll .row__inner:hover .tile:last-child:hover,
@@ -515,8 +526,11 @@ body {
   .row--scroll.swiper-container .row__inner {
     padding-bottom: 0; }
     .row--scroll.swiper-container .row__inner:hover .tile,
+    .row--scroll.swiper-container .row__inner:active .tile,
     .row--scroll.swiper-container .row__inner:hover .tile-show,
-    .row--scroll.swiper-container .row__inner:hover .tile-card {
+    .row--scroll.swiper-container .row__inner:active .tile-show,
+    .row--scroll.swiper-container .row__inner:hover .tile-card,
+    .row--scroll.swiper-container .row__inner:active .tile-card {
       transition: 450ms all ease-out; }
     .row--scroll.swiper-container .row__inner:hover .tile:last-child:hover,
     .row--scroll.swiper-container .row__inner:hover .tile-show:last-child:hover,
@@ -568,11 +582,13 @@ body {
     @media (min-width: 75em) {
       .tile__link {
         font-size: 1.4rem; } }
-  .tile:hover .tile__details {
+  .tile:hover .tile__details,
+  .tile:active .tile__details {
     opacity: 1; }
-  .tile:first-child:hover {
+  .tile:first-child:hover, .tile:first-child:active {
     margin-left: 5rem; }
-  .tile:hover ~ .tile {
+  .tile:hover ~ .tile,
+  .tile:active ~ .tile {
     transform: translate3d(7.5rem, 0, 0); }
   .tile.swiper-slide {
     transition: 450ms all ease-out; }
@@ -590,7 +606,7 @@ body {
       @media (min-width: 75em) {
         .tile.swiper-slide .tile__link {
           font-size: 1rem; } }
-    .tile.swiper-slide:first-child:hover {
+    .tile.swiper-slide:first-child:hover, .tile.swiper-slide:first-child:active {
       margin-left: 0; }
 
 .tile-show {
@@ -623,11 +639,13 @@ body {
   .tile-show__link {
     font-size: 1.6rem;
     text-shadow: 0px 2px 1px black; }
-  .tile-show:hover .tile-show__details {
+  .tile-show:hover .tile-show__details,
+  .tile-show:active .tile-show__details {
     opacity: 1; }
-  .tile-show:first-child:hover {
+  .tile-show:first-child:hover, .tile-show:first-child:active {
     margin-left: 5rem; }
-  .tile-show:hover ~ .tile-show {
+  .tile-show:hover ~ .tile-show,
+  .tile-show:active ~ .tile-show {
     transform: translate3d(7.5rem, 0, 0); }
   .tile-show.swiper-slide {
     transition: 450ms all ease-out; }
@@ -645,7 +663,7 @@ body {
       @media (min-width: 75em) {
         .tile-show.swiper-slide .tile-show__link {
           font-size: 1rem; } }
-    .tile-show.swiper-slide:first-child:hover {
+    .tile-show.swiper-slide:first-child:hover, .tile-show.swiper-slide:first-child:active {
       margin-left: 0; }
 
 .tile-card {
@@ -679,16 +697,17 @@ body {
     margin-right: auto; }
     .tile-card__review-text {
       color: white; }
-  .tile-card:first-child:hover {
+  .tile-card:first-child:hover, .tile-card:first-child:active {
     margin-left: 5rem; }
-  .tile-card:hover ~ .tile-card {
+  .tile-card:hover ~ .tile-card,
+  .tile-card:active ~ .tile-card {
     transform: translate3d(7.5rem, 0, 0); }
   .tile-card.swiper-slide {
     transition: 450ms all ease-out; }
     @media (min-width: 37.5em) {
       .tile-card.swiper-slide .tile-card__photo-img {
         width: 11rem; } }
-    .tile-card.swiper-slide:first-child:hover {
+    .tile-card.swiper-slide:first-child:hover, .tile-card.swiper-slide:first-child:active {
       margin-left: 0; }
 
 .tile-ticket {
