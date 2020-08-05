@@ -132,7 +132,9 @@
       transition: color 0.3s;
     }
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       @include respond(desktop) {
         color: $color-black;
       }
@@ -231,7 +233,9 @@
     transition: background-position 0.265s linear 0s, color 0.235s linear 0s;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     @include respond(desktop) {
       background-position: 0 100%;
       color: $color-black;
@@ -258,7 +262,9 @@
     font-size: 1.4rem;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     color: $color-dark-blue-1;
   }
 }
@@ -395,7 +401,9 @@
     transition: $transition-duration;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     box-shadow: 0 0 0 0.8rem rgba($color-black, 0.1),
       inset 0 0 0 2rem rgba($color-black, 0.1);
   }
@@ -464,8 +472,14 @@
   }
 
   &:hover > .nav__toggle-button,
+  &:focus > .nav__toggle-button,
+  &:active > .nav__toggle-button,
   &:hover > .nav__toggle-button:before,
-  &:hover > .nav__toggle-button:after {
+  &:focus > .nav__toggle-button:before,
+  &:active > .nav__toggle-button:before,
+  &:hover > .nav__toggle-button:after,
+  &:focus > .nav__toggle-button:after,
+  &:active > .nav__toggle-button:after {
     @include respond(desktop) {
       background: $color-dark-blue-1;
     }

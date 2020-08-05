@@ -1550,7 +1550,7 @@ svg {
       cursor: pointer;
       transition: color 0.3s; } }
   @media (min-width: 75em) {
-    .nav__aside-link:hover {
+    .nav__aside-link:hover, .nav__aside-link:focus, .nav__aside-link:active {
       color: #000; } }
 
 @media (min-width: 75em) {
@@ -1616,7 +1616,7 @@ svg {
       background-size: 100% 200%;
       transition: background-position 0.265s linear 0s, color 0.235s linear 0s; } }
   @media (min-width: 75em) {
-    .nav__region-link:hover {
+    .nav__region-link:hover, .nav__region-link:focus, .nav__region-link:active {
       background-position: 0 100%;
       color: #000; } }
 
@@ -1636,7 +1636,7 @@ svg {
   @media (min-width: 75em) {
     .nav__profile {
       font-size: 1.4rem; } }
-  .nav__profile:hover {
+  .nav__profile:hover, .nav__profile:focus, .nav__profile:active {
     color: #001b4c; }
 
 .nav__profile--logout {
@@ -1746,7 +1746,7 @@ svg {
       border-radius: 0;
       background: #fff;
       transition: 0.5s; } }
-  .nav__toggle-button:hover {
+  .nav__toggle-button:hover, .nav__toggle-button:focus, .nav__toggle-button:active {
     box-shadow: 0 0 0 0.8rem rgba(0, 0, 0, 0.1), inset 0 0 0 2rem rgba(0, 0, 0, 0.1); }
   .nav__toggle-button:before, .nav__toggle-button:after {
     position: absolute;
@@ -1795,8 +1795,14 @@ svg {
       background: #001b4c; } }
   @media (min-width: 75em) {
     .nav__toggle-container:hover > .nav__toggle-button,
+    .nav__toggle-container:focus > .nav__toggle-button,
+    .nav__toggle-container:active > .nav__toggle-button,
     .nav__toggle-container:hover > .nav__toggle-button:before,
-    .nav__toggle-container:hover > .nav__toggle-button:after {
+    .nav__toggle-container:focus > .nav__toggle-button:before,
+    .nav__toggle-container:active > .nav__toggle-button:before,
+    .nav__toggle-container:hover > .nav__toggle-button:after,
+    .nav__toggle-container:focus > .nav__toggle-button:after,
+    .nav__toggle-container:active > .nav__toggle-button:after {
       background: #001b4c; } }
 
 .nav__toggle-menu {
