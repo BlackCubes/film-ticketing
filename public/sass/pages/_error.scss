@@ -1,0 +1,46 @@
+.error-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &__background {
+    display: inline-block;
+    position: absolute;
+    color: $color-black;
+    top: 0;
+    left: 0;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: none;
+      border-top-right-radius: 10rem;
+      border-bottom-right-radius: 10rem;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-collapse: separate;
+      box-shadow: inset 0 0 6rem 5.6rem;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    width: 50rem;
+    top: 2rem;
+    right: 0;
+  }
+
+  &__message {
+    position: absolute;
+    top: 17rem;
+    right: 10rem;
+  }
+}

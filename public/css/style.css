@@ -2020,6 +2020,42 @@ svg {
         margin-top: 0;
         padding: 5rem 7rem; } }
 
+.error-page {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  .error-page__background {
+    display: inline-block;
+    position: absolute;
+    color: #000;
+    top: 0;
+    left: 0; }
+    .error-page__background-img {
+      width: 100%;
+      height: 100%;
+      object-fit: none;
+      border-top-right-radius: 10rem;
+      border-bottom-right-radius: 10rem; }
+    .error-page__background:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-collapse: separate;
+      box-shadow: inset 0 0 6rem 5.6rem; }
+  .error-page__title {
+    position: absolute;
+    width: 50rem;
+    top: 2rem;
+    right: 0; }
+  .error-page__message {
+    position: absolute;
+    top: 17rem;
+    right: 10rem; }
+
 .section-forgotpass {
   width: 95%;
   margin-left: auto;
