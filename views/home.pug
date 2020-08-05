@@ -12,20 +12,20 @@ block content
           .home-carousel__header-wrapper
             h2.home-carousel__header.heading-secondary Upcoming Shows
 
-          - let swiperContainerClass = 'no-swiper', swiperWrapperClass = 'no-swiper', swiperSlideClass = 'no-swiper'
+          - let swiperContainerClass = 'none', swiperWrapperClass = 'none', swiperSlideClass = 'none'
           if showtimes.length > 1
-            - swiperContainerClass = 'swiper-container'
-            - swiperWrapperClass = 'swiper-wrapper'
-            - swiperSlideClass = 'swiper-slide'
+            - swiperContainerClass = 'container'
+            - swiperWrapperClass = 'wrapper'
+            - swiperSlideClass = 'slide'
 
-          .row.row--scroll(class=swiperContainerClass)
+          .row.row--scroll(class=`swiper-${swiperContainerClass}`)
             .swiper-button-prev
             .swiper-button-next
 
-            .row__inner.row__inner--poster(class=swiperWrapperClass)
+            .row__inner.row__inner--poster(class=`swiper-${swiperWrapperClass}`)
               each showtime in showtimes
                 - console.log(showtime)
-                .tile-show.(class=swiperSlideClass)
+                .tile-show.(class=`swiper-${swiperSlideClass}`)
                   .tile-show__media
                     img.tile__poster(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
                   .tile-show__details
@@ -36,13 +36,13 @@ block content
           .home-special-venues__header-wrapper
             h2.home-special-venues__header.heading-secondary Active Theaters
 
-          .row.row--scroll(class=swiperContainerClass)
+          .row.row--scroll(class=`swiper-${swiperContainerClass}`)
             .swiper-button-prev
             .swiper-button-next
 
-            .row__inner(class=swiperWrapperClass)
+            .row__inner(class=`swiper-${swiperWrapperClass}`)
               each showtime in showtimes
-                .tile(class=swiperSlideClass)
+                .tile(class=`swiper-${swiperSlideClass}`)
                   .tile__media
                     img.tile__img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
                   .tile__details
