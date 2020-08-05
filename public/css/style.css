@@ -2054,7 +2054,10 @@ svg {
     .error-page__description-title {
       padding: 2rem; }
     .error-page__description-message {
-      padding: 2rem; }
+      padding: 2rem;
+      text-align: right; }
+      .error-page__description-message > a {
+        color: #0067aa; }
 
 .section-forgotpass {
   width: 95%;

@@ -43,6 +43,11 @@
 
     &-message {
       padding: 2rem;
+      text-align: right;
+
+      & > a {
+        color: $color-light-blue-2;
+      }
     }
   }
 }
