@@ -97,7 +97,8 @@ const showSchema = new mongoose.Schema(
     ],
     price: {
       type: Number,
-      required: [true, 'A show must have a price!']
+      required: [true, 'A show must have a price!'],
+      min: [5, 'A show must have a minimum price of 5 dollars!']
     },
     priceDiscount: {
       type: Number,
