@@ -34,20 +34,15 @@
   &__description {
     position: absolute;
     width: 60rem;
-    top: 2rem;
-    right: 10rem;
+    top: 5rem;
+    right: 5rem;
 
     &-title {
-      // position: absolute;
-      // width: 50rem;
-      // top: 2rem;
-      // right: 0;
+      padding: 2rem;
     }
 
     &-message {
-      //   position: absolute;
-      //   top: 17rem;
-      //   right: 10rem;
+      padding: 2rem;
     }
   }
 }

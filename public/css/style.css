@@ -2049,8 +2049,12 @@ svg {
   .error-page__description {
     position: absolute;
     width: 60rem;
-    top: 2rem;
-    right: 10rem; }
+    top: 5rem;
+    right: 5rem; }
+    .error-page__description-title {
+      padding: 2rem; }
+    .error-page__description-message {
+      padding: 2rem; }
 
 .section-forgotpass {
   width: 95%;
