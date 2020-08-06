@@ -221,9 +221,17 @@ if (registerFieldlist1) {
 
   let multiForm = new MultiForm(firstNextBtn, registerFieldlist1);
 
-  firstNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, true, true)
-  );
+  firstNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    checkFormSubmit(document.getElementById('email'));
+    checkFormSubmit(
+      document.getElementById('password'),
+      document.getElementById('passwordConfirm')
+    );
+
+    if (formStatus) multiForm.buttonNext();
+  });
 
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
