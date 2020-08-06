@@ -31,7 +31,7 @@ function regixForm(e) {
   const regixPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
 
   if (e.name === 'password') {
-    eResult = regixPass.test(e.value);
+    regixResult = regixPass.test(e.value);
   }
 
   return regixResult;
