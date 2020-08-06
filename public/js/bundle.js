@@ -26668,12 +26668,13 @@ var formValidator = function formValidator(input) {
 exports.formValidator = formValidator;
 
 var formError = function formError(input, message) {
-  var formParent = input.parentElement; // const formGrandparent = formParent.parentElement;
-
+  var formParent = input.parentElement;
+  var formGrandparent = formParent.parentElement;
   var labelElement = formParent.querySelector('label');
   formParent.classList.add('error');
-  formParent.classList.remove('success'); // formGrandparent.classList.add('error');
-
+  formParent.classList.remove('success');
+  formGrandparent.classList.add('error');
+  formGrandparent.classList.remove('success');
   labelElement.textContent = message;
   (0, _alerts.showAlert)('error', 'There are items that require your attention');
 };
@@ -26681,12 +26682,13 @@ var formError = function formError(input, message) {
 exports.formError = formError;
 
 var formSuccess = function formSuccess(input, message) {
-  var formParent = input.parentElement; // const formGrandparent = formParent.parentElement;
-
+  var formParent = input.parentElement;
+  var formGrandparent = formParent.parentElement;
   var labelElement = formParent.querySelector('label');
   formParent.classList.add('success');
-  formParent.classList.remove('error'); // formGrandparent.classList.add('success');
-
+  formParent.classList.remove('error');
+  formGrandparent.classList.add('success');
+  formGrandparent.classList.remove('error');
   labelElement.textContent = message;
 };
 
