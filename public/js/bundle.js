@@ -28240,8 +28240,7 @@ var loginForm = document.getElementById('loginForm'); // Possibly change class s
 var logoutBtn = document.querySelector('.nav__profile--logout');
 var forgotPassForm = document.getElementById('forgotPassForm');
 var registerForm = document.getElementById('registerForm'),
-    registerFieldlist1 = document.getElementById('registerFieldlist1'); // const forgotPassForm = document.getElementById('forgotPassform');
-
+    registerFieldlist1 = document.getElementById('registerFieldlist1');
 var updatePersonalForm = document.getElementById('updatePersonalForm');
 var updateEmailUsernameForm = document.getElementById('updateEmailUsernameForm');
 var updatePassForm = document.getElementById('updatePassForm');
@@ -28378,8 +28377,8 @@ if (logoutBtn) logoutBtn.addEventListener('click', _login.logout);
 if (forgotPassForm) {
   forgotPassForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    var email = document.getElementById('email'); // checkForm(email);
-
+    var email = document.getElementById('email');
+    (0, _formController.checkForm)(email);
     console.log(_formController.formStatus); // if (formStatus) {
     //   forgotPassword(email.value);
     // }

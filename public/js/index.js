@@ -59,7 +59,6 @@ const logoutBtn = document.querySelector('.nav__profile--logout');
 const forgotPassForm = document.getElementById('forgotPassForm');
 const registerForm = document.getElementById('registerForm'),
   registerFieldlist1 = document.getElementById('registerFieldlist1');
-// const forgotPassForm = document.getElementById('forgotPassform');
 const updatePersonalForm = document.getElementById('updatePersonalForm');
 const updateEmailUsernameForm = document.getElementById(
   'updateEmailUsernameForm'
@@ -208,7 +207,7 @@ if (forgotPassForm) {
     e.preventDefault();
     const email = document.getElementById('email');
 
-    // checkForm(email);
+    checkForm(email);
 
     console.log(formStatus);
     // if (formStatus) {
