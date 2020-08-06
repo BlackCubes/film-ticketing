@@ -26769,18 +26769,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// export class Form {
-//   constructor(submit = false, input = false, select = false, textarea = false) {
-//     this.submit = submit;
-//     this.input = input;
-//     this.select = select;
-//     this.textarea = textarea;
-//   }
-//   formCheck() {
-//   }
-//   formSubmit() {
-//   }
-// }
 var MultiForm = /*#__PURE__*/function () {
   function MultiForm(button, fieldset) {
     _classCallCheck(this, MultiForm);

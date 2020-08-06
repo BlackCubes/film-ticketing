@@ -1,23 +1,6 @@
 /* eslint-disable */
 import { formValidator } from './errorController';
 
-// export class Form {
-//   constructor(submit = false, input = false, select = false, textarea = false) {
-//     this.submit = submit;
-//     this.input = input;
-//     this.select = select;
-//     this.textarea = textarea;
-//   }
-
-//   formCheck() {
-
-//   }
-
-//   formSubmit() {
-
-//   }
-// }
-
 export class MultiForm {
   count = 0;
   fieldsetsTotal = document.querySelectorAll('fieldset').length;
