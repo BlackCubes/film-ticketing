@@ -26669,8 +26669,10 @@ exports.formValidator = formValidator;
 
 var formError = function formError(input, message) {
   var formParent = input.parentElement;
+  var formGrandparent = formParent.parentElement;
   var labelElement = formParent.querySelector('label');
   formParent.classList.add('error');
+  formGrandparent.classList.add('error');
   labelElement.textContent = message;
   (0, _alerts.showAlert)('error', 'There are items that require your attention');
 };
@@ -26679,7 +26681,9 @@ exports.formError = formError;
 
 var formSuccess = function formSuccess(input) {
   var formParent = input.parentElement;
+  var formGrandparent = formParent.parentElement;
   formParent.classList.add('success');
+  formGrandparent.classList.add('success');
 };
 
 exports.formSuccess = formSuccess;
