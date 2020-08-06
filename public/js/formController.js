@@ -7,6 +7,8 @@ export const checkForm = e => {
   if (e.name === 'email') {
     if (eVal === '') {
       formError(e, 'Please provide an email');
+    } else if (!regixForm(e)) {
+      formError(e, 'Please provide a valid email address');
     } else {
       formSuccess(e, 'Woohoo!');
     }
@@ -29,9 +31,12 @@ export const checkForm = e => {
 function regixForm(e) {
   var regixResult = true;
   const regixPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+  const regixEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (e.name === 'password') {
     regixResult = regixPass.test(e.value);
+  } else if (e.name === 'email') {
+    regixResult = regixEmail.test(e.value);
   }
 
   return regixResult;
