@@ -28333,7 +28333,8 @@ if (loginForm) {
     e.preventDefault();
     var email = document.getElementById('email');
     var password = document.getElementById('password');
-    (0, _formController.checkForm)(email, password); // login(email, password);
+    (0, _formController.checkForm)(email);
+    (0, _formController.checkForm)(password); // login(email, password);
   });
 }
 

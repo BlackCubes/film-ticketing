@@ -191,7 +191,8 @@ if (loginForm) {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
-    checkForm(email, password);
+    checkForm(email);
+    checkForm(password);
     // login(email, password);
   });
 }
