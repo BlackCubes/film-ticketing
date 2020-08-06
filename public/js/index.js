@@ -10,7 +10,7 @@ import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { asideNav } from './dropdown';
-import { checkForm, formStatus } from './formController';
+import { checkFormSubmit, formStatus } from './formController';
 import { MultiForm } from './multiForm';
 import {
   login,
@@ -191,8 +191,8 @@ if (loginForm) {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
-    checkForm(email);
-    checkForm(password);
+    checkFormSubmit(email);
+    checkFormSubmit(password);
 
     if (formStatus) {
       login(email.value, password.value);
@@ -207,7 +207,7 @@ if (forgotPassForm) {
     e.preventDefault();
     const email = document.getElementById('email');
 
-    checkForm(email);
+    checkFormSubmit(email);
 
     if (formStatus) {
       forgotPassword(email.value);

@@ -28363,8 +28363,8 @@ if (loginForm) {
     e.preventDefault();
     var email = document.getElementById('email');
     var password = document.getElementById('password');
-    (0, _formController.checkForm)(email);
-    (0, _formController.checkForm)(password);
+    (0, _formController.checkFormSubmit)(email);
+    (0, _formController.checkFormSubmit)(password);
 
     if (_formController.formStatus) {
       (0, _login.login)(email.value, password.value);
@@ -28378,7 +28378,7 @@ if (forgotPassForm) {
   forgotPassForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = document.getElementById('email');
-    (0, _formController.checkForm)(email);
+    (0, _formController.checkFormSubmit)(email);
 
     if (_formController.formStatus) {
       (0, _login.forgotPassword)(email.value);
