@@ -28238,7 +28238,7 @@ var checkboxNav = document.getElementById('navToggle'),
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
 
 var logoutBtn = document.querySelector('.nav__profile--logout');
-var forgotPassForm = document.getElementById('forgotPassform');
+var forgotPassForm = document.getElementById('forgotPassForm');
 var registerForm = document.getElementById('registerForm'),
     registerFieldlist1 = document.getElementById('registerFieldlist1'); // const forgotPassForm = document.getElementById('forgotPassform');
 
