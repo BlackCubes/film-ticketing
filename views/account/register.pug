@@ -30,11 +30,11 @@ block content
 
             fieldset#registerFieldlist2.form__fieldset.form__fieldset--second(name='registerFieldlist2')
               .form__group
-                input#name.form__input.input-text(type='text' name='name' placeholder='Name*' minlength='2' required)
+                input#name.form__input.input-text(type='text' name='name' placeholder='Name*' minlength='2' maxlength='70' required)
                 label.form__label.label-text(for='name') Please enter your name
 
               .form__group
-                input#username.form__input.input-text(type='text' name='username' placeholder='Username*' minlength='3' required)
+                input#username.form__input.input-text(type='text' name='username' placeholder='Username*' minlength='3' maxlength='25' required)
                 label.form__label.label-text(for='username') Please enter a username
               
               .form__group
