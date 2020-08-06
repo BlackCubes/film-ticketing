@@ -3,7 +3,7 @@ import { formError, formSuccess } from './errorController';
 
 export var formStatus = true;
 
-export const checkForm = e => {
+export const checkFormSubmit = e => {
   const eVal = e.value.trim();
 
   if (e.name === 'email') {

@@ -26697,7 +26697,7 @@ exports.formSuccess = formSuccess;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.checkForm = exports.formStatus = void 0;
+exports.checkFormSubmit = exports.formStatus = void 0;
 
 var _errorController = require("./errorController");
 
@@ -26705,7 +26705,7 @@ var _errorController = require("./errorController");
 var formStatus = true;
 exports.formStatus = formStatus;
 
-var checkForm = function checkForm(e) {
+var checkFormSubmit = function checkFormSubmit(e) {
   var eVal = e.value.trim();
 
   if (e.name === 'email') {
@@ -26735,7 +26735,7 @@ var checkForm = function checkForm(e) {
   }
 };
 
-exports.checkForm = checkForm;
+exports.checkFormSubmit = checkFormSubmit;
 
 function regexForm(e) {
   var regexResult = true; // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
