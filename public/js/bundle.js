@@ -26726,7 +26726,7 @@ var checkForm = function checkForm(e) {
       (0, _errorController.formError)(e, 'Please provide a password');
       exports.formStatus = formStatus = false;
     } else if (!regixForm(e)) {
-      (0, _errorController.formError)(e, 'Please provide at least one number, one special character, and one capital letter between 8 to 60 characters');
+      (0, _errorController.formError)(e, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters');
       exports.formStatus = formStatus = false;
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');

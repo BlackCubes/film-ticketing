@@ -26,7 +26,7 @@ export const checkForm = e => {
     } else if (!regixForm(e)) {
       formError(
         e,
-        'Please provide at least one number, one special character, and one capital letter between 8 to 60 characters'
+        'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
       );
       formStatus = false;
     } else {
