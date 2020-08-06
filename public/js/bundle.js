@@ -26737,15 +26737,14 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
   if (e2 !== undefined && e2.name === 'password-confirm') {
     console.log(e2);
 
-    if (e2 === '') {
+    if (e2.value === '') {
       (0, _errorController.formError)(e2, 'Please enter your password to confirm');
       exports.formStatus = formStatus = false;
-    } else if (e2.value.trim() !== eVal) {
+    } else if (e2.value.trim() !== eVal && e2.value !== '') {
       (0, _errorController.formError)(e2, 'Please make sure your passwords match');
       exports.formStatus = formStatus = false;
     } else {
-      (0, _errorController.formSuccess)(e2, 'Woohoo!');
-      exports.formStatus = formStatus = true;
+      (0, _errorController.formSuccess)(e2, 'Woohoo!'); // formStatus = true;
     }
   }
 };

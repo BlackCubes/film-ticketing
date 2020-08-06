@@ -37,15 +37,15 @@ export const checkFormSubmit = (e, e2) => {
 
   if (e2 !== undefined && e2.name === 'password-confirm') {
     console.log(e2);
-    if (e2 === '') {
+    if (e2.value === '') {
       formError(e2, 'Please enter your password to confirm');
       formStatus = false;
-    } else if (e2.value.trim() !== eVal) {
+    } else if (e2.value.trim() !== eVal && e2.value !== '') {
       formError(e2, 'Please make sure your passwords match');
       formStatus = false;
     } else {
       formSuccess(e2, 'Woohoo!');
-      formStatus = true;
+      // formStatus = true;
     }
   }
 };
