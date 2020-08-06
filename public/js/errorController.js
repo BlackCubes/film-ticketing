@@ -26,6 +26,7 @@ export const formError = (input, message) => {
   const labelElement = formParent.querySelector('label');
 
   formParent.classList.add('error');
+  formParent.classList.remove('success');
   formGrandparent.classList.add('error');
   labelElement.textContent = message;
   showAlert('error', 'There are items that require your attention');
@@ -37,6 +38,7 @@ export const formSuccess = (input, message) => {
   const labelElement = formParent.querySelector('label');
 
   formParent.classList.add('success');
+  formParent.classList.remove('error');
   formGrandparent.classList.add('success');
   labelElement.textContent = message;
 };

@@ -26672,6 +26672,7 @@ var formError = function formError(input, message) {
   var formGrandparent = formParent.parentElement;
   var labelElement = formParent.querySelector('label');
   formParent.classList.add('error');
+  formParent.classList.remove('success');
   formGrandparent.classList.add('error');
   labelElement.textContent = message;
   (0, _alerts.showAlert)('error', 'There are items that require your attention');
@@ -26684,6 +26685,7 @@ var formSuccess = function formSuccess(input, message) {
   var formGrandparent = formParent.parentElement;
   var labelElement = formParent.querySelector('label');
   formParent.classList.add('success');
+  formParent.classList.remove('error');
   formGrandparent.classList.add('success');
   labelElement.textContent = message;
 };
