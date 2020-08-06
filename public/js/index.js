@@ -223,13 +223,6 @@ if (registerFieldlist1) {
 
   firstNextBtn.addEventListener('click', e => {
     e.preventDefault();
-    // formStatus = 0;
-
-    // checkFormSubmit(document.getElementById('email'));
-    // checkFormSubmit(
-    //   document.getElementById('password'),
-    //   document.getElementById('passwordConfirm')
-    // );
 
     checkFormSubmit(
       document.getElementById('email'),
