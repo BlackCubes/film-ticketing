@@ -167,11 +167,27 @@
   }
 
   &__group.success &__input {
-    border-bottom: 0.45rem solid $color-lightseagreen;
+    border-bottom: 0.3rem solid $color-lightseagreen;
+
+    @include respond(tab-port) {
+      border-bottom: 0.4rem solid $color-lightseagreen;
+    }
+
+    @include respond(tab-land) {
+      border-bottom: 0.45rem solid $color-lightseagreen;
+    }
   }
 
   &__group.error &__input {
-    border-bottom: 0.45rem solid $color-red;
+    border-bottom: 0.3rem solid $color-red;
+
+    @include respond(tab-port) {
+      border-bottom: 0.4rem solid $color-red;
+    }
+
+    @include respond(tab-land) {
+      border-bottom: 0.45rem solid $color-red;
+    }
   }
 
   &__input {
