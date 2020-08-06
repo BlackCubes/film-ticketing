@@ -26708,16 +26708,15 @@ var formStatus = 0;
 exports.formStatus = formStatus;
 
 var checkFormSubmit = function checkFormSubmit(e, e2) {
-  var eVal = e.value.trim();
-  exports.formStatus = formStatus = 0;
+  var eVal = e.value.trim(); // formStatus = 0;
 
   if (e.name === 'email') {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide an email');
-      exports.formStatus = formStatus = 0;
+      exports.formStatus = formStatus = formStatus + 0;
     } else if (!regexForm(e)) {
       (0, _errorController.formError)(e, 'Please provide a valid email address');
-      exports.formStatus = formStatus = 0;
+      exports.formStatus = formStatus = formStatus + 0;
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
       exports.formStatus = formStatus = formStatus + 1;
@@ -26728,10 +26727,10 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
   if (e.name === 'password') {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide a password');
-      exports.formStatus = formStatus = 0;
+      exports.formStatus = formStatus = formStatus + 0;
     } else if (!regexForm(e)) {
       (0, _errorController.formError)(e, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters');
-      exports.formStatus = formStatus = 0;
+      exports.formStatus = formStatus = formStatus + 0;
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
       exports.formStatus = formStatus = formStatus + 1;
@@ -26742,10 +26741,10 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
   if (e2 !== undefined && e2.name === 'password-confirm') {
     if (e2.value === '') {
       (0, _errorController.formError)(e2, 'Please enter your password to confirm');
-      exports.formStatus = formStatus = 0;
+      exports.formStatus = formStatus = formStatus + 0;
     } else if (e2.value.trim() !== eVal && e2.value !== '') {
       (0, _errorController.formError)(e2, 'Please make sure your passwords match');
-      exports.formStatus = formStatus = 0;
+      exports.formStatus = formStatus = formStatus + 0;
     } else {
       (0, _errorController.formSuccess)(e2, 'Woohoo!');
       exports.formStatus = formStatus = formStatus + 1;
