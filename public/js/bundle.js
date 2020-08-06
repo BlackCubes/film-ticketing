@@ -28430,15 +28430,19 @@ if (registerFieldlist1) {
               passwordConfirm = document.getElementById('passwordConfirm').value;
               name = document.getElementById('name').value;
               birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-              gender = genderSelect.options[genderSelect.selectedIndex].value;
-              document.getElementById('btnCreateAccount').textContent = 'Creating...';
-              _context.next = 18;
-              return (0, _login.register)(email, username, password, passwordConfirm, name, birthdate, gender);
+              gender = genderSelect.options[genderSelect.selectedIndex].value; //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
+              //   await register(
+              //     email,
+              //     username,
+              //     password,
+              //     passwordConfirm,
+              //     name,
+              //     birthdate,
+              //     gender
+              //   );
+              //   document.getElementById('btnCreateAccount').textContent = 'Continue';
 
-            case 18:
-              document.getElementById('btnCreateAccount').textContent = 'Continue';
-
-            case 19:
+            case 15:
             case "end":
               return _context.stop();
           }
