@@ -26753,6 +26753,22 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'name') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide your name');
+      } else if (inputVal < 2) {
+        (0, _errorController.formError)(input, 'Please enter your name a minimum of 2 characters');
+      } else if (inputVal > 70) {
+        (0, _errorController.formError)(input, 'Please enter your name that is 70 characters or less');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 
@@ -26763,11 +26779,14 @@ function regexForm(e) {
 
   var regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
   var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
 
   if (e.name === 'password') {
     regexResult = regexPass.test(e.value);
   } else if (e.name === 'email') {
     regexResult = regexEmail.test(e.value);
+  } else if (e.name === 'name') {
+    regexResult = regexName.test(e.value);
   }
 
   return regexResult;
