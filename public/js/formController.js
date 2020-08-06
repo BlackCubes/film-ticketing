@@ -4,6 +4,8 @@ import { formError, formSuccess } from './errorController';
 export var formStatus = 0;
 
 export const checkFormSubmit = (...inputs) => {
+  formStatus = 0;
+
   inputs.forEach(input => {
     var inputVal = input.value.trim();
 

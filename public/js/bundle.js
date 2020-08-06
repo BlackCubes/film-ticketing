@@ -26712,6 +26712,7 @@ var checkFormSubmit = function checkFormSubmit() {
     inputs[_key] = arguments[_key];
   }
 
+  exports.formStatus = formStatus = 0;
   inputs.forEach(function (input) {
     var inputVal = input.value.trim();
 
