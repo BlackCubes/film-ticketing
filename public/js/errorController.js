@@ -34,7 +34,9 @@ export const formError = (input, message) => {
 export const formSuccess = input => {
   const formParent = input.parentElement;
   const formGrandparent = formParent.parentElement;
+  const labelElement = formParent.querySelector('label');
 
   formParent.classList.add('success');
   formGrandparent.classList.add('success');
+  labelElement.textContent = '';
 };

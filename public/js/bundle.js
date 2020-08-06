@@ -26682,8 +26682,10 @@ exports.formError = formError;
 var formSuccess = function formSuccess(input) {
   var formParent = input.parentElement;
   var formGrandparent = formParent.parentElement;
+  var labelElement = formParent.querySelector('label');
   formParent.classList.add('success');
   formGrandparent.classList.add('success');
+  labelElement.textContent = '';
 };
 
 exports.formSuccess = formSuccess;
