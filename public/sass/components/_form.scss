@@ -166,6 +166,10 @@
     }
   }
 
+  &__group.success &__input {
+    border-bottom: 0.45rem solid $color-lightseagreen;
+  }
+
   &.error &__input {
     border-bottom: 0.45rem solid $color-red;
   }
