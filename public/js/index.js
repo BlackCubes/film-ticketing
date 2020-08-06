@@ -205,8 +205,14 @@ if (logoutBtn) logoutBtn.addEventListener('click', logout);
 if (forgotPassForm) {
   forgotPassForm.addEventListener('submit', e => {
     e.preventDefault();
-    const email = document.getElementById('email').value;
-    forgotPassword(email);
+    const email = document.getElementById('email');
+
+    checkForm(email);
+
+    console.log(formStatus);
+    // if (formStatus) {
+    //   forgotPassword(email.value);
+    // }
   });
 }
 

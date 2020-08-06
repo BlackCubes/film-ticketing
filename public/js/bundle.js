@@ -28377,8 +28377,11 @@ if (logoutBtn) logoutBtn.addEventListener('click', _login.logout);
 if (forgotPassForm) {
   forgotPassForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    var email = document.getElementById('email').value;
-    (0, _login.forgotPassword)(email);
+    var email = document.getElementById('email');
+    (0, _formController.checkForm)(email);
+    console.log(_formController.formStatus); // if (formStatus) {
+    //   forgotPassword(email.value);
+    // }
   });
 }
 
