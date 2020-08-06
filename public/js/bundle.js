@@ -26707,13 +26707,13 @@ var checkForm = function checkForm(email, password) {
   if (emailVal === '') {
     (0, _errorController.formError)(email, 'Please provide an email');
   } else {
-    (0, _errorController.formSuccess)(email);
+    (0, _errorController.formSuccess)(email, 'Woohoo!');
   }
 
   if (passwordVal === '') {
     (0, _errorController.formError)(password, 'Please provide a password');
   } else {
-    (0, _errorController.formSuccess)(password);
+    (0, _errorController.formSuccess)(password, 'Woohoo!');
   }
 };
 

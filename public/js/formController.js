@@ -8,12 +8,12 @@ export const checkForm = (email, password) => {
   if (emailVal === '') {
     formError(email, 'Please provide an email');
   } else {
-    formSuccess(email);
+    formSuccess(email, 'Woohoo!');
   }
 
   if (passwordVal === '') {
     formError(password, 'Please provide a password');
   } else {
-    formSuccess(password);
+    formSuccess(password, 'Woohoo!');
   }
 };
