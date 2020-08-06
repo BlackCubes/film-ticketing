@@ -26759,8 +26759,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MultiForm = void 0;
 
-var _errorController = require("./errorController");
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -26769,6 +26767,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+/* eslint-disable */
+// import { formValidator } from './errorController';
 var MultiForm = /*#__PURE__*/function () {
   function MultiForm(button, fieldset) {
     _classCallCheck(this, MultiForm);
@@ -26795,51 +26795,51 @@ var MultiForm = /*#__PURE__*/function () {
     }
   }, {
     key: "buttonNext",
-    value: function buttonNext(e) {
-      var input = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      var select = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-      var textarea = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-      e.preventDefault();
-      var multiFormFieldset = document.querySelectorAll('fieldset')[this.count],
-          multiFormVal = true;
-      var multiFormInputs, multiFormSelects, multiFormTextareas;
+    value: function buttonNext() {
+      // e.preventDefault();
+      this.count++;
+      this.formSlide(this.count);
+    } // buttonNext(e, input = false, select = false, textarea = false) {
+    //   e.preventDefault();
+    //   let multiFormFieldset = document.querySelectorAll('fieldset')[this.count],
+    //     multiFormVal = true;
+    //   let multiFormInputs, multiFormSelects, multiFormTextareas;
+    //   if (input === true) {
+    //     multiFormInputs = multiFormFieldset.querySelectorAll('input');
+    //     multiFormInputs.forEach(element => {
+    //       if (element.required)
+    //         multiFormVal = formValidator(element.value, 'input', multiFormVal);
+    //     });
+    //   }
+    //   if (select === true) {
+    //     multiFormSelects = multiFormFieldset.querySelectorAll('select');
+    //     multiFormSelects.forEach(element => {
+    //       if (element.required) {
+    //         let option = element.options[element.selectedIndex];
+    //         multiFormVal = formValidator(option.value, 'select', multiFormVal);
+    //       }
+    //     });
+    //   }
+    //   if (textarea === true) {
+    //     multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
+    //     multiFormTextareas.forEach(element => {
+    //       if (element.required)
+    //         multiFormVal = formValidator(element.value, 'textarea', multiFormVal);
+    //     });
+    //   }
+    //   if (multiFormVal === true) {
+    //     this.count++;
+    //     this.formSlide(this.count);
+    //   }
+    // }
 
-      if (input === true) {
-        multiFormInputs = multiFormFieldset.querySelectorAll('input');
-        multiFormInputs.forEach(function (element) {
-          if (element.required) multiFormVal = (0, _errorController.formValidator)(element.value, 'input', multiFormVal);
-        });
-      }
-
-      if (select === true) {
-        multiFormSelects = multiFormFieldset.querySelectorAll('select');
-        multiFormSelects.forEach(function (element) {
-          if (element.required) {
-            var option = element.options[element.selectedIndex];
-            multiFormVal = (0, _errorController.formValidator)(option.value, 'select', multiFormVal);
-          }
-        });
-      }
-
-      if (textarea === true) {
-        multiFormTextareas = multiFormFieldset.querySelectorAll('textarea');
-        multiFormTextareas.forEach(function (element) {
-          if (element.required) multiFormVal = (0, _errorController.formValidator)(element.value, 'textarea', multiFormVal);
-        });
-      }
-
-      if (multiFormVal === true) {
-        this.count++;
-        this.formSlide(this.count);
-      }
-    }
   }]);
 
   return MultiForm;
 }();
 
 exports.MultiForm = MultiForm;
-},{"./errorController":"errorController.js"}],"login.js":[function(require,module,exports) {
+},{}],"login.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
