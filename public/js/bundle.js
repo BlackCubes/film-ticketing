@@ -28394,10 +28394,8 @@ if (registerFieldlist1) {
       firstPreviousBtn = document.getElementById('btnPrev-1');
   var multiForm = new _multiForm4.MultiForm(firstNextBtn, registerFieldlist1);
   firstNextBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    _formController.formStatus = (0, function () {
-      throw new Error('"' + "formStatus" + '" is read-only.');
-    }());
+    e.preventDefault(); // formStatus = 0;
+
     (0, _formController.checkFormSubmit)(document.getElementById('email'));
     (0, _formController.checkFormSubmit)(document.getElementById('password'), document.getElementById('passwordConfirm'));
     (0, _formController.checkFormSubmit)(document.getElementById('email'));

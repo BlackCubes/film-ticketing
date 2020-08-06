@@ -223,7 +223,7 @@ if (registerFieldlist1) {
 
   firstNextBtn.addEventListener('click', e => {
     e.preventDefault();
-    formStatus = 0;
+    // formStatus = 0;
 
     checkFormSubmit(document.getElementById('email'));
     checkFormSubmit(
