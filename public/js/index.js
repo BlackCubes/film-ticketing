@@ -225,8 +225,14 @@ if (registerFieldlist1) {
     e.preventDefault();
     // formStatus = 0;
 
-    checkFormSubmit(document.getElementById('email'));
+    // checkFormSubmit(document.getElementById('email'));
+    // checkFormSubmit(
+    //   document.getElementById('password'),
+    //   document.getElementById('passwordConfirm')
+    // );
+
     checkFormSubmit(
+      document.getElementById('email'),
       document.getElementById('password'),
       document.getElementById('passwordConfirm')
     );

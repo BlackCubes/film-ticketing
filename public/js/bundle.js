@@ -28442,9 +28442,13 @@ if (registerFieldlist1) {
   var multiForm = new _multiForm4.MultiForm(firstNextBtn, registerFieldlist1);
   firstNextBtn.addEventListener('click', function (e) {
     e.preventDefault(); // formStatus = 0;
+    // checkFormSubmit(document.getElementById('email'));
+    // checkFormSubmit(
+    //   document.getElementById('password'),
+    //   document.getElementById('passwordConfirm')
+    // );
 
-    (0, _formController.checkFormSubmit)(document.getElementById('email'));
-    (0, _formController.checkFormSubmit)(document.getElementById('password'), document.getElementById('passwordConfirm'));
+    (0, _formController.checkFormSubmit)(document.getElementById('email'), document.getElementById('password'), document.getElementById('passwordConfirm'));
     console.log(_formController.formStatus);
     if (_formController.formStatus === 3) multiForm.buttonNext();
   });
