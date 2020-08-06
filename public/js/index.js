@@ -209,10 +209,9 @@ if (forgotPassForm) {
 
     checkForm(email);
 
-    console.log(formStatus);
-    // if (formStatus) {
-    //   forgotPassword(email.value);
-    // }
+    if (formStatus) {
+      forgotPassword(email.value);
+    }
   });
 }
 

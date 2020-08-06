@@ -28379,9 +28379,10 @@ if (forgotPassForm) {
     e.preventDefault();
     var email = document.getElementById('email');
     (0, _formController.checkForm)(email);
-    console.log(_formController.formStatus); // if (formStatus) {
-    //   forgotPassword(email.value);
-    // }
+
+    if (_formController.formStatus) {
+      (0, _login.forgotPassword)(email.value);
+    }
   });
 }
 
