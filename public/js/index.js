@@ -223,17 +223,18 @@ if (registerFieldlist1) {
 
   firstNextBtn.addEventListener('click', e => {
     e.preventDefault();
+    formStatus = 0;
 
-    // checkFormSubmit(document.getElementById('email'));
+    checkFormSubmit(document.getElementById('email'));
     checkFormSubmit(
       document.getElementById('password'),
       document.getElementById('passwordConfirm')
     );
     checkFormSubmit(document.getElementById('email'));
 
-    // console.log(firstNextBtn.);
+    console.log(formStatus);
 
-    if (formStatus) multiForm.buttonNext();
+    if (formStatus === 3) multiForm.buttonNext();
   });
 
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
