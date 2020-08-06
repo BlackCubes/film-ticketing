@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { formError, formSuccess } from './errorController';
 
-export var formStatus = true;
+export var formStatus = [];
 
 export const checkFormSubmit = (e, e2) => {
   const eVal = e.value.trim();
@@ -9,29 +9,29 @@ export const checkFormSubmit = (e, e2) => {
   if (e.name === 'email') {
     if (eVal === '') {
       formError(e, 'Please provide an email');
-      formStatus = false;
+      formStatus.push(false);
     } else if (!regexForm(e)) {
       formError(e, 'Please provide a valid email address');
-      formStatus = false;
+      formStatus.push(false);
     } else {
       formSuccess(e, 'Woohoo!');
-      formStatus = true;
+      formStatus.push(true);
     }
   }
 
   if (e.name === 'password') {
     if (eVal === '') {
       formError(e, 'Please provide a password');
-      formStatus = false;
+      formStatus.push(false);
     } else if (!regexForm(e)) {
       formError(
         e,
         'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
       );
-      formStatus = false;
+      formStatus.push(false);
     } else {
       formSuccess(e, 'Woohoo!');
-      formStatus = true;
+      formStatus.push(true);
     }
   }
 
@@ -45,7 +45,7 @@ export const checkFormSubmit = (e, e2) => {
       formStatus = false;
     } else {
       formSuccess(e2, 'Woohoo!');
-      // formStatus = true;
+      formStatus = true;
     }
   }
 };

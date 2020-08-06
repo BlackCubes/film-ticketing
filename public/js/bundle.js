@@ -26702,7 +26702,7 @@ exports.checkFormSubmit = exports.formStatus = void 0;
 var _errorController = require("./errorController");
 
 /* eslint-disable */
-var formStatus = true;
+var formStatus = [];
 exports.formStatus = formStatus;
 
 var checkFormSubmit = function checkFormSubmit(e, e2) {
@@ -26711,26 +26711,26 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
   if (e.name === 'email') {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide an email');
-      exports.formStatus = formStatus = false;
+      formStatus.push(false);
     } else if (!regexForm(e)) {
       (0, _errorController.formError)(e, 'Please provide a valid email address');
-      exports.formStatus = formStatus = false;
+      formStatus.push(false);
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
-      exports.formStatus = formStatus = true;
+      formStatus.push(true);
     }
   }
 
   if (e.name === 'password') {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide a password');
-      exports.formStatus = formStatus = false;
+      formStatus.push(false);
     } else if (!regexForm(e)) {
       (0, _errorController.formError)(e, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters');
-      exports.formStatus = formStatus = false;
+      formStatus.push(false);
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
-      exports.formStatus = formStatus = true;
+      formStatus.push(true);
     }
   }
 
@@ -26744,7 +26744,8 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
       (0, _errorController.formError)(e2, 'Please make sure your passwords match');
       exports.formStatus = formStatus = false;
     } else {
-      (0, _errorController.formSuccess)(e2, 'Woohoo!'); // formStatus = true;
+      (0, _errorController.formSuccess)(e2, 'Woohoo!');
+      exports.formStatus = formStatus = true;
     }
   }
 };
