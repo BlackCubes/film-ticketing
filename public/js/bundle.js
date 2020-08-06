@@ -26709,7 +26709,6 @@ exports.formStatus = formStatus;
 
 var checkFormSubmit = function checkFormSubmit(e, e2) {
   var eVal = e.value.trim();
-  exports.formStatus = formStatus = 0;
 
   if (e.name === 'email') {
     if (eVal === '') {

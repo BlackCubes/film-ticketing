@@ -5,7 +5,6 @@ export var formStatus = 0;
 
 export const checkFormSubmit = (e, e2) => {
   const eVal = e.value.trim();
-  formStatus = 0;
 
   if (e.name === 'email') {
     if (eVal === '') {
