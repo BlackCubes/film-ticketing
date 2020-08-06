@@ -157,7 +157,7 @@
       }
 
       @include respond(tab-land) {
-        border-bottom: 0.45rem solid $color-lightseagreen;
+        border-bottom: 0.45rem solid $color-red;
       }
     }
 
@@ -165,6 +165,10 @@
       color: $color-light-silver;
     }
   }
+
+  // &.error &__input {
+
+  // }
 
   &__input {
     @include respond(tab-port) {
