@@ -28396,8 +28396,10 @@ if (forgotPassForm) {
 }
 
 if (registerFieldlist1) {
+  var allowSubmit = false;
   var firstNextBtn = document.getElementById('btnNext-1'),
-      firstPreviousBtn = document.getElementById('btnPrev-1');
+      firstPreviousBtn = document.getElementById('btnPrev-1'),
+      createAccountBtn = document.getElementById('btnCreateAccount');
   var multiForm = new _multiForm4.MultiForm(firstNextBtn, registerFieldlist1);
   firstNextBtn.addEventListener('click', function (e) {
     e.preventDefault();
@@ -28407,53 +28409,66 @@ if (registerFieldlist1) {
   });
   firstPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);
+  }); // const createAccountBtn = document.getElementById('btnCreateAccount');
+
+  createAccountBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    (0, _formController.checkFormSubmit)();
+    console.log(_formController.formStatus);
+
+    if (_formController.formStatus === 4) {
+      allowSubmit = true;
+    }
   });
-  var createAccountBtn = document.getElementById('btnCreateAccount');
-  registerForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-      var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, name, birthdate, gender;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              e.preventDefault();
-              genderSelect = document.getElementById('selectGender');
-              birthMonth = document.getElementById('selectBirthMonth');
-              birthDay = document.getElementById('selectBirthDay');
-              birthYear = document.getElementById('selectBirthYear');
-              birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-              birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-              birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-              email = document.getElementById('email').value;
-              username = document.getElementById('username').value;
-              password = document.getElementById('password').value;
-              passwordConfirm = document.getElementById('passwordConfirm').value;
-              name = document.getElementById('name').value;
-              birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-              gender = genderSelect.options[genderSelect.selectedIndex].value; //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
-              //   await register(
-              //     email,
-              //     username,
-              //     password,
-              //     passwordConfirm,
-              //     name,
-              //     birthdate,
-              //     gender
-              //   );
-              //   document.getElementById('btnCreateAccount').textContent = 'Continue';
+  console.log(allowSubmit);
 
-            case 15:
-            case "end":
-              return _context.stop();
+  if (allowSubmit) {
+    registerForm.addEventListener('submit', /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+        var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, name, birthdate, gender;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                e.preventDefault();
+                genderSelect = document.getElementById('selectGender');
+                birthMonth = document.getElementById('selectBirthMonth');
+                birthDay = document.getElementById('selectBirthDay');
+                birthYear = document.getElementById('selectBirthYear');
+                birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+                birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+                birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+                email = document.getElementById('email').value;
+                username = document.getElementById('username').value;
+                password = document.getElementById('password').value;
+                passwordConfirm = document.getElementById('passwordConfirm').value;
+                name = document.getElementById('name').value;
+                birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+                gender = genderSelect.options[genderSelect.selectedIndex].value; //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
+                //   await register(
+                //     email,
+                //     username,
+                //     password,
+                //     passwordConfirm,
+                //     name,
+                //     birthdate,
+                //     gender
+                //   );
+                //   document.getElementById('btnCreateAccount').textContent = 'Continue';
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
           }
-        }
-      }, _callee);
-    }));
+        }, _callee);
+      }));
 
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }());
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+  }
 }
 
 if (updatePersonalForm) {

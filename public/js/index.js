@@ -216,8 +216,11 @@ if (forgotPassForm) {
 }
 
 if (registerFieldlist1) {
+  let allowSubmit = false;
+
   const firstNextBtn = document.getElementById('btnNext-1'),
-    firstPreviousBtn = document.getElementById('btnPrev-1');
+    firstPreviousBtn = document.getElementById('btnPrev-1'),
+    createAccountBtn = document.getElementById('btnCreateAccount');
 
   let multiForm = new MultiForm(firstNextBtn, registerFieldlist1);
 
@@ -237,43 +240,64 @@ if (registerFieldlist1) {
 
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
-  const createAccountBtn = document.getElementById('btnCreateAccount');
+  // const createAccountBtn = document.getElementById('btnCreateAccount');
 
-  registerForm.addEventListener('submit', async e => {
+  createAccountBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    const genderSelect = document.getElementById('selectGender');
+    checkFormSubmit();
 
-    const birthMonth = document.getElementById('selectBirthMonth');
-    const birthDay = document.getElementById('selectBirthDay');
-    const birthYear = document.getElementById('selectBirthYear');
+    console.log(formStatus);
 
-    const birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-    const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-    const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-
-    const email = document.getElementById('email').value;
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const passwordConfirm = document.getElementById('passwordConfirm').value;
-    const name = document.getElementById('name').value;
-    const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-    const gender = genderSelect.options[genderSelect.selectedIndex].value;
-
-    //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
-
-    //   await register(
-    //     email,
-    //     username,
-    //     password,
-    //     passwordConfirm,
-    //     name,
-    //     birthdate,
-    //     gender
-    //   );
-
-    //   document.getElementById('btnCreateAccount').textContent = 'Continue';
+    if (formStatus === 4) {
+      allowSubmit = true;
+    }
   });
+
+  console.log(allowSubmit);
+
+  if (allowSubmit) {
+    registerForm.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const genderSelect = document.getElementById('selectGender');
+
+      const birthMonth = document.getElementById('selectBirthMonth');
+      const birthDay = document.getElementById('selectBirthDay');
+      const birthYear = document.getElementById('selectBirthYear');
+
+      const birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+      const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+      const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+
+      const email = document.getElementById('email').value;
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const passwordConfirm = document.getElementById('passwordConfirm').value;
+      const name = document.getElementById('name').value;
+      const birthdate = birthYearVal.concat(
+        '-',
+        birthMonthVal,
+        '-',
+        birthDayVal
+      );
+      const gender = genderSelect.options[genderSelect.selectedIndex].value;
+
+      //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
+
+      //   await register(
+      //     email,
+      //     username,
+      //     password,
+      //     passwordConfirm,
+      //     name,
+      //     birthdate,
+      //     gender
+      //   );
+
+      //   document.getElementById('btnCreateAccount').textContent = 'Continue';
+    });
+  }
 }
 
 if (updatePersonalForm) {
