@@ -992,6 +992,9 @@ body {
     .form__label {
       margin-top: 1rem; } }
 
+.form.error .form__label {
+  color: #ff0000; }
+
 .form__input:placeholder-shown + .form__label,
 .form__text-area:placeholder-shown + .form__label {
   opacity: 0;
