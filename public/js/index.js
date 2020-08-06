@@ -260,20 +260,20 @@ if (registerFieldlist1) {
     const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
     const gender = genderSelect.options[genderSelect.selectedIndex].value;
 
-    document.getElementById('btnCreateAccount').textContent = 'Creating...';
+  //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
 
-    await register(
-      email,
-      username,
-      password,
-      passwordConfirm,
-      name,
-      birthdate,
-      gender
-    );
+  //   await register(
+  //     email,
+  //     username,
+  //     password,
+  //     passwordConfirm,
+  //     name,
+  //     birthdate,
+  //     gender
+  //   );
 
-    document.getElementById('btnCreateAccount').textContent = 'Continue';
-  });
+  //   document.getElementById('btnCreateAccount').textContent = 'Continue';
+  // });
 }
 
 if (updatePersonalForm) {
