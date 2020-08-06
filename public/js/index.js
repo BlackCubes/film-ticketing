@@ -207,7 +207,7 @@ if (forgotPassForm) {
     e.preventDefault();
     const email = document.getElementById('email');
 
-    checkForm(email);
+    // checkForm(email);
 
     console.log(formStatus);
     // if (formStatus) {
