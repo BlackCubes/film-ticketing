@@ -27,7 +27,7 @@ export const formError = (input, message) => {
 
   formParent.classList.add('error');
   formParent.classList.remove('success');
-  formGrandparent.classList.add('error');
+  // formGrandparent.classList.add('error');
   labelElement.textContent = message;
   showAlert('error', 'There are items that require your attention');
 };
@@ -39,6 +39,6 @@ export const formSuccess = (input, message) => {
 
   formParent.classList.add('success');
   formParent.classList.remove('error');
-  formGrandparent.classList.add('success');
+  // formGrandparent.classList.add('success');
   labelElement.textContent = message;
 };
