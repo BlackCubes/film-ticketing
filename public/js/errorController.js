@@ -31,12 +31,12 @@ export const formError = (input, message) => {
   showAlert('error', 'There are items that require your attention');
 };
 
-export const formSuccess = input => {
+export const formSuccess = (input, message) => {
   const formParent = input.parentElement;
   const formGrandparent = formParent.parentElement;
   const labelElement = formParent.querySelector('label');
 
   formParent.classList.add('success');
   formGrandparent.classList.add('success');
-  labelElement.textContent = '';
+  labelElement.textContent = message;
 };
