@@ -26712,7 +26712,7 @@ var checkForm = function checkForm(e) {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide an email');
       exports.formStatus = formStatus = false;
-    } else if (!regixForm(e)) {
+    } else if (!regexForm(e)) {
       (0, _errorController.formError)(e, 'Please provide a valid email address');
       exports.formStatus = formStatus = false;
     } else {
@@ -26725,7 +26725,7 @@ var checkForm = function checkForm(e) {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide a password');
       exports.formStatus = formStatus = false;
-    } else if (!regixForm(e)) {
+    } else if (!regexForm(e)) {
       (0, _errorController.formError)(e, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters');
       exports.formStatus = formStatus = false;
     } else {
@@ -26737,19 +26737,19 @@ var checkForm = function checkForm(e) {
 
 exports.checkForm = checkForm;
 
-function regixForm(e) {
-  var regixResult = true; // const regixPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+function regexForm(e) {
+  var regexResult = true; // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
 
-  var regixPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
-  var regixEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
+  var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (e.name === 'password') {
-    regixResult = regixPass.test(e.value);
+    regexResult = regexPass.test(e.value);
   } else if (e.name === 'email') {
-    regixResult = regixEmail.test(e.value);
+    regexResult = regexEmail.test(e.value);
   }
 
-  return regixResult;
+  return regexResult;
 }
 },{"./errorController":"errorController.js"}],"multiForm.js":[function(require,module,exports) {
 "use strict";
