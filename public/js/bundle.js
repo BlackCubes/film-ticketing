@@ -26738,8 +26738,9 @@ var checkForm = function checkForm(e) {
 exports.checkForm = checkForm;
 
 function regixForm(e) {
-  var regixResult = true;
-  var regixPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+  var regixResult = true; // const regixPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+
+  var regixPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
   var regixEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (e.name === 'password') {

@@ -38,7 +38,8 @@ export const checkForm = e => {
 
 function regixForm(e) {
   var regixResult = true;
-  const regixPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+  // const regixPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+  const regixPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
   const regixEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (e.name === 'password') {
