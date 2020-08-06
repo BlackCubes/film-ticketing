@@ -53,11 +53,10 @@ const circleNavTrigger = document.getElementById('trigger');
 const checkboxNav = document.getElementById('navToggle'),
   navAside = document.querySelector('.nav__aside'),
   navButton = document.querySelector('.nav__toggle-container');
-const forgotPassForm = document.getElementById('forgotPassform');
 const loginForm = document.getElementById('loginForm');
 // Possibly change class selector to an id selector for all logout's to use
 const logoutBtn = document.querySelector('.nav__profile--logout');
-// const forgotPassForm = document.getElementById('forgotPassform');
+const forgotPassForm = document.getElementById('forgotPassform');
 const registerForm = document.getElementById('registerForm'),
   registerFieldlist1 = document.getElementById('registerFieldlist1');
 // const forgotPassForm = document.getElementById('forgotPassform');

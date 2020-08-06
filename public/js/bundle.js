@@ -28235,11 +28235,10 @@ var circleNavTrigger = document.getElementById('trigger');
 var checkboxNav = document.getElementById('navToggle'),
     navAside = document.querySelector('.nav__aside'),
     navButton = document.querySelector('.nav__toggle-container');
-var forgotPassForm = document.getElementById('forgotPassform');
 var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
 
-var logoutBtn = document.querySelector('.nav__profile--logout'); // const forgotPassForm = document.getElementById('forgotPassform');
-
+var logoutBtn = document.querySelector('.nav__profile--logout');
+var forgotPassForm = document.getElementById('forgotPassform');
 var registerForm = document.getElementById('registerForm'),
     registerFieldlist1 = document.getElementById('registerFieldlist1'); // const forgotPassForm = document.getElementById('forgotPassform');
 
