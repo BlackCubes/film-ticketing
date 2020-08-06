@@ -194,10 +194,9 @@ if (loginForm) {
     checkForm(email);
     checkForm(password);
 
-    console.log(formStatus);
-    // if (formStatus) {
-    //   login(email, password);
-    // }
+    if (formStatus) {
+      login(email, password);
+    }
   });
 }
 
