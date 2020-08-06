@@ -10,6 +10,7 @@ import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { asideNav } from './dropdown';
+import { checkForm } from './formController';
 import { MultiForm } from './multiForm';
 import {
   login,
@@ -187,9 +188,11 @@ if (circleNavTrigger) {
 if (loginForm) {
   loginForm.addEventListener('submit', e => {
     e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    login(email, password);
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+
+    checkForm(email, password);
+    // login(email, password);
   });
 }
 
