@@ -26700,20 +26700,23 @@ exports.checkForm = void 0;
 var _errorController = require("./errorController");
 
 /* eslint-disable */
-var checkForm = function checkForm(email, password) {
-  var emailVal = email.value.trim();
-  var passwordVal = password.value.trim();
+var checkForm = function checkForm(e) {
+  var eVal = e.value.trim(); // const passwordVal = password.value.trim();
 
-  if (emailVal === '') {
-    (0, _errorController.formError)(email, 'Please provide an email');
-  } else {
-    (0, _errorController.formSuccess)(email, 'Woohoo!');
+  if (e.name === 'email') {
+    if (eVal === '') {
+      (0, _errorController.formError)(e, 'Please provide an email');
+    } else {
+      (0, _errorController.formSuccess)(e, 'Woohoo!');
+    }
   }
 
-  if (passwordVal === '') {
-    (0, _errorController.formError)(password, 'Please provide a password');
-  } else {
-    (0, _errorController.formSuccess)(password, 'Woohoo!');
+  if (e.name === 'password') {
+    if (eVal === '') {
+      (0, _errorController.formError)(e, 'Please provide a password');
+    } else {
+      (0, _errorController.formSuccess)(e, 'Woohoo!');
+    }
   }
 };
 

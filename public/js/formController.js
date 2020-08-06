@@ -1,19 +1,23 @@
 /* eslint-disable */
 import { formError, formSuccess } from './errorController';
 
-export const checkForm = (email, password) => {
-  const emailVal = email.value.trim();
-  const passwordVal = password.value.trim();
+export const checkForm = e => {
+  const eVal = e.value.trim();
+  // const passwordVal = password.value.trim();
 
-  if (emailVal === '') {
-    formError(email, 'Please provide an email');
-  } else {
-    formSuccess(email, 'Woohoo!');
+  if (e.name === 'email') {
+    if (eVal === '') {
+      formError(e, 'Please provide an email');
+    } else {
+      formSuccess(e, 'Woohoo!');
+    }
   }
 
-  if (passwordVal === '') {
-    formError(password, 'Please provide a password');
-  } else {
-    formSuccess(password, 'Woohoo!');
+  if (e.name === 'password') {
+    if (eVal === '') {
+      formError(e, 'Please provide a password');
+    } else {
+      formSuccess(e, 'Woohoo!');
+    }
   }
 };
