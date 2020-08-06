@@ -232,7 +232,7 @@ if (registerFieldlist1) {
 
     console.log(formStatus);
 
-    if (formStatus.length === 3 && !formStatus.includes(false))
+    if (formStatus.length === 3 && !formStatus.includes(0))
       multiForm.buttonNext();
   });
 
