@@ -8,21 +8,21 @@ block content
           .form-container__title.u-center-text.u-margin-bottom-small
             h1.heading-primary.u-margin-bottom-small Create Your Account
 
-          form#registerForm.form.form__multiform.form__multiform--second
+          form#registerForm.form.form__multiform.form__multiform--second(novalidate)
             fieldset#registerFieldlist1.form__fieldset.form__fieldset--second(name='registerFieldlist1')
               .form__group.form__group--info.u-center-text.u-margin-bottom-small
                 small.form__info-small.small-text Use your email and password to watch your favorite shows! Fields with * are required.
             
               .form__group
-                input#email.form__input.input-text(type='email' placeholder='Email address*' required)
+                input#email.form__input.input-text(type='email' name='email' placeholder='Email address*' required)
                 label.form__label.label-text(for='email') Please enter a valid email address.
             
               .form__group
-                input#password.form__input.input-text(type='password' placeholder='••••••••' minlength='8' maxlength='60' required)
-                label.form__label.label-text(for='password') Your password must container between 8 and 60 characters.
+                input#password.form__input.input-text(type='password' name='password' placeholder='••••••••' minlength='8' maxlength='60' required)
+                label.form__label.label-text(for='password') Your password must contain between 8 to 60 characters with at least one number, one special character, and one capital letter
 
               .form__group
-                input#passwordConfirm.form__input.input-text(type='password' placeholder='••••••••' required)
+                input#passwordConfirm.form__input.input-text(type='password' name='password-confirm' placeholder='••••••••' required)
                 label.form__label.label-text(for='passwordConfirm') Please confirm your password.
 
               .form__group
@@ -30,17 +30,17 @@ block content
 
             fieldset#registerFieldlist2.form__fieldset.form__fieldset--second(name='registerFieldlist2')
               .form__group
-                input#name.form__input.input-text(type='text' placeholder='Name*' minlength='2' required)
+                input#name.form__input.input-text(type='text' name='name' placeholder='Name*' minlength='2' required)
                 label.form__label.label-text(for='name') Please enter your name.
 
               .form__group
-                input#username.form__input.input-text(type='text' placeholder='Username*' minlength='3' required)
+                input#username.form__input.input-text(type='text' name='username' placeholder='Username*' minlength='3' required)
                 label.form__label.label-text(for='username') Please enter a username
               
               .form__group
                 .form__date
                   .form__date-month
-                    select#selectBirthMonth.dropdown(name='select-birthname' tabindex='0' required)
+                    select#selectBirthMonth.dropdown(name='select-birthmonth' tabindex='0' required)
                       option(value) Birth Month*
 
                       - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
