@@ -202,6 +202,14 @@ if (loginForm) {
 
 if (logoutBtn) logoutBtn.addEventListener('click', logout);
 
+if (forgotPassForm) {
+  forgotPassForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    forgotPassword(email);
+  });
+}
+
 if (registerFieldlist1) {
   const firstNextBtn = document.getElementById('btnNext-1'),
     firstPreviousBtn = document.getElementById('btnPrev-1');
@@ -250,14 +258,6 @@ if (registerFieldlist1) {
     );
 
     document.getElementById('btnCreateAccount').textContent = 'Continue';
-  });
-}
-
-if (forgotPassForm) {
-  forgotPassForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    forgotPassword(email);
   });
 }
 

@@ -28374,6 +28374,14 @@ if (loginForm) {
 
 if (logoutBtn) logoutBtn.addEventListener('click', _login.logout);
 
+if (forgotPassForm) {
+  forgotPassForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('email').value;
+    (0, _login.forgotPassword)(email);
+  });
+}
+
 if (registerFieldlist1) {
   var firstNextBtn = document.getElementById('btnNext-1'),
       firstPreviousBtn = document.getElementById('btnPrev-1');
@@ -28426,14 +28434,6 @@ if (registerFieldlist1) {
       return _ref.apply(this, arguments);
     };
   }());
-}
-
-if (forgotPassForm) {
-  forgotPassForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var email = document.getElementById('email').value;
-    (0, _login.forgotPassword)(email);
-  });
 }
 
 if (updatePersonalForm) {
