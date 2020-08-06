@@ -3,7 +3,7 @@ import { formError, formSuccess } from './errorController';
 
 export var formStatus = true;
 
-export const checkFormSubmit = e => {
+export const checkFormSubmit = (e, e2) => {
   const eVal = e.value.trim();
 
   if (e.name === 'email') {
@@ -31,6 +31,19 @@ export const checkFormSubmit = e => {
       formStatus = false;
     } else {
       formSuccess(e, 'Woohoo!');
+      formStatus = true;
+    }
+  }
+
+  if (e2.name === 'password-confirm' && e2 !== undefined) {
+    if (e2 === '') {
+      formError(e2, 'Please enter your password to confirm');
+      formStatus = false;
+    } else if (e2.value.trim() !== eVal) {
+      formError(e2, 'Please make sure your passwords match');
+      formStatus = false;
+    } else {
+      formSuccess(e2, 'Woohoo!');
       formStatus = true;
     }
   }

@@ -26705,7 +26705,7 @@ var _errorController = require("./errorController");
 var formStatus = true;
 exports.formStatus = formStatus;
 
-var checkFormSubmit = function checkFormSubmit(e) {
+var checkFormSubmit = function checkFormSubmit(e, e2) {
   var eVal = e.value.trim();
 
   if (e.name === 'email') {
@@ -26730,6 +26730,19 @@ var checkFormSubmit = function checkFormSubmit(e) {
       exports.formStatus = formStatus = false;
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
+      exports.formStatus = formStatus = true;
+    }
+  }
+
+  if (e2.name === 'password-confirm' && e2 !== undefined) {
+    if (e2 === '') {
+      (0, _errorController.formError)(e2, 'Please enter your password to confirm');
+      exports.formStatus = formStatus = false;
+    } else if (e2.value.trim() !== eVal) {
+      (0, _errorController.formError)(e2, 'Please make sure your passwords match');
+      exports.formStatus = formStatus = false;
+    } else {
+      (0, _errorController.formSuccess)(e2, 'Woohoo!');
       exports.formStatus = formStatus = true;
     }
   }
