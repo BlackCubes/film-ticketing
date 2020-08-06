@@ -28364,7 +28364,9 @@ if (loginForm) {
     var password = document.getElementById('password');
     (0, _formController.checkForm)(email);
     (0, _formController.checkForm)(password);
-    console.log(_formController.formStatus); // login(email, password);
+    console.log(_formController.formStatus); // if (formStatus) {
+    //   login(email, password);
+    // }
   });
 }
 
