@@ -206,6 +206,10 @@
     }
   }
 
+  &__group.success &__label {
+    color: $color-lightseagreen;
+  }
+
   &__group.error &__label {
     color: $color-red;
   }
@@ -216,6 +220,12 @@
     visibility: hidden;
     transform: translateY(-4rem);
   }
+
+  // &__group.success &__input:placeholder-shown + &__label {
+  //   opacity: 1;
+  //   visibility: visible;
+  //   transform: translateY(0);
+  // }
 
   &__group.error &__input:placeholder-shown + &__label {
     opacity: 1;

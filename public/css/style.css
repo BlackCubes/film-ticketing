@@ -995,6 +995,9 @@ body {
     .form__label {
       margin-top: 1rem; } }
 
+.form__group.success .form__label {
+  color: #20b2aa; }
+
 .form__group.error .form__label {
   color: #ff0000; }
 
