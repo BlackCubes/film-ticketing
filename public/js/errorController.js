@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { showAlert } from './alerts';
+import { parentNode } from './utils';
 
 export const formValidator = (input, type = '', bol) => {
   if (type === 'input' && !input) {
@@ -21,7 +22,8 @@ export const formValidator = (input, type = '', bol) => {
 };
 
 export const formError = (input, message) => {
-  const formParent = input.parentElement;
+  const formParent = parentNode(input, 'form__group');
+  // const formParent = input.parentElement;
   const formGrandparent = formParent.parentElement;
   const labelElement = formParent.querySelector('label');
 
@@ -34,7 +36,8 @@ export const formError = (input, message) => {
 };
 
 export const formSuccess = (input, message) => {
-  const formParent = input.parentElement;
+  const formParent = parentNode(input, 'form__group');
+  // const formParent = input.parentElement;
   const formGrandparent = formParent.parentElement;
   const labelElement = formParent.querySelector('label');
 
