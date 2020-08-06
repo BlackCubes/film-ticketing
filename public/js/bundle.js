@@ -26734,7 +26734,7 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
     }
   }
 
-  if (e2.name === 'password-confirm' && e2 !== undefined) {
+  if (e2 !== undefined && e2.name === 'password-confirm') {
     if (e2 === '') {
       (0, _errorController.formError)(e2, 'Please enter your password to confirm');
       exports.formStatus = formStatus = false;

@@ -35,7 +35,7 @@ export const checkFormSubmit = (e, e2) => {
     }
   }
 
-  if (e2.name === 'password-confirm' && e2 !== undefined) {
+  if (e2 !== undefined && e2.name === 'password-confirm') {
     if (e2 === '') {
       formError(e2, 'Please enter your password to confirm');
       formStatus = false;
