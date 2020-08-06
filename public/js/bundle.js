@@ -26707,44 +26707,94 @@ var _errorController = require("./errorController");
 var formStatus = 0;
 exports.formStatus = formStatus;
 
-var checkFormSubmit = function checkFormSubmit(e, e2) {
-  var eVal = e.value.trim();
-
-  if (e.name === 'email') {
-    if (eVal === '') {
-      (0, _errorController.formError)(e, 'Please provide an email'); // formStatus -= 1;
-    } else if (!regexForm(e)) {
-      (0, _errorController.formError)(e, 'Please provide a valid email address'); // formStatus -= 1;
-    } else {
-      (0, _errorController.formSuccess)(e, 'Woohoo!');
-      exports.formStatus = formStatus = formStatus + 1;
-      console.log('Email part: ', formStatus);
-    }
+var checkFormSubmit = function checkFormSubmit() {
+  for (var _len = arguments.length, inputs = new Array(_len), _key = 0; _key < _len; _key++) {
+    inputs[_key] = arguments[_key];
   }
 
-  if (e.name === 'password') {
-    if (eVal === '') {
-      (0, _errorController.formError)(e, 'Please provide a password'); // formStatus -= 1;
-    } else if (!regexForm(e)) {
-      (0, _errorController.formError)(e, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'); // formStatus -= 1;
-    } else {
-      (0, _errorController.formSuccess)(e, 'Woohoo!');
-      exports.formStatus = formStatus = formStatus + 1;
-      console.log('Password part: ', formStatus);
-    }
-  }
+  inputs.forEach(function (input) {
+    var inputVal = input.value.trim();
 
-  if (e2 !== undefined && e2.name === 'password-confirm') {
-    if (e2.value === '') {
-      (0, _errorController.formError)(e2, 'Please enter your password to confirm'); // formStatus -= 1;
-    } else if (e2.value.trim() !== eVal && e2.value !== '') {
-      (0, _errorController.formError)(e2, 'Please make sure your passwords match'); // formStatus -= 1;
-    } else {
-      (0, _errorController.formSuccess)(e2, 'Woohoo!');
-      exports.formStatus = formStatus = formStatus + 1;
-      console.log('Password confirm part: ', formStatus);
+    if (input.name === 'email') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide an email');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please provide a valid email address');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
     }
-  }
+
+    if (input.name === 'password') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide a password');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
+
+    if (input.name === 'password-confirm') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please enter your password to confirm');
+      } else if (inputVal !== inputs.find(function (i) {
+        return i.name === 'password';
+      }).value.trim() && inputVal !== '') {
+        (0, _errorController.formError)(input, 'Please make sure your passwords match');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
+  }); // const eVal = e.value.trim();
+  // if (e.name === 'email') {
+  //   if (eVal === '') {
+  //     formError(e, 'Please provide an email');
+  //     // formStatus -= 1;
+  //   } else if (!regexForm(e)) {
+  //     formError(e, 'Please provide a valid email address');
+  //     // formStatus -= 1;
+  //   } else {
+  //     formSuccess(e, 'Woohoo!');
+  //     formStatus += 1;
+  //     console.log('Email part: ', formStatus);
+  //   }
+  // }
+  // if (e.name === 'password') {
+  //   if (eVal === '') {
+  //     formError(e, 'Please provide a password');
+  //     // formStatus -= 1;
+  //   } else if (!regexForm(e)) {
+  //     formError(
+  //       e,
+  //       'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
+  //     );
+  //     // formStatus -= 1;
+  //   } else {
+  //     formSuccess(e, 'Woohoo!');
+  //     formStatus += 1;
+  //     console.log('Password part: ', formStatus);
+  //   }
+  // }
+  // if (e2 !== undefined && e2.name === 'password-confirm') {
+  //   if (e2.value === '') {
+  //     formError(e2, 'Please enter your password to confirm');
+  //     // formStatus -= 1;
+  //   } else if (e2.value.trim() !== eVal && e2.value !== '') {
+  //     formError(e2, 'Please make sure your passwords match');
+  //     // formStatus -= 1;
+  //   } else {
+  //     formSuccess(e2, 'Woohoo!');
+  //     formStatus += 1;
+  //     console.log('Password confirm part: ', formStatus);
+  //   }
+  // }
 };
 
 exports.checkFormSubmit = checkFormSubmit;
