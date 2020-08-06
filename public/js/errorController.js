@@ -19,3 +19,17 @@ export const formValidator = (input, type = '', bol) => {
 
   return bol;
 };
+
+export const formError = (input, message) => {
+  const formParent = input.parentElement;
+  const labelElement = formParent.querySelector('label');
+
+  formParent.classList.add('error');
+  labelElement.textContent = message;
+  showAlert('error', 'There are items that require your attention');
+};
+
+export const formSuccess = input => {
+  const formParent = input.parentElement;
+  formParent.classList.add('success');
+};

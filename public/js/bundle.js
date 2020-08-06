@@ -26638,7 +26638,7 @@ exports.asideNav = asideNav;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.formValidator = void 0;
+exports.formSuccess = exports.formError = exports.formValidator = void 0;
 
 var _alerts = require("./alerts");
 
@@ -26666,6 +26666,23 @@ var formValidator = function formValidator(input) {
 };
 
 exports.formValidator = formValidator;
+
+var formError = function formError(input, message) {
+  var formParent = input.parentElement;
+  var labelElement = formParent.querySelector('label');
+  formParent.classList.add('error');
+  labelElement.textContent = message;
+  (0, _alerts.showAlert)('error', 'There are items that require your attention');
+};
+
+exports.formError = formError;
+
+var formSuccess = function formSuccess(input) {
+  var formParent = input.parentElement;
+  formParent.classList.add('success');
+};
+
+exports.formSuccess = formSuccess;
 },{"./alerts":"alerts.js"}],"multiForm.js":[function(require,module,exports) {
 "use strict";
 
