@@ -26703,7 +26703,7 @@ var _errorController = require("./errorController");
 
 /* eslint-disable */
 var checkForm = function checkForm(e) {
-  var eVal = e.value.trim(); // const passwordVal = password.value.trim();
+  var eVal = e.value.trim();
 
   if (e.name === 'email') {
     if (eVal === '') {
@@ -26716,6 +26716,8 @@ var checkForm = function checkForm(e) {
   if (e.name === 'password') {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide a password');
+    } else if (!regixForm(e)) {
+      (0, _errorController.formError)(e, 'Please provide at least one number, one special character, and one capital letter between 8 to 60 characters');
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
     }
@@ -26723,6 +26725,17 @@ var checkForm = function checkForm(e) {
 };
 
 exports.checkForm = checkForm;
+
+function regixForm(e) {
+  var regixResult = true;
+  var regixPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+
+  if (e.name === 'password') {
+    eResult = regixPass.test(e.value);
+  }
+
+  return regixResult;
+}
 },{"./errorController":"errorController.js"}],"multiForm.js":[function(require,module,exports) {
 "use strict";
 
