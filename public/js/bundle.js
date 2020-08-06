@@ -28394,11 +28394,12 @@ if (registerFieldlist1) {
       firstPreviousBtn = document.getElementById('btnPrev-1');
   var multiForm = new _multiForm4.MultiForm(firstNextBtn, registerFieldlist1);
   firstNextBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    (0, _formController.checkFormSubmit)(document.getElementById('email'));
+    e.preventDefault(); // checkFormSubmit(document.getElementById('email'));
+
     (0, _formController.checkFormSubmit)(document.getElementById('password'), document.getElementById('passwordConfirm'));
+    (0, _formController.checkFormSubmit)(document.getElementById('email'));
     console.log(_formController.formStatus);
-    if (_formController.formStatus.length === 3 && !_formController.formStatus.includes(0)) multiForm.buttonNext();
+    if (_formController.formStatus) multiForm.buttonNext();
   });
   firstPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);
