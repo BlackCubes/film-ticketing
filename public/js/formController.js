@@ -54,9 +54,9 @@ export const checkFormSubmit = (...inputs) => {
     if (input.name === 'name') {
       if (inputVal === '') {
         formError(input, 'Please provide your name');
-      } else if (inputVal < 2) {
+      } else if (inputVal.length < 2) {
         formError(input, 'Please enter your name a minimum of 2 characters');
-      } else if (inputVal > 70) {
+      } else if (inputVal.length > 70) {
         formError(
           input,
           'Please enter your name that is 70 characters or less'
