@@ -9,29 +9,29 @@ export const checkFormSubmit = (e, e2) => {
   if (e.name === 'email') {
     if (eVal === '') {
       formError(e, 'Please provide an email');
-      formStatus.push(false);
+      formStatus.push(0);
     } else if (!regexForm(e)) {
       formError(e, 'Please provide a valid email address');
-      formStatus.push(false);
+      formStatus.push(0);
     } else {
       formSuccess(e, 'Woohoo!');
-      formStatus.push(true);
+      formStatus.push(1);
     }
   }
 
   if (e.name === 'password') {
     if (eVal === '') {
       formError(e, 'Please provide a password');
-      formStatus.push(false);
+      formStatus.push(0);
     } else if (!regexForm(e)) {
       formError(
         e,
         'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
       );
-      formStatus.push(false);
+      formStatus.push(0);
     } else {
       formSuccess(e, 'Woohoo!');
-      formStatus.push(true);
+      formStatus.push(1);
     }
   }
 
