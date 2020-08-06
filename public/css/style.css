@@ -1202,26 +1202,26 @@ svg {
   @media (min-width: 75em) {
     svg {
       width: 52rem; } }
-  svg .icon > text {
+  svg .icon text {
     transition: fill 0.2s linear 0s; }
     @media (min-width: 75em) {
-      svg .icon > text {
+      svg .icon text {
         font-size: 1.2rem; } }
-  svg .menu-trigger > a,
-  svg .menu-trigger > text {
+  svg .menu-trigger a,
+  svg .menu-trigger text {
     transition: fill 0.2s linear 0s; }
     @media (min-width: 75em) {
-      svg .menu-trigger > a,
-      svg .menu-trigger > text {
+      svg .menu-trigger a,
+      svg .menu-trigger text {
         font-size: 1.6rem; } }
-  svg .menu-trigger.open > text {
+  svg .menu-trigger.open text {
     fill: #000; }
-  svg .icon:hover > text,
-  svg .icon:focus > text,
-  svg .icon:active > text,
-  svg .menu-trigger:hover > text,
-  svg .menu-trigger:focus > text,
-  svg .menu-trigger:active > text {
+  svg .icon:hover text,
+  svg .icon:focus text,
+  svg .icon:active text,
+  svg .menu-trigger:hover text,
+  svg .menu-trigger:focus text,
+  svg .menu-trigger:active text {
     fill: #000;
     transition: fill 0.2s linear 0s; }
 

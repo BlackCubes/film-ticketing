@@ -11,7 +11,7 @@ svg {
     width: 52rem;
   }
 
-  & .icon > text {
+  & .icon text {
     transition: fill 0.2s linear 0s;
 
     @include respond(desktop) {
@@ -19,8 +19,8 @@ svg {
     }
   }
 
-  & .menu-trigger > a,
-  & .menu-trigger > text {
+  & .menu-trigger a,
+  & .menu-trigger text {
     transition: fill 0.2s linear 0s;
 
     @include respond(desktop) {
@@ -28,16 +28,16 @@ svg {
     }
   }
 
-  & .menu-trigger.open > text {
+  & .menu-trigger.open text {
     fill: $color-black;
   }
 
-  & .icon:hover > text,
-  & .icon:focus > text,
-  & .icon:active > text,
-  & .menu-trigger:hover > text,
-  & .menu-trigger:focus > text,
-  & .menu-trigger:active > text {
+  & .icon:hover text,
+  & .icon:focus text,
+  & .icon:active text,
+  & .menu-trigger:hover text,
+  & .menu-trigger:focus text,
+  & .menu-trigger:active text {
     fill: $color-black;
     transition: fill 0.2s linear 0s;
   }
