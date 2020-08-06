@@ -10,7 +10,7 @@ import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { asideNav } from './dropdown';
-import { checkForm } from './formController';
+import { checkForm, formStatus } from './formController';
 import { MultiForm } from './multiForm';
 import {
   login,
@@ -193,6 +193,8 @@ if (loginForm) {
 
     checkForm(email);
     checkForm(password);
+
+    console.log(formStatus);
     // login(email, password);
   });
 }
