@@ -26702,7 +26702,7 @@ exports.checkFormSubmit = exports.formStatus = void 0;
 var _errorController = require("./errorController");
 
 /* eslint-disable */
-var formStatus = [];
+var formStatus = false;
 exports.formStatus = formStatus;
 
 var checkFormSubmit = function checkFormSubmit(e, e2) {
@@ -26711,26 +26711,26 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
   if (e.name === 'email') {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide an email');
-      formStatus.push(0);
+      exports.formStatus = formStatus = false;
     } else if (!regexForm(e)) {
       (0, _errorController.formError)(e, 'Please provide a valid email address');
-      formStatus.push(0);
+      exports.formStatus = formStatus = false;
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
-      formStatus.push(1);
+      exports.formStatus = formStatus = true;
     }
   }
 
   if (e.name === 'password') {
     if (eVal === '') {
       (0, _errorController.formError)(e, 'Please provide a password');
-      formStatus.push(0);
+      exports.formStatus = formStatus = false;
     } else if (!regexForm(e)) {
       (0, _errorController.formError)(e, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters');
-      formStatus.push(0);
+      exports.formStatus = formStatus = false;
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
-      formStatus.push(1);
+      exports.formStatus = formStatus = true;
     }
   }
 
@@ -26739,13 +26739,13 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
 
     if (e2.value === '') {
       (0, _errorController.formError)(e2, 'Please enter your password to confirm');
-      formStatus.push(0);
+      exports.formStatus = formStatus = false;
     } else if (e2.value.trim() !== eVal && e2.value !== '') {
       (0, _errorController.formError)(e2, 'Please make sure your passwords match');
-      formStatus.push(0);
+      exports.formStatus = formStatus = false;
     } else {
       (0, _errorController.formSuccess)(e2, 'Woohoo!');
-      formStatus.push(1);
+      exports.formStatus = formStatus = true;
     }
   }
 };
