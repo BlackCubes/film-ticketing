@@ -26668,8 +26668,8 @@ var formValidator = function formValidator(input) {
 exports.formValidator = formValidator;
 
 var formError = function formError(input, message) {
-  var formParent = input.parentElement;
-  var formGrandparent = formParent.parentElement;
+  var formParent = input.parentElement; // const formGrandparent = formParent.parentElement;
+
   var labelElement = formParent.querySelector('label');
   formParent.classList.add('error');
   formParent.classList.remove('success');
@@ -26681,8 +26681,8 @@ var formError = function formError(input, message) {
 exports.formError = formError;
 
 var formSuccess = function formSuccess(input, message) {
-  var formParent = input.parentElement;
-  var formGrandparent = formParent.parentElement;
+  var formParent = input.parentElement; // const formGrandparent = formParent.parentElement;
+
   var labelElement = formParent.querySelector('label');
   formParent.classList.add('success');
   formParent.classList.remove('error');

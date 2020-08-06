@@ -22,7 +22,7 @@ export const formValidator = (input, type = '', bol) => {
 
 export const formError = (input, message) => {
   const formParent = input.parentElement;
-  const formGrandparent = formParent.parentElement;
+  // const formGrandparent = formParent.parentElement;
   const labelElement = formParent.querySelector('label');
 
   formParent.classList.add('error');
@@ -34,7 +34,7 @@ export const formError = (input, message) => {
 
 export const formSuccess = (input, message) => {
   const formParent = input.parentElement;
-  const formGrandparent = formParent.parentElement;
+  // const formGrandparent = formParent.parentElement;
   const labelElement = formParent.querySelector('label');
 
   formParent.classList.add('success');
