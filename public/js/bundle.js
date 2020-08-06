@@ -28367,7 +28367,7 @@ if (loginForm) {
     (0, _formController.checkForm)(password);
 
     if (_formController.formStatus) {
-      (0, _login.login)(email, password);
+      (0, _login.login)(email.value, password.value);
     }
   });
 }

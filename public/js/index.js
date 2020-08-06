@@ -195,7 +195,7 @@ if (loginForm) {
     checkForm(password);
 
     if (formStatus) {
-      login(email, password);
+      login(email.value, password.value);
     }
   });
 }
