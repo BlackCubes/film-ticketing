@@ -999,6 +999,8 @@ body {
   transform: translateY(-4rem); }
 
 .form.error .form__input:placeholder-shown + .form__label {
+  opacity: 1;
+  visibility: visible;
   transform: translateY(0); }
 
 .form__input:focus:invalid + .form__label,

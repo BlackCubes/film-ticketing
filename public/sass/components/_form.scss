@@ -210,6 +210,8 @@
   }
 
   &.error &__input:placeholder-shown + &__label {
+    opacity: 1;
+    visibility: visible;
     transform: translateY(0);
   }
 
