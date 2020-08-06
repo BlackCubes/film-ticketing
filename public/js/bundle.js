@@ -28388,8 +28388,8 @@ if (registerFieldlist1) {
     e.preventDefault(); // checkFormSubmit(document.getElementById('email'));
 
     (0, _formController.checkFormSubmit)(document.getElementById('password'), document.getElementById('passwordConfirm'));
-    (0, _formController.checkFormSubmit)(document.getElementById('email'));
-    console.log(_formController.formStatus);
+    (0, _formController.checkFormSubmit)(document.getElementById('email')); // console.log(firstNextBtn.);
+
     if (_formController.formStatus) multiForm.buttonNext();
   });
   firstPreviousBtn.addEventListener('click', function (e) {

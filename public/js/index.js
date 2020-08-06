@@ -231,7 +231,7 @@ if (registerFieldlist1) {
     );
     checkFormSubmit(document.getElementById('email'));
 
-    console.log(formStatus);
+    // console.log(firstNextBtn.);
 
     if (formStatus) multiForm.buttonNext();
   });
