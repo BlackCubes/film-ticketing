@@ -230,7 +230,6 @@ if (registerFieldlist1) {
       document.getElementById('password'),
       document.getElementById('passwordConfirm')
     );
-    checkFormSubmit(document.getElementById('email'));
 
     console.log(formStatus);
 

@@ -28401,7 +28401,6 @@ if (registerFieldlist1) {
 
     (0, _formController.checkFormSubmit)(document.getElementById('email'));
     (0, _formController.checkFormSubmit)(document.getElementById('password'), document.getElementById('passwordConfirm'));
-    (0, _formController.checkFormSubmit)(document.getElementById('email'));
     console.log(_formController.formStatus);
     if (_formController.formStatus === 3) multiForm.buttonNext();
   });
