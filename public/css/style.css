@@ -964,6 +964,9 @@ body {
   .form__input::-webkit-input-placeholder, .form__text-area::-webkit-input-placeholder {
     color: #d3d3d3; }
 
+.form.error .form__input {
+  border-bottom: 0.45rem solid #ff0000; }
+
 @media (min-width: 37.5em) {
   .form__input {
     height: 6vh; } }

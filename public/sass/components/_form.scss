@@ -166,9 +166,9 @@
     }
   }
 
-  // &.error &__input {
-
-  // }
+  &.error &__input {
+    border-bottom: 0.45rem solid $color-red;
+  }
 
   &__input {
     @include respond(tab-port) {
