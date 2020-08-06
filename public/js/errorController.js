@@ -24,13 +24,13 @@ export const formValidator = (input, type = '', bol) => {
 export const formError = (input, message) => {
   const formParent = parentNode(input, 'form__group');
   // const formParent = input.parentElement;
-  const formGrandparent = formParent.parentElement;
+  // const formGrandparent = formParent.parentElement;
   const labelElement = formParent.querySelector('label');
 
   formParent.classList.add('error');
   formParent.classList.remove('success');
-  formGrandparent.classList.add('error');
-  formGrandparent.classList.remove('success');
+  // formGrandparent.classList.add('error');
+  // formGrandparent.classList.remove('success');
   labelElement.textContent = message;
   showAlert('error', 'There are items that require your attention');
 };
@@ -38,12 +38,12 @@ export const formError = (input, message) => {
 export const formSuccess = (input, message) => {
   const formParent = parentNode(input, 'form__group');
   // const formParent = input.parentElement;
-  const formGrandparent = formParent.parentElement;
+  // const formGrandparent = formParent.parentElement;
   const labelElement = formParent.querySelector('label');
 
   formParent.classList.add('success');
   formParent.classList.remove('error');
-  formGrandparent.classList.add('success');
-  formGrandparent.classList.remove('error');
+  // formGrandparent.classList.add('success');
+  // formGrandparent.classList.remove('error');
   labelElement.textContent = message;
 };
