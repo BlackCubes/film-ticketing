@@ -967,7 +967,7 @@ body {
 .form__group.success .form__input {
   border-bottom: 0.45rem solid #20b2aa; }
 
-.form.error .form__input {
+.form__group.error .form__input {
   border-bottom: 0.45rem solid #ff0000; }
 
 @media (min-width: 37.5em) {
@@ -995,7 +995,7 @@ body {
     .form__label {
       margin-top: 1rem; } }
 
-.form.error .form__label {
+.form__group.error .form__label {
   color: #ff0000; }
 
 .form__input:placeholder-shown + .form__label,
@@ -1004,7 +1004,7 @@ body {
   visibility: hidden;
   transform: translateY(-4rem); }
 
-.form.error .form__input:placeholder-shown + .form__label {
+.form__group.error .form__input:placeholder-shown + .form__label {
   opacity: 1;
   visibility: visible;
   transform: translateY(0); }
