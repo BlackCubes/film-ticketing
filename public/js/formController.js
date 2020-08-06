@@ -9,29 +9,29 @@ export const checkFormSubmit = (e, e2) => {
   if (e.name === 'email') {
     if (eVal === '') {
       formError(e, 'Please provide an email');
-      formStatus = false;
+      // formStatus = false;
     } else if (!regexForm(e)) {
       formError(e, 'Please provide a valid email address');
-      formStatus = false;
+      // formStatus = false;
     } else {
       formSuccess(e, 'Woohoo!');
-      formStatus = true;
+      // formStatus = true;
     }
   }
 
   if (e.name === 'password') {
     if (eVal === '') {
       formError(e, 'Please provide a password');
-      formStatus = false;
+      // formStatus = false;
     } else if (!regexForm(e)) {
       formError(
         e,
         'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
       );
-      formStatus = false;
+      // formStatus = false;
     } else {
       formSuccess(e, 'Woohoo!');
-      formStatus = true;
+      // formStatus = true;
     }
   }
 
@@ -39,13 +39,13 @@ export const checkFormSubmit = (e, e2) => {
     console.log(e2);
     if (e2.value === '') {
       formError(e2, 'Please enter your password to confirm');
-      formStatus = false;
+      // formStatus = false;
     } else if (e2.value.trim() !== eVal && e2.value !== '') {
       formError(e2, 'Please make sure your passwords match');
-      formStatus = false;
+      // formStatus = false;
     } else {
       formSuccess(e2, 'Woohoo!');
-      formStatus = true;
+      // formStatus = true;
     }
   }
 };
