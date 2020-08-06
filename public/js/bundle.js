@@ -28397,7 +28397,8 @@ if (registerFieldlist1) {
     e.preventDefault();
     (0, _formController.checkFormSubmit)(document.getElementById('email'));
     (0, _formController.checkFormSubmit)(document.getElementById('password'), document.getElementById('passwordConfirm'));
-    if (_formController.formStatus) multiForm.buttonNext();
+    console.log(_formController.formStatus);
+    if (_formController.formStatus.length === 3 && !_formController.formStatus.includes(false)) multiForm.buttonNext();
   });
   firstPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);

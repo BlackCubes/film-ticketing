@@ -230,7 +230,10 @@ if (registerFieldlist1) {
       document.getElementById('passwordConfirm')
     );
 
-    if (formStatus) multiForm.buttonNext();
+    console.log(formStatus);
+
+    if (formStatus.length === 3 && !formStatus.includes(false))
+      multiForm.buttonNext();
   });
 
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
