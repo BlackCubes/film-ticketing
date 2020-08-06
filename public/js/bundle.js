@@ -26720,6 +26720,7 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
       exports.formStatus = formStatus = formStatus + 1;
+      console.log('Email part: ', formStatus);
     }
   }
 
@@ -26733,6 +26734,7 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
     } else {
       (0, _errorController.formSuccess)(e, 'Woohoo!');
       exports.formStatus = formStatus = formStatus + 1;
+      console.log('Password part: ', formStatus);
     }
   }
 
@@ -26746,6 +26748,7 @@ var checkFormSubmit = function checkFormSubmit(e, e2) {
     } else {
       (0, _errorController.formSuccess)(e2, 'Woohoo!');
       exports.formStatus = formStatus = formStatus + 1;
+      console.log('Password confirm part: ', formStatus);
     }
   }
 };

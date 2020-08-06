@@ -16,6 +16,7 @@ export const checkFormSubmit = (e, e2) => {
     } else {
       formSuccess(e, 'Woohoo!');
       formStatus += 1;
+      console.log('Email part: ', formStatus);
     }
   }
 
@@ -32,6 +33,7 @@ export const checkFormSubmit = (e, e2) => {
     } else {
       formSuccess(e, 'Woohoo!');
       formStatus += 1;
+      console.log('Password part: ', formStatus);
     }
   }
 
@@ -45,6 +47,7 @@ export const checkFormSubmit = (e, e2) => {
     } else {
       formSuccess(e2, 'Woohoo!');
       formStatus += 1;
+      console.log('Password confirm part: ', formStatus);
     }
   }
 };
