@@ -209,6 +209,10 @@
     transform: translateY(-4rem);
   }
 
+  &.error &__input:placeholder-shown + &__label {
+    transform: translateY(0);
+  }
+
   &__input:focus:invalid + &__label,
   &__text-area:focus:invalid + &__label {
     color: $color-red;

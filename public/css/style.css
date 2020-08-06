@@ -998,6 +998,9 @@ body {
   visibility: hidden;
   transform: translateY(-4rem); }
 
+.form.error .form__input:placeholder-shown + .form__label {
+  transform: translateY(0); }
+
 .form__input:focus:invalid + .form__label,
 .form__text-area:focus:invalid + .form__label {
   color: #ff0000; }
