@@ -183,6 +183,23 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'show-duration') {
+      if (inputVal === '') {
+        formError(input, 'Please provide a duration');
+      } else if (parseInt(inputVal) < 10) {
+        formError(input, 'Please enter a duration a minimum of 10 minutes');
+      } else if (!regexForm(input)) {
+        formError(
+          input,
+          'Please enter a duration in minutes that is at least 10 minutes long'
+        );
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
@@ -229,6 +246,7 @@ function regexForm(e) {
     'TV-14',
     'TV-MA'
   ];
+  const regexDuration = /^[1-9]{1}[0-9]{1,}$/;
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -255,6 +273,8 @@ function regexForm(e) {
     );
   } else if (e.name === 'select-mpaa') {
     regexResult = regexMpaa.includes(e.value);
+  } else if (e.name === 'show-duration') {
+    regexResult = regexDuration.test(parseInt(e.value));
   }
 
   return regexResult;

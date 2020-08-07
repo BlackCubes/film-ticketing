@@ -26910,6 +26910,20 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'show-duration') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide a duration');
+      } else if (parseInt(inputVal) < 10) {
+        (0, _errorController.formError)(input, 'Please enter a duration a minimum of 10 minutes');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please enter a duration in minutes that is at least 10 minutes long');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 
@@ -26933,6 +26947,7 @@ function regexForm(e) {
   var regexGender = ['f', 'm', 'p'];
   var regexPhoto = /^\b(jpeg|jpg|png)\b$/;
   var regexMpaa = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA'];
+  var regexDuration = /^[1-9]{1}[0-9]{1,}$/;
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -26954,6 +26969,8 @@ function regexForm(e) {
     regexResult = regexPhoto.test(e.files[0].type.split('/').pop().toLowerCase());
   } else if (e.name === 'select-mpaa') {
     regexResult = regexMpaa.includes(e.value);
+  } else if (e.name === 'show-duration') {
+    regexResult = regexDuration.test(parseInt(e.value));
   }
 
   return regexResult;
