@@ -96,9 +96,9 @@ export const checkFormSubmit = (...inputs) => {
       }
     }
 
-    if (input.name === 'select-birthmonth') {
+    if (input.name === 'select-month') {
       if (inputVal === '') {
-        formError(input, 'Please provide a birth month');
+        formError(input, 'Please provide a month');
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid month');
       } else {
@@ -108,9 +108,9 @@ export const checkFormSubmit = (...inputs) => {
       }
     }
 
-    if (input.name === 'select-birthday') {
+    if (input.name === 'select-day') {
       if (inputVal === '') {
-        formError(input, 'Please provide a birth day');
+        formError(input, 'Please provide a day');
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid day');
       } else {
@@ -120,9 +120,9 @@ export const checkFormSubmit = (...inputs) => {
       }
     }
 
-    if (input.name === 'select-birthyear') {
+    if (input.name === 'select-year') {
       if (inputVal === '') {
-        formError(input, 'Please provide a birth year');
+        formError(input, 'Please provide a year');
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid year');
       } else {
@@ -256,11 +256,11 @@ function regexForm(e) {
     regexResult = regexName.test(e.value);
   } else if (e.name === 'username') {
     regexResult = regexUsername.test(e.value);
-  } else if (e.name === 'select-birthmonth') {
+  } else if (e.name === 'select-month') {
     regexResult = regexDateMonth.includes(e.value);
-  } else if (e.name === 'select-birthday') {
+  } else if (e.name === 'select-day') {
     regexResult = regexDateDay.includes(parseInt(e.value));
-  } else if (e.name === 'select-birthyear') {
+  } else if (e.name === 'select-year') {
     regexResult = regexDateYear.includes(parseInt(e.value));
   } else if (e.name === 'select-gender') {
     regexResult = regexGender.includes(e.value);
