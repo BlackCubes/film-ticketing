@@ -28626,7 +28626,7 @@ if (updatePersonalForm) {
           switch (_context2.prev = _context2.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
+              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'), document.getElementById('userPhoto'));
 
               if (_formController.formStatus === 5 || _formController.formStatus === 6) {
                 form = new FormData();

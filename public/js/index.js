@@ -297,7 +297,8 @@ if (updatePersonalForm) {
       document.getElementById('selectBirthMonth'),
       document.getElementById('selectBirthDay'),
       document.getElementById('selectBirthYear'),
-      document.getElementById('selectGender')
+      document.getElementById('selectGender'),
+      document.getElementById('userPhoto')
     );
 
     if (formStatus === 5 || formStatus === 6) {
