@@ -26753,7 +26753,8 @@ var checkFormSubmit = function checkFormSubmit() {
 
   exports.formStatus = formStatus = 0;
   inputs.forEach(function (input) {
-    var inputVal = input.value.trim();
+    var inputVal = '';
+    if (input.name !== 'photo') inputVal = input.value.trim();
 
     if (input.name === 'email') {
       if (inputVal === '') {
@@ -26872,6 +26873,20 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'photo' && input.value !== '') {
+      if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please select a valid image file of jpg, jpeg, or png');
+        input.value = '';
+      } else if (input.files[0].size > 1024000) {
+        (0, _errorController.formError)(input, 'Max upload size is 1MB only');
+        e.value = '';
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 
@@ -26893,6 +26908,7 @@ function regexForm(e) {
     return now - i;
   });
   var regexGender = ['f', 'm', 'p'];
+  var regexPhoto = /^\b(jpeg|jpg|png)\b$/;
 
   if (e.name === 'password') {
     regexResult = regexPass.test(e.value);
@@ -26910,6 +26926,8 @@ function regexForm(e) {
     regexResult = regexDateYear.includes(parseInt(e.value));
   } else if (e.name === 'select-gender') {
     regexResult = regexGender.includes(e.value);
+  } else if (e.name === 'photo') {
+    regexResult = regexPhoto.includes(e.files[0].type.split('/').pop().toLowerCase());
   }
 
   return regexResult;

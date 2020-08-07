@@ -7,7 +7,8 @@ export const checkFormSubmit = (...inputs) => {
   formStatus = 0;
 
   inputs.forEach(input => {
-    var inputVal = input.value.trim();
+    var inputVal = '';
+    if (input.name !== 'photo') inputVal = input.value.trim();
 
     if (input.name === 'email') {
       if (inputVal === '') {
@@ -142,6 +143,23 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'photo' && input.value !== '') {
+      if (!regexForm(input)) {
+        formError(
+          input,
+          'Please select a valid image file of jpg, jpeg, or png'
+        );
+        input.value = '';
+      } else if (input.files[0].size > 1024000) {
+        formError(input, 'Max upload size is 1MB only');
+        e.value = '';
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
@@ -172,6 +190,7 @@ function regexForm(e) {
     .fill('')
     .map((val, i) => now - i);
   const regexGender = ['f', 'm', 'p'];
+  const regexPhoto = /^\b(jpeg|jpg|png)\b$/;
 
   if (e.name === 'password') {
     regexResult = regexPass.test(e.value);
@@ -189,6 +208,13 @@ function regexForm(e) {
     regexResult = regexDateYear.includes(parseInt(e.value));
   } else if (e.name === 'select-gender') {
     regexResult = regexGender.includes(e.value);
+  } else if (e.name === 'photo') {
+    regexResult = regexPhoto.includes(
+      e.files[0].type
+        .split('/')
+        .pop()
+        .toLowerCase()
+    );
   }
 
   return regexResult;
