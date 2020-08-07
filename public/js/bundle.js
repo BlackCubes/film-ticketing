@@ -28580,35 +28580,34 @@ if (registerFieldlist1) {
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('username'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
 
-              if (_formController.formStatus === 6) {
-                genderSelect = document.getElementById('selectGender');
-                birthMonth = document.getElementById('selectBirthMonth');
-                birthDay = document.getElementById('selectBirthDay');
-                birthYear = document.getElementById('selectBirthYear');
-                birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-                birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-                birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-                email = document.getElementById('email').value;
-                username = document.getElementById('username').value;
-                password = document.getElementById('password').value;
-                passwordConfirm = document.getElementById('passwordConfirm').value;
-                name = document.getElementById('name').value;
-                birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-                gender = genderSelect.options[genderSelect.selectedIndex].value;
-                alert('Success!!!!'); //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
-                //   await register(
-                //     email,
-                //     username,
-                //     password,
-                //     passwordConfirm,
-                //     name,
-                //     birthdate,
-                //     gender
-                //   );
-                //   document.getElementById('btnCreateAccount').textContent = 'Continue';
+              if (!(_formController.formStatus === 6)) {
+                _context.next = 21;
+                break;
               }
 
-            case 3:
+              genderSelect = document.getElementById('selectGender');
+              birthMonth = document.getElementById('selectBirthMonth');
+              birthDay = document.getElementById('selectBirthDay');
+              birthYear = document.getElementById('selectBirthYear');
+              birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+              birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+              birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+              email = document.getElementById('email').value;
+              username = document.getElementById('username').value;
+              password = document.getElementById('password').value;
+              passwordConfirm = document.getElementById('passwordConfirm').value;
+              name = document.getElementById('name').value;
+              birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+              gender = genderSelect.options[genderSelect.selectedIndex].value; // alert('Success!!!!');
+
+              document.getElementById('btnCreateAccount').textContent = 'Creating...';
+              _context.next = 20;
+              return (0, _login.register)(email, username, password, passwordConfirm, name, birthdate, gender);
+
+            case 20:
+              document.getElementById('btnCreateAccount').textContent = 'Continue';
+
+            case 21:
             case "end":
               return _context.stop();
           }

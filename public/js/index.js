@@ -300,21 +300,21 @@ if (registerFieldlist1) {
       );
       const gender = genderSelect.options[genderSelect.selectedIndex].value;
 
-      alert('Success!!!!');
+      // alert('Success!!!!');
 
-      //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
+      document.getElementById('btnCreateAccount').textContent = 'Creating...';
 
-      //   await register(
-      //     email,
-      //     username,
-      //     password,
-      //     passwordConfirm,
-      //     name,
-      //     birthdate,
-      //     gender
-      //   );
+      await register(
+        email,
+        username,
+        password,
+        passwordConfirm,
+        name,
+        birthdate,
+        gender
+      );
 
-      //   document.getElementById('btnCreateAccount').textContent = 'Continue';
+      document.getElementById('btnCreateAccount').textContent = 'Continue';
     }
   });
 }
