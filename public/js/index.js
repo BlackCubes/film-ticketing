@@ -249,14 +249,15 @@ if (registerFieldlist1) {
 
     console.log(formStatus);
 
-    if (formStatus === 4) {
+    if (formStatus === 6) {
       allowSubmit = true;
     }
   });
 
   console.log(allowSubmit);
+  const notYet = false;
 
-  if (allowSubmit) {
+  if (notYet) {
     registerForm.addEventListener('submit', async e => {
       e.preventDefault();
 

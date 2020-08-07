@@ -28557,13 +28557,14 @@ if (registerFieldlist1) {
     (0, _formController.checkFormSubmit)();
     console.log(_formController.formStatus);
 
-    if (_formController.formStatus === 4) {
+    if (_formController.formStatus === 6) {
       allowSubmit = true;
     }
   });
   console.log(allowSubmit);
+  var notYet = false;
 
-  if (allowSubmit) {
+  if (notYet) {
     registerForm.addEventListener('submit', /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
         var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, name, birthdate, gender;
