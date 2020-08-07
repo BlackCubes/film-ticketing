@@ -26874,7 +26874,7 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
-    if (input.name === 'photo' && input.value !== '') {
+    if (input.name === 'photo' && input.value !== '' || input.name === 'poster') {
       if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please select a valid image file of jpg, jpeg, or png');
         input.value = '';
@@ -26978,7 +26978,7 @@ function regexForm(e) {
     regexResult = regexDateYear.includes(parseInt(e.value));
   } else if (e.name === 'select-gender') {
     regexResult = regexGender.includes(e.value);
-  } else if (e.name === 'photo') {
+  } else if (e.name === 'photo' || e.name === 'poster') {
     regexResult = regexPhoto.test(e.files[0].type.split('/').pop().toLowerCase());
   } else if (e.name === 'select-mpaa') {
     regexResult = regexMpaa.includes(e.value);
