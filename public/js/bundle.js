@@ -28657,20 +28657,18 @@ if (updateEmailUsernameForm) {
           switch (_context3.prev = _context3.next) {
             case 0:
               e.preventDefault();
-              document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
-              email = document.getElementById('email').value, username = document.getElementById('username').value;
-              _context3.next = 5;
-              return (0, _updateSettings.updateSettings)({
-                email: email,
-                username: username
-              }, 'email/username');
+              (0, _formController.checkFormSubmit)(document.getElementById('email'), document.getElementById('username'));
 
-            case 5:
-              document.getElementById('btnUpdateEmailUsername').textContent = 'Update Email/Username';
-              document.getElementById('email').value = '';
-              document.getElementById('username').value = '';
+              if (_formController.formStatus === 2) {
+                document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
+                email = document.getElementById('email').value, username = document.getElementById('username').value; // await updateSettings({ email, username }, 'email/username');
 
-            case 8:
+                document.getElementById('btnUpdateEmailUsername').textContent = 'Update Email | Username';
+                document.getElementById('email').value = '';
+                document.getElementById('username').value = '';
+              }
+
+            case 3:
             case "end":
               return _context3.stop();
           }
