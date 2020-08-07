@@ -26883,7 +26883,6 @@ var checkFormSubmit = function checkFormSubmit() {
         input.value = '';
       } else {
         (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }

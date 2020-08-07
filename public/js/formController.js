@@ -156,7 +156,6 @@ export const checkFormSubmit = (...inputs) => {
         input.value = '';
       } else {
         formSuccess(input, 'Woohoo!');
-        formStatus += 1;
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
