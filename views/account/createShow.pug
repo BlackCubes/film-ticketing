@@ -9,7 +9,7 @@ block content
             - const formTitle = (user.role === 'admin') ? 'Create Show' : 'Create Your Show'
             h1.heading-primary.u-margin-bottom-small= formTitle
 
-          form#eoCreateShowForm.form.form__multiform.form__multiform--fifth(name='eoCreateShowForm')
+          form#eoCreateShowForm.form.form__multiform.form__multiform--fifth(name='eoCreateShowForm' novalidate)
             //- .form__group
             //-   .title.u-center-text
             //-     h1.heading-primary.u-margin-bottom-small Create Your Show
@@ -22,45 +22,51 @@ block content
                 small.form__info-small.small-text= `${smallInfo1}! Fields with * are required.`
 
               .form__group
-                input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' minlength='1' maxlength='100' required)
-                label.form__label.label-text(for='showTitle') Please give a title for your show.
+                input#showTitle.form__input.input-text(type='text' name='show-title' placeholder='Title*' minlength='1' maxlength='100' required)
+                label.form__label.label-text(for='showTitle') Please give a title for your show
 
               .form__group
                 .form__mpaa
-                  select#selectMpaa.dropdown(name='selectMpaa' tabindex='0' required)
+                  select#selectMpaa.dropdown(name='select-mpaa' tabindex='0' required)
                     option(value) MPAA Rating*
 
                     - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
 
                     each mpaa in mpaaList
                       option(value=`${mpaa}`)= mpaa
+                  
+                  label.form__label.label-text(for='selectMpaa') Please select an MPAA Rating
 
               .form__group
-                input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' min='10' required)
+                input#showDuration.form__input.input-text(type='number' name='show-duration' placeholder='Duration*' min='10' required)
                 label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
               .form__group
                 .form__date
                   .form__date-month
-                    select#showOriginalMonth.dropdown(name='selectOriginalMonth' tabindex='0' required)
+                    select#showOriginalMonth.dropdown(name='select-originalmonth' tabindex='0' required)
                       option(value) Orig. Month*
 
                       - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
                       each month in months
                         option(value=`${month}`)= month
+                    
+                    label.form__label.label-text(for='showOriginalMonth') Please select a month
 
                   .form__date-day
-                    select#showOriginalDay.dropdown(name='selectOriginalDay' tabindex='0' required)
+                    select#showOriginalDay.dropdown(name='select-originalday' tabindex='0' required)
                       option(value) Day*
 
                       - const days = [...Array(32).keys()].splice(1)
 
                       each day in days
                         option(value=`${day}`)= day
+                    
+                    label.form__label.label-text(for='showOriginalDay') Please select a day
 
                   .form__date-year
-                    select#showOriginalYear.dropdown(name='selectOriginalYear' tabindex='0' required)
+                    select#showOriginalYear.dropdown(name='select-originalyear' tabindex='0' required)
                       option(value) Year*
 
                       - const now = new Date().getFullYear()
@@ -68,13 +74,17 @@ block content
 
                       each year in years
                         option(value=`${year}`)= year
+                    
+                    label.form__label.label-text(for='showOriginalYear') Please select a year
               
               .form__group
                 .form__content-type
-                  select#showContentType.dropdown(name='selectContentType' tabindex='0' required)
+                  select#showContentType.dropdown(name='select-contenttype' tabindex='0' required)
                     option(value) Content Select*
                     option(value='Film') Film
                     option(value='TV') TV
+                  
+                  label.form__label.label-text(for='showContentType') Please select what content type
               
               .form__group
                 button#btnNext-1.btn.btn--blue(name='btnNext1') Next
@@ -86,9 +96,9 @@ block content
 
               .form__group
                 .form__photo-upload
-                  img.form__show-photo(src='/img/shows/default-poster.jpg', alt="Default photo")
+                  img#posterSource.form__show-photo(src='/img/shows/default-poster.jpg', alt="Default photo")
                   input#showPhoto.form__upload(type='file', accept='image/*', name='poster', required)
-                  label(for='showPhoto') Choose a better poster*
+                  label.form__label-upload.label-text(for='showPhoto') Choose a better poster*
 
               .form__group
                 .form__duo-btn
@@ -104,12 +114,12 @@ block content
                 small.form__info-small.small-text= `${smallInfo3}.`
 
               .form__group
-                textarea#showOverview.form__text-area.input-text(name='textareaOverview' placeholder='Show Overview*' maxlength='183' required)
-                label.form__label.label-text(for='showOverview') Please provide a short synopsis i.e. overview or logline.
+                textarea#showOverview.form__text-area.input-text(name='textarea-overview' placeholder='Show Overview*' maxlength='183' required)
+                label.form__label.label-text(for='showOverview') Please provide a short synopsis i.e. overview or logline
 
               .form__group
-                textarea#showSynopsis.form__text-area.input-text(name='textareaSynopsis' placeholder='Show Synopsis (optional)' maxlength='1100')
-                label.form__label.label-text(for='showSynopsis') A synopsis is a condensed outline. Don't spoil.
+                textarea#showSynopsis.form__text-area.input-text(name='textarea-synopsis' placeholder='Show Synopsis (optional)' maxlength='1100')
+                label.form__label.label-text(for='showSynopsis') A synopsis is a condensed outline. Don't spoil
 
               .form__group
                 .form__duo-btn
@@ -125,15 +135,15 @@ block content
                 small.form__info-small.small-text= `${smallInfo4}.`
 
               .form__group
-                input#showLanguage.form__input.input-text(type='text' name='showLanguage' placeholder='Language (optional)')
+                input#showLanguage.form__input.input-text(type='text' name='show-language' placeholder='Language (optional)')
                 label.form__label.label-text(for='showLanguage') What language it will have? Ex: 'French'
 
               .form__group
-                input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' placeholder='Subtitles (optional)')
+                input#showSubtitles.form__input.input-text(type='text' name='show-subtitles' placeholder='Subtitles (optional)')
                 label.form__label.label-text(for='showSubtitles') Any subtitles? Ex: 'English'
 
               .form__group
-                input#showGenre.form__input.input-text(type='text' name='showGenre' placeholder='Genre(s) (optional)')
+                input#showGenre.form__input.input-text(type='text' name='show-genre' placeholder='Genre(s) (optional)')
                 label.form__label.label-text(for='showGenre') What genre(s) is it?
 
               .form__group
@@ -151,27 +161,31 @@ block content
                 small.form__info-small.small-text= `${smallInfo5}.`
 
               .form__group
-                input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' min='5' required)
-                label.form__label.label-text(for='showPrice') Please enter your price on the show.
+                input#showPrice.form__input.input-text(type='number' name='show-price' placeholder='Show Price*' min='5' required)
+                label.form__label.label-text(for='showPrice') Please enter your price on the show
               
               .form__group
                 .form__special-venue
-                  select#showSpecialVenue.dropdown(name='selectSpecialVenue' tabindex='0')
+                  select#showSpecialVenue.dropdown(name='select-specialvenue' tabindex='0')
                     option(value) Special Venue (optional)
                     option(value='y') Yes
                     option(value='n') No
 
+                  label.form__label.label-text(for='showSpecialVenue') Is it a special occasion?
+
               if user.role === 'admin'
                 .form__group
                   .form__special-venue
-                    select#showPrivateVenue.dropdown(name='selectPrivateVenue' tabindex='0')
+                    select#showPrivateVenue.dropdown(name='select-privatevenue' tabindex='0')
                       option(value) Private Venue (optional)
                       option(value='y') Yes
                       option(value='n') No
+                    
+                    label.form__label.label-text(for='showPrivateVanue') Is it private?
 
                 .form__group
-                  input#showEventOwner.form__input.input-text(type='text' name='showEventOwner' placeholder='Event Organizer ID*' required)
-                  label.form__label.label-text(for='showEventOwner') Please enter the event organizer's ID.
+                  input#showEventOwner.form__input.input-text(type='text' name='show-Eventowner' placeholder='Event Organizer ID*' required)
+                  label.form__label.label-text(for='showEventOwner') Please enter the event organizer's ID
               
               .form__group
                 .form__duo-btn
