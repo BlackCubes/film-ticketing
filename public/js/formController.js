@@ -130,6 +130,18 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'select-gender') {
+      if (inputVal === '') {
+        formError(input, 'Please provide a gender/non-gender');
+      } else if (!regexForm(input)) {
+        formError(input, 'Please use a valid gender/non-gender');
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
@@ -159,6 +171,7 @@ function regexForm(e) {
   const regexDateYear = Array(now - (now - 101))
     .fill('')
     .map((val, i) => now - i);
+  const regexGender = ['f', 'm', 'p'];
 
   if (e.name === 'password') {
     regexResult = regexPass.test(e.value);
@@ -174,6 +187,8 @@ function regexForm(e) {
     regexResult = regexDateDay.includes(parseInt(e.value));
   } else if (e.name === 'select-birthyear') {
     regexResult = regexDateYear.includes(parseInt(e.value));
+  } else if (e.name === 'select-gender') {
+    regexResult = regexGender.includes(e.value);
   }
 
   return regexResult;

@@ -26859,6 +26859,18 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'select-gender') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide a gender/non-gender');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please use a valid gender/non-gender');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 
@@ -26879,6 +26891,7 @@ function regexForm(e) {
   var regexDateYear = Array(now - (now - 101)).fill('').map(function (val, i) {
     return now - i;
   });
+  var regexGender = ['f', 'm', 'p'];
 
   if (e.name === 'password') {
     regexResult = regexPass.test(e.value);
@@ -26894,6 +26907,8 @@ function regexForm(e) {
     regexResult = regexDateDay.includes(parseInt(e.value));
   } else if (e.name === 'select-birthyear') {
     regexResult = regexDateYear.includes(parseInt(e.value));
+  } else if (e.name === 'select-gender') {
+    regexResult = regexGender.includes(e.value);
   }
 
   return regexResult;
