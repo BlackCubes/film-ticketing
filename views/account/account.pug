@@ -5,20 +5,20 @@ block content
     .user-view
       .user-view__content
         .user-view__form-container
-          form#updatePersonalForm.form
+          form#updatePersonalForm.form(novalidate)
             .form__group
               .form__title.u-center-text
                 h2.heading-secondary Your Account Settings
 
             .form__group
-              input#name.form__input.input-text(type='text' placeholder='Name*' value=`${user.name}` minlength='2' required)
-              label.form__label.label-text(for='name') Please enter your name.
+              input#name.form__input.input-text(type='text' name='name' placeholder='Name*' value=`${user.name}` minlength='2' maxlength='70' required)
+              label.form__label.label-text(for='name') Please enter your name
 
             .form__group
               .form__date
                 .form__date-month
-                  select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
-                    option(value, selected=(true)) Birth Month
+                  select#selectBirthMonth.form__select.dropdown(name='select-birthmonth' tabondex='0' required)
+                    option(value, selected=(true)) Birth Month*
 
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -28,9 +28,11 @@ block content
                       - var monthSelected = (monthValue === month) ? true : false
 
                       option(value=`${month}`, selected=(monthSelected))= month
+                  
+                  label.form__label.label-text(for='selectBirthMonth') Please select a birth month
 
                 .form__date-day
-                  select#selectBirthDay.dropdown(name='select-birthday' tabindex='0' required)
+                  select#selectBirthDay.form__select.dropdown(name='select-birthday' tabindex='0' required)
                     option(value, selected=(true)) Day
 
                     - const days = [...Array(32).keys()].splice(1)
@@ -41,9 +43,11 @@ block content
                       - var daySelected = (dayValue == day) ? true : false
 
                       option(value=`${day}`, selected=(daySelected))= day
+                  
+                  label.form__label.label-text(for='selectBirthDay') Please select a birth day
 
                 .form__date-year
-                  select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
+                  select#selectBirthYear.form__select.dropdown(name='select-birthyear' tabindex='0' required)
                     option(value) Year
 
                     - const now = new Date().getFullYear()
@@ -55,20 +59,24 @@ block content
                       - var yearSelected = (yearValue == year) ? true : false
 
                       option(value=`${year}`, selected=(yearSelected))= year
+                  
+                  label.form__label.label-text(for='selectBirthYear') Please select a birth year
 
             .form__group
               .form__gender
-                select#selectGender.dropdown(name='select-gender' tabindex='0', required)
+                select#selectGender.form__select.dropdown(name='select-gender' tabindex='0', required)
                   option(value, selected=(true)) Gender Select
                   option(value='f', selected=(user.gender === 'f')) Female
                   option(value='m', selected=(user.gender === 'm')) Male
                   option(value='p', selected=(user.gender === 'p')) Prefer not to say
+                
+                label.form__label.label-text(for='selectGender') Please select a gender/non-gender
 
             .form__group
               .form__photo-upload
                 img#photoSource.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
                 input#userPhoto.form__upload(type='file', accept='image/*', name='photo')
-                label(for='userPhoto') Choose new photo
+                label.form__label-upload.label-text(for='userPhoto') Choose new photo
 
             .form__group
               button#btnUpdateData.btn.btn--blue Update Settings
@@ -77,17 +85,17 @@ block content
         
         //- Change email | username
         .user-view__form-container
-          form#updateEmailUsernameForm.form
+          form#updateEmailUsernameForm.form(novalidate)
             .form__group
               .form__title.u-center-text
                 h2.heading-secondary Change Your Email | Username
 
             .form__group
-              input#email.form__input.input-text(type='email' placeholder='Email address*' value=`${user.email}` required)
-              label.form__label.label-text(for='email') Please enter a valid email address.
+              input#email.form__input.input-text(type='email' name='email' placeholder='Email address*' value=`${user.email}` required)
+              label.form__label.label-text(for='email') Please enter a valid email address
 
             .form__group
-              input#username.form__input.input-text(type='text' placeholder='Username' value=`${user.username}` minlength='3' required)
+              input#username.form__input.input-text(type='text' name='username' placeholder='Username*' value=`${user.username}` minlength='3' maxlength='9' required)
               label.form__label.label-text(for='username') Please enter a username
 
             .form__group
@@ -97,22 +105,22 @@ block content
 
         //- Change password
         .user-view__form-container
-          form#updatePassForm.form
+          form#updatePassForm.form(novalidate)
             .form__group
               .form__title.u-center-text
                 h2.heading-secondary Change Your Password
               
             .form__group
-              input#currentPass.form__input.input-text(type='password' placeholder='••••••••' required)
-              label.form__label.label-text(for='currentPass') Please enter your current password.
+              input#currentPass.form__input.input-text(type='password' name='current-password' placeholder='••••••••' minlength='8' maxlength='60' required)
+              label.form__label.label-text(for='currentPass') Please enter your current password
 
             .form__group
-              input#newPass.form__input.input-text(type='password' placeholder='••••••••' minlength='8' maxlength='60' required)
-              label.form__label.label-text(for='newPass') New password must contain between 8 and 60 characters.
+              input#newPass.form__input.input-text(type='password' name='password' placeholder='••••••••' minlength='8' maxlength='60' required)
+              label.form__label.label-text(for='newPass') New password must contain between 8 and 60 characters with at least one number, one special character, and one capital letter
 
             .form__group
-              input#confirmNewPass.form__input.input-text(type='password' placeholder='••••••••' required)
-              label.form__label.label-text(for='confirmNewPass') Please confirm your new password.
+              input#confirmNewPass.form__input.input-text(type='password' name='password-confirm' placeholder='••••••••' required)
+              label.form__label.label-text(for='confirmNewPass') Please confirm your new password
 
             .form__group
               button#btnUpdatePass.btn.btn--blue Update Password
