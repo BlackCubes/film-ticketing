@@ -7,18 +7,23 @@ export const checkFormSubmit = (...inputs) => {
   formStatus = 0;
 
   inputs.forEach(input => {
+    var inputRequired = input.required;
     var inputVal = '';
     if (input.type !== 'file') inputVal = input.value.trim();
 
     if (input.name === 'email') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide an email', true);
+        validationFailure(input, 'Please provide an email', inputRequired);
         // formError(input, 'Please provide an email');
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please provide a valid email address', true);
+        validationFailure(
+          input,
+          'Please provide a valid email address',
+          inputRequired
+        );
         // formError(input, 'Please provide a valid email address');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -27,20 +32,20 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'password' || input.name === 'current-password') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a password', true);
+        validationFailure(input, 'Please provide a password', inputRequired);
         // formError(input, 'Please provide a password');
       } else if (!regexForm(input)) {
         validationFailure(
           input,
           'Please use at least one number, one special character, and one capital letter between 8 to 60 characters',
-          true
+          inputRequired
         );
         // formError(
         //   input,
         //   'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
         // );
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -49,16 +54,24 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'password-confirm') {
       if (inputVal === '') {
-        validationFailure(input, 'Please enter your password to confirm', true);
+        validationFailure(
+          input,
+          'Please enter your password to confirm',
+          inputRequired
+        );
         // formError(input, 'Please enter your password to confirm');
       } else if (
         inputVal !== inputs.find(i => i.name === 'password').value.trim() &&
         inputVal !== ''
       ) {
-        validationFailure(input, 'Please make sure your passwords match', true);
+        validationFailure(
+          input,
+          'Please make sure your passwords match',
+          inputRequired
+        );
         // formError(input, 'Please make sure your passwords match');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -67,20 +80,20 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'name') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide your name', true);
+        validationFailure(input, 'Please provide your name', inputRequired);
         // formError(input, 'Please provide your name');
       } else if (inputVal.length < 2) {
         validationFailure(
           input,
           'Please enter your name a minimum of 2 characters',
-          true
+          inputRequired
         );
         // formError(input, 'Please enter your name a minimum of 2 characters');
       } else if (inputVal.length > 70) {
         validationFailure(
           input,
           'Please enter your name that is 70 characters or less',
-          true
+          inputRequired
         );
         // formError(
         //   input,
@@ -90,14 +103,14 @@ export const checkFormSubmit = (...inputs) => {
         validationFailure(
           input,
           'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters',
-          true
+          inputRequired
         );
         // formError(
         //   input,
         //   'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters'
         // );
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -106,20 +119,20 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'username') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a username', true);
+        validationFailure(input, 'Please provide a username', inputRequired);
         // formError(input, 'Please provide a username');
       } else if (inputVal.length < 3) {
         validationFailure(
           input,
           'Please enter a username a minimum of 3 characters',
-          true
+          inputRequired
         );
         // formError(input, 'Please enter a username a minimum of 3 characters');
       } else if (inputVal.length > 9) {
         validationFailure(
           input,
           'Please enter a username that is 9 characters or less',
-          true
+          inputRequired
         );
         // formError(
         //   input,
@@ -129,14 +142,14 @@ export const checkFormSubmit = (...inputs) => {
         validationFailure(
           input,
           'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters',
-          true
+          inputRequired
         );
         // formError(
         //   input,
         //   'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters'
         // );
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -145,13 +158,13 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'select-month') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a month', true);
+        validationFailure(input, 'Please provide a month', inputRequired);
         // formError(input, 'Please provide a month');
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid month', true);
+        validationFailure(input, 'Please use a valid month', inputRequired);
         // formError(input, 'Please use a valid month');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -160,13 +173,13 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'select-day') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a day', true);
+        validationFailure(input, 'Please provide a day', inputRequired);
         // formError(input, 'Please provide a day');
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid day', true);
+        validationFailure(input, 'Please use a valid day', inputRequired);
         // formError(input, 'Please use a valid day');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -175,13 +188,13 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'select-year') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a year', true);
+        validationFailure(input, 'Please provide a year', inputRequired);
         // formError(input, 'Please provide a year');
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid year', true);
+        validationFailure(input, 'Please use a valid year', inputRequired);
         // formError(input, 'Please use a valid year');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -190,13 +203,21 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'select-gender') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a gender/non-gender', true);
+        validationFailure(
+          input,
+          'Please provide a gender/non-gender',
+          inputRequired
+        );
         // formError(input, 'Please provide a gender/non-gender');
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid gender/non-gender', true);
+        validationFailure(
+          input,
+          'Please use a valid gender/non-gender',
+          inputRequired
+        );
         // formError(input, 'Please use a valid gender/non-gender');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -207,13 +228,11 @@ export const checkFormSubmit = (...inputs) => {
       (input.name === 'photo' && input.value !== '') ||
       input.name === 'poster'
     ) {
-      var photoBool = input.name === 'photo' ? false : true;
-
       if (!regexForm(input)) {
         validationFailure(
           input,
           'Please select a valid image file of jpg, jpeg, or png',
-          photoBool
+          inputRequired
         );
         // formError(
         //   input,
@@ -221,16 +240,16 @@ export const checkFormSubmit = (...inputs) => {
         // );
         input.value = '';
       } else if (input.files[0].size > 1024000) {
-        validationFailure(input, 'Max upload size is 1MB only', photoBool);
+        validationFailure(input, 'Max upload size is 1MB only', inputRequired);
         // formError(input, 'Max upload size is 1MB only');
         input.value = '';
-      } else if (photoBool && input.value === '') {
-        validationFailure(input, 'Please provide a poster', photoBool);
+      } else if (inputRequired && input.value === '') {
+        validationFailure(input, 'Please provide a poster', inputRequired);
         // formError(input, 'Please provide a poster');
       } else {
         input.name === 'photo'
-          ? validationSuccess(input, 'Woohoo!', photoBool)
-          : validationSuccess(input, 'Woohoo!', photoBool);
+          ? validationSuccess(input, 'Woohoo!', inputRequired)
+          : validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
@@ -238,17 +257,17 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'show-title') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a title', true);
+        validationFailure(input, 'Please provide a title', inputRequired);
         // formError(input, 'Please provide a title');
       } else if (inputVal > 100) {
         validationFailure(
           input,
           'Please enter a title that is 100 characters or less',
-          true
+          inputRequired
         );
         // formError(input, 'Please enter a title that is 100 characters or less');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSucces(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -257,13 +276,21 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'select-mpaa') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide an MPAA rating', true);
+        validationFailure(
+          input,
+          'Please provide an MPAA rating',
+          inputRequired
+        );
         // formError(input, 'Please provide an MPAA rating');
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid MPAA rating', true);
+        validationFailure(
+          input,
+          'Please use a valid MPAA rating',
+          inputRequired
+        );
         // formError(input, 'Please use a valid MPAA rating');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -272,27 +299,27 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'show-duration') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a duration', true);
+        validationFailure(input, 'Please provide a duration', inputRequired);
         // formError(input, 'Please provide a duration');
       } else if (parseInt(inputVal) < 10) {
         validationFailure(
           input,
           'Please enter a duration a minimum of 10 minutes',
-          true
+          inputRequired
         );
         // formError(input, 'Please enter a duration a minimum of 10 minutes');
       } else if (!regexForm(input)) {
         validationFailure(
           input,
           'Please enter a duration in minutes that is at least 10 minutes long',
-          true
+          inputRequired
         );
         // formError(
         //   input,
         //   'Please enter a duration in minutes that is at least 10 minutes long'
         // );
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -301,13 +328,21 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'select-contenttype') {
       if (inputVal === '') {
-        validationFailure(input, 'Pleaase provide a content type', true);
+        validationFailure(
+          input,
+          'Pleaase provide a content type',
+          inputRequired
+        );
         // formError(input, 'Pleaase provide a content type');
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid content type', true);
+        validationFailure(
+          input,
+          'Please use a valid content type',
+          inputRequired
+        );
         // formError(input, 'Please use a valid content type');
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -316,20 +351,20 @@ export const checkFormSubmit = (...inputs) => {
 
     if (input.name === 'textarea-overview') {
       if (inputVal === '') {
-        validationFailure(input, 'Please enter an overview', true);
+        validationFailure(input, 'Please enter an overview', inputRequired);
         // formError(input, 'Please enter an overview');
       } else if (inputVal.length > 183) {
         validationFailure(
           input,
           'Please enter an overview that is 183 characters or less',
-          true
+          inputRequired
         );
         // formError(
         //   input,
         //   'Please enter an overview that is 183 characters or less'
         // );
       } else {
-        validationSuccess(input, 'Woohoo!', true);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // formStatus += 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
@@ -341,14 +376,14 @@ export const checkFormSubmit = (...inputs) => {
         validationFailure(
           input,
           'Please enter a synopsis that is 1100 characters or less',
-          false
+          inputRequired
         );
         // formError(
         //   input,
         //   'Please enter a synopsis that is 1100 characters or less'
         // );
       } else {
-        validationSuccess(input, 'Woohoo!', false);
+        validationSuccess(input, 'Woohoo!', inputRequired);
         // formSuccess(input, 'Woohoo!');
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
@@ -359,13 +394,13 @@ export const checkFormSubmit = (...inputs) => {
         validationFailure(
           input,
           'Please enter genre(s) a minimum of 3 characters',
-          false
+          inputRequired
         );
         // formError(input, 'Please enter genre(s) a minimum of 3 characters');
         // formStatus -= 1;
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       } else {
-        validationSuccess(input, 'Woohoo!', false);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
   });
