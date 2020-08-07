@@ -281,6 +281,12 @@ function validationSuccess(input, message, required) {
   console.log(`${input.name.toUpperCase()} part: `, formStatus);
 }
 
+function validationFailure(input, message, required) {
+  formError(input, message);
+  if (!required) formStatus -= 1;
+  console.log(`${input.name.toUpperCase()} part: `, formStatus);
+}
+
 function regexForm(e) {
   var regexResult = true;
   // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;

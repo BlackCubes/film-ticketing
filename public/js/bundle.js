@@ -26980,6 +26980,12 @@ function validationSuccess(input, message, required) {
   console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
 }
 
+function validationFailure(input, message, required) {
+  (0, _errorController.formError)(input, message);
+  if (!required) exports.formStatus = formStatus = formStatus - 1;
+  console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+}
+
 function regexForm(e) {
   var regexResult = true; // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
 
