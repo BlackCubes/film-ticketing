@@ -292,45 +292,56 @@ if (updatePersonalForm) {
   updatePersonalForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const form = new FormData();
+    checkFormSubmit(
+      document.getElementById('name'),
+      document.getElementById('selectBirthMonth'),
+      document.getElementById('selectBirthDay'),
+      document.getElementById('selectBirthYear'),
+      document.getElementById('selectGender')
+    );
 
-    document.getElementById('btnUpdateData').textContent = 'Updating...';
+    if (formStatus === 5 || formStatus === 6) {
+      const form = new FormData();
 
-    const selectBirthMonth = document.getElementById('selectBirthMonth'),
-      selectBirthDay = document.getElementById('selectBirthDay'),
-      selectBirthYear = document.getElementById('selectBirthYear');
+      document.getElementById('btnUpdateData').textContent = 'Updating...';
 
-    const birthMonth =
-        selectBirthMonth.options[selectBirthMonth.selectedIndex].value,
-      birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value,
-      birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
+      const selectBirthMonth = document.getElementById('selectBirthMonth'),
+        selectBirthDay = document.getElementById('selectBirthDay'),
+        selectBirthYear = document.getElementById('selectBirthYear');
 
-    const selectGender = document.getElementById('selectGender');
+      const birthMonth =
+          selectBirthMonth.options[selectBirthMonth.selectedIndex].value,
+        birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value,
+        birthYear =
+          selectBirthYear.options[selectBirthYear.selectedIndex].value;
 
-    const birthdate = birthYear.concat('-', birthMonth, '-', birthDay),
-      name = document.getElementById('name').value,
-      gender = selectGender.options[selectGender.selectedIndex].value;
+      const selectGender = document.getElementById('selectGender');
 
-    const photo = document.getElementById('userPhoto').files[0];
+      const birthdate = birthYear.concat('-', birthMonth, '-', birthDay),
+        name = document.getElementById('name').value,
+        gender = selectGender.options[selectGender.selectedIndex].value;
 
-    const photoUrlArr = document.getElementById('photoSource').src.split('/');
-    let photoParams = photoUrlArr[photoUrlArr.length - 1];
+      const photo = document.getElementById('userPhoto').files[0];
 
-    if (!photo) photoParams = '';
+      const photoUrlArr = document.getElementById('photoSource').src.split('/');
+      let photoParams = photoUrlArr[photoUrlArr.length - 1];
 
-    form.append('name', name);
-    form.append('birthdate', birthdate);
-    form.append('gender', gender);
-    form.append('photo', photo);
+      if (!photo) photoParams = '';
 
-    await updateSettings(form, 'data', photoParams);
+      form.append('name', name.value);
+      form.append('birthdate', birthdate);
+      form.append('gender', gender);
+      form.append('photo', photo);
 
-    document.getElementById('btnUpdateData').textContent = 'Update Settings';
-    document.getElementById('name').value = '';
-    selectBirthMonth.options[selectBirthMonth.selectedIndex].value = '';
-    selectBirthDay.options[selectBirthDay.selectedIndex].value = '';
-    selectBirthYear.options[selectBirthYear.selectedIndex].value = '';
-    selectGender.options[selectGender.selectedIndex].value = '';
+      // await updateSettings(form, 'data', photoParams);
+
+      document.getElementById('btnUpdateData').textContent = 'Update Settings';
+      document.getElementById('name').value = '';
+      document.getElementById('selectBirthMonth').value = '';
+      document.getElementById('selectBirthDay').value = '';
+      document.getElementById('selectBirthYear').value = '';
+      document.getElementById('selectGender').value = '';
+    }
   });
 }
 

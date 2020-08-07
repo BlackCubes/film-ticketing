@@ -28608,32 +28608,33 @@ if (updatePersonalForm) {
           switch (_context2.prev = _context2.next) {
             case 0:
               e.preventDefault();
-              form = new FormData();
-              document.getElementById('btnUpdateData').textContent = 'Updating...';
-              selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');
-              birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value, birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value, birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
-              selectGender = document.getElementById('selectGender');
-              birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
-              photo = document.getElementById('userPhoto').files[0];
-              photoUrlArr = document.getElementById('photoSource').src.split('/');
-              photoParams = photoUrlArr[photoUrlArr.length - 1];
-              if (!photo) photoParams = '';
-              form.append('name', name);
-              form.append('birthdate', birthdate);
-              form.append('gender', gender);
-              form.append('photo', photo);
-              _context2.next = 17;
-              return (0, _updateSettings.updateSettings)(form, 'data', photoParams);
+              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
 
-            case 17:
-              document.getElementById('btnUpdateData').textContent = 'Update Settings';
-              document.getElementById('name').value = '';
-              selectBirthMonth.options[selectBirthMonth.selectedIndex].value = '';
-              selectBirthDay.options[selectBirthDay.selectedIndex].value = '';
-              selectBirthYear.options[selectBirthYear.selectedIndex].value = '';
-              selectGender.options[selectGender.selectedIndex].value = '';
+              if (_formController.formStatus === 5 || _formController.formStatus === 6) {
+                form = new FormData();
+                document.getElementById('btnUpdateData').textContent = 'Updating...';
+                selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');
+                birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value, birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value, birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
+                selectGender = document.getElementById('selectGender');
+                birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
+                photo = document.getElementById('userPhoto').files[0];
+                photoUrlArr = document.getElementById('photoSource').src.split('/');
+                photoParams = photoUrlArr[photoUrlArr.length - 1];
+                if (!photo) photoParams = '';
+                form.append('name', name.value);
+                form.append('birthdate', birthdate);
+                form.append('gender', gender);
+                form.append('photo', photo); // await updateSettings(form, 'data', photoParams);
 
-            case 23:
+                document.getElementById('btnUpdateData').textContent = 'Update Settings';
+                document.getElementById('name').value = '';
+                document.getElementById('selectBirthMonth').value = '';
+                document.getElementById('selectBirthDay').value = '';
+                document.getElementById('selectBirthYear').value = '';
+                document.getElementById('selectGender').value = '';
+              }
+
+            case 3:
             case "end":
               return _context2.stop();
           }
