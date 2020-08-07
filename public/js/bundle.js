@@ -28554,7 +28554,7 @@ if (registerFieldlist1) {
 
   createAccountBtn.addEventListener('submit', function (e) {
     e.preventDefault();
-    (0, _formController.checkFormSubmit)();
+    (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('username'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
     console.log(_formController.formStatus);
 
     if (_formController.formStatus === 6) {

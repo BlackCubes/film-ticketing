@@ -245,7 +245,14 @@ if (registerFieldlist1) {
   createAccountBtn.addEventListener('submit', e => {
     e.preventDefault();
 
-    checkFormSubmit();
+    checkFormSubmit(
+      document.getElementById('name'),
+      document.getElementById('username'),
+      document.getElementById('selectBirthMonth'),
+      document.getElementById('selectBirthDay'),
+      document.getElementById('selectBirthYear'),
+      document.getElementById('selectGender')
+    );
 
     console.log(formStatus);
 
