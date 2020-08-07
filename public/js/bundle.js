@@ -28552,13 +28552,14 @@ if (registerFieldlist1) {
     return multiForm.buttonBack(e);
   }); // const createAccountBtn = document.getElementById('btnCreateAccount');
 
-  createAccountBtn.addEventListener('click', function (e) {
+  createAccountBtn.addEventListener('submit', function (e) {
     e.preventDefault();
     (0, _formController.checkFormSubmit)();
     console.log(_formController.formStatus);
 
     if (_formController.formStatus === 6) {
       allowSubmit = true;
+      console.log(allowSubmit);
     }
   });
   console.log(allowSubmit);

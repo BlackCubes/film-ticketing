@@ -242,7 +242,7 @@ if (registerFieldlist1) {
 
   // const createAccountBtn = document.getElementById('btnCreateAccount');
 
-  createAccountBtn.addEventListener('click', e => {
+  createAccountBtn.addEventListener('submit', e => {
     e.preventDefault();
 
     checkFormSubmit();
@@ -251,6 +251,7 @@ if (registerFieldlist1) {
 
     if (formStatus === 6) {
       allowSubmit = true;
+      console.log(allowSubmit);
     }
   });
 
