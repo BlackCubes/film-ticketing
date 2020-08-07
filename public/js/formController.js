@@ -459,6 +459,20 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'show-eventowner') {
+      if (inputVal === '') {
+        validationFailure(
+          input,
+          'Please provide the ID for the event organizer',
+          inputRequired
+        );
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please use a valid MongoDB ObjectID');
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -521,6 +535,7 @@ function regexForm(e) {
   const regexContent = /^\b(Film|TV)\b$/;
   const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
   const regexVenue = /^\b(y|n)\b$/;
+  const regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -558,6 +573,8 @@ function regexForm(e) {
     (e.name === 'select-privatevenue')
   ) {
     regexResult = regexVenue.test(e.value);
+  } else if (e.name === 'show-eventowner') {
+    regexResult = regexMongo.test(e.value);
   }
 
   return regexResult;

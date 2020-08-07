@@ -27035,6 +27035,16 @@ var checkFormSubmit = function checkFormSubmit() {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'show-eventowner') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide the ID for the event organizer', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please use a valid MongoDB ObjectID');
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -27074,6 +27084,7 @@ function regexForm(e) {
   var regexContent = /^\b(Film|TV)\b$/;
   var regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
   var regexVenue = /^\b(y|n)\b$/;
+  var regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -27103,6 +27114,8 @@ function regexForm(e) {
     regexResult = regexPrice.test(parseFloat(e.value));
   } else if (e.name === 'select-specialvenue' | e.name === 'select-privatevenue') {
     regexResult = regexVenue.test(e.value);
+  } else if (e.name === 'show-eventowner') {
+    regexResult = regexMongo.test(e.value);
   }
 
   return regexResult;
