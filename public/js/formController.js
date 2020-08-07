@@ -16,9 +16,10 @@ export const checkFormSubmit = (...inputs) => {
       } else if (!regexForm(input)) {
         formError(input, 'Please provide a valid email address');
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -31,9 +32,10 @@ export const checkFormSubmit = (...inputs) => {
           'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
         );
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -46,9 +48,10 @@ export const checkFormSubmit = (...inputs) => {
       ) {
         formError(input, 'Please make sure your passwords match');
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -68,9 +71,10 @@ export const checkFormSubmit = (...inputs) => {
           'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters'
         );
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -90,9 +94,10 @@ export const checkFormSubmit = (...inputs) => {
           'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters'
         );
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -102,9 +107,10 @@ export const checkFormSubmit = (...inputs) => {
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid month');
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -114,9 +120,10 @@ export const checkFormSubmit = (...inputs) => {
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid day');
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -126,9 +133,10 @@ export const checkFormSubmit = (...inputs) => {
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid year');
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -138,9 +146,10 @@ export const checkFormSubmit = (...inputs) => {
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid gender/non-gender');
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -160,8 +169,11 @@ export const checkFormSubmit = (...inputs) => {
       } else if (input.name === 'poster' && input.value === '') {
         formError(input, 'Please provide a poster');
       } else {
-        formSuccess(input, 'Woohoo!');
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        input.name === 'photo'
+          ? validationSuccess(input, 'Woohoo!', false)
+          : validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -171,9 +183,10 @@ export const checkFormSubmit = (...inputs) => {
       } else if (inputVal > 100) {
         formError(input, 'Please enter a title that is 100 characters or less');
       } else {
-        formSucces(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSucces(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -183,9 +196,10 @@ export const checkFormSubmit = (...inputs) => {
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid MPAA rating');
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -200,9 +214,10 @@ export const checkFormSubmit = (...inputs) => {
           'Please enter a duration in minutes that is at least 10 minutes long'
         );
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -212,9 +227,10 @@ export const checkFormSubmit = (...inputs) => {
       } else if (!regexForm(input)) {
         formError(input, 'Please use a valid content type');
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -227,9 +243,10 @@ export const checkFormSubmit = (...inputs) => {
           'Please enter an overview that is 183 characters or less'
         );
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', true);
+        // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -240,13 +257,19 @@ export const checkFormSubmit = (...inputs) => {
           'Please enter a synopsis that is 1100 characters or less'
         );
       } else {
-        formSuccess(input, 'Woohoo!');
-        formStatus += 1;
-        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', false);
+        // formSuccess(input, 'Woohoo!');
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
   });
 };
+
+function validationSuccess(input, message, required) {
+  formSuccess(input, message);
+  if (required) formStatus += 1;
+  console.log(`${input.name.toUpperCase()} part: `, formStatus);
+}
 
 function regexForm(e) {
   var regexResult = true;

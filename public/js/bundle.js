@@ -26762,9 +26762,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please provide a valid email address');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26774,9 +26774,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26788,9 +26788,9 @@ var checkFormSubmit = function checkFormSubmit() {
       }).value.trim() && inputVal !== '') {
         (0, _errorController.formError)(input, 'Please make sure your passwords match');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26804,9 +26804,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26820,9 +26820,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26832,9 +26832,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use a valid month');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26844,9 +26844,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use a valid day');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26856,9 +26856,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use a valid year');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26868,9 +26868,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use a valid gender/non-gender');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26884,8 +26884,8 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (input.name === 'poster' && input.value === '') {
         (0, _errorController.formError)(input, 'Please provide a poster');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        input.name === 'photo' ? validationSuccess(input, 'Woohoo!', false) : validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26895,9 +26895,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (inputVal > 100) {
         (0, _errorController.formError)(input, 'Please enter a title that is 100 characters or less');
       } else {
-        formSucces(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSucces(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26907,9 +26907,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use a valid MPAA rating');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26921,9 +26921,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please enter a duration in minutes that is at least 10 minutes long');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26933,9 +26933,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (!regexForm(input)) {
         (0, _errorController.formError)(input, 'Please use a valid content type');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26945,9 +26945,9 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (inputVal.length > 183) {
         (0, _errorController.formError)(input, 'Please enter an overview that is 183 characters or less');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', true); // formSuccess(input, 'Woohoo!');
+        // formStatus += 1;
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
 
@@ -26955,15 +26955,20 @@ var checkFormSubmit = function checkFormSubmit() {
       if (inputVal.length > 1100) {
         (0, _errorController.formError)(input, 'Please enter a synopsis that is 1100 characters or less');
       } else {
-        (0, _errorController.formSuccess)(input, 'Woohoo!');
-        exports.formStatus = formStatus = formStatus + 1;
-        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+        validationSuccess(input, 'Woohoo!', false); // formSuccess(input, 'Woohoo!');
+        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
   });
 };
 
 exports.checkFormSubmit = checkFormSubmit;
+
+function validationSuccess(input, message, required) {
+  (0, _errorController.formSuccess)(input, message);
+  if (required) exports.formStatus = formStatus = formStatus + 1;
+  console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+}
 
 function regexForm(e) {
   var regexResult = true; // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
