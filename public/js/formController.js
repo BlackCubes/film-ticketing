@@ -200,6 +200,18 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'select-contenttype') {
+      if (inputVal === '') {
+        formError(input, 'Pleaase provide a content type');
+      } else if (!regexForm(input)) {
+        formError(input, 'Please use a valid content type');
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
@@ -247,6 +259,7 @@ function regexForm(e) {
     'TV-MA'
   ];
   const regexDuration = /^[1-9]{1}[0-9]{1,}$/;
+  const regexContent = /^\b(Film|TV)\b$/;
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -275,6 +288,8 @@ function regexForm(e) {
     regexResult = regexMpaa.includes(e.value);
   } else if (e.name === 'show-duration') {
     regexResult = regexDuration.test(parseInt(e.value));
+  } else if (e.name === 'select-contenttype') {
+    regexResult = regexContent.test(e.value);
   }
 
   return regexResult;

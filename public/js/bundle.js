@@ -26924,6 +26924,18 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'select-contenttype') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Pleaase provide a content type');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please use a valid content type');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 
@@ -26948,6 +26960,7 @@ function regexForm(e) {
   var regexPhoto = /^\b(jpeg|jpg|png)\b$/;
   var regexMpaa = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA'];
   var regexDuration = /^[1-9]{1}[0-9]{1,}$/;
+  var regexContent = /^\b(Film|TV)\b$/;
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -26971,6 +26984,8 @@ function regexForm(e) {
     regexResult = regexMpaa.includes(e.value);
   } else if (e.name === 'show-duration') {
     regexResult = regexDuration.test(parseInt(e.value));
+  } else if (e.name === 'select-contenttype') {
+    regexResult = regexContent.test(e.value);
   }
 
   return regexResult;
