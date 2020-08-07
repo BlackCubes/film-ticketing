@@ -22,7 +22,7 @@ export const checkFormSubmit = (...inputs) => {
       }
     }
 
-    if (input.name === 'current-password') {
+    if (input.name === 'password' || input.name === 'current-password') {
       if (inputVal === '') {
         formError(input, 'Please provide a password');
       } else if (!regexForm(input)) {

@@ -26768,7 +26768,7 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
-    if (input.name === 'current-password') {
+    if (input.name === 'password' || input.name === 'current-password') {
       if (inputVal === '') {
         (0, _errorController.formError)(input, 'Please provide a password');
       } else if (!regexForm(input)) {
