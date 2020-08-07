@@ -17,7 +17,7 @@ block content
             .form__group
               .form__date
                 .form__date-month
-                  select#selectBirthMonth.form__select.dropdown(name='select-birthmonth' tabondex='0' required)
+                  select#selectBirthMonth.form__select.dropdown(name='select-month' tabondex='0' required)
                     option(value, selected=(true)) Birth Month*
 
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -32,7 +32,7 @@ block content
                   label.form__label.label-text(for='selectBirthMonth') Please select a birth month
 
                 .form__date-day
-                  select#selectBirthDay.form__select.dropdown(name='select-birthday' tabindex='0' required)
+                  select#selectBirthDay.form__select.dropdown(name='select-day' tabindex='0' required)
                     option(value, selected=(true)) Day
 
                     - const days = [...Array(32).keys()].splice(1)
@@ -47,7 +47,7 @@ block content
                   label.form__label.label-text(for='selectBirthDay') Please select a birth day
 
                 .form__date-year
-                  select#selectBirthYear.form__select.dropdown(name='select-birthyear' tabindex='0' required)
+                  select#selectBirthYear.form__select.dropdown(name='select-year' tabindex='0' required)
                     option(value) Year
 
                     - const now = new Date().getFullYear()
