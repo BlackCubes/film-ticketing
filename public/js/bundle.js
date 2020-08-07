@@ -26898,6 +26898,18 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'select-mpaa') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide an MPAA rating');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please use a valid MPAA rating');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 
@@ -26920,6 +26932,7 @@ function regexForm(e) {
   });
   var regexGender = ['f', 'm', 'p'];
   var regexPhoto = /^\b(jpeg|jpg|png)\b$/;
+  var regexMpaa = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA'];
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -26939,6 +26952,8 @@ function regexForm(e) {
     regexResult = regexGender.includes(e.value);
   } else if (e.name === 'photo') {
     regexResult = regexPhoto.test(e.files[0].type.split('/').pop().toLowerCase());
+  } else if (e.name === 'select-mpaa') {
+    regexResult = regexMpaa.includes(e.value);
   }
 
   return regexResult;

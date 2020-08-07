@@ -171,6 +171,18 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'select-mpaa') {
+      if (inputVal === '') {
+        formError(input, 'Please provide an MPAA rating');
+      } else if (!regexForm(input)) {
+        formError(input, 'Please use a valid MPAA rating');
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
@@ -202,6 +214,21 @@ function regexForm(e) {
     .map((val, i) => now - i);
   const regexGender = ['f', 'm', 'p'];
   const regexPhoto = /^\b(jpeg|jpg|png)\b$/;
+  const regexMpaa = [
+    'G',
+    'PG',
+    'PG-13',
+    'R',
+    'NC-17',
+    'NR',
+    'Unrated',
+    'TV-Y',
+    'TV-Y7',
+    'TV-G',
+    'TV-PG',
+    'TV-14',
+    'TV-MA'
+  ];
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -226,6 +253,8 @@ function regexForm(e) {
         .pop()
         .toLowerCase()
     );
+  } else if (e.name === 'select-mpaa') {
+    regexResult = regexMpaa.includes(e.value);
   }
 
   return regexResult;
