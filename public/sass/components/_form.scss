@@ -452,6 +452,7 @@
       &:focus,
       &:active {
         background-color: $color-lightseagreen;
+        color: $color-black;
       }
     }
 
@@ -469,6 +470,7 @@
       &:focus,
       &:active {
         background-color: $color-red;
+        color: $color-black;
       }
     }
 
