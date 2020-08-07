@@ -26909,7 +26909,7 @@ function regexForm(e) {
   var regexGender = ['f', 'm', 'p'];
   var regexPhoto = /^\b(jpeg|jpg|png)\b$/;
 
-  if (e.name === 'password') {
+  if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
   } else if (e.name === 'email') {
     regexResult = regexEmail.test(e.value);
