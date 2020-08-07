@@ -230,8 +230,6 @@ if (registerFieldlist1) {
       document.getElementById('passwordConfirm')
     );
 
-    console.log(formStatus);
-
     if (formStatus === 3) multiForm.buttonNext();
   });
 
@@ -272,8 +270,6 @@ if (registerFieldlist1) {
         birthDayVal
       );
       const gender = genderSelect.options[genderSelect.selectedIndex].value;
-
-      // alert('Success!!!!');
 
       document.getElementById('btnCreateAccount').textContent = 'Creating...';
 

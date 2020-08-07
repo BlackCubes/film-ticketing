@@ -28544,7 +28544,6 @@ if (registerFieldlist1) {
   firstNextBtn.addEventListener('click', function (e) {
     e.preventDefault();
     (0, _formController.checkFormSubmit)(document.getElementById('email'), document.getElementById('password'), document.getElementById('passwordConfirm'));
-    console.log(_formController.formStatus);
     if (_formController.formStatus === 3) multiForm.buttonNext();
   });
   firstPreviousBtn.addEventListener('click', function (e) {
@@ -28578,8 +28577,7 @@ if (registerFieldlist1) {
               passwordConfirm = document.getElementById('passwordConfirm').value;
               name = document.getElementById('name').value;
               birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-              gender = genderSelect.options[genderSelect.selectedIndex].value; // alert('Success!!!!');
-
+              gender = genderSelect.options[genderSelect.selectedIndex].value;
               document.getElementById('btnCreateAccount').textContent = 'Creating...';
               _context.next = 20;
               return (0, _login.register)(email, username, password, passwordConfirm, name, birthdate, gender);
