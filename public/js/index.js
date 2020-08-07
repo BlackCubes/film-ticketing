@@ -263,9 +263,8 @@ if (registerFieldlist1) {
   });
 
   console.log(allowSubmit);
-  const notYet = false;
 
-  if (notYet) {
+  if (allowSubmit) {
     registerForm.addEventListener('submit', async e => {
       e.preventDefault();
 
