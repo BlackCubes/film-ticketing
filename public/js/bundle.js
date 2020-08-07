@@ -28552,7 +28552,7 @@ if (registerFieldlist1) {
     return multiForm.buttonBack(e);
   }); // const createAccountBtn = document.getElementById('btnCreateAccount');
 
-  createAccountBtn.addEventListener('submit', function (e) {
+  createAccountBtn.addEventListener('click', function (e) {
     e.preventDefault();
     (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('username'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
     console.log(_formController.formStatus);

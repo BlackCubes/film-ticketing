@@ -242,7 +242,7 @@ if (registerFieldlist1) {
 
   // const createAccountBtn = document.getElementById('btnCreateAccount');
 
-  createAccountBtn.addEventListener('submit', e => {
+  createAccountBtn.addEventListener('click', e => {
     e.preventDefault();
 
     checkFormSubmit(
