@@ -291,6 +291,8 @@ if (registerFieldlist1) {
       );
       const gender = genderSelect.options[genderSelect.selectedIndex].value;
 
+      alert('Success!!!!');
+
       //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
 
       //   await register(

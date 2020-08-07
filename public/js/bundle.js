@@ -28586,7 +28586,8 @@ if (registerFieldlist1) {
                 passwordConfirm = document.getElementById('passwordConfirm').value;
                 name = document.getElementById('name').value;
                 birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-                gender = genderSelect.options[genderSelect.selectedIndex].value; //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
+                gender = genderSelect.options[genderSelect.selectedIndex].value;
+                alert('Success!!!!'); //   document.getElementById('btnCreateAccount').textContent = 'Creating...';
                 //   await register(
                 //     email,
                 //     username,
@@ -28598,7 +28599,7 @@ if (registerFieldlist1) {
                 //   );
                 //   document.getElementById('btnCreateAccount').textContent = 'Continue';
 
-              case 15:
+              case 16:
               case "end":
                 return _context.stop();
             }
