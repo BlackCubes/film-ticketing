@@ -157,6 +157,8 @@ export const checkFormSubmit = (...inputs) => {
       } else if (input.files[0].size > 1024000) {
         formError(input, 'Max upload size is 1MB only');
         input.value = '';
+      } else if (input.name === 'poster' && input.value === '') {
+        formError(input, 'Please provide a poster');
       } else {
         formSuccess(input, 'Woohoo!');
         console.log(`${input.name.toUpperCase()} part: `, formStatus);

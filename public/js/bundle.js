@@ -26881,6 +26881,8 @@ var checkFormSubmit = function checkFormSubmit() {
       } else if (input.files[0].size > 1024000) {
         (0, _errorController.formError)(input, 'Max upload size is 1MB only');
         input.value = '';
+      } else if (input.name === 'poster' && input.value === '') {
+        (0, _errorController.formError)(input, 'Please provide a poster');
       } else {
         (0, _errorController.formSuccess)(input, 'Woohoo!');
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
