@@ -26691,10 +26691,11 @@ var formValidator = function formValidator(input) {
 exports.formValidator = formValidator;
 
 var formError = function formError(input, message) {
-  var formParent = (0, _utils.parentNode)(input, 'form__group'); // const formParent = input.parentElement;
+  var formParent = (0, _utils.parentNode)(input, 'form__group');
+  var labelElement = input.nextElementSibling; // const formParent = input.parentElement;
   // const formGrandparent = formParent.parentElement;
+  // const labelElement = formParent.querySelector('label');
 
-  var labelElement = formParent.querySelector('label');
   formParent.classList.add('error');
   formParent.classList.remove('success'); // formGrandparent.classList.add('error');
   // formGrandparent.classList.remove('success');
@@ -26706,10 +26707,11 @@ var formError = function formError(input, message) {
 exports.formError = formError;
 
 var formSuccess = function formSuccess(input, message) {
-  var formParent = (0, _utils.parentNode)(input, 'form__group'); // const formParent = input.parentElement;
+  var formParent = (0, _utils.parentNode)(input, 'form__group');
+  var labelElement = input.nextElementSibling; // const formParent = input.parentElement;
   // const formGrandparent = formParent.parentElement;
+  // const labelElement = formParent.querySelector('label');
 
-  var labelElement = formParent.querySelector('label');
   formParent.classList.add('success');
   formParent.classList.remove('error'); // formGrandparent.classList.add('success');
   // formGrandparent.classList.remove('error');
