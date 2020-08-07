@@ -28551,28 +28551,35 @@ if (registerFieldlist1) {
   firstPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);
   }); // const createAccountBtn = document.getElementById('btnCreateAccount');
+  // createAccountBtn.addEventListener('click', e => {
+  //   e.preventDefault();
+  //   checkFormSubmit(
+  //     document.getElementById('name'),
+  //     document.getElementById('username'),
+  //     document.getElementById('selectBirthMonth'),
+  //     document.getElementById('selectBirthDay'),
+  //     document.getElementById('selectBirthYear'),
+  //     document.getElementById('selectGender')
+  //   );
+  //   console.log(formStatus);
+  //   if (formStatus === 6) {
+  //     allowSubmit = true;
+  //     console.log(allowSubmit);
+  //   }
+  // });
+  // console.log(allowSubmit);
 
-  createAccountBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('username'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
-    console.log(_formController.formStatus);
+  registerForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
+      var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, name, birthdate, gender;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('username'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
 
-    if (_formController.formStatus === 6) {
-      allowSubmit = true;
-      console.log(allowSubmit);
-    }
-  });
-  console.log(allowSubmit);
-
-  if (allowSubmit) {
-    registerForm.addEventListener('submit', /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-        var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, name, birthdate, gender;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                e.preventDefault();
+              if (_formController.formStatus === 6) {
                 genderSelect = document.getElementById('selectGender');
                 birthMonth = document.getElementById('selectBirthMonth');
                 birthDay = document.getElementById('selectBirthDay');
@@ -28598,20 +28605,20 @@ if (registerFieldlist1) {
                 //     gender
                 //   );
                 //   document.getElementById('btnCreateAccount').textContent = 'Continue';
+              }
 
-              case 16:
-              case "end":
-                return _context.stop();
-            }
+            case 3:
+            case "end":
+              return _context.stop();
           }
-        }, _callee);
-      }));
+        }
+      }, _callee);
+    }));
 
-      return function (_x) {
-        return _ref.apply(this, arguments);
-      };
-    }());
-  }
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
 }
 
 if (updatePersonalForm) {

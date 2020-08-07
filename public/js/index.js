@@ -242,7 +242,29 @@ if (registerFieldlist1) {
 
   // const createAccountBtn = document.getElementById('btnCreateAccount');
 
-  createAccountBtn.addEventListener('click', e => {
+  // createAccountBtn.addEventListener('click', e => {
+  //   e.preventDefault();
+
+  //   checkFormSubmit(
+  //     document.getElementById('name'),
+  //     document.getElementById('username'),
+  //     document.getElementById('selectBirthMonth'),
+  //     document.getElementById('selectBirthDay'),
+  //     document.getElementById('selectBirthYear'),
+  //     document.getElementById('selectGender')
+  //   );
+
+  //   console.log(formStatus);
+
+  //   if (formStatus === 6) {
+  //     allowSubmit = true;
+  //     console.log(allowSubmit);
+  //   }
+  // });
+
+  // console.log(allowSubmit);
+
+  registerForm.addEventListener('submit', async e => {
     e.preventDefault();
 
     checkFormSubmit(
@@ -254,20 +276,7 @@ if (registerFieldlist1) {
       document.getElementById('selectGender')
     );
 
-    console.log(formStatus);
-
     if (formStatus === 6) {
-      allowSubmit = true;
-      console.log(allowSubmit);
-    }
-  });
-
-  console.log(allowSubmit);
-
-  if (allowSubmit) {
-    registerForm.addEventListener('submit', async e => {
-      e.preventDefault();
-
       const genderSelect = document.getElementById('selectGender');
 
       const birthMonth = document.getElementById('selectBirthMonth');
@@ -306,8 +315,8 @@ if (registerFieldlist1) {
       //   );
 
       //   document.getElementById('btnCreateAccount').textContent = 'Continue';
-    });
-  }
+    }
+  });
 }
 
 if (updatePersonalForm) {
