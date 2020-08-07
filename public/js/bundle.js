@@ -26886,6 +26886,18 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'show-title') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide a title');
+      } else if (inputVal > 100) {
+        (0, _errorController.formError)(input, 'Please enter a title that is 100 characters or less');
+      } else {
+        formSucces(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 

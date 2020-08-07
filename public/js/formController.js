@@ -159,6 +159,18 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'show-title') {
+      if (inputVal === '') {
+        formError(input, 'Please provide a title');
+      } else if (inputVal > 100) {
+        formError(input, 'Please enter a title that is 100 characters or less');
+      } else {
+        formSucces(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
