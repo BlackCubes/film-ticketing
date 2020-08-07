@@ -145,7 +145,7 @@
       }
 
       @include respond(tab-land) {
-        border-bottom: 0.45rem solid $color-lightseagreen;
+        border-bottom: 0.3rem solid $color-lightseagreen;
       }
     }
 
@@ -157,7 +157,7 @@
       }
 
       @include respond(tab-land) {
-        border-bottom: 0.45rem solid $color-red;
+        border-bottom: 0.3rem solid $color-red;
       }
     }
 
@@ -174,7 +174,7 @@
     }
 
     @include respond(tab-land) {
-      border-bottom: 0.45rem solid $color-lightseagreen;
+      border-bottom: 0.3rem solid $color-lightseagreen;
     }
   }
 
@@ -186,7 +186,7 @@
     }
 
     @include respond(tab-land) {
-      border-bottom: 0.45rem solid $color-red;
+      border-bottom: 0.3rem solid $color-red;
     }
   }
 
