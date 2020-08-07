@@ -209,7 +209,7 @@ function regexForm(e) {
   } else if (e.name === 'select-gender') {
     regexResult = regexGender.includes(e.value);
   } else if (e.name === 'photo') {
-    regexResult = regexPhoto.includes(
+    regexResult = regexPhoto.test(
       e.files[0].type
         .split('/')
         .pop()
