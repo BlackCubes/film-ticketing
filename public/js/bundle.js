@@ -26990,6 +26990,22 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
+    if (input.name === 'show-language' && inputVal !== '') {
+      if (inputVal.length < 3) {
+        validationFailure(input, 'Please enter language(s) a minimum of 3 characters', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
+    if (input.name === 'show-subtitles' && inputVal !== '') {
+      if (inputVal.length < 3) {
+        validationFailure(input, 'Please enter subtitles a minimum of 3 characters', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
     if (input.name === 'show-genre' && inputVal !== '') {
       if (inputVal.length < 3) {
         validationFailure(input, 'Please enter genre(s) a minimum of 3 characters', inputRequired); // formError(input, 'Please enter genre(s) a minimum of 3 characters');
