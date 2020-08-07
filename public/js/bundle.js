@@ -28627,7 +28627,7 @@ if (updatePersonalForm) {
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'), document.getElementById('userPhoto'));
 
-              if (_formController.formStatus === 5 || _formController.formStatus === 6) {
+              if (_formController.formStatus === 5) {
                 form = new FormData();
                 document.getElementById('btnUpdateData').textContent = 'Updating...';
                 selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');

@@ -301,7 +301,7 @@ if (updatePersonalForm) {
       document.getElementById('userPhoto')
     );
 
-    if (formStatus === 5 || formStatus === 6) {
+    if (formStatus === 5) {
       const form = new FormData();
 
       document.getElementById('btnUpdateData').textContent = 'Updating...';
