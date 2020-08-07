@@ -28514,10 +28514,9 @@ if (loginForm) {
     e.preventDefault();
     var email = document.getElementById('email');
     var password = document.getElementById('password');
-    (0, _formController.checkFormSubmit)(email);
-    (0, _formController.checkFormSubmit)(password);
+    (0, _formController.checkFormSubmit)(email, password);
 
-    if (_formController.formStatus) {
+    if (_formController.formStatus === 2) {
       (0, _login.login)(email.value, password.value);
     }
   });
@@ -28531,7 +28530,7 @@ if (forgotPassForm) {
     var email = document.getElementById('email');
     (0, _formController.checkFormSubmit)(email);
 
-    if (_formController.formStatus) {
+    if (_formController.formStatus === 1) {
       (0, _login.forgotPassword)(email.value);
     }
   });

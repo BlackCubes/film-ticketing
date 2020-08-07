@@ -191,10 +191,9 @@ if (loginForm) {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
-    checkFormSubmit(email);
-    checkFormSubmit(password);
+    checkFormSubmit(email, password);
 
-    if (formStatus) {
+    if (formStatus === 2) {
       login(email.value, password.value);
     }
   });
@@ -209,7 +208,7 @@ if (forgotPassForm) {
 
     checkFormSubmit(email);
 
-    if (formStatus) {
+    if (formStatus === 1) {
       forgotPassword(email.value);
     }
   });
