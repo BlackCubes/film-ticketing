@@ -27027,6 +27027,14 @@ var checkFormSubmit = function checkFormSubmit() {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if ((input.name === 'select-specialvenue' || input.name === 'select-privatevenue') && inputVal !== '') {
+      if (!regexForm(input)) {
+        validationFailure(input, 'Please use a valid value', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -27065,6 +27073,7 @@ function regexForm(e) {
   var regexDuration = /^[1-9]{1}[0-9]{1,}$/;
   var regexContent = /^\b(Film|TV)\b$/;
   var regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
+  var regexVenue = /^\b(y|n)\b$/;
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -27092,6 +27101,8 @@ function regexForm(e) {
     regexResult = regexContent.test(e.value);
   } else if (e.name === 'show-price') {
     regexResult = regexPrice.test(parseFloat(e.value));
+  } else if (e.name === 'select-specialvenue' | e.name === 'select-privatevenue') {
+    regexResult = regexVenue.test(e.value);
   }
 
   return regexResult;
