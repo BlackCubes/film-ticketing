@@ -262,6 +262,16 @@ export const checkFormSubmit = (...inputs) => {
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'show-genre' && inputVal !== '') {
+      if (inputVal.length < 3) {
+        formError(input, 'Please enter genre(s) a minimum of 3 characters');
+        formStatus -= 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      } else {
+        validationSuccess(input, 'Woohoo!', false);
+      }
+    }
   });
 };
 

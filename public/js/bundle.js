@@ -26959,6 +26959,16 @@ var checkFormSubmit = function checkFormSubmit() {
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'show-genre' && inputVal !== '') {
+      if (inputVal.length < 3) {
+        (0, _errorController.formError)(input, 'Please enter genre(s) a minimum of 3 characters');
+        exports.formStatus = formStatus = formStatus - 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      } else {
+        validationSuccess(input, 'Woohoo!', false);
+      }
+    }
   });
 };
 
