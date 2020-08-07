@@ -28538,7 +28538,6 @@ if (forgotPassForm) {
 }
 
 if (registerFieldlist1) {
-  var allowSubmit = false;
   var firstNextBtn = document.getElementById('btnNext-1'),
       firstPreviousBtn = document.getElementById('btnPrev-1'),
       createAccountBtn = document.getElementById('btnCreateAccount');
@@ -28551,25 +28550,7 @@ if (registerFieldlist1) {
   });
   firstPreviousBtn.addEventListener('click', function (e) {
     return multiForm.buttonBack(e);
-  }); // const createAccountBtn = document.getElementById('btnCreateAccount');
-  // createAccountBtn.addEventListener('click', e => {
-  //   e.preventDefault();
-  //   checkFormSubmit(
-  //     document.getElementById('name'),
-  //     document.getElementById('username'),
-  //     document.getElementById('selectBirthMonth'),
-  //     document.getElementById('selectBirthDay'),
-  //     document.getElementById('selectBirthYear'),
-  //     document.getElementById('selectGender')
-  //   );
-  //   console.log(formStatus);
-  //   if (formStatus === 6) {
-  //     allowSubmit = true;
-  //     console.log(allowSubmit);
-  //   }
-  // });
-  // console.log(allowSubmit);
-
+  });
   registerForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
       var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, name, birthdate, gender;

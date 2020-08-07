@@ -216,8 +216,6 @@ if (forgotPassForm) {
 }
 
 if (registerFieldlist1) {
-  let allowSubmit = false;
-
   const firstNextBtn = document.getElementById('btnNext-1'),
     firstPreviousBtn = document.getElementById('btnPrev-1'),
     createAccountBtn = document.getElementById('btnCreateAccount');
@@ -239,30 +237,6 @@ if (registerFieldlist1) {
   });
 
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
-
-  // const createAccountBtn = document.getElementById('btnCreateAccount');
-
-  // createAccountBtn.addEventListener('click', e => {
-  //   e.preventDefault();
-
-  //   checkFormSubmit(
-  //     document.getElementById('name'),
-  //     document.getElementById('username'),
-  //     document.getElementById('selectBirthMonth'),
-  //     document.getElementById('selectBirthDay'),
-  //     document.getElementById('selectBirthYear'),
-  //     document.getElementById('selectGender')
-  //   );
-
-  //   console.log(formStatus);
-
-  //   if (formStatus === 6) {
-  //     allowSubmit = true;
-  //     console.log(allowSubmit);
-  //   }
-  // });
-
-  // console.log(allowSubmit);
 
   registerForm.addEventListener('submit', async e => {
     e.preventDefault();
