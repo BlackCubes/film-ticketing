@@ -72,6 +72,28 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'username') {
+      if (inputVal === '') {
+        formError(input, 'Please provide a username');
+      } else if (inputVal.length < 3) {
+        formError(input, 'Please enter a username a minimum of 3 characters');
+      } else if (inputVal.length > 9) {
+        formError(
+          input,
+          'Please enter a username that is 9 characters or less'
+        );
+      } else if (!regexForm(input)) {
+        formError(
+          input,
+          'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters'
+        );
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
@@ -81,6 +103,7 @@ function regexForm(e) {
   const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
+  const regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
 
   if (e.name === 'password') {
     regexResult = regexPass.test(e.value);
@@ -88,6 +111,8 @@ function regexForm(e) {
     regexResult = regexEmail.test(e.value);
   } else if (e.name === 'name') {
     regexResult = regexName.test(e.value);
+  } else if (e.name === 'username') {
+    regexResult = regexUsername.test(e.value);
   }
 
   return regexResult;
