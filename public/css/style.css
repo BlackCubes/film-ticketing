@@ -1168,6 +1168,24 @@ body {
     outline: 3px solid #20b2aa;
     outline-offset: 3px; }
 
+.form__group.success .form__upload + label {
+  color: #20b2aa;
+  border-bottom: 1px solid #20b2aa; }
+  .form__group.success .form__upload + label:hover, .form__group.success .form__upload + label:focus, .form__group.success .form__upload + label:active {
+    background-color: #20b2aa; }
+
+.form__group.success .form__upload:focus + label {
+  outline: 3px solid #20b2aa; }
+
+.form__group.error .form__upload + label {
+  color: #ff0000;
+  border-bottom: 1px solid #ff0000; }
+  .form__group.error .form__upload + label:hover, .form__group.error .form__upload + label:focus, .form__group.error .form__upload + label:active {
+    background-color: #ff0000; }
+
+.form__group.error .form__upload:focus + label {
+  outline: 3px solid #ff0000; }
+
 .form__duo-btn-previous, .form__duo-btn-next, .form__duo-btn-submit {
   -webkit-flex-basis: 40%;
   -ms-flex-basis: 40%;

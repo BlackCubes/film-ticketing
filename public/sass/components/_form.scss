@@ -443,6 +443,40 @@
     }
   }
 
+  &__group.success &__upload {
+    & + label {
+      color: $color-lightseagreen;
+      border-bottom: 1px solid $color-lightseagreen;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $color-lightseagreen;
+      }
+    }
+
+    &:focus + label {
+      outline: 3px solid $color-lightseagreen;
+    }
+  }
+
+  &__group.error &__upload {
+    & + label {
+      color: $color-red;
+      border-bottom: 1px solid $color-red;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $color-red;
+      }
+    }
+
+    &:focus + label {
+      outline: 3px solid $color-red;
+    }
+  }
+
   &__duo-btn {
     &-previous,
     &-next,
