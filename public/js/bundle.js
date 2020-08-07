@@ -26938,6 +26938,28 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'textarea-overview') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please enter an overview');
+      } else if (inputVal.length > 183) {
+        (0, _errorController.formError)(input, 'Please enter an overview that is 183 characters or less');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
+
+    if (input.name === 'textarea-synopsis' && inputVal !== '') {
+      if (inputVal.length > 1100) {
+        (0, _errorController.formError)(input, 'Please enter a synopsis that is 1100 characters or less');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 

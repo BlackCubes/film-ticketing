@@ -217,6 +217,34 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'textarea-overview') {
+      if (inputVal === '') {
+        formError(input, 'Please enter an overview');
+      } else if (inputVal.length > 183) {
+        formError(
+          input,
+          'Please enter an overview that is 183 characters or less'
+        );
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
+
+    if (input.name === 'textarea-synopsis' && inputVal !== '') {
+      if (inputVal.length > 1100) {
+        formError(
+          input,
+          'Please enter a synopsis that is 1100 characters or less'
+        );
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
