@@ -427,6 +427,26 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'show-price') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a price', inputRequired);
+      } else if (parseFloat(inputVal) < 5) {
+        validationFailure(
+          input,
+          'Please enter a price a minimum of $5',
+          inputRequired
+        );
+      } else if (!regexForm(input)) {
+        validationFailure(
+          input,
+          'Please provide a valid price with a minimum of $5',
+          inputRequired
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -487,6 +507,7 @@ function regexForm(e) {
   ];
   const regexDuration = /^[1-9]{1}[0-9]{1,}$/;
   const regexContent = /^\b(Film|TV)\b$/;
+  const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(e.value);
@@ -517,6 +538,8 @@ function regexForm(e) {
     regexResult = regexDuration.test(parseInt(e.value));
   } else if (e.name === 'select-contenttype') {
     regexResult = regexContent.test(e.value);
+  } else if (e.name === 'show-price') {
+    regexResult = regexPrice.test(parseFloat(e.value));
   }
 
   return regexResult;
