@@ -28691,22 +28691,22 @@ if (updatePassForm) {
           switch (_context4.prev = _context4.next) {
             case 0:
               e.preventDefault();
-              document.getElementById('btnUpdatePass').textContent = 'Updating...';
-              passwordCurrent = document.getElementById('currentPass').value, password = document.getElementById('newPass').value, passwordConfirm = document.getElementById('confirmNewPass').value;
-              _context4.next = 5;
-              return (0, _updateSettings.updateSettings)({
-                passwordCurrent: passwordCurrent,
-                password: password,
-                passwordConfirm: passwordConfirm
-              }, 'password');
+              (0, _formController.checkFormSubmit)(document.getElementById('currentPass'), document.getElementById('newPass'), document.getElementById('confirmNewPass'));
 
-            case 5:
-              document.getElementById('btnUpdatePass').textContent = 'Update Password';
-              document.getElementById('currentPass').value = '';
-              document.getElementById('newPass').value = '';
-              document.getElementById('confirmNewPass').value = '';
+              if (_formController.formStatus === 3) {
+                document.getElementById('btnUpdatePass').textContent = 'Updating...';
+                passwordCurrent = document.getElementById('currentPass').value, password = document.getElementById('newPass').value, passwordConfirm = document.getElementById('confirmNewPass').value; // await updateSettings(
+                //   { passwordCurrent, password, passwordConfirm },
+                //   'password'
+                // );
 
-            case 9:
+                document.getElementById('btnUpdatePass').textContent = 'Update Password';
+                document.getElementById('currentPass').value = '';
+                document.getElementById('newPass').value = '';
+                document.getElementById('confirmNewPass').value = '';
+              }
+
+            case 3:
             case "end":
               return _context4.stop();
           }

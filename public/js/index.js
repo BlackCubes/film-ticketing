@@ -375,21 +375,29 @@ if (updatePassForm) {
   updatePassForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    document.getElementById('btnUpdatePass').textContent = 'Updating...';
-
-    const passwordCurrent = document.getElementById('currentPass').value,
-      password = document.getElementById('newPass').value,
-      passwordConfirm = document.getElementById('confirmNewPass').value;
-
-    await updateSettings(
-      { passwordCurrent, password, passwordConfirm },
-      'password'
+    checkFormSubmit(
+      document.getElementById('currentPass'),
+      document.getElementById('newPass'),
+      document.getElementById('confirmNewPass')
     );
 
-    document.getElementById('btnUpdatePass').textContent = 'Update Password';
-    document.getElementById('currentPass').value = '';
-    document.getElementById('newPass').value = '';
-    document.getElementById('confirmNewPass').value = '';
+    if (formStatus === 3) {
+      document.getElementById('btnUpdatePass').textContent = 'Updating...';
+
+      const passwordCurrent = document.getElementById('currentPass').value,
+        password = document.getElementById('newPass').value,
+        passwordConfirm = document.getElementById('confirmNewPass').value;
+
+      // await updateSettings(
+      //   { passwordCurrent, password, passwordConfirm },
+      //   'password'
+      // );
+
+      document.getElementById('btnUpdatePass').textContent = 'Update Password';
+      document.getElementById('currentPass').value = '';
+      document.getElementById('newPass').value = '';
+      document.getElementById('confirmNewPass').value = '';
+    }
   });
 }
 
