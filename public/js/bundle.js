@@ -26880,7 +26880,7 @@ var checkFormSubmit = function checkFormSubmit() {
         input.value = '';
       } else if (input.files[0].size > 1024000) {
         (0, _errorController.formError)(input, 'Max upload size is 1MB only');
-        e.value = '';
+        input.value = '';
       } else {
         (0, _errorController.formSuccess)(input, 'Woohoo!');
         exports.formStatus = formStatus = formStatus + 1;

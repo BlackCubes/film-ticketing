@@ -153,7 +153,7 @@ export const checkFormSubmit = (...inputs) => {
         input.value = '';
       } else if (input.files[0].size > 1024000) {
         formError(input, 'Max upload size is 1MB only');
-        e.value = '';
+        input.value = '';
       } else {
         formSuccess(input, 'Woohoo!');
         formStatus += 1;
