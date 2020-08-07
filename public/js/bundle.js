@@ -26728,7 +26728,18 @@ exports.checkFormSubmit = exports.formStatus = void 0;
 
 var _errorController = require("./errorController");
 
-/* eslint-disable */
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var formStatus = 0;
 exports.formStatus = formStatus;
 
@@ -26810,6 +26821,42 @@ var checkFormSubmit = function checkFormSubmit() {
         console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
       }
     }
+
+    if (input.name === 'select-birthmonth') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide a birth month');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please use a valid month');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
+
+    if (input.name === 'select-birthday') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide a birth day');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please use a valid day');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
+
+    if (input.name === 'select-birthyear') {
+      if (inputVal === '') {
+        (0, _errorController.formError)(input, 'Please provide a birth year');
+      } else if (!regexForm(input)) {
+        (0, _errorController.formError)(input, 'Please use a valid year');
+      } else {
+        (0, _errorController.formSuccess)(input, 'Woohoo!');
+        exports.formStatus = formStatus = formStatus + 1;
+        console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
+      }
+    }
   });
 };
 
@@ -26822,6 +26869,14 @@ function regexForm(e) {
   var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
   var regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
+  var regexDateMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  var regexDateDay = _toConsumableArray(Array(32).keys()).splice(1);
+
+  var now = new Date().getFullYear();
+  var regexDateYear = Array(now - (now - 101)).fill('').map(function (val, i) {
+    return now - i;
+  });
 
   if (e.name === 'password') {
     regexResult = regexPass.test(e.value);
@@ -26831,6 +26886,12 @@ function regexForm(e) {
     regexResult = regexName.test(e.value);
   } else if (e.name === 'username') {
     regexResult = regexUsername.test(e.value);
+  } else if (e.name === 'select-birthmonth') {
+    regexResult = regexDateMonth.includes(e.value);
+  } else if (e.name === 'select-birthday') {
+    regexResult = regexDateDay.includes(parseInt(e.value));
+  } else if (e.name === 'select-birthyear') {
+    regexResult = regexDateYear.includes(parseInt(e.value));
   }
 
   return regexResult;

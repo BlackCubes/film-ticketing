@@ -94,6 +94,42 @@ export const checkFormSubmit = (...inputs) => {
         console.log(`${input.name.toUpperCase()} part: `, formStatus);
       }
     }
+
+    if (input.name === 'select-birthmonth') {
+      if (inputVal === '') {
+        formError(input, 'Please provide a birth month');
+      } else if (!regexForm(input)) {
+        formError(input, 'Please use a valid month');
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
+
+    if (input.name === 'select-birthday') {
+      if (inputVal === '') {
+        formError(input, 'Please provide a birth day');
+      } else if (!regexForm(input)) {
+        formError(input, 'Please use a valid day');
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
+
+    if (input.name === 'select-birthyear') {
+      if (inputVal === '') {
+        formError(input, 'Please provide a birth year');
+      } else if (!regexForm(input)) {
+        formError(input, 'Please use a valid year');
+      } else {
+        formSuccess(input, 'Woohoo!');
+        formStatus += 1;
+        console.log(`${input.name.toUpperCase()} part: `, formStatus);
+      }
+    }
   });
 };
 
@@ -104,6 +140,25 @@ function regexForm(e) {
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
   const regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
+  const regexDateMonth = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  const regexDateDay = [...Array(32).keys()].splice(1);
+  const now = new Date().getFullYear();
+  const regexDateYear = Array(now - (now - 101))
+    .fill('')
+    .map((val, i) => now - i);
 
   if (e.name === 'password') {
     regexResult = regexPass.test(e.value);
@@ -113,6 +168,12 @@ function regexForm(e) {
     regexResult = regexName.test(e.value);
   } else if (e.name === 'username') {
     regexResult = regexUsername.test(e.value);
+  } else if (e.name === 'select-birthmonth') {
+    regexResult = regexDateMonth.includes(e.value);
+  } else if (e.name === 'select-birthday') {
+    regexResult = regexDateDay.includes(parseInt(e.value));
+  } else if (e.name === 'select-birthyear') {
+    regexResult = regexDateYear.includes(parseInt(e.value));
   }
 
   return regexResult;
