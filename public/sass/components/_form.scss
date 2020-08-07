@@ -220,6 +220,11 @@
     @include respond(tab-port) {
       margin-top: 1rem;
     }
+
+    @include respond(desktop) {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
   }
 
   &__group.success &__label {
@@ -349,6 +354,13 @@
       -ms-flex-basis: 30%;
       flex-basis: 30%;
     }
+
+    & .form__label {
+      @include respond(desktop) {
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+      }
+    }
   }
 
   &__gender {
@@ -358,6 +370,13 @@
 
     @include respond(tab-land) {
       padding-bottom: 1.5rem;
+    }
+
+    & .form__label {
+      @include respond(desktop) {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
     }
   }
 

@@ -1006,6 +1006,10 @@ body {
   @media (min-width: 37.5em) {
     .form__label {
       margin-top: 1rem; } }
+  @media (min-width: 75em) {
+    .form__label {
+      margin-left: 2rem;
+      margin-right: 2rem; } }
 
 .form__group.success .form__label {
   color: #20b2aa; }
@@ -1095,6 +1099,11 @@ body {
   -ms-flex-basis: 30%;
   flex-basis: 30%; }
 
+@media (min-width: 75em) {
+  .form__date .form__label {
+    margin-left: 0.3rem;
+    margin-right: 0.3rem; } }
+
 @media (min-width: 37.5em) {
   .form__gender {
     padding-bottom: 1rem; } }
@@ -1102,6 +1111,11 @@ body {
 @media (min-width: 56.25em) {
   .form__gender {
     padding-bottom: 1.5rem; } }
+
+@media (min-width: 75em) {
+  .form__gender .form__label {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem; } }
 
 .form__photo-upload {
   display: -webkit-box;
