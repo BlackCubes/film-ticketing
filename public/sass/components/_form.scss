@@ -229,11 +229,17 @@
     }
   }
 
-  &__group.success &__label {
+  &__group.success &__label,
+  &__date-month.success &__label,
+  &__date-day.success &__label,
+  &__date-year.success &__label {
     color: $color-lightseagreen;
   }
 
-  &__group.error &__label {
+  &__group.error &__label,
+  &__date-month.error &__label,
+  &__date-day.error &__label,
+  &__date-year.error &__label {
     color: $color-red;
   }
 

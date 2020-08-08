@@ -1019,10 +1019,16 @@ body {
       margin-left: 2rem;
       margin-right: 2rem; } }
 
-.form__group.success .form__label {
+.form__group.success .form__label,
+.form__date-month.success .form__label,
+.form__date-day.success .form__label,
+.form__date-year.success .form__label {
   color: #20b2aa; }
 
-.form__group.error .form__label {
+.form__group.error .form__label,
+.form__date-month.error .form__label,
+.form__date-day.error .form__label,
+.form__date-year.error .form__label {
   color: #ff0000; }
 
 .form__input:placeholder-shown + .form__label,
