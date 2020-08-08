@@ -253,6 +253,8 @@
 
   &__group.error &__input:placeholder-shown + &__label,
   &__group.error &__text-area:placeholder-shown + &__label,
+  &__group.error .dropdown + &__label,
+  &__group.success .dropdown + &__label,
   &__date-month.error .dropdown + &__label,
   &__date-day.error .dropdown + &__label,
   &__date-year.error .dropdown + &__label,
