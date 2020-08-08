@@ -90,7 +90,7 @@ block content
               .form__photo-upload
                 img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
                 input#showPhoto.form__upload(type='file' accept='image/*' name='poster' required)
-                label(for='showPhoto') Choose a different poster*
+                label.form__label-upload.label-text(for='showPhoto') Choose a different poster*
 
             .form__group
               button#btnUpdateShowData.btn.btn--blue(type='submit' name='btnUpdateShowData' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Show Settings
