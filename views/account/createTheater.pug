@@ -18,8 +18,8 @@ block content
                 label.form__label.label-text(for='theaterName') Please give a name to the theater
 
               .form__group
-                input#theaterPhone.form__input.input-text(type='text' name='phone' placeholder='Phone Number*' pattern='[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}' title='(000)000-0000, or a space between (000) 000-0000' required)
-                label.form__label.label-text(for='theaterPhone') Please give the theater's phone number
+                input#theaterPhone.form__input.input-text(type='text' name='phone' placeholder='Phone Number*' pattern='[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}' title='(###)###-####, or a space between (###) ###-####' required)
+                label.form__label.label-text(for='theaterPhone') Please give the theater's phone number as (###)###-### or (###) ###-####
 
               .form__group
                 input#theaterLinkUrl.form__input.input-text(type='text' name='linkurl' placeholder='Website URL (optional)' pattern='http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?')
