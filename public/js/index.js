@@ -73,6 +73,7 @@ const adCreateShowtimeForm = document.getElementById('adCreateShowtimeForm'),
   updateShowtimeAddl = document.getElementById('updateShowtimeAddl'),
   deleteShowtimeForm = document.getElementById('deleteShowtimeForm');
 const updateShowMainView = document.getElementById('updateShowMainView'),
+  updateShowPoster = document.getElementById('updateShowPoster'),
   updateShowPlot = document.getElementById('updateShowPlot'),
   updateShowCastCrewForm = document.getElementById('updateShowCastCrewForm'),
   updateShowAddl = document.getElementById('updateShowAddl'),
@@ -769,53 +770,107 @@ if (updateShowMainView) {
   updateShowMainView.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const form = new FormData();
-
-    const selectMpaa = document.getElementById('selectMpaa'),
-      selectOriginalMonth = document.getElementById('showOriginalMonth'),
-      selectOriginalDay = document.getElementById('showOriginalDay'),
-      selectOriginalYear = document.getElementById('showOriginalYear');
-
-    const originalMonth =
-        selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
-      originalDay =
-        selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
-      originalYear =
-        selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-
-    const mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-      originalReleaseDate = [
-        originalYear.concat('-', originalMonth, '-', originalDay)
-      ];
-
-    const title = document.getElementById('showTitle').value,
-      duration = document.getElementById('showDuration').value,
-      updateShowDataBtn = document.getElementById('btnUpdateShowData'),
-      poster = document.getElementById('showPhoto').files[0];
-
-    const posterUrlArr = document.getElementById('posterSource').src.split('/');
-    const posterParams = posterUrlArr[posterUrlArr.length - 1];
-
+    const updateShowDataBtn = document.getElementById('btnUpdateShowData');
     const { showId, roleType } = updateShowDataBtn.dataset;
-
-    document.getElementById('btnUpdateShowData').textContent = 'Updating...';
-
-    form.append('title', title);
-    form.append('duration', duration);
-    form.append('mpaaRating', mpaaRating);
-    form.append('originalReleaseDate', originalReleaseDate);
-    form.append('poster', poster);
+    var roleAmount = -100;
 
     if (roleType === 'admin') {
-      const eventOrganizer = [document.getElementById('showEventOwner').value];
+      roleAmount = 7;
 
-      form.append('eventOrganizer', eventOrganizer);
+      checkFormSubmit(
+        document.getElementById('showTitle'),
+        document.getElementById('selectMpaa'),
+        document.getElementById('showOriginalMonth'),
+        document.getElementById('showOriginalDay'),
+        document.getElementById('showOriginalYear'),
+        document.getElementById('showDuration'),
+        document.getElementById('showEventOwner')
+      );
+    } else if (roleType === 'event-owner') {
+      roleAmount = 6;
+
+      checkFormSubmit(
+        document.getElementById('showTitle'),
+        document.getElementById('selectMpaa'),
+        document.getElementById('showOriginalMonth'),
+        document.getElementById('showOriginalDay'),
+        document.getElementById('showOriginalYear'),
+        document.getElementById('showDuration')
+      );
     }
 
-    await updateShowSettings(form, 'setting', showId, roleType, posterParams);
+    if (formStatus === roleAmount) {
+      const form = new FormData();
 
-    document.getElementById('btnUpdateShowData').textContent =
-      'Update Show Settings';
+      const selectMpaa = document.getElementById('selectMpaa'),
+        selectOriginalMonth = document.getElementById('showOriginalMonth'),
+        selectOriginalDay = document.getElementById('showOriginalDay'),
+        selectOriginalYear = document.getElementById('showOriginalYear');
+
+      const originalMonth =
+          selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
+        originalDay =
+          selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
+        originalYear =
+          selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+
+      const mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
+        originalReleaseDate = [
+          originalYear.concat('-', originalMonth, '-', originalDay)
+        ];
+
+      const title = document.getElementById('showTitle').value,
+        duration = document.getElementById('showDuration').value;
+
+      document.getElementById('btnUpdateShowData').textContent = 'Updating...';
+
+      form.append('title', title);
+      form.append('duration', duration);
+      form.append('mpaaRating', mpaaRating);
+      form.append('originalReleaseDate', originalReleaseDate);
+
+      if (roleType === 'admin') {
+        const eventOrganizer = [
+          document.getElementById('showEventOwner').value
+        ];
+
+        form.append('eventOrganizer', eventOrganizer);
+      }
+
+      // await updateShowSettings(form, 'setting', showId, roleType);
+
+      document.getElementById('btnUpdateShowData').textContent =
+        'Update Show Settings';
+    }
+  });
+}
+
+if (updateShowPoster) {
+  updateShowPoster.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    checkFormSubmit(document.getElementById('showPoster'));
+
+    if (formStatus === 1) {
+      const form = new FormData();
+      const updateShowPosterBtn = document.getElementById(
+        'btnUpdateShowPoster'
+      );
+      const { showId, roleType } = updateShowPosterBtn.dataset;
+      const poster = document.getElementById('showPhoto').files[0],
+        posterUrlArr = document.getElementById('posterSource').src.split('/');
+      const posterParams = posterUrlArr[posterUrlArr.length - 1];
+
+      document.getElementById('btnUpdateShowPoster').textContent =
+        'Updating...';
+
+      form.append('poster', poster);
+
+      // await updateShowSettings(form, 'poster', showId, roleType, posterParams);
+
+      document.getElementById('btnUpdateShowPoster').textContent =
+        'Update Show Poster';
+    }
   });
 }
 
