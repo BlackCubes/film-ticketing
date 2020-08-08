@@ -28967,7 +28967,8 @@ if (eoFieldlist1) {
   var _firstNextBtn = document.getElementById('btnNext-1'),
       secondNextBtn = document.getElementById('btnNext-2'),
       thirdNextBtn = document.getElementById('btnNext-3'),
-      fourthNextBtn = document.getElementById('btnNext-4');
+      fourthNextBtn = document.getElementById('btnNext-4'),
+      createShowBtn = document.getElementById('btnCreateShow');
 
   var _firstPreviousBtn = document.getElementById('btnPrev-1'),
       secondPreviousBtn = document.getElementById('btnPrev-2'),
@@ -28978,17 +28979,25 @@ if (eoFieldlist1) {
 
 
   _firstNextBtn.addEventListener('click', function (e) {
-    return _multiForm.buttonNext(e, true, true);
+    e.preventDefault();
+    (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showDuration'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showContentType'));
+    if (_formController.formStatus === 7) _multiForm.buttonNext();
   });
 
   secondNextBtn.addEventListener('click', function (e) {
-    _multiForm.buttonNext(e, true);
+    e.preventDefault();
+    (0, _formController.checkFormSubmit)(document.getElementById('showPhoto'));
+    if (_formController.formStatus === 1) _multiForm.buttonNext();
   });
   thirdNextBtn.addEventListener('click', function (e) {
-    return _multiForm.buttonNext(e, false, false, true);
+    e.preventDefault();
+    (0, _formController.checkFormSubmit)(document.getElementById('showOverview'), document.getElementById('showSynopsis'));
+    if (_formController.formStatus === 1) _multiForm.buttonNext();
   });
   fourthNextBtn.addEventListener('click', function (e) {
-    return _multiForm.buttonNext(e, true);
+    e.preventDefault();
+    (0, _formController.checkFormSubmit)(document.getElementById('showLanguage'), document.getElementById('showSubtitles'), document.getElementById('showGenre'));
+    if (_formController.formStatus === 0) _multiForm.buttonNext();
   }); // Initiate previous buttons
 
   _firstPreviousBtn.addEventListener('click', function (e) {
@@ -29004,60 +29013,67 @@ if (eoFieldlist1) {
   fourthPreviousBtn.addEventListener('click', function (e) {
     return _multiForm.buttonBack(e);
   });
-  var createShowBtn = document.getElementById('btnCreateShow'); // eoCreateShowForm.addEventListener('submit', async e => {
-  //   e.preventDefault();
-
   eoCreateShowForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(e) {
-      var form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster, roleType, selectPrivateVenue, privateVenueValue, secretShow, eventOrganizer;
+      var roleType, roleAmount, form, title, duration, selectOriginalMonth, selectOriginalDay, selectOriginalYear, selectContentType, selectMpaa, originalMonth, originalDay, originalYear, originalReleaseDate, mpaaRating, contentType, overview, synopsis, language, subtitles, genres, selectSpecialVenue, specialVenueValue, specialVenue, price, poster, selectPrivateVenue, privateVenueValue, secretShow, eventOrganizer;
       return regeneratorRuntime.wrap(function _callee6$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
             case 0:
               e.preventDefault();
-              form = new FormData();
-              title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
-              selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectMpaa = document.getElementById('selectMpaa');
-              originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-              originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay), mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, contentType = selectContentType.options[selectContentType.selectedIndex].value;
-              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
-              language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, genres = document.getElementById('showGenre').value;
-              selectSpecialVenue = document.getElementById('showSpecialVenue');
-              specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-              specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
-              poster = document.getElementById('showPhoto').files[0];
               roleType = createShowBtn.dataset.roleType;
-              document.getElementById('btnCreateShow').textContent = 'Creating...';
-              form.append('title', title);
-              form.append('duration', duration);
-              form.append('originalReleaseDate', originalReleaseDate);
-              form.append('mpaaRating', mpaaRating);
-              form.append('contentType', contentType);
-              form.append('overview', overview);
-              form.append('synopsis', synopsis);
-              form.append('language', language);
-              form.append('subtitles', subtitles);
-              form.append('genres', genres);
-              form.append('specialVenue', specialVenue);
-              form.append('price', price);
-              form.append('poster', poster);
+              roleAmount = -100;
 
               if (roleType === 'admin') {
-                selectPrivateVenue = document.getElementById('showPrivateVenue');
-                privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
-                secretShow = privateVenueValue === 'y' ? true : false;
-                eventOrganizer = [document.getElementById('showEventOwner').value];
-                form.append('secretShow', secretShow);
-                form.append('eventOrganizer', eventOrganizer);
+                roleAmount = 2;
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'), document.getElementById('showPrivateVenue'), document.getElementById('showEventOwner'));
+              } else if (roleType === 'event-owner') {
+                roleAmount = 1;
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
               }
 
-              _context6.next = 30;
-              return (0, _login.createShow)(form, roleType);
+              if (_formController.formStatus === roleAmount) {
+                form = new FormData();
+                title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
+                selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectMpaa = document.getElementById('selectMpaa');
+                originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+                originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay), mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, contentType = selectContentType.options[selectContentType.selectedIndex].value;
+                overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
+                language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, genres = document.getElementById('showGenre').value;
+                selectSpecialVenue = document.getElementById('showSpecialVenue');
+                specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+                specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
+                poster = document.getElementById('showPhoto').files[0]; // const { roleType } = createShowBtn.dataset;
 
-            case 30:
-              document.getElementById('btnCreateShow').textContent = 'Create';
+                document.getElementById('btnCreateShow').textContent = 'Creating...';
+                form.append('title', title);
+                form.append('duration', duration);
+                form.append('originalReleaseDate', originalReleaseDate);
+                form.append('mpaaRating', mpaaRating);
+                form.append('contentType', contentType);
+                form.append('overview', overview);
+                form.append('synopsis', synopsis);
+                form.append('language', language);
+                form.append('subtitles', subtitles);
+                form.append('genres', genres);
+                form.append('specialVenue', specialVenue);
+                form.append('price', price);
+                form.append('poster', poster);
 
-            case 31:
+                if (roleType === 'admin') {
+                  selectPrivateVenue = document.getElementById('showPrivateVenue');
+                  privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+                  secretShow = privateVenueValue === 'y' ? true : false;
+                  eventOrganizer = [document.getElementById('showEventOwner').value];
+                  form.append('secretShow', secretShow);
+                  form.append('eventOrganizer', eventOrganizer);
+                } // await createShow(form, roleType);
+
+
+                document.getElementById('btnCreateShow').textContent = 'Create';
+              }
+
+            case 5:
             case "end":
               return _context6.stop();
           }

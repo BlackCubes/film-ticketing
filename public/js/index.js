@@ -425,7 +425,8 @@ if (eoFieldlist1) {
   const firstNextBtn = document.getElementById('btnNext-1'),
     secondNextBtn = document.getElementById('btnNext-2'),
     thirdNextBtn = document.getElementById('btnNext-3'),
-    fourthNextBtn = document.getElementById('btnNext-4');
+    fourthNextBtn = document.getElementById('btnNext-4'),
+    createShowBtn = document.getElementById('btnCreateShow');
 
   const firstPreviousBtn = document.getElementById('btnPrev-1'),
     secondPreviousBtn = document.getElementById('btnPrev-2'),
@@ -435,16 +436,52 @@ if (eoFieldlist1) {
   let multiForm = new MultiForm(firstNextBtn, eoFieldlist1);
 
   // Initiate click event listeners for multiform with specific elements
-  firstNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, true, true)
-  );
-  secondNextBtn.addEventListener('click', e => {
-    multiForm.buttonNext(e, true);
+  firstNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    checkFormSubmit(
+      document.getElementById('showTitle'),
+      document.getElementById('selectMpaa'),
+      document.getElementById('showDuration'),
+      document.getElementById('showOriginalMonth'),
+      document.getElementById('showOriginalDay'),
+      document.getElementById('showOriginalYear'),
+      document.getElementById('showContentType')
+    );
+
+    if (formStatus === 7) multiForm.buttonNext();
   });
-  thirdNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, false, false, true)
-  );
-  fourthNextBtn.addEventListener('click', e => multiForm.buttonNext(e, true));
+
+  secondNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    checkFormSubmit(document.getElementById('showPhoto'));
+
+    if (formStatus === 1) multiForm.buttonNext();
+  });
+
+  thirdNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    checkFormSubmit(
+      document.getElementById('showOverview'),
+      document.getElementById('showSynopsis')
+    );
+
+    if (formStatus === 1) multiForm.buttonNext();
+  });
+
+  fourthNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    checkFormSubmit(
+      document.getElementById('showLanguage'),
+      document.getElementById('showSubtitles'),
+      document.getElementById('showGenre')
+    );
+
+    if (formStatus === 0) multiForm.buttonNext();
+  });
 
   // Initiate previous buttons
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
@@ -452,93 +489,114 @@ if (eoFieldlist1) {
   thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   fourthPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
-  const createShowBtn = document.getElementById('btnCreateShow');
-
-  // eoCreateShowForm.addEventListener('submit', async e => {
-  //   e.preventDefault();
   eoCreateShowForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const form = new FormData();
-
-    const title = document.getElementById('showTitle').value,
-      duration = document.getElementById('showDuration').value;
-
-    const selectOriginalMonth = document.getElementById('showOriginalMonth'),
-      selectOriginalDay = document.getElementById('showOriginalDay'),
-      selectOriginalYear = document.getElementById('showOriginalYear'),
-      selectContentType = document.getElementById('showContentType'),
-      selectMpaa = document.getElementById('selectMpaa');
-
-    const originalMonth =
-        selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
-      originalDay =
-        selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
-      originalYear =
-        selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-
-    const originalReleaseDate = originalYear.concat(
-        '-',
-        originalMonth,
-        '-',
-        originalDay
-      ),
-      mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-      contentType =
-        selectContentType.options[selectContentType.selectedIndex].value;
-
-    const overview = document.getElementById('showOverview').value,
-      synopsis = document.getElementById('showSynopsis').value;
-
-    const language = document.getElementById('showLanguage').value,
-      subtitles = document.getElementById('showSubtitles').value,
-      genres = document.getElementById('showGenre').value;
-
-    const selectSpecialVenue = document.getElementById('showSpecialVenue');
-
-    const specialVenueValue =
-      selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-
-    const specialVenue = specialVenueValue === 'y' ? true : false,
-      price = document.getElementById('showPrice').value;
-
-    const poster = document.getElementById('showPhoto').files[0];
-
     const { roleType } = createShowBtn.dataset;
-
-    document.getElementById('btnCreateShow').textContent = 'Creating...';
-
-    form.append('title', title);
-    form.append('duration', duration);
-    form.append('originalReleaseDate', originalReleaseDate);
-    form.append('mpaaRating', mpaaRating);
-    form.append('contentType', contentType);
-    form.append('overview', overview);
-    form.append('synopsis', synopsis);
-    form.append('language', language);
-    form.append('subtitles', subtitles);
-    form.append('genres', genres);
-    form.append('specialVenue', specialVenue);
-    form.append('price', price);
-    form.append('poster', poster);
+    var roleAmount = -100;
 
     if (roleType === 'admin') {
-      const selectPrivateVenue = document.getElementById('showPrivateVenue');
+      roleAmount = 2;
 
-      const privateVenueValue =
-        selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+      checkFormSubmit(
+        document.getElementById('showPrice'),
+        document.getElementById('showSpecialVenue'),
+        document.getElementById('showPrivateVenue'),
+        document.getElementById('showEventOwner')
+      );
+    } else if (roleType === 'event-owner') {
+      roleAmount = 1;
 
-      const secretShow = privateVenueValue === 'y' ? true : false;
-
-      const eventOrganizer = [document.getElementById('showEventOwner').value];
-
-      form.append('secretShow', secretShow);
-      form.append('eventOrganizer', eventOrganizer);
+      checkFormSubmit(
+        document.getElementById('showPrice'),
+        document.getElementById('showSpecialVenue')
+      );
     }
 
-    await createShow(form, roleType);
+    if (formStatus === roleAmount) {
+      const form = new FormData();
 
-    document.getElementById('btnCreateShow').textContent = 'Create';
+      const title = document.getElementById('showTitle').value,
+        duration = document.getElementById('showDuration').value;
+
+      const selectOriginalMonth = document.getElementById('showOriginalMonth'),
+        selectOriginalDay = document.getElementById('showOriginalDay'),
+        selectOriginalYear = document.getElementById('showOriginalYear'),
+        selectContentType = document.getElementById('showContentType'),
+        selectMpaa = document.getElementById('selectMpaa');
+
+      const originalMonth =
+          selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
+        originalDay =
+          selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
+        originalYear =
+          selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+
+      const originalReleaseDate = originalYear.concat(
+          '-',
+          originalMonth,
+          '-',
+          originalDay
+        ),
+        mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
+        contentType =
+          selectContentType.options[selectContentType.selectedIndex].value;
+
+      const overview = document.getElementById('showOverview').value,
+        synopsis = document.getElementById('showSynopsis').value;
+
+      const language = document.getElementById('showLanguage').value,
+        subtitles = document.getElementById('showSubtitles').value,
+        genres = document.getElementById('showGenre').value;
+
+      const selectSpecialVenue = document.getElementById('showSpecialVenue');
+
+      const specialVenueValue =
+        selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+
+      const specialVenue = specialVenueValue === 'y' ? true : false,
+        price = document.getElementById('showPrice').value;
+
+      const poster = document.getElementById('showPhoto').files[0];
+
+      // const { roleType } = createShowBtn.dataset;
+
+      document.getElementById('btnCreateShow').textContent = 'Creating...';
+
+      form.append('title', title);
+      form.append('duration', duration);
+      form.append('originalReleaseDate', originalReleaseDate);
+      form.append('mpaaRating', mpaaRating);
+      form.append('contentType', contentType);
+      form.append('overview', overview);
+      form.append('synopsis', synopsis);
+      form.append('language', language);
+      form.append('subtitles', subtitles);
+      form.append('genres', genres);
+      form.append('specialVenue', specialVenue);
+      form.append('price', price);
+      form.append('poster', poster);
+
+      if (roleType === 'admin') {
+        const selectPrivateVenue = document.getElementById('showPrivateVenue');
+
+        const privateVenueValue =
+          selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+
+        const secretShow = privateVenueValue === 'y' ? true : false;
+
+        const eventOrganizer = [
+          document.getElementById('showEventOwner').value
+        ];
+
+        form.append('secretShow', secretShow);
+        form.append('eventOrganizer', eventOrganizer);
+      }
+
+      // await createShow(form, roleType);
+
+      document.getElementById('btnCreateShow').textContent = 'Create';
+    }
   });
 }
 
