@@ -29319,19 +29319,17 @@ if (updateShowPlot) {
           switch (_context12.prev = _context12.next) {
             case 0:
               e.preventDefault();
-              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value, updateShowPlotBtn = document.getElementById('btnUpdateShowPlot');
-              _updateShowPlotBtn$da = updateShowPlotBtn.dataset, showId = _updateShowPlotBtn$da.showId, roleType = _updateShowPlotBtn$da.roleType;
-              document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
-              _context12.next = 6;
-              return (0, _updateSettings.updateShowSettings)({
-                overview: overview,
-                synopsis: synopsis
-              }, 'plot', showId, roleType);
+              (0, _formController.checkFormSubmit)(document.getElementById('showOverview'), document.getElementById('showSynopsis'));
 
-            case 6:
-              document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+              if (_formController.formStatus === 1) {
+                overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value, updateShowPlotBtn = document.getElementById('btnUpdateShowPlot');
+                _updateShowPlotBtn$da = updateShowPlotBtn.dataset, showId = _updateShowPlotBtn$da.showId, roleType = _updateShowPlotBtn$da.roleType;
+                document.getElementById('btnUpdateShowPlot').textContent = 'Updating...'; // await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
 
-            case 7:
+                document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+              }
+
+            case 3:
             case "end":
               return _context12.stop();
           }
@@ -29362,16 +29360,11 @@ if (updateShowCastCrewForm) {
               castcrew = castcrewValue.split(',');
               updateShowCastCrewBtn = document.getElementById('btnUpdateShowCastCrew');
               _updateShowCastCrewBt = updateShowCastCrewBtn.dataset, showId = _updateShowCastCrewBt.showId, roleType = _updateShowCastCrewBt.roleType;
-              document.getElementById('btnUpdateShowCastCrew').textContent = 'Updating...';
-              _context13.next = 11;
-              return (0, _updateSettings.updateShowSettings)({
-                castcrew: castcrew
-              }, 'casts/crews', showId, roleType);
+              document.getElementById('btnUpdateShowCastCrew').textContent = 'Updating...'; // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
 
-            case 11:
               document.getElementById('btnUpdateShowCastCrew').textContent = 'Update Casts | Crews';
 
-            case 12:
+            case 10:
             case "end":
               return _context13.stop();
           }
@@ -29395,23 +29388,24 @@ if (updateShowAddl) {
           switch (_context14.prev = _context14.next) {
             case 0:
               e.preventDefault();
-              selectContentType = document.getElementById('showContentType');
-              contentType = selectContentType.options[selectContentType.selectedIndex].value;
-              genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
-              _updateShowAddlBtn$da = updateShowAddlBtn.dataset, showId = _updateShowAddlBtn$da.showId, roleType = _updateShowAddlBtn$da.roleType;
-              document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
-              _context14.next = 8;
-              return (0, _updateSettings.updateShowSettings)({
-                genres: genres,
-                language: language,
-                subtitles: subtitles,
-                contentType: contentType
-              }, "add'l info", showId, roleType);
+              (0, _formController.checkFormSubmit)(document.getElementById('showContentType'), document.getElementById('showGenre'), document.getElementById('showLanguage'), document.getElementById('showSubtitles'));
 
-            case 8:
-              document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
+              if (_formController.formStatus === 1) {
+                selectContentType = document.getElementById('showContentType');
+                contentType = selectContentType.options[selectContentType.selectedIndex].value;
+                genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
+                _updateShowAddlBtn$da = updateShowAddlBtn.dataset, showId = _updateShowAddlBtn$da.showId, roleType = _updateShowAddlBtn$da.roleType;
+                document.getElementById('btnUpdateShowAddl').textContent = 'Updating...'; // await updateShowSettings(
+                //   { genres, language, subtitles, contentType },
+                //   "add'l info",
+                //   showId,
+                //   roleType
+                // );
 
-            case 9:
+                document.getElementById('btnUpdateShowAddl').textContent = "Update Add'l Info";
+              }
+
+            case 3:
             case "end":
               return _context14.stop();
           }
@@ -29428,37 +29422,48 @@ if (updateShowAddl) {
 if (updateShowPrice) {
   updateShowPrice.addEventListener('submit', /*#__PURE__*/function () {
     var _ref15 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee15(e) {
-      var selectSpecialVenue, specialVenueValue, specialVenue, price, updateShowPriceBtn, _updateShowPriceBtn$d, showId, roleType, data, selectPrivateVenue, privateVenueValue, secretShow;
+      var updateShowPriceBtn, _updateShowPriceBtn$d, showId, roleType, roleAmount, selectSpecialVenue, specialVenueValue, specialVenue, price, _updateShowPriceBtn, _updateShowPriceBtn$d2, _showId, _roleType, data, selectPrivateVenue, privateVenueValue, secretShow;
 
       return regeneratorRuntime.wrap(function _callee15$(_context15) {
         while (1) {
           switch (_context15.prev = _context15.next) {
             case 0:
               e.preventDefault();
-              selectSpecialVenue = document.getElementById('showSpecialVenue');
-              specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-              specialVenue = specialVenueValue === 'y' ? true : false;
-              price = document.getElementById('showPrice').value, updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
+              updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
               _updateShowPriceBtn$d = updateShowPriceBtn.dataset, showId = _updateShowPriceBtn$d.showId, roleType = _updateShowPriceBtn$d.roleType;
-              data = {};
-              data.price = price;
-              data.specialVenue = specialVenue;
+              roleAmount = -100;
 
               if (roleType === 'admin') {
-                selectPrivateVenue = document.getElementById('showPrivateVenue');
-                privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
-                secretShow = privateVenueValue === 'y' ? true : false;
-                data.secretShow = secretShow;
+                roleAmount = 1;
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('selectSpecialVenue'), document.getElementById('showPrivateVenue'));
+              } else if (roleType === 'event-owner') {
+                roleAmount = 1;
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('selectSpecialVenue'));
               }
 
-              document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
-              _context15.next = 13;
-              return (0, _updateSettings.updateShowSettings)(data, 'pricing', showId, roleType);
+              if (_formController.formStatus === roleAmount) {
+                selectSpecialVenue = document.getElementById('showSpecialVenue');
+                specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+                specialVenue = specialVenueValue === 'y' ? true : false;
+                price = document.getElementById('showPrice').value, _updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
+                _updateShowPriceBtn$d2 = _updateShowPriceBtn.dataset, _showId = _updateShowPriceBtn$d2.showId, _roleType = _updateShowPriceBtn$d2.roleType;
+                data = {};
+                data.price = price;
+                data.specialVenue = specialVenue;
 
-            case 13:
-              document.getElementById('btnUpdateShowPrice').textContent = 'Update Price | Venue';
+                if (_roleType === 'admin') {
+                  selectPrivateVenue = document.getElementById('showPrivateVenue');
+                  privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+                  secretShow = privateVenueValue === 'y' ? true : false;
+                  data.secretShow = secretShow;
+                }
 
-            case 14:
+                document.getElementById('btnUpdateShowPrice').textContent = 'Updating'; // await updateShowSettings(data, 'pricing', showId, roleType);
+
+                document.getElementById('btnUpdateShowPrice').textContent = 'Update Price | Venue';
+              }
+
+            case 6:
             case "end":
               return _context15.stop();
           }

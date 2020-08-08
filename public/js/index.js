@@ -878,17 +878,24 @@ if (updateShowPlot) {
   updateShowPlot.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const overview = document.getElementById('showOverview').value,
-      synopsis = document.getElementById('showSynopsis').value,
-      updateShowPlotBtn = document.getElementById('btnUpdateShowPlot');
+    checkFormSubmit(
+      document.getElementById('showOverview'),
+      document.getElementById('showSynopsis')
+    );
 
-    const { showId, roleType } = updateShowPlotBtn.dataset;
+    if (formStatus === 1) {
+      const overview = document.getElementById('showOverview').value,
+        synopsis = document.getElementById('showSynopsis').value,
+        updateShowPlotBtn = document.getElementById('btnUpdateShowPlot');
 
-    document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
+      const { showId, roleType } = updateShowPlotBtn.dataset;
 
-    await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
+      document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
 
-    document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+      // await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
+
+      document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+    }
   });
 }
 
@@ -913,7 +920,7 @@ if (updateShowCastCrewForm) {
     document.getElementById('btnUpdateShowCastCrew').textContent =
       'Updating...';
 
-    await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
+    // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
 
     document.getElementById('btnUpdateShowCastCrew').textContent =
       'Update Casts | Crews';
@@ -924,29 +931,38 @@ if (updateShowAddl) {
   updateShowAddl.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const selectContentType = document.getElementById('showContentType');
-
-    const contentType =
-      selectContentType.options[selectContentType.selectedIndex].value;
-
-    const genres = document.getElementById('showGenre').value,
-      language = document.getElementById('showLanguage').value,
-      subtitles = document.getElementById('showSubtitles').value,
-      updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
-
-    const { showId, roleType } = updateShowAddlBtn.dataset;
-
-    document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
-
-    await updateShowSettings(
-      { genres, language, subtitles, contentType },
-      "add'l info",
-      showId,
-      roleType
+    checkFormSubmit(
+      document.getElementById('showContentType'),
+      document.getElementById('showGenre'),
+      document.getElementById('showLanguage'),
+      document.getElementById('showSubtitles')
     );
 
-    document.getElementById('btnUpdateShowAddl').textContent =
-      "Update Add'l Info";
+    if (formStatus === 1) {
+      const selectContentType = document.getElementById('showContentType');
+
+      const contentType =
+        selectContentType.options[selectContentType.selectedIndex].value;
+
+      const genres = document.getElementById('showGenre').value,
+        language = document.getElementById('showLanguage').value,
+        subtitles = document.getElementById('showSubtitles').value,
+        updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
+
+      const { showId, roleType } = updateShowAddlBtn.dataset;
+
+      document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
+
+      // await updateShowSettings(
+      //   { genres, language, subtitles, contentType },
+      //   "add'l info",
+      //   showId,
+      //   roleType
+      // );
+
+      document.getElementById('btnUpdateShowAddl').textContent =
+        "Update Add'l Info";
+    }
   });
 }
 
@@ -954,37 +970,60 @@ if (updateShowPrice) {
   updateShowPrice.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const selectSpecialVenue = document.getElementById('showSpecialVenue');
-    const specialVenueValue =
-      selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-    const specialVenue = specialVenueValue === 'y' ? true : false;
-
-    const price = document.getElementById('showPrice').value,
-      updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
-
+    const updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
     const { showId, roleType } = updateShowPriceBtn.dataset;
-
-    const data = {};
-    data.price = price;
-    data.specialVenue = specialVenue;
+    var roleAmount = -100;
 
     if (roleType === 'admin') {
-      const selectPrivateVenue = document.getElementById('showPrivateVenue');
+      roleAmount = 1;
 
-      const privateVenueValue =
-        selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+      checkFormSubmit(
+        document.getElementById('showPrice'),
+        document.getElementById('selectSpecialVenue'),
+        document.getElementById('showPrivateVenue')
+      );
+    } else if (roleType === 'event-owner') {
+      roleAmount = 1;
 
-      const secretShow = privateVenueValue === 'y' ? true : false;
-
-      data.secretShow = secretShow;
+      checkFormSubmit(
+        document.getElementById('showPrice'),
+        document.getElementById('selectSpecialVenue')
+      );
     }
 
-    document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
+    if (formStatus === roleAmount) {
+      const selectSpecialVenue = document.getElementById('showSpecialVenue');
+      const specialVenueValue =
+        selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+      const specialVenue = specialVenueValue === 'y' ? true : false;
 
-    await updateShowSettings(data, 'pricing', showId, roleType);
+      const price = document.getElementById('showPrice').value,
+        updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
 
-    document.getElementById('btnUpdateShowPrice').textContent =
-      'Update Price | Venue';
+      const { showId, roleType } = updateShowPriceBtn.dataset;
+
+      const data = {};
+      data.price = price;
+      data.specialVenue = specialVenue;
+
+      if (roleType === 'admin') {
+        const selectPrivateVenue = document.getElementById('showPrivateVenue');
+
+        const privateVenueValue =
+          selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+
+        const secretShow = privateVenueValue === 'y' ? true : false;
+
+        data.secretShow = secretShow;
+      }
+
+      document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
+
+      // await updateShowSettings(data, 'pricing', showId, roleType);
+
+      document.getElementById('btnUpdateShowPrice').textContent =
+        'Update Price | Venue';
+    }
   });
 }
 
