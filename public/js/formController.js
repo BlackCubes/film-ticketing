@@ -456,8 +456,8 @@ function regexForm(e) {
   } else if (e.name === 'show-price') {
     regexResult = regexPrice.test(parseFloat(e.value));
   } else if (
-    (e.name === 'select-specialvenue') |
-    (e.name === 'select-privatevenue')
+    e.name === 'select-specialvenue' ||
+    e.name === 'select-privatevenue'
   ) {
     regexResult = regexVenue.test(e.value);
   } else if (e.name === 'show-eventowner') {

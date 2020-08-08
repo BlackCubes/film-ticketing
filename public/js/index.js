@@ -979,7 +979,7 @@ if (updateShowPrice) {
 
       checkFormSubmit(
         document.getElementById('showPrice'),
-        document.getElementById('selectSpecialVenue'),
+        document.getElementById('showSpecialVenue'),
         document.getElementById('showPrivateVenue')
       );
     } else if (roleType === 'event-owner') {
@@ -987,7 +987,7 @@ if (updateShowPrice) {
 
       checkFormSubmit(
         document.getElementById('showPrice'),
-        document.getElementById('selectSpecialVenue')
+        document.getElementById('showSpecialVenue')
       );
     }
 

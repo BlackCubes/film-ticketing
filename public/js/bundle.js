@@ -27059,7 +27059,7 @@ function regexForm(e) {
     regexResult = regexContent.test(e.value);
   } else if (e.name === 'show-price') {
     regexResult = regexPrice.test(parseFloat(e.value));
-  } else if (e.name === 'select-specialvenue' | e.name === 'select-privatevenue') {
+  } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue') {
     regexResult = regexVenue.test(e.value);
   } else if (e.name === 'show-eventowner') {
     regexResult = regexMongo.test(e.value);
@@ -29435,10 +29435,10 @@ if (updateShowPrice) {
 
               if (roleType === 'admin') {
                 roleAmount = 1;
-                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('selectSpecialVenue'), document.getElementById('showPrivateVenue'));
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'), document.getElementById('showPrivateVenue'));
               } else if (roleType === 'event-owner') {
                 roleAmount = 1;
-                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('selectSpecialVenue'));
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
               }
 
               if (_formController.formStatus === roleAmount) {
