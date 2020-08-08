@@ -27,7 +27,7 @@ block content
 
               .form__group
                 .form__mpaa
-                  select#selectMpaa.dropdown(name='select-mpaa' tabindex='0' required)
+                  select#selectMpaa.form__select.dropdown(name='select-mpaa' tabindex='0' required)
                     option(value) MPAA Rating*
 
                     - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
@@ -44,7 +44,7 @@ block content
               .form__group
                 .form__date
                   .form__date-month
-                    select#showOriginalMonth.dropdown(name='select-month' tabindex='0' required)
+                    select#showOriginalMonth.form__select.dropdown(name='select-month' tabindex='0' required)
                       option(value) Orig. Month*
 
                       - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -55,7 +55,7 @@ block content
                     label.form__label.label-text(for='showOriginalMonth') Please select a month
 
                   .form__date-day
-                    select#showOriginalDay.dropdown(name='select-day' tabindex='0' required)
+                    select#showOriginalDay.form__select.dropdown(name='select-day' tabindex='0' required)
                       option(value) Day*
 
                       - const days = [...Array(32).keys()].splice(1)
@@ -66,7 +66,7 @@ block content
                     label.form__label.label-text(for='showOriginalDay') Please select a day
 
                   .form__date-year
-                    select#showOriginalYear.dropdown(name='select-year' tabindex='0' required)
+                    select#showOriginalYear.form__select.dropdown(name='select-year' tabindex='0' required)
                       option(value) Year*
 
                       - const now = new Date().getFullYear()
@@ -79,7 +79,7 @@ block content
               
               .form__group
                 .form__content-type
-                  select#showContentType.dropdown(name='select-contenttype' tabindex='0' required)
+                  select#showContentType.form__select.dropdown(name='select-contenttype' tabindex='0' required)
                     option(value) Content Select*
                     option(value='Film') Film
                     option(value='TV') TV
@@ -166,7 +166,7 @@ block content
               
               .form__group
                 .form__special-venue
-                  select#showSpecialVenue.dropdown(name='select-specialvenue' tabindex='0')
+                  select#showSpecialVenue.form__select.dropdown(name='select-specialvenue' tabindex='0')
                     option(value) Special Venue (optional)
                     option(value='y') Yes
                     option(value='n') No
@@ -176,7 +176,7 @@ block content
               if user.role === 'admin'
                 .form__group
                   .form__special-venue
-                    select#showPrivateVenue.dropdown(name='select-privatevenue' tabindex='0')
+                    select#showPrivateVenue.form__select.dropdown(name='select-privatevenue' tabindex='0')
                       option(value) Private Venue (optional)
                       option(value='y') Yes
                       option(value='n') No
