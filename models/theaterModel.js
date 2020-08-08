@@ -6,7 +6,12 @@ const theaterSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, 'A theater must have a name'],
-      unique: true
+      unique: true,
+      maxlength: [100, 'A theater must have a name less than or equal to 100!'],
+      minLength: [
+        7,
+        'A theater must have a name more than or equal to 7 characters!'
+      ]
     },
     slug: String,
     address: {
