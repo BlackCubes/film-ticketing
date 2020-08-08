@@ -29833,18 +29833,17 @@ if (deleteShowForm) {
           switch (_context25.prev = _context25.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteShowBtn = document.getElementById('btnDeleteShowData');
-              showId = deleteShowBtn.dataset.showId;
-              document.getElementById('btnDeleteShowData').textContent = 'Deleting...';
-              _context25.next = 6;
-              return (0, _deleteSettings.deleteShow)({
-                password: password
-              }, showId);
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
 
-            case 6:
-              document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
+              if (_formController.formStatus === 1) {
+                password = document.getElementById('password').value, deleteShowBtn = document.getElementById('btnDeleteShowData');
+                showId = deleteShowBtn.dataset.showId;
+                document.getElementById('btnDeleteShowData').textContent = 'Deleting...'; // await deleteShow({ password }, showId);
 
-            case 7:
+                document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
+              }
+
+            case 3:
             case "end":
               return _context25.stop();
           }

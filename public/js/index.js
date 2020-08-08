@@ -1341,16 +1341,20 @@ if (deleteShowForm) {
   deleteShowForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const password = document.getElementById('password').value,
-      deleteShowBtn = document.getElementById('btnDeleteShowData');
+    checkFormSubmit(document.getElementById('password'));
 
-    const { showId } = deleteShowBtn.dataset;
+    if (formStatus === 1) {
+      const password = document.getElementById('password').value,
+        deleteShowBtn = document.getElementById('btnDeleteShowData');
 
-    document.getElementById('btnDeleteShowData').textContent = 'Deleting...';
+      const { showId } = deleteShowBtn.dataset;
 
-    await deleteShow({ password }, showId);
+      document.getElementById('btnDeleteShowData').textContent = 'Deleting...';
 
-    document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
+      // await deleteShow({ password }, showId);
+
+      document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
+    }
   });
 }
 
