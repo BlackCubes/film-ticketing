@@ -1027,14 +1027,14 @@ body {
 
 .form__input:placeholder-shown + .form__label,
 .form__text-area:placeholder-shown + .form__label,
-.dropdown:not(:valid) + .form__label {
+.dropdown:not(:focus) + .form__label {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem); }
 
 .form__group.error .form__input:placeholder-shown + .form__label,
 .form__group.error .form__text-area:placeholder-shown + .form__label,
-.form__group.error .dropdown:invalid + .form__label {
+.form__group.error .dropdown + .form__label {
   opacity: 1;
   visibility: visible;
   transform: translateY(0); }

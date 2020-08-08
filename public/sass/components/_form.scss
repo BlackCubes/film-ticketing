@@ -239,7 +239,7 @@
 
   &__input:placeholder-shown + &__label,
   &__text-area:placeholder-shown + &__label,
-  .dropdown:not(:valid) + &__label {
+  .dropdown:not(:focus) + &__label {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
@@ -253,7 +253,7 @@
 
   &__group.error &__input:placeholder-shown + &__label,
   &__group.error &__text-area:placeholder-shown + &__label,
-  &__group.error .dropdown:invalid + &__label {
+  &__group.error .dropdown + &__label {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
