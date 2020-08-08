@@ -845,7 +845,7 @@ body {
         border-bottom: 0.4rem solid #20b2aa; } }
     @media (min-width: 56.25em) {
       .dropdown:focus {
-        border-bottom: 0.45rem solid #20b2aa; } }
+        border-bottom: 0.3em solid #20b2aa; } }
   .dropdown:focus:invalid {
     border-bottom: 0.3rem solid #ff0000; }
     @media (min-width: 37.5em) {
@@ -853,7 +853,9 @@ body {
         border-bottom: 0.4rem solid #20b2aa; } }
     @media (min-width: 56.25em) {
       .dropdown:focus:invalid {
-        border-bottom: 0.45rem solid #20b2aa; } }
+        border-bottom: 0.3rem solid #20b2aa; } }
+  .dropdown::-webkit-input-placeholder {
+    color: #d3d3d3; }
 
 @media (min-width: 37.5em) {
   .form {

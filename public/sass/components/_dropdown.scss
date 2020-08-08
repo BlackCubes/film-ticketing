@@ -45,7 +45,7 @@
     }
 
     @include respond(tab-land) {
-      border-bottom: 0.45rem solid $color-lightseagreen;
+      border-bottom: 0.3em solid $color-lightseagreen;
     }
   }
 
@@ -57,8 +57,12 @@
     }
 
     @include respond(tab-land) {
-      border-bottom: 0.45rem solid $color-lightseagreen;
+      border-bottom: 0.3rem solid $color-lightseagreen;
     }
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color-light-silver;
   }
 }
 
