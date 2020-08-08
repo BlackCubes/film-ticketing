@@ -31,7 +31,11 @@ const theaterSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      trim: true
+      trim: true,
+      maxlength: [
+        3900,
+        'A description must be less than or equal to 3900 characters!'
+      ]
     },
     geo: {
       type: {
