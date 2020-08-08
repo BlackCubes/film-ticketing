@@ -492,7 +492,7 @@ function regexForm(e) {
   const regexVenue = /^\b(y|n)\b$/;
   const regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
   const regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
-  const regexAddress = /^[A-Z0-9 ,#\'\/.]{3,96}$/iu;
+  const regexAddress = /^[A-Z0-9 ,#'\/.]{3,96}$/iu;
   const regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
