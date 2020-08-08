@@ -1026,19 +1026,22 @@ body {
   color: #ff0000; }
 
 .form__input:placeholder-shown + .form__label,
-.form__text-area:placeholder-shown + .form__label {
+.form__text-area:placeholder-shown + .form__label,
+.dropdown + .form__label {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem); }
 
 .form__group.error .form__input:placeholder-shown + .form__label,
-.form__group.error .form__text-area:placeholder-shown + .form__label {
+.form__group.error .form__text-area:placeholder-shown + .form__label,
+.form__group.error .dropdown + .form__label {
   opacity: 1;
   visibility: visible;
   transform: translateY(0); }
 
 .form__input:focus:invalid + .form__label,
-.form__text-area:focus:invalid + .form__label {
+.form__text-area:focus:invalid + .form__label,
+.dropdown:focus:invalid + .form__label {
   color: #ff0000; }
 
 .form__link {

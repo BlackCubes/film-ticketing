@@ -238,7 +238,8 @@
   }
 
   &__input:placeholder-shown + &__label,
-  &__text-area:placeholder-shown + &__label {
+  &__text-area:placeholder-shown + &__label,
+  .dropdown + &__label {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
@@ -251,14 +252,16 @@
   // }
 
   &__group.error &__input:placeholder-shown + &__label,
-  &__group.error &__text-area:placeholder-shown + &__label {
+  &__group.error &__text-area:placeholder-shown + &__label,
+  &__group.error .dropdown + &__label {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 
   &__input:focus:invalid + &__label,
-  &__text-area:focus:invalid + &__label {
+  &__text-area:focus:invalid + &__label,
+  .dropdown:focus:invalid + &__label {
     color: $color-red;
   }
 
