@@ -186,7 +186,7 @@ export const checkFormSubmit = (...inputs) => {
     if (input.name === 'show-title') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a title', inputRequired);
-      } else if (inputVal > 100) {
+      } else if (inputVal.length > 100) {
         validationFailure(
           input,
           'Please enter a title that is 100 characters or less',
@@ -356,6 +356,26 @@ export const checkFormSubmit = (...inputs) => {
         );
       } else if (!regexForm(input)) {
         validationFailure(input, 'Please use a valid MongoDB ObjectID');
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
+    if (input.name === 'theater-name') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a name', inputRequired);
+      } else if (inputVal.length < 7) {
+        validationFailure(
+          input,
+          'Please enter a name a minimum of 7 characters',
+          inputRequired
+        );
+      } else if (inputVal.length > 100) {
+        validationFailure(
+          input,
+          'Please enter a name that is 100 characters or less',
+          inputRequired
+        );
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
