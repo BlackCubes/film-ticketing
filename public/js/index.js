@@ -513,8 +513,6 @@ if (eoFieldlist1) {
       );
     }
 
-    console.log(roleAmount);
-
     if (formStatus === roleAmount) {
       const form = new FormData();
 
