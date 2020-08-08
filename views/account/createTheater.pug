@@ -14,7 +14,7 @@ block content
                 small.form__info-small.small-text Let's create a theater! Fields with * are required
 
               .form__group
-                input#theaterName.form__input.input-text(type='text' name='theater-name' placeholder='Name*' required)
+                input#theaterName.form__input.input-text(type='text' name='theater-name' placeholder='Name*' minlength='7' maxlength='100' required)
                 label.form__label.label-text(for='theaterName') Please give a name to the theater
 
               .form__group
