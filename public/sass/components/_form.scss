@@ -298,6 +298,13 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4rem;
+
+    & .form__label {
+      @include respond(desktop) {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
   }
 
   &__date,
@@ -372,13 +379,22 @@
       padding-bottom: 1.5rem;
     }
 
-    & .form__label {
-      @include respond(desktop) {
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-      }
-    }
+    // & .form__label {
+    //   @include respond(desktop) {
+    //     margin-left: 0.5rem;
+    //     margin-right: 0.5rem;
+    //   }
+    // }
   }
+
+  // &__mpaa {
+  //   & .form__label {
+  //     @include respond(desktop) {
+  //       margin-left: 0.5rem;
+  //       margin-right: 0.5rem;
+  //     }
+  //   }
+  // }
 
   &__photo-upload {
     display: -webkit-box;
