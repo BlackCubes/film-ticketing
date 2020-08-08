@@ -1034,8 +1034,12 @@ body {
 
 .form__group.error .form__input:placeholder-shown + .form__label,
 .form__group.error .form__text-area:placeholder-shown + .form__label,
-.form__group.error .dropdown + .form__label,
-.form__group.success .dropdown + .form__label {
+.form__date-month.error .dropdown + .form__label,
+.form__date-day.error .dropdown + .form__label,
+.form__date-year.error .dropdown + .form__label,
+.form__date-month.success .dropdown + .form__label,
+.form__date-day.success .dropdown + .form__label,
+.form__date-year.success .dropdown + .form__label {
   opacity: 1;
   visibility: visible;
   transform: translateY(0); }
