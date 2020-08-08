@@ -1027,7 +1027,7 @@ body {
 
 .form__input:placeholder-shown + .form__label,
 .form__text-area:placeholder-shown + .form__label,
-.dropdown:not(:focus) + .form__label {
+.dropdown:not(:valid) + .form__label {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem); }

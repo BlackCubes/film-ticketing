@@ -239,7 +239,7 @@
 
   &__input:placeholder-shown + &__label,
   &__text-area:placeholder-shown + &__label,
-  .dropdown:not(:focus) + &__label {
+  .dropdown:not(:valid) + &__label {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
