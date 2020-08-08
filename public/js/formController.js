@@ -380,6 +380,23 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'phone') {
+      if (inputVal === '') {
+        validationFailure(
+          input,
+          'Please provide a phone number',
+          inputRequired
+        );
+      } else if (!regexForm(input)) {
+        validationFailure(
+          input,
+          'Please provide a valid phone number in the form of (###)###-#### or (###) ###-####'
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -442,6 +459,7 @@ function regexForm(e) {
   const regexContent = /^\b(Film|TV)\b$/;
   const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
   const regexVenue = /^\b(y|n)\b$/;
+  const regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
   const regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -482,6 +500,8 @@ function regexForm(e) {
     regexResult = regexVenue.test(e.value);
   } else if (e.name === 'show-eventowner') {
     regexResult = regexMongo.test(e.value);
+  } else if (e.name === 'phone') {
+    regexResult = regexPhone.test(e.value);
   }
 
   return regexResult;
