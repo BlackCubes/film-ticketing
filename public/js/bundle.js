@@ -29410,7 +29410,7 @@ if (updateShowPrice) {
               return (0, _updateSettings.updateShowSettings)(data, 'pricing', showId, roleType);
 
             case 13:
-              document.getElementById('btnUpdateShowPrice').textContent = 'Update Pricing';
+              document.getElementById('btnUpdateShowPrice').textContent = 'Update Price | Venue';
 
             case 14:
             case "end":

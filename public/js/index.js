@@ -929,7 +929,7 @@ if (updateShowPrice) {
     await updateShowSettings(data, 'pricing', showId, roleType);
 
     document.getElementById('btnUpdateShowPrice').textContent =
-      'Update Pricing';
+      'Update Price | Venue';
   });
 }
 

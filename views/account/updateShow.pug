@@ -179,7 +179,7 @@ block content
           form#updateShowPrice.form(novalidate)
             .form__group
               .form__title.u-center-text
-                - const showPriceTitle = (user.role === 'admin') ? 'Change Show\'s Price' : 'Change Your Show\'s Price'
+                - const showPriceTitle = (user.role === 'admin') ? 'Change Show\'s Price | Venue' : 'Change Your Show\'s Price | Venue'
                 h2.heading-secondary.u-margin-bottom-small= showPriceTitle
 
                 small.form__info-small.small-text For adding a price discount, please contact the admin.
@@ -214,7 +214,7 @@ block content
                   label.form__label.label-text(for='showPrivateVenue') Is it private?
 
             .form__group
-              button#btnUpdateShowPrice.btn.btn--blue(type='submit' name='btnUpdateShowPrice' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Pricing
+              button#btnUpdateShowPrice.btn.btn--blue(type='submit' name='btnUpdateShowPrice' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Price | Venue
 
         .line &nbsp;
 
