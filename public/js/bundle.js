@@ -26891,19 +26891,18 @@ var checkFormSubmit = function checkFormSubmit() {
     }
 
     if (input.name === 'photo' && input.value !== '' || input.name === 'poster') {
-      if (!regexForm(input) && input.value !== '') {
-        validationFailure(input, 'Please select a valid image file of jpg, jpeg, or png', inputRequired); // formError(
+      if (inputRequired && input.value === '') {
+        validationFailure(input, 'Please provide a poster', inputRequired); // formError(
         //   input,
         //   'Please select a valid image file of jpg, jpeg, or png'
         // );
-
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please select a valid image file of jpg, jpeg, or png', inputRequired);
         input.value = '';
-      } else if (input.files[0].size > 1024000 && input.value !== '') {
+      } else if (input.files[0].size > 1024000) {
         validationFailure(input, 'Max upload size is 1MB only', inputRequired); // formError(input, 'Max upload size is 1MB only');
 
         input.value = '';
-      } else if (inputRequired && input.value === '') {
-        validationFailure(input, 'Please provide a poster', inputRequired); // formError(input, 'Please provide a poster');
       } else {
         input.name === 'photo' ? validationSuccess(input, 'Woohoo!', inputRequired) : validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
         // console.log(`${input.name.toUpperCase()} part: `, formStatus);
