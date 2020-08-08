@@ -26759,233 +26759,175 @@ var checkFormSubmit = function checkFormSubmit() {
 
     if (input.name === 'email') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide an email', inputRequired); // formError(input, 'Please provide an email');
+        validationFailure(input, 'Please provide an email', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please provide a valid email address', inputRequired); // formError(input, 'Please provide a valid email address');
+        validationFailure(input, 'Please provide a valid email address', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'password' || input.name === 'current-password') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a password', inputRequired); // formError(input, 'Please provide a password');
+        validationFailure(input, 'Please provide a password', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters', inputRequired); // formError(
-        //   input,
-        //   'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
-        // );
+        validationFailure(input, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'password-confirm') {
       if (inputVal === '') {
-        validationFailure(input, 'Please enter your password to confirm', inputRequired); // formError(input, 'Please enter your password to confirm');
+        validationFailure(input, 'Please enter your password to confirm', inputRequired);
       } else if (inputVal !== inputs.find(function (i) {
         return i.name === 'password';
       }).value.trim() && inputVal !== '') {
-        validationFailure(input, 'Please make sure your passwords match', inputRequired); // formError(input, 'Please make sure your passwords match');
+        validationFailure(input, 'Please make sure your passwords match', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'name') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide your name', inputRequired); // formError(input, 'Please provide your name');
+        validationFailure(input, 'Please provide your name', inputRequired);
       } else if (inputVal.length < 2) {
-        validationFailure(input, 'Please enter your name a minimum of 2 characters', inputRequired); // formError(input, 'Please enter your name a minimum of 2 characters');
+        validationFailure(input, 'Please enter your name a minimum of 2 characters', inputRequired);
       } else if (inputVal.length > 70) {
-        validationFailure(input, 'Please enter your name that is 70 characters or less', inputRequired); // formError(
-        //   input,
-        //   'Please enter your name that is 70 characters or less'
-        // );
+        validationFailure(input, 'Please enter your name that is 70 characters or less', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters', inputRequired); // formError(
-        //   input,
-        //   'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters'
-        // );
+        validationFailure(input, 'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'username') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a username', inputRequired); // formError(input, 'Please provide a username');
+        validationFailure(input, 'Please provide a username', inputRequired);
       } else if (inputVal.length < 3) {
-        validationFailure(input, 'Please enter a username a minimum of 3 characters', inputRequired); // formError(input, 'Please enter a username a minimum of 3 characters');
+        validationFailure(input, 'Please enter a username a minimum of 3 characters', inputRequired);
       } else if (inputVal.length > 9) {
-        validationFailure(input, 'Please enter a username that is 9 characters or less', inputRequired); // formError(
-        //   input,
-        //   'Please enter a username that is 9 characters or less'
-        // );
+        validationFailure(input, 'Please enter a username that is 9 characters or less', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters', inputRequired); // formError(
-        //   input,
-        //   'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters'
-        // );
+        validationFailure(input, 'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'select-month') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a month', inputRequired); // formError(input, 'Please provide a month');
+        validationFailure(input, 'Please provide a month', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid month', inputRequired); // formError(input, 'Please use a valid month');
+        validationFailure(input, 'Please use a valid month', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'select-day') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a day', inputRequired); // formError(input, 'Please provide a day');
+        validationFailure(input, 'Please provide a day', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid day', inputRequired); // formError(input, 'Please use a valid day');
+        validationFailure(input, 'Please use a valid day', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'select-year') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a year', inputRequired); // formError(input, 'Please provide a year');
+        validationFailure(input, 'Please provide a year', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid year', inputRequired); // formError(input, 'Please use a valid year');
+        validationFailure(input, 'Please use a valid year', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'select-gender') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a gender/non-gender', inputRequired); // formError(input, 'Please provide a gender/non-gender');
+        validationFailure(input, 'Please provide a gender/non-gender', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid gender/non-gender', inputRequired); // formError(input, 'Please use a valid gender/non-gender');
+        validationFailure(input, 'Please use a valid gender/non-gender', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'photo' && input.value !== '' || input.name === 'poster') {
       if (inputRequired && input.value === '') {
-        validationFailure(input, 'Please provide a poster', inputRequired); // formError(
-        //   input,
-        //   'Please select a valid image file of jpg, jpeg, or png'
-        // );
+        validationFailure(input, 'Please provide a poster', inputRequired);
       } else if (!regexForm(input)) {
         validationFailure(input, 'Please select a valid image file of jpg, jpeg, or png', inputRequired);
         input.value = '';
       } else if (input.files[0].size > 1024000) {
-        validationFailure(input, 'Max upload size is 1MB only', inputRequired); // formError(input, 'Max upload size is 1MB only');
-
+        validationFailure(input, 'Max upload size is 1MB only', inputRequired);
         input.value = '';
       } else {
-        input.name === 'photo' ? validationSuccess(input, 'Woohoo!', inputRequired) : validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        input.name === 'photo' ? validationSuccess(input, 'Woohoo!', inputRequired) : validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'show-title') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a title', inputRequired); // formError(input, 'Please provide a title');
+        validationFailure(input, 'Please provide a title', inputRequired);
       } else if (inputVal > 100) {
-        validationFailure(input, 'Please enter a title that is 100 characters or less', inputRequired); // formError(input, 'Please enter a title that is 100 characters or less');
+        validationFailure(input, 'Please enter a title that is 100 characters or less', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSucces(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'select-mpaa') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide an MPAA rating', inputRequired); // formError(input, 'Please provide an MPAA rating');
+        validationFailure(input, 'Please provide an MPAA rating', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid MPAA rating', inputRequired); // formError(input, 'Please use a valid MPAA rating');
+        validationFailure(input, 'Please use a valid MPAA rating', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'show-duration') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a duration', inputRequired); // formError(input, 'Please provide a duration');
+        validationFailure(input, 'Please provide a duration', inputRequired);
       } else if (parseInt(inputVal) < 10) {
-        validationFailure(input, 'Please enter a duration a minimum of 10 minutes', inputRequired); // formError(input, 'Please enter a duration a minimum of 10 minutes');
+        validationFailure(input, 'Please enter a duration a minimum of 10 minutes', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please enter a duration in minutes that is at least 10 minutes long', inputRequired); // formError(
-        //   input,
-        //   'Please enter a duration in minutes that is at least 10 minutes long'
-        // );
+        validationFailure(input, 'Please enter a duration in minutes that is at least 10 minutes long', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'select-contenttype') {
       if (inputVal === '') {
-        validationFailure(input, 'Pleaase provide a content type', inputRequired); // formError(input, 'Pleaase provide a content type');
+        validationFailure(input, 'Pleaase provide a content type', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid content type', inputRequired); // formError(input, 'Please use a valid content type');
+        validationFailure(input, 'Please use a valid content type', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'textarea-overview') {
       if (inputVal === '') {
-        validationFailure(input, 'Please enter an overview', inputRequired); // formError(input, 'Please enter an overview');
+        validationFailure(input, 'Please enter an overview', inputRequired);
       } else if (inputVal.length > 183) {
-        validationFailure(input, 'Please enter an overview that is 183 characters or less', inputRequired); // formError(
-        //   input,
-        //   'Please enter an overview that is 183 characters or less'
-        // );
+        validationFailure(input, 'Please enter an overview that is 183 characters or less', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // formStatus += 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'textarea-synopsis' && inputVal !== '') {
       if (inputVal.length > 1100) {
-        validationFailure(input, 'Please enter a synopsis that is 1100 characters or less', inputRequired); // formError(
-        //   input,
-        //   'Please enter a synopsis that is 1100 characters or less'
-        // );
+        validationFailure(input, 'Please enter a synopsis that is 1100 characters or less', inputRequired);
       } else {
-        validationSuccess(input, 'Woohoo!', inputRequired); // formSuccess(input, 'Woohoo!');
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
@@ -27007,9 +26949,7 @@ var checkFormSubmit = function checkFormSubmit() {
 
     if (input.name === 'show-genre' && inputVal !== '') {
       if (inputVal.length < 3) {
-        validationFailure(input, 'Please enter genre(s) a minimum of 3 characters', inputRequired); // formError(input, 'Please enter genre(s) a minimum of 3 characters');
-        // formStatus -= 1;
-        // console.log(`${input.name.toUpperCase()} part: `, formStatus);
+        validationFailure(input, 'Please enter genre(s) a minimum of 3 characters', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
