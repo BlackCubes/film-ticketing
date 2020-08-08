@@ -408,6 +408,26 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'address') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide an address', inputRequired);
+      } else if (inputVal.length < 3) {
+        validationFailure(
+          input,
+          'Please enter an address a minimum of 3 characters'
+        );
+      } else if (inputVal.length > 96) {
+        validationFailure(
+          input,
+          'Please enter an address that is less than or equal to 96 characters'
+        );
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please provide a valid US address');
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -472,6 +492,7 @@ function regexForm(e) {
   const regexVenue = /^\b(y|n)\b$/;
   const regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
   const regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
+  const regexAddress = /^[A-Z0-9 ,#\'\/.]{3,96}$/iu;
   const regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -515,7 +536,9 @@ function regexForm(e) {
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(e.value);
   } else if (e.name === 'linkurl') {
-    regexResult = regexURL.text(e.value);
+    regexResult = regexURL.test(e.value);
+  } else if (e.name === 'address') {
+    regexResult = regexAddress.test(e.value);
   }
 
   return regexResult;
