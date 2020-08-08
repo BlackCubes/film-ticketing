@@ -253,7 +253,8 @@
 
   &__group.error &__input:placeholder-shown + &__label,
   &__group.error &__text-area:placeholder-shown + &__label,
-  &__group.error .dropdown + &__label {
+  &__group.error .dropdown + &__label,
+  &__group.success .dropdown + &__label {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
