@@ -1016,8 +1016,8 @@ body {
       margin-top: 1rem; } }
   @media (min-width: 75em) {
     .form__label {
-      margin-left: 2rem;
-      margin-right: 2rem; } }
+      margin-left: 2.5rem;
+      margin-right: 2.5rem; } }
 
 .form__group.success .form__label,
 .form__date-month.success .form__label,
