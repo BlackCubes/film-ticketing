@@ -248,7 +248,8 @@
   //   transform: translateY(0);
   // }
 
-  &__group.error &__input:placeholder-shown + &__label {
+  &__group.error &__input:placeholder-shown + &__label,
+  &__group.error &__text-area:placeholder-shown + &__label {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);

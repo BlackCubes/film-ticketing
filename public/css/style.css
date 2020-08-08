@@ -1023,7 +1023,8 @@ body {
   visibility: hidden;
   transform: translateY(-4rem); }
 
-.form__group.error .form__input:placeholder-shown + .form__label {
+.form__group.error .form__input:placeholder-shown + .form__label,
+.form__group.error .form__text-area:placeholder-shown + .form__label {
   opacity: 1;
   visibility: visible;
   transform: translateY(0); }
