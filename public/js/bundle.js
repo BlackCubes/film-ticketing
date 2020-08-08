@@ -29281,7 +29281,7 @@ if (updateShowPoster) {
           switch (_context11.prev = _context11.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('showPoster'));
+              (0, _formController.checkFormSubmit)(document.getElementById('showPhoto'));
 
               if (_formController.formStatus === 1) {
                 form = new FormData();

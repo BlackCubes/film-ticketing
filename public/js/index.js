@@ -849,7 +849,7 @@ if (updateShowPoster) {
   updateShowPoster.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(document.getElementById('showPoster'));
+    checkFormSubmit(document.getElementById('showPhoto'));
 
     if (formStatus === 1) {
       const form = new FormData();
