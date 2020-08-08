@@ -559,8 +559,6 @@ if (eoFieldlist1) {
 
       const poster = document.getElementById('showPhoto').files[0];
 
-      // const { roleType } = createShowBtn.dataset;
-
       document.getElementById('btnCreateShow').textContent = 'Creating...';
 
       form.append('title', title);

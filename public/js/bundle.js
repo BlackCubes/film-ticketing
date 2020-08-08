@@ -29042,8 +29042,7 @@ if (eoFieldlist1) {
                 selectSpecialVenue = document.getElementById('showSpecialVenue');
                 specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
                 specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
-                poster = document.getElementById('showPhoto').files[0]; // const { roleType } = createShowBtn.dataset;
-
+                poster = document.getElementById('showPhoto').files[0];
                 document.getElementById('btnCreateShow').textContent = 'Creating...';
                 form.append('title', title);
                 form.append('duration', duration);
