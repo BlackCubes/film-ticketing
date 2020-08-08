@@ -966,22 +966,28 @@ body {
   .form__input::-webkit-input-placeholder, .form__text-area::-webkit-input-placeholder {
     color: #d3d3d3; }
 
-.form__group.success .form__input {
+.form__group.success .form__input,
+.form__group.success .dropdown {
   border-bottom: 0.3rem solid #20b2aa; }
   @media (min-width: 37.5em) {
-    .form__group.success .form__input {
+    .form__group.success .form__input,
+    .form__group.success .dropdown {
       border-bottom: 0.4rem solid #20b2aa; } }
   @media (min-width: 56.25em) {
-    .form__group.success .form__input {
+    .form__group.success .form__input,
+    .form__group.success .dropdown {
       border-bottom: 0.3rem solid #20b2aa; } }
 
-.form__group.error .form__input {
+.form__group.error .form__input,
+.form__group.error .dropdown {
   border-bottom: 0.3rem solid #ff0000; }
   @media (min-width: 37.5em) {
-    .form__group.error .form__input {
+    .form__group.error .form__input,
+    .form__group.error .dropdown {
       border-bottom: 0.4rem solid #ff0000; } }
   @media (min-width: 56.25em) {
-    .form__group.error .form__input {
+    .form__group.error .form__input,
+    .form__group.error .dropdown {
       border-bottom: 0.3rem solid #ff0000; } }
 
 @media (min-width: 37.5em) {

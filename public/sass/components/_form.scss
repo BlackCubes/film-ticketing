@@ -166,7 +166,8 @@
     }
   }
 
-  &__group.success &__input {
+  &__group.success &__input,
+  &__group.success .dropdown {
     border-bottom: 0.3rem solid $color-lightseagreen;
 
     @include respond(tab-port) {
@@ -178,7 +179,8 @@
     }
   }
 
-  &__group.error &__input {
+  &__group.error &__input,
+  &__group.error .dropdown {
     border-bottom: 0.3rem solid $color-red;
 
     @include respond(tab-port) {
