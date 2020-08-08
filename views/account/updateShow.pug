@@ -5,19 +5,19 @@ block content
     .user-view
       .user-view__content
         .user-view__form-container
-          form#updateShowMainView.form
+          form#updateShowMainView.form(novalidate)
             .form__group
               .form__title.u-center-text
                 - const pageTitle = (user.role === 'admin') ? 'Show Settings' : 'Your Show Settings'
                 h2.heading-secondary= pageTitle
             
             .form__group
-              input#showTitle.form__input.input-text(type='text' name='showTitle' placeholder='Title*' value=`${show.title}` minlength='1' maxlength='100' required)
-              label.form__label.label-text(for='showTitle') Please give a title for your show.
+              input#showTitle.form__input.input-text(type='text' name='show-title' placeholder='Title*' value=`${show.title}` minlength='1' maxlength='100' required)
+              label.form__label.label-text(for='showTitle') Please give a title for your show
 
             .form__group
               .form__mpaa
-                select#selectMpaa.dropdown(name='selectMpaa' tabindex='0' required)
+                select#selectMpaa.form__select.dropdown(name='select-mpaa' tabindex='0' required)
                   option(value, selected= true) MPAA Rating*
 
                   - const mpaaList = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA']
@@ -26,12 +26,14 @@ block content
                     - var mpaaSelected = (show.mpaaRating === mpaa) ? true : false
 
                     option(value=`${mpaa}`, selected=(mpaaSelected))= mpaa
+                
+                label.form__label.label-text(for='selectMpaa') Please select an MPAA Rating
             
             .form__group
               .form__date
                 .form__date-month
-                  select#showOriginalMonth.dropdown(name='selectOriginalMonth' tabindex='0' required)
-                    option(value, selected=(true)) Original Month*
+                  select#showOriginalMonth.form__select.dropdown(name='select-month' tabindex='0' required)
+                    option(value, selected=(true)) Orig. Month*
 
                     - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -41,10 +43,12 @@ block content
                       - var monthSelected = (monthValue === month) ? true : false
 
                       option(value=`${month}`, selected=(monthSelected))= month
+                  
+                  label.form__label.label-text(for='showOriginalMonth') Please select a month
 
                 .form__date-day
-                  select#showOriginalDay.dropdown(name='selectOriginalDay' tabindex='0' required)
-                    option(value, selected=(true)) Day
+                  select#showOriginalDay.form__select.dropdown(name='select-day' tabindex='0' required)
+                    option(value, selected=(true)) Day*
 
                     - const days = [...Array(32).keys()].splice(1)
 
@@ -54,10 +58,12 @@ block content
                       - var daySelected = (dayValue == day) ? true : false
 
                       option(value=`${day}`, selected=(daySelected))= day
+                  
+                  label.form__label.label-text(for='showOriginalDay') Please select a day
 
                 .form__date-year
-                  select#showOriginalYear.dropdown(name='selectOriginalYear' tabindex='0' required)
-                    option(value, selected=(true)) Year
+                  select#showOriginalYear.form__select.dropdown(name='select-year' tabindex='0' required)
+                    option(value, selected=(true)) Year*
 
                     - const now = new Date().getFullYear()
                     - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
@@ -68,19 +74,21 @@ block content
                       - var yearSelected = (yearValue == year) ? true : false
 
                       option(value=`${year}`, selected=(yearSelected))= year
+                  
+                  label.form__label.label-text(for='showOriginalYear') Please select a year
 
             .form__group
-              input#showDuration.form__input.input-text(type='number' name='showDuration' placeholder='Duration*' value=`${show.duration}` min='10' required)
+              input#showDuration.form__input.input-text(type='number' name='show-duration' placeholder='Duration*' value=`${show.duration}` min='10' required)
               label.form__label.label-text(for='showDuration') Please enter your show's duration in minutes
 
             if user.role === 'admin'
               .form__group
-                input#showEventOwner.form__input.input-text(type='text' name='showEventOwner' placeholder='Event Owner*' value=`${show.eventOrganizer[0]._id}` required)
-                label.form__label.label-text(for='showEventOwner') Please enter the show's event organizer
+                input#showEventOwner.form__input.input-text(type='text' name='show-eventowner' placeholder='Event Organizer ID*' value=`${show.eventOrganizer[0]._id}` required)
+                label.form__label.label-text(for='showEventOwner') Please enter the event organizer's ID belonging to this show
 
             .form__group
               .form__photo-upload
-                img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
+                img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster` alt='Show Poster')
                 input#showPhoto.form__upload(type='file' accept='image/*' name='poster' required)
                 label(for='showPhoto') Choose a different poster*
 
@@ -90,19 +98,19 @@ block content
         .line &nbsp;
 
         .user-view__form-container
-          form#updateShowPlot.form
+          form#updateShowPlot.form(novalidate)
             .form__group
               .form__title.u-center-text
                 - const showPlotTitle = (user.role === 'admin') ? 'Change Show\'s Plot' : 'Change Your Show\'s Plot'
                 h2.heading-secondary= showPlotTitle
             
             .form__group
-              textarea#showOverview.form__text-area.input-text(name='textareaOverview' placeholder='Show Overview*' maxlength='183' required)= show.overview
-              label.form__label.label-text(for='showOverview') Please provide a short synopsis i.e. overview or logline.
+              textarea#showOverview.form__text-area.input-text(name='textarea-overview' placeholder='Show Overview*' maxlength='183' required)= show.overview
+              label.form__label.label-text(for='showOverview') Please provide a short synopsis i.e. overview or logline
 
             .form__group
-              textarea#showSynopsis.form__text-area.input-text(name='textareaSynopsis' placeholder='Show Synopsis' maxlength='1100')= show.synopsis
-              label.form__label.label-text(for='showSynopsis') A synopsis is a condensed outline. Don't spoil.
+              textarea#showSynopsis.form__text-area.input-text(name='textarea-synopsis' placeholder='Show Synopsis (optional)' maxlength='1100')= show.synopsis
+              label.form__label.label-text(for='showSynopsis') A synopsis is a condensed outline. Don't spoil
 
             .form__group
               button#btnUpdateShowPlot.btn.btn--blue(type='submit' name='btnUpdateShowPlot' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Plot
@@ -111,7 +119,7 @@ block content
           .line &nbsp;
 
           .user-view__form-container
-            form#updateShowCastCrewForm.form
+            form#updateShowCastCrewForm.form(novalidate)
               .form__group.form__group--info
                 .form__title.u-center-text
                   h2.heading-secondary.u-margin-bottom-small Casts | Crews
@@ -122,8 +130,8 @@ block content
                 - console.log(show)
                 - const castcrewIds = show.castcrew.map(el => el.id).join(', ')
 
-                textarea#showCastCrew.form__text-area.input-text(name='textareaCastCrew' placeholder='Casts | Crews*' required)= castcrewIds
-                label.form__label.label-text(for='showCastCrew') Please add any cast/crew to the show.
+                textarea#showCastCrew.form__text-area.input-text(name='textarea-castcrew' placeholder='Casts | Crews*' required)= castcrewIds
+                label.form__label.label-text(for='showCastCrew') Please add any cast/crew to the show
 
               .form__group
                 button#btnUpdateShowCastCrew.btn.btn--blue(type='submit' name='btnUpdateShowCastCrew' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Casts | Crews
@@ -131,7 +139,7 @@ block content
         .line &nbsp;
 
         .user-view__form-container
-          form#updateShowAddl.form
+          form#updateShowAddl.form(novalidate)
             .form__group
               .form__title.u-center-text
                 - const showAddlTitle = (user.role === 'admin') ? 'Change Show\'s Add\'l Info' : 'Change Your Show\'s Add\'l Info'
@@ -139,25 +147,27 @@ block content
 
             .form__group
               .form__content-type
-                select#showContentType.dropdown(name='selectContentType' tabindex='0' required)
+                select#showContentType.form__select.dropdown(name='select-contenttype' tabindex='0' required)
                   option(value, selected=(true)) Content Select*
                   option(value='Film', selected=(show.contentType === 'Film')) Film
                   option(value='TV', selected=(show.contentType === 'TV')) TV
+                
+                label.form__label.label-text(for='showContentType') Please select what content type
 
             - const genres = (show.genres == null) ? '' : show.genres
             - const languages = (show.language == null) ? '' : show.language
             - const subtitles = (show.subtitles == null) ? '' : show.subtitles
 
             .form__group
-              input#showGenre.form__input.input-text(type='text' name='showGenre' placeholder='Genre(s)' value=`${genres}`)
+              input#showGenre.form__input.input-text(type='text' name='show-genre' placeholder='Genre(s) (optional)' value=`${genres}`)
               label.form__label.label-text(for='showGenre') What genre(s) is it?
 
             .form__group
-              input#showLanguage.form__input.input-text(type='text' name='showLanguage' placeholder='Language' value=`${languages}`)
+              input#showLanguage.form__input.input-text(type='text' name='show-language' placeholder='Language (optional)' value=`${languages}`)
               label.form__label.label-text(for='showLanguage') What language it will have? Ex: 'French'
 
             .form__group
-              input#showSubtitles.form__input.input-text(type='text' name='showSubtitles' placeholder='Subtitles' value=`${subtitles}`)
+              input#showSubtitles.form__input.input-text(type='text' name='show-subtitles' placeholder='Subtitles (optional)' value=`${subtitles}`)
               label.form__label.label-text(for='showSubtitles') Any subtitles? Ex: 'English'
 
             .form__group
@@ -166,7 +176,7 @@ block content
         .line &nbsp;
 
         .user-view__form-container
-          form#updateShowPrice.form
+          form#updateShowPrice.form(novalidate)
             .form__group
               .form__title.u-center-text
                 - const showPriceTitle = (user.role === 'admin') ? 'Change Show\'s Price' : 'Change Your Show\'s Price'
@@ -175,29 +185,33 @@ block content
                 small.form__info-small.small-text For adding a price discount, please contact the admin.
 
             .form__group
-              input#showPrice.form__input.input-text(type='number' name='showPrice' placeholder='Show Price*' min='5' value=`${show.price}` required)
-              label.form__label.label-text(for='showPrice') Please enter your price on the show.
+              input#showPrice.form__input.input-text(type='number' name='show-price' placeholder='Show Price*' min='5' value=`${show.price}` required)
+              label.form__label.label-text(for='showPrice') Please enter your price on the show
 
             .form__group
               .form__special-venue
-                select#showSpecialVenue.dropdown(name='selectSpecialVenue' tabindex='0')
+                select#showSpecialVenue.form__select.dropdown(name='select-specialvenue' tabindex='0')
 
                   - var specialVenueValue = (show.specialVenue === true) ? 'y' : 'n'
 
                   option(value, selected=(true)) Special Venue (optional)
                   option(value='y', selected=(specialVenueValue === 'y')) Yes
                   option(value='n', selected=(specialVenueValue === 'n')) No
+                
+                label.form__label.label-text(for='showSpecialVenue') Is it a special occasion?
 
             if user.role === 'admin'
               .form__group
                 .form__special-venue
-                  select#showPrivateVenue.dropdown(name='selectPrivateVenue' tabindex='0')
+                  select#showPrivateVenue.form__select.dropdown(name='select-privatevenue' tabindex='0')
 
                     - var privateVenueValue = (show.secretShow === true) ? 'y' : 'n'
 
                     option(value, selected=(true)) Private Venue (optional)
                     option(value='y', selected=(privateVenueValue === 'y')) Yes
                     option(value='n', selected=(privateVenueValue === 'n')) No
+                  
+                  label.form__label.label-text(for='showPrivateVenue') Is it private?
 
             .form__group
               button#btnUpdateShowPrice.btn.btn--blue(type='submit' name='btnUpdateShowPrice' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Pricing
@@ -205,7 +219,7 @@ block content
         .line &nbsp;
 
         .user-view__form-container
-          form#deleteShowForm.form
+          form#deleteShowForm.form(novalidate)
             .form__group.form__group--info
               .form__title.u-center-text
                 - const deleteShowTitle = (user.role === 'admin') ? 'Delete Show' : 'Delete Your Show'
