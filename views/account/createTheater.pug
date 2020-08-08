@@ -8,53 +8,53 @@ block content
           .form-container__title.u-center-text.u-margin-bottom-small
             h1.heading-primary.u-margin-bottom-small Create Theater
 
-          form#adCreateTheaterForm.form.form__multiform.form__multiform--fourth(name='adCreateTheaterForm')
+          form#adCreateTheaterForm.form.form__multiform.form__multiform--fourth(name='adCreateTheaterForm' novalidate)
             fieldset#adFieldlist1.form__fieldset.form__fieldset--fourth(name='adFieldlist1')
               .form__group.u-center-text.u-margin-bottom-small
-                small.form__info-small.small-text Let's create a theater! Fields with * are required.
+                small.form__info-small.small-text Let's create a theater! Fields with * are required
 
               .form__group
-                input#theaterName.form__input.input-text(type='text' name='theaterName' placeholder='Name*' required)
-                label.form__label.label-text(for='theaterName') Please give a name to the theater.
+                input#theaterName.form__input.input-text(type='text' name='theater-name' placeholder='Name*' required)
+                label.form__label.label-text(for='theaterName') Please give a name to the theater
 
               .form__group
-                input#theaterPhone.form__input.input-text(type='text' name='theaterPhone' placeholder='Phone Number*' pattern='[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}' title='(000)000-0000, or a space between (000) 000-0000' required)
-                label.form__label.label-text(for='theaterPhone') Please give the theater's phone number.
+                input#theaterPhone.form__input.input-text(type='text' name='phone' placeholder='Phone Number*' pattern='[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}' title='(000)000-0000, or a space between (000) 000-0000' required)
+                label.form__label.label-text(for='theaterPhone') Please give the theater's phone number
 
               .form__group
-                input#theaterLinkUrl.form__input.input-text(type='text' name='theaterLinkUrl' placeholder='Website URL' pattern='http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?')
-                label.form__label.label-text(for='theaterLinkUrl') Please give the theater's website URL.
+                input#theaterLinkUrl.form__input.input-text(type='text' name='linkurl' placeholder='Website URL (optional)' pattern='http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?')
+                label.form__label.label-text(for='theaterLinkUrl') Does the theater have a website?
               
               .form__group
                 button#btnNext-1.btn.btn--blue(name='btnNext1') Next
 
             fieldset#adFieldlist2.form__fieldset.form__fieldset--fourth(name='adFieldlist2')
               .form__group.form__group--info.u-center-text
-                small.form__info-small.small-text Provide a location for the theater.
+                small.form__info-small.small-text Provide a location for the theater
 
               .form__group
-                input#theaterAddress.form__input.input-text(type='text' name='theaterAddress' placeholder='Address*' required)
-                label.form__label.label-text(for='theaterAddress') Please give an address for the theater.
+                input#theaterAddress.form__input.input-text(type='text' name='address' placeholder='Address*' required)
+                label.form__label.label-text(for='theaterAddress') Please give an address for the theater
 
               .form__group
-                input#theaterCity.form__input.input-text(type='text' name='theaterCity' placeholder='City*' required)
-                label.form__label.label-text(for='theaterCity') Please give a city for the theater.
+                input#theaterCity.form__input.input-text(type='text' name='city' placeholder='City*' required)
+                label.form__label.label-text(for='theaterCity') Please give a city for the theater
 
               .form__group
-                input#theaterState.form__input.input-text(type='text' name='theaterState' placeholder='State*' required)
-                label.form__label.label-text(for='theaterState') Please give a state for the theater.
+                input#theaterState.form__input.input-text(type='text' name='state' placeholder='State*' required)
+                label.form__label.label-text(for='theaterState') Please give a state for the theater
 
               .form__group
-                input#theaterZipCode.form__input.input-text(type='text' name='theaterZipCode' placeholder='ZipCode*' minlength='5' maxlength='5' pattern='\d{5}' title='90095, 5 characters min & max' required)
-                label.form__label.label-text(for='theaterZipCode') Please give a ZIP code the theater.
+                input#theaterZipCode.form__input.input-text(type='text' name='zipcode' placeholder='ZipCode*' minlength='5' maxlength='5' pattern='\d{5}' title='90095, 5 characters min & max' required)
+                label.form__label.label-text(for='theaterZipCode') Please give a ZIP code for the theater
 
               .form__group
-                input#theaterGeoLong.form__input.input-text(type='text' name='theaterGeoLong' placeholder='Geo Longitude Location*' required)
-                label.form__label.label-text(for='theaterGeoLong') Please give a longitude location for the theater.
+                input#theaterGeoLong.form__input.input-text(type='text' name='geo-long' placeholder='Geo Longitude Location*' required)
+                label.form__label.label-text(for='theaterGeoLong') Please give a longitude location for the theater
 
               .form__group
-                input#theaterGeoLat.form__input.input-text(type='text' name='theaterGeoLat' placeholder='Geo Latitude Location*' required)
-                label.form__label.label-text(for='theaterGeoLat') Please give a latitude location for the theater.
+                input#theaterGeoLat.form__input.input-text(type='text' name='geo-lat' placeholder='Geo Latitude Location*' required)
+                label.form__label.label-text(for='theaterGeoLat') Please give a latitude location for the theater
 
               .form__group
                 .form__duo-btn
@@ -66,17 +66,17 @@ block content
 
             fieldset#adFieldlist3.form__fieldset.form__fieldset--fourth(name='adFieldlist3')
               .form__group.form__group--info.u-center-text
-                small.form__info-small.small-text Provide a description and/or an image on the theater. They are optional.
+                small.form__info-small.small-text Provide a description and/or an image on the theater. Description is optional
 
               .form__group
-                textarea#theaterDescription.form__text-area.input-text(name='textareaDescription' placeholder='Theater Description')
-                label.form__label.label-text(for='theaterDescription') Please provide a description.
+                textarea#theaterDescription.form__text-area.input-text(name='textarea-theaterdescription' placeholder='Theater Description' maxlength='3900')
+                label.form__label.label-text(for='theaterDescription') Please provide a description
 
               .form__group
                 .form__photo-upload
                   img.form__show-photo(src='/img/theaters/theaters.png', alt="Theater photo")
-                  input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto' multiple)
-                  label(for='theaterPhoto') Choose a theater photo
+                  input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto', required)
+                  label.form__label-upload.label-text(for='theaterPhoto') Choose a theater photo*
 
               .form__group
                 .form__duo-btn
@@ -88,21 +88,21 @@ block content
 
             fieldset#adFieldlist4.form__fieldset.form__fieldset--fourth(name='adFieldlist4')
               .form__group.u-center-text
-                small.form__info-small.small-text What chain does this theater belong to? The chain logo could be the same image as the theater photo. All of these are optional.
+                small.form__info-small.small-text What chain does this theater belong to? The chain logo could be the same image as the theater photo. All of these are optional
 
               .form__group
-                input#theaterChainName.form__input.input-text(type='text' name='theaterChainName' placeholder='Chain Name')
-                label.form__label.label-text(for='theaterChainName') Please give a chain name that the theater belongs.
+                input#theaterChainName.form__input.input-text(type='text' name='chainname' placeholder='Chain Name (optional)')
+                label.form__label.label-text(for='theaterChainName') Name of the chain the theater belongs?
               
               .form__group
-                input#theaterChainCode.form__input.input-text(type='text' name='theaterChainCode' placeholder='Chain Code')
-                label.form__label.label-text(for='theaterChainCode') Please give a code that the chain has.
+                input#theaterChainCode.form__input.input-text(type='text' name='chaincode' placeholder='Chain Code (optional)')
+                label.form__label.label-text(for='theaterChainCode') The chain's code?
 
               .form__group
                 .form__photo-upload
                   img.form__show-photo(src='/img/theaters/theaters.png', alt="Theater photo")
-                  input#theaterChainLogo.form__upload(type='file', accept='image/*', name='chainPhoto' multiple)
-                  label(for='theaterChainLogo') Choose a chain logo
+                  input#theaterChainLogo.form__upload(type='file', accept='image/*', name='chainPhoto')
+                  label.form__label-upload.label-text(for='theaterChainLogo') A chain logo? (optional)
 
               .form__group
                 .form__duo-btn
