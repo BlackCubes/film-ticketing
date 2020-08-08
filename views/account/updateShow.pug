@@ -86,6 +86,24 @@ block content
                 input#showEventOwner.form__input.input-text(type='text' name='show-eventowner' placeholder='Event Organizer ID*' value=`${show.eventOrganizer[0]._id}` required)
                 label.form__label.label-text(for='showEventOwner') Please enter the event organizer's ID belonging to this show
 
+            //- .form__group
+            //-   .form__photo-upload
+            //-     img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
+            //-     input#showPhoto.form__upload(type='file' accept='image/*' name='poster' required)
+            //-     label.form__label-upload.label-text(for='showPhoto') Choose a different poster*
+
+            .form__group
+              button#btnUpdateShowData.btn.btn--blue(type='submit' name='btnUpdateShowData' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Show Settings
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#updateShowPoster.form(novalidate)
+            .form__group
+              .form__title.u-center-text
+                - const showPosterTitle = (user.role === 'admin') ? 'Change Show\'s Poster' : 'Change Your Show\'s Poster'
+                h2.heading-secondary= showPosterTitle
+
             .form__group
               .form__photo-upload
                 img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
@@ -93,7 +111,7 @@ block content
                 label.form__label-upload.label-text(for='showPhoto') Choose a different poster*
 
             .form__group
-              button#btnUpdateShowData.btn.btn--blue(type='submit' name='btnUpdateShowData' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Show Settings
+              button#btnUpdateShowPoster.btn.btn--blue(type='submit' name='btnUpdateShowPoster' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update Show Poster
 
         .line &nbsp;
 
