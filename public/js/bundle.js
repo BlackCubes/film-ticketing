@@ -26987,7 +26987,7 @@ var checkFormSubmit = function checkFormSubmit() {
       if (inputVal === '') {
         validationFailure(input, 'Please provide the ID for the event organizer', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid MongoDB ObjectID');
+        validationFailure(input, 'Please use a valid MongoDB ObjectID', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
@@ -27009,15 +27009,17 @@ var checkFormSubmit = function checkFormSubmit() {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a phone number', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please provide a valid phone number in the form of (###)###-#### or (###) ###-####');
+        validationFailure(input, 'Please provide a valid phone number in the form of (###)###-#### or (###) ###-####', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
     if (input.name === 'linkurl' && inputVal !== '') {
-      if (!regexForm(input)) {
-        validationFailure(input, 'Please use a valid url that has .com, .net, .gov, .org, or .in, and with protocol http or https');
+      if (inputVal.length > 2082) {
+        validationFailure(input, 'Please enter a url that is less than 2083 characters', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please use a valid url that has .com, .net, .gov, .org, or .in, and with protocol http or https', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
@@ -27027,11 +27029,11 @@ var checkFormSubmit = function checkFormSubmit() {
       if (inputVal === '') {
         validationFailure(input, 'Please provide an address', inputRequired);
       } else if (inputVal.length < 3) {
-        validationFailure(input, 'Please enter an address a minimum of 3 characters');
+        validationFailure(input, 'Please enter an address a minimum of 3 characters', inputRequired);
       } else if (inputVal.length > 96) {
-        validationFailure(input, 'Please enter an address that is less than or equal to 96 characters');
+        validationFailure(input, 'Please enter an address that is less than or equal to 96 characters', inputRequired);
       } else if (!regexForm(input)) {
-        validationFailure(input, 'Please provide a valid US address');
+        validationFailure(input, 'Please provide a valid US address', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
