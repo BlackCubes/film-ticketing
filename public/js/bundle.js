@@ -27014,6 +27014,14 @@ var checkFormSubmit = function checkFormSubmit() {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'linkurl' && inputVal !== '') {
+      if (!regexForm(input)) {
+        validationFailure(input, 'Please use a valid url that has .com, .net, .gov, .org, or .in, and with protocol http or https');
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -27054,6 +27062,7 @@ function regexForm(e) {
   var regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
   var regexVenue = /^\b(y|n)\b$/;
   var regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
+  var regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
   var regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -27088,6 +27097,8 @@ function regexForm(e) {
     regexResult = regexMongo.test(e.value);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(e.value);
+  } else if (e.name === 'linkurl') {
+    regexResult = regexURL.text(e.value);
   }
 
   return regexResult;
