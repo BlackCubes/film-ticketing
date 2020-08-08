@@ -29031,6 +29031,8 @@ if (eoFieldlist1) {
                 (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
               }
 
+              console.log(roleAmount);
+
               if (_formController.formStatus === roleAmount) {
                 form = new FormData();
                 title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
@@ -29072,7 +29074,7 @@ if (eoFieldlist1) {
                 document.getElementById('btnCreateShow').textContent = 'Create';
               }
 
-            case 5:
+            case 6:
             case "end":
               return _context6.stop();
           }
