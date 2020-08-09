@@ -27064,6 +27064,18 @@ var checkFormSubmit = function checkFormSubmit() {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'zipcode') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a US ZIP code', inputRequired);
+      } else if (inputVal.length !== 5) {
+        validationFailure(input, 'Please enter a US ZIP code that is no more or no less than 5 characters long', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please provide a valid US ZIP code that is 5 characters long', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -27108,6 +27120,7 @@ function regexForm(e) {
   var regexAddress = /^[ #',\.-9A-Z\u017F\u212A]{3,96}$/i;
   var regexCity = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
   var regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
+  var regexZipCode = /^[0-9]{5}$/;
   var regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -27150,6 +27163,8 @@ function regexForm(e) {
     regexResult = regexCity.test(e.value);
   } else if (e.name === 'state') {
     regexResult = regexState.test(e.value);
+  } else if (e.name === 'zipcode') {
+    regexResult = regexZipCode.test(e.value);
   }
 
   return regexResult;
