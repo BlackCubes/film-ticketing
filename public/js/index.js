@@ -602,7 +602,8 @@ if (eoFieldlist1) {
 if (adFieldlist1) {
   const firstNextBtn = document.getElementById('btnNext-1'),
     secondNextBtn = document.getElementById('btnNext-2'),
-    thirdNextBtn = document.getElementById('btnNext-3');
+    thirdNextBtn = document.getElementById('btnNext-3'),
+    createTheaterBtn = document.getElementById('btnCreateTheater');
 
   const firstPreviousBtn = document.getElementById('btnPrev-1'),
     secondPreviousBtn = document.getElementById('btnPrev-2'),
@@ -610,62 +611,97 @@ if (adFieldlist1) {
 
   let multiForm = new MultiForm(firstNextBtn, adFieldlist1);
 
-  firstNextBtn.addEventListener('click', e => multiForm.buttonNext(e, true));
-  secondNextBtn.addEventListener('click', e => {
-    multiForm.buttonNext(e, true);
+  firstNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    checkFormSubmit(
+      document.getElementById('theaterName'),
+      document.getElementById('theaterPhone'),
+      document.getElementById('theaterLinkUrl')
+    );
+
+    if (formStatus === 2) multiForm.buttonNext();
   });
-  thirdNextBtn.addEventListener('click', e =>
-    multiForm.buttonNext(e, true, false, true)
-  );
+
+  secondNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    checkFormSubmit(
+      document.getElementById('theaterAddress'),
+      document.getElementById('theaterCity'),
+      document.getElementById('theaterState'),
+      document.getElementById('theaterZipCode'),
+      document.getElementById('theaterGeoLong'),
+      document.getElementById('theaterGeoLat')
+    );
+
+    if (formStatus === 6) multiForm.buttonNext();
+  });
+
+  thirdNextBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    checkFormSubmit(
+      document.getElementById('theaterDescription'),
+      document.getElementById('theaterPhoto')
+    );
+
+    if (formStatus === 1) multiForm.buttonNext();
+  });
 
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   secondPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
   thirdPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
 
-  const createTheaterBtn = document.getElementById('btnCreateTheater');
-
   adCreateTheaterForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const form = new FormData();
+    checkFormSubmit(
+      document.getElementById('theaterChainName'),
+      document.getElementById('theaterChainLogo')
+    );
 
-    const name = document.getElementById('theaterName').value,
-      phone = document.getElementById('theaterPhone').value,
-      linkUrl = document.getElementById('theaterLinkUrl').value,
-      address = document.getElementById('theaterAddress').value,
-      city = document.getElementById('theaterCity').value,
-      state = document.getElementById('theaterState').value,
-      zipCode = document.getElementById('theaterZipCode').value,
-      geoLong = parseFloat(document.getElementById('theaterGeoLong').value),
-      geoLat = parseFloat(document.getElementById('theaterGeoLat').value),
-      description = document.getElementById('theaterDescription').value,
-      chainName = document.getElementById('theaterChainName').value,
-      chainCode = document.getElementById('theaterChainCode').value;
+    if (formStatus === 0) {
+      const form = new FormData();
 
-    const geo = JSON.stringify([geoLong, geoLat]);
+      const name = document.getElementById('theaterName').value,
+        phone = document.getElementById('theaterPhone').value,
+        linkUrl = document.getElementById('theaterLinkUrl').value,
+        address = document.getElementById('theaterAddress').value,
+        city = document.getElementById('theaterCity').value,
+        state = document.getElementById('theaterState').value,
+        zipCode = document.getElementById('theaterZipCode').value,
+        geoLong = parseFloat(document.getElementById('theaterGeoLong').value),
+        geoLat = parseFloat(document.getElementById('theaterGeoLat').value),
+        description = document.getElementById('theaterDescription').value,
+        chainName = document.getElementById('theaterChainName').value;
+      // chainCode = document.getElementById('theaterChainCode').value;
 
-    const photo = document.getElementById('theaterPhoto').files[0],
-      chainLogo = document.getElementById('theaterChainLogo').files[0];
+      const geo = JSON.stringify([geoLong, geoLat]);
 
-    document.getElementById('btnCreateTheater').textContent = 'Creating...';
+      const photo = document.getElementById('theaterPhoto').files[0],
+        chainLogo = document.getElementById('theaterChainLogo').files[0];
 
-    form.append('name', name);
-    form.append('phone', phone);
-    form.append('linkUrl', linkUrl);
-    form.append('address', address);
-    form.append('city', city);
-    form.append('state', state);
-    form.append('zipCode', zipCode);
-    form.append('geo', geo);
-    form.append('description', description);
-    form.append('chainName', chainName);
-    form.append('chainCode', chainCode);
-    form.append('theaterPhoto', photo);
-    form.append('chainPhoto', chainLogo);
+      document.getElementById('btnCreateTheater').textContent = 'Creating...';
 
-    await createTheater(form);
+      form.append('name', name);
+      form.append('phone', phone);
+      form.append('linkUrl', linkUrl);
+      form.append('address', address);
+      form.append('city', city);
+      form.append('state', state);
+      form.append('zipCode', zipCode);
+      form.append('geo', geo);
+      form.append('description', description);
+      form.append('chainName', chainName);
+      // form.append('chainCode', chainCode);
+      form.append('theaterPhoto', photo);
+      form.append('chainPhoto', chainLogo);
 
-    document.getElementById('btnCreateTheater').textContent = 'Create';
+      // await createTheater(form);
+
+      document.getElementById('btnCreateTheater').textContent = 'Create';
+    }
   });
 }
 
