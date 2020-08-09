@@ -1307,53 +1307,71 @@ if (updateShowtimeMainView) {
   updateShowtimeMainView.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const selectStartMonth = document.getElementById('showtimeStartMonth'),
-      selectStartDay = document.getElementById('showtimeStartDay'),
-      selectStartYear = document.getElementById('showtimeStartYear'),
-      selectStartHour = document.getElementById('showtimeStartHour'),
-      selectStartMinute = document.getElementById('showtimeStartMinute'),
-      selectStartSecond = document.getElementById('showtimeStartSecond'),
-      selectEndHour = document.getElementById('showtimeEndHour'),
-      selectEndMinute = document.getElementById('showtimeEndMinute'),
-      selectEndSecond = document.getElementById('showtimeEndSecond');
-
-    const startMonth =
-        selectStartMonth.options[selectStartMonth.selectedIndex].value,
-      startDay = selectStartDay.options[selectStartDay.selectedIndex].value,
-      startYear = selectStartYear.options[selectStartYear.selectedIndex].value,
-      startHour = selectStartHour.options[selectStartHour.selectedIndex].value,
-      startMinute =
-        selectStartMinute.options[selectStartMinute.selectedIndex].value,
-      startSecond =
-        selectStartSecond.options[selectStartSecond.selectedIndex].value,
-      endHour = selectEndHour.options[selectEndHour.selectedIndex].value,
-      endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value,
-      endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
-
-    const startDateTime = new Date(
-        `${startYear}-${startMonth}-${startDay} ${startHour}:${startMinute}:${startSecond}`
-      ).toISOString(),
-      endDateTime = new Date(
-        `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
-      ).toISOString();
-
-    const updateShowtimeDataBtn = document.getElementById(
-      'btnUpdateShowtimeData'
+    checkFormSubmit(
+      document.getElementById('showtimeStartMonth'),
+      document.getElementById('showtimeStartDay'),
+      document.getElementById('showtimeStartYear'),
+      document.getElementById('showtimeStartHour'),
+      document.getElementById('showtimeStartMinute'),
+      document.getElementById('showtimeStartSecond'),
+      document.getElementById('showtimeEndHour'),
+      document.getElementById('showtimeEndMinute'),
+      document.getElementById('showtimeEndSecond')
     );
 
-    const { showtimeId } = updateShowtimeDataBtn.dataset;
+    if (formStatus === 9) {
+      const selectStartMonth = document.getElementById('showtimeStartMonth'),
+        selectStartDay = document.getElementById('showtimeStartDay'),
+        selectStartYear = document.getElementById('showtimeStartYear'),
+        selectStartHour = document.getElementById('showtimeStartHour'),
+        selectStartMinute = document.getElementById('showtimeStartMinute'),
+        selectStartSecond = document.getElementById('showtimeStartSecond'),
+        selectEndHour = document.getElementById('showtimeEndHour'),
+        selectEndMinute = document.getElementById('showtimeEndMinute'),
+        selectEndSecond = document.getElementById('showtimeEndSecond');
 
-    document.getElementById('btnUpdateShowtimeData').textContent =
-      'Updating...';
+      const startMonth =
+          selectStartMonth.options[selectStartMonth.selectedIndex].value,
+        startDay = selectStartDay.options[selectStartDay.selectedIndex].value,
+        startYear =
+          selectStartYear.options[selectStartYear.selectedIndex].value,
+        startHour =
+          selectStartHour.options[selectStartHour.selectedIndex].value,
+        startMinute =
+          selectStartMinute.options[selectStartMinute.selectedIndex].value,
+        startSecond =
+          selectStartSecond.options[selectStartSecond.selectedIndex].value,
+        endHour = selectEndHour.options[selectEndHour.selectedIndex].value,
+        endMinute =
+          selectEndMinute.options[selectEndMinute.selectedIndex].value,
+        endSecond =
+          selectEndSecond.options[selectEndSecond.selectedIndex].value;
 
-    await updateShowtimeSettings(
-      { startDateTime, endDateTime },
-      'data',
-      showtimeId
-    );
+      const startDateTime = new Date(
+          `${startYear}-${startMonth}-${startDay} ${startHour}:${startMinute}:${startSecond}`
+        ).toISOString(),
+        endDateTime = new Date(
+          `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
+        ).toISOString();
 
-    document.getElementById('btnUpdateShowtimeData').textContent =
-      'Update Showtime Settings';
+      const updateShowtimeDataBtn = document.getElementById(
+        'btnUpdateShowtimeData'
+      );
+
+      const { showtimeId } = updateShowtimeDataBtn.dataset;
+
+      document.getElementById('btnUpdateShowtimeData').textContent =
+        'Updating...';
+
+      // await updateShowtimeSettings(
+      //   { startDateTime, endDateTime },
+      //   'data',
+      //   showtimeId
+      // );
+
+      document.getElementById('btnUpdateShowtimeData').textContent =
+        'Update Showtime Settings';
+    }
   });
 }
 
