@@ -652,6 +652,30 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'castcrew-role') {
+      if (inputVal.length < 4) {
+        validationFailure(
+          input,
+          'Please enter role(s) a minimum of 4 characters',
+          inputRequired
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
+    if (input.name === 'textarea-bio' && inputVal !== '') {
+      if (inputVal.length > 3000) {
+        validationFailure(
+          input,
+          'Please enter a biography that is less than or equal to 3000 characters',
+          inputRequired
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
