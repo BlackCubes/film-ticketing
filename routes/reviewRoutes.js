@@ -21,7 +21,7 @@ router.patch(
 
 router.delete(
   '/deleteMyReview/:id',
-  authController.restrictTo('user'),
+  authController.restrictTo('user', 'admin'),
   reviewController.deleteMyReview
 );
 
