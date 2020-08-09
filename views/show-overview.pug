@@ -176,7 +176,7 @@ block content
               if user && show.tickets.filter(ticket => ticket.user.id === user.id).length > 0 && show.reviews.filter(review => review.user.id === user.id).length === 0
                 //- - console.log('Filter Date: ', show.tickets.filter(el => Date.now() >= el.showtime.endDateTime))
                 each ticket in show.tickets
-                  //- - console.log('Review from Ticket: ', ticket)
+                  - console.log('Tickets in Create Review IF: ', ticket)
                   if Date.now() >= ticket.showtime.endDateTime && show.showtimes.filter(showtime => showtime.id === ticket.showtime.id).length > 0
                     //- - console.log('Review from Ticket after IF: ', ticket)
                     .tile-card.swiper-slide
@@ -201,7 +201,7 @@ block content
                             button#btnCreateReview.btn.btn--blue(type='submit' name='btnCreateReview' data-show-id=`${show.id}` data-role-type=`${user.role}`) Create Review
 
               each review in show.reviews
-                - console.log('Reviews: ', review)
+                //- - console.log('Reviews: ', review)
                 .tile-card.swiper-slide
                   .tile-card__reviewer
                     .tile-card__reviewer-photo
