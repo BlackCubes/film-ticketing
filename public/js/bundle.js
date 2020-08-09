@@ -29136,19 +29136,17 @@ if (createReviewForm) {
           switch (_context5.prev = _context5.next) {
             case 0:
               e.preventDefault();
-              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, createReviewBtn = document.getElementById('btnCreateReview');
-              _createReviewBtn$data = createReviewBtn.dataset, showId = _createReviewBtn$data.showId, roleType = _createReviewBtn$data.roleType;
-              document.getElementById('btnCreateReview').textContent = 'Creating...';
-              _context5.next = 6;
-              return (0, _login.createReview)({
-                review: review,
-                rating: rating
-              }, showId, roleType);
+              (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
 
-            case 6:
-              document.getElementById('btnCreateReview').textContent = 'Create Review';
+              if (_formController.formStatus === 2) {
+                rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, createReviewBtn = document.getElementById('btnCreateReview');
+                _createReviewBtn$data = createReviewBtn.dataset, showId = _createReviewBtn$data.showId, roleType = _createReviewBtn$data.roleType;
+                document.getElementById('btnCreateReview').textContent = 'Creating...'; // await createReview({ review, rating }, showId, roleType);
 
-            case 7:
+                document.getElementById('btnCreateReview').textContent = 'Create Review';
+              }
+
+            case 3:
             case "end":
               return _context5.stop();
           }

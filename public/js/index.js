@@ -409,17 +409,24 @@ if (createReviewForm) {
   createReviewForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const rating = document.getElementById('reviewRating').value,
-      review = document.getElementById('review').value,
-      createReviewBtn = document.getElementById('btnCreateReview');
+    checkFormSubmit(
+      document.getElementById('reviewRating'),
+      document.getElementById('review')
+    );
 
-    const { showId, roleType } = createReviewBtn.dataset;
+    if (formStatus === 2) {
+      const rating = document.getElementById('reviewRating').value,
+        review = document.getElementById('review').value,
+        createReviewBtn = document.getElementById('btnCreateReview');
 
-    document.getElementById('btnCreateReview').textContent = 'Creating...';
+      const { showId, roleType } = createReviewBtn.dataset;
 
-    await createReview({ review, rating }, showId, roleType);
+      document.getElementById('btnCreateReview').textContent = 'Creating...';
 
-    document.getElementById('btnCreateReview').textContent = 'Create Review';
+      // await createReview({ review, rating }, showId, roleType);
+
+      document.getElementById('btnCreateReview').textContent = 'Create Review';
+    }
   });
 }
 
