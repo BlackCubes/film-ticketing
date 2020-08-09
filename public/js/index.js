@@ -414,7 +414,7 @@ if (createReviewForm) {
       document.getElementById('review')
     );
 
-    if (formStatus === 3) {
+    if (formStatus === 2) {
       const rating = document.getElementById('reviewRating').value,
         review = document.getElementById('review').value,
         createReviewBtn = document.getElementById('btnCreateReview');

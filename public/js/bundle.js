@@ -29138,7 +29138,7 @@ if (createReviewForm) {
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
 
-              if (!(_formController.formStatus === 3)) {
+              if (!(_formController.formStatus === 2)) {
                 _context5.next = 9;
                 break;
               }
