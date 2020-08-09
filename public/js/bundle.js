@@ -26865,9 +26865,9 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
-    if (input.name === 'photo' && input.value !== '' || input.name === 'poster') {
+    if (input.name === 'photo' && input.value !== '' || input.name === 'poster' || input.name === 'theaterPhoto') {
       if (inputRequired && input.value === '') {
-        validationFailure(input, 'Please provide a poster', inputRequired);
+        validationFailure(input, 'Please provide an image', inputRequired);
       } else if (!regexForm(input)) {
         validationFailure(input, 'Please select a valid image file of jpg, jpeg, or png', inputRequired);
         input.value = '';
@@ -26875,7 +26875,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Max upload size is 1MB only', inputRequired);
         input.value = '';
       } else {
-        input.name === 'photo' ? validationSuccess(input, 'Woohoo!', inputRequired) : validationSuccess(input, 'Woohoo!', inputRequired);
+        validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
 
@@ -27169,7 +27169,7 @@ function regexForm(e) {
     regexResult = regexDateYear.includes(parseInt(e.value));
   } else if (e.name === 'select-gender') {
     regexResult = regexGender.includes(e.value);
-  } else if (e.name === 'photo' || e.name === 'poster') {
+  } else if (e.name === 'photo' || e.name === 'poster' || e.name === 'theaterPhoto') {
     regexResult = regexPhoto.test(e.files[0].type.split('/').pop().toLowerCase());
   } else if (e.name === 'select-mpaa') {
     regexResult = regexMpaa.includes(e.value);
