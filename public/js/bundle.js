@@ -27150,6 +27150,20 @@ var checkFormSubmit = function checkFormSubmit() {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'castcrew-name') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a name for the cast/crew', inputRequired);
+      } else if (inputVal.length < 2) {
+        validationFailure(input, 'Please enter a name a minimum of 2 characters', inputRequired);
+      } else if (inputVal.length > 70) {
+        validationFailure(input, 'Please enter a name that is less than or equal to 70 characters', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please provide a valid name that is between 2 and 70 characters', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
