@@ -27120,6 +27120,36 @@ var checkFormSubmit = function checkFormSubmit() {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'select-hour') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a time in hours', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please enter a valid military time in hours', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
+    if (input.name === 'select-minute') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a time in minutes', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please enter a valid military time in minutes', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
+    if (input.name === 'select-second') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a time in seconds', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please enter a valid military time in seconds', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -27167,6 +27197,11 @@ function regexForm(e) {
   var regexZipCode = /^[0-9]{5}$/;
   var regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
   var regexLatitude = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
+
+  var regexTimeHour = _toConsumableArray(Array(25).keys()).splice(0);
+
+  var regexTimeMinSecs = _toConsumableArray(Array(61).keys()).splice(0);
+
   var regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -27215,6 +27250,10 @@ function regexForm(e) {
     regexResult = regexLongitude.test(e.value);
   } else if (e.name === 'geo-lat') {
     regexResult = regexLatitude.test(e.value);
+  } else if (e.name === 'select-hour') {
+    regexResult = regexTimeHour.includes(parseInt(e.value));
+  } else if (e.name === 'select-minute' || e.name === 'select-second') {
+    regexResult = regexTimeMinSecs.includes(parseInt(e.value));
   }
 
   return regexResult;
