@@ -12,8 +12,8 @@ const reviewSchema = new mongoose.Schema(
     },
     rating: {
       type: Number,
-      min: 1,
-      max: 5
+      min: [1, 'A minimum rating of 1 for reviewing!'],
+      max: [5, 'A maximum rating of 5 for reviewing!']
     },
     createdAt: {
       type: Date,
