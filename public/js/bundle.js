@@ -29671,33 +29671,37 @@ if (updateReview) {
 if (updateTheaterMainView) {
   updateTheaterMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref17 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee17(e) {
-      var name, phone, linkUrl, updateTheaterDataBtn, theaterId;
+      var updateTheaterDataBtn, theaterId, name, phone, linkUrl;
       return regeneratorRuntime.wrap(function _callee17$(_context17) {
         while (1) {
           switch (_context17.prev = _context17.next) {
             case 0:
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('theaterName'), document.getElementById('theaterPhone'), document.getElementById('theaterLinkUrl'));
+              updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+              theaterId = updateTheaterDataBtn.dataset.theaterId;
 
               if (!(_formController.formStatus === 2)) {
-                _context17.next = 9;
+                _context17.next = 11;
                 break;
               }
 
-              name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value, updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
-              theaterId = updateTheaterDataBtn.dataset.theaterId;
+              name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value; // updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+              // const { theaterId } = updateTheaterDataBtn.dataset;
+
+              console.log(theaterId);
               document.getElementById('btnUpdateTheaterData').textContent = 'Updating...';
-              _context17.next = 8;
+              _context17.next = 10;
               return (0, _updateSettings.updateTheaterSettings)({
                 name: name,
                 phone: phone,
                 linkUrl: linkUrl
               }, 'data', theaterId);
 
-            case 8:
+            case 10:
               document.getElementById('btnUpdateTheaterData').textContent = 'Update Theater Settings';
 
-            case 9:
+            case 11:
             case "end":
               return _context17.stop();
           }
