@@ -472,6 +472,26 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'state') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a US state', inputRequired);
+      } else if (inputVal.length !== 2) {
+        validationFailure(
+          input,
+          'Please enter a US state that is 2 characters long',
+          inputRequired
+        );
+      } else if (!regexForm(input)) {
+        validationFailure(
+          input,
+          'Please provide a valid US state that is 2 characters long, capitalize, and abbreviated',
+          inputRequired
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -538,6 +558,7 @@ function regexForm(e) {
   const regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
   const regexAddress = /^[A-Z0-9 ,#'\/.]{3,96}$/iu;
   const regexCity = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
+  const regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
   const regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -586,6 +607,8 @@ function regexForm(e) {
     regexResult = regexAddress.test(e.value);
   } else if (e.name === 'city') {
     regexResult = regexCity.test(e.value);
+  } else if (e.name === 'state') {
+    regexResult = regexState.test(e.value);
   }
 
   return regexResult;
