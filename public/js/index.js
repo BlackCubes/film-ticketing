@@ -411,8 +411,7 @@ if (createReviewForm) {
 
     checkFormSubmit(
       document.getElementById('reviewRating'),
-      document.getElementById('review'),
-      document.getElementById('btnCreateReview').dataset.showId
+      document.getElementById('review')
     );
 
     if (formStatus === 3) {

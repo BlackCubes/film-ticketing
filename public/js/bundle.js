@@ -29136,7 +29136,7 @@ if (createReviewForm) {
           switch (_context5.prev = _context5.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'), document.getElementById('btnCreateReview').dataset.showId);
+              (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
 
               if (!(_formController.formStatus === 3)) {
                 _context5.next = 9;
