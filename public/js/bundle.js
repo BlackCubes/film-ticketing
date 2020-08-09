@@ -27192,7 +27192,7 @@ function regexForm(e) {
   var regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
   var regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
   var regexAddress = /^[ #',\.-9A-Z\u017F\u212A]{3,96}$/i;
-  var regexCity = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
+  var regexUnicode = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
   var regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
   var regexZipCode = /^[0-9]{5}$/;
   var regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
@@ -27240,8 +27240,8 @@ function regexForm(e) {
     regexResult = regexURL.test(e.value);
   } else if (e.name === 'address') {
     regexResult = regexAddress.test(e.value);
-  } else if (e.name === 'city') {
-    regexResult = regexCity.test(e.value);
+  } else if (e.name === 'city' || e.name === 'castcrew-name') {
+    regexResult = regexUnicode.test(e.value);
   } else if (e.name === 'state') {
     regexResult = regexState.test(e.value);
   } else if (e.name === 'zipcode') {
