@@ -563,6 +563,9 @@ body {
   @media (min-width: 37.5em) {
     .reviews-box__list-container > .row--scroll.swiper-container {
       height: 50rem; } }
+  @media (min-width: 75em) {
+    .reviews-box__list-container > .row--scroll.swiper-container {
+      height: 59rem; } }
 
 .tile {
   position: relative;
@@ -728,10 +731,34 @@ body {
   .tile-card:active ~ .tile-card {
     transform: translate3d(7.5rem, 0, 0); }
   .tile-card.swiper-slide {
+    width: 100%;
+    height: 51rem;
+    border-radius: 3rem;
     transition: 450ms all ease-out; }
+    .tile-card.swiper-slide .tile-card__reviewer {
+      border-top-left-radius: 3rem;
+      border-top-right-radius: 3rem; }
+      .tile-card.swiper-slide .tile-card__reviewer-photo {
+        padding: 1rem; }
     @media (min-width: 37.5em) {
       .tile-card.swiper-slide .tile-card__photo-img {
         width: 11rem; } }
+    .tile-card.swiper-slide .tile-card__review {
+      width: 90%; }
+    .tile-card.swiper-slide .form {
+      width: 100%; }
+      .tile-card.swiper-slide .form__input {
+        height: 2rem;
+        padding: 1rem; }
+      .tile-card.swiper-slide .form__label {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem; }
+      .tile-card.swiper-slide .form__text-area {
+        height: 10rem;
+        padding: 1rem; }
+      .tile-card.swiper-slide .form button {
+        height: 2rem;
+        padding: 1rem; }
     .tile-card.swiper-slide:first-child:hover, .tile-card.swiper-slide:first-child:focus, .tile-card.swiper-slide:first-child:active {
       margin-left: 0; }
 
