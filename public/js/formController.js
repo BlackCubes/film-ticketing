@@ -162,6 +162,7 @@ export const checkFormSubmit = (...inputs) => {
 
     if (
       (input.name === 'photo' && input.value !== '') ||
+      (input.name === 'chainPhoto' && input.value !== '') ||
       input.name === 'poster' ||
       input.name === 'theaterPhoto'
     ) {
@@ -660,7 +661,8 @@ function regexForm(e) {
   } else if (
     e.name === 'photo' ||
     e.name === 'poster' ||
-    e.name === 'theaterPhoto'
+    e.name === 'theaterPhoto' ||
+    e.name === 'chainPhoto'
   ) {
     regexResult = regexPhoto.test(
       e.files[0].type
