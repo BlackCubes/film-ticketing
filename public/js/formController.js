@@ -551,6 +551,24 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'chainname' && inputVal !== '') {
+      if (inputVal.length < 7) {
+        validationFailure(
+          input,
+          'Please enter a chain name a minimum of 7 characters',
+          inputRequired
+        );
+      } else if (inputVal.length > 80) {
+        validationFailure(
+          input,
+          'Please enter a chain name that is 80 characters or less',
+          inputRequired
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
