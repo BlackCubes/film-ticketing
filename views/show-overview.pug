@@ -185,14 +185,14 @@ block content
                           p.paragraph Create a review!
 
                       .tile-card__review
-                        form#createReviewForm.form
+                        form#createReviewForm.form(novalidate)
                           .form__group
-                            input#reviewRating.form__input.input-text(type='number' name='reviewRating' placeholder='Rating*' required)
-                            label.form__label.label-text(for='reviewRating') Please enter a rating.
+                            input#reviewRating.form__input.input-text(type='number' name='review-rating' placeholder='Rating*' min='1' max='5' required)
+                            label.form__label.label-text(for='reviewRating') Please enter a rating
 
                           .form__group
-                            textarea#review.form__text-area.input-text(name='textareaReview' placeholder='Your Review*' required)
-                            label.form__label.label-text(for='review') Please provide your review.
+                            textarea#review.form__text-area.input-text(name='textarea-review' placeholder='Your Review*' minlength='20' maxlength='280' required)
+                            label.form__label.label-text(for='review') Please provide your review
 
                           .form__group.form__group--tile
                             button#btnCreateReview.btn.btn--blue(type='submit' name='btnCreateReview' data-show-id=`${show.id}` data-role-type=`${user.role}`) Create Review
