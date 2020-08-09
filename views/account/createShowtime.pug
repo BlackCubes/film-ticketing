@@ -51,7 +51,7 @@ block content
                   label.form__label.label-text(for='showtimeStartDay') Please select a day
 
                 .form__date-year
-                  select#showtimeStartYear.dropdown(name='selectStartYear' tabindex='0' required)
+                  select#showtimeStartYear.dropdown(name='select-year' tabindex='0' required)
                     option(value) Year*
 
                     each year in years
@@ -109,7 +109,7 @@ block content
                   label.form__label.label-text(for='showtimeEndMinute') Please select an ending minute
 
                 .form__date-second
-                  select#showtimeEndSecond.form__select.dropdown(name='selectEndSecond' tabindex='0' required)
+                  select#showtimeEndSecond.form__select.dropdown(name='select-second' tabindex='0' required)
                     option(value) Seconds*
 
                     each second in minSecs
