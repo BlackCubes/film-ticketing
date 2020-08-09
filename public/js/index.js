@@ -83,6 +83,7 @@ const createReviewForm = document.getElementById('createReviewForm'),
   updateReview = document.getElementById('updateReview'),
   deleteReviewForm = document.getElementById('deleteReviewForm');
 const updateTheaterMainView = document.getElementById('updateTheaterMainView'),
+  updateTheaterPhoto = document.getElementById('updateTheaterPhoto'),
   updateTheaterLocation = document.getElementById('updateTheaterLocation'),
   updateTheaterAddl = document.getElementById('updateTheaterAddl'),
   updateTheaterChain = document.getElementById('updateTheaterChain'),
@@ -1090,37 +1091,64 @@ if (updateTheaterMainView) {
   updateTheaterMainView.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const form = new FormData();
-
-    const name = document.getElementById('theaterName').value,
-      phone = document.getElementById('theaterPhone').value,
-      linkUrl = document.getElementById('theaterLinkUrl').value,
-      updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
-
-    const photo = document.getElementById('theaterPhoto').files[0];
-
-    const { theaterId } = updateTheaterDataBtn.dataset;
-
-    const photoUrlArr = document.getElementById('photoSource').src.split('/');
-    const photoParams = photoUrlArr[photoUrlArr.length - 1];
-
-    document.getElementById('btnUpdateTheaterData').textContent = 'Updating...';
-
-    form.append('name', name);
-    form.append('phone', phone);
-    form.append('linkUrl', linkUrl);
-    form.append('photo', photo);
-
-    await updateTheaterSettings(
-      form,
-      'data',
-      theaterId,
-      photoParams,
-      'theaterPhoto'
+    checkFormSubmit(
+      document.getElementById('theaterName'),
+      document.getElementById('theaterPhone'),
+      document.getElementById('theaterLinkUrl')
     );
 
-    document.getElementById('btnUpdateTheaterData').textContent =
-      'Update Theater Settings';
+    if (formStatus === 2) {
+      const name = document.getElementById('theaterName').value,
+        phone = document.getElementById('theaterPhone').value,
+        linkUrl = document.getElementById('theaterLinkUrl').value,
+        updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+
+      const { theaterId } = updateTheaterDataBtn.dataset;
+
+      document.getElementById('btnUpdateTheaterData').textContent =
+        'Updating...';
+
+      await updateTheaterSettings({ name, phone, linkUrl }, 'data', theaterId);
+
+      document.getElementById('btnUpdateTheaterData').textContent =
+        'Update Theater Settings';
+    }
+  });
+}
+
+if (updateTheaterPhoto) {
+  updateTheaterPhoto.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    checkFormSubmit(document.getElementById('theaterPhoto'));
+
+    if (formStatus === 1) {
+      const form = new FormData();
+
+      const photo = document.getElementById('theaterPhoto').files[0],
+        updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+
+      const { theaterId } = updateTheaterDataBtn.dataset;
+
+      const photoUrlArr = document.getElementById('photoSource').src.split('/');
+      const photoParams = photoUrlArr[photoUrlArr.length - 1];
+
+      document.getElementById('btnUpdateTheaterPhoto').textContent =
+        'Updating...';
+
+      form.append('photo', photo);
+
+      await updateTheaterSettings(
+        form,
+        'data',
+        theaterId,
+        photoParams,
+        'theaterPhoto'
+      );
+
+      document.getElementById('btnUpdateTheaterPhoto').textContent =
+        'Update Theater Photo';
+    }
   });
 }
 

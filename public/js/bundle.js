@@ -28713,6 +28713,7 @@ var createReviewForm = document.getElementById('createReviewForm'),
     updateReview = document.getElementById('updateReview'),
     deleteReviewForm = document.getElementById('deleteReviewForm');
 var updateTheaterMainView = document.getElementById('updateTheaterMainView'),
+    updateTheaterPhoto = document.getElementById('updateTheaterPhoto'),
     updateTheaterLocation = document.getElementById('updateTheaterLocation'),
     updateTheaterAddl = document.getElementById('updateTheaterAddl'),
     updateTheaterChain = document.getElementById('updateTheaterChain'),
@@ -29670,30 +29671,33 @@ if (updateReview) {
 if (updateTheaterMainView) {
   updateTheaterMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref17 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee17(e) {
-      var form, name, phone, linkUrl, updateTheaterDataBtn, photo, theaterId, photoUrlArr, photoParams;
+      var name, phone, linkUrl, updateTheaterDataBtn, theaterId;
       return regeneratorRuntime.wrap(function _callee17$(_context17) {
         while (1) {
           switch (_context17.prev = _context17.next) {
             case 0:
               e.preventDefault();
-              form = new FormData();
-              name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value, updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
-              photo = document.getElementById('theaterPhoto').files[0];
-              theaterId = updateTheaterDataBtn.dataset.theaterId;
-              photoUrlArr = document.getElementById('photoSource').src.split('/');
-              photoParams = photoUrlArr[photoUrlArr.length - 1];
-              document.getElementById('btnUpdateTheaterData').textContent = 'Updating...';
-              form.append('name', name);
-              form.append('phone', phone);
-              form.append('linkUrl', linkUrl);
-              form.append('photo', photo);
-              _context17.next = 14;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'data', theaterId, photoParams, 'theaterPhoto');
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterName'), document.getElementById('theaterPhone'), document.getElementById('theaterLinkUrl'));
 
-            case 14:
+              if (!(_formController.formStatus === 2)) {
+                _context17.next = 9;
+                break;
+              }
+
+              name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value, updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+              theaterId = updateTheaterDataBtn.dataset.theaterId;
+              document.getElementById('btnUpdateTheaterData').textContent = 'Updating...';
+              _context17.next = 8;
+              return (0, _updateSettings.updateTheaterSettings)({
+                name: name,
+                phone: phone,
+                linkUrl: linkUrl
+              }, 'data', theaterId);
+
+            case 8:
               document.getElementById('btnUpdateTheaterData').textContent = 'Update Theater Settings';
 
-            case 15:
+            case 9:
             case "end":
               return _context17.stop();
           }
@@ -29707,32 +29711,36 @@ if (updateTheaterMainView) {
   }());
 }
 
-if (updateTheaterLocation) {
-  updateTheaterLocation.addEventListener('submit', /*#__PURE__*/function () {
+if (updateTheaterPhoto) {
+  updateTheaterPhoto.addEventListener('submit', /*#__PURE__*/function () {
     var _ref18 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee18(e) {
-      var form, address, city, state, zipCode, geoLong, geoLat, updateTheaterLocationBtn, geo, theaterId;
+      var form, photo, updateTheaterDataBtn, theaterId, photoUrlArr, photoParams;
       return regeneratorRuntime.wrap(function _callee18$(_context18) {
         while (1) {
           switch (_context18.prev = _context18.next) {
             case 0:
               e.preventDefault();
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterPhoto'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context18.next = 13;
+                break;
+              }
+
               form = new FormData();
-              address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), updateTheaterLocationBtn = document.getElementById('btnUpdateTheaterLocation');
-              geo = JSON.stringify([geoLong, geoLat]);
-              theaterId = updateTheaterLocationBtn.dataset.theaterId;
-              document.getElementById('btnUpdateTheaterLocation').textContent = 'Updating...';
-              form.append('address', address);
-              form.append('city', city);
-              form.append('state', state);
-              form.append('zipCode', zipCode);
-              form.append('geo', geo);
-              _context18.next = 13;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'location', theaterId);
+              photo = document.getElementById('theaterPhoto').files[0], updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+              theaterId = updateTheaterDataBtn.dataset.theaterId;
+              photoUrlArr = document.getElementById('photoSource').src.split('/');
+              photoParams = photoUrlArr[photoUrlArr.length - 1];
+              document.getElementById('btnUpdateTheaterPhoto').textContent = 'Updating...';
+              form.append('photo', photo);
+              _context18.next = 12;
+              return (0, _updateSettings.updateTheaterSettings)(form, 'data', theaterId, photoParams, 'theaterPhoto');
+
+            case 12:
+              document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update Theater Photo';
 
             case 13:
-              document.getElementById('btnUpdateTheaterLocation').textContent = 'Update Location';
-
-            case 14:
             case "end":
               return _context18.stop();
           }
@@ -29746,31 +29754,32 @@ if (updateTheaterLocation) {
   }());
 }
 
-if (updateTheaterAddl) {
-  updateTheaterAddl.addEventListener('submit', /*#__PURE__*/function () {
+if (updateTheaterLocation) {
+  updateTheaterLocation.addEventListener('submit', /*#__PURE__*/function () {
     var _ref19 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee19(e) {
-      var description, updateTheaterAddlBtn, ticketingSelect, showtimesSelect, ticketingVal, showtimesVal, isTicketing, hasShowTimes, theaterId;
+      var form, address, city, state, zipCode, geoLong, geoLat, updateTheaterLocationBtn, geo, theaterId;
       return regeneratorRuntime.wrap(function _callee19$(_context19) {
         while (1) {
           switch (_context19.prev = _context19.next) {
             case 0:
               e.preventDefault();
-              description = document.getElementById('theaterDescription').value, updateTheaterAddlBtn = document.getElementById('btnUpdateTheaterAddl'), ticketingSelect = document.getElementById('theaterTicket'), showtimesSelect = document.getElementById('theaterShowTimes');
-              ticketingVal = ticketingSelect.options[ticketingSelect.selectedIndex].value, showtimesVal = showtimesSelect.options[showtimesSelect.selectedIndex].value;
-              isTicketing = ticketingVal === 'y' ? true : false, hasShowTimes = showtimesVal === 'y' ? true : false;
-              theaterId = updateTheaterAddlBtn.dataset.theaterId;
-              document.getElementById('btnUpdateTheaterAddl').textContent = 'Updating...';
-              _context19.next = 8;
-              return (0, _updateSettings.updateTheaterSettings)({
-                description: description,
-                isTicketing: isTicketing,
-                hasShowTimes: hasShowTimes
-              }, "add'l info", theaterId);
+              form = new FormData();
+              address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), updateTheaterLocationBtn = document.getElementById('btnUpdateTheaterLocation');
+              geo = JSON.stringify([geoLong, geoLat]);
+              theaterId = updateTheaterLocationBtn.dataset.theaterId;
+              document.getElementById('btnUpdateTheaterLocation').textContent = 'Updating...';
+              form.append('address', address);
+              form.append('city', city);
+              form.append('state', state);
+              form.append('zipCode', zipCode);
+              form.append('geo', geo);
+              _context19.next = 13;
+              return (0, _updateSettings.updateTheaterSettings)(form, 'location', theaterId);
 
-            case 8:
-              document.getElementById('btnUpdateTheaterAddl').textContent = "Update Add'l Info";
+            case 13:
+              document.getElementById('btnUpdateTheaterLocation').textContent = 'Update Location';
 
-            case 9:
+            case 14:
             case "end":
               return _context19.stop();
           }
@@ -29784,31 +29793,31 @@ if (updateTheaterAddl) {
   }());
 }
 
-if (updateTheaterChain) {
-  updateTheaterChain.addEventListener('submit', /*#__PURE__*/function () {
+if (updateTheaterAddl) {
+  updateTheaterAddl.addEventListener('submit', /*#__PURE__*/function () {
     var _ref20 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee20(e) {
-      var form, chainName, chainCode, chainLogo, updateTheaterChainBtn, photoUrlArr, photoParams, theaterId;
+      var description, updateTheaterAddlBtn, ticketingSelect, showtimesSelect, ticketingVal, showtimesVal, isTicketing, hasShowTimes, theaterId;
       return regeneratorRuntime.wrap(function _callee20$(_context20) {
         while (1) {
           switch (_context20.prev = _context20.next) {
             case 0:
               e.preventDefault();
-              form = new FormData();
-              chainName = document.getElementById('theaterChainName').value, chainCode = document.getElementById('theaterChainCode').value, chainLogo = document.getElementById('theaterChainLogo').files[0], updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
-              photoUrlArr = document.getElementById('chainLogo').src.split('/');
-              photoParams = photoUrlArr[photoUrlArr.length - 1];
-              theaterId = updateTheaterChainBtn.dataset.theaterId;
-              document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';
-              form.append('chainName', chainName);
-              form.append('chainCode', chainCode);
-              form.append('photo', chainLogo);
-              _context20.next = 12;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'chain', theaterId, photoParams, 'chainLogo');
+              description = document.getElementById('theaterDescription').value, updateTheaterAddlBtn = document.getElementById('btnUpdateTheaterAddl'), ticketingSelect = document.getElementById('theaterTicket'), showtimesSelect = document.getElementById('theaterShowTimes');
+              ticketingVal = ticketingSelect.options[ticketingSelect.selectedIndex].value, showtimesVal = showtimesSelect.options[showtimesSelect.selectedIndex].value;
+              isTicketing = ticketingVal === 'y' ? true : false, hasShowTimes = showtimesVal === 'y' ? true : false;
+              theaterId = updateTheaterAddlBtn.dataset.theaterId;
+              document.getElementById('btnUpdateTheaterAddl').textContent = 'Updating...';
+              _context20.next = 8;
+              return (0, _updateSettings.updateTheaterSettings)({
+                description: description,
+                isTicketing: isTicketing,
+                hasShowTimes: hasShowTimes
+              }, "add'l info", theaterId);
 
-            case 12:
-              document.getElementById('btnUpdateTheaterChain').textContent = 'Update Chain';
+            case 8:
+              document.getElementById('btnUpdateTheaterAddl').textContent = "Update Add'l Info";
 
-            case 13:
+            case 9:
             case "end":
               return _context20.stop();
           }
@@ -29822,31 +29831,31 @@ if (updateTheaterChain) {
   }());
 }
 
-if (updateShowtimeMainView) {
-  updateShowtimeMainView.addEventListener('submit', /*#__PURE__*/function () {
+if (updateTheaterChain) {
+  updateTheaterChain.addEventListener('submit', /*#__PURE__*/function () {
     var _ref21 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee21(e) {
-      var selectStartMonth, selectStartDay, selectStartYear, selectStartHour, selectStartMinute, selectStartSecond, selectEndHour, selectEndMinute, selectEndSecond, startMonth, startDay, startYear, startHour, startMinute, startSecond, endHour, endMinute, endSecond, startDateTime, endDateTime, updateShowtimeDataBtn, showtimeId;
+      var form, chainName, chainCode, chainLogo, updateTheaterChainBtn, photoUrlArr, photoParams, theaterId;
       return regeneratorRuntime.wrap(function _callee21$(_context21) {
         while (1) {
           switch (_context21.prev = _context21.next) {
             case 0:
               e.preventDefault();
-              selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
-              startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
-              startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)).toISOString(), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)).toISOString();
-              updateShowtimeDataBtn = document.getElementById('btnUpdateShowtimeData');
-              showtimeId = updateShowtimeDataBtn.dataset.showtimeId;
-              document.getElementById('btnUpdateShowtimeData').textContent = 'Updating...';
-              _context21.next = 9;
-              return (0, _updateSettings.updateShowtimeSettings)({
-                startDateTime: startDateTime,
-                endDateTime: endDateTime
-              }, 'data', showtimeId);
+              form = new FormData();
+              chainName = document.getElementById('theaterChainName').value, chainCode = document.getElementById('theaterChainCode').value, chainLogo = document.getElementById('theaterChainLogo').files[0], updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
+              photoUrlArr = document.getElementById('chainLogo').src.split('/');
+              photoParams = photoUrlArr[photoUrlArr.length - 1];
+              theaterId = updateTheaterChainBtn.dataset.theaterId;
+              document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';
+              form.append('chainName', chainName);
+              form.append('chainCode', chainCode);
+              form.append('photo', chainLogo);
+              _context21.next = 12;
+              return (0, _updateSettings.updateTheaterSettings)(form, 'chain', theaterId, photoParams, 'chainLogo');
 
-            case 9:
-              document.getElementById('btnUpdateShowtimeData').textContent = 'Update Showtime Settings';
+            case 12:
+              document.getElementById('btnUpdateTheaterChain').textContent = 'Update Chain';
 
-            case 10:
+            case 13:
             case "end":
               return _context21.stop();
           }
@@ -29860,29 +29869,31 @@ if (updateShowtimeMainView) {
   }());
 }
 
-if (updateShowtimeAddl) {
-  updateShowtimeAddl.addEventListener('submit', /*#__PURE__*/function () {
+if (updateShowtimeMainView) {
+  updateShowtimeMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref22 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee22(e) {
-      var shows, theaters, updateShowtimeAddlBtn, showtimeId;
+      var selectStartMonth, selectStartDay, selectStartYear, selectStartHour, selectStartMinute, selectStartSecond, selectEndHour, selectEndMinute, selectEndSecond, startMonth, startDay, startYear, startHour, startMinute, startSecond, endHour, endMinute, endSecond, startDateTime, endDateTime, updateShowtimeDataBtn, showtimeId;
       return regeneratorRuntime.wrap(function _callee22$(_context22) {
         while (1) {
           switch (_context22.prev = _context22.next) {
             case 0:
               e.preventDefault();
-              shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
-              updateShowtimeAddlBtn = document.getElementById('btnUpdateShowtimeAddl');
-              showtimeId = updateShowtimeAddlBtn.dataset.showtimeId;
-              document.getElementById('btnUpdateShowtimeAddl').textContent = 'Updating...';
-              _context22.next = 7;
+              selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
+              startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
+              startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)).toISOString(), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)).toISOString();
+              updateShowtimeDataBtn = document.getElementById('btnUpdateShowtimeData');
+              showtimeId = updateShowtimeDataBtn.dataset.showtimeId;
+              document.getElementById('btnUpdateShowtimeData').textContent = 'Updating...';
+              _context22.next = 9;
               return (0, _updateSettings.updateShowtimeSettings)({
-                shows: shows,
-                theaters: theaters
-              }, "add'l info", showtimeId);
+                startDateTime: startDateTime,
+                endDateTime: endDateTime
+              }, 'data', showtimeId);
 
-            case 7:
-              document.getElementById('btnUpdateShowtimeAddl').textContent = "Update Add'l Info";
+            case 9:
+              document.getElementById('btnUpdateShowtimeData').textContent = 'Update Showtime Settings';
 
-            case 8:
+            case 10:
             case "end":
               return _context22.stop();
           }
@@ -29896,13 +29907,49 @@ if (updateShowtimeAddl) {
   }());
 }
 
-if (updateCastCrewMainView) {
-  updateCastCrewMainView.addEventListener('submit', /*#__PURE__*/function () {
+if (updateShowtimeAddl) {
+  updateShowtimeAddl.addEventListener('submit', /*#__PURE__*/function () {
     var _ref23 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee23(e) {
-      var form, name, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, birthdate, photo, castcrewId, photoUrlArr, photoParams;
+      var shows, theaters, updateShowtimeAddlBtn, showtimeId;
       return regeneratorRuntime.wrap(function _callee23$(_context23) {
         while (1) {
           switch (_context23.prev = _context23.next) {
+            case 0:
+              e.preventDefault();
+              shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
+              updateShowtimeAddlBtn = document.getElementById('btnUpdateShowtimeAddl');
+              showtimeId = updateShowtimeAddlBtn.dataset.showtimeId;
+              document.getElementById('btnUpdateShowtimeAddl').textContent = 'Updating...';
+              _context23.next = 7;
+              return (0, _updateSettings.updateShowtimeSettings)({
+                shows: shows,
+                theaters: theaters
+              }, "add'l info", showtimeId);
+
+            case 7:
+              document.getElementById('btnUpdateShowtimeAddl').textContent = "Update Add'l Info";
+
+            case 8:
+            case "end":
+              return _context23.stop();
+          }
+        }
+      }, _callee23);
+    }));
+
+    return function (_x23) {
+      return _ref23.apply(this, arguments);
+    };
+  }());
+}
+
+if (updateCastCrewMainView) {
+  updateCastCrewMainView.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref24 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee24(e) {
+      var form, name, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, birthdate, photo, castcrewId, photoUrlArr, photoParams;
+      return regeneratorRuntime.wrap(function _callee24$(_context24) {
+        while (1) {
+          switch (_context24.prev = _context24.next) {
             case 0:
               e.preventDefault();
               form = new FormData();
@@ -29922,49 +29969,13 @@ if (updateCastCrewMainView) {
               form.append('name', name);
               form.append('birthdate', birthdate);
               form.append('photo', photo);
-              _context23.next = 20;
+              _context24.next = 20;
               return (0, _updateSettings.updateCastCrewSettings)(form, 'data', castcrewId, photoParams);
 
             case 20:
               document.getElementById('btnUpdateCastCrewData').textContent = 'Update Cast | Crew Settings';
 
             case 21:
-            case "end":
-              return _context23.stop();
-          }
-        }
-      }, _callee23);
-    }));
-
-    return function (_x23) {
-      return _ref23.apply(this, arguments);
-    };
-  }());
-}
-
-if (updateCastCrewAddlForm) {
-  updateCastCrewAddlForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref24 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee24(e) {
-      var rolesVal, biography, roles, castcrewId;
-      return regeneratorRuntime.wrap(function _callee24$(_context24) {
-        while (1) {
-          switch (_context24.prev = _context24.next) {
-            case 0:
-              e.preventDefault();
-              rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
-              roles = JSON.stringify(rolesVal.split(', '));
-              castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
-              document.getElementById('btnUpdateCastCrewAddl').textContent = 'Updating...';
-              _context24.next = 7;
-              return (0, _updateSettings.updateCastCrewSettings)({
-                biography: biography,
-                roles: roles
-              }, "add'l info", castcrewId);
-
-            case 7:
-              document.getElementById('btnUpdateCastCrewAddl').textContent = "Update Add'l Info";
-
-            case 8:
             case "end":
               return _context24.stop();
           }
@@ -29978,13 +29989,49 @@ if (updateCastCrewAddlForm) {
   }());
 }
 
-if (deleteShowForm) {
-  deleteShowForm.addEventListener('submit', /*#__PURE__*/function () {
+if (updateCastCrewAddlForm) {
+  updateCastCrewAddlForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref25 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee25(e) {
-      var password, deleteShowBtn, showId;
+      var rolesVal, biography, roles, castcrewId;
       return regeneratorRuntime.wrap(function _callee25$(_context25) {
         while (1) {
           switch (_context25.prev = _context25.next) {
+            case 0:
+              e.preventDefault();
+              rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
+              roles = JSON.stringify(rolesVal.split(', '));
+              castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
+              document.getElementById('btnUpdateCastCrewAddl').textContent = 'Updating...';
+              _context25.next = 7;
+              return (0, _updateSettings.updateCastCrewSettings)({
+                biography: biography,
+                roles: roles
+              }, "add'l info", castcrewId);
+
+            case 7:
+              document.getElementById('btnUpdateCastCrewAddl').textContent = "Update Add'l Info";
+
+            case 8:
+            case "end":
+              return _context25.stop();
+          }
+        }
+      }, _callee25);
+    }));
+
+    return function (_x25) {
+      return _ref25.apply(this, arguments);
+    };
+  }());
+}
+
+if (deleteShowForm) {
+  deleteShowForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref26 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee26(e) {
+      var password, deleteShowBtn, showId;
+      return regeneratorRuntime.wrap(function _callee26$(_context26) {
+        while (1) {
+          switch (_context26.prev = _context26.next) {
             case 0:
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('password'));
@@ -29999,40 +30046,6 @@ if (deleteShowForm) {
 
             case 3:
             case "end":
-              return _context25.stop();
-          }
-        }
-      }, _callee25);
-    }));
-
-    return function (_x25) {
-      return _ref25.apply(this, arguments);
-    };
-  }());
-}
-
-if (deleteReviewForm) {
-  deleteReviewForm.addEventListener('submit', /*#__PURE__*/function () {
-    var _ref26 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee26(e) {
-      var password, deleteReviewBtn, reviewId;
-      return regeneratorRuntime.wrap(function _callee26$(_context26) {
-        while (1) {
-          switch (_context26.prev = _context26.next) {
-            case 0:
-              e.preventDefault();
-              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
-              reviewId = deleteReviewBtn.dataset.reviewId;
-              document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
-              _context26.next = 6;
-              return (0, _deleteSettings.deleteReview)({
-                password: password
-              }, reviewId);
-
-            case 6:
-              document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
-
-            case 7:
-            case "end":
               return _context26.stop();
           }
         }
@@ -30045,25 +30058,25 @@ if (deleteReviewForm) {
   }());
 }
 
-if (deleteTheaterForm) {
-  deleteTheaterForm.addEventListener('submit', /*#__PURE__*/function () {
+if (deleteReviewForm) {
+  deleteReviewForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref27 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee27(e) {
-      var password, deleteTheaterBtn, theaterId;
+      var password, deleteReviewBtn, reviewId;
       return regeneratorRuntime.wrap(function _callee27$(_context27) {
         while (1) {
           switch (_context27.prev = _context27.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
-              theaterId = deleteTheaterBtn.dataset.theaterId;
-              document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...';
+              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+              reviewId = deleteReviewBtn.dataset.reviewId;
+              document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
               _context27.next = 6;
-              return (0, _deleteSettings.deleteTheater)({
+              return (0, _deleteSettings.deleteReview)({
                 password: password
-              }, theaterId);
+              }, reviewId);
 
             case 6:
-              document.getElementById('btnDeleteTheaterData').textContent = 'Delete Theater';
+              document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
 
             case 7:
             case "end":
@@ -30079,25 +30092,25 @@ if (deleteTheaterForm) {
   }());
 }
 
-if (deleteShowtimeForm) {
-  deleteShowtimeForm.addEventListener('submit', /*#__PURE__*/function () {
+if (deleteTheaterForm) {
+  deleteTheaterForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref28 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee28(e) {
-      var password, deleteShowtimeBtn, showtimeId;
+      var password, deleteTheaterBtn, theaterId;
       return regeneratorRuntime.wrap(function _callee28$(_context28) {
         while (1) {
           switch (_context28.prev = _context28.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
-              showtimeId = deleteShowtimeBtn.dataset.showtimeId;
-              document.getElementById('btnDeleteShowtimeData').textContent = 'Deleting...';
+              password = document.getElementById('password').value, deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
+              theaterId = deleteTheaterBtn.dataset.theaterId;
+              document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...';
               _context28.next = 6;
-              return (0, _deleteSettings.deleteShowtime)({
+              return (0, _deleteSettings.deleteTheater)({
                 password: password
-              }, showtimeId);
+              }, theaterId);
 
             case 6:
-              document.getElementById('btnDeleteShowtimeData').textContent = 'Delete Showtime';
+              document.getElementById('btnDeleteTheaterData').textContent = 'Delete Theater';
 
             case 7:
             case "end":
@@ -30113,25 +30126,25 @@ if (deleteShowtimeForm) {
   }());
 }
 
-if (deleteCastCrewForm) {
-  deleteCastCrewForm.addEventListener('submit', /*#__PURE__*/function () {
+if (deleteShowtimeForm) {
+  deleteShowtimeForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref29 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee29(e) {
-      var password, deleteCastCrewBtn, castcrewId;
+      var password, deleteShowtimeBtn, showtimeId;
       return regeneratorRuntime.wrap(function _callee29$(_context29) {
         while (1) {
           switch (_context29.prev = _context29.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
-              castcrewId = deleteCastCrewBtn.dataset.castcrewId;
-              document.getElementById('btnDeleteCastCrewData').textContent = 'Deleting...';
+              password = document.getElementById('password').value, deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
+              showtimeId = deleteShowtimeBtn.dataset.showtimeId;
+              document.getElementById('btnDeleteShowtimeData').textContent = 'Deleting...';
               _context29.next = 6;
-              return (0, _deleteSettings.deleteCastCrew)({
+              return (0, _deleteSettings.deleteShowtime)({
                 password: password
-              }, castcrewId);
+              }, showtimeId);
 
             case 6:
-              document.getElementById('btnDeleteCastCrewData').textContent = 'Delete Cast | Crew';
+              document.getElementById('btnDeleteShowtimeData').textContent = 'Delete Showtime';
 
             case 7:
             case "end":
@@ -30143,6 +30156,40 @@ if (deleteCastCrewForm) {
 
     return function (_x29) {
       return _ref29.apply(this, arguments);
+    };
+  }());
+}
+
+if (deleteCastCrewForm) {
+  deleteCastCrewForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref30 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee30(e) {
+      var password, deleteCastCrewBtn, castcrewId;
+      return regeneratorRuntime.wrap(function _callee30$(_context30) {
+        while (1) {
+          switch (_context30.prev = _context30.next) {
+            case 0:
+              e.preventDefault();
+              password = document.getElementById('password').value, deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
+              castcrewId = deleteCastCrewBtn.dataset.castcrewId;
+              document.getElementById('btnDeleteCastCrewData').textContent = 'Deleting...';
+              _context30.next = 6;
+              return (0, _deleteSettings.deleteCastCrew)({
+                password: password
+              }, castcrewId);
+
+            case 6:
+              document.getElementById('btnDeleteCastCrewData').textContent = 'Delete Cast | Crew';
+
+            case 7:
+            case "end":
+              return _context30.stop();
+          }
+        }
+      }, _callee30);
+    }));
+
+    return function (_x30) {
+      return _ref30.apply(this, arguments);
     };
   }());
 }
