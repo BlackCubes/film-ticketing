@@ -29,7 +29,7 @@ router
   .route('/')
   .get(reviewController.getAllReviews)
   .post(
-    authController.restrictTo('user'),
+    authController.restrictTo('admin'),
     reviewController.setShowUserIds,
     reviewController.createReview
   );
