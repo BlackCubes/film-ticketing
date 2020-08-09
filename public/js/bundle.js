@@ -29385,16 +29385,21 @@ if (adCreateShowtimeForm) {
 
 if (adCreateCastCrewFieldlist1) {
   var _firstNextBtn3 = document.getElementById('btnNext-1'),
-      _firstPreviousBtn3 = document.getElementById('btnPrev-1');
+      _firstPreviousBtn3 = document.getElementById('btnPrev-1'),
+      createCastCrewBtn = document.getElementById('btnCreateCastCrew');
 
   var _multiForm3 = new _multiForm4.MultiForm(_firstNextBtn3, adCreateCastCrewFieldlist1);
 
   _firstNextBtn3.addEventListener('click', function (e) {
-    return _multiForm3.buttonNext(e, true, true);
-  }), _firstPreviousBtn3.addEventListener('click', function (e) {
+    e.preventDefault();
+    (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('castcrewRoles'));
+    if (_formController.formStatus === 5) _multiForm3.buttonNext();
+  });
+
+  _firstPreviousBtn3.addEventListener('click', function (e) {
     return _multiForm3.buttonBack(e);
   });
-  var createCastCrewBtn = document.getElementById('btnCreateCastCrew');
+
   adCreateCastCrewForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(e) {
       var form, name, rolesVal, biography, roles, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, birthdate, photo;
@@ -29403,30 +29408,31 @@ if (adCreateCastCrewFieldlist1) {
           switch (_context9.prev = _context9.next) {
             case 0:
               e.preventDefault();
-              form = new FormData();
-              name = document.getElementById('name').value, rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
-              roles = JSON.stringify(rolesVal.split(', '));
-              birthMonth = document.getElementById('selectBirthMonth');
-              birthDay = document.getElementById('selectBirthDay');
-              birthYear = document.getElementById('selectBirthYear');
-              birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-              birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-              birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-              birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-              photo = document.getElementById('photo').files[0];
-              document.getElementById('btnCreateCastCrew').textContent = 'Creating...';
-              form.append('name', name);
-              form.append('roles', roles);
-              form.append('biography', biography);
-              form.append('birthdate', birthdate);
-              form.append('photo', photo);
-              _context9.next = 20;
-              return (0, _login.createCastCrew)(form);
+              (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('photo'));
 
-            case 20:
-              document.getElementById('btnCreateCastCrew').textContent = 'Create';
+              if (_formController.formStatus === 1) {
+                form = new FormData();
+                name = document.getElementById('name').value, rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
+                roles = JSON.stringify(rolesVal.split(', '));
+                birthMonth = document.getElementById('selectBirthMonth');
+                birthDay = document.getElementById('selectBirthDay');
+                birthYear = document.getElementById('selectBirthYear');
+                birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+                birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+                birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+                birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+                photo = document.getElementById('photo').files[0];
+                document.getElementById('btnCreateCastCrew').textContent = 'Creating...';
+                form.append('name', name);
+                form.append('roles', roles);
+                form.append('biography', biography);
+                form.append('birthdate', birthdate);
+                form.append('photo', photo); // await createCastCrew(form);
 
-            case 21:
+                document.getElementById('btnCreateCastCrew').textContent = 'Create';
+              }
+
+            case 3:
             case "end":
               return _context9.stop();
           }
