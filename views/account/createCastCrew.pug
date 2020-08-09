@@ -8,62 +8,68 @@ block content
           .form-container__title.u-center-text.u-margin-bottom-small
             h1.heading-primary.u-margin-bottom-small Create Cast | Crew
 
-          form#adCreateCastCrewForm.form.form__multiform.form__multiform--second(name='adCreateCastCrewForm')
+          form#adCreateCastCrewForm.form.form__multiform.form__multiform--second(name='adCreateCastCrewForm' novalidate)
             fieldset#adCreateCastCrewFieldlist1.form__fieldset.form__fieldset--second(name='adCreateCastCrewFieldlist1')
               .form__group.form__group--info.u-center-text.u-margin-bottom-small
-                small.form__info-small.small-text Let's create a cast/crew! Fields with * are required.
+                small.form__info-small.small-text Let's create a cast/crew! Fields with * are required
             
               .form__group
-                input#name.form__input.input-text(type='text' placeholder='Name*' required)
-                label.form__label.label-text(for='name') Please enter a name for the cast/crew.
+                input#name.form__input.input-text(type='text' name='castcrew-name' placeholder='Name*' minlength='2' maxlength='70' required)
+                label.form__label.label-text(for='name') Please enter a name for the cast/crew
             
               .form__group
                 .form__date
                   .form__date-month
-                    select#selectBirthMonth.dropdown(name='select-birthname' tabondex='0' required)
-                      option(value) Birth Month
+                    select#selectBirthMonth.form__select.dropdown(name='select-month' tabondex='0' required)
+                      option(value) Birth Month*
 
                       - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
                       each month in months
                         option(value=`${month}`)= month
 
+                    label.form__label.label-text(for='selectBirthMonth') Please select a birth month
+
                   .form__date-day
-                    select#selectBirthDay.dropdown(name='select-birthday' tabindex='0' required)
-                      option(value) Day
+                    select#selectBirthDay.form__select.dropdown(name='select-day' tabindex='0' required)
+                      option(value) Day*
 
                       - const days = [...Array(32).keys()].splice(1)
 
                       each day in days
                         option(value=`${day}`)= day
+                    
+                    label.form__label.label-text(for='selectBirthDay') Please select a birth day
 
                   .form__date-year
-                    select#selectBirthYear.dropdown(name='select-birthyear' tabindex='0' required)
-                      option(value) Year
+                    select#selectBirthYear.form__select.dropdown(name='select-year' tabindex='0' required)
+                      option(value) Year*
 
                       - const now = new Date().getFullYear()
                       - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
 
                       each year in years
                         option(value=`${year}`)= year
+                    
+                    label.form__label.label-text(for='selectBirthYear') Please select a birth year
 
               .form__group
-                input#castcrewRoles.form__input.input-text(type='text' placeholder='Roles*' required)
-                label.form__label.label-text(for='castcrewRoles') Please roles for cast/crew.
+                input#castcrewRoles.form__input.input-text(type='text' name='castcrew-role' placeholder='Roles*' required)
+                label.form__label.label-text(for='castcrewRoles') Please add the roles for cast/crew
 
               .form__group
                 button#btnNext-1.btn.btn--blue(name='btnNext1') Next
 
             fieldset#adCreateCastCrewFieldlist2.form__fieldset.form__fieldset--second(name='adCreateCastCrewFieldlist2')
               .form__group
-                textarea#biography.form__text-area.input-text(name='textareaBio' placeholder='Biography')
-                label.form__label.label-text(for='biography') Please provide a biography for the cast/crew.
+                textarea#biography.form__text-area.input-text(name='textarea-bio' placeholder='Biography (optional)' maxlength='3000')
+                label.form__label.label-text(for='biography') Does the cast/crew have a biography?
 
               .form__group
                 .form__photo-upload
                   img#photoSource.form__show-photo(src='/img/castcrew/castcrews.jpg', alt='Cast & Crew Photo')
                   input#photo.form__upload(type='file', accept='image/*', name='photo', required)
-                  label(for='photo') Choose new photo
+                  label.form__label-upload.label-text(for='photo') Choose new photo*
               
               .form__group
                 .form__duo-btn
