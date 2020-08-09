@@ -26983,9 +26983,9 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
-    if (input.name === 'show-eventowner') {
+    if (input.name === 'hexadecimal') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide the ID for the event organizer', inputRequired);
+        validationFailure(input, 'Please provide the ID', inputRequired);
       } else if (!regexForm(input)) {
         validationFailure(input, 'Please use a valid MongoDB ObjectID', inputRequired);
       } else {
@@ -27191,7 +27191,7 @@ function regexForm(e) {
     regexResult = regexPrice.test(parseFloat(e.value));
   } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue' || e.name === 'select-ticket' || e.name === 'select-showtimes') {
     regexResult = regexSelect.test(e.value);
-  } else if (e.name === 'show-eventowner') {
+  } else if (e.name === 'hexadecimal') {
     regexResult = regexMongo.test(e.value);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(e.value);
