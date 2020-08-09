@@ -1097,20 +1097,13 @@ if (updateTheaterMainView) {
       document.getElementById('theaterLinkUrl')
     );
 
-    const updateTheaterDataBtn = document.getElementById(
-      'btnUpdateTheaterData'
-    );
-
-    const { theaterId } = updateTheaterDataBtn.dataset;
-
     if (formStatus === 2) {
       const name = document.getElementById('theaterName').value,
         phone = document.getElementById('theaterPhone').value,
-        linkUrl = document.getElementById('theaterLinkUrl').value;
-      // updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+        linkUrl = document.getElementById('theaterLinkUrl').value,
+        updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
 
-      // const { theaterId } = updateTheaterDataBtn.dataset;
-      console.log(theaterId);
+      const { theaterId } = updateTheaterDataBtn.dataset;
 
       document.getElementById('btnUpdateTheaterData').textContent =
         'Updating...';
