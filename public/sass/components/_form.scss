@@ -275,12 +275,8 @@
   &__date-year.success .dropdown + &__label,
   &__date-hour.error .dropdown + &__label,
   &__date-minute.error .dropdown + &__label,
-  &__date-second.error
-    .dropdown
-    + &__label
-    &__date-hour.success
-    .dropdown
-    + &__label,
+  &__date-second.error .dropdown + &__label,
+  &__date-hour.success .dropdown + &__label,
   &__date-minute.success .dropdown + &__label,
   &__date-second.success .dropdown + &__label {
     opacity: 1;

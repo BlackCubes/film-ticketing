@@ -1056,9 +1056,8 @@ body {
 .form__date-year.success .dropdown + .form__label,
 .form__date-hour.error .dropdown + .form__label,
 .form__date-minute.error .dropdown + .form__label,
-.form__date-second.error .dropdown
-+ .form__label .form__date-hour.success .dropdown
-+ .form__label,
+.form__date-second.error .dropdown + .form__label,
+.form__date-hour.success .dropdown + .form__label,
 .form__date-minute.success .dropdown + .form__label,
 .form__date-second.success .dropdown + .form__label {
   opacity: 1;
