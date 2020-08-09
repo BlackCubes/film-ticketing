@@ -512,6 +512,34 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'geo-long') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a longitude', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(
+          input,
+          'Please provide a valid longitude that is between -180 and 180 degrees',
+          inputRequired
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
+    if (input.name === 'geo-lat') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a latitude', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(
+          input,
+          'Please provide a valid latitude that is between -90 and 90 degrees',
+          inputRequired
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -580,6 +608,8 @@ function regexForm(e) {
   const regexCity = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
   const regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
   const regexZipCode = /^[0-9]{5}$/;
+  const regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
+  const regexLatitude = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
   const regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -632,6 +662,10 @@ function regexForm(e) {
     regexResult = regexState.test(e.value);
   } else if (e.name === 'zipcode') {
     regexResult = regexZipCode.test(e.value);
+  } else if (e.name === 'geo-long') {
+    regexResult = regexLongitude.test(e.value);
+  } else if (e.name === 'geo-lat') {
+    regexResult = regexLatitude.test(e.value);
   }
 
   return regexResult;
