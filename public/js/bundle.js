@@ -27684,7 +27684,7 @@ var createReview = /*#__PURE__*/function () {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.prev = 0;
-            url = role === 'admin' ? "http://127.0.0.1:3000/api/v1/reviews/".concat(showId) : "http://127.0.0.1:3000/api/v1/reviews/createMyReview/".concat(showId);
+            url = role === 'admin' ? "http://127.0.0.1:3000/api/v1/shows/".concat(showId, "/reviews") : "http://127.0.0.1:3000/api/v1/reviews/createMyReview/".concat(showId);
             _context6.next = 4;
             return (0, _axios.default)({
               method: 'POST',

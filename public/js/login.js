@@ -127,7 +127,7 @@ export const createReview = async (data, showId, role) => {
   try {
     const url =
       role === 'admin'
-        ? `http://127.0.0.1:3000/api/v1/reviews/${showId}`
+        ? `http://127.0.0.1:3000/api/v1/shows/${showId}/reviews`
         : `http://127.0.0.1:3000/api/v1/reviews/createMyReview/${showId}`;
 
     const res = await axios({
