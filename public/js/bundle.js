@@ -29793,22 +29793,23 @@ if (updateTheaterAddl) {
           switch (_context20.prev = _context20.next) {
             case 0:
               e.preventDefault();
-              description = document.getElementById('theaterDescription').value, updateTheaterAddlBtn = document.getElementById('btnUpdateTheaterAddl'), ticketingSelect = document.getElementById('theaterTicket'), showtimesSelect = document.getElementById('theaterShowTimes');
-              ticketingVal = ticketingSelect.options[ticketingSelect.selectedIndex].value, showtimesVal = showtimesSelect.options[showtimesSelect.selectedIndex].value;
-              isTicketing = ticketingVal === 'y' ? true : false, hasShowTimes = showtimesVal === 'y' ? true : false;
-              theaterId = updateTheaterAddlBtn.dataset.theaterId;
-              document.getElementById('btnUpdateTheaterAddl').textContent = 'Updating...';
-              _context20.next = 8;
-              return (0, _updateSettings.updateTheaterSettings)({
-                description: description,
-                isTicketing: isTicketing,
-                hasShowTimes: hasShowTimes
-              }, "add'l info", theaterId);
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterDescription'), document.getElementById('theaterTicket'), document.getElementById('theaterShowTimes'));
 
-            case 8:
-              document.getElementById('btnUpdateTheaterAddl').textContent = "Update Add'l Info";
+              if (_formController.formStatus === 0) {
+                description = document.getElementById('theaterDescription').value, updateTheaterAddlBtn = document.getElementById('btnUpdateTheaterAddl'), ticketingSelect = document.getElementById('theaterTicket'), showtimesSelect = document.getElementById('theaterShowTimes');
+                ticketingVal = ticketingSelect.options[ticketingSelect.selectedIndex].value, showtimesVal = showtimesSelect.options[showtimesSelect.selectedIndex].value;
+                isTicketing = ticketingVal === 'y' ? true : false, hasShowTimes = showtimesVal === 'y' ? true : false;
+                theaterId = updateTheaterAddlBtn.dataset.theaterId;
+                document.getElementById('btnUpdateTheaterAddl').textContent = 'Updating...'; // await updateTheaterSettings(
+                //   { description, isTicketing, hasShowTimes },
+                //   "add'l info",
+                //   theaterId
+                // );
 
-            case 9:
+                document.getElementById('btnUpdateTheaterAddl').textContent = "Update Add'l Info";
+              }
+
+            case 3:
             case "end":
               return _context20.stop();
           }

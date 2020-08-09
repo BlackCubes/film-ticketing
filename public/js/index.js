@@ -1203,31 +1203,40 @@ if (updateTheaterAddl) {
   updateTheaterAddl.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const description = document.getElementById('theaterDescription').value,
-      updateTheaterAddlBtn = document.getElementById('btnUpdateTheaterAddl'),
-      ticketingSelect = document.getElementById('theaterTicket'),
-      showtimesSelect = document.getElementById('theaterShowTimes');
-
-    const ticketingVal =
-        ticketingSelect.options[ticketingSelect.selectedIndex].value,
-      showtimesVal =
-        showtimesSelect.options[showtimesSelect.selectedIndex].value;
-
-    const isTicketing = ticketingVal === 'y' ? true : false,
-      hasShowTimes = showtimesVal === 'y' ? true : false;
-
-    const { theaterId } = updateTheaterAddlBtn.dataset;
-
-    document.getElementById('btnUpdateTheaterAddl').textContent = 'Updating...';
-
-    await updateTheaterSettings(
-      { description, isTicketing, hasShowTimes },
-      "add'l info",
-      theaterId
+    checkFormSubmit(
+      document.getElementById('theaterDescription'),
+      document.getElementById('theaterTicket'),
+      document.getElementById('theaterShowTimes')
     );
 
-    document.getElementById('btnUpdateTheaterAddl').textContent =
-      "Update Add'l Info";
+    if (formStatus === 0) {
+      const description = document.getElementById('theaterDescription').value,
+        updateTheaterAddlBtn = document.getElementById('btnUpdateTheaterAddl'),
+        ticketingSelect = document.getElementById('theaterTicket'),
+        showtimesSelect = document.getElementById('theaterShowTimes');
+
+      const ticketingVal =
+          ticketingSelect.options[ticketingSelect.selectedIndex].value,
+        showtimesVal =
+          showtimesSelect.options[showtimesSelect.selectedIndex].value;
+
+      const isTicketing = ticketingVal === 'y' ? true : false,
+        hasShowTimes = showtimesVal === 'y' ? true : false;
+
+      const { theaterId } = updateTheaterAddlBtn.dataset;
+
+      document.getElementById('btnUpdateTheaterAddl').textContent =
+        'Updating...';
+
+      // await updateTheaterSettings(
+      //   { description, isTicketing, hasShowTimes },
+      //   "add'l info",
+      //   theaterId
+      // );
+
+      document.getElementById('btnUpdateTheaterAddl').textContent =
+        "Update Add'l Info";
+    }
   });
 }
 
