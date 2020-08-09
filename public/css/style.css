@@ -565,7 +565,7 @@ body {
       height: 50rem; } }
   @media (min-width: 75em) {
     .reviews-box__list-container > .row--scroll.swiper-container {
-      height: 59rem; } }
+      height: 61rem; } }
 
 .tile {
   position: relative;
