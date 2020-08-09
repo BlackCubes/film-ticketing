@@ -26696,6 +26696,9 @@ var formError = function formError(input, message) {
   if (input.name === 'select-month') classTarget = 'form__date-month';
   if (input.name === 'select-day') classTarget = 'form__date-day';
   if (input.name === 'select-year') classTarget = 'form__date-year';
+  if (input.name === 'select-hour') classTarget = 'form__date-hour';
+  if (input.name === 'select-minute') classTarget = 'form__date-minute';
+  if (input.name === 'select-second') classTarget = 'form__date-second';
   var formParent = (0, _utils.parentNode)(input, classTarget);
   var labelElement = input.nextElementSibling; // const formParent = input.parentElement;
   // const formGrandparent = formParent.parentElement;
@@ -26716,6 +26719,9 @@ var formSuccess = function formSuccess(input, message) {
   if (input.name === 'select-month') classTarget = 'form__date-month';
   if (input.name === 'select-day') classTarget = 'form__date-day';
   if (input.name === 'select-year') classTarget = 'form__date-year';
+  if (input.name === 'select-hour') classTarget = 'form__date-hour';
+  if (input.name === 'select-minute') classTarget = 'form__date-minute';
+  if (input.name === 'select-second') classTarget = 'form__date-second';
   var formParent = (0, _utils.parentNode)(input, classTarget);
   var labelElement = input.nextElementSibling; // const formParent = input.parentElement;
   // const formGrandparent = formParent.parentElement;

@@ -26,6 +26,9 @@ export const formError = (input, message) => {
   if (input.name === 'select-month') classTarget = 'form__date-month';
   if (input.name === 'select-day') classTarget = 'form__date-day';
   if (input.name === 'select-year') classTarget = 'form__date-year';
+  if (input.name === 'select-hour') classTarget = 'form__date-hour';
+  if (input.name === 'select-minute') classTarget = 'form__date-minute';
+  if (input.name === 'select-second') classTarget = 'form__date-second';
 
   const formParent = parentNode(input, classTarget);
   const labelElement = input.nextElementSibling;
@@ -46,6 +49,9 @@ export const formSuccess = (input, message) => {
   if (input.name === 'select-month') classTarget = 'form__date-month';
   if (input.name === 'select-day') classTarget = 'form__date-day';
   if (input.name === 'select-year') classTarget = 'form__date-year';
+  if (input.name === 'select-hour') classTarget = 'form__date-hour';
+  if (input.name === 'select-minute') classTarget = 'form__date-minute';
+  if (input.name === 'select-second') classTarget = 'form__date-second';
 
   const formParent = parentNode(input, classTarget);
   const labelElement = input.nextElementSibling;
