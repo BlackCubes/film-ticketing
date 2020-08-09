@@ -1269,13 +1269,13 @@ if (updateTheaterChain) {
       form.append('chainName', chainName);
       form.append('photo', chainLogo);
 
-      await updateTheaterSettings(
-        form,
-        'chain',
-        theaterId,
-        photoParams,
-        'chainLogo'
-      );
+      // await updateTheaterSettings(
+      //   form,
+      //   'chain',
+      //   theaterId,
+      //   photoParams,
+      //   'chainLogo'
+      // );
 
       document.getElementById('btnUpdateTheaterChain').textContent =
         'Update Chain';
@@ -1482,7 +1482,7 @@ if (deleteTheaterForm) {
       document.getElementById('btnDeleteTheaterData').textContent =
         'Deleting...';
 
-      await deleteTheater({ password }, theaterId);
+      // await deleteTheater({ password }, theaterId);
 
       document.getElementById('btnDeleteTheaterData').textContent =
         'Delete Theater';

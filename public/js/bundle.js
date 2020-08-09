@@ -29834,26 +29834,26 @@ if (updateTheaterChain) {
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'), document.getElementById('theaterChainLogo'));
 
-              if (!(_formController.formStatus === 0)) {
-                _context21.next = 14;
-                break;
+              if (_formController.formStatus === 0) {
+                form = new FormData();
+                chainName = document.getElementById('theaterChainName').value, chainLogo = document.getElementById('theaterChainLogo').files[0], updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
+                photoUrlArr = document.getElementById('chainLogo').src.split('/');
+                photoParams = photoUrlArr[photoUrlArr.length - 1];
+                theaterId = updateTheaterChainBtn.dataset.theaterId;
+                document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';
+                form.append('chainName', chainName);
+                form.append('photo', chainLogo); // await updateTheaterSettings(
+                //   form,
+                //   'chain',
+                //   theaterId,
+                //   photoParams,
+                //   'chainLogo'
+                // );
+
+                document.getElementById('btnUpdateTheaterChain').textContent = 'Update Chain';
               }
 
-              form = new FormData();
-              chainName = document.getElementById('theaterChainName').value, chainLogo = document.getElementById('theaterChainLogo').files[0], updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
-              photoUrlArr = document.getElementById('chainLogo').src.split('/');
-              photoParams = photoUrlArr[photoUrlArr.length - 1];
-              theaterId = updateTheaterChainBtn.dataset.theaterId;
-              document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';
-              form.append('chainName', chainName);
-              form.append('photo', chainLogo);
-              _context21.next = 13;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'chain', theaterId, photoParams, 'chainLogo');
-
-            case 13:
-              document.getElementById('btnUpdateTheaterChain').textContent = 'Update Chain';
-
-            case 14:
+            case 3:
             case "end":
               return _context21.stop();
           }
@@ -30101,23 +30101,15 @@ if (deleteTheaterForm) {
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('password'));
 
-              if (!(_formController.formStatus === 1)) {
-                _context28.next = 9;
-                break;
+              if (_formController.formStatus === 1) {
+                password = document.getElementById('password').value, deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
+                theaterId = deleteTheaterBtn.dataset.theaterId;
+                document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...'; // await deleteTheater({ password }, theaterId);
+
+                document.getElementById('btnDeleteTheaterData').textContent = 'Delete Theater';
               }
 
-              password = document.getElementById('password').value, deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
-              theaterId = deleteTheaterBtn.dataset.theaterId;
-              document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...';
-              _context28.next = 8;
-              return (0, _deleteSettings.deleteTheater)({
-                password: password
-              }, theaterId);
-
-            case 8:
-              document.getElementById('btnDeleteTheaterData').textContent = 'Delete Theater';
-
-            case 9:
+            case 3:
             case "end":
               return _context28.stop();
           }
