@@ -11,22 +11,22 @@ block content
                 h2.heading-secondary Theater Settings
             
             .form__group
-              input#theaterName.form__input.input-text(type='text' name='theaterName' placeholder='Name*' value=`${theater.name}` required)
-              label.form__label.label-text(for='theaterName') Please give a name to the theater.
+              input#theaterName.form__input.input-text(type='text' name='theater-name' placeholder='Name*' value=`${theater.name}` minlength='7' maxlength='100' required)
+              label.form__label.label-text(for='theaterName') Please give a name to the theater
 
             .form__group
-              input#theaterPhone.form__input.input-text(type='text' name='theaterPhone' placeholder='Phone Number*' value=`${theater.phone}` pattern='[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}' title='(000)000-0000, or a space between (000) 000-0000' required)
-              label.form__label.label-text(for='theaterPhone') Please give the theater's phone number.
+              input#theaterPhone.form__input.input-text(type='text' name='phone' placeholder='Phone Number*' value=`${theater.phone}` pattern='[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}' title='(000)000-0000, or a space between (000) 000-0000' required)
+              label.form__label.label-text(for='theaterPhone') Please give the theater's phone number as (###)###-#### or (###) ###-####
 
             .form__group
-              input#theaterLinkUrl.form__input.input-text(type='text' name='theaterLinkUrl' placeholder='Website URL' value=`${theater.linkUrl}` pattern='http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?')
-              label.form__label.label-text(for='theaterLinkUrl') Please give the theater's website URL.
+              input#theaterLinkUrl.form__input.input-text(type='text' name='linkurl' placeholder='Website URL (optional)' value=`${theater.linkUrl}` pattern='http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?')
+              label.form__label.label-text(for='theaterLinkUrl') Does the theater have a website?
             
             .form__group
               .form__photo-upload
                 img#photoSource.form__show-photo(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
-                input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto')
-                label(for='theaterPhoto') Choose a theater photo
+                input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto', required)
+                label.form__label-upload.label-text(for='theaterPhoto') Choose a theater photo*
 
             .form__group
               button#btnUpdateTheaterData.btn.btn--blue(type='submit' name='btnUpdateTheaterData' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Theater Settings
@@ -40,28 +40,28 @@ block content
                 h2.heading-secondary Change Theater's Location
             
             .form__group
-              input#theaterAddress.form__input.input-text(type='text' name='theaterAddress' placeholder='Address*' value=`${theater.address}` required)
-              label.form__label.label-text(for='theaterAddress') Please give an address for the theater.
+              input#theaterAddress.form__input.input-text(type='text' name='address' placeholder='Address*' value=`${theater.address}` minlength='3' maxlength='96' required)
+              label.form__label.label-text(for='theaterAddress') Please give a US address for the theater
 
             .form__group
-              input#theaterCity.form__input.input-text(type='text' name='theaterCity' placeholder='City*' value=`${theater.city}` required)
-              label.form__label.label-text(for='theaterCity') Please give a city for the theater.
+              input#theaterCity.form__input.input-text(type='text' name='city' placeholder='City*' value=`${theater.city}` minlength='3' maxlength='50' required)
+              label.form__label.label-text(for='theaterCity') Please give a US city for the theater
 
             .form__group
-              input#theaterState.form__input.input-text(type='text' name='theaterState' placeholder='State*' value=`${theater.state}` required)
-              label.form__label.label-text(for='theaterState') Please give a state for the theater.
+              input#theaterState.form__input.input-text(type='text' name='state' placeholder='State*' value=`${theater.state}` minlength='2' maxlength='2' required)
+              label.form__label.label-text(for='theaterState') Please give a US state abbreviation for the theater
 
             .form__group
-              input#theaterZipCode.form__input.input-text(type='text' name='theaterZipCode' placeholder='ZipCode*' value=`${theater.zipCode}` pattern='\d{5}' title='90095, 5 characters min & max' required)
-              label.form__label.label-text(for='theaterZipCode') Please give a ZIP code the theater.
+              input#theaterZipCode.form__input.input-text(type='text' name='zipcode' placeholder='ZipCode*' value=`${theater.zipCode}` pattern='\d{5}' title='90095, 5 characters min & max' required)
+              label.form__label.label-text(for='theaterZipCode') Please give a US ZIP code the theater
 
             .form__group
-              input#theaterGeoLong.form__input.input-text(type='text' name='theaterGeoLong' placeholder='Geo Longitude Location' value=`${theater.geo.coordinates[0].toString()}` required)
-              label.form__label.label-text(for='theaterGeoLong') Please give a longitude location for the theater.
+              input#theaterGeoLong.form__input.input-text(type='text' name='geo-long' placeholder='Geo Longitude Location*' value=`${theater.geo.coordinates[0].toString()}` required)
+              label.form__label.label-text(for='theaterGeoLong') Please give a longitude location for the theater
 
             .form__group
-              input#theaterGeoLat.form__input.input-text(type='text' name='theaterGeoLat' placeholder='Geo Latitude Location' value=`${theater.geo.coordinates[1].toString()}` required)
-              label.form__label.label-text(for='theaterGeoLat') Please give a latitude location for the theater.
+              input#theaterGeoLat.form__input.input-text(type='text' name='geo-lat' placeholder='Geo Latitude Location*' value=`${theater.geo.coordinates[1].toString()}` required)
+              label.form__label.label-text(for='theaterGeoLat') Please give a latitude location for the theater
 
             .form__group
               button#btnUpdateTheaterLocation.btn.btn--blue(type='submit' name='btnUpdateTheaterLocation' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Location
@@ -75,28 +75,32 @@ block content
                 h2.heading-secondary Change Theater's Add'l Info
 
             .form__group
-              textarea#theaterDescription.form__text-area.input-text(name='textareaDescription' placeholder='Theater Description')= theater.description
-              label.form__label.label-text(for='theaterDescription') Please provide a description.
+              textarea#theaterDescription.form__text-area.input-text(name='textarea-theaterdescription' placeholder='Theater Description' maxlength='3900')= theater.description
+              label.form__label.label-text(for='theaterDescription') Description of the theater?
 
             .form__group
               .form__special-venue
-                select#theaterTicket.dropdown(name='selectTicket' tabindex='0')
+                select#theaterTicket.form__select.dropdown(name='select-ticket' tabindex='0')
 
                   - var ticketValue = (theater.isTicketing === true) ? 'y' : 'n'
 
                   option(value, selected=(true)) Is Ticketing (optional)
                   option(value='y', selected=(ticketValue === 'y')) Yes
                   option(value='n', selected=(ticketValue === 'n')) No
+                
+                label.form__label.label-text(for='theaterTicket') Does the theater have any tickets?
 
             .form__group
               .form__special-venue
-                select#theaterShowTimes.dropdown(name='selectShowTimes' tabindex='0')
+                select#theaterShowTimes.form__select.dropdown(name='select-showtimes' tabindex='0')
 
                   - var showtimesValue = (theater.hasShowTimes === true) ? 'y' : 'n'
 
                   option(value, selected=(true)) Has Showtimes (optional)
                   option(value='y', selected=(showtimesValue === 'y')) Yes
                   option(value='n', selected=(showtimesValue === 'n')) No
+                
+                label.form__label.label-text(for='theaterShowTimes') Does the theater have any showtimes?
 
             .form__group
               button#btnUpdateTheaterAddl.btn.btn--blue(type='submit' name='btnUpdateTheaterAddl' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Add'l Info
@@ -110,8 +114,8 @@ block content
                 h2.heading-secondary.u-margin-bottom-small Update the Theater's Chain
 
             .form__group
-              input#theaterChainName.form__input.input-text(type='text' name='theaterChainName' placeholder='Chain Name' value=`${theater.chainName}`)
-              label.form__label.label-text(for='theaterChainName') Please give a chain name that the theater belongs.
+              input#theaterChainName.form__input.input-text(type='text' name='chainname' placeholder='Chain Name (optional)' value=`${theater.chainName}` minlength='7' maxlength='80')
+              label.form__label.label-text(for='theaterChainName') Name of the chain the theater belongs?
 
             //- .form__group
             //-   input#theaterChainCode.form__input.input-text(type='text' name='theaterChainCode' placeholder='Chain Code' value=`${theater.chainCode}`)
@@ -121,7 +125,7 @@ block content
               .form__photo-upload
                 img#chainLogo.form__show-photo(src=`/img/theaters/${theater.chainLogo}`, alt="Chain Logo")
                 input#theaterChainLogo.form__upload(type='file', accept='image/*', name='chainPhoto')
-                label(for='theaterChainLogo') Choose a chain logo
+                label.form__label.label-text(for='theaterChainLogo') Chain logo (optional)
 
             .form__group
               button#btnUpdateTheaterChain.btn.btn--blue(type='submit' name='btnUpdateTheaterChain' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Chain
@@ -137,7 +141,7 @@ block content
                 small.form__info-small.small-text Please enter your password to delete the theater.
 
             .form__group
-              input#password.form__input.input-text(type='password' placeholder='••••••••' required)
+              input#password.form__input.input-text(type='password' name='password' placeholder='••••••••' required)
               label.form__label.label-text(for='password') Please enter your password
 
             .form__group
