@@ -411,10 +411,11 @@ if (createReviewForm) {
 
     checkFormSubmit(
       document.getElementById('reviewRating'),
-      document.getElementById('review')
+      document.getElementById('review'),
+      document.getElementById('btnCreateReview').dataset.showId
     );
 
-    if (formStatus === 2) {
+    if (formStatus === 3) {
       const rating = document.getElementById('reviewRating').value,
         review = document.getElementById('review').value,
         createReviewBtn = document.getElementById('btnCreateReview');
