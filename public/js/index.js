@@ -1471,17 +1471,22 @@ if (deleteTheaterForm) {
   deleteTheaterForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const password = document.getElementById('password').value,
-      deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
+    checkFormSubmit(document.getElementById('password'));
 
-    const { theaterId } = deleteTheaterBtn.dataset;
+    if (formStatus === 1) {
+      const password = document.getElementById('password').value,
+        deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
 
-    document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...';
+      const { theaterId } = deleteTheaterBtn.dataset;
 
-    await deleteTheater({ password }, theaterId);
+      document.getElementById('btnDeleteTheaterData').textContent =
+        'Deleting...';
 
-    document.getElementById('btnDeleteTheaterData').textContent =
-      'Delete Theater';
+      await deleteTheater({ password }, theaterId);
+
+      document.getElementById('btnDeleteTheaterData').textContent =
+        'Delete Theater';
+    }
   });
 }
 

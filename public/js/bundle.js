@@ -30099,18 +30099,25 @@ if (deleteTheaterForm) {
           switch (_context28.prev = _context28.next) {
             case 0:
               e.preventDefault();
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context28.next = 9;
+                break;
+              }
+
               password = document.getElementById('password').value, deleteTheaterBtn = document.getElementById('btnDeleteTheaterData');
               theaterId = deleteTheaterBtn.dataset.theaterId;
               document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...';
-              _context28.next = 6;
+              _context28.next = 8;
               return (0, _deleteSettings.deleteTheater)({
                 password: password
               }, theaterId);
 
-            case 6:
+            case 8:
               document.getElementById('btnDeleteTheaterData').textContent = 'Delete Theater';
 
-            case 7:
+            case 9:
             case "end":
               return _context28.stop();
           }
