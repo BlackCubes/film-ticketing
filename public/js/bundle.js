@@ -27038,6 +27038,20 @@ var checkFormSubmit = function checkFormSubmit() {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'city') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a city', inputRequired);
+      } else if (inputVal.length < 3) {
+        validationFailure(input, 'Please enter a city a minimum of 3 characters', inputRequired);
+      } else if (inputVal.length > 50) {
+        validationFailure(input, 'Please enter a city that is less than or equal to 50 characters', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please provide a valid US city that is at least 3 characters long and 50 characters max', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -27080,6 +27094,7 @@ function regexForm(e) {
   var regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
   var regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
   var regexAddress = /^[ #',\.-9A-Z\u017F\u212A]{3,96}$/i;
+  var regexCity = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
   var regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -27118,6 +27133,8 @@ function regexForm(e) {
     regexResult = regexURL.test(e.value);
   } else if (e.name === 'address') {
     regexResult = regexAddress.test(e.value);
+  } else if (e.name === 'city') {
+    regexResult = regexCity.test(e.value);
   }
 
   return regexResult;
