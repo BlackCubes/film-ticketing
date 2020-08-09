@@ -30173,18 +30173,17 @@ if (deleteShowtimeForm) {
           switch (_context29.prev = _context29.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
-              showtimeId = deleteShowtimeBtn.dataset.showtimeId;
-              document.getElementById('btnDeleteShowtimeData').textContent = 'Deleting...';
-              _context29.next = 6;
-              return (0, _deleteSettings.deleteShowtime)({
-                password: password
-              }, showtimeId);
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
 
-            case 6:
-              document.getElementById('btnDeleteShowtimeData').textContent = 'Delete Showtime';
+              if (_formController.formStatus === 1) {
+                password = document.getElementById('password').value, deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
+                showtimeId = deleteShowtimeBtn.dataset.showtimeId;
+                document.getElementById('btnDeleteShowtimeData').textContent = 'Deleting...'; // await deleteShowtime({ password }, showtimeId);
 
-            case 7:
+                document.getElementById('btnDeleteShowtimeData').textContent = 'Delete Showtime';
+              }
+
+            case 3:
             case "end":
               return _context29.stop();
           }

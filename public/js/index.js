@@ -1539,18 +1539,22 @@ if (deleteShowtimeForm) {
   deleteShowtimeForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const password = document.getElementById('password').value,
-      deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
+    checkFormSubmit(document.getElementById('password'));
 
-    const { showtimeId } = deleteShowtimeBtn.dataset;
+    if (formStatus === 1) {
+      const password = document.getElementById('password').value,
+        deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
 
-    document.getElementById('btnDeleteShowtimeData').textContent =
-      'Deleting...';
+      const { showtimeId } = deleteShowtimeBtn.dataset;
 
-    await deleteShowtime({ password }, showtimeId);
+      document.getElementById('btnDeleteShowtimeData').textContent =
+        'Deleting...';
 
-    document.getElementById('btnDeleteShowtimeData').textContent =
-      'Delete Showtime';
+      // await deleteShowtime({ password }, showtimeId);
+
+      document.getElementById('btnDeleteShowtimeData').textContent =
+        'Delete Showtime';
+    }
   });
 }
 
