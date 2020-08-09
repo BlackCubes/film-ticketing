@@ -93,6 +93,7 @@ const adCreateCastCrewForm = document.getElementById('adCreateCastCrewForm'),
     'adCreateCastCrewFieldlist1'
   ),
   updateCastCrewMainView = document.getElementById('updateCastCrewMainView'),
+  updateCastCrewPhoto = document.getElementById('updateCastCrewPhoto'),
   updateCastCrewAddlForm = document.getElementById('updateCastCrewAddlForm'),
   deleteCastCrewForm = document.getElementById('deleteCastCrewForm');
 
@@ -1431,40 +1432,79 @@ if (updateCastCrewMainView) {
   updateCastCrewMainView.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const form = new FormData();
+    checkFormSubmit(
+      document.getElementById('name'),
+      document.getElementById('selectBirthMonth'),
+      document.getElementById('selectBirthDay'),
+      document.getElementById('selectBirthYear')
+    );
 
-    const name = document.getElementById('name').value;
+    if (formStatus === 4) {
+      const form = new FormData();
 
-    const birthMonth = document.getElementById('selectBirthMonth');
-    const birthDay = document.getElementById('selectBirthDay');
-    const birthYear = document.getElementById('selectBirthYear');
+      const name = document.getElementById('name').value;
 
-    const birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-    const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-    const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+      const birthMonth = document.getElementById('selectBirthMonth');
+      const birthDay = document.getElementById('selectBirthDay');
+      const birthYear = document.getElementById('selectBirthYear');
 
-    const birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+      const birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+      const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+      const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
 
-    const photo = document.getElementById('castcrewPhoto').files[0];
+      const birthdate = birthYearVal.concat(
+        '-',
+        birthMonthVal,
+        '-',
+        birthDayVal
+      );
 
-    const { castcrewId } = document.getElementById(
-      'btnUpdateCastCrewData'
-    ).dataset;
+      const { castcrewId } = document.getElementById(
+        'btnUpdateCastCrewData'
+      ).dataset;
 
-    const photoUrlArr = document.getElementById('photoSource').src.split('/');
-    const photoParams = photoUrlArr[photoUrlArr.length - 1];
+      document.getElementById('btnUpdateCastCrewData').textContent =
+        'Updating...';
 
-    document.getElementById('btnUpdateCastCrewData').textContent =
-      'Updating...';
+      form.append('name', name);
+      form.append('birthdate', birthdate);
 
-    form.append('name', name);
-    form.append('birthdate', birthdate);
-    form.append('photo', photo);
+      // await updateCastCrewSettings(form, 'data', castcrewId);
 
-    await updateCastCrewSettings(form, 'data', castcrewId, photoParams);
+      document.getElementById('btnUpdateCastCrewData').textContent =
+        'Update Cast | Crew Settings';
+    }
+  });
+}
 
-    document.getElementById('btnUpdateCastCrewData').textContent =
-      'Update Cast | Crew Settings';
+if (updateCastCrewPhoto) {
+  updateCastCrewPhoto.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    checkFormSubmit(document.getElementById('castcrewPhoto'));
+
+    if (formStatus === 1) {
+      const form = new FormData();
+
+      const photo = document.getElementById('castcrewPhoto').files[0];
+
+      const { castcrewId } = document.getElementById(
+        'btnUpdateCastCrewData'
+      ).dataset;
+
+      const photoUrlArr = document.getElementById('photoSource').src.split('/');
+      const photoParams = photoUrlArr[photoUrlArr.length - 1];
+
+      document.getElementById('btnUpdateCastCrewPhoto').textContent =
+        'Updating...';
+
+      form.append('photo', photo);
+
+      // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
+
+      document.getElementById('btnUpdateCastCrewPhoto').textContent =
+        'Update Cast | Crew Photo';
+    }
   });
 }
 
@@ -1472,26 +1512,33 @@ if (updateCastCrewAddlForm) {
   updateCastCrewAddlForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const rolesVal = document.getElementById('castcrewRoles').value,
-      biography = document.getElementById('biography').value;
-
-    const roles = JSON.stringify(rolesVal.split(', '));
-
-    const { castcrewId } = document.getElementById(
-      'btnUpdateCastCrewData'
-    ).dataset;
-
-    document.getElementById('btnUpdateCastCrewAddl').textContent =
-      'Updating...';
-
-    await updateCastCrewSettings(
-      { biography, roles },
-      "add'l info",
-      castcrewId
+    checkFormSubmit(
+      document.getElementById('biography'),
+      document.getElementById('castcrewRoles')
     );
 
-    document.getElementById('btnUpdateCastCrewAddl').textContent =
-      "Update Add'l Info";
+    if (formStatus === 1) {
+      const rolesVal = document.getElementById('castcrewRoles').value,
+        biography = document.getElementById('biography').value;
+
+      const roles = JSON.stringify(rolesVal.split(', '));
+
+      const { castcrewId } = document.getElementById(
+        'btnUpdateCastCrewData'
+      ).dataset;
+
+      document.getElementById('btnUpdateCastCrewAddl').textContent =
+        'Updating...';
+
+      // await updateCastCrewSettings(
+      //   { biography, roles },
+      //   "add'l info",
+      //   castcrewId
+      // );
+
+      document.getElementById('btnUpdateCastCrewAddl').textContent =
+        "Update Add'l Info";
+    }
   });
 }
 
@@ -1584,17 +1631,21 @@ if (deleteCastCrewForm) {
   deleteCastCrewForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const password = document.getElementById('password').value,
-      deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
+    checkFormSubmit(document.getElementById('password'));
 
-    const { castcrewId } = deleteCastCrewBtn.dataset;
+    if (formStatus === 1) {
+      const password = document.getElementById('password').value,
+        deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
 
-    document.getElementById('btnDeleteCastCrewData').textContent =
-      'Deleting...';
+      const { castcrewId } = deleteCastCrewBtn.dataset;
 
-    await deleteCastCrew({ password }, castcrewId);
+      document.getElementById('btnDeleteCastCrewData').textContent =
+        'Deleting...';
 
-    document.getElementById('btnDeleteCastCrewData').textContent =
-      'Delete Cast | Crew';
+      // await deleteCastCrew({ password }, castcrewId);
+
+      document.getElementById('btnDeleteCastCrewData').textContent =
+        'Delete Cast | Crew';
+    }
   });
 }
