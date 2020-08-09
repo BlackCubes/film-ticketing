@@ -29755,20 +29755,18 @@ if (updateReview) {
           switch (_context16.prev = _context16.next) {
             case 0:
               e.preventDefault();
-              showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
-              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, updateReviewBtn = document.getElementById('btnUpdateReviewData');
-              showId = updateReviewBtn.dataset.showId;
-              document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
-              _context16.next = 7;
-              return (0, _updateSettings.updateReviewSettings)({
-                review: review,
-                rating: rating
-              }, showId, showTitle);
+              (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
 
-            case 7:
-              document.getElementById('btnUpdateReviewData').textContent = 'Update Review Settings';
+              if (_formController.formStatus === 2) {
+                showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
+                rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, updateReviewBtn = document.getElementById('btnUpdateReviewData');
+                showId = updateReviewBtn.dataset.showId;
+                document.getElementById('btnUpdateReviewData').textContent = 'Updating...'; // await updateReviewSettings({ review, rating }, showId, showTitle);
 
-            case 8:
+                document.getElementById('btnUpdateReviewData').textContent = 'Update Review Settings';
+              }
+
+            case 3:
             case "end":
               return _context16.stop();
           }
@@ -30220,18 +30218,17 @@ if (deleteReviewForm) {
           switch (_context28.prev = _context28.next) {
             case 0:
               e.preventDefault();
-              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
-              reviewId = deleteReviewBtn.dataset.reviewId;
-              document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
-              _context28.next = 6;
-              return (0, _deleteSettings.deleteReview)({
-                password: password
-              }, reviewId);
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
 
-            case 6:
-              document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
+              if (_formController.formStatus === 1) {
+                password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+                reviewId = deleteReviewBtn.dataset.reviewId;
+                document.getElementById('btnDeleteReviewData').textContent = 'Deleting...'; // await deleteReview({ password }, reviewId);
 
-            case 7:
+                document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
+              }
+
+            case 3:
             case "end":
               return _context28.stop();
           }

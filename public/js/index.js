@@ -1118,22 +1118,30 @@ if (updateReview) {
   updateReview.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const showTitle = document
-      .getElementById('reviewShowTitle')
-      .placeholder.split(' ')[2];
+    checkFormSubmit(
+      document.getElementById('reviewRating'),
+      document.getElementById('review')
+    );
 
-    const rating = document.getElementById('reviewRating').value,
-      review = document.getElementById('review').value,
-      updateReviewBtn = document.getElementById('btnUpdateReviewData');
+    if (formStatus === 2) {
+      const showTitle = document
+        .getElementById('reviewShowTitle')
+        .placeholder.split(' ')[2];
 
-    const { showId } = updateReviewBtn.dataset;
+      const rating = document.getElementById('reviewRating').value,
+        review = document.getElementById('review').value,
+        updateReviewBtn = document.getElementById('btnUpdateReviewData');
 
-    document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
+      const { showId } = updateReviewBtn.dataset;
 
-    await updateReviewSettings({ review, rating }, showId, showTitle);
+      document.getElementById('btnUpdateReviewData').textContent =
+        'Updating...';
 
-    document.getElementById('btnUpdateReviewData').textContent =
-      'Update Review Settings';
+      // await updateReviewSettings({ review, rating }, showId, showTitle);
+
+      document.getElementById('btnUpdateReviewData').textContent =
+        'Update Review Settings';
+    }
   });
 }
 
@@ -1574,17 +1582,22 @@ if (deleteReviewForm) {
   deleteReviewForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const password = document.getElementById('password').value,
-      deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+    checkFormSubmit(document.getElementById('password'));
 
-    const { reviewId } = deleteReviewBtn.dataset;
+    if (formStatus === 1) {
+      const password = document.getElementById('password').value,
+        deleteReviewBtn = document.getElementById('btnDeleteReviewData');
 
-    document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
+      const { reviewId } = deleteReviewBtn.dataset;
 
-    await deleteReview({ password }, reviewId);
+      document.getElementById('btnDeleteReviewData').textContent =
+        'Deleting...';
 
-    document.getElementById('btnDeleteReviewData').textContent =
-      'Delete Review';
+      // await deleteReview({ password }, reviewId);
+
+      document.getElementById('btnDeleteReviewData').textContent =
+        'Delete Review';
+    }
   });
 }
 
