@@ -1156,35 +1156,46 @@ if (updateTheaterLocation) {
   updateTheaterLocation.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const form = new FormData();
+    checkFormSubmit(
+      document.getElementById('theaterAddress'),
+      document.getElementById('theaterCity'),
+      document.getElementById('theaterState'),
+      document.getElementById('theaterZipCode'),
+      document.getElementById('theaterGeoLong'),
+      document.getElementById('theaterGeoLat')
+    );
 
-    const address = document.getElementById('theaterAddress').value,
-      city = document.getElementById('theaterCity').value,
-      state = document.getElementById('theaterState').value,
-      zipCode = document.getElementById('theaterZipCode').value,
-      geoLong = parseFloat(document.getElementById('theaterGeoLong').value),
-      geoLat = parseFloat(document.getElementById('theaterGeoLat').value),
-      updateTheaterLocationBtn = document.getElementById(
-        'btnUpdateTheaterLocation'
-      );
+    if (formStatus === 6) {
+      const form = new FormData();
 
-    const geo = JSON.stringify([geoLong, geoLat]);
+      const address = document.getElementById('theaterAddress').value,
+        city = document.getElementById('theaterCity').value,
+        state = document.getElementById('theaterState').value,
+        zipCode = document.getElementById('theaterZipCode').value,
+        geoLong = parseFloat(document.getElementById('theaterGeoLong').value),
+        geoLat = parseFloat(document.getElementById('theaterGeoLat').value),
+        updateTheaterLocationBtn = document.getElementById(
+          'btnUpdateTheaterLocation'
+        );
 
-    const { theaterId } = updateTheaterLocationBtn.dataset;
+      const geo = JSON.stringify([geoLong, geoLat]);
 
-    document.getElementById('btnUpdateTheaterLocation').textContent =
-      'Updating...';
+      const { theaterId } = updateTheaterLocationBtn.dataset;
 
-    form.append('address', address);
-    form.append('city', city);
-    form.append('state', state);
-    form.append('zipCode', zipCode);
-    form.append('geo', geo);
+      document.getElementById('btnUpdateTheaterLocation').textContent =
+        'Updating...';
 
-    await updateTheaterSettings(form, 'location', theaterId);
+      form.append('address', address);
+      form.append('city', city);
+      form.append('state', state);
+      form.append('zipCode', zipCode);
+      form.append('geo', geo);
 
-    document.getElementById('btnUpdateTheaterLocation').textContent =
-      'Update Location';
+      // await updateTheaterSettings(form, 'location', theaterId);
+
+      document.getElementById('btnUpdateTheaterLocation').textContent =
+        'Update Location';
+    }
   });
 }
 

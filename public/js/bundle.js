@@ -29753,23 +29753,24 @@ if (updateTheaterLocation) {
           switch (_context19.prev = _context19.next) {
             case 0:
               e.preventDefault();
-              form = new FormData();
-              address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), updateTheaterLocationBtn = document.getElementById('btnUpdateTheaterLocation');
-              geo = JSON.stringify([geoLong, geoLat]);
-              theaterId = updateTheaterLocationBtn.dataset.theaterId;
-              document.getElementById('btnUpdateTheaterLocation').textContent = 'Updating...';
-              form.append('address', address);
-              form.append('city', city);
-              form.append('state', state);
-              form.append('zipCode', zipCode);
-              form.append('geo', geo);
-              _context19.next = 13;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'location', theaterId);
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterAddress'), document.getElementById('theaterCity'), document.getElementById('theaterState'), document.getElementById('theaterZipCode'), document.getElementById('theaterGeoLong'), document.getElementById('theaterGeoLat'));
 
-            case 13:
-              document.getElementById('btnUpdateTheaterLocation').textContent = 'Update Location';
+              if (_formController.formStatus === 6) {
+                form = new FormData();
+                address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), updateTheaterLocationBtn = document.getElementById('btnUpdateTheaterLocation');
+                geo = JSON.stringify([geoLong, geoLat]);
+                theaterId = updateTheaterLocationBtn.dataset.theaterId;
+                document.getElementById('btnUpdateTheaterLocation').textContent = 'Updating...';
+                form.append('address', address);
+                form.append('city', city);
+                form.append('state', state);
+                form.append('zipCode', zipCode);
+                form.append('geo', geo); // await updateTheaterSettings(form, 'location', theaterId);
 
-            case 14:
+                document.getElementById('btnUpdateTheaterLocation').textContent = 'Update Location';
+              }
+
+            case 3:
             case "end":
               return _context19.stop();
           }
