@@ -337,7 +337,9 @@ export const checkFormSubmit = (...inputs) => {
 
     if (
       (input.name === 'select-specialvenue' ||
-        input.name === 'select-privatevenue') &&
+        input.name === 'select-privatevenue' ||
+        input.name === 'select-ticket' ||
+        input.name === 'select-showtimes') &&
       inputVal !== ''
     ) {
       if (!regexForm(input)) {
@@ -631,7 +633,7 @@ function regexForm(e) {
   const regexDuration = /^[1-9]{1}[0-9]{1,}$/;
   const regexContent = /^\b(Film|TV)\b$/;
   const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
-  const regexVenue = /^\b(y|n)\b$/;
+  const regexSelect = /^\b(y|n)\b$/;
   const regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
   const regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
   const regexAddress = /^[A-Z0-9 ,#'\/.]{3,96}$/iu;
@@ -680,9 +682,11 @@ function regexForm(e) {
     regexResult = regexPrice.test(parseFloat(e.value));
   } else if (
     e.name === 'select-specialvenue' ||
-    e.name === 'select-privatevenue'
+    e.name === 'select-privatevenue' ||
+    e.name === 'select-ticket' ||
+    e.name === 'select-showtimes'
   ) {
-    regexResult = regexVenue.test(e.value);
+    regexResult = regexSelect.test(e.value);
   } else if (e.name === 'show-eventowner') {
     regexResult = regexMongo.test(e.value);
   } else if (e.name === 'phone') {

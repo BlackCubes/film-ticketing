@@ -26975,7 +26975,7 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
-    if ((input.name === 'select-specialvenue' || input.name === 'select-privatevenue') && inputVal !== '') {
+    if ((input.name === 'select-specialvenue' || input.name === 'select-privatevenue' || input.name === 'select-ticket' || input.name === 'select-showtimes') && inputVal !== '') {
       if (!regexForm(input)) {
         validationFailure(input, 'Please use a valid value', inputRequired);
       } else {
@@ -27152,7 +27152,7 @@ function regexForm(e) {
   var regexDuration = /^[1-9]{1}[0-9]{1,}$/;
   var regexContent = /^\b(Film|TV)\b$/;
   var regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
-  var regexVenue = /^\b(y|n)\b$/;
+  var regexSelect = /^\b(y|n)\b$/;
   var regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
   var regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
   var regexAddress = /^[ #',\.-9A-Z\u017F\u212A]{3,96}$/i;
@@ -27189,8 +27189,8 @@ function regexForm(e) {
     regexResult = regexContent.test(e.value);
   } else if (e.name === 'show-price') {
     regexResult = regexPrice.test(parseFloat(e.value));
-  } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue') {
-    regexResult = regexVenue.test(e.value);
+  } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue' || e.name === 'select-ticket' || e.name === 'select-showtimes') {
+    regexResult = regexSelect.test(e.value);
   } else if (e.name === 'show-eventowner') {
     regexResult = regexMongo.test(e.value);
   } else if (e.name === 'phone') {
