@@ -1244,35 +1244,42 @@ if (updateTheaterChain) {
   updateTheaterChain.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const form = new FormData();
-
-    const chainName = document.getElementById('theaterChainName').value,
-      chainCode = document.getElementById('theaterChainCode').value,
-      chainLogo = document.getElementById('theaterChainLogo').files[0],
-      updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
-
-    const photoUrlArr = document.getElementById('chainLogo').src.split('/');
-    const photoParams = photoUrlArr[photoUrlArr.length - 1];
-
-    const { theaterId } = updateTheaterChainBtn.dataset;
-
-    document.getElementById('btnUpdateTheaterChain').textContent =
-      'Updating...';
-
-    form.append('chainName', chainName);
-    form.append('chainCode', chainCode);
-    form.append('photo', chainLogo);
-
-    await updateTheaterSettings(
-      form,
-      'chain',
-      theaterId,
-      photoParams,
-      'chainLogo'
+    checkFormSubmit(
+      document.getElementById('theaterChainName'),
+      document.getElementById('theaterChainLogo')
     );
 
-    document.getElementById('btnUpdateTheaterChain').textContent =
-      'Update Chain';
+    if (formStatus === 0) {
+      const form = new FormData();
+
+      const chainName = document.getElementById('theaterChainName').value,
+        chainLogo = document.getElementById('theaterChainLogo').files[0],
+        updateTheaterChainBtn = document.getElementById(
+          'btnUpdateTheaterChain'
+        );
+
+      const photoUrlArr = document.getElementById('chainLogo').src.split('/');
+      const photoParams = photoUrlArr[photoUrlArr.length - 1];
+
+      const { theaterId } = updateTheaterChainBtn.dataset;
+
+      document.getElementById('btnUpdateTheaterChain').textContent =
+        'Updating...';
+
+      form.append('chainName', chainName);
+      form.append('photo', chainLogo);
+
+      await updateTheaterSettings(
+        form,
+        'chain',
+        theaterId,
+        photoParams,
+        'chainLogo'
+      );
+
+      document.getElementById('btnUpdateTheaterChain').textContent =
+        'Update Chain';
+    }
   });
 }
 

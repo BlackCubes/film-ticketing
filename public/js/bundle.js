@@ -29826,28 +29826,34 @@ if (updateTheaterAddl) {
 if (updateTheaterChain) {
   updateTheaterChain.addEventListener('submit', /*#__PURE__*/function () {
     var _ref21 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee21(e) {
-      var form, chainName, chainCode, chainLogo, updateTheaterChainBtn, photoUrlArr, photoParams, theaterId;
+      var form, chainName, chainLogo, updateTheaterChainBtn, photoUrlArr, photoParams, theaterId;
       return regeneratorRuntime.wrap(function _callee21$(_context21) {
         while (1) {
           switch (_context21.prev = _context21.next) {
             case 0:
               e.preventDefault();
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'), document.getElementById('theaterChainLogo'));
+
+              if (!(_formController.formStatus === 0)) {
+                _context21.next = 14;
+                break;
+              }
+
               form = new FormData();
-              chainName = document.getElementById('theaterChainName').value, chainCode = document.getElementById('theaterChainCode').value, chainLogo = document.getElementById('theaterChainLogo').files[0], updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
+              chainName = document.getElementById('theaterChainName').value, chainLogo = document.getElementById('theaterChainLogo').files[0], updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
               photoUrlArr = document.getElementById('chainLogo').src.split('/');
               photoParams = photoUrlArr[photoUrlArr.length - 1];
               theaterId = updateTheaterChainBtn.dataset.theaterId;
               document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';
               form.append('chainName', chainName);
-              form.append('chainCode', chainCode);
               form.append('photo', chainLogo);
-              _context21.next = 12;
+              _context21.next = 13;
               return (0, _updateSettings.updateTheaterSettings)(form, 'chain', theaterId, photoParams, 'chainLogo');
 
-            case 12:
+            case 13:
               document.getElementById('btnUpdateTheaterChain').textContent = 'Update Chain';
 
-            case 13:
+            case 14:
             case "end":
               return _context21.stop();
           }
