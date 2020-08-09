@@ -232,14 +232,20 @@
   &__group.success &__label,
   &__date-month.success &__label,
   &__date-day.success &__label,
-  &__date-year.success &__label {
+  &__date-year.success &__label,
+  &__date-hour.success &__label,
+  &__date-minute.success &__label,
+  &__date-second.success &__label {
     color: $color-lightseagreen;
   }
 
   &__group.error &__label,
   &__date-month.error &__label,
   &__date-day.error &__label,
-  &__date-year.error &__label {
+  &__date-year.error &__label,
+  &__date-hour.error &__label,
+  &__date-minute.error &__label,
+  &__date-second.error &__label {
     color: $color-red;
   }
 
@@ -266,7 +272,17 @@
   &__date-year.error .dropdown + &__label,
   &__date-month.success .dropdown + &__label,
   &__date-day.success .dropdown + &__label,
-  &__date-year.success .dropdown + &__label {
+  &__date-year.success .dropdown + &__label,
+  &__date-hour.error .dropdown + &__label,
+  &__date-minute.error .dropdown + &__label,
+  &__date-second.error
+    .dropdown
+    + &__label
+    &__date-hour.success
+    .dropdown
+    + &__label,
+  &__date-minute.success .dropdown + &__label,
+  &__date-second.success .dropdown + &__label {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -363,19 +379,22 @@
       padding-bottom: 1.5rem;
     }
 
-    &-month {
+    &-month,
+    &-hour {
       -webkit-flex-basis: 40%;
       -ms-flex-basis: 40%;
       flex-basis: 40%;
     }
 
-    &-day {
+    &-day,
+    &-minute {
       -webkit-flex-basis: 25%;
       -ms-flex-basis: 25%;
       flex-basis: 25%;
     }
 
-    &-year {
+    &-year,
+    &-second {
       -webkit-flex-basis: 30%;
       -ms-flex-basis: 30%;
       flex-basis: 30%;

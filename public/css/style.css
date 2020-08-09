@@ -1022,13 +1022,19 @@ body {
 .form__group.success .form__label,
 .form__date-month.success .form__label,
 .form__date-day.success .form__label,
-.form__date-year.success .form__label {
+.form__date-year.success .form__label,
+.form__date-hour.success .form__label,
+.form__date-minute.success .form__label,
+.form__date-second.success .form__label {
   color: #20b2aa; }
 
 .form__group.error .form__label,
 .form__date-month.error .form__label,
 .form__date-day.error .form__label,
-.form__date-year.error .form__label {
+.form__date-year.error .form__label,
+.form__date-hour.error .form__label,
+.form__date-minute.error .form__label,
+.form__date-second.error .form__label {
   color: #ff0000; }
 
 .form__input:placeholder-shown + .form__label,
@@ -1047,7 +1053,14 @@ body {
 .form__date-year.error .dropdown + .form__label,
 .form__date-month.success .dropdown + .form__label,
 .form__date-day.success .dropdown + .form__label,
-.form__date-year.success .dropdown + .form__label {
+.form__date-year.success .dropdown + .form__label,
+.form__date-hour.error .dropdown + .form__label,
+.form__date-minute.error .dropdown + .form__label,
+.form__date-second.error .dropdown
++ .form__label .form__date-hour.success .dropdown
++ .form__label,
+.form__date-minute.success .dropdown + .form__label,
+.form__date-second.success .dropdown + .form__label {
   opacity: 1;
   visibility: visible;
   transform: translateY(0); }
@@ -1113,17 +1126,17 @@ body {
   .form__date {
     padding-bottom: 1.5rem; } }
 
-.form__date-month {
+.form__date-month, .form__date-hour {
   -webkit-flex-basis: 40%;
   -ms-flex-basis: 40%;
   flex-basis: 40%; }
 
-.form__date-day {
+.form__date-day, .form__date-minute {
   -webkit-flex-basis: 25%;
   -ms-flex-basis: 25%;
   flex-basis: 25%; }
 
-.form__date-year {
+.form__date-year, .form__date-second {
   -webkit-flex-basis: 30%;
   -ms-flex-basis: 30%;
   flex-basis: 30%; }
