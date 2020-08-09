@@ -540,6 +540,18 @@ export const checkFormSubmit = (...inputs) => {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'textarea-theaterdescription' && inputVal !== '') {
+      if (inputVal.length > 3900) {
+        validationFailure(
+          input,
+          'Please enter a description that is less than or equal to 3900 characters',
+          inputRequired
+        );
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
