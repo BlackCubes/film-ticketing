@@ -22,6 +22,23 @@ block content
               input#theaterLinkUrl.form__input.input-text(type='text' name='linkurl' placeholder='Website URL (optional)' value=`${theater.linkUrl}` pattern='http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?')
               label.form__label.label-text(for='theaterLinkUrl') Does the theater have a website?
             
+            //- .form__group
+            //-   .form__photo-upload
+            //-     img#photoSource.form__show-photo(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
+            //-     input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto', required)
+            //-     label.form__label-upload.label-text(for='theaterPhoto') Choose a theater photo*
+
+            .form__group
+              button#btnUpdateTheaterData.btn.btn--blue(type='submit' name='btnUpdateTheaterData' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Theater Settings
+
+        .line &nbsp;
+
+        .user-view__form-container
+          form#updateTheaterPhoto.form(novalidate)
+            .form__group
+              .form__title.u-center-text
+                h2.heading-secondary Change Theater's Photo
+
             .form__group
               .form__photo-upload
                 img#photoSource.form__show-photo(src=`/img/theaters/${theater.photo}`, alt=`${theater.name} Photo`)
@@ -29,7 +46,7 @@ block content
                 label.form__label-upload.label-text(for='theaterPhoto') Choose a theater photo*
 
             .form__group
-              button#btnUpdateTheaterData.btn.btn--blue(type='submit' name='btnUpdateTheaterData' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Theater Settings
+              button#btnUpdateTheaterData.btn.btn--blue(type='submit' name='btnUpdateTheaterData' data-theater-id=`${theater.id}` data-role-type=`${user.role}`) Update Theater Photo
 
         .line &nbsp;
 
