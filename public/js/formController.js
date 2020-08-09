@@ -164,7 +164,8 @@ export const checkFormSubmit = (...inputs) => {
       (input.name === 'photo' && input.value !== '') ||
       (input.name === 'chainPhoto' && input.value !== '') ||
       input.name === 'poster' ||
-      input.name === 'theaterPhoto'
+      input.name === 'theaterPhoto' ||
+      input.name === 'castcrew-photo'
     ) {
       if (inputRequired && input.value === '') {
         validationFailure(input, 'Please provide an image', inputRequired);
@@ -770,7 +771,8 @@ function regexForm(e) {
     e.name === 'photo' ||
     e.name === 'poster' ||
     e.name === 'theaterPhoto' ||
-    e.name === 'chainPhoto'
+    e.name === 'chainPhoto' ||
+    e.name === 'castcrew-photo'
   ) {
     regexResult = regexPhoto.test(
       e.files[0].type

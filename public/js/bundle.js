@@ -26871,7 +26871,7 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
-    if (input.name === 'photo' && input.value !== '' || input.name === 'chainPhoto' && input.value !== '' || input.name === 'poster' || input.name === 'theaterPhoto') {
+    if (input.name === 'photo' && input.value !== '' || input.name === 'chainPhoto' && input.value !== '' || input.name === 'poster' || input.name === 'theaterPhoto' || input.name === 'castcrew-photo') {
       if (inputRequired && input.value === '') {
         validationFailure(input, 'Please provide an image', inputRequired);
       } else if (!regexForm(input)) {
@@ -27250,7 +27250,7 @@ function regexForm(e) {
     regexResult = regexDateYear.includes(parseInt(e.value));
   } else if (e.name === 'select-gender') {
     regexResult = regexGender.includes(e.value);
-  } else if (e.name === 'photo' || e.name === 'poster' || e.name === 'theaterPhoto' || e.name === 'chainPhoto') {
+  } else if (e.name === 'photo' || e.name === 'poster' || e.name === 'theaterPhoto' || e.name === 'chainPhoto' || e.name === 'castcrew-photo') {
     regexResult = regexPhoto.test(e.files[0].type.split('/').pop().toLowerCase());
   } else if (e.name === 'select-mpaa') {
     regexResult = regexMpaa.includes(e.value);
