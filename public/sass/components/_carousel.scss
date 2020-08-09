@@ -96,7 +96,7 @@
   height: 59rem;
 
   @include respond(tab-port) {
-    height: 50rem;
+    height: 63rem;
   }
 
   @include respond(desktop) {
@@ -380,6 +380,14 @@
     height: 51rem;
     border-radius: 3rem;
     transition: $carousel-transition-duration all ease-out;
+
+    @include respond(tab-port) {
+      height: 61rem;
+    }
+
+    @include respond(desktop) {
+      height: 51rem;
+    }
 
     & .tile-card__reviewer {
       border-top-left-radius: 3rem;

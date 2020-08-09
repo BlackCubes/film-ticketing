@@ -203,7 +203,7 @@ body {
   color: #20b2aa; }
   @media (min-width: 37.5em) {
     .label-text {
-      font-size: 1.4rem; } }
+      font-size: 1rem; } }
   @media (min-width: 56.25em) {
     .label-text {
       font-size: 1.6rem; } }
@@ -562,7 +562,7 @@ body {
   height: 59rem; }
   @media (min-width: 37.5em) {
     .reviews-box__list-container > .row--scroll.swiper-container {
-      height: 50rem; } }
+      height: 63rem; } }
   @media (min-width: 75em) {
     .reviews-box__list-container > .row--scroll.swiper-container {
       height: 61rem; } }
@@ -735,6 +735,12 @@ body {
     height: 51rem;
     border-radius: 3rem;
     transition: 450ms all ease-out; }
+    @media (min-width: 37.5em) {
+      .tile-card.swiper-slide {
+        height: 61rem; } }
+    @media (min-width: 75em) {
+      .tile-card.swiper-slide {
+        height: 51rem; } }
     .tile-card.swiper-slide .tile-card__reviewer {
       border-top-left-radius: 3rem;
       border-top-right-radius: 3rem; }
