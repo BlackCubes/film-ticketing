@@ -1115,7 +1115,7 @@ if (updateTheaterMainView) {
       document.getElementById('btnUpdateTheaterData').textContent =
         'Updating...';
 
-      await updateTheaterSettings({ name, phone, linkUrl }, 'data', theaterId);
+      // await updateTheaterSettings({ name, phone, linkUrl }, 'data', theaterId);
 
       document.getElementById('btnUpdateTheaterData').textContent =
         'Update Theater Settings';
@@ -1145,13 +1145,13 @@ if (updateTheaterPhoto) {
 
       form.append('photo', photo);
 
-      await updateTheaterSettings(
-        form,
-        'data',
-        theaterId,
-        photoParams,
-        'theaterPhoto'
-      );
+      // await updateTheaterSettings(
+      //   form,
+      //   'data',
+      //   theaterId,
+      //   photoParams,
+      //   'theaterPhoto'
+      // );
 
       document.getElementById('btnUpdateTheaterPhoto').textContent =
         'Update Theater Photo';

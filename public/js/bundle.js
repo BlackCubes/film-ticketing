@@ -29681,27 +29681,17 @@ if (updateTheaterMainView) {
               updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
               theaterId = updateTheaterDataBtn.dataset.theaterId;
 
-              if (!(_formController.formStatus === 2)) {
-                _context17.next = 11;
-                break;
+              if (_formController.formStatus === 2) {
+                name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value; // updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+                // const { theaterId } = updateTheaterDataBtn.dataset;
+
+                console.log(theaterId);
+                document.getElementById('btnUpdateTheaterData').textContent = 'Updating...'; // await updateTheaterSettings({ name, phone, linkUrl }, 'data', theaterId);
+
+                document.getElementById('btnUpdateTheaterData').textContent = 'Update Theater Settings';
               }
 
-              name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value; // updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
-              // const { theaterId } = updateTheaterDataBtn.dataset;
-
-              console.log(theaterId);
-              document.getElementById('btnUpdateTheaterData').textContent = 'Updating...';
-              _context17.next = 10;
-              return (0, _updateSettings.updateTheaterSettings)({
-                name: name,
-                phone: phone,
-                linkUrl: linkUrl
-              }, 'data', theaterId);
-
-            case 10:
-              document.getElementById('btnUpdateTheaterData').textContent = 'Update Theater Settings';
-
-            case 11:
+            case 5:
             case "end":
               return _context17.stop();
           }
@@ -29726,25 +29716,25 @@ if (updateTheaterPhoto) {
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('theaterPhoto'));
 
-              if (!(_formController.formStatus === 1)) {
-                _context18.next = 13;
-                break;
+              if (_formController.formStatus === 1) {
+                form = new FormData();
+                photo = document.getElementById('theaterPhoto').files[0], updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
+                theaterId = updateTheaterDataBtn.dataset.theaterId;
+                photoUrlArr = document.getElementById('photoSource').src.split('/');
+                photoParams = photoUrlArr[photoUrlArr.length - 1];
+                document.getElementById('btnUpdateTheaterPhoto').textContent = 'Updating...';
+                form.append('photo', photo); // await updateTheaterSettings(
+                //   form,
+                //   'data',
+                //   theaterId,
+                //   photoParams,
+                //   'theaterPhoto'
+                // );
+
+                document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update Theater Photo';
               }
 
-              form = new FormData();
-              photo = document.getElementById('theaterPhoto').files[0], updateTheaterDataBtn = document.getElementById('btnUpdateTheaterData');
-              theaterId = updateTheaterDataBtn.dataset.theaterId;
-              photoUrlArr = document.getElementById('photoSource').src.split('/');
-              photoParams = photoUrlArr[photoUrlArr.length - 1];
-              document.getElementById('btnUpdateTheaterPhoto').textContent = 'Updating...';
-              form.append('photo', photo);
-              _context18.next = 12;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'data', theaterId, photoParams, 'theaterPhoto');
-
-            case 12:
-              document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update Theater Photo';
-
-            case 13:
+            case 3:
             case "end":
               return _context18.stop();
           }
