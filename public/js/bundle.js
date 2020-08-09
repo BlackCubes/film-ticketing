@@ -27027,11 +27027,11 @@ var checkFormSubmit = function checkFormSubmit() {
 
     if (input.name === 'address') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide an address', inputRequired);
+        validationFailure(input, 'Please provide a US address', inputRequired);
       } else if (inputVal.length < 3) {
-        validationFailure(input, 'Please enter an address a minimum of 3 characters', inputRequired);
+        validationFailure(input, 'Please enter a US address a minimum of 3 characters', inputRequired);
       } else if (inputVal.length > 96) {
-        validationFailure(input, 'Please enter an address that is less than or equal to 96 characters', inputRequired);
+        validationFailure(input, 'Please enter a US address that is less than or equal to 96 characters', inputRequired);
       } else if (!regexForm(input)) {
         validationFailure(input, 'Please provide a valid US address', inputRequired);
       } else {
@@ -27041,11 +27041,11 @@ var checkFormSubmit = function checkFormSubmit() {
 
     if (input.name === 'city') {
       if (inputVal === '') {
-        validationFailure(input, 'Please provide a city', inputRequired);
+        validationFailure(input, 'Please provide a US city', inputRequired);
       } else if (inputVal.length < 3) {
-        validationFailure(input, 'Please enter a city a minimum of 3 characters', inputRequired);
+        validationFailure(input, 'Please enter a US city a minimum of 3 characters', inputRequired);
       } else if (inputVal.length > 50) {
-        validationFailure(input, 'Please enter a city that is less than or equal to 50 characters', inputRequired);
+        validationFailure(input, 'Please enter a US city that is less than or equal to 50 characters', inputRequired);
       } else if (!regexForm(input)) {
         validationFailure(input, 'Please provide a valid US city that is at least 3 characters long and 50 characters max', inputRequired);
       } else {
