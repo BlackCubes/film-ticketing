@@ -6,7 +6,7 @@ block content
     .user-view
       .user-view__content
         .user-view__form-container
-          form#updateReview.form
+          form#updateReview.form(novalidate)
             .form__group
               .form__title.u-center-text
                 h2.heading-secondary Your Review Settings
@@ -15,20 +15,20 @@ block content
               input#reviewShowTitle.form__input.input-text(type='text' name='reviewShowTitle' placeholder=`Show Title: ${review.show.title}` disabled)
 
             .form__group
-              input#reviewRating.form__input.input-text(type='number' name='reviewRating' placeholder='Rating*' value=`${review.rating}` min='1' max='5' required)
-              label.form__label.label-text(for='reviewRating') Please enter a rating.
+              input#reviewRating.form__input.input-text(type='number' name='review-rating' placeholder='Rating*' value=`${review.rating}` min='1' max='5' required)
+              label.form__label.label-text(for='reviewRating') Please enter a rating
 
             .form__group
-              textarea#review.form__text-area.input-text(name='textareaReview' placeholder='Your Review*' minlength='20' maxlength='280' required)= review.review
-              label.form__label.label-text(for='review') Please provide your review.
+              textarea#review.form__text-area.input-text(name='textarea-review' placeholder='Your Review*' minlength='20' maxlength='280' required)= review.review
+              label.form__label.label-text(for='review') Please provide your review
             
             .form__group
-              button#btnUpdateReviewData.btn.btn--blue(type='submit' name='btnUpdateReviewData' data-show-id=`${review.show.id}`) Update Review Settings
+              button#btnUpdateReviewData.btn.btn--blue(type='submit' name='hexadecimal' data-show-id=`${review.show.id}`) Update Review Settings
 
         .line &nbsp;
 
         .user-view__form-container
-          form#deleteReviewForm.form
+          form#deleteReviewForm.form(novalidate)
             .form__group.form__group--info
               .form__title.u-center-text
                 h2.heading-secondary.u-margin-bottom-small Delete Your Review
