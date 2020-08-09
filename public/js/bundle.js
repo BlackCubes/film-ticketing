@@ -27180,6 +27180,32 @@ var checkFormSubmit = function checkFormSubmit() {
         validationSuccess(input, 'Woohoo!', inputRequired);
       }
     }
+
+    if (input.name === 'review-rating') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a rating', inputRequired);
+      } else if (parseInt(inputVal) < 1) {
+        validationFailure(input, 'Please enter a rating a minimum of 1', inputRequired);
+      } else if (parseInt(inputVal) > 5) {
+        validationFailure(input, 'Please enter a rating a maximum of 5', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please provide a valid rating between 1 and 5');
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
+    if (input.name === 'textarea-review') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a review', inputRequired);
+      } else if (inputVal.length < 20) {
+        validationFailure(input, 'Please enter a review a minimum of 20 characters', inputRequired);
+      } else if (inputVal.length > 280) {
+        validationFailure(input, 'Please enter a review a maximum of 280 characters', inputRequired);
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
   });
 };
 
@@ -27232,6 +27258,7 @@ function regexForm(e) {
 
   var regexTimeMinSecs = _toConsumableArray(Array(61).keys()).splice(0);
 
+  var regexRating = /^[1-5]{1}$/;
   var regexMongo = /^[a-f\d]{24}$/i;
 
   if (e.name === 'password' || e.name === 'current-password') {
@@ -27284,6 +27311,8 @@ function regexForm(e) {
     regexResult = regexTimeHour.includes(parseInt(e.value));
   } else if (e.name === 'select-minute' || e.name === 'select-second') {
     regexResult = regexTimeMinSecs.includes(parseInt(e.value));
+  } else if (e.name === 'review-rating') {
+    regexResult = regexRating.test(e.value);
   }
 
   return regexResult;
