@@ -29957,20 +29957,18 @@ if (updateShowtimeAddl) {
           switch (_context23.prev = _context23.next) {
             case 0:
               e.preventDefault();
-              shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
-              updateShowtimeAddlBtn = document.getElementById('btnUpdateShowtimeAddl');
-              showtimeId = updateShowtimeAddlBtn.dataset.showtimeId;
-              document.getElementById('btnUpdateShowtimeAddl').textContent = 'Updating...';
-              _context23.next = 7;
-              return (0, _updateSettings.updateShowtimeSettings)({
-                shows: shows,
-                theaters: theaters
-              }, "add'l info", showtimeId);
+              (0, _formController.checkFormSubmit)(document.getElementById('showtimeShow'), document.getElementById('showtimeTheater'));
 
-            case 7:
-              document.getElementById('btnUpdateShowtimeAddl').textContent = "Update Add'l Info";
+              if (_formController.formStatus === 2) {
+                shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
+                updateShowtimeAddlBtn = document.getElementById('btnUpdateShowtimeAddl');
+                showtimeId = updateShowtimeAddlBtn.dataset.showtimeId;
+                document.getElementById('btnUpdateShowtimeAddl').textContent = 'Updating...'; // await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
 
-            case 8:
+                document.getElementById('btnUpdateShowtimeAddl').textContent = "Update Add'l Info";
+              }
+
+            case 3:
             case "end":
               return _context23.stop();
           }

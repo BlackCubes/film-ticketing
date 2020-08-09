@@ -1379,22 +1379,29 @@ if (updateShowtimeAddl) {
   updateShowtimeAddl.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const shows = document.getElementById('showtimeShow').value,
-      theaters = document.getElementById('showtimeTheater').value;
-
-    const updateShowtimeAddlBtn = document.getElementById(
-      'btnUpdateShowtimeAddl'
+    checkFormSubmit(
+      document.getElementById('showtimeShow'),
+      document.getElementById('showtimeTheater')
     );
 
-    const { showtimeId } = updateShowtimeAddlBtn.dataset;
+    if (formStatus === 2) {
+      const shows = document.getElementById('showtimeShow').value,
+        theaters = document.getElementById('showtimeTheater').value;
 
-    document.getElementById('btnUpdateShowtimeAddl').textContent =
-      'Updating...';
+      const updateShowtimeAddlBtn = document.getElementById(
+        'btnUpdateShowtimeAddl'
+      );
 
-    await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
+      const { showtimeId } = updateShowtimeAddlBtn.dataset;
 
-    document.getElementById('btnUpdateShowtimeAddl').textContent =
-      "Update Add'l Info";
+      document.getElementById('btnUpdateShowtimeAddl').textContent =
+        'Updating...';
+
+      // await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
+
+      document.getElementById('btnUpdateShowtimeAddl').textContent =
+        "Update Add'l Info";
+    }
   });
 }
 
