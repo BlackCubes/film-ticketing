@@ -175,7 +175,7 @@ block content
             .row__inner.swiper-wrapper
               if user && show.tickets.filter(ticket => ticket.user.id === user.id).length > 0 && show.reviews.filter(review => review.user.id === user.id).length === 0
                 each ticket in show.tickets
-                  - console.log('Tickets: ', ticket)
+                  - console.log('User Ticket: ', ticket.user.id === user.id)
                   if Date.now() >= ticket.showtime.endDateTime && show.showtimes.filter(showtime => showtime.id === ticket.showtime.id).length > 0
                     .tile-card.swiper-slide
                       .tile-card__reviewer
