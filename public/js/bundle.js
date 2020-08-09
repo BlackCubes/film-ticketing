@@ -30220,15 +30220,23 @@ if (deleteReviewForm) {
               e.preventDefault();
               (0, _formController.checkFormSubmit)(document.getElementById('password'));
 
-              if (_formController.formStatus === 1) {
-                password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
-                reviewId = deleteReviewBtn.dataset.reviewId;
-                document.getElementById('btnDeleteReviewData').textContent = 'Deleting...'; // await deleteReview({ password }, reviewId);
-
-                document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
+              if (!(_formController.formStatus === 1)) {
+                _context28.next = 9;
+                break;
               }
 
-            case 3:
+              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+              reviewId = deleteReviewBtn.dataset.reviewId;
+              document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
+              _context28.next = 8;
+              return (0, _deleteSettings.deleteReview)({
+                password: password
+              }, reviewId);
+
+            case 8:
+              document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
+
+            case 9:
             case "end":
               return _context28.stop();
           }

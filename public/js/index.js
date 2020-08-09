@@ -1593,7 +1593,7 @@ if (deleteReviewForm) {
       document.getElementById('btnDeleteReviewData').textContent =
         'Deleting...';
 
-      // await deleteReview({ password }, reviewId);
+      await deleteReview({ password }, reviewId);
 
       document.getElementById('btnDeleteReviewData').textContent =
         'Delete Review';
