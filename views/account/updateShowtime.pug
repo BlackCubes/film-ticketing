@@ -5,12 +5,12 @@ block content
     .user-view
       .user-view__content
         .user-view__form-container
-          form#updateShowtimeMainView.form
+          form#updateShowtimeMainView.form(novalidate)
             .form__group.form__group--info
               .form__title.u-center-text
                 h2.heading-secondary.u-margin-bottom-small Showtime Settings
 
-                small.form__info-small.small-text Change the start date, start time, and end time.
+                small.form__info-small.small-text Change the start date, start time, and end time
 
             - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -37,80 +37,98 @@ block content
             .form__group
               .form__date
                 .form__date-month
-                  select#showtimeStartMonth.dropdown(name='selectStartMonth' tabindex='0' required)
+                  select#showtimeStartMonth.form__select.dropdown(name='select-month' tabindex='0' required)
                     option(value, selected=(true)) Start Month*
 
                     each month in months
                       - var monthSelected = (monthValue === month) ? true : false
                       option(value=`${month}`, selected=(monthSelected))= month
+                  
+                  label.form__label.label-text(for='showtimeStartMonth') Please select a month
 
                 .form__date-day
-                  select#showtimeStartDay.dropdown(name='selectStartDay' tabindex='0' required)
+                  select#showtimeStartDay.form__select.dropdown(name='select-day' tabindex='0' required)
                     option(value) Day*
 
                     each day in days
                       - var daySelected = (dayValue == day) ? true : false
                       option(value=`${day}`, selected=(daySelected))= day
+                  
+                  label.form__label.label-text(for='showtimeStartDay') Please select a day
 
                 .form__date-year
-                  select#showtimeStartYear.dropdown(name='selectStartYear' tabindex='0' required)
+                  select#showtimeStartYear.form__select.dropdown(name='select-year' tabindex='0' required)
                     option(value) Year*
 
                     each year in years
                       - var yearSelected = (yearValue == year) ? true : false
                       option(value=`${year}`, selected=(yearSelected))= year
+                  
+                  label.form__label.label-text(for='showtimeStartYear') Please select a year
 
             .form__group
               .form__date
-                .form__date-month
-                  select#showtimeStartHour.dropdown(name='selectStartHour' tabindex='0' required)
+                .form__date-hour
+                  select#showtimeStartHour.form__select.dropdown(name='select-hour' tabindex='0' required)
                     option(value) Start Hour*
 
                     each hour in hours
                       - var hourSelected = (startHourValue == hour) ? true : false
                       option(value=`${hour}`, selected=(hourSelected))= hour
+                  
+                  label.form__label.label-text(for='showtimeStartHour') Please select a starting hour
 
-                .form__date-day
-                  select#showtimeStartMinute.dropdown(name='selectStartMinute' tabindex='0' required)
+                .form__date-minute
+                  select#showtimeStartMinute.form__select.dropdown(name='select-minute' tabindex='0' required)
                     option(value) Minute*
 
                     each minute in minSecs
                       - var minuteSelected = (startMinuteValue == minute) ? true : false
                       option(value=`${minute}`, selected=(minuteSelected))= minute
+                  
+                  label.form__label.label-text(for='showtimeStartMinute') Please select a starting minute
 
-                .form__date-year
-                  select#showtimeStartSecond.dropdown(name='selectStartSecond' tabindex='0' required)
+                .form__date-second
+                  select#showtimeStartSecond.form__select.dropdown(name='selectStartSecond' tabindex='0' required)
                     option(value) Seconds*
 
                     each second in minSecs
                       - var secondSelected = (startSecondValue == second) ? true : false
                       option(value=`${second}`, selected=(secondSelected))= second
+                  
+                  label.form__label.label-text(for='showtimeStartSecond') Please select a starting second
 
             .form__group
               .form__date
-                .form__date-month
-                  select#showtimeEndHour.dropdown(name='selectEndHour' tabindex='0' required)
+                .form__date-hour
+                  select#showtimeEndHour.form__select.dropdown(name='select-hour' tabindex='0' required)
                     option(value) End Hour*
 
                     each hour in hours
                       - var hourSelected = (endHourValue == hour) ? true : false
                       option(value=`${hour}`, selected=(hourSelected))= hour
+                  
+                  label.form__label.label-text(for='showtimeEndHour') Please select an ending hour
 
-                .form__date-day
-                  select#showtimeEndMinute.dropdown(name='selectEndMinute' tabindex='0' required)
+                .form__date-minute
+                  select#showtimeEndMinute.form__select.dropdown(name='select-minute' tabindex='0' required)
                     option(value) Minute*
 
                     each minute in minSecs
                       - var minuteSelected = (endMinuteValue == minute) ? true : false
                       option(value=`${minute}`, selected=(minuteSelected))= minute
+                  
+                  label.form__label.label-text(for='showtimeEndMinute') Please select an ending minute
 
-                .form__date-year
-                  select#showtimeEndSecond.dropdown(name='selectEndSecond' tabindex='0' required)
+                .form__date-second
+                  select#showtimeEndSecond.form__select.dropdown(name='select-second' tabindex='0' required)
                     option(value) Seconds*
 
                     each second in minSecs
                       - var secondSelected = (endSecondValue == second) ? true : false
                       option(value=`${second}`, selected=(secondSelected))= second
+                  
+                  label.form__label.label-text(for='showtimeEndSecond') Please select an ending second
 
             .form__group
               button#btnUpdateShowtimeData.btn.btn--blue(type='submit' name='btnUpdateShowtimeData' data-showtime-id=`${showtime.id}`) Update Showtime Settings
@@ -118,20 +136,20 @@ block content
         .line &nbsp;
 
         .user-view__form-container
-          form#updateShowtimeAddl.form
+          form#updateShowtimeAddl.form(novalidate)
             .form__group.form__group--info
               .form__title.u-center-text
                 h2.heading-secondary.u-margin-bottom-small Change Showtimes Add'l Info
 
-                small.form__info-small.small-text Change the show and theater belonging to the showtime.
+                small.form__info-small.small-text Change the show and theater belonging to the showtime
 
             .form__group
-              input#showtimeShow.form__input.input-text(type='text' name='showtimeShow' placeholder='Show ID*' value=`${showtime.shows[0].id}` required)
-              label.form__label.label-text(for='showtimeShow') Please add the show.
+              input#showtimeShow.form__input.input-text(type='text' name='hexadecimal' placeholder='Show ID*' value=`${showtime.shows[0].id}` required)
+              label.form__label.label-text(for='showtimeShow') Please enter the show's ID
 
             .form__group
-              input#showtimeTheater.form__input.input-text(type='text' name='showtimeTheater' placeholder='Theater ID*' value=`${showtime.theaters[0].id}` required)
-              label.form__label.label-text(for='showtimeTheater') Please add the theater.
+              input#showtimeTheater.form__input.input-text(type='text' name='hexadecimal' placeholder='Theater ID*' value=`${showtime.theaters[0].id}` required)
+              label.form__label.label-text(for='showtimeTheater') Please enter the theater's ID
 
             .form__group
               button#btnUpdateShowtimeAddl.btn.btn--blue(type='submit' name='btnUpdateShowtimeAddl' data-showtime-id=`${showtime.id}`) Update Add'l Info
@@ -139,15 +157,15 @@ block content
         .line &nbsp;
 
         .user-view__form-container
-          form#deleteShowtimeForm.form
+          form#deleteShowtimeForm.form(novalidate)
             .form__group.form__group--info
               .form__title.u-center-text
                 h2.heading-secondary.u-margin-bottom-small Remove Showtime
 
-                small.form__info-small.small-text Please enter your password to remove the showtime.
+                small.form__info-small.small-text Please enter your password to remove the showtime
 
             .form__group
-              input#password.form__input.input-text(type='password' placeholder='••••••••' required)
+              input#password.form__input.input-text(type='password' name='password' placeholder='••••••••' required)
               label.form__label.label-text(for='password') Please enter your password
 
             .form__group
