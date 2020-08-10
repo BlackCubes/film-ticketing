@@ -1313,22 +1313,31 @@ body {
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important; }
 
 .stars,
-.stars-user,
-.stars-show {
+.stars-user {
   font-size: 2rem;
   font-weight: 900; }
   .stars .star,
-  .stars-user .star,
-  .stars-show .star {
+  .stars-user .star {
     color: #20b2aa;
     font-size: 2rem;
     padding: 0 1rem; }
     .stars .star::before,
-    .stars-user .star::before,
-    .stars-show .star::before {
+    .stars-user .star::before {
       content: '\2606'; }
     .stars .star.rated::before,
-    .stars-user .star.rated::before,
+    .stars-user .star.rated::before {
+      content: '\2605'; }
+
+.stars-show {
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding-bottom: 0.5rem; }
+  .stars-show .star {
+    color: #20b2aa;
+    font-size: 1.1rem;
+    padding: 0 0.5rem; }
+    .stars-show .star::before {
+      content: '\2606'; }
     .stars-show .star.rated::before {
       content: '\2605'; }
 
