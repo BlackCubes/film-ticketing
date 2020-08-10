@@ -1045,7 +1045,8 @@ body {
   height: 20rem; }
 
 .form__label {
-  margin-left: 3rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
   margin-top: 0.7rem;
   display: block;
   transition: all 0.3s;
