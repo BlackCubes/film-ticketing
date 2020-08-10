@@ -1493,7 +1493,7 @@ if (updateCastCrewMainView) {
       // await updateCastCrewSettings(form, 'data', castcrewId);
 
       document.getElementById('btnUpdateCastCrewData').textContent =
-        'Update Cast | Crew Settings';
+        'Update Settings';
     }
   });
 }
@@ -1524,7 +1524,7 @@ if (updateCastCrewPhoto) {
       // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
 
       document.getElementById('btnUpdateCastCrewPhoto').textContent =
-        'Update Cast | Crew Photo';
+        'Update Photo';
     }
   });
 }

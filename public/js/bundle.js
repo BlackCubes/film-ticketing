@@ -30135,7 +30135,7 @@ if (updateCastCrewMainView) {
                 form.append('name', name);
                 form.append('birthdate', birthdate); // await updateCastCrewSettings(form, 'data', castcrewId);
 
-                document.getElementById('btnUpdateCastCrewData').textContent = 'Update Cast | Crew Settings';
+                document.getElementById('btnUpdateCastCrewData').textContent = 'Update Settings';
               }
 
             case 3:
@@ -30172,7 +30172,7 @@ if (updateCastCrewPhoto) {
                 document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Updating...';
                 form.append('photo', photo); // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
 
-                document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Update Cast | Crew Photo';
+                document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Update Photo';
               }
 
             case 3:
