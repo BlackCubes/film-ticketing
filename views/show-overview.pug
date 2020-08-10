@@ -188,6 +188,11 @@ block content
                         form#createReviewForm.form(novalidate)
                           .form__group
                             input#reviewRating.form__input.input-text(type='number' name='review-rating' placeholder='Rating*' min='1' max='5' required)
+
+                            .stars(data-rating='0')
+                              for i in [1, 2, 3, 4, 5]
+                                span.star &nbsp;
+
                             label.form__label.label-text(for='reviewRating') Please enter a rating
 
                           .form__group
