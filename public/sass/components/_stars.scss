@@ -20,33 +20,27 @@
   }
 }
 
+.stars-show {
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding-bottom: 0.5rem;
+
+  & .star {
+    color: $color-lightseagreen;
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+
+    &::before {
+      content: '\2606';
+      // cursor: pointer;
+    }
+
+    &.rated::before {
+      content: '\2605';
+    }
+  }
+}
+
 .stars .star::before {
   cursor: pointer;
 }
-
-// .star,
-// .star-user {
-//   color: $color-lightseagreen;
-//   font-size: 2rem;
-//   padding: 0 1rem;
-
-//   &::before {
-//     content: '\2606';
-//     // cursor: pointer;
-//   }
-
-//   &.rated::before {
-//     content: '\2605';
-//   }
-
-//   & .stars {
-//     font-size: 2rem;
-//     font-weight: 900;
-//   }
-// }
-
-// .star {
-//   &::before {
-//     cursor: pointer;
-//   }
-// }
