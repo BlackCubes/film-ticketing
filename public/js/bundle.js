@@ -29185,14 +29185,14 @@ if (createReviewForm) {
           switch (_context5.prev = _context5.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
+              (0, _formController.checkFormSubmit)(document.getElementById('starRating'), document.getElementById('review'));
 
               if (!(_formController.formStatus === 2)) {
                 _context5.next = 9;
                 break;
               }
 
-              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, createReviewBtn = document.getElementById('btnCreateReview');
+              rating = document.getElementById('starRating').dataset.rating, review = document.getElementById('review').value, createReviewBtn = document.getElementById('btnCreateReview');
               _createReviewBtn$data = createReviewBtn.dataset, showId = _createReviewBtn$data.showId, roleType = _createReviewBtn$data.roleType;
               document.getElementById('btnCreateReview').textContent = 'Creating...';
               _context5.next = 8;

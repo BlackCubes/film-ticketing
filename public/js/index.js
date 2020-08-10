@@ -416,12 +416,12 @@ if (createReviewForm) {
     e.preventDefault();
 
     checkFormSubmit(
-      document.getElementById('reviewRating'),
+      document.getElementById('starRating'),
       document.getElementById('review')
     );
 
     if (formStatus === 2) {
-      const rating = document.getElementById('reviewRating').value,
+      const { rating } = document.getElementById('starRating').dataset,
         review = document.getElementById('review').value,
         createReviewBtn = document.getElementById('btnCreateReview');
 
