@@ -1,11 +1,12 @@
-.star {
+.star,
+.star-user {
   color: $color-lightseagreen;
   font-size: 2rem;
   padding: 0 1rem;
 
   &::before {
     content: '\2606';
-    cursor: pointer;
+    // cursor: pointer;
   }
 
   &.rated::before {
@@ -15,5 +16,11 @@
   & .stars {
     font-size: 2rem;
     font-weight: 900;
+  }
+}
+
+.star {
+  &::before {
+    cursor: pointer;
   }
 }
