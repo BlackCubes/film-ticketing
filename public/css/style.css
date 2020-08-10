@@ -228,6 +228,9 @@ body {
 .u-margin-bottom-small {
   margin-bottom: 1.5rem; }
 
+.u-margin-padding-small {
+  padding: 1rem; }
+
 .alert {
   position: fixed;
   width: 60%;
