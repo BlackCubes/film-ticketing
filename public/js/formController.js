@@ -732,13 +732,11 @@ export const checkFormSubmit = (...inputs) => {
 function validationSuccess(input, message, required) {
   formSuccess(input, message);
   if (required) formStatus += 1;
-  console.log(`${input.name.toUpperCase()} part: `, formStatus);
 }
 
 function validationFailure(input, message, required) {
   formError(input, message);
   if (!required) formStatus -= 1;
-  console.log(`${input.name.toUpperCase()} part: `, formStatus);
 }
 
 function regexForm(e) {

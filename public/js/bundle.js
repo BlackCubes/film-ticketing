@@ -27255,13 +27255,11 @@ exports.checkFormSubmit = checkFormSubmit;
 function validationSuccess(input, message, required) {
   (0, _errorController.formSuccess)(input, message);
   if (required) exports.formStatus = formStatus = formStatus + 1;
-  console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
 }
 
 function validationFailure(input, message, required) {
   (0, _errorController.formError)(input, message);
   if (!required) exports.formStatus = formStatus = formStatus - 1;
-  console.log("".concat(input.name.toUpperCase(), " part: "), formStatus);
 }
 
 function regexForm(e) {
