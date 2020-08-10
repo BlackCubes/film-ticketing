@@ -7,7 +7,7 @@ export const checkFormSubmit = (...inputs) => {
   formStatus = 0;
 
   inputs.forEach(input => {
-    console.log('Bug? ', input.dataset.rating);
+    console.log('Bug? ', input.dataset.rating.trim());
     var inputRequired = input.id === 'starRating' ? true : input.required;
     var inputVal = input.id === 'starRating' ? input.dataset.rating.trim() : '';
 
