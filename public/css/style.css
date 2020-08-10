@@ -409,8 +409,7 @@ body {
     @media (min-width: 75em) {
       .card__header {
         font-size: 1.2rem !important; } }
-  .card__mpaa,
-  .card .stars-show, .card__has-tickets {
+  .card__mpaa, .card__ratings, .card__has-tickets {
     margin-bottom: 0.3rem; }
   .card__mpaa, .card__runtime, .card__ratings, .card__has-tickets, .card__has-shows {
     letter-spacing: 0.2rem; }
