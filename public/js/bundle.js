@@ -27206,7 +27206,9 @@ var checkFormSubmit = function checkFormSubmit() {
     }
 
     if (input.name === 'castcrew-role') {
-      if (inputVal.length < 4) {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide role(s) for the cast/crew', inputRequired);
+      } else if (inputVal.length < 4) {
         validationFailure(input, 'Please enter role(s) a minimum of 4 characters', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
