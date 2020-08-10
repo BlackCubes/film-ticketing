@@ -189,11 +189,11 @@ block content
                           .form__group
                             //- input#reviewRating.form__input.input-text(type='number' name='review-rating' placeholder='Rating*' min='1' max='5' required)
 
-                            .stars#reviewRating(data-rating='1')
+                            .stars#starRating(data-rating='1')
                               for i in [1, 2, 3, 4, 5]
                                 span.star &nbsp;
 
-                            label.form__label.label-text(for='reviewRating') Please enter a rating
+                            label.form__label.label-text(for='starRating') Please enter a rating
 
                           .form__group
                             textarea#review.form__text-area.input-text(name='textarea-review' placeholder='Your Review*' minlength='20' maxlength='280' required)
