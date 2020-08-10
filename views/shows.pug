@@ -22,13 +22,13 @@ block content
               .card__header-wrapper.u-margin-top-small.u-margin-bottom-small.u-center-text
                 h3.card__header.heading-tertiary= `@ ${show.showtimes[0].theaters[0].name}`
 
-            .card__mpaa.u-center-text
-              h3.card__mpaa-type.heading-tertiary= show.mpaaRating
+            //- .card__mpaa.u-center-text
+            //-   h3.card__mpaa-type.heading-tertiary= show.mpaaRating
 
-            .card__runtime.u-center-text
-              - const hours = Math.floor(show.durationHours)
-              - const minutes = show.duration - hours*60
-              h3.card__runtime-length.heading-tertiary= `${hours}h ${minutes}m`
+            //- .card__runtime.u-center-text
+            //-   - const hours = Math.floor(show.durationHours)
+            //-   - const minutes = show.duration - hours*60
+            //-   h3.card__runtime-length.heading-tertiary= `${hours}h ${minutes}m`
 
             .card__ratings.u-center-text
               .stars-show
@@ -39,6 +39,14 @@ block content
               if user && title === 'My Tickets'
                 - addlInfo = show.showtimes[0].startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})
               h3.card__ratings-star.heading-tertiary= `${addlInfo}`
+            
+            .card__mpaa.u-center-text
+              h3.card__mpaa-type.heading-tertiary= show.mpaaRating
+
+            .card__runtime.u-center-text
+              - const hours = Math.floor(show.durationHours)
+              - const minutes = show.duration - hours*60
+              h3.card__runtime-length.heading-tertiary= `${hours}h ${minutes}m`
 
             .card__details.u-center-text
               p.card__details-overview.paragraph= show.overview
