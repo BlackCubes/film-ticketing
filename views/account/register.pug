@@ -52,7 +52,7 @@ block content
                   
                   .form__date-day
                     select#selectBirthDay.form__select.dropdown(name='select-day' tabindex='0' required)
-                      option(value) Day
+                      option(value) Day*
 
                       - const days = [...Array(32).keys()].splice(1)
 
@@ -63,7 +63,7 @@ block content
                   
                   .form__date-year
                     select#selectBirthYear.form__select.dropdown(name='select-year' tabindex='0' required)
-                      option(value) Year
+                      option(value) Year*
 
                       - const now = new Date().getFullYear()
                       - const years = Array(now - (now - 101)).fill('').map((val, i) => now - i)
