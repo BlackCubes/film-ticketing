@@ -31,6 +31,10 @@ block content
               h3.card__runtime-length.heading-tertiary= `${hours}h ${minutes}m`
 
             .card__ratings.u-center-text
+              .stars-show
+                for i in [1, 2, 3, 4, 5]
+                  span.star(class=i<=show.ratingsAverage ? 'rated' : 'unrated') &nbsp;
+
               - let addlInfo = `${show.ratingsAverage} Avg. Rating`
               if user && title === 'My Tickets'
                 - addlInfo = show.showtimes[0].startDateTime.toLocaleString('en-us', {month: 'long', day: 'numeric', year: 'numeric'})
