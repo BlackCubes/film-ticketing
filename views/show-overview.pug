@@ -215,7 +215,7 @@ block content
                     //- p.tile__card__review-stars.average-text= review.rating
                     .stars-user(data-rating=`${review.rating}`)
                       for i in [1, 2, 3, 4, 5]
-                        span.star &nbsp;
+                        span.star(class=i<=review.rating ? 'rated' : 'unrated') &nbsp;
 
                     p.tile-card__review-text.average-text= `"${review.review}"`
               
