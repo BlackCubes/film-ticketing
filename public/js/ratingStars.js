@@ -1,6 +1,6 @@
 /* eslint-disable */
 export const ratingStars = () => {
-  var stars = document.querySelectorAll('.star');
+  var stars = document.querySelectorAll('.stars .star');
 
   stars.forEach(function(star) {
     star.addEventListener('click', setRating);
@@ -15,7 +15,7 @@ export const ratingStars = () => {
 
 function setRating(e) {
   var span = e.currentTarget,
-    stars = document.querySelectorAll('.star'),
+    stars = document.querySelectorAll('.stars .star'),
     match = false,
     num = 0;
 

@@ -26643,7 +26643,7 @@ exports.ratingStars = void 0;
 
 /* eslint-disable */
 var ratingStars = function ratingStars() {
-  var stars = document.querySelectorAll('.star');
+  var stars = document.querySelectorAll('.stars .star');
   stars.forEach(function (star) {
     star.addEventListener('click', setRating);
   });
@@ -26656,7 +26656,7 @@ exports.ratingStars = ratingStars;
 
 function setRating(e) {
   var span = e.currentTarget,
-      stars = document.querySelectorAll('.star'),
+      stars = document.querySelectorAll('.stars .star'),
       match = false,
       num = 0;
   stars.forEach(function (star, index) {
