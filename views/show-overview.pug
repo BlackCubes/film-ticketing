@@ -187,9 +187,9 @@ block content
                       .tile-card__review
                         form#createReviewForm.form(novalidate)
                           .form__group
-                            input#reviewRating.form__input.input-text(type='number' name='review-rating' placeholder='Rating*' min='1' max='5' required)
+                            //- input#reviewRating.form__input.input-text(type='number' name='review-rating' placeholder='Rating*' min='1' max='5' required)
 
-                            .stars(data-rating='1')
+                            .stars#reviewRating(data-rating='1')
                               for i in [1, 2, 3, 4, 5]
                                 span.star &nbsp;
 
