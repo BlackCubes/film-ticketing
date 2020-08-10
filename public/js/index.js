@@ -345,7 +345,7 @@ if (updatePersonalForm) {
 
       // await updateSettings(form, 'data', photoParams);
 
-      document.getElementById('btnUpdateData').textContent = 'Update Settings';
+      document.getElementById('btnUpdateData').textContent = 'Update';
       document.getElementById('name').value = '';
       document.getElementById('selectBirthMonth').value = '';
       document.getElementById('selectBirthDay').value = '';
@@ -373,8 +373,7 @@ if (updateEmailUsernameForm) {
 
       // await updateSettings({ email, username }, 'email/username');
 
-      document.getElementById('btnUpdateEmailUsername').textContent =
-        'Update Email | Username';
+      document.getElementById('btnUpdateEmailUsername').textContent = 'Update';
       document.getElementById('email').value = '';
       document.getElementById('username').value = '';
     }
@@ -403,7 +402,7 @@ if (updatePassForm) {
       //   'password'
       // );
 
-      document.getElementById('btnUpdatePass').textContent = 'Update Password';
+      document.getElementById('btnUpdatePass').textContent = 'Update';
       document.getElementById('currentPass').value = '';
       document.getElementById('newPass').value = '';
       document.getElementById('confirmNewPass').value = '';
@@ -932,8 +931,7 @@ if (updateShowMainView) {
 
       // await updateShowSettings(form, 'setting', showId, roleType);
 
-      document.getElementById('btnUpdateShowData').textContent =
-        'Update Show Settings';
+      document.getElementById('btnUpdateShowData').textContent = 'Update';
     }
   });
 }
@@ -961,8 +959,7 @@ if (updateShowPoster) {
 
       // await updateShowSettings(form, 'poster', showId, roleType, posterParams);
 
-      document.getElementById('btnUpdateShowPoster').textContent =
-        'Update Show Poster';
+      document.getElementById('btnUpdateShowPoster').textContent = 'Update';
     }
   });
 }
@@ -987,7 +984,7 @@ if (updateShowPlot) {
 
       // await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
 
-      document.getElementById('btnUpdateShowPlot').textContent = 'Update Plot';
+      document.getElementById('btnUpdateShowPlot').textContent = 'Update';
     }
   });
 }
@@ -1015,8 +1012,7 @@ if (updateShowCastCrewForm) {
 
     // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
 
-    document.getElementById('btnUpdateShowCastCrew').textContent =
-      'Update Casts | Crews';
+    document.getElementById('btnUpdateShowCastCrew').textContent = 'Update';
   });
 }
 
@@ -1053,8 +1049,7 @@ if (updateShowAddl) {
       //   roleType
       // );
 
-      document.getElementById('btnUpdateShowAddl').textContent =
-        "Update Add'l Info";
+      document.getElementById('btnUpdateShowAddl').textContent = 'Update';
     }
   });
 }
@@ -1114,8 +1109,7 @@ if (updateShowPrice) {
 
       // await updateShowSettings(data, 'pricing', showId, roleType);
 
-      document.getElementById('btnUpdateShowPrice').textContent =
-        'Update Price | Venue';
+      document.getElementById('btnUpdateShowPrice').textContent = 'Update';
     }
   });
 }
@@ -1145,8 +1139,7 @@ if (updateReview) {
 
       // await updateReviewSettings({ review, rating }, showId, showTitle);
 
-      document.getElementById('btnUpdateReviewData').textContent =
-        'Update Review Settings';
+      document.getElementById('btnUpdateReviewData').textContent = 'Update';
     }
   });
 }
@@ -1174,8 +1167,7 @@ if (updateTheaterMainView) {
 
       // await updateTheaterSettings({ name, phone, linkUrl }, 'data', theaterId);
 
-      document.getElementById('btnUpdateTheaterData').textContent =
-        'Update Theater Settings';
+      document.getElementById('btnUpdateTheaterData').textContent = 'Update';
     }
   });
 }
@@ -1210,8 +1202,7 @@ if (updateTheaterPhoto) {
       //   'theaterPhoto'
       // );
 
-      document.getElementById('btnUpdateTheaterPhoto').textContent =
-        'Update Theater Photo';
+      document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update';
     }
   });
 }
@@ -1258,7 +1249,7 @@ if (updateTheaterLocation) {
       // await updateTheaterSettings(form, 'location', theaterId);
 
       document.getElementById('btnUpdateTheaterLocation').textContent =
-        'Update Location';
+        'Update';
     }
   });
 }
@@ -1298,8 +1289,7 @@ if (updateTheaterAddl) {
       //   theaterId
       // );
 
-      document.getElementById('btnUpdateTheaterAddl').textContent =
-        "Update Add'l Info";
+      document.getElementById('btnUpdateTheaterAddl').textContent = 'Update';
     }
   });
 }
@@ -1341,8 +1331,7 @@ if (updateTheaterChain) {
       //   'chainLogo'
       // );
 
-      document.getElementById('btnUpdateTheaterChain').textContent =
-        'Update Chain';
+      document.getElementById('btnUpdateTheaterChain').textContent = 'Update';
     }
   });
 }
@@ -1413,8 +1402,7 @@ if (updateShowtimeMainView) {
         showtimeId
       );
 
-      document.getElementById('btnUpdateShowtimeData').textContent =
-        'Update Showtime Settings';
+      document.getElementById('btnUpdateShowtimeData').textContent = 'Update';
     }
   });
 }
@@ -1443,8 +1431,7 @@ if (updateShowtimeAddl) {
 
       // await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
 
-      document.getElementById('btnUpdateShowtimeAddl').textContent =
-        "Update Add'l Info";
+      document.getElementById('btnUpdateShowtimeAddl').textContent = 'Update';
     }
   });
 }
@@ -1492,8 +1479,7 @@ if (updateCastCrewMainView) {
 
       // await updateCastCrewSettings(form, 'data', castcrewId);
 
-      document.getElementById('btnUpdateCastCrewData').textContent =
-        'Update Settings';
+      document.getElementById('btnUpdateCastCrewData').textContent = 'Update';
     }
   });
 }
@@ -1523,8 +1509,7 @@ if (updateCastCrewPhoto) {
 
       // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
 
-      document.getElementById('btnUpdateCastCrewPhoto').textContent =
-        'Update Photo';
+      document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Update';
     }
   });
 }
@@ -1557,8 +1542,7 @@ if (updateCastCrewAddlForm) {
       //   castcrewId
       // );
 
-      document.getElementById('btnUpdateCastCrewAddl').textContent =
-        "Update Add'l Info";
+      document.getElementById('btnUpdateCastCrewAddl').textContent = 'Update';
     }
   });
 }
