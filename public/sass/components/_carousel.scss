@@ -382,7 +382,8 @@
     transition: $carousel-transition-duration all ease-out;
 
     @include respond(tab-port) {
-      height: 61rem;
+      height: 51rem;
+      margin-top: 2rem;
     }
 
     @include respond(desktop) {
@@ -403,7 +404,7 @@
       height: 8rem;
 
       @include respond(tab-port) {
-        width: 11rem;
+        // width: 11rem;
       }
     }
 
@@ -428,6 +429,10 @@
         font-size: 1.2rem;
         height: 11rem;
         padding: 1rem;
+
+        @include respond(tab-port) {
+          height: 12rem;
+        }
       }
 
       & button {
