@@ -1335,7 +1335,7 @@ body {
   .stars-user .star {
     color: #20b2aa;
     font-size: 2rem;
-    padding: 0 1rem; }
+    padding: 0 0.6rem; }
     .stars .star::before,
     .stars-user .star::before {
       content: '\2606'; }
