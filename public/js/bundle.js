@@ -26807,8 +26807,8 @@ var checkFormSubmit = function checkFormSubmit() {
 
   exports.formStatus = formStatus = 0;
   inputs.forEach(function (input) {
-    var inputRequired = input.required;
-    var inputVal = '';
+    var inputRequired = input.id === 'starRating' ? true : input.required;
+    var inputVal = input.id === 'starRating' ? input.dataset.rating.trim() : '';
     if (input.type !== 'file') inputVal = input.value.trim();
 
     if (input.name === 'email') {
@@ -27235,6 +27235,20 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
+    if (input.id === 'starRating') {
+      if (inputVal === '') {
+        validationFailure(input, 'Please provide a rating', inputRequired);
+      } else if (parseInt(inputVal) < 1) {
+        validationFailure(input, 'Please enter a rating a minimum of 1', inputRequired);
+      } else if (parseInt(inputVal) > 5) {
+        validationFailure(input, 'Please enter a rating a maximum of 5', inputRequired);
+      } else if (!regexForm(input)) {
+        validationFailure(input, 'Please provide a valid rating between 1 and 5');
+      } else {
+        validationSuccess(input, 'Woohoo!', inputRequired);
+      }
+    }
+
     if (input.name === 'textarea-review') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a review', inputRequired);
@@ -27353,6 +27367,8 @@ function regexForm(e) {
     regexResult = regexTimeMinSecs.includes(parseInt(e.value));
   } else if (e.name === 'review-rating') {
     regexResult = regexRating.test(e.value);
+  } else if (e.id === 'starRating') {
+    regexResult = regexRating.test(e.dataset.rating);
   }
 
   return regexResult;
