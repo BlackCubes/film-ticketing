@@ -1306,23 +1306,23 @@ body {
     -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important; }
 
-.star,
-.star-user {
-  color: #20b2aa;
+.stars,
+.stars-user {
   font-size: 2rem;
-  padding: 0 1rem; }
-  .star::before,
-  .star-user::before {
-    content: '\2606'; }
-  .star.rated::before,
-  .star-user.rated::before {
-    content: '\2605'; }
-  .star .stars,
-  .star-user .stars {
+  font-weight: 900; }
+  .stars .star,
+  .stars-user .star {
+    color: #20b2aa;
     font-size: 2rem;
-    font-weight: 900; }
+    padding: 0 1rem; }
+    .stars .star::before,
+    .stars-user .star::before {
+      content: '\2606'; }
+    .stars .star.rated::before,
+    .stars-user .star.rated::before {
+      content: '\2605'; }
 
-.star::before {
+.stars .star::before {
   cursor: pointer; }
 
 svg {
