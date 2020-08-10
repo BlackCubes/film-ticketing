@@ -1137,8 +1137,7 @@ body {
 .form__gender, .form__content-type, .form__special-venue, .form__mpaa {
   width: 90%;
   margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 4rem; }
+  margin-right: auto; }
   .form__gender .form__label, .form__content-type .form__label, .form__special-venue .form__label, .form__mpaa .form__label {
     margin-left: 0.5rem;
     margin-right: 0.5rem; }
