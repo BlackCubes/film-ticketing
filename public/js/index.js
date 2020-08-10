@@ -10,6 +10,7 @@ import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { asideNav } from './dropdown';
+import { ratingStars } from './ratingStars';
 import { checkFormSubmit, formStatus } from './formController';
 import { MultiForm } from './multiForm';
 import {
@@ -53,6 +54,7 @@ const circleNavTrigger = document.getElementById('trigger');
 const checkboxNav = document.getElementById('navToggle'),
   navAside = document.querySelector('.nav__aside'),
   navButton = document.querySelector('.nav__toggle-container');
+const stars = document.querySelector('.stars');
 const loginForm = document.getElementById('loginForm');
 // Possibly change class selector to an id selector for all logout's to use
 const logoutBtn = document.querySelector('.nav__profile--logout');
@@ -186,6 +188,10 @@ if (circleNavTrigger) {
 
   svg.onclick = e => e.stopPropagation();
   circleNav.documentClick();
+}
+
+if (stars) {
+  document.addEventListener('DOMContentLoaded', ratingStars);
 }
 
 if (loginForm) {
