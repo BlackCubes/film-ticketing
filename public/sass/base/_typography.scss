@@ -187,7 +187,8 @@ body {
   }
 
   @include respond(tab-land) {
-    font-size: $font-size-book--tab-land;
+    // font-size: $font-size-book--tab-land;
+    font-size: 1.2rem;
   }
 
   @include respond(desktop) {
