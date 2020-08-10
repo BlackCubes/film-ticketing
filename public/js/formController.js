@@ -10,7 +10,7 @@ export const checkFormSubmit = (...inputs) => {
     var inputRequired = input.id === 'starRating' ? true : input.required;
     var inputVal = input.id === 'starRating' ? input.dataset.rating.trim() : '';
 
-    if (input.type !== 'file' || input.id !== 'starRating')
+    if (input.type !== 'file' && input.id !== 'starRating')
       inputVal = input.value.trim();
 
     console.log('Bug? ', inputVal);
