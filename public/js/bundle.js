@@ -26647,7 +26647,7 @@ var ratingStars = function ratingStars() {
   stars.forEach(function (star) {
     star.addEventListener('click', setRating);
   });
-  var rating = parseInt(document.querySelector('.star').getAttribute('data-rating'));
+  var rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
   var target = stars[rating - 1];
   target.dispatchEvent(new MouseEvent('click'));
 };

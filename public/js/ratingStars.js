@@ -7,7 +7,7 @@ export const ratingStars = () => {
   });
 
   var rating = parseInt(
-    document.querySelector('.star').getAttribute('data-rating')
+    document.querySelector('.stars').getAttribute('data-rating')
   );
   var target = stars[rating - 1];
   target.dispatchEvent(new MouseEvent('click'));
