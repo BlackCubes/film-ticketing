@@ -1166,7 +1166,7 @@ body {
 
 @media (min-width: 56.25em) {
   .form__date {
-    padding-bottom: 1.5rem; } }
+    padding-bottom: 0; } }
 
 .form__date-month, .form__date-hour {
   -webkit-flex-basis: 40%;
@@ -1201,7 +1201,7 @@ body {
 
 @media (min-width: 56.25em) {
   .form__gender {
-    padding-bottom: 1.5rem; } }
+    padding-bottom: 0; } }
 
 .form__photo-upload {
   display: -webkit-box;

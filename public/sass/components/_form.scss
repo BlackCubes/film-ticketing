@@ -387,7 +387,8 @@
     }
 
     @include respond(tab-land) {
-      padding-bottom: 1.5rem;
+      // padding-bottom: 1.5rem;
+      padding-bottom: 0;
     }
 
     &-month,
@@ -433,7 +434,8 @@
     }
 
     @include respond(tab-land) {
-      padding-bottom: 1.5rem;
+      // padding-bottom: 1.5rem;
+      padding-bottom: 0;
     }
 
     // & .form__label {
