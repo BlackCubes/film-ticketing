@@ -1011,6 +1011,9 @@ body {
     .form__group.success .dropdown {
       border-bottom: 0.3rem solid #20b2aa; } }
 
+.form__group.success .star {
+  color: #20b2aa; }
+
 .form__group.error .form__input,
 .form__group.error .dropdown {
   border-bottom: 0.3rem solid #ff0000; }
@@ -1022,6 +1025,9 @@ body {
     .form__group.error .form__input,
     .form__group.error .dropdown {
       border-bottom: 0.3rem solid #ff0000; } }
+
+.form__group.error .star {
+  color: #ff0000; }
 
 @media (min-width: 37.5em) {
   .form__input {
