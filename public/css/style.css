@@ -1156,8 +1156,7 @@ body {
   -ms-justify-content: space-between;
   justify-content: space-between;
   margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 4rem; }
+  margin-right: auto; }
   @media (min-width: 75em) {
     .form__date, .form__duo-btn {
       margin-bottom: 2rem; } }
