@@ -1306,6 +1306,19 @@ body {
     -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important; }
 
+.star {
+  color: #20b2aa;
+  font-size: 2rem;
+  padding: 0 1rem; }
+  .star::before {
+    content: '\2606';
+    cursor: pointer; }
+  .star.rated::before {
+    content: '\2605'; }
+  .star .stars {
+    font-size: 2rem;
+    font-weight: 900; }
+
 svg {
   position: fixed;
   bottom: 0;
