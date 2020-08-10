@@ -282,15 +282,15 @@ if (registerFieldlist1) {
 
       document.getElementById('btnCreateAccount').textContent = 'Creating...';
 
-      await register(
-        email,
-        username,
-        password,
-        passwordConfirm,
-        name,
-        birthdate,
-        gender
-      );
+      // await register(
+      //   email,
+      //   username,
+      //   password,
+      //   passwordConfirm,
+      //   name,
+      //   birthdate,
+      //   gender
+      // );
 
       document.getElementById('btnCreateAccount').textContent = 'Continue';
     }
