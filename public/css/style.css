@@ -1188,6 +1188,10 @@ body {
 .form__date .form__label {
   margin-left: 0.7rem;
   margin-right: 0.7rem; }
+  @media (min-width: 37.5em) {
+    .form__date .form__label {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem; } }
   @media (min-width: 75em) {
     .form__date .form__label {
       margin-left: 0.3rem;
