@@ -429,7 +429,7 @@ if (createReviewForm) {
 
       document.getElementById('btnCreateReview').textContent = 'Creating...';
 
-      // await createReview({ review, rating }, showId, roleType);
+      await createReview({ review, rating }, showId, roleType);
 
       document.getElementById('btnCreateReview').textContent = 'Create Review';
     }
