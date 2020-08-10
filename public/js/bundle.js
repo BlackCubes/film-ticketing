@@ -27221,21 +27221,7 @@ var checkFormSubmit = function checkFormSubmit() {
       }
     }
 
-    if (input.name === 'review-rating') {
-      if (inputVal === '') {
-        validationFailure(input, 'Please provide a rating', inputRequired);
-      } else if (parseInt(inputVal) < 1) {
-        validationFailure(input, 'Please enter a rating a minimum of 1', inputRequired);
-      } else if (parseInt(inputVal) > 5) {
-        validationFailure(input, 'Please enter a rating a maximum of 5', inputRequired);
-      } else if (!regexForm(input)) {
-        validationFailure(input, 'Please provide a valid rating between 1 and 5');
-      } else {
-        validationSuccess(input, 'Woohoo!', inputRequired);
-      }
-    }
-
-    if (input.id === 'starRating') {
+    if (input.name === 'review-rating' || input.id === 'starRating') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a rating', inputRequired);
       } else if (parseInt(inputVal) < 1) {
