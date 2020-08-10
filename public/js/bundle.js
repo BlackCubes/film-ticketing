@@ -26807,9 +26807,9 @@ var checkFormSubmit = function checkFormSubmit() {
 
   exports.formStatus = formStatus = 0;
   inputs.forEach(function (input) {
-    console.log('Bug? ', input.dataset.rating.trim());
     var inputRequired = input.id === 'starRating' ? true : input.required;
     var inputVal = input.id === 'starRating' ? input.dataset.rating.trim() : '';
+    console.log('Bug? ', inputVal);
     if (input.type !== 'file' || input.id !== 'starRating') inputVal = input.value.trim();
 
     if (input.name === 'email') {
