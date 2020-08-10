@@ -163,7 +163,8 @@ body {
   background-color: rgba($color-white, 0.3);
 
   @include respond(tab-port) {
-    font-size: $default-font-size--tab-land;
+    // font-size: $default-font-size--tab-land;
+    font-size: 1.6rem;
   }
 
   @include respond(tab-land) {
