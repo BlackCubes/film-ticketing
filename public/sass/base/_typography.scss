@@ -167,7 +167,8 @@ body {
   }
 
   @include respond(tab-land) {
-    font-size: 2.4rem;
+    // font-size: 2.4rem;
+    font-size: 1.8rem;
   }
 
   @include respond(desktop) {
