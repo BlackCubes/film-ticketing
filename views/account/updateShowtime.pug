@@ -80,7 +80,7 @@ block content
 
                 .form__date-minute
                   select#showtimeStartMinute.form__select.dropdown(name='select-minute' tabindex='0' required)
-                    option(value) Minute*
+                    option(value) Min.*
 
                     each minute in minSecs
                       - var minuteSelected = (startMinuteValue == minute) ? true : false
@@ -90,7 +90,7 @@ block content
 
                 .form__date-second
                   select#showtimeStartSecond.form__select.dropdown(name='select-second' tabindex='0' required)
-                    option(value) Seconds*
+                    option(value) Secs.*
 
                     each second in minSecs
                       - var secondSelected = (startSecondValue == second) ? true : false
@@ -112,7 +112,7 @@ block content
 
                 .form__date-minute
                   select#showtimeEndMinute.form__select.dropdown(name='select-minute' tabindex='0' required)
-                    option(value) Minute*
+                    option(value) Min.*
 
                     each minute in minSecs
                       - var minuteSelected = (endMinuteValue == minute) ? true : false
@@ -122,7 +122,7 @@ block content
 
                 .form__date-second
                   select#showtimeEndSecond.form__select.dropdown(name='select-second' tabindex='0' required)
-                    option(value) Seconds*
+                    option(value) Secs.*
 
                     each second in minSecs
                       - var secondSelected = (endSecondValue == second) ? true : false
