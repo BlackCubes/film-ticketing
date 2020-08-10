@@ -17,7 +17,7 @@ mixin reviewsCard(type)
 
     .card-account_content-type.u-center-text
       - let userRatingTitle = 'My'
-      if user && user.role === 'admin' && window.location.pathname !== '/myReviews'
+      if user && user.role === 'admin'
         - userRatingTitle = `${type.user.name}`
 
       h3.card-account__content-type-name.heading-tertiary= `${userRatingTitle} Rating: ${type.rating}`
