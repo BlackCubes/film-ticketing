@@ -17,7 +17,7 @@ block content
             //-     small.form__info-small.small-text Let's create your show! Fields with * are required.
 
             fieldset#eoFieldlist1.form__fieldset.form__fieldset--fifth(name='eoFieldlist1')
-              .form__group.u-center-text.u-margin-bottom-small
+              .form__group.u-center-text.u-margin-bottom-small.u-padding-small
                 - const smallInfo1 = (user.role === 'admin') ? "Let's create a show" : "Let's create your show"
                 small.form__info-small.small-text= `${smallInfo1}! Fields with * are required.`
 
@@ -90,7 +90,7 @@ block content
                 button#btnNext-1.btn.btn--blue(name='btnNext1') Next
 
             fieldset#eoFieldlist2.form__fieldset.form__fieldset--fifth(name='eoFieldlist2')
-              .form__group.form__group--info.u-center-text
+              .form__group.form__group--info.u-center-text.u-padding-small
                 - const smallInfo2 = (user.role === 'admin') ? "The event organizer will not be happy" : "You'll loose potential audiences"
                 small.form__info-small.small-text= `A poster shown below is an example on what not to do. ${smallInfo2}. Choose wisely.`
 
@@ -109,7 +109,7 @@ block content
                     button#btnNext-2.btn.btn--blue.btn--duo(name='btnNext2') Next
 
             fieldset#eoFieldlist3.form__fieldset.form__fieldset--fifth(name='eoFieldlist3')
-              .form__group.u-center-text
+              .form__group.u-center-text.u-padding-small
                 - const smallInfo3 = (user.role === 'admin') ? "Add what the show is about" : "For inputting cast/crews information, please contact the admin"
                 small.form__info-small.small-text= `${smallInfo3}.`
 
@@ -130,7 +130,7 @@ block content
                     button#btnNext-3.btn.btn--blue.btn--duo(name='btnNext3') Next
 
             fieldset#eoFieldlist4.form__fieldset.form__fieldset--fifth(name='eoFieldlist4')
-              .form__group.form__group--info.u-center-text
+              .form__group.form__group--info.u-center-text.u-padding-small
                 - const smallInfo4 = (user.role === 'admin') ? "Optional" : "Optional, but are useful for your audiences"
                 small.form__info-small.small-text= `${smallInfo4}.`
 
@@ -155,7 +155,7 @@ block content
                     button#btnNext-4.btn.btn--blue.btn--duo(name='btnNext4') Next
 
             fieldset#eoFieldlist5.form__fieldset.form__fieldset--fifth(name='eoFieldlist5')
-              .form__group.form__group--info.u-center-text
+              .form__group.form__group--info.u-center-text.u-padding-small
                 - const smallInfo5 = (user.role === 'admin') ? "A special venue is where guest speakers or a big event will take place, and the event organizer want to sell their show's tickets publicly. Private events are where the public cannot buy tickets" : "A special venue is where guest speakers or a big event will take place, and you want to sell your show's tickets publicly. For private events where the public cannot buy tickets, please contact the admin"
 
                 small.form__info-small.small-text= `${smallInfo5}.`
