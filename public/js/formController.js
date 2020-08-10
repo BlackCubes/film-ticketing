@@ -13,8 +13,6 @@ export const checkFormSubmit = (...inputs) => {
     if (input.type !== 'file' && input.id !== 'starRating')
       inputVal = input.value.trim();
 
-    console.log('Bug? ', inputVal);
-
     if (input.name === 'email') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide an email', inputRequired);
