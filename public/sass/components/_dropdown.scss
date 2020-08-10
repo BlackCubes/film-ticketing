@@ -22,7 +22,8 @@
   transition: all 0.3s;
 
   @include respond(tab-port) {
-    font-size: 2rem;
+    // font-size: 2rem;
+    font-size: 1.6rem;
     height: 6vh;
   }
 
