@@ -770,6 +770,7 @@ body {
         height: 11rem;
         padding: 1rem; }
       .tile-card.swiper-slide .form button {
+        font-size: 1.1rem;
         height: 2rem;
         padding: 1rem; }
     .tile-card.swiper-slide:first-child:hover, .tile-card.swiper-slide:first-child:focus, .tile-card.swiper-slide:first-child:active {
