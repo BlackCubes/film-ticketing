@@ -749,9 +749,12 @@ body {
       border-top-right-radius: 3rem; }
       .tile-card.swiper-slide .tile-card__reviewer-photo {
         padding: 1rem; }
-    @media (min-width: 37.5em) {
-      .tile-card.swiper-slide .tile-card__photo-img {
-        width: 11rem; } }
+    .tile-card.swiper-slide .tile-card__photo-img {
+      width: 8rem;
+      height: 8rem; }
+      @media (min-width: 37.5em) {
+        .tile-card.swiper-slide .tile-card__photo-img {
+          width: 11rem; } }
     .tile-card.swiper-slide .tile-card__review {
       width: 90%; }
     .tile-card.swiper-slide .form {
@@ -763,6 +766,7 @@ body {
         margin-left: 0.5rem;
         margin-right: 0.5rem; }
       .tile-card.swiper-slide .form__text-area {
+        font-size: 1.2rem;
         height: 10rem;
         padding: 1rem; }
       .tile-card.swiper-slide .form button {
