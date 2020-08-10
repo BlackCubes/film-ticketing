@@ -20,7 +20,7 @@ mixin reviewsCard(type)
       if user && user.role === 'admin'
         - userRatingTitle = `${type.user.name}`
 
-      h3.card-account__content-type-name.heading-tertiary= `${userRatingTitle} Rating: ${type.rating}`
+      h3.card-account__content-type-name.heading-tertiary= `${userRatingTitle} Rating: ${type.rating}/5`
 
     .card-account__metadata-container
       ul.card-account__metadata
