@@ -29332,33 +29332,42 @@ if (updatePersonalForm) {
           switch (_context2.prev = _context2.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'), document.getElementById('userPhoto'));
+              (0, _attributeController.validateAttribute)(document.getElementById('name'));
+              (0, _attributeController.validateAttribute)(document.getElementById('selectBirthMonth'));
+              (0, _attributeController.validateAttribute)(document.getElementById('selectBirthDay'));
+              (0, _attributeController.validateAttribute)(document.getElementById('selectBirthYear'));
+              (0, _attributeController.validateAttribute)(document.getElementById('selectGender'));
+              (0, _attributeController.validateAttribute)(document.getElementById('userPhoto'));
 
-              if (_formController.formStatus === 5) {
-                form = new FormData();
-                document.getElementById('btnUpdateData').textContent = 'Updating...';
-                selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');
-                birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value, birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value, birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
-                selectGender = document.getElementById('selectGender');
-                birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
-                photo = document.getElementById('userPhoto').files[0];
-                photoUrlArr = document.getElementById('photoSource').src.split('/');
-                photoParams = photoUrlArr[photoUrlArr.length - 1];
-                if (!photo) photoParams = '';
-                form.append('name', name.value);
-                form.append('birthdate', birthdate);
-                form.append('gender', gender);
-                form.append('photo', photo); // await updateSettings(form, 'data', photoParams);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'), document.getElementById('userPhoto'));
 
-                document.getElementById('btnUpdateData').textContent = 'Update';
-                document.getElementById('name').value = '';
-                document.getElementById('selectBirthMonth').value = '';
-                document.getElementById('selectBirthDay').value = '';
-                document.getElementById('selectBirthYear').value = '';
-                document.getElementById('selectGender').value = '';
+                if (_formController.formStatus === 5) {
+                  form = new FormData();
+                  document.getElementById('btnUpdateData').textContent = 'Updating...';
+                  selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');
+                  birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value, birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value, birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
+                  selectGender = document.getElementById('selectGender');
+                  birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
+                  photo = document.getElementById('userPhoto').files[0];
+                  photoUrlArr = document.getElementById('photoSource').src.split('/');
+                  photoParams = photoUrlArr[photoUrlArr.length - 1];
+                  if (!photo) photoParams = '';
+                  form.append('name', name.value);
+                  form.append('birthdate', birthdate);
+                  form.append('gender', gender);
+                  form.append('photo', photo); // await updateSettings(form, 'data', photoParams);
+
+                  document.getElementById('btnUpdateData').textContent = 'Update';
+                  document.getElementById('name').value = '';
+                  document.getElementById('selectBirthMonth').value = '';
+                  document.getElementById('selectBirthDay').value = '';
+                  document.getElementById('selectBirthYear').value = '';
+                  document.getElementById('selectGender').value = '';
+                }
               }
 
-            case 3:
+            case 8:
             case "end":
               return _context2.stop();
           }
@@ -29381,18 +29390,23 @@ if (updateEmailUsernameForm) {
           switch (_context3.prev = _context3.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('email'), document.getElementById('username'));
+              (0, _attributeController.validateAttribute)(document.getElementById('email'));
+              (0, _attributeController.validateAttribute)(document.getElementById('username'));
 
-              if (_formController.formStatus === 2) {
-                document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
-                email = document.getElementById('email').value, username = document.getElementById('username').value; // await updateSettings({ email, username }, 'email/username');
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('email'), document.getElementById('username'));
 
-                document.getElementById('btnUpdateEmailUsername').textContent = 'Update';
-                document.getElementById('email').value = '';
-                document.getElementById('username').value = '';
+                if (_formController.formStatus === 2) {
+                  document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
+                  email = document.getElementById('email').value, username = document.getElementById('username').value; // await updateSettings({ email, username }, 'email/username');
+
+                  document.getElementById('btnUpdateEmailUsername').textContent = 'Update';
+                  document.getElementById('email').value = '';
+                  document.getElementById('username').value = '';
+                }
               }
 
-            case 3:
+            case 4:
             case "end":
               return _context3.stop();
           }
@@ -29415,22 +29429,28 @@ if (updatePassForm) {
           switch (_context4.prev = _context4.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('currentPass'), document.getElementById('newPass'), document.getElementById('confirmNewPass'));
+              (0, _attributeController.validateAttribute)(document.getElementById('currentPass'));
+              (0, _attributeController.validateAttribute)(document.getElementById('newPass'));
+              (0, _attributeController.validateAttribute)(document.getElementById('confirmNewPass'));
 
-              if (_formController.formStatus === 3) {
-                document.getElementById('btnUpdatePass').textContent = 'Updating...';
-                passwordCurrent = document.getElementById('currentPass').value, password = document.getElementById('newPass').value, passwordConfirm = document.getElementById('confirmNewPass').value; // await updateSettings(
-                //   { passwordCurrent, password, passwordConfirm },
-                //   'password'
-                // );
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('currentPass'), document.getElementById('newPass'), document.getElementById('confirmNewPass'));
 
-                document.getElementById('btnUpdatePass').textContent = 'Update';
-                document.getElementById('currentPass').value = '';
-                document.getElementById('newPass').value = '';
-                document.getElementById('confirmNewPass').value = '';
+                if (_formController.formStatus === 3) {
+                  document.getElementById('btnUpdatePass').textContent = 'Updating...';
+                  passwordCurrent = document.getElementById('currentPass').value, password = document.getElementById('newPass').value, passwordConfirm = document.getElementById('confirmNewPass').value; // await updateSettings(
+                  //   { passwordCurrent, password, passwordConfirm },
+                  //   'password'
+                  // );
+
+                  document.getElementById('btnUpdatePass').textContent = 'Update';
+                  document.getElementById('currentPass').value = '';
+                  document.getElementById('newPass').value = '';
+                  document.getElementById('confirmNewPass').value = '';
+                }
               }
 
-            case 3:
+            case 5:
             case "end":
               return _context4.stop();
           }

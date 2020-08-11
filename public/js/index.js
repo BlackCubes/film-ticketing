@@ -298,56 +298,67 @@ if (updatePersonalForm) {
   updatePersonalForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('name'),
-      document.getElementById('selectBirthMonth'),
-      document.getElementById('selectBirthDay'),
-      document.getElementById('selectBirthYear'),
-      document.getElementById('selectGender'),
-      document.getElementById('userPhoto')
-    );
+    validateAttribute(document.getElementById('name'));
+    validateAttribute(document.getElementById('selectBirthMonth'));
+    validateAttribute(document.getElementById('selectBirthDay'));
+    validateAttribute(document.getElementById('selectBirthYear'));
+    validateAttribute(document.getElementById('selectGender'));
+    validateAttribute(document.getElementById('userPhoto'));
 
-    if (formStatus === 5) {
-      const form = new FormData();
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('name'),
+        document.getElementById('selectBirthMonth'),
+        document.getElementById('selectBirthDay'),
+        document.getElementById('selectBirthYear'),
+        document.getElementById('selectGender'),
+        document.getElementById('userPhoto')
+      );
 
-      document.getElementById('btnUpdateData').textContent = 'Updating...';
+      if (formStatus === 5) {
+        const form = new FormData();
 
-      const selectBirthMonth = document.getElementById('selectBirthMonth'),
-        selectBirthDay = document.getElementById('selectBirthDay'),
-        selectBirthYear = document.getElementById('selectBirthYear');
+        document.getElementById('btnUpdateData').textContent = 'Updating...';
 
-      const birthMonth =
-          selectBirthMonth.options[selectBirthMonth.selectedIndex].value,
-        birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value,
-        birthYear =
-          selectBirthYear.options[selectBirthYear.selectedIndex].value;
+        const selectBirthMonth = document.getElementById('selectBirthMonth'),
+          selectBirthDay = document.getElementById('selectBirthDay'),
+          selectBirthYear = document.getElementById('selectBirthYear');
 
-      const selectGender = document.getElementById('selectGender');
+        const birthMonth =
+            selectBirthMonth.options[selectBirthMonth.selectedIndex].value,
+          birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value,
+          birthYear =
+            selectBirthYear.options[selectBirthYear.selectedIndex].value;
 
-      const birthdate = birthYear.concat('-', birthMonth, '-', birthDay),
-        name = document.getElementById('name').value,
-        gender = selectGender.options[selectGender.selectedIndex].value;
+        const selectGender = document.getElementById('selectGender');
 
-      const photo = document.getElementById('userPhoto').files[0];
+        const birthdate = birthYear.concat('-', birthMonth, '-', birthDay),
+          name = document.getElementById('name').value,
+          gender = selectGender.options[selectGender.selectedIndex].value;
 
-      const photoUrlArr = document.getElementById('photoSource').src.split('/');
-      let photoParams = photoUrlArr[photoUrlArr.length - 1];
+        const photo = document.getElementById('userPhoto').files[0];
 
-      if (!photo) photoParams = '';
+        const photoUrlArr = document
+          .getElementById('photoSource')
+          .src.split('/');
+        let photoParams = photoUrlArr[photoUrlArr.length - 1];
 
-      form.append('name', name.value);
-      form.append('birthdate', birthdate);
-      form.append('gender', gender);
-      form.append('photo', photo);
+        if (!photo) photoParams = '';
 
-      // await updateSettings(form, 'data', photoParams);
+        form.append('name', name.value);
+        form.append('birthdate', birthdate);
+        form.append('gender', gender);
+        form.append('photo', photo);
 
-      document.getElementById('btnUpdateData').textContent = 'Update';
-      document.getElementById('name').value = '';
-      document.getElementById('selectBirthMonth').value = '';
-      document.getElementById('selectBirthDay').value = '';
-      document.getElementById('selectBirthYear').value = '';
-      document.getElementById('selectGender').value = '';
+        // await updateSettings(form, 'data', photoParams);
+
+        document.getElementById('btnUpdateData').textContent = 'Update';
+        document.getElementById('name').value = '';
+        document.getElementById('selectBirthMonth').value = '';
+        document.getElementById('selectBirthDay').value = '';
+        document.getElementById('selectBirthYear').value = '';
+        document.getElementById('selectGender').value = '';
+      }
     }
   });
 }
@@ -356,23 +367,29 @@ if (updateEmailUsernameForm) {
   updateEmailUsernameForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('email'),
-      document.getElementById('username')
-    );
+    validateAttribute(document.getElementById('email'));
+    validateAttribute(document.getElementById('username'));
 
-    if (formStatus === 2) {
-      document.getElementById('btnUpdateEmailUsername').textContent =
-        'Updating...';
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('email'),
+        document.getElementById('username')
+      );
 
-      const email = document.getElementById('email').value,
-        username = document.getElementById('username').value;
+      if (formStatus === 2) {
+        document.getElementById('btnUpdateEmailUsername').textContent =
+          'Updating...';
 
-      // await updateSettings({ email, username }, 'email/username');
+        const email = document.getElementById('email').value,
+          username = document.getElementById('username').value;
 
-      document.getElementById('btnUpdateEmailUsername').textContent = 'Update';
-      document.getElementById('email').value = '';
-      document.getElementById('username').value = '';
+        // await updateSettings({ email, username }, 'email/username');
+
+        document.getElementById('btnUpdateEmailUsername').textContent =
+          'Update';
+        document.getElementById('email').value = '';
+        document.getElementById('username').value = '';
+      }
     }
   });
 }
@@ -381,28 +398,34 @@ if (updatePassForm) {
   updatePassForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('currentPass'),
-      document.getElementById('newPass'),
-      document.getElementById('confirmNewPass')
-    );
+    validateAttribute(document.getElementById('currentPass'));
+    validateAttribute(document.getElementById('newPass'));
+    validateAttribute(document.getElementById('confirmNewPass'));
 
-    if (formStatus === 3) {
-      document.getElementById('btnUpdatePass').textContent = 'Updating...';
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('currentPass'),
+        document.getElementById('newPass'),
+        document.getElementById('confirmNewPass')
+      );
 
-      const passwordCurrent = document.getElementById('currentPass').value,
-        password = document.getElementById('newPass').value,
-        passwordConfirm = document.getElementById('confirmNewPass').value;
+      if (formStatus === 3) {
+        document.getElementById('btnUpdatePass').textContent = 'Updating...';
 
-      // await updateSettings(
-      //   { passwordCurrent, password, passwordConfirm },
-      //   'password'
-      // );
+        const passwordCurrent = document.getElementById('currentPass').value,
+          password = document.getElementById('newPass').value,
+          passwordConfirm = document.getElementById('confirmNewPass').value;
 
-      document.getElementById('btnUpdatePass').textContent = 'Update';
-      document.getElementById('currentPass').value = '';
-      document.getElementById('newPass').value = '';
-      document.getElementById('confirmNewPass').value = '';
+        // await updateSettings(
+        //   { passwordCurrent, password, passwordConfirm },
+        //   'password'
+        // );
+
+        document.getElementById('btnUpdatePass').textContent = 'Update';
+        document.getElementById('currentPass').value = '';
+        document.getElementById('newPass').value = '';
+        document.getElementById('confirmNewPass').value = '';
+      }
     }
   });
 }
