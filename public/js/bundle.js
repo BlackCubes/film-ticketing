@@ -26755,37 +26755,28 @@ exports.parentNode = parentNode;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.formSuccess = exports.formError = exports.formValidator = void 0;
+exports.formSuccess = exports.formError = void 0;
 
 var _alerts = require("./alerts");
 
 var _utils = require("./utils");
 
 /* eslint-disable */
-var formValidator = function formValidator(input) {
-  var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-  var bol = arguments.length > 2 ? arguments[2] : undefined;
-
-  if (type === 'input' && !input) {
-    (0, _alerts.showAlert)('error', 'Error on input!');
-    bol = false;
-  }
-
-  if (type === 'select' && !input) {
-    (0, _alerts.showAlert)('error', 'Error on the select!');
-    bol = false;
-  }
-
-  if (type === 'textarea' && !input) {
-    (0, _alerts.showAlert)('error', 'Error on the textarea!');
-    bol = false;
-  }
-
-  return bol;
-};
-
-exports.formValidator = formValidator;
-
+// export const formValidator = (input, type = '', bol) => {
+//   if (type === 'input' && !input) {
+//     showAlert('error', 'Error on input!');
+//     bol = false;
+//   }
+//   if (type === 'select' && !input) {
+//     showAlert('error', 'Error on the select!');
+//     bol = false;
+//   }
+//   if (type === 'textarea' && !input) {
+//     showAlert('error', 'Error on the textarea!');
+//     bol = false;
+//   }
+//   return bol;
+// };
 var formError = function formError(input, message) {
   var classTarget = 'form__group';
   if (input.name === 'select-month') classTarget = 'form__date-month';
@@ -26795,14 +26786,9 @@ var formError = function formError(input, message) {
   if (input.name === 'select-minute') classTarget = 'form__date-minute';
   if (input.name === 'select-second') classTarget = 'form__date-second';
   var formParent = (0, _utils.parentNode)(input, classTarget);
-  var labelElement = input.nextElementSibling; // const formParent = input.parentElement;
-  // const formGrandparent = formParent.parentElement;
-  // const labelElement = formParent.querySelector('label');
-
+  var labelElement = input.nextElementSibling;
   formParent.classList.add('error');
-  formParent.classList.remove('success'); // formGrandparent.classList.add('error');
-  // formGrandparent.classList.remove('success');
-
+  formParent.classList.remove('success');
   labelElement.textContent = message;
   (0, _alerts.showAlert)('error', 'There are items that require your attention');
 };
@@ -26818,14 +26804,9 @@ var formSuccess = function formSuccess(input, message) {
   if (input.name === 'select-minute') classTarget = 'form__date-minute';
   if (input.name === 'select-second') classTarget = 'form__date-second';
   var formParent = (0, _utils.parentNode)(input, classTarget);
-  var labelElement = input.nextElementSibling; // const formParent = input.parentElement;
-  // const formGrandparent = formParent.parentElement;
-  // const labelElement = formParent.querySelector('label');
-
+  var labelElement = input.nextElementSibling;
   formParent.classList.add('success');
-  formParent.classList.remove('error'); // formGrandparent.classList.add('success');
-  // formGrandparent.classList.remove('error');
-
+  formParent.classList.remove('error');
   labelElement.textContent = message;
 };
 
