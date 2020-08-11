@@ -26835,15 +26835,13 @@ var formSuccess = function formSuccess(input, message) {
 };
 
 exports.formSuccess = formSuccess;
-},{"./alerts":"alerts.js","./utils":"utils.js"}],"formController.js":[function(require,module,exports) {
+},{"./alerts":"alerts.js","./utils":"utils.js"}],"regexController.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.checkFormSubmit = exports.formStatus = void 0;
-
-var _errorController = require("./errorController");
+exports.validateRegex = void 0;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -26857,6 +26855,250 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+/* eslint-disable */
+var validateRegex = function validateRegex(e, test) {
+  var regexResult = true; // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+
+  var regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
+  var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
+  var regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
+  var regexDateMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  var regexDateDay = _toConsumableArray(Array(32).keys()).splice(1);
+
+  var now = new Date().getFullYear();
+  var regexDateYear = Array(now - (now - 101)).fill('').map(function (val, i) {
+    return now - i;
+  });
+  var regexGender = ['f', 'm', 'p'];
+  var regexPhoto = /^\b(jpeg|jpg|png)\b$/;
+  var regexMpaa = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA'];
+  var regexDuration = /^[1-9]{1}[0-9]{1,}$/;
+  var regexContent = /^\b(Film|TV)\b$/;
+  var regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
+  var regexSelect = /^\b(y|n)\b$/;
+  var regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
+  var regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
+  var regexAddress = /^[ #',\.-9A-Z\u017F\u212A]{3,96}$/i;
+  var regexUnicode = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
+  var regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
+  var regexZipCode = /^[0-9]{5}$/;
+  var regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
+  var regexLatitude = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
+
+  var regexTimeHour = _toConsumableArray(Array(25).keys()).splice(0);
+
+  var regexTimeMinSecs = _toConsumableArray(Array(61).keys()).splice(0);
+
+  var regexRating = /^[1-5]{1}$/;
+  var regexMongo = /^[a-f\d]{24}$/i;
+
+  if (e.name === 'password' || e.name === 'current-password') {
+    regexResult = regexPass.test(test);
+  } else if (e.name === 'email') {
+    regexResult = regexEmail.test(test);
+  } else if (e.name === 'name') {
+    regexResult = regexName.test(test);
+  } else if (e.name === 'username') {
+    regexResult = regexUsername.test(test);
+  } else if (e.name === 'select-month') {
+    regexResult = regexDateMonth.includes(test);
+  } else if (e.name === 'select-day') {
+    regexResult = regexDateDay.includes(parseInt(test));
+  } else if (e.name === 'select-year') {
+    regexResult = regexDateYear.includes(parseInt(test));
+  } else if (e.name === 'select-gender') {
+    regexResult = regexGender.includes(test);
+  } else if (e.name === 'photo' || e.name === 'poster' || e.name === 'theaterPhoto' || e.name === 'chainPhoto' || e.name === 'castcrew-photo') {
+    regexResult = regexPhoto.test(test.type.split('/').pop().toLowerCase());
+  } else if (e.name === 'select-mpaa') {
+    regexResult = regexMpaa.includes(test);
+  } else if (e.name === 'show-duration') {
+    regexResult = regexDuration.test(parseInt(test));
+  } else if (e.name === 'select-contenttype') {
+    regexResult = regexContent.test(test);
+  } else if (e.name === 'show-price') {
+    regexResult = regexPrice.test(parseFloat(test));
+  } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue' || e.name === 'select-ticket' || e.name === 'select-showtimes') {
+    regexResult = regexSelect.test(test);
+  } else if (e.name === 'hexadecimal' || e.name === 'hexadecimal-btn') {
+    regexResult = regexMongo.test(test);
+  } else if (e.name === 'phone') {
+    regexResult = regexPhone.test(test);
+  } else if (e.name === 'linkurl') {
+    regexResult = regexURL.test(test);
+  } else if (e.name === 'address') {
+    regexResult = regexAddress.test(test);
+  } else if (e.name === 'city' || e.name === 'castcrew-name') {
+    regexResult = regexUnicode.test(test);
+  } else if (e.name === 'state') {
+    regexResult = regexState.test(test);
+  } else if (e.name === 'zipcode') {
+    regexResult = regexZipCode.test(test);
+  } else if (e.name === 'geo-long') {
+    regexResult = regexLongitude.test(test);
+  } else if (e.name === 'geo-lat') {
+    regexResult = regexLatitude.test(test);
+  } else if (e.name === 'select-hour') {
+    regexResult = regexTimeHour.includes(parseInt(test));
+  } else if (e.name === 'select-minute' || e.name === 'select-second') {
+    regexResult = regexTimeMinSecs.includes(parseInt(test));
+  } else if (e.name === 'review-rating') {
+    regexResult = regexRating.test(test);
+  } else if (e.id === 'starRating') {
+    regexResult = regexRating.test(test);
+  }
+
+  return regexResult;
+}; // function regexForm(e) {
+//   var regexResult = true;
+//   // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+//   const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
+//   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   const regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
+//   const regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
+//   const regexDateMonth = [
+//     'January',
+//     'February',
+//     'March',
+//     'April',
+//     'May',
+//     'June',
+//     'July',
+//     'August',
+//     'September',
+//     'October',
+//     'November',
+//     'December'
+//   ];
+//   const regexDateDay = [...Array(32).keys()].splice(1);
+//   const now = new Date().getFullYear();
+//   const regexDateYear = Array(now - (now - 101))
+//     .fill('')
+//     .map((val, i) => now - i);
+//   const regexGender = ['f', 'm', 'p'];
+//   const regexPhoto = /^\b(jpeg|jpg|png)\b$/;
+//   const regexMpaa = [
+//     'G',
+//     'PG',
+//     'PG-13',
+//     'R',
+//     'NC-17',
+//     'NR',
+//     'Unrated',
+//     'TV-Y',
+//     'TV-Y7',
+//     'TV-G',
+//     'TV-PG',
+//     'TV-14',
+//     'TV-MA'
+//   ];
+//   const regexDuration = /^[1-9]{1}[0-9]{1,}$/;
+//   const regexContent = /^\b(Film|TV)\b$/;
+//   const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
+//   const regexSelect = /^\b(y|n)\b$/;
+//   const regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
+//   const regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
+//   const regexAddress = /^[A-Z0-9 ,#'\/.]{3,96}$/iu;
+//   const regexUnicode = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
+//   const regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
+//   const regexZipCode = /^[0-9]{5}$/;
+//   const regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
+//   const regexLatitude = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
+//   const regexTimeHour = [...Array(25).keys()].splice(0);
+//   const regexTimeMinSecs = [...Array(61).keys()].splice(0);
+//   const regexRating = /^[1-5]{1}$/;
+//   const regexMongo = /^[a-f\d]{24}$/i;
+//   if (e.name === 'password' || e.name === 'current-password') {
+//     regexResult = regexPass.test(e.value);
+//   } else if (e.name === 'email') {
+//     regexResult = regexEmail.test(e.value);
+//   } else if (e.name === 'name') {
+//     regexResult = regexName.test(e.value);
+//   } else if (e.name === 'username') {
+//     regexResult = regexUsername.test(e.value);
+//   } else if (e.name === 'select-month') {
+//     regexResult = regexDateMonth.includes(e.value);
+//   } else if (e.name === 'select-day') {
+//     regexResult = regexDateDay.includes(parseInt(e.value));
+//   } else if (e.name === 'select-year') {
+//     regexResult = regexDateYear.includes(parseInt(e.value));
+//   } else if (e.name === 'select-gender') {
+//     regexResult = regexGender.includes(e.value);
+//   } else if (
+//     e.name === 'photo' ||
+//     e.name === 'poster' ||
+//     e.name === 'theaterPhoto' ||
+//     e.name === 'chainPhoto' ||
+//     e.name === 'castcrew-photo'
+//   ) {
+//     regexResult = regexPhoto.test(
+//       e.files[0].type
+//         .split('/')
+//         .pop()
+//         .toLowerCase()
+//     );
+//   } else if (e.name === 'select-mpaa') {
+//     regexResult = regexMpaa.includes(e.value);
+//   } else if (e.name === 'show-duration') {
+//     regexResult = regexDuration.test(parseInt(e.value));
+//   } else if (e.name === 'select-contenttype') {
+//     regexResult = regexContent.test(e.value);
+//   } else if (e.name === 'show-price') {
+//     regexResult = regexPrice.test(parseFloat(e.value));
+//   } else if (
+//     e.name === 'select-specialvenue' ||
+//     e.name === 'select-privatevenue' ||
+//     e.name === 'select-ticket' ||
+//     e.name === 'select-showtimes'
+//   ) {
+//     regexResult = regexSelect.test(e.value);
+//   } else if (e.name === 'hexadecimal') {
+//     regexResult = regexMongo.test(e.value);
+//   } else if (e.name === 'phone') {
+//     regexResult = regexPhone.test(e.value);
+//   } else if (e.name === 'linkurl') {
+//     regexResult = regexURL.test(e.value);
+//   } else if (e.name === 'address') {
+//     regexResult = regexAddress.test(e.value);
+//   } else if (e.name === 'city' || e.name === 'castcrew-name') {
+//     regexResult = regexUnicode.test(e.value);
+//   } else if (e.name === 'state') {
+//     regexResult = regexState.test(e.value);
+//   } else if (e.name === 'zipcode') {
+//     regexResult = regexZipCode.test(e.value);
+//   } else if (e.name === 'geo-long') {
+//     regexResult = regexLongitude.test(e.value);
+//   } else if (e.name === 'geo-lat') {
+//     regexResult = regexLatitude.test(e.value);
+//   } else if (e.name === 'select-hour') {
+//     regexResult = regexTimeHour.includes(parseInt(e.value));
+//   } else if (e.name === 'select-minute' || e.name === 'select-second') {
+//     regexResult = regexTimeMinSecs.includes(parseInt(e.value));
+//   } else if (e.name === 'review-rating') {
+//     regexResult = regexRating.test(e.value);
+//   } else if (e.id === 'starRating') {
+//     regexResult = regexRating.test(e.dataset.rating);
+//   }
+//   return regexResult;
+// }
+
+
+exports.validateRegex = validateRegex;
+},{}],"formController.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.checkFormSubmit = exports.formStatus = void 0;
+
+var _errorController = require("./errorController");
+
+var _regexController = require("./regexController");
+
+/* eslint-disable */
 var formStatus = 0;
 exports.formStatus = formStatus;
 
@@ -26868,13 +27110,15 @@ var checkFormSubmit = function checkFormSubmit() {
   exports.formStatus = formStatus = 0;
   inputs.forEach(function (input) {
     var inputRequired = input.id === 'starRating' ? true : input.required;
-    var inputVal = input.id === 'starRating' ? input.dataset.rating.trim() : '';
+    var inputVal = '';
     if (input.type !== 'file' && input.id !== 'starRating') inputVal = input.value.trim();
+    if (input.id === 'starRating') inputVal = input.dataset.rating.trim();
+    if (input.type === 'file') inputVal = input.files[0];
 
     if (input.name === 'email') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide an email', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid email address', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -26884,7 +27128,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'password' || input.name === 'current-password') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a password', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use at least one number, one special character, and one capital letter between 8 to 60 characters', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -26910,7 +27154,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please enter your name a minimum of 2 characters', inputRequired);
       } else if (inputVal.length > 70) {
         validationFailure(input, 'Please enter your name that is 70 characters or less', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -26924,7 +27168,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please enter a username a minimum of 3 characters', inputRequired);
       } else if (inputVal.length > 9) {
         validationFailure(input, 'Please enter a username that is 9 characters or less', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -26934,7 +27178,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-month') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a month', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid month', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -26944,7 +27188,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-day') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a day', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid day', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -26954,7 +27198,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-year') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a year', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid year', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -26964,7 +27208,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-gender') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a gender/non-gender', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid gender/non-gender', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -26974,10 +27218,10 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'photo' && input.value !== '' || input.name === 'chainPhoto' && input.value !== '' || input.name === 'poster' || input.name === 'theaterPhoto' || input.name === 'castcrew-photo') {
       if (inputRequired && input.value === '') {
         validationFailure(input, 'Please provide an image', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please select a valid image file of jpg, jpeg, or png', inputRequired);
         input.value = '';
-      } else if (input.files[0].size > 1024000) {
+      } else if (inputVal.size > 1024000) {
         validationFailure(input, 'Max upload size is 1MB only', inputRequired);
         input.value = '';
       } else {
@@ -26998,7 +27242,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-mpaa') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide an MPAA rating', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid MPAA rating', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27010,7 +27254,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please provide a duration', inputRequired);
       } else if (parseInt(inputVal) < 10) {
         validationFailure(input, 'Please enter a duration a minimum of 10 minutes', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please enter a duration in minutes that is at least 10 minutes long', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27020,7 +27264,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-contenttype') {
       if (inputVal === '') {
         validationFailure(input, 'Pleaase provide a content type', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid content type', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27074,7 +27318,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please provide a price', inputRequired);
       } else if (parseFloat(inputVal) < 5) {
         validationFailure(input, 'Please enter a price a minimum of $5', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid price with a minimum of $5', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27082,7 +27326,7 @@ var checkFormSubmit = function checkFormSubmit() {
     }
 
     if ((input.name === 'select-specialvenue' || input.name === 'select-privatevenue' || input.name === 'select-ticket' || input.name === 'select-showtimes') && inputVal !== '') {
-      if (!regexForm(input)) {
+      if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid value', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27092,7 +27336,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'hexadecimal') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide the ID', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid MongoDB ObjectID', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27114,7 +27358,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'phone') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a phone number', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid phone number in the form of (###)###-#### or (###) ###-####', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27124,7 +27368,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'linkurl' && inputVal !== '') {
       if (inputVal.length > 2082) {
         validationFailure(input, 'Please enter a url that is less than 2083 characters', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please use a valid url that has .com, .net, .gov, .org, or .in, and with protocol http or https', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27138,7 +27382,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please enter a US address a minimum of 3 characters', inputRequired);
       } else if (inputVal.length > 96) {
         validationFailure(input, 'Please enter a US address that is less than or equal to 96 characters', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid US address', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27152,7 +27396,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please enter a US city a minimum of 3 characters', inputRequired);
       } else if (inputVal.length > 50) {
         validationFailure(input, 'Please enter a US city that is less than or equal to 50 characters', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid US city that is at least 3 characters long and 50 characters max', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27164,7 +27408,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please provide a US state', inputRequired);
       } else if (inputVal.length !== 2) {
         validationFailure(input, 'Please enter a US state that is 2 characters long', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid US state that is 2 characters long, capitalize, and abbreviated', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27176,7 +27420,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please provide a US ZIP code', inputRequired);
       } else if (inputVal.length !== 5) {
         validationFailure(input, 'Please enter a US ZIP code that is no more or no less than 5 characters long', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid US ZIP code that is 5 characters long', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27186,7 +27430,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'geo-long') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a longitude', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid longitude that is between -180 and 180 degrees', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27196,7 +27440,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'geo-lat') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a latitude', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid latitude that is between -90 and 90 degrees', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27224,7 +27468,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-hour') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a time in hours', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please enter a valid military time in hours', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27234,7 +27478,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-minute') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a time in minutes', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please enter a valid military time in minutes', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27244,7 +27488,7 @@ var checkFormSubmit = function checkFormSubmit() {
     if (input.name === 'select-second') {
       if (inputVal === '') {
         validationFailure(input, 'Please provide a time in seconds', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please enter a valid military time in seconds', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27258,7 +27502,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please enter a name a minimum of 2 characters', inputRequired);
       } else if (inputVal.length > 70) {
         validationFailure(input, 'Please enter a name that is less than or equal to 70 characters', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid name that is between 2 and 70 characters', inputRequired);
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27290,7 +27534,7 @@ var checkFormSubmit = function checkFormSubmit() {
         validationFailure(input, 'Please enter a rating a minimum of 1', inputRequired);
       } else if (parseInt(inputVal) > 5) {
         validationFailure(input, 'Please enter a rating a maximum of 5', inputRequired);
-      } else if (!regexForm(input)) {
+      } else if (!(0, _regexController.validateRegex)(input, inputVal)) {
         validationFailure(input, 'Please provide a valid rating between 1 and 5');
       } else {
         validationSuccess(input, 'Woohoo!', inputRequired);
@@ -27322,104 +27566,7 @@ function validationFailure(input, message, required) {
   (0, _errorController.formError)(input, message);
   if (!required) exports.formStatus = formStatus = formStatus - 1;
 }
-
-function regexForm(e) {
-  var regexResult = true; // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
-
-  var regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
-  var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  var regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
-  var regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
-  var regexDateMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-  var regexDateDay = _toConsumableArray(Array(32).keys()).splice(1);
-
-  var now = new Date().getFullYear();
-  var regexDateYear = Array(now - (now - 101)).fill('').map(function (val, i) {
-    return now - i;
-  });
-  var regexGender = ['f', 'm', 'p'];
-  var regexPhoto = /^\b(jpeg|jpg|png)\b$/;
-  var regexMpaa = ['G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', 'TV-MA'];
-  var regexDuration = /^[1-9]{1}[0-9]{1,}$/;
-  var regexContent = /^\b(Film|TV)\b$/;
-  var regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
-  var regexSelect = /^\b(y|n)\b$/;
-  var regexPhone = /[\(]\d{3}[\)]\s?\d{3}[\-]\d{4}/;
-  var regexURL = /http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?/;
-  var regexAddress = /^[ #',\.-9A-Z\u017F\u212A]{3,96}$/i;
-  var regexUnicode = /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/;
-  var regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
-  var regexZipCode = /^[0-9]{5}$/;
-  var regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
-  var regexLatitude = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
-
-  var regexTimeHour = _toConsumableArray(Array(25).keys()).splice(0);
-
-  var regexTimeMinSecs = _toConsumableArray(Array(61).keys()).splice(0);
-
-  var regexRating = /^[1-5]{1}$/;
-  var regexMongo = /^[a-f\d]{24}$/i;
-
-  if (e.name === 'password' || e.name === 'current-password') {
-    regexResult = regexPass.test(e.value);
-  } else if (e.name === 'email') {
-    regexResult = regexEmail.test(e.value);
-  } else if (e.name === 'name') {
-    regexResult = regexName.test(e.value);
-  } else if (e.name === 'username') {
-    regexResult = regexUsername.test(e.value);
-  } else if (e.name === 'select-month') {
-    regexResult = regexDateMonth.includes(e.value);
-  } else if (e.name === 'select-day') {
-    regexResult = regexDateDay.includes(parseInt(e.value));
-  } else if (e.name === 'select-year') {
-    regexResult = regexDateYear.includes(parseInt(e.value));
-  } else if (e.name === 'select-gender') {
-    regexResult = regexGender.includes(e.value);
-  } else if (e.name === 'photo' || e.name === 'poster' || e.name === 'theaterPhoto' || e.name === 'chainPhoto' || e.name === 'castcrew-photo') {
-    regexResult = regexPhoto.test(e.files[0].type.split('/').pop().toLowerCase());
-  } else if (e.name === 'select-mpaa') {
-    regexResult = regexMpaa.includes(e.value);
-  } else if (e.name === 'show-duration') {
-    regexResult = regexDuration.test(parseInt(e.value));
-  } else if (e.name === 'select-contenttype') {
-    regexResult = regexContent.test(e.value);
-  } else if (e.name === 'show-price') {
-    regexResult = regexPrice.test(parseFloat(e.value));
-  } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue' || e.name === 'select-ticket' || e.name === 'select-showtimes') {
-    regexResult = regexSelect.test(e.value);
-  } else if (e.name === 'hexadecimal') {
-    regexResult = regexMongo.test(e.value);
-  } else if (e.name === 'phone') {
-    regexResult = regexPhone.test(e.value);
-  } else if (e.name === 'linkurl') {
-    regexResult = regexURL.test(e.value);
-  } else if (e.name === 'address') {
-    regexResult = regexAddress.test(e.value);
-  } else if (e.name === 'city' || e.name === 'castcrew-name') {
-    regexResult = regexUnicode.test(e.value);
-  } else if (e.name === 'state') {
-    regexResult = regexState.test(e.value);
-  } else if (e.name === 'zipcode') {
-    regexResult = regexZipCode.test(e.value);
-  } else if (e.name === 'geo-long') {
-    regexResult = regexLongitude.test(e.value);
-  } else if (e.name === 'geo-lat') {
-    regexResult = regexLatitude.test(e.value);
-  } else if (e.name === 'select-hour') {
-    regexResult = regexTimeHour.includes(parseInt(e.value));
-  } else if (e.name === 'select-minute' || e.name === 'select-second') {
-    regexResult = regexTimeMinSecs.includes(parseInt(e.value));
-  } else if (e.name === 'review-rating') {
-    regexResult = regexRating.test(e.value);
-  } else if (e.id === 'starRating') {
-    regexResult = regexRating.test(e.dataset.rating);
-  }
-
-  return regexResult;
-}
-},{"./errorController":"errorController.js"}],"multiForm.js":[function(require,module,exports) {
+},{"./errorController":"errorController.js","./regexController":"regexController.js"}],"multiForm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
