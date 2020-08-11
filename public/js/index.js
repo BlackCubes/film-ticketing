@@ -137,7 +137,7 @@ if (swiperClass) {
     containerClass: '.swiper--review.swiper-container',
     slidesPerView: 2,
     spaceBetween: 4,
-    slidesPortrait: 3,
+    slidesPortrait: 2,
     spacePortrait: 15,
     slidesLand: 3,
     spaceLand: 15,
