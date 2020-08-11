@@ -26893,6 +26893,7 @@ var validateRegex = function validateRegex(e, test) {
 
   var regexRating = /^[1-5]{1}$/;
   var regexMongo = /^[a-f\d]{24}$/i;
+  var regexAttrName = ['password', 'current-password', 'email', 'name', 'username', 'select-month', 'select-day', 'select-year', 'select-gender', 'photo', 'poster', 'theaterPhoto', 'chainPhoto', 'castcrew-photo', 'select-mpaa', 'show-duration', 'select-contenttype', 'show-price', 'select-specialvenue', 'select-privatevenue', 'select-ticket', 'select-showtimes', 'hexadecimal', 'hexadecimal-btn', 'phone', 'linkurl', 'address', 'city', 'castcrew-name', 'state', 'zipcode', 'geo-long', 'geo-lat', 'select-hour', 'select-minute', 'select-second', 'review-rating', 'starRating'];
 
   if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(test);
@@ -26948,6 +26949,8 @@ var validateRegex = function validateRegex(e, test) {
     regexResult = regexRating.test(test);
   } else if (e.id === 'starRating') {
     regexResult = regexRating.test(test);
+  } else if (e === 'attribute-name') {
+    regexResult = regexAttrName.includes(test);
   }
 
   return regexResult;
