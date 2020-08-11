@@ -64,7 +64,7 @@ block content
             - swiperWrapperClass = 'wrapper'
             - swiperSlideClass = 'slide'
 
-          .row--scroll(class=`swiper-${swiperContainerClass}`)
+          .row--scroll.swiper--info(class=`swiper-${swiperContainerClass}`)
             .row__inner--ticket(class=`swiper-${swiperWrapperClass}`)
               each showtime in show.showtimes
                 - console.log('Showtime: ', showtime)
@@ -150,7 +150,7 @@ block content
           h2.heading-secondary Cast | Crew
 
         .castcrew-box__list-container
-          .row--scroll.swiper-container
+          .row--scroll.swiper--info.swiper-container
             .swiper-button-prev
             .swiper-button-next
 
@@ -168,7 +168,7 @@ block content
           h2.heading-secondary Reviews
 
         .reviews-box__list-container
-          .row--scroll.swiper-container
+          .row--scroll.swiper--review.swiper-container
             .swiper-button-prev
             .swiper-button-next
 
