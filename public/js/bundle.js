@@ -26755,7 +26755,7 @@ exports.parentNode = parentNode;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.formSuccess = exports.formError = void 0;
+exports.formSuccess = exports.formError = exports.attributeError = void 0;
 
 var _alerts = require("./alerts");
 
@@ -26777,6 +26777,30 @@ var _utils = require("./utils");
 //   }
 //   return bol;
 // };
+var attributeError = function attributeError(input, message) {
+  var classTarget = 'form__group';
+  if (input.name === 'select-month') classTarget = 'form__date-month';
+  if (input.name === 'select-day') classTarget = 'form__date-day';
+  if (input.name === 'select-year') classTarget = 'form__date-year';
+  if (input.name === 'select-hour') classTarget = 'form__date-hour';
+  if (input.name === 'select-minute') classTarget = 'form__date-minute';
+  if (input.name === 'select-second') classTarget = 'form__date-second';
+  var attributeParent = (0, _utils.parentNode)(input, classTarget);
+  attributeParent.classList.add('error');
+  (0, _alerts.showAlert)('error', message);
+
+  if (input.name !== 'hexadecimal-btn') {
+    var labelElement = input.nextElementSibling;
+    labelElement.textContent = "Please don't do that";
+  }
+
+  window.setTimeout(function () {
+    location.assign('/');
+  }, 1500);
+};
+
+exports.attributeError = attributeError;
+
 var formError = function formError(input, message) {
   var classTarget = 'form__group';
   if (input.name === 'select-month') classTarget = 'form__date-month';

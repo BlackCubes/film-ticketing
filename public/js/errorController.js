@@ -21,6 +21,30 @@ import { parentNode } from './utils';
 //   return bol;
 // };
 
+export const attributeError = (input, message) => {
+  var classTarget = 'form__group';
+  if (input.name === 'select-month') classTarget = 'form__date-month';
+  if (input.name === 'select-day') classTarget = 'form__date-day';
+  if (input.name === 'select-year') classTarget = 'form__date-year';
+  if (input.name === 'select-hour') classTarget = 'form__date-hour';
+  if (input.name === 'select-minute') classTarget = 'form__date-minute';
+  if (input.name === 'select-second') classTarget = 'form__date-second';
+
+  const attributeParent = parentNode(input, classTarget);
+
+  attributeParent.classList.add('error');
+  showAlert('error', message);
+
+  if (input.name !== 'hexadecimal-btn') {
+    const labelElement = input.nextElementSibling;
+    labelElement.textContent = "Please don't do that";
+  }
+
+  window.setTimeout(() => {
+    location.assign('/');
+  }, 1500);
+};
+
 export const formError = (input, message) => {
   var classTarget = 'form__group';
   if (input.name === 'select-month') classTarget = 'form__date-month';
