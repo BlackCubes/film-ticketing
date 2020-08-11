@@ -33,7 +33,10 @@ export const validateAttribute = (attribute, ...dataSets) => {
     }
   }
 
-  if (dataSets && attributeName === 'hexadecimal-btn') {
+  if (
+    dataSets &&
+    (attributeName === 'hexadecimal-btn' || attributeName === 'hexadecimal')
+  ) {
     for (var i = 0; i < dataSets.length; i++) {
       if (!validateRegex(attributeName, dataSets[i])) {
         attributeError(attribute, 'Invalid encryption');

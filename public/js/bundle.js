@@ -27140,7 +27140,7 @@ var validateAttribute = function validateAttribute(attribute) {
     }
   }
 
-  if (dataSets && attributeName === 'hexadecimal-btn') {
+  if (dataSets && (attributeName === 'hexadecimal-btn' || attributeName === 'hexadecimal')) {
     for (var i = 0; i < dataSets.length; i++) {
       if (!(0, _regexController.validateRegex)(attributeName, dataSets[i])) {
         (0, _errorController.attributeError)(attribute, 'Invalid encryption');
