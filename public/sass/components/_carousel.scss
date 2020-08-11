@@ -454,6 +454,14 @@
           font-size: 1.4rem;
           height: 14rem;
         }
+
+        @include respond(tab-land) {
+          font-size: 1.3rem;
+        }
+
+        @include respond(desktop) {
+          font-size: 1.2rem;
+        }
       }
 
       & button {

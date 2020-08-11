@@ -786,6 +786,12 @@ body {
           .tile-card.swiper-slide .form__text-area {
             font-size: 1.4rem;
             height: 14rem; } }
+        @media (min-width: 56.25em) {
+          .tile-card.swiper-slide .form__text-area {
+            font-size: 1.3rem; } }
+        @media (min-width: 75em) {
+          .tile-card.swiper-slide .form__text-area {
+            font-size: 1.2rem; } }
       .tile-card.swiper-slide .form button {
         font-size: 1.1rem;
         height: 2rem;
