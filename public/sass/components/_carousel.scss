@@ -389,6 +389,10 @@
       margin-top: 2rem;
     }
 
+    @include respond(tab-land) {
+      height: 52rem;
+    }
+
     @include respond(desktop) {
       height: 51rem;
     }
