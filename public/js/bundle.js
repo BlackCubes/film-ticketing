@@ -29255,10 +29255,14 @@ if (forgotPassForm) {
   forgotPassForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var email = document.getElementById('email');
-    (0, _formController.checkFormSubmit)(email);
+    (0, _attributeController.validateAttribute)(email);
 
-    if (_formController.formStatus === 1) {
-      (0, _login.forgotPassword)(email.value);
+    if (_attributeController.attributeStatus) {
+      (0, _formController.checkFormSubmit)(email);
+
+      if (_formController.formStatus === 1) {
+        (0, _login.forgotPassword)(email.value);
+      }
     }
   });
 }

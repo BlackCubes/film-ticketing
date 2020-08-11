@@ -217,10 +217,14 @@ if (forgotPassForm) {
     e.preventDefault();
     const email = document.getElementById('email');
 
-    checkFormSubmit(email);
+    validateAttribute(email);
 
-    if (formStatus === 1) {
-      forgotPassword(email.value);
+    if (attributeStatus) {
+      checkFormSubmit(email);
+
+      if (formStatus === 1) {
+        forgotPassword(email.value);
+      }
     }
   });
 }
