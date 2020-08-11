@@ -955,7 +955,7 @@ if (updateShowPoster) {
     const updateShowPosterBtn = document.getElementById('btnUpdateShowPoster');
     const { showId, roleType } = updateShowPosterBtn.dataset;
 
-    validateAttribute(document.getElementById('showPoster'));
+    validateAttribute(document.getElementById('showPhoto'));
     validateAttribute(updateShowDataBtn, showId);
 
     if (attributeStatus) {

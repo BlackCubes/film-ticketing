@@ -29881,7 +29881,7 @@ if (updateShowPoster) {
               e.preventDefault();
               updateShowPosterBtn = document.getElementById('btnUpdateShowPoster');
               _updateShowPosterBtn$ = updateShowPosterBtn.dataset, showId = _updateShowPosterBtn$.showId, roleType = _updateShowPosterBtn$.roleType;
-              (0, _attributeController.validateAttribute)(document.getElementById('showPoster'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showPhoto'));
               (0, _attributeController.validateAttribute)(updateShowDataBtn, showId);
 
               if (_attributeController.attributeStatus) {
