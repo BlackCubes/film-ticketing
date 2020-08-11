@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { formError, formSuccess } from './errorController';
+import { attributeError, formError, formSuccess } from './errorController';
 
 export var formStatus = 0;
 
