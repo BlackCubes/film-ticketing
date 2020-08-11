@@ -28960,7 +28960,7 @@ if (swiperClass) {
   (0, _swiper.displaySwiper)({
     containerClass: '.swiper--review.swiper-container',
     slidesPerView: 2,
-    spaceBetween: 5,
+    spaceBetween: 7,
     slidesPortrait: 2,
     spacePortrait: 7,
     slidesLand: 3,
