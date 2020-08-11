@@ -73,6 +73,7 @@ export const validateRegex = (e, test) => {
     'theaterPhoto',
     'chainPhoto',
     'castcrew-photo',
+    'show-title',
     'select-mpaa',
     'show-duration',
     'select-contenttype',
