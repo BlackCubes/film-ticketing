@@ -30379,35 +30379,43 @@ if (updateTheaterChain) {
 if (updateShowtimeMainView) {
   updateShowtimeMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref22 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee22(e) {
-      var selectStartMonth, selectStartDay, selectStartYear, selectStartHour, selectStartMinute, selectStartSecond, selectEndHour, selectEndMinute, selectEndSecond, startMonth, startDay, startYear, startHour, startMinute, startSecond, endHour, endMinute, endSecond, startDateTime, endDateTime, updateShowtimeDataBtn, showtimeId;
+      var updateShowtimeDataBtn, showtimeId, selectStartMonth, selectStartDay, selectStartYear, selectStartHour, selectStartMinute, selectStartSecond, selectEndHour, selectEndMinute, selectEndSecond, startMonth, startDay, startYear, startHour, startMinute, startSecond, endHour, endMinute, endSecond, startDateTime, endDateTime;
       return regeneratorRuntime.wrap(function _callee22$(_context22) {
         while (1) {
           switch (_context22.prev = _context22.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('showtimeStartMonth'), document.getElementById('showtimeStartDay'), document.getElementById('showtimeStartYear'), document.getElementById('showtimeStartHour'), document.getElementById('showtimeStartMinute'), document.getElementById('showtimeStartSecond'), document.getElementById('showtimeEndHour'), document.getElementById('showtimeEndMinute'), document.getElementById('showtimeEndSecond'));
-
-              if (!(_formController.formStatus === 9)) {
-                _context22.next = 12;
-                break;
-              }
-
-              selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
-              startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
-              startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)).toISOString(), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)).toISOString();
               updateShowtimeDataBtn = document.getElementById('btnUpdateShowtimeData');
               showtimeId = updateShowtimeDataBtn.dataset.showtimeId;
-              document.getElementById('btnUpdateShowtimeData').textContent = 'Updating...';
-              _context22.next = 11;
-              return (0, _updateSettings.updateShowtimeSettings)({
-                startDateTime: startDateTime,
-                endDateTime: endDateTime
-              }, 'data', showtimeId);
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeStartMonth'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeStartDay'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeStartYear'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeStartHour'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeStartMinute'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeStartSecond'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeEndHour'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeEndMinute'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeEndSecond'));
+              (0, _attributeController.validateAttribute)(updateShowtimeDataBtn, showtimeId);
 
-            case 11:
-              document.getElementById('btnUpdateShowtimeData').textContent = 'Update';
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('showtimeStartMonth'), document.getElementById('showtimeStartDay'), document.getElementById('showtimeStartYear'), document.getElementById('showtimeStartHour'), document.getElementById('showtimeStartMinute'), document.getElementById('showtimeStartSecond'), document.getElementById('showtimeEndHour'), document.getElementById('showtimeEndMinute'), document.getElementById('showtimeEndSecond'));
 
-            case 12:
+                if (_formController.formStatus === 9) {
+                  selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
+                  startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
+                  startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)).toISOString(), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)).toISOString();
+                  document.getElementById('btnUpdateShowtimeData').textContent = 'Updating...'; // await updateShowtimeSettings(
+                  //   { startDateTime, endDateTime },
+                  //   'data',
+                  //   showtimeId
+                  // );
+
+                  document.getElementById('btnUpdateShowtimeData').textContent = 'Update';
+                }
+              }
+
+            case 14:
             case "end":
               return _context22.stop();
           }
@@ -30424,24 +30432,30 @@ if (updateShowtimeMainView) {
 if (updateShowtimeAddl) {
   updateShowtimeAddl.addEventListener('submit', /*#__PURE__*/function () {
     var _ref23 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee23(e) {
-      var shows, theaters, updateShowtimeAddlBtn, showtimeId;
+      var updateShowtimeAddlBtn, showtimeId, shows, theaters;
       return regeneratorRuntime.wrap(function _callee23$(_context23) {
         while (1) {
           switch (_context23.prev = _context23.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('showtimeShow'), document.getElementById('showtimeTheater'));
+              updateShowtimeAddlBtn = document.getElementById('btnUpdateShowtimeAddl');
+              showtimeId = updateShowtimeAddlBtn.dataset.showtimeId;
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeShow'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showtimeTheater'));
+              (0, _attributeController.validateAttribute)(updateShowtimeAddlBtn, showtimeId);
 
-              if (_formController.formStatus === 2) {
-                shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
-                updateShowtimeAddlBtn = document.getElementById('btnUpdateShowtimeAddl');
-                showtimeId = updateShowtimeAddlBtn.dataset.showtimeId;
-                document.getElementById('btnUpdateShowtimeAddl').textContent = 'Updating...'; // await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('showtimeShow'), document.getElementById('showtimeTheater'));
 
-                document.getElementById('btnUpdateShowtimeAddl').textContent = 'Update';
+                if (_formController.formStatus === 2) {
+                  shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
+                  document.getElementById('btnUpdateShowtimeAddl').textContent = 'Updating...'; // await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
+
+                  document.getElementById('btnUpdateShowtimeAddl').textContent = 'Update';
+                }
               }
 
-            case 3:
+            case 7:
             case "end":
               return _context23.stop();
           }
@@ -30695,23 +30709,29 @@ if (deleteTheaterForm) {
 if (deleteShowtimeForm) {
   deleteShowtimeForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref30 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee30(e) {
-      var password, deleteShowtimeBtn, showtimeId;
+      var deleteShowtimeBtn, showtimeId, password;
       return regeneratorRuntime.wrap(function _callee30$(_context30) {
         while (1) {
           switch (_context30.prev = _context30.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+              deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
+              showtimeId = deleteShowtimeBtn.dataset.showtimeId;
+              (0, _attributeController.validateAttribute)(document.getElementById('password'));
+              (0, _attributeController.validateAttribute)(deleteShowtimeBtn, showtimeId);
 
-              if (_formController.formStatus === 1) {
-                password = document.getElementById('password').value, deleteShowtimeBtn = document.getElementById('btnDeleteShowtimeData');
-                showtimeId = deleteShowtimeBtn.dataset.showtimeId;
-                document.getElementById('btnDeleteShowtimeData').textContent = 'Deleting...'; // await deleteShowtime({ password }, showtimeId);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('password'));
 
-                document.getElementById('btnDeleteShowtimeData').textContent = 'Delete Showtime';
+                if (_formController.formStatus === 1) {
+                  password = document.getElementById('password').value;
+                  document.getElementById('btnDeleteShowtimeData').textContent = 'Deleting...'; // await deleteShowtime({ password }, showtimeId);
+
+                  document.getElementById('btnDeleteShowtimeData').textContent = 'Delete Showtime';
+                }
               }
 
-            case 3:
+            case 6:
             case "end":
               return _context30.stop();
           }
