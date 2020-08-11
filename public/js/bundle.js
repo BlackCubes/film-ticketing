@@ -24568,7 +24568,8 @@ require("swiper/swiper-bundle.css");
 var displaySwiper = function displaySwiper(obj) {
   _swiper.Swiper.use([_swiper.Navigation]);
 
-  var slidesPerView = obj.slidesPerView,
+  var containerClass = obj.containerClass,
+      slidesPerView = obj.slidesPerView,
       spaceBetween = obj.spaceBetween,
       slidesPortrait = obj.slidesPortrait,
       spacePortrait = obj.spacePortrait,
@@ -24576,7 +24577,7 @@ var displaySwiper = function displaySwiper(obj) {
       spaceLand = obj.spaceLand,
       slidesDesktop = obj.slidesDesktop,
       spaceDesktop = obj.spaceDesktop;
-  var swiper = new _swiper.Swiper('.swiper-container', {
+  var swiper = new _swiper.Swiper(containerClass, {
     observer: true,
     observeParents: true,
     direction: 'horizontal',

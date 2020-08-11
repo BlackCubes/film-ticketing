@@ -7,6 +7,7 @@ export const displaySwiper = obj => {
   Swiper.use([Navigation]);
 
   const {
+    containerClass,
     slidesPerView,
     spaceBetween,
     slidesPortrait,
@@ -17,7 +18,7 @@ export const displaySwiper = obj => {
     spaceDesktop
   } = obj;
 
-  var swiper = new Swiper('.swiper-container', {
+  var swiper = new Swiper(containerClass, {
     observer: true,
     observeParents: true,
     direction: 'horizontal',
