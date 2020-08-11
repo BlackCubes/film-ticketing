@@ -27159,12 +27159,20 @@ var validateAttribute = function validateAttribute(attribute) {
   }
 
   if (dataSets && attributeName === 'hexadecimal-btn') {
-    dataSets.forEach(function (dataSet) {
-      if (!(0, _regexController.validateRegex)(attributeName, dataSet)) {
+    for (var i = 0; i < dataSets.length; i++) {
+      if (!(0, _regexController.validateRegex)(attributeName, dataSets[i])) {
         (0, _errorController.attributeError)(attribute, 'Invalid encryption');
         exports.attributeStatus = attributeStatus = false;
+        break;
       }
-    });
+    } // dataSets.forEach(dataSet => {
+    //   if (!validateRegex(attributeName, dataSet)) {
+    //     attributeError(attribute, 'Invalid encryption');
+    //     attributeStatus = false;
+    //     break;
+    //   }
+    // });
+
   }
 };
 

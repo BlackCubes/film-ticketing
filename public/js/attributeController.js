@@ -47,11 +47,19 @@ export const validateAttribute = (attribute, ...dataSets) => {
   }
 
   if (dataSets && attributeName === 'hexadecimal-btn') {
-    dataSets.forEach(dataSet => {
-      if (!validateRegex(attributeName, dataSet)) {
+    for (var i = 0; i < dataSets.length; i++) {
+      if (!validateRegex(attributeName, dataSets[i])) {
         attributeError(attribute, 'Invalid encryption');
         attributeStatus = false;
+        break;
       }
-    });
+    }
+    // dataSets.forEach(dataSet => {
+    //   if (!validateRegex(attributeName, dataSet)) {
+    //     attributeError(attribute, 'Invalid encryption');
+    //     attributeStatus = false;
+    //     break;
+    //   }
+    // });
   }
 };
