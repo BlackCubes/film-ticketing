@@ -43,10 +43,10 @@ export const attributeError = (input, message) => {
   attributeParent.classList.add('error');
   showAlert('error', message);
 
-  if (input.name !== 'hexadecimal-btn') {
-    const labelElement = input.nextElementSibling;
-    labelElement.textContent = "Please don't do that";
-  }
+  // if (input.name !== 'hexadecimal-btn') {
+  //   const labelElement = input.nextElementSibling;
+  //   labelElement.textContent = "Please don't do that";
+  // }
 
   return window.setTimeout(() => {
     location.assign('/');

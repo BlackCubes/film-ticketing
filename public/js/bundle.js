@@ -26794,12 +26794,10 @@ var attributeError = function attributeError(input, message) {
   if (input.name === 'select-second') classTarget = 'form__date-second';
   var attributeParent = (0, _utils.parentNode)(input, classTarget);
   attributeParent.classList.add('error');
-  (0, _alerts.showAlert)('error', message);
-
-  if (input.name !== 'hexadecimal-btn') {
-    var labelElement = input.nextElementSibling;
-    labelElement.textContent = "Please don't do that";
-  }
+  (0, _alerts.showAlert)('error', message); // if (input.name !== 'hexadecimal-btn') {
+  //   const labelElement = input.nextElementSibling;
+  //   labelElement.textContent = "Please don't do that";
+  // }
 
   return window.setTimeout(function () {
     location.assign('/');
