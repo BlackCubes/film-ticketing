@@ -29197,7 +29197,8 @@ if (ticketBtn) {
         showId = _e$target$dataset.showId,
         theaterId = _e$target$dataset.theaterId,
         showtimeId = _e$target$dataset.showtimeId;
-    (0, _stripe.ticketShow)(showId, theaterId, showtimeId);
+    (0, _attributeController.validateAttribute)(e.target, showId, theaterId, showtimeId);
+    if (_attributeController.attributeStatus) (0, _stripe.ticketShow)(showId, theaterId, showtimeId);
   });
 }
 

@@ -151,7 +151,10 @@ if (ticketBtn) {
   ticketBtn.addEventListener('click', e => {
     e.target.textContent = 'Processing...';
     const { showId, theaterId, showtimeId } = e.target.dataset;
-    ticketShow(showId, theaterId, showtimeId);
+
+    validateAttribute(e.target, showId, theaterId, showtimeId);
+
+    if (attributeStatus) ticketShow(showId, theaterId, showtimeId);
   });
 }
 
