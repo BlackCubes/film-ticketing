@@ -26794,9 +26794,9 @@ var attributeError = function attributeError(input, message) {
     labelElement.textContent = "Please don't do that";
   }
 
-  window.setTimeout(function () {
+  return window.setTimeout(function () {
     location.assign('/');
-  }, 1500);
+  }, 1500); // return false;
 };
 
 exports.attributeError = attributeError;

@@ -40,9 +40,10 @@ export const attributeError = (input, message) => {
     labelElement.textContent = "Please don't do that";
   }
 
-  window.setTimeout(() => {
+  return window.setTimeout(() => {
     location.assign('/');
   }, 1500);
+  // return false;
 };
 
 export const formError = (input, message) => {
