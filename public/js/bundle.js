@@ -29801,17 +29801,17 @@ if (updateShowMainView) {
         while (1) {
           switch (_context10.prev = _context10.next) {
             case 0:
-              e.preventDefault();
+              // e.preventDefault();
               updateShowDataBtn = document.getElementById('btnUpdateShowData');
               _updateShowDataBtn$da = updateShowDataBtn.dataset, showId = _updateShowDataBtn$da.showId, roleType = _updateShowDataBtn$da.roleType;
-              (0, _attributeController.validateAttribute)(document.getElementById('showTitle'));
-              (0, _attributeController.validateAttribute)(document.getElementById('selectMpaa'));
-              (0, _attributeController.validateAttribute)(document.getElementById('showOriginalMonth'));
-              (0, _attributeController.validateAttribute)(document.getElementById('showOriginalDay'));
-              (0, _attributeController.validateAttribute)(document.getElementById('showOriginalYear'));
-              (0, _attributeController.validateAttribute)(document.getElementById('showDuration'));
-              (0, _attributeController.validateAttribute)(document.getElementById('showEventOwner'));
-              (0, _attributeController.validateAttribute)(updateShowDataBtn, showId);
+              (0, _attributeController.validateAttribute)(e, document.getElementById('showTitle'));
+              (0, _attributeController.validateAttribute)(e, document.getElementById('selectMpaa'));
+              (0, _attributeController.validateAttribute)(e, document.getElementById('showOriginalMonth'));
+              (0, _attributeController.validateAttribute)(e, document.getElementById('showOriginalDay'));
+              (0, _attributeController.validateAttribute)(e, document.getElementById('showOriginalYear'));
+              (0, _attributeController.validateAttribute)(e, document.getElementById('showDuration'));
+              (0, _attributeController.validateAttribute)(e, document.getElementById('showEventOwner'));
+              (0, _attributeController.validateAttribute)(e, updateShowDataBtn, showId);
               roleAmount = -100;
 
               if (roleType === 'admin') {
@@ -29843,7 +29843,7 @@ if (updateShowMainView) {
                 document.getElementById('btnUpdateShowData').textContent = 'Update';
               }
 
-            case 14:
+            case 13:
             case "end":
               return _context10.stop();
           }
