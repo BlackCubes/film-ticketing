@@ -29840,38 +29840,41 @@ if (updateShowMainView) {
               (0, _attributeController.validateAttribute)(document.getElementById('showDuration'));
               (0, _attributeController.validateAttribute)(document.getElementById('showEventOwner'));
               (0, _attributeController.validateAttribute)(updateShowDataBtn, showId);
-              roleAmount = -100;
 
-              if (roleType === 'admin') {
-                roleAmount = 7;
-                (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showDuration'), document.getElementById('showEventOwner'));
-              } else if (roleType === 'event-owner') {
-                roleAmount = 6;
-                (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showDuration'));
-              }
-
-              if (_formController.formStatus === roleAmount) {
-                form = new FormData();
-                selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear');
-                originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-                mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
-                title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
-                document.getElementById('btnUpdateShowData').textContent = 'Updating...';
-                form.append('title', title);
-                form.append('duration', duration);
-                form.append('mpaaRating', mpaaRating);
-                form.append('originalReleaseDate', originalReleaseDate);
+              if (_attributeController.attributeStatus) {
+                roleAmount = -100;
 
                 if (roleType === 'admin') {
-                  eventOrganizer = [document.getElementById('showEventOwner').value];
-                  form.append('eventOrganizer', eventOrganizer);
-                } // await updateShowSettings(form, 'setting', showId, roleType);
+                  roleAmount = 7;
+                  (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showDuration'), document.getElementById('showEventOwner'));
+                } else if (roleType === 'event-owner') {
+                  roleAmount = 6;
+                  (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showDuration'));
+                }
+
+                if (_formController.formStatus === roleAmount) {
+                  form = new FormData();
+                  selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear');
+                  originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+                  mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
+                  title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
+                  document.getElementById('btnUpdateShowData').textContent = 'Updating...';
+                  form.append('title', title);
+                  form.append('duration', duration);
+                  form.append('mpaaRating', mpaaRating);
+                  form.append('originalReleaseDate', originalReleaseDate);
+
+                  if (roleType === 'admin') {
+                    eventOrganizer = [document.getElementById('showEventOwner').value];
+                    form.append('eventOrganizer', eventOrganizer);
+                  } // await updateShowSettings(form, 'setting', showId, roleType);
 
 
-                document.getElementById('btnUpdateShowData').textContent = 'Update';
+                  document.getElementById('btnUpdateShowData').textContent = 'Update';
+                }
               }
 
-            case 14:
+            case 12:
             case "end":
               return _context10.stop();
           }
