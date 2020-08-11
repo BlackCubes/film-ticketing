@@ -82,7 +82,12 @@ export const validateRegex = (e, test) => {
     e.name === 'chainPhoto' ||
     e.name === 'castcrew-photo'
   ) {
-    regexResult = regexPhoto.test(test);
+    regexResult = regexPhoto.test(
+      test.type
+        .split('/')
+        .pop()
+        .toLowerCase()
+    );
   } else if (e.name === 'select-mpaa') {
     regexResult = regexMpaa.includes(test);
   } else if (e.name === 'show-duration') {
