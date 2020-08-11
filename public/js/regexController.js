@@ -99,7 +99,13 @@ export const validateRegex = (e, test) => {
     'starRating'
   ];
 
-  if (e.name === 'password' || e.name === 'current-password') {
+  if (e === 'attribute-name') {
+    regexResult = regexAttrName.includes(test);
+  } else if (e === 'hexadecimal-btn') {
+    regexResult = regexMongo.test(test);
+  } else if (e.id === 'starRating') {
+    regexResult = regexRating.test(test);
+  } else if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(test);
   } else if (e.name === 'email') {
     regexResult = regexEmail.test(test);
@@ -143,7 +149,7 @@ export const validateRegex = (e, test) => {
     e.name === 'select-showtimes'
   ) {
     regexResult = regexSelect.test(test);
-  } else if (e.name === 'hexadecimal' || e === 'hexadecimal-btn') {
+  } else if (e.name === 'hexadecimal') {
     regexResult = regexMongo.test(test);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(test);
@@ -167,10 +173,6 @@ export const validateRegex = (e, test) => {
     regexResult = regexTimeMinSecs.includes(parseInt(test));
   } else if (e.name === 'review-rating') {
     regexResult = regexRating.test(test);
-  } else if (e.id === 'starRating') {
-    regexResult = regexRating.test(test);
-  } else if (e === 'attribute-name') {
-    regexResult = regexAttrName.includes(test);
   }
 
   return regexResult;

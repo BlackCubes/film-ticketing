@@ -26902,7 +26902,13 @@ var validateRegex = function validateRegex(e, test) {
   var regexMongo = /^[a-f\d]{24}$/i;
   var regexAttrName = ['password', 'current-password', 'email', 'name', 'username', 'select-month', 'select-day', 'select-year', 'select-gender', 'photo', 'poster', 'theaterPhoto', 'chainPhoto', 'castcrew-photo', 'select-mpaa', 'show-duration', 'select-contenttype', 'show-price', 'select-specialvenue', 'select-privatevenue', 'select-ticket', 'select-showtimes', 'hexadecimal', 'hexadecimal-btn', 'phone', 'linkurl', 'address', 'city', 'castcrew-name', 'state', 'zipcode', 'geo-long', 'geo-lat', 'select-hour', 'select-minute', 'select-second', 'review-rating', 'starRating'];
 
-  if (e.name === 'password' || e.name === 'current-password') {
+  if (e === 'attribute-name') {
+    regexResult = regexAttrName.includes(test);
+  } else if (e === 'hexadecimal-btn') {
+    regexResult = regexMongo.test(test);
+  } else if (e.id === 'starRating') {
+    regexResult = regexRating.test(test);
+  } else if (e.name === 'password' || e.name === 'current-password') {
     regexResult = regexPass.test(test);
   } else if (e.name === 'email') {
     regexResult = regexEmail.test(test);
@@ -26930,7 +26936,7 @@ var validateRegex = function validateRegex(e, test) {
     regexResult = regexPrice.test(parseFloat(test));
   } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue' || e.name === 'select-ticket' || e.name === 'select-showtimes') {
     regexResult = regexSelect.test(test);
-  } else if (e.name === 'hexadecimal' || e === 'hexadecimal-btn') {
+  } else if (e.name === 'hexadecimal') {
     regexResult = regexMongo.test(test);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(test);
@@ -26954,10 +26960,6 @@ var validateRegex = function validateRegex(e, test) {
     regexResult = regexTimeMinSecs.includes(parseInt(test));
   } else if (e.name === 'review-rating') {
     regexResult = regexRating.test(test);
-  } else if (e.id === 'starRating') {
-    regexResult = regexRating.test(test);
-  } else if (e === 'attribute-name') {
-    regexResult = regexAttrName.includes(test);
   }
 
   return regexResult;
