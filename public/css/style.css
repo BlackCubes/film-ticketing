@@ -1348,11 +1348,20 @@ body {
 .stars-user {
   font-size: 2rem;
   font-weight: 900; }
+  @media (min-width: 37.5em) {
+    .stars,
+    .stars-user {
+      font-size: 2.2rem; } }
   .stars .star,
   .stars-user .star {
     color: #20b2aa;
     font-size: 2rem;
     padding: 0 0.6rem; }
+    @media (min-width: 37.5em) {
+      .stars .star,
+      .stars-user .star {
+        font-size: 2.2rem;
+        padding: 0 1.2rem; } }
     .stars .star::before,
     .stars-user .star::before {
       content: '\2606'; }

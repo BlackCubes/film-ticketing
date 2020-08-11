@@ -3,10 +3,19 @@
   font-size: 2rem;
   font-weight: 900;
 
+  @include respond(tab-port) {
+    font-size: 2.2rem;
+  }
+
   & .star {
     color: $color-lightseagreen;
     font-size: 2rem;
     padding: 0 0.6rem;
+
+    @include respond(tab-port) {
+      font-size: 2.2rem;
+      padding: 0 1.2rem;
+    }
 
     &::before {
       content: '\2606';
