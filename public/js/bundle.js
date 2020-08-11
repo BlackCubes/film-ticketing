@@ -27113,25 +27113,30 @@ var _errorController = require("./errorController");
 var _regexController = require("./regexController");
 
 /* eslint-disable */
-var validateAttribute = function validateAttribute(attribute, test) {
+var validateAttribute = function validateAttribute(e, attribute, test) {
   var attributeName = attribute.id === 'starRating' ? 'starRating' : attribute.name;
 
   if (!attribute && !test) {
+    e.preventDefault();
     (0, _errorController.attributeError)(null, 'There is an error on the Client-Side');
   } else if (!attribute) {
+    e.preventDefault();
     (0, _errorController.attributeError)(null, 'Element does not exist');
   } else if (!attributeName) {
+    e.preventDefault();
     (0, _errorController.attributeError)(attribute, 'Non-existant');
   }
 
   if (attributeName) {
     if (!(0, _regexController.validateRegex)('attribute-name', attributeName)) {
+      e.preventDefault();
       (0, _errorController.attributeError)(attribute, 'Invalid name');
     }
   }
 
   if (test && attributeName === 'hexadecimal-btn') {
     if (!(0, _regexController.validateRegex)(attributeName, test)) {
+      e.preventDefault();
       (0, _errorController.attributeError)(attribute, 'Invalid encryption');
     }
   }
