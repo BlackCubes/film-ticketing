@@ -27180,7 +27180,7 @@ var validateAttribute = /*#__PURE__*/function () {
           case 20:
             _context.prev = 20;
             _context.t0 = _context["catch"](0);
-            _context.t0;
+            return _context.abrupt("return", false);
 
           case 23:
           case "end":

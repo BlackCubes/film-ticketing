@@ -27,6 +27,6 @@ export const validateAttribute = async (attribute, test) => {
       }
     }
   } catch (err) {
-    err;
+    return false;
   }
 };
