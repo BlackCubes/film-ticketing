@@ -145,16 +145,16 @@ body {
       letter-spacing: 0.13rem; } }
 
 .average-text {
-  font-size: 1.4rem; }
+  font-size: 1.3rem; }
   @media (min-width: 37.5em) {
     .average-text {
-      font-size: 1.6rem; } }
+      font-size: 1.5rem; } }
   @media (min-width: 56.25em) {
     .average-text {
-      font-size: 1.8rem; } }
+      font-size: 1.7rem; } }
   @media (min-width: 75em) {
     .average-text {
-      font-size: 1.4rem; } }
+      font-size: 1.3rem; } }
 
 .book-text {
   font-size: 1.2rem; }
