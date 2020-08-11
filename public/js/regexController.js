@@ -103,7 +103,8 @@ export const validateRegex = (e, test) => {
     'select-contenttype',
     'show-genre',
     'show-language',
-    'show-subtitles'
+    'show-subtitles',
+    'theater-name'
   ];
 
   if (e === 'attribute-name') {
