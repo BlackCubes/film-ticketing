@@ -460,23 +460,30 @@ if (createReviewForm) {
   createReviewForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('starRating'),
-      document.getElementById('review')
-    );
+    const createReviewBtn = document.getElementById('btnCreateReview');
+    const { showId, roleType } = createReviewBtn.dataset;
 
-    if (formStatus === 2) {
-      const { rating } = document.getElementById('starRating').dataset,
-        review = document.getElementById('review').value,
-        createReviewBtn = document.getElementById('btnCreateReview');
+    validateAttribute(document.getElementById('starRating'));
+    validateAttribute(document.getElementById('review'));
+    validateAttribute(createReviewBtn, showId);
 
-      const { showId, roleType } = createReviewBtn.dataset;
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('starRating'),
+        document.getElementById('review')
+      );
 
-      document.getElementById('btnCreateReview').textContent = 'Creating...';
+      if (formStatus === 2) {
+        const { rating } = document.getElementById('starRating').dataset,
+          review = document.getElementById('review').value;
 
-      await createReview({ review, rating }, showId, roleType);
+        document.getElementById('btnCreateReview').textContent = 'Creating...';
 
-      document.getElementById('btnCreateReview').textContent = 'Create Review';
+        await createReview({ review, rating }, showId, roleType);
+
+        document.getElementById('btnCreateReview').textContent =
+          'Create Review';
+      }
     }
   });
 }

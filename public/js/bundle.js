@@ -29491,33 +29491,43 @@ if (updatePassForm) {
 if (createReviewForm) {
   createReviewForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(e) {
-      var rating, review, createReviewBtn, _createReviewBtn$data, showId, roleType;
+      var createReviewBtn, _createReviewBtn$data, showId, roleType, rating, review;
 
       return regeneratorRuntime.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('starRating'), document.getElementById('review'));
+              createReviewBtn = document.getElementById('btnCreateReview');
+              _createReviewBtn$data = createReviewBtn.dataset, showId = _createReviewBtn$data.showId, roleType = _createReviewBtn$data.roleType;
+              (0, _attributeController.validateAttribute)(document.getElementById('starRating'));
+              (0, _attributeController.validateAttribute)(document.getElementById('review'));
+              (0, _attributeController.validateAttribute)(createReviewBtn, showId);
 
-              if (!(_formController.formStatus === 2)) {
-                _context5.next = 9;
+              if (!_attributeController.attributeStatus) {
+                _context5.next = 14;
                 break;
               }
 
-              rating = document.getElementById('starRating').dataset.rating, review = document.getElementById('review').value, createReviewBtn = document.getElementById('btnCreateReview');
-              _createReviewBtn$data = createReviewBtn.dataset, showId = _createReviewBtn$data.showId, roleType = _createReviewBtn$data.roleType;
+              (0, _formController.checkFormSubmit)(document.getElementById('starRating'), document.getElementById('review'));
+
+              if (!(_formController.formStatus === 2)) {
+                _context5.next = 14;
+                break;
+              }
+
+              rating = document.getElementById('starRating').dataset.rating, review = document.getElementById('review').value;
               document.getElementById('btnCreateReview').textContent = 'Creating...';
-              _context5.next = 8;
+              _context5.next = 13;
               return (0, _login.createReview)({
                 review: review,
                 rating: rating
               }, showId, roleType);
 
-            case 8:
+            case 13:
               document.getElementById('btnCreateReview').textContent = 'Create Review';
 
-            case 9:
+            case 14:
             case "end":
               return _context5.stop();
           }
