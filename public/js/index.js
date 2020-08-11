@@ -138,7 +138,7 @@ if (swiperClass) {
     slidesPerView: 2,
     spaceBetween: 4,
     slidesPortrait: 2,
-    spacePortrait: 7,
+    spacePortrait: 14,
     slidesLand: 3,
     spaceLand: 15,
     slidesDesktop: 3,
