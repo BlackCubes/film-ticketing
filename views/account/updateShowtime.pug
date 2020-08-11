@@ -10,7 +10,7 @@ block content
               .form__title.u-center-text
                 h2.heading-secondary.u-margin-bottom-small Showtime Settings
 
-                small.form__info-small.small-text Change the start date, start time, and end time
+                small.form__info-small.small-text Change the start date, start time, and end time.
 
             - const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -131,7 +131,7 @@ block content
                   label.form__label.label-text(for='showtimeEndSecond') Please select an ending second
 
             .form__group
-              button#btnUpdateShowtimeData.btn.btn--blue(type='submit' name='btnUpdateShowtimeData' data-showtime-id=`${showtime.id}`) Update
+              button#btnUpdateShowtimeData.btn.btn--blue(type='submit' name='hexadecimal-btn' data-showtime-id=`${showtime.id}`) Update
 
         .line &nbsp;
 
@@ -141,7 +141,7 @@ block content
               .form__title.u-center-text
                 h2.heading-secondary.u-margin-bottom-small Change Showtimes Add'l Info
 
-                small.form__info-small.small-text Change the show and theater belonging to the showtime
+                small.form__info-small.small-text Change the show and theater belonging to the showtime.
 
             .form__group
               input#showtimeShow.form__input.input-text(type='text' name='hexadecimal' placeholder='Show ID*' value=`${showtime.shows[0].id}` required)
@@ -152,7 +152,7 @@ block content
               label.form__label.label-text(for='showtimeTheater') Please enter the theater's ID
 
             .form__group
-              button#btnUpdateShowtimeAddl.btn.btn--blue(type='submit' name='btnUpdateShowtimeAddl' data-showtime-id=`${showtime.id}`) Update
+              button#btnUpdateShowtimeAddl.btn.btn--blue(type='submit' name='hexadecimal-btn' data-showtime-id=`${showtime.id}`) Update
 
         .line &nbsp;
 
@@ -162,11 +162,11 @@ block content
               .form__title.u-center-text
                 h2.heading-secondary.u-margin-bottom-small Delete Showtime
 
-                small.form__info-small.small-text Please enter your password to remove the showtime
+                small.form__info-small.small-text Please enter your password to remove the showtime.
 
             .form__group
               input#password.form__input.input-text(type='password' name='password' placeholder='••••••••' required)
               label.form__label.label-text(for='password') Please enter your password
 
             .form__group
-              button#btnDeleteShowtimeData.btn.btn--red(type='submit' name='btnDeleteShowtimeData' data-showtime-id=`${showtime.id}`) Delete Showtime
+              button#btnDeleteShowtimeData.btn.btn--red(type='submit' name='hexadecimal-btn' data-showtime-id=`${showtime.id}`) Delete Showtime
