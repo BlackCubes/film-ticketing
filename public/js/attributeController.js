@@ -5,8 +5,6 @@ import { validateRegex } from './regexController';
 export var attributeStatus = true;
 
 export const validateAttribute = (attribute, ...dataSets) => {
-  // attributeStatus = true;
-
   var attributeName =
     attribute.id === 'starRating' ? 'starRating' : attribute.name;
 
@@ -33,17 +31,6 @@ export const validateAttribute = (attribute, ...dataSets) => {
       attributeError(attribute, 'Dataset does not exist');
       attributeStatus = false;
     }
-    // } else if (attribute.dataset.showId) {
-    //   dataTest = attribute.dataset.showId;
-    // } else if (attribute.dataset.reviewId) {
-    //   dataTest = attribute.dataset.reviewId;
-    // } else if (attribute.dataset.theaterId) {
-    //   dataTest = attribute.dataset.theaterId;
-    // } else if (attribute.dataset.showtimeId) {
-    //   dataTest = attribute.dataset.showtimeId;
-    // } else if (attribute.dataset.castcrewId) {
-    //   dataTest = attribute.dataset.castcrewId;
-    // }
   }
 
   if (dataSets && attributeName === 'hexadecimal-btn') {
@@ -54,12 +41,5 @@ export const validateAttribute = (attribute, ...dataSets) => {
         break;
       }
     }
-    // dataSets.forEach(dataSet => {
-    //   if (!validateRegex(attributeName, dataSet)) {
-    //     attributeError(attribute, 'Invalid encryption');
-    //     attributeStatus = false;
-    //     break;
-    //   }
-    // });
   }
 };

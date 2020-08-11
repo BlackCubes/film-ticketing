@@ -27113,7 +27113,6 @@ var validateAttribute = function validateAttribute(attribute) {
     dataSets[_key - 1] = arguments[_key];
   }
 
-  // attributeStatus = true;
   var attributeName = attribute.id === 'starRating' ? 'starRating' : attribute.name;
 
   if (!attribute && !dataSets) {
@@ -27138,18 +27137,7 @@ var validateAttribute = function validateAttribute(attribute) {
     if (!attribute.dataset) {
       (0, _errorController.attributeError)(attribute, 'Dataset does not exist');
       exports.attributeStatus = attributeStatus = false;
-    } // } else if (attribute.dataset.showId) {
-    //   dataTest = attribute.dataset.showId;
-    // } else if (attribute.dataset.reviewId) {
-    //   dataTest = attribute.dataset.reviewId;
-    // } else if (attribute.dataset.theaterId) {
-    //   dataTest = attribute.dataset.theaterId;
-    // } else if (attribute.dataset.showtimeId) {
-    //   dataTest = attribute.dataset.showtimeId;
-    // } else if (attribute.dataset.castcrewId) {
-    //   dataTest = attribute.dataset.castcrewId;
-    // }
-
+    }
   }
 
   if (dataSets && attributeName === 'hexadecimal-btn') {
@@ -27159,14 +27147,7 @@ var validateAttribute = function validateAttribute(attribute) {
         exports.attributeStatus = attributeStatus = false;
         break;
       }
-    } // dataSets.forEach(dataSet => {
-    //   if (!validateRegex(attributeName, dataSet)) {
-    //     attributeError(attribute, 'Invalid encryption');
-    //     attributeStatus = false;
-    //     break;
-    //   }
-    // });
-
+    }
   }
 };
 
