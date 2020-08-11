@@ -123,6 +123,7 @@ if (rellaxClass) {
 if (swiperClass) {
   if (!document.querySelector('.section-show-reviews')) {
     displaySwiper({
+      containerClass: '.swiper-container',
       slidesPerView: 2,
       spaceBetween: 7,
       slidesPortrait: 3,
@@ -134,6 +135,7 @@ if (swiperClass) {
     });
   } else if (document.querySelector('.section-show-reviews')) {
     displaySwiper({
+      containerClass: '.section-show-reviews .swiper-container',
       slidesPerView: 1,
       spaceBetween: 7,
       slidesPortrait: 2,
