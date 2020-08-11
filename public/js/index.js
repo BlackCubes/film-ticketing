@@ -862,14 +862,14 @@ if (updateShowMainView) {
     const updateShowDataBtn = document.getElementById('btnUpdateShowData');
     const { showId, roleType } = updateShowDataBtn.dataset;
 
-    validateAttribute(document.getElementById('showTitle'));
-    validateAttribute(document.getElementById('selectMpaa'));
-    validateAttribute(document.getElementById('showOriginalMonth'));
-    validateAttribute(document.getElementById('showOriginalDay'));
-    validateAttribute(document.getElementById('showOriginalYear'));
-    validateAttribute(document.getElementById('showDuration'));
-    validateAttribute(document.getElementById('showEventOwner'));
-    validateAttribute(updateShowDataBtn, showId);
+    await validateAttribute(document.getElementById('showTitle'));
+    await validateAttribute(document.getElementById('selectMpaa'));
+    await validateAttribute(document.getElementById('showOriginalMonth'));
+    await validateAttribute(document.getElementById('showOriginalDay'));
+    await validateAttribute(document.getElementById('showOriginalYear'));
+    await validateAttribute(document.getElementById('showDuration'));
+    await validateAttribute(document.getElementById('showEventOwner'));
+    await validateAttribute(updateShowDataBtn, showId);
 
     var roleAmount = -100;
 
