@@ -725,6 +725,8 @@ body {
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto; }
+    .tile-card__review-text-wrapper {
+      margin-top: 1rem; }
     .tile-card__review-text {
       color: white; }
   .tile-card:first-child:hover, .tile-card:first-child:focus, .tile-card:first-child:active {
