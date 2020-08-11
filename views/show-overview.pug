@@ -217,7 +217,8 @@ block content
                       for i in [1, 2, 3, 4, 5]
                         span.star(class=i<=review.rating ? 'rated' : 'unrated') &nbsp;
 
-                    p.tile-card__review-text.average-text= `"${review.review}"`
+                    .tile-card__review-text-wrapper
+                      p.tile-card__review-text.average-text= `"${review.review}"`
               
 
     section.section-show-additional
