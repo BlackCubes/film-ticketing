@@ -857,19 +857,19 @@ if (adCreateCastCrewFieldlist1) {
 
 if (updateShowMainView) {
   updateShowMainView.addEventListener('submit', async e => {
-    // e.preventDefault();
+    e.preventDefault();
 
     const updateShowDataBtn = document.getElementById('btnUpdateShowData');
     const { showId, roleType } = updateShowDataBtn.dataset;
 
-    validateAttribute(e, document.getElementById('showTitle'));
-    validateAttribute(e, document.getElementById('selectMpaa'));
-    validateAttribute(e, document.getElementById('showOriginalMonth'));
-    validateAttribute(e, document.getElementById('showOriginalDay'));
-    validateAttribute(e, document.getElementById('showOriginalYear'));
-    validateAttribute(e, document.getElementById('showDuration'));
-    validateAttribute(e, document.getElementById('showEventOwner'));
-    validateAttribute(e, updateShowDataBtn, showId);
+    validateAttribute(document.getElementById('showTitle'));
+    validateAttribute(document.getElementById('selectMpaa'));
+    validateAttribute(document.getElementById('showOriginalMonth'));
+    validateAttribute(document.getElementById('showOriginalDay'));
+    validateAttribute(document.getElementById('showOriginalYear'));
+    validateAttribute(document.getElementById('showDuration'));
+    validateAttribute(document.getElementById('showEventOwner'));
+    validateAttribute(updateShowDataBtn, showId);
 
     var roleAmount = -100;
 
