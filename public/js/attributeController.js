@@ -17,7 +17,7 @@ export const validateAttribute = (attribute, ...dataSets) => {
     attributeError(null, 'Element does not exist');
     attributeStatus = false;
   } else if (!attributeName) {
-    attributeError(attribute, 'Non-existant');
+    attributeError(null, 'Non-existant');
     attributeStatus = false;
   }
 

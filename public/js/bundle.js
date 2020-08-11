@@ -27129,7 +27129,7 @@ var validateAttribute = function validateAttribute(attribute) {
     (0, _errorController.attributeError)(null, 'Element does not exist');
     exports.attributeStatus = attributeStatus = false;
   } else if (!attributeName) {
-    (0, _errorController.attributeError)(attribute, 'Non-existant');
+    (0, _errorController.attributeError)(null, 'Non-existant');
     exports.attributeStatus = attributeStatus = false;
   }
 
