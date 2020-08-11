@@ -103,7 +103,7 @@ export const validateRegex = (e, test) => {
     e.name === 'select-showtimes'
   ) {
     regexResult = regexSelect.test(test);
-  } else if (e.name === 'hexadecimal' || e.name === 'hexadecimal-btn') {
+  } else if (e.name === 'hexadecimal' || e === 'hexadecimal-btn') {
     regexResult = regexMongo.test(test);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(test);

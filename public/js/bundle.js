@@ -26922,7 +26922,7 @@ var validateRegex = function validateRegex(e, test) {
     regexResult = regexPrice.test(parseFloat(test));
   } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue' || e.name === 'select-ticket' || e.name === 'select-showtimes') {
     regexResult = regexSelect.test(test);
-  } else if (e.name === 'hexadecimal' || e.name === 'hexadecimal-btn') {
+  } else if (e.name === 'hexadecimal' || e === 'hexadecimal-btn') {
     regexResult = regexMongo.test(test);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(test);
