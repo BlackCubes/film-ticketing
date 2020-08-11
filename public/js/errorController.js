@@ -24,9 +24,10 @@ import { parentNode } from './utils';
 export const attributeError = (input, message) => {
   if (!input) {
     showAlert('error', message);
-    return window.setTimeout(() => {
+    window.setTimeout(() => {
       location.assign('/');
     }, 1500);
+    return false;
   }
 
   var classTarget = 'form__group';
@@ -47,10 +48,10 @@ export const attributeError = (input, message) => {
     labelElement.textContent = "Please don't do that";
   }
 
-  return window.setTimeout(() => {
+  window.setTimeout(() => {
     location.assign('/');
   }, 1500);
-  // return false;
+  return false;
 };
 
 export const formError = (input, message) => {
