@@ -1543,46 +1543,58 @@ if (updateCastCrewMainView) {
   updateCastCrewMainView.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('name'),
-      document.getElementById('selectBirthMonth'),
-      document.getElementById('selectBirthDay'),
-      document.getElementById('selectBirthYear')
+    const { castcrewId } = document.getElementById(
+      'btnUpdateCastCrewData'
+    ).dataset;
+
+    validateAttribute(document.getElementById('name'));
+    validateAttribute(document.getElementById('selectBirthMonth'));
+    validateAttribute(document.getElementById('selectBirthDay'));
+    validateAttribute(document.getElementById('selectBirthYear'));
+    validateAttribute(
+      document.getElementById('btnUpdateCastCrewData'),
+      castcrewId
     );
 
-    if (formStatus === 4) {
-      const form = new FormData();
-
-      const name = document.getElementById('name').value;
-
-      const birthMonth = document.getElementById('selectBirthMonth');
-      const birthDay = document.getElementById('selectBirthDay');
-      const birthYear = document.getElementById('selectBirthYear');
-
-      const birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-      const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-      const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-
-      const birthdate = birthYearVal.concat(
-        '-',
-        birthMonthVal,
-        '-',
-        birthDayVal
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('name'),
+        document.getElementById('selectBirthMonth'),
+        document.getElementById('selectBirthDay'),
+        document.getElementById('selectBirthYear')
       );
 
-      const { castcrewId } = document.getElementById(
-        'btnUpdateCastCrewData'
-      ).dataset;
+      if (formStatus === 4) {
+        const form = new FormData();
 
-      document.getElementById('btnUpdateCastCrewData').textContent =
-        'Updating...';
+        const name = document.getElementById('name').value;
 
-      form.append('name', name);
-      form.append('birthdate', birthdate);
+        const birthMonth = document.getElementById('selectBirthMonth');
+        const birthDay = document.getElementById('selectBirthDay');
+        const birthYear = document.getElementById('selectBirthYear');
 
-      // await updateCastCrewSettings(form, 'data', castcrewId);
+        const birthMonthVal =
+          birthMonth.options[birthMonth.selectedIndex].value;
+        const birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+        const birthYearVal = birthYear.options[birthYear.selectedIndex].value;
 
-      document.getElementById('btnUpdateCastCrewData').textContent = 'Update';
+        const birthdate = birthYearVal.concat(
+          '-',
+          birthMonthVal,
+          '-',
+          birthDayVal
+        );
+
+        document.getElementById('btnUpdateCastCrewData').textContent =
+          'Updating...';
+
+        form.append('name', name);
+        form.append('birthdate', birthdate);
+
+        // await updateCastCrewSettings(form, 'data', castcrewId);
+
+        document.getElementById('btnUpdateCastCrewData').textContent = 'Update';
+      }
     }
   });
 }
@@ -1591,28 +1603,39 @@ if (updateCastCrewPhoto) {
   updateCastCrewPhoto.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(document.getElementById('castcrewPhoto'));
+    const { castcrewId } = document.getElementById(
+      'btnUpdateCastCrewData'
+    ).dataset;
 
-    if (formStatus === 1) {
-      const form = new FormData();
+    validateAttribute(document.getElementById('castcrewPhoto'));
+    validateAttribute(
+      document.getElementById('btnUpdateCastCrewData'),
+      castcrewId
+    );
 
-      const photo = document.getElementById('castcrewPhoto').files[0];
+    if (attributeStatus) {
+      checkFormSubmit(document.getElementById('castcrewPhoto'));
 
-      const { castcrewId } = document.getElementById(
-        'btnUpdateCastCrewData'
-      ).dataset;
+      if (formStatus === 1) {
+        const form = new FormData();
 
-      const photoUrlArr = document.getElementById('photoSource').src.split('/');
-      const photoParams = photoUrlArr[photoUrlArr.length - 1];
+        const photo = document.getElementById('castcrewPhoto').files[0];
 
-      document.getElementById('btnUpdateCastCrewPhoto').textContent =
-        'Updating...';
+        const photoUrlArr = document
+          .getElementById('photoSource')
+          .src.split('/');
+        const photoParams = photoUrlArr[photoUrlArr.length - 1];
 
-      form.append('photo', photo);
+        document.getElementById('btnUpdateCastCrewPhoto').textContent =
+          'Updating...';
 
-      // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
+        form.append('photo', photo);
 
-      document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Update';
+        // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
+
+        document.getElementById('btnUpdateCastCrewPhoto').textContent =
+          'Update';
+      }
     }
   });
 }
@@ -1621,31 +1644,40 @@ if (updateCastCrewAddlForm) {
   updateCastCrewAddlForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('biography'),
-      document.getElementById('castcrewRoles')
+    const { castcrewId } = document.getElementById(
+      'btnUpdateCastCrewData'
+    ).dataset;
+
+    validateAttribute(document.getElementById('biography'));
+    validateAttribute(document.getElementById('castcrewRoles'));
+    validateAttribute(
+      document.getElementById('btnUpdateCastCrewData'),
+      castcrewId
     );
 
-    if (formStatus === 1) {
-      const rolesVal = document.getElementById('castcrewRoles').value,
-        biography = document.getElementById('biography').value;
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('biography'),
+        document.getElementById('castcrewRoles')
+      );
 
-      const roles = JSON.stringify(rolesVal.split(', '));
+      if (formStatus === 1) {
+        const rolesVal = document.getElementById('castcrewRoles').value,
+          biography = document.getElementById('biography').value;
 
-      const { castcrewId } = document.getElementById(
-        'btnUpdateCastCrewData'
-      ).dataset;
+        const roles = JSON.stringify(rolesVal.split(', '));
 
-      document.getElementById('btnUpdateCastCrewAddl').textContent =
-        'Updating...';
+        document.getElementById('btnUpdateCastCrewAddl').textContent =
+          'Updating...';
 
-      // await updateCastCrewSettings(
-      //   { biography, roles },
-      //   "add'l info",
-      //   castcrewId
-      // );
+        // await updateCastCrewSettings(
+        //   { biography, roles },
+        //   "add'l info",
+        //   castcrewId
+        // );
 
-      document.getElementById('btnUpdateCastCrewAddl').textContent = 'Update';
+        document.getElementById('btnUpdateCastCrewAddl').textContent = 'Update';
+      }
     }
   });
 }
@@ -1761,21 +1793,26 @@ if (deleteCastCrewForm) {
   deleteCastCrewForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(document.getElementById('password'));
+    const deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
+    const { castcrewId } = deleteCastCrewBtn.dataset;
 
-    if (formStatus === 1) {
-      const password = document.getElementById('password').value,
-        deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
+    validateAttribute(document.getElementById('password'));
+    validateAttribute(deleteCastCrewBtn, castcrewId);
 
-      const { castcrewId } = deleteCastCrewBtn.dataset;
+    if (attributeStatus) {
+      checkFormSubmit(document.getElementById('password'));
 
-      document.getElementById('btnDeleteCastCrewData').textContent =
-        'Deleting...';
+      if (formStatus === 1) {
+        const password = document.getElementById('password').value;
 
-      // await deleteCastCrew({ password }, castcrewId);
+        document.getElementById('btnDeleteCastCrewData').textContent =
+          'Deleting...';
 
-      document.getElementById('btnDeleteCastCrewData').textContent =
-        'Delete Cast | Crew';
+        // await deleteCastCrew({ password }, castcrewId);
+
+        document.getElementById('btnDeleteCastCrewData').textContent =
+          'Delete Cast | Crew';
+      }
     }
   });
 }

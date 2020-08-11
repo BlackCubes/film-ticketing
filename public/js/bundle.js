@@ -30472,33 +30472,41 @@ if (updateShowtimeAddl) {
 if (updateCastCrewMainView) {
   updateCastCrewMainView.addEventListener('submit', /*#__PURE__*/function () {
     var _ref24 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee24(e) {
-      var form, name, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, birthdate, castcrewId;
+      var castcrewId, form, name, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, birthdate;
       return regeneratorRuntime.wrap(function _callee24$(_context24) {
         while (1) {
           switch (_context24.prev = _context24.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'));
+              castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
+              (0, _attributeController.validateAttribute)(document.getElementById('name'));
+              (0, _attributeController.validateAttribute)(document.getElementById('selectBirthMonth'));
+              (0, _attributeController.validateAttribute)(document.getElementById('selectBirthDay'));
+              (0, _attributeController.validateAttribute)(document.getElementById('selectBirthYear'));
+              (0, _attributeController.validateAttribute)(document.getElementById('btnUpdateCastCrewData'), castcrewId);
 
-              if (_formController.formStatus === 4) {
-                form = new FormData();
-                name = document.getElementById('name').value;
-                birthMonth = document.getElementById('selectBirthMonth');
-                birthDay = document.getElementById('selectBirthDay');
-                birthYear = document.getElementById('selectBirthYear');
-                birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-                birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-                birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-                birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-                castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
-                document.getElementById('btnUpdateCastCrewData').textContent = 'Updating...';
-                form.append('name', name);
-                form.append('birthdate', birthdate); // await updateCastCrewSettings(form, 'data', castcrewId);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'));
 
-                document.getElementById('btnUpdateCastCrewData').textContent = 'Update';
+                if (_formController.formStatus === 4) {
+                  form = new FormData();
+                  name = document.getElementById('name').value;
+                  birthMonth = document.getElementById('selectBirthMonth');
+                  birthDay = document.getElementById('selectBirthDay');
+                  birthYear = document.getElementById('selectBirthYear');
+                  birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+                  birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+                  birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+                  birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+                  document.getElementById('btnUpdateCastCrewData').textContent = 'Updating...';
+                  form.append('name', name);
+                  form.append('birthdate', birthdate); // await updateCastCrewSettings(form, 'data', castcrewId);
+
+                  document.getElementById('btnUpdateCastCrewData').textContent = 'Update';
+                }
               }
 
-            case 3:
+            case 8:
             case "end":
               return _context24.stop();
           }
@@ -30515,27 +30523,32 @@ if (updateCastCrewMainView) {
 if (updateCastCrewPhoto) {
   updateCastCrewPhoto.addEventListener('submit', /*#__PURE__*/function () {
     var _ref25 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee25(e) {
-      var form, photo, castcrewId, photoUrlArr, photoParams;
+      var castcrewId, form, photo, photoUrlArr, photoParams;
       return regeneratorRuntime.wrap(function _callee25$(_context25) {
         while (1) {
           switch (_context25.prev = _context25.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('castcrewPhoto'));
+              castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
+              (0, _attributeController.validateAttribute)(document.getElementById('castcrewPhoto'));
+              (0, _attributeController.validateAttribute)(document.getElementById('btnUpdateCastCrewData'), castcrewId);
 
-              if (_formController.formStatus === 1) {
-                form = new FormData();
-                photo = document.getElementById('castcrewPhoto').files[0];
-                castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
-                photoUrlArr = document.getElementById('photoSource').src.split('/');
-                photoParams = photoUrlArr[photoUrlArr.length - 1];
-                document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Updating...';
-                form.append('photo', photo); // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('castcrewPhoto'));
 
-                document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Update';
+                if (_formController.formStatus === 1) {
+                  form = new FormData();
+                  photo = document.getElementById('castcrewPhoto').files[0];
+                  photoUrlArr = document.getElementById('photoSource').src.split('/');
+                  photoParams = photoUrlArr[photoUrlArr.length - 1];
+                  document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Updating...';
+                  form.append('photo', photo); // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
+
+                  document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Update';
+                }
               }
 
-            case 3:
+            case 5:
             case "end":
               return _context25.stop();
           }
@@ -30552,28 +30565,34 @@ if (updateCastCrewPhoto) {
 if (updateCastCrewAddlForm) {
   updateCastCrewAddlForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref26 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee26(e) {
-      var rolesVal, biography, roles, castcrewId;
+      var castcrewId, rolesVal, biography, roles;
       return regeneratorRuntime.wrap(function _callee26$(_context26) {
         while (1) {
           switch (_context26.prev = _context26.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('castcrewRoles'));
+              castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
+              (0, _attributeController.validateAttribute)(document.getElementById('biography'));
+              (0, _attributeController.validateAttribute)(document.getElementById('castcrewRoles'));
+              (0, _attributeController.validateAttribute)(document.getElementById('btnUpdateCastCrewData'), castcrewId);
 
-              if (_formController.formStatus === 1) {
-                rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
-                roles = JSON.stringify(rolesVal.split(', '));
-                castcrewId = document.getElementById('btnUpdateCastCrewData').dataset.castcrewId;
-                document.getElementById('btnUpdateCastCrewAddl').textContent = 'Updating...'; // await updateCastCrewSettings(
-                //   { biography, roles },
-                //   "add'l info",
-                //   castcrewId
-                // );
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('castcrewRoles'));
 
-                document.getElementById('btnUpdateCastCrewAddl').textContent = 'Update';
+                if (_formController.formStatus === 1) {
+                  rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
+                  roles = JSON.stringify(rolesVal.split(', '));
+                  document.getElementById('btnUpdateCastCrewAddl').textContent = 'Updating...'; // await updateCastCrewSettings(
+                  //   { biography, roles },
+                  //   "add'l info",
+                  //   castcrewId
+                  // );
+
+                  document.getElementById('btnUpdateCastCrewAddl').textContent = 'Update';
+                }
               }
 
-            case 3:
+            case 6:
             case "end":
               return _context26.stop();
           }
@@ -30748,23 +30767,29 @@ if (deleteShowtimeForm) {
 if (deleteCastCrewForm) {
   deleteCastCrewForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref31 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee31(e) {
-      var password, deleteCastCrewBtn, castcrewId;
+      var deleteCastCrewBtn, castcrewId, password;
       return regeneratorRuntime.wrap(function _callee31$(_context31) {
         while (1) {
           switch (_context31.prev = _context31.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+              deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
+              castcrewId = deleteCastCrewBtn.dataset.castcrewId;
+              (0, _attributeController.validateAttribute)(document.getElementById('password'));
+              (0, _attributeController.validateAttribute)(deleteCastCrewBtn, castcrewId);
 
-              if (_formController.formStatus === 1) {
-                password = document.getElementById('password').value, deleteCastCrewBtn = document.getElementById('btnDeleteCastCrewData');
-                castcrewId = deleteCastCrewBtn.dataset.castcrewId;
-                document.getElementById('btnDeleteCastCrewData').textContent = 'Deleting...'; // await deleteCastCrew({ password }, castcrewId);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('password'));
 
-                document.getElementById('btnDeleteCastCrewData').textContent = 'Delete Cast | Crew';
+                if (_formController.formStatus === 1) {
+                  password = document.getElementById('password').value;
+                  document.getElementById('btnDeleteCastCrewData').textContent = 'Deleting...'; // await deleteCastCrew({ password }, castcrewId);
+
+                  document.getElementById('btnDeleteCastCrewData').textContent = 'Delete Cast | Crew';
+                }
               }
 
-            case 3:
+            case 6:
             case "end":
               return _context31.stop();
           }
