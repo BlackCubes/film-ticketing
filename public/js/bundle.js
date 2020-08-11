@@ -29819,7 +29819,7 @@ if (updateShowMainView) {
               (0, _attributeController.validateAttribute)(document.getElementById('showOriginalDay'));
               (0, _attributeController.validateAttribute)(document.getElementById('showOriginalYear'));
               (0, _attributeController.validateAttribute)(document.getElementById('showDuration'));
-              (0, _attributeController.validateAttribute)(document.getElementById('showEventOwner'));
+              if (roleType === 'admin') (0, _attributeController.validateAttribute)(document.getElementById('showEventOwner'));
               (0, _attributeController.validateAttribute)(updateShowDataBtn, showId);
 
               if (_attributeController.attributeStatus) {
@@ -29872,28 +29872,33 @@ if (updateShowMainView) {
 if (updateShowPoster) {
   updateShowPoster.addEventListener('submit', /*#__PURE__*/function () {
     var _ref11 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11(e) {
-      var form, updateShowPosterBtn, _updateShowPosterBtn$, showId, roleType, poster, posterUrlArr, posterParams;
+      var updateShowPosterBtn, _updateShowPosterBtn$, showId, roleType, form, poster, posterUrlArr, posterParams;
 
       return regeneratorRuntime.wrap(function _callee11$(_context11) {
         while (1) {
           switch (_context11.prev = _context11.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('showPhoto'));
+              updateShowPosterBtn = document.getElementById('btnUpdateShowPoster');
+              _updateShowPosterBtn$ = updateShowPosterBtn.dataset, showId = _updateShowPosterBtn$.showId, roleType = _updateShowPosterBtn$.roleType;
+              (0, _attributeController.validateAttribute)(document.getElementById('showPoster'));
+              (0, _attributeController.validateAttribute)(updateShowDataBtn, showId);
 
-              if (_formController.formStatus === 1) {
-                form = new FormData();
-                updateShowPosterBtn = document.getElementById('btnUpdateShowPoster');
-                _updateShowPosterBtn$ = updateShowPosterBtn.dataset, showId = _updateShowPosterBtn$.showId, roleType = _updateShowPosterBtn$.roleType;
-                poster = document.getElementById('showPhoto').files[0], posterUrlArr = document.getElementById('posterSource').src.split('/');
-                posterParams = posterUrlArr[posterUrlArr.length - 1];
-                document.getElementById('btnUpdateShowPoster').textContent = 'Updating...';
-                form.append('poster', poster); // await updateShowSettings(form, 'poster', showId, roleType, posterParams);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('showPhoto'));
 
-                document.getElementById('btnUpdateShowPoster').textContent = 'Update';
+                if (_formController.formStatus === 1) {
+                  form = new FormData();
+                  poster = document.getElementById('showPhoto').files[0], posterUrlArr = document.getElementById('posterSource').src.split('/');
+                  posterParams = posterUrlArr[posterUrlArr.length - 1];
+                  document.getElementById('btnUpdateShowPoster').textContent = 'Updating...';
+                  form.append('poster', poster); // await updateShowSettings(form, 'poster', showId, roleType, posterParams);
+
+                  document.getElementById('btnUpdateShowPoster').textContent = 'Update';
+                }
               }
 
-            case 3:
+            case 6:
             case "end":
               return _context11.stop();
           }
@@ -29910,24 +29915,31 @@ if (updateShowPoster) {
 if (updateShowPlot) {
   updateShowPlot.addEventListener('submit', /*#__PURE__*/function () {
     var _ref12 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee12(e) {
-      var overview, synopsis, updateShowPlotBtn, _updateShowPlotBtn$da, showId, roleType;
+      var updateShowPlotBtn, _updateShowPlotBtn$da, showId, roleType, overview, synopsis;
 
       return regeneratorRuntime.wrap(function _callee12$(_context12) {
         while (1) {
           switch (_context12.prev = _context12.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('showOverview'), document.getElementById('showSynopsis'));
+              updateShowPlotBtn = document.getElementById('btnUpdateShowPlot');
+              _updateShowPlotBtn$da = updateShowPlotBtn.dataset, showId = _updateShowPlotBtn$da.showId, roleType = _updateShowPlotBtn$da.roleType;
+              (0, _attributeController.validateAttribute)(document.getElementById('showOverview'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showSynopsis'));
+              (0, _attributeController.validateAttribute)(updateShowPlotBtn, showId);
 
-              if (_formController.formStatus === 1) {
-                overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value, updateShowPlotBtn = document.getElementById('btnUpdateShowPlot');
-                _updateShowPlotBtn$da = updateShowPlotBtn.dataset, showId = _updateShowPlotBtn$da.showId, roleType = _updateShowPlotBtn$da.roleType;
-                document.getElementById('btnUpdateShowPlot').textContent = 'Updating...'; // await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('showOverview'), document.getElementById('showSynopsis'));
 
-                document.getElementById('btnUpdateShowPlot').textContent = 'Update';
+                if (_formController.formStatus === 1) {
+                  overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
+                  document.getElementById('btnUpdateShowPlot').textContent = 'Updating...'; // await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
+
+                  document.getElementById('btnUpdateShowPlot').textContent = 'Update';
+                }
               }
 
-            case 3:
+            case 7:
             case "end":
               return _context12.stop();
           }
@@ -29979,31 +29991,40 @@ if (updateShowCastCrewForm) {
 if (updateShowAddl) {
   updateShowAddl.addEventListener('submit', /*#__PURE__*/function () {
     var _ref14 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee14(e) {
-      var selectContentType, contentType, genres, language, subtitles, updateShowAddlBtn, _updateShowAddlBtn$da, showId, roleType;
+      var updateShowAddlBtn, _updateShowAddlBtn$da, showId, roleType, selectContentType, contentType, genres, language, subtitles;
 
       return regeneratorRuntime.wrap(function _callee14$(_context14) {
         while (1) {
           switch (_context14.prev = _context14.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('showContentType'), document.getElementById('showGenre'), document.getElementById('showLanguage'), document.getElementById('showSubtitles'));
+              updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
+              _updateShowAddlBtn$da = updateShowAddlBtn.dataset, showId = _updateShowAddlBtn$da.showId, roleType = _updateShowAddlBtn$da.roleType;
+              (0, _attributeController.validateAttribute)(document.getElementById('showContentType'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showGenre'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showLanguage'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showSubtitles'));
+              (0, _attributeController.validateAttribute)(updateShowAddlBtn, showId);
 
-              if (_formController.formStatus === 1) {
-                selectContentType = document.getElementById('showContentType');
-                contentType = selectContentType.options[selectContentType.selectedIndex].value;
-                genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, updateShowAddlBtn = document.getElementById('btnUpdateShowAddl');
-                _updateShowAddlBtn$da = updateShowAddlBtn.dataset, showId = _updateShowAddlBtn$da.showId, roleType = _updateShowAddlBtn$da.roleType;
-                document.getElementById('btnUpdateShowAddl').textContent = 'Updating...'; // await updateShowSettings(
-                //   { genres, language, subtitles, contentType },
-                //   "add'l info",
-                //   showId,
-                //   roleType
-                // );
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('showContentType'), document.getElementById('showGenre'), document.getElementById('showLanguage'), document.getElementById('showSubtitles'));
 
-                document.getElementById('btnUpdateShowAddl').textContent = 'Update';
+                if (_formController.formStatus === 1) {
+                  selectContentType = document.getElementById('showContentType');
+                  contentType = selectContentType.options[selectContentType.selectedIndex].value;
+                  genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value;
+                  document.getElementById('btnUpdateShowAddl').textContent = 'Updating...'; // await updateShowSettings(
+                  //   { genres, language, subtitles, contentType },
+                  //   "add'l info",
+                  //   showId,
+                  //   roleType
+                  // );
+
+                  document.getElementById('btnUpdateShowAddl').textContent = 'Update';
+                }
               }
 
-            case 3:
+            case 9:
             case "end":
               return _context14.stop();
           }
@@ -30029,39 +30050,46 @@ if (updateShowPrice) {
               e.preventDefault();
               updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
               _updateShowPriceBtn$d = updateShowPriceBtn.dataset, showId = _updateShowPriceBtn$d.showId, roleType = _updateShowPriceBtn$d.roleType;
-              roleAmount = -100;
+              (0, _attributeController.validateAttribute)(document.getElementById('showPrice'));
+              (0, _attributeController.validateAttribute)(document.getElementById('showSpecialVenue'));
+              if (roleType === 'admin') (0, _attributeController.validateAttribute)(document.getElementById('showPrivateVenue'));
+              (0, _attributeController.validateAttribute)(updateShowPriceBtn, showId);
 
-              if (roleType === 'admin') {
-                roleAmount = 1;
-                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'), document.getElementById('showPrivateVenue'));
-              } else if (roleType === 'event-owner') {
-                roleAmount = 1;
-                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
-              }
+              if (_attributeController.attributeStatus) {
+                roleAmount = -100;
 
-              if (_formController.formStatus === roleAmount) {
-                selectSpecialVenue = document.getElementById('showSpecialVenue');
-                specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-                specialVenue = specialVenueValue === 'y' ? true : false;
-                price = document.getElementById('showPrice').value, _updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
-                _updateShowPriceBtn$d2 = _updateShowPriceBtn.dataset, _showId = _updateShowPriceBtn$d2.showId, _roleType = _updateShowPriceBtn$d2.roleType;
-                data = {};
-                data.price = price;
-                data.specialVenue = specialVenue;
-
-                if (_roleType === 'admin') {
-                  selectPrivateVenue = document.getElementById('showPrivateVenue');
-                  privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
-                  secretShow = privateVenueValue === 'y' ? true : false;
-                  data.secretShow = secretShow;
+                if (roleType === 'admin') {
+                  roleAmount = 1;
+                  (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'), document.getElementById('showPrivateVenue'));
+                } else if (roleType === 'event-owner') {
+                  roleAmount = 1;
+                  (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
                 }
 
-                document.getElementById('btnUpdateShowPrice').textContent = 'Updating'; // await updateShowSettings(data, 'pricing', showId, roleType);
+                if (_formController.formStatus === roleAmount) {
+                  selectSpecialVenue = document.getElementById('showSpecialVenue');
+                  specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+                  specialVenue = specialVenueValue === 'y' ? true : false;
+                  price = document.getElementById('showPrice').value, _updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
+                  _updateShowPriceBtn$d2 = _updateShowPriceBtn.dataset, _showId = _updateShowPriceBtn$d2.showId, _roleType = _updateShowPriceBtn$d2.roleType;
+                  data = {};
+                  data.price = price;
+                  data.specialVenue = specialVenue;
 
-                document.getElementById('btnUpdateShowPrice').textContent = 'Update';
+                  if (_roleType === 'admin') {
+                    selectPrivateVenue = document.getElementById('showPrivateVenue');
+                    privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+                    secretShow = privateVenueValue === 'y' ? true : false;
+                    data.secretShow = secretShow;
+                  }
+
+                  document.getElementById('btnUpdateShowPrice').textContent = 'Updating'; // await updateShowSettings(data, 'pricing', showId, roleType);
+
+                  document.getElementById('btnUpdateShowPrice').textContent = 'Update';
+                }
               }
 
-            case 6:
+            case 8:
             case "end":
               return _context15.stop();
           }
@@ -30508,23 +30536,29 @@ if (updateCastCrewAddlForm) {
 if (deleteShowForm) {
   deleteShowForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref27 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee27(e) {
-      var password, deleteShowBtn, showId;
+      var deleteShowBtn, showId, password;
       return regeneratorRuntime.wrap(function _callee27$(_context27) {
         while (1) {
           switch (_context27.prev = _context27.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+              deleteShowBtn = document.getElementById('btnDeleteShowData');
+              showId = deleteShowBtn.dataset.showId;
+              (0, _attributeController.validateAttribute)(document.getElementById('password'));
+              (0, _attributeController.validateAttribute)(deleteShowBtn, showId);
 
-              if (_formController.formStatus === 1) {
-                password = document.getElementById('password').value, deleteShowBtn = document.getElementById('btnDeleteShowData');
-                showId = deleteShowBtn.dataset.showId;
-                document.getElementById('btnDeleteShowData').textContent = 'Deleting...'; // await deleteShow({ password }, showId);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('password'));
 
-                document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
+                if (_formController.formStatus === 1) {
+                  password = document.getElementById('password').value;
+                  document.getElementById('btnDeleteShowData').textContent = 'Deleting...'; // await deleteShow({ password }, showId);
+
+                  document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
+                }
               }
 
-            case 3:
+            case 6:
             case "end":
               return _context27.stop();
           }
