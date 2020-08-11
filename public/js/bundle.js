@@ -27110,90 +27110,30 @@ var _errorController = require("./errorController");
 
 var _regexController = require("./regexController");
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+/* eslint-disable */
+var validateAttribute = function validateAttribute(attribute, test) {
+  var attributeName = attribute.id === 'starRating' ? 'starRating' : attribute.name;
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+  if (!attribute && !test) {
+    (0, _errorController.attributeError)(null, 'There is an error on the Client-Side');
+  } else if (!attribute) {
+    (0, _errorController.attributeError)(null, 'Element does not exist');
+  } else if (!attributeName) {
+    (0, _errorController.attributeError)(attribute, 'Non-existant');
+  }
 
-var validateAttribute = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(attribute, test) {
-    var attributeName;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            attributeName = attribute.id === 'starRating' ? 'starRating' : attribute.name;
+  if (attributeName) {
+    if (!(0, _regexController.validateRegex)('attribute-name', attributeName)) {
+      (0, _errorController.attributeError)(attribute, 'Invalid name');
+    }
+  }
 
-            if (!(!attribute && !test)) {
-              _context.next = 6;
-              break;
-            }
-
-            throw (0, _errorController.attributeError)(null, 'There is an error on the Client-Side');
-
-          case 6:
-            if (attribute) {
-              _context.next = 10;
-              break;
-            }
-
-            throw (0, _errorController.attributeError)(null, 'Element does not exist');
-
-          case 10:
-            if (attributeName) {
-              _context.next = 12;
-              break;
-            }
-
-            throw (0, _errorController.attributeError)(attribute, 'Non-existant');
-
-          case 12:
-            if (!attributeName) {
-              _context.next = 15;
-              break;
-            }
-
-            if ((0, _regexController.validateRegex)('attribute-name', attributeName)) {
-              _context.next = 15;
-              break;
-            }
-
-            throw (0, _errorController.attributeError)(attribute, 'Invalid name');
-
-          case 15:
-            if (!(test && attributeName === 'hexadecimal-btn')) {
-              _context.next = 18;
-              break;
-            }
-
-            if ((0, _regexController.validateRegex)(attributeName, test)) {
-              _context.next = 18;
-              break;
-            }
-
-            throw (0, _errorController.attributeError)(attribute, 'Invalid encryption');
-
-          case 18:
-            _context.next = 23;
-            break;
-
-          case 20:
-            _context.prev = 20;
-            _context.t0 = _context["catch"](0);
-            return _context.abrupt("return", false);
-
-          case 23:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee, null, [[0, 20]]);
-  }));
-
-  return function validateAttribute(_x, _x2) {
-    return _ref.apply(this, arguments);
-  };
-}();
+  if (test && attributeName === 'hexadecimal-btn') {
+    if (!(0, _regexController.validateRegex)(attributeName, test)) {
+      (0, _errorController.attributeError)(attribute, 'Invalid encryption');
+    }
+  }
+};
 
 exports.validateAttribute = validateAttribute;
 },{"./errorController":"errorController.js","./regexController":"regexController.js"}],"formController.js":[function(require,module,exports) {
