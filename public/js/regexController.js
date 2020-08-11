@@ -105,7 +105,8 @@ export const validateRegex = (e, test) => {
     'show-language',
     'show-subtitles',
     'theater-name',
-    'textarea-theaterdescription'
+    'textarea-theaterdescription',
+    'chainname'
   ];
 
   if (e === 'attribute-name') {
