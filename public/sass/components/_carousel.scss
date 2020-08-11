@@ -384,6 +384,7 @@
     transition: $carousel-transition-duration all ease-out;
 
     @include respond(tab-port) {
+      max-width: 26rem;
       height: 51rem;
       margin-top: 2rem;
     }
@@ -417,6 +418,10 @@
     & .form {
       width: 100%;
 
+      @include respond(tab-port) {
+        max-width: inherit;
+      }
+
       &__input {
         height: 2rem;
         padding: 1rem;
@@ -425,6 +430,11 @@
       &__label {
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+
+        @include respond(tab-port) {
+          margin-left: 1rem;
+          margin-right: 1rem;
+        }
       }
 
       &__text-area {
@@ -433,7 +443,8 @@
         padding: 0.7rem;
 
         @include respond(tab-port) {
-          height: 12rem;
+          font-size: 1.4rem;
+          height: 14rem;
         }
       }
 

@@ -742,6 +742,7 @@ body {
     transition: 450ms all ease-out; }
     @media (min-width: 37.5em) {
       .tile-card.swiper-slide {
+        max-width: 26rem;
         height: 51rem;
         margin-top: 2rem; } }
     @media (min-width: 75em) {
@@ -759,19 +760,27 @@ body {
       width: 90%; }
     .tile-card.swiper-slide .form {
       width: 100%; }
+      @media (min-width: 37.5em) {
+        .tile-card.swiper-slide .form {
+          max-width: inherit; } }
       .tile-card.swiper-slide .form__input {
         height: 2rem;
         padding: 1rem; }
       .tile-card.swiper-slide .form__label {
         margin-left: 0.5rem;
         margin-right: 0.5rem; }
+        @media (min-width: 37.5em) {
+          .tile-card.swiper-slide .form__label {
+            margin-left: 1rem;
+            margin-right: 1rem; } }
       .tile-card.swiper-slide .form__text-area {
         font-size: 1.2rem;
         height: 11rem;
         padding: 0.7rem; }
         @media (min-width: 37.5em) {
           .tile-card.swiper-slide .form__text-area {
-            height: 12rem; } }
+            font-size: 1.4rem;
+            height: 14rem; } }
       .tile-card.swiper-slide .form button {
         font-size: 1.1rem;
         height: 2rem;
