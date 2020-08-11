@@ -121,31 +121,29 @@ if (rellaxClass) {
 }
 
 if (swiperClass) {
-  if (!document.querySelector('.section-show-reviews')) {
-    displaySwiper({
-      containerClass: '.swiper-container',
-      slidesPerView: 2,
-      spaceBetween: 7,
-      slidesPortrait: 3,
-      spacePortrait: 15,
-      slidesLand: 4,
-      spaceLand: 15,
-      slidesDesktop: 5,
-      spaceDesktop: 10
-    });
-  } else if (document.querySelector('.section-show-reviews')) {
-    displaySwiper({
-      containerClass: '.section-show-reviews .swiper-container',
-      slidesPerView: 1,
-      spaceBetween: 7,
-      slidesPortrait: 2,
-      spacePortrait: 15,
-      slidesLand: 2,
-      spaceLand: 15,
-      slidesDesktop: 3,
-      spaceDesktop: 10
-    });
-  }
+  displaySwiper({
+    containerClass: '.swiper--info.swiper-container',
+    slidesPerView: 2,
+    spaceBetween: 7,
+    slidesPortrait: 3,
+    spacePortrait: 15,
+    slidesLand: 4,
+    spaceLand: 15,
+    slidesDesktop: 5,
+    spaceDesktop: 10
+  });
+
+  displaySwiper({
+    containerClass: '.swiper--review.swiper-container',
+    slidesPerView: 2,
+    spaceBetween: 7,
+    slidesPortrait: 2,
+    spacePortrait: 7,
+    slidesLand: 3,
+    spaceLand: 15,
+    slidesDesktop: 3,
+    spaceDesktop: 10
+  });
 
   // Swiper.use([Navigation]);
 
