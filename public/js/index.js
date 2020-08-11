@@ -141,8 +141,8 @@ if (swiperClass) {
     spacePortrait: 15,
     slidesLand: 3,
     spaceLand: 15,
-    slidesDesktop: 3,
-    spaceDesktop: 10
+    slidesDesktop: 4,
+    spaceDesktop: 15
   });
 
   // Swiper.use([Navigation]);
