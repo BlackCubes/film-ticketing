@@ -61,6 +61,7 @@ export const validateRegex = (e, test) => {
   const regexAttrName = [
     'password',
     'current-password',
+    'password-confirm',
     'email',
     'name',
     'username',
