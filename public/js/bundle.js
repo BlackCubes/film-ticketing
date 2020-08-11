@@ -28967,33 +28967,7 @@ if (swiperClass) {
     spaceLand: 15,
     slidesDesktop: 4,
     spaceDesktop: 15
-  }); // Swiper.use([Navigation]);
-  // var swiper = new Swiper('.swiper-container', {
-  //   observer: true,
-  //   observeParents: true,
-  //   direction: 'horizontal',
-  //   slidesPerView: 2,
-  //   spaceBetween: 7,
-  //   slidesPerGroup: 2,
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev'
-  //   },
-  //   breakpoints: {
-  //     600: {
-  //       slidesPerView: 3,
-  //       spaceBetween: 15
-  //     },
-  //     900: {
-  //       slidesPerView: 4,
-  //       spaceBetween: 15
-  //     },
-  //     1200: {
-  //       slidesPerView: 5,
-  //       spaceBetween: 10
-  //     }
-  //   }
-  // });
+  });
 }
 
 if (ticketBtn) {
