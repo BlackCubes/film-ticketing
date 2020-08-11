@@ -28959,7 +28959,7 @@ if (swiperClass) {
   });
   (0, _swiper.displaySwiper)({
     containerClass: '.swiper--review.swiper-container',
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 4,
     slidesPortrait: 2,
     spacePortrait: 15,
