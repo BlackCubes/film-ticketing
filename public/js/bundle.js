@@ -26782,7 +26782,7 @@ var attributeError = function attributeError(input, message) {
     (0, _alerts.showAlert)('error', message);
     return window.setTimeout(function () {
       location.assign('/');
-    }, 1000); // return false;
+    }, 1000);
   }
 
   var classTarget = 'form__group';
@@ -26794,14 +26794,10 @@ var attributeError = function attributeError(input, message) {
   if (input.name === 'select-second') classTarget = 'form__date-second';
   var attributeParent = (0, _utils.parentNode)(input, classTarget);
   attributeParent.classList.add('error');
-  (0, _alerts.showAlert)('error', message); // if (input.name !== 'hexadecimal-btn') {
-  //   const labelElement = input.nextElementSibling;
-  //   labelElement.textContent = "Please don't do that";
-  // }
-
+  (0, _alerts.showAlert)('error', message);
   return window.setTimeout(function () {
     location.assign('/');
-  }, 1000); // return false;
+  }, 1000);
 };
 
 exports.attributeError = attributeError;

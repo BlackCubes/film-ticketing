@@ -27,7 +27,6 @@ export const attributeError = (input, message) => {
     return window.setTimeout(() => {
       location.assign('/');
     }, 1000);
-    // return false;
   }
 
   var classTarget = 'form__group';
@@ -43,15 +42,9 @@ export const attributeError = (input, message) => {
   attributeParent.classList.add('error');
   showAlert('error', message);
 
-  // if (input.name !== 'hexadecimal-btn') {
-  //   const labelElement = input.nextElementSibling;
-  //   labelElement.textContent = "Please don't do that";
-  // }
-
   return window.setTimeout(() => {
     location.assign('/');
   }, 1000);
-  // return false;
 };
 
 export const formError = (input, message) => {
