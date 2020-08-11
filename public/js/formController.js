@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { attributeError, formError, formSuccess } from './errorController';
+import { formError, formSuccess } from './errorController';
 
 export var formStatus = 0;
 
@@ -847,7 +847,7 @@ function regexForm(e) {
     e.name === 'select-showtimes'
   ) {
     regexResult = regexSelect.test(e.value);
-  } else if (e.name === 'hexadecimal') {
+  } else if (e.name === 'hexadecimal' || e.name === 'hexadecimal-btn') {
     regexResult = regexMongo.test(e.value);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(e.value);
