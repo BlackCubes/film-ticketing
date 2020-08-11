@@ -99,7 +99,11 @@ export const validateRegex = (e, test) => {
     'review-rating',
     'starRating',
     'textarea-overview',
-    'textarea-synopsis'
+    'textarea-synopsis',
+    'select-contenttype',
+    'show-genre',
+    'show-language',
+    'show-subtitles'
   ];
 
   if (e === 'attribute-name') {
