@@ -27106,34 +27106,67 @@ exports.validateRegex = validateRegex;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.validateAttribute = void 0;
+exports.validateAttribute = exports.attributeStatus = void 0;
 
 var _errorController = require("./errorController");
 
 var _regexController = require("./regexController");
 
 /* eslint-disable */
-var validateAttribute = function validateAttribute(attribute, test) {
+var attributeStatus = true;
+exports.attributeStatus = attributeStatus;
+
+var validateAttribute = function validateAttribute(attribute) {
+  for (var _len = arguments.length, dataSets = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    dataSets[_key - 1] = arguments[_key];
+  }
+
+  // attributeStatus = true;
   var attributeName = attribute.id === 'starRating' ? 'starRating' : attribute.name;
 
-  if (!attribute && !test) {
+  if (!attribute && !dataSets) {
     (0, _errorController.attributeError)(null, 'There is an error on the Client-Side');
+    exports.attributeStatus = attributeStatus = false;
   } else if (!attribute) {
     (0, _errorController.attributeError)(null, 'Element does not exist');
+    exports.attributeStatus = attributeStatus = false;
   } else if (!attributeName) {
     (0, _errorController.attributeError)(attribute, 'Non-existant');
+    exports.attributeStatus = attributeStatus = false;
   }
 
   if (attributeName) {
     if (!(0, _regexController.validateRegex)('attribute-name', attributeName)) {
       (0, _errorController.attributeError)(attribute, 'Invalid name');
+      exports.attributeStatus = attributeStatus = false;
     }
   }
 
-  if (test && attributeName === 'hexadecimal-btn') {
-    if (!(0, _regexController.validateRegex)(attributeName, test)) {
-      (0, _errorController.attributeError)(attribute, 'Invalid encryption');
-    }
+  if (attributeName === 'hexadecimal-btn') {
+    if (!attribute.dataset) {
+      (0, _errorController.attributeError)(attribute, 'Dataset does not exist');
+      exports.attributeStatus = attributeStatus = false;
+    } // } else if (attribute.dataset.showId) {
+    //   dataTest = attribute.dataset.showId;
+    // } else if (attribute.dataset.reviewId) {
+    //   dataTest = attribute.dataset.reviewId;
+    // } else if (attribute.dataset.theaterId) {
+    //   dataTest = attribute.dataset.theaterId;
+    // } else if (attribute.dataset.showtimeId) {
+    //   dataTest = attribute.dataset.showtimeId;
+    // } else if (attribute.dataset.castcrewId) {
+    //   dataTest = attribute.dataset.castcrewId;
+    // }
+
+  }
+
+  if (dataSets && attributeName === 'hexadecimal-btn') {
+    dataSets.forEach(function (dataSet) {
+      if (!(0, _regexController.validateRegex)(attributeName, dataSet)) {
+        (0, _errorController.attributeError)(attribute, 'Invalid encryption');
+        exports.attributeStatus = attributeStatus = false;
+      }
+    });
   }
 };
 
