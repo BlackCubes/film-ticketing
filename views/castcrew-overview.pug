@@ -58,7 +58,7 @@ block content
             - swiperWrapperClass = 'wrapper'
             - swiperSlideClass = 'slide'
 
-          .row-scroll(class=`swiper-${swiperContainerClass}`)
+          .row-scroll.swiper--info(class=`swiper-${swiperContainerClass}`)
             .row__inner--ticket(class=`swiper-${swiperWrapperClass}`)
               each show in castcrew.shows
                 .tile-ticket(class=`swiper-${swiperSlideClass}`)
