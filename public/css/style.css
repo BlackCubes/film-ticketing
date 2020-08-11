@@ -1365,6 +1365,10 @@ body {
       .stars-user .star {
         font-size: 1.9rem;
         padding: 0 1.2rem; } }
+    @media (min-width: 56.25em) {
+      .stars .star,
+      .stars-user .star {
+        padding: 0 1rem; } }
     .stars .star::before,
     .stars-user .star::before {
       content: '\2606'; }

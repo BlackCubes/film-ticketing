@@ -17,6 +17,10 @@
       padding: 0 1.2rem;
     }
 
+    @include respond(tab-land) {
+      padding: 0 1rem;
+    }
+
     &::before {
       content: '\2606';
       // cursor: pointer;
