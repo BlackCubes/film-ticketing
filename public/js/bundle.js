@@ -30161,24 +30161,31 @@ if (updateShowPrice) {
 if (updateReview) {
   updateReview.addEventListener('submit', /*#__PURE__*/function () {
     var _ref16 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee16(e) {
-      var showTitle, rating, review, updateReviewBtn, showId;
+      var updateReviewBtn, showId, showTitle, rating, review;
       return regeneratorRuntime.wrap(function _callee16$(_context16) {
         while (1) {
           switch (_context16.prev = _context16.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
+              updateReviewBtn = document.getElementById('btnUpdateReviewData');
+              showId = updateReviewBtn.dataset.showId;
+              (0, _attributeController.validateAttribute)(updateReviewBtn, showId);
+              (0, _attributeController.validateAttribute)(document.getElementById('reviewRating'));
+              (0, _attributeController.validateAttribute)(document.getElementById('review'));
 
-              if (_formController.formStatus === 2) {
-                showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
-                rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value, updateReviewBtn = document.getElementById('btnUpdateReviewData');
-                showId = updateReviewBtn.dataset.showId;
-                document.getElementById('btnUpdateReviewData').textContent = 'Updating...'; // await updateReviewSettings({ review, rating }, showId, showTitle);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
 
-                document.getElementById('btnUpdateReviewData').textContent = 'Update';
+                if (_formController.formStatus === 2) {
+                  showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
+                  rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value;
+                  document.getElementById('btnUpdateReviewData').textContent = 'Updating...'; // await updateReviewSettings({ review, rating }, showId, showTitle);
+
+                  document.getElementById('btnUpdateReviewData').textContent = 'Update';
+                }
               }
 
-            case 3:
+            case 7:
             case "end":
               return _context16.stop();
           }
@@ -30703,31 +30710,40 @@ if (deleteShowForm) {
 if (deleteReviewForm) {
   deleteReviewForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref28 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee28(e) {
-      var password, deleteReviewBtn, reviewId;
+      var deleteReviewBtn, reviewId, password;
       return regeneratorRuntime.wrap(function _callee28$(_context28) {
         while (1) {
           switch (_context28.prev = _context28.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+              deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+              reviewId = deleteReviewBtn.dataset.reviewId;
+              (0, _attributeController.validateAttribute)(deleteReviewBtn, reviewId);
+              (0, _attributeController.validateAttribute)(document.getElementById('password'));
 
-              if (!(_formController.formStatus === 1)) {
-                _context28.next = 9;
+              if (!_attributeController.attributeStatus) {
+                _context28.next = 13;
                 break;
               }
 
-              password = document.getElementById('password').value, deleteReviewBtn = document.getElementById('btnDeleteReviewData');
-              reviewId = deleteReviewBtn.dataset.reviewId;
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context28.next = 13;
+                break;
+              }
+
+              password = document.getElementById('password').value;
               document.getElementById('btnDeleteReviewData').textContent = 'Deleting...';
-              _context28.next = 8;
+              _context28.next = 12;
               return (0, _deleteSettings.deleteReview)({
                 password: password
               }, reviewId);
 
-            case 8:
+            case 12:
               document.getElementById('btnDeleteReviewData').textContent = 'Delete Review';
 
-            case 9:
+            case 13:
             case "end":
               return _context28.stop();
           }

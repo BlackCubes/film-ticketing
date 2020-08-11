@@ -1220,28 +1220,34 @@ if (updateReview) {
   updateReview.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('reviewRating'),
-      document.getElementById('review')
-    );
+    const updateReviewBtn = document.getElementById('btnUpdateReviewData');
+    const { showId } = updateReviewBtn.dataset;
 
-    if (formStatus === 2) {
-      const showTitle = document
-        .getElementById('reviewShowTitle')
-        .placeholder.split(' ')[2];
+    validateAttribute(updateReviewBtn, showId);
+    validateAttribute(document.getElementById('reviewRating'));
+    validateAttribute(document.getElementById('review'));
 
-      const rating = document.getElementById('reviewRating').value,
-        review = document.getElementById('review').value,
-        updateReviewBtn = document.getElementById('btnUpdateReviewData');
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('reviewRating'),
+        document.getElementById('review')
+      );
 
-      const { showId } = updateReviewBtn.dataset;
+      if (formStatus === 2) {
+        const showTitle = document
+          .getElementById('reviewShowTitle')
+          .placeholder.split(' ')[2];
 
-      document.getElementById('btnUpdateReviewData').textContent =
-        'Updating...';
+        const rating = document.getElementById('reviewRating').value,
+          review = document.getElementById('review').value;
 
-      // await updateReviewSettings({ review, rating }, showId, showTitle);
+        document.getElementById('btnUpdateReviewData').textContent =
+          'Updating...';
 
-      document.getElementById('btnUpdateReviewData').textContent = 'Update';
+        // await updateReviewSettings({ review, rating }, showId, showTitle);
+
+        document.getElementById('btnUpdateReviewData').textContent = 'Update';
+      }
     }
   });
 }
@@ -1773,21 +1779,26 @@ if (deleteReviewForm) {
   deleteReviewForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(document.getElementById('password'));
+    const deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+    const { reviewId } = deleteReviewBtn.dataset;
 
-    if (formStatus === 1) {
-      const password = document.getElementById('password').value,
-        deleteReviewBtn = document.getElementById('btnDeleteReviewData');
+    validateAttribute(deleteReviewBtn, reviewId);
+    validateAttribute(document.getElementById('password'));
 
-      const { reviewId } = deleteReviewBtn.dataset;
+    if (attributeStatus) {
+      checkFormSubmit(document.getElementById('password'));
 
-      document.getElementById('btnDeleteReviewData').textContent =
-        'Deleting...';
+      if (formStatus === 1) {
+        const password = document.getElementById('password').value;
 
-      await deleteReview({ password }, reviewId);
+        document.getElementById('btnDeleteReviewData').textContent =
+          'Deleting...';
 
-      document.getElementById('btnDeleteReviewData').textContent =
-        'Delete Review';
+        await deleteReview({ password }, reviewId);
+
+        document.getElementById('btnDeleteReviewData').textContent =
+          'Delete Review';
+      }
     }
   });
 }
