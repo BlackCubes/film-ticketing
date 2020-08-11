@@ -378,6 +378,8 @@
   &.swiper-slide {
     width: 100%;
     height: 47rem;
+    margin-top: 2rem;
+    margin-left: 0;
     border-radius: 3rem;
     transition: $carousel-transition-duration all ease-out;
 
@@ -428,7 +430,7 @@
       &__text-area {
         font-size: 1.2rem;
         height: 11rem;
-        padding: 1rem;
+        padding: 0.7rem;
 
         @include respond(tab-port) {
           height: 12rem;
