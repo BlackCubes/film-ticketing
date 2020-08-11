@@ -197,10 +197,15 @@ if (loginForm) {
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
-    checkFormSubmit(email, password);
+    validateAttribute(email);
+    validateAttribute(password);
 
-    if (formStatus === 2) {
-      login(email.value, password.value);
+    if (attributeStatus) {
+      checkFormSubmit(email, password);
+
+      if (formStatus === 2) {
+        login(email.value, password.value);
+      }
     }
   });
 }

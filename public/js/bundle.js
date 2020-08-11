@@ -29236,10 +29236,15 @@ if (loginForm) {
     e.preventDefault();
     var email = document.getElementById('email');
     var password = document.getElementById('password');
-    (0, _formController.checkFormSubmit)(email, password);
+    (0, _attributeController.validateAttribute)(email);
+    (0, _attributeController.validateAttribute)(password);
 
-    if (_formController.formStatus === 2) {
-      (0, _login.login)(email.value, password.value);
+    if (_attributeController.attributeStatus) {
+      (0, _formController.checkFormSubmit)(email, password);
+
+      if (_formController.formStatus === 2) {
+        (0, _login.login)(email.value, password.value);
+      }
     }
   });
 }
