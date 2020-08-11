@@ -3,9 +3,10 @@ import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
 import Rellax from 'rellax';
-import { Swiper, Navigation } from 'swiper';
-// import Swiper from 'swiper/bundle';
-import 'swiper/swiper-bundle.css';
+// import { Swiper, Navigation } from 'swiper';
+// // import Swiper from 'swiper/bundle';
+// import 'swiper/swiper-bundle.css';
+import { displaySwiper } from './swiper';
 import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
@@ -120,34 +121,58 @@ if (rellaxClass) {
 }
 
 if (swiperClass) {
-  Swiper.use([Navigation]);
+  if (!document.querySelector('.section-show-reviews')) {
+    displaySwiper({
+      slidesPerView: 2,
+      spaceBetween: 7,
+      slidesPortrait: 3,
+      spacePortrait: 15,
+      slidesLand: 4,
+      spaceLand: 15,
+      slidesDesktop: 5,
+      spaceDesktop: 10
+    });
+  } else if (document.querySelector('.section-show-reviews')) {
+    displaySwiper({
+      slidesPerView: 1,
+      spaceBetween: 7,
+      slidesPortrait: 2,
+      spacePortrait: 15,
+      slidesLand: 2,
+      spaceLand: 15,
+      slidesDesktop: 3,
+      spaceDesktop: 10
+    });
+  }
 
-  var swiper = new Swiper('.swiper-container', {
-    observer: true,
-    observeParents: true,
-    direction: 'horizontal',
-    slidesPerView: 2,
-    spaceBetween: 7,
-    slidesPerGroup: 2,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    breakpoints: {
-      600: {
-        slidesPerView: 3,
-        spaceBetween: 15
-      },
-      900: {
-        slidesPerView: 4,
-        spaceBetween: 15
-      },
-      1200: {
-        slidesPerView: 5,
-        spaceBetween: 10
-      }
-    }
-  });
+  // Swiper.use([Navigation]);
+
+  // var swiper = new Swiper('.swiper-container', {
+  //   observer: true,
+  //   observeParents: true,
+  //   direction: 'horizontal',
+  //   slidesPerView: 2,
+  //   spaceBetween: 7,
+  //   slidesPerGroup: 2,
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev'
+  //   },
+  //   breakpoints: {
+  //     600: {
+  //       slidesPerView: 3,
+  //       spaceBetween: 15
+  //     },
+  //     900: {
+  //       slidesPerView: 4,
+  //       spaceBetween: 15
+  //     },
+  //     1200: {
+  //       slidesPerView: 5,
+  //       spaceBetween: 10
+  //     }
+  //   }
+  // });
 }
 
 if (ticketBtn) {
