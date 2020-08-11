@@ -26894,7 +26894,7 @@ var validateRegex = function validateRegex(e, test) {
 
   var regexRating = /^[1-5]{1}$/;
   var regexMongo = /^[a-f\d]{24}$/i;
-  var regexAttrName = ['password', 'current-password', 'email', 'name', 'username', 'select-month', 'select-day', 'select-year', 'select-gender', 'photo', 'poster', 'theaterPhoto', 'chainPhoto', 'castcrew-photo', 'show-title', 'select-mpaa', 'show-duration', 'select-contenttype', 'show-price', 'select-specialvenue', 'select-privatevenue', 'select-ticket', 'select-showtimes', 'hexadecimal', 'hexadecimal-btn', 'phone', 'linkurl', 'address', 'city', 'castcrew-name', 'state', 'zipcode', 'geo-long', 'geo-lat', 'select-hour', 'select-minute', 'select-second', 'review-rating', 'starRating'];
+  var regexAttrName = ['password', 'current-password', 'email', 'name', 'username', 'select-month', 'select-day', 'select-year', 'select-gender', 'photo', 'poster', 'theaterPhoto', 'chainPhoto', 'castcrew-photo', 'show-title', 'select-mpaa', 'show-duration', 'select-contenttype', 'show-price', 'select-specialvenue', 'select-privatevenue', 'select-ticket', 'select-showtimes', 'hexadecimal', 'hexadecimal-btn', 'phone', 'linkurl', 'address', 'city', 'castcrew-name', 'state', 'zipcode', 'geo-long', 'geo-lat', 'select-hour', 'select-minute', 'select-second', 'review-rating', 'starRating', 'textarea-overview', 'textarea-synopsis'];
 
   if (e === 'attribute-name') {
     regexResult = regexAttrName.includes(test);

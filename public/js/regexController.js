@@ -97,7 +97,9 @@ export const validateRegex = (e, test) => {
     'select-minute',
     'select-second',
     'review-rating',
-    'starRating'
+    'starRating',
+    'textarea-overview',
+    'textarea-synopsis'
   ];
 
   if (e === 'attribute-name') {
