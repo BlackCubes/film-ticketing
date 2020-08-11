@@ -29882,7 +29882,7 @@ if (updateShowPoster) {
               updateShowPosterBtn = document.getElementById('btnUpdateShowPoster');
               _updateShowPosterBtn$ = updateShowPosterBtn.dataset, showId = _updateShowPosterBtn$.showId, roleType = _updateShowPosterBtn$.roleType;
               (0, _attributeController.validateAttribute)(document.getElementById('showPhoto'));
-              (0, _attributeController.validateAttribute)(updateShowDataBtn, showId);
+              (0, _attributeController.validateAttribute)(updateShowPosterBtn, showId);
 
               if (_attributeController.attributeStatus) {
                 (0, _formController.checkFormSubmit)(document.getElementById('showPhoto'));
