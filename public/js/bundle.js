@@ -26778,6 +26778,13 @@ var _utils = require("./utils");
 //   return bol;
 // };
 var attributeError = function attributeError(input, message) {
+  if (!input) {
+    (0, _alerts.showAlert)('error', message);
+    return window.setTimeout(function () {
+      location.assign('/');
+    }, 1500);
+  }
+
   var classTarget = 'form__group';
   if (input.name === 'select-month') classTarget = 'form__date-month';
   if (input.name === 'select-day') classTarget = 'form__date-day';

@@ -22,6 +22,13 @@ import { parentNode } from './utils';
 // };
 
 export const attributeError = (input, message) => {
+  if (!input) {
+    showAlert('error', message);
+    return window.setTimeout(() => {
+      location.assign('/');
+    }, 1500);
+  }
+
   var classTarget = 'form__group';
   if (input.name === 'select-month') classTarget = 'form__date-month';
   if (input.name === 'select-day') classTarget = 'form__date-day';
