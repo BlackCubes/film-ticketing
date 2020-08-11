@@ -847,7 +847,7 @@ function regexForm(e) {
     e.name === 'select-showtimes'
   ) {
     regexResult = regexSelect.test(e.value);
-  } else if (e.name === 'hexadecimal' || e.name === 'hexadecimal-btn') {
+  } else if (e.name === 'hexadecimal') {
     regexResult = regexMongo.test(e.value);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(e.value);

@@ -27389,7 +27389,7 @@ function regexForm(e) {
     regexResult = regexPrice.test(parseFloat(e.value));
   } else if (e.name === 'select-specialvenue' || e.name === 'select-privatevenue' || e.name === 'select-ticket' || e.name === 'select-showtimes') {
     regexResult = regexSelect.test(e.value);
-  } else if (e.name === 'hexadecimal' || e.name === 'hexadecimal-btn') {
+  } else if (e.name === 'hexadecimal') {
     regexResult = regexMongo.test(e.value);
   } else if (e.name === 'phone') {
     regexResult = regexPhone.test(e.value);
