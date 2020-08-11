@@ -12,6 +12,7 @@ import { ticketShow } from './stripe';
 import CircleNav from './circleNav';
 import { asideNav } from './dropdown';
 import { ratingStars } from './ratingStars';
+import { validateAttribute } from './attributeController';
 import { checkFormSubmit, formStatus } from './formController';
 import { MultiForm } from './multiForm';
 import {
@@ -860,6 +861,16 @@ if (updateShowMainView) {
 
     const updateShowDataBtn = document.getElementById('btnUpdateShowData');
     const { showId, roleType } = updateShowDataBtn.dataset;
+
+    validateAttribute(document.getElementById('showTitle'));
+    validateAttribute(document.getElementById('selectMpaa'));
+    validateAttribute(document.getElementById('showOriginalMonth'));
+    validateAttribute(document.getElementById('showOriginalDay'));
+    validateAttribute(document.getElementById('showOriginalYear'));
+    validateAttribute(document.getElementById('showDuration'));
+    validateAttribute(document.getElementById('showEventOwner'));
+    validateAttribute(updateShowDataBtn, showId);
+
     var roleAmount = -100;
 
     if (roleType === 'admin') {
