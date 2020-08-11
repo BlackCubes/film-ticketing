@@ -26780,10 +26780,9 @@ var _utils = require("./utils");
 var attributeError = function attributeError(input, message) {
   if (!input) {
     (0, _alerts.showAlert)('error', message);
-    window.setTimeout(function () {
+    return window.setTimeout(function () {
       location.assign('/');
-    }, 1500);
-    return false;
+    }, 1000); // return false;
   }
 
   var classTarget = 'form__group';
@@ -26802,10 +26801,9 @@ var attributeError = function attributeError(input, message) {
     labelElement.textContent = "Please don't do that";
   }
 
-  window.setTimeout(function () {
+  return window.setTimeout(function () {
     location.assign('/');
-  }, 1500);
-  return false;
+  }, 1000); // return false;
 };
 
 exports.attributeError = attributeError;
