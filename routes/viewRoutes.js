@@ -47,19 +47,19 @@ router.get(
 // USER ROUTES
 router.get(
   '/login',
-  authController.isLoggedIn,
+  // authController.isLoggedIn,
   authController.restrictUsers('user', 'admin', 'event-owner'),
   viewsController.getLoginForm
 );
 router.get(
   '/register',
-  authController.isLoggedIn,
+  // authController.isLoggedIn,
   authController.restrictUsers('user', 'admin', 'event-owner'),
   viewsController.getRegisterForm
 );
 router.get(
   '/forgotPassword',
-  authController.isLoggedIn,
+  // authController.isLoggedIn,
   authController.restrictUsers('user', 'admin', 'event-owner'),
   viewsController.getForgotPasswordForm
 );
