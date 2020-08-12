@@ -45,15 +45,22 @@ router.get(
 );
 
 // USER ROUTES
-router.get('/login', authController.isLoggedIn, viewsController.getLoginForm);
+router.get(
+  '/login',
+  authController.isLoggedIn,
+  authController.restrictUsers('user', 'admin', 'event-owner'),
+  viewsController.getLoginForm
+);
 router.get(
   '/register',
   authController.isLoggedIn,
+  authController.restrictUsers('user', 'admin', 'event-owner'),
   viewsController.getRegisterForm
 );
 router.get(
   '/forgotPassword',
   authController.isLoggedIn,
+  authController.restrictUsers('user', 'admin', 'event-owner'),
   viewsController.getForgotPasswordForm
 );
 router.get('/me', authController.protect, viewsController.getAccount);
