@@ -29875,8 +29875,16 @@ if (adCreateCastCrewFieldlist1) {
 
   _firstNextBtn3.addEventListener('click', function (e) {
     e.preventDefault();
-    (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('castcrewRoles'));
-    if (_formController.formStatus === 5) _multiForm3.buttonNext();
+    (0, _attributeController.validateAttribute)(document.getElementById('name'));
+    (0, _attributeController.validateAttribute)(document.getElementById('selectBirthMonth'));
+    (0, _attributeController.validateAttribute)(document.getElementById('selectBirthDay'));
+    (0, _attributeController.validateAttribute)(document.getElementById('selectBirthYear'));
+    (0, _attributeController.validateAttribute)(document.getElementById('castcrewRoles'));
+
+    if (_attributeController.attributeStatus) {
+      (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('castcrewRoles'));
+      if (_formController.formStatus === 5) _multiForm3.buttonNext();
+    }
   });
 
   _firstPreviousBtn3.addEventListener('click', function (e) {
@@ -29891,31 +29899,36 @@ if (adCreateCastCrewFieldlist1) {
           switch (_context9.prev = _context9.next) {
             case 0:
               e.preventDefault();
-              (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('photo'));
+              (0, _attributeController.validateAttribute)(document.getElementById('biography'));
+              (0, _attributeController.validateAttribute)(document.getElementById('photo'));
 
-              if (_formController.formStatus === 1) {
-                form = new FormData();
-                name = document.getElementById('name').value, rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
-                roles = JSON.stringify(rolesVal.split(', '));
-                birthMonth = document.getElementById('selectBirthMonth');
-                birthDay = document.getElementById('selectBirthDay');
-                birthYear = document.getElementById('selectBirthYear');
-                birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-                birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-                birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-                birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-                photo = document.getElementById('photo').files[0];
-                document.getElementById('btnCreateCastCrew').textContent = 'Creating...';
-                form.append('name', name);
-                form.append('roles', roles);
-                form.append('biography', biography);
-                form.append('birthdate', birthdate);
-                form.append('photo', photo); // await createCastCrew(form);
+              if (_attributeController.attributeStatus) {
+                (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('photo'));
 
-                document.getElementById('btnCreateCastCrew').textContent = 'Create';
+                if (_formController.formStatus === 1) {
+                  form = new FormData();
+                  name = document.getElementById('name').value, rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
+                  roles = JSON.stringify(rolesVal.split(', '));
+                  birthMonth = document.getElementById('selectBirthMonth');
+                  birthDay = document.getElementById('selectBirthDay');
+                  birthYear = document.getElementById('selectBirthYear');
+                  birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+                  birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+                  birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+                  birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+                  photo = document.getElementById('photo').files[0];
+                  document.getElementById('btnCreateCastCrew').textContent = 'Creating...';
+                  form.append('name', name);
+                  form.append('roles', roles);
+                  form.append('biography', biography);
+                  form.append('birthdate', birthdate);
+                  form.append('photo', photo); // await createCastCrew(form);
+
+                  document.getElementById('btnCreateCastCrew').textContent = 'Create';
+                }
               }
 
-            case 3:
+            case 4:
             case "end":
               return _context9.stop();
           }
