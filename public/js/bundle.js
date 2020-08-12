@@ -29302,39 +29302,40 @@ if (registerFieldlist1) {
               (0, _attributeController.validateAttribute)(document.getElementById('selectBirthYear'));
               (0, _attributeController.validateAttribute)(document.getElementById('selectGender'));
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('username'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
-
-                if (_formController.formStatus === 6) {
-                  genderSelect = document.getElementById('selectGender');
-                  birthMonth = document.getElementById('selectBirthMonth');
-                  birthDay = document.getElementById('selectBirthDay');
-                  birthYear = document.getElementById('selectBirthYear');
-                  birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-                  birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-                  birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-                  email = document.getElementById('email').value;
-                  username = document.getElementById('username').value;
-                  password = document.getElementById('password').value;
-                  passwordConfirm = document.getElementById('passwordConfirm').value;
-                  name = document.getElementById('name').value;
-                  birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-                  gender = genderSelect.options[genderSelect.selectedIndex].value;
-                  document.getElementById('btnCreateAccount').textContent = 'Creating...'; // await register(
-                  //   email,
-                  //   username,
-                  //   password,
-                  //   passwordConfirm,
-                  //   name,
-                  //   birthdate,
-                  //   gender
-                  // );
-
-                  document.getElementById('btnCreateAccount').textContent = 'Continue';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context.next = 28;
+                break;
               }
 
-            case 8:
+              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('username'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'));
+
+              if (!(_formController.formStatus === 6)) {
+                _context.next = 28;
+                break;
+              }
+
+              genderSelect = document.getElementById('selectGender');
+              birthMonth = document.getElementById('selectBirthMonth');
+              birthDay = document.getElementById('selectBirthDay');
+              birthYear = document.getElementById('selectBirthYear');
+              birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+              birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+              birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+              email = document.getElementById('email').value;
+              username = document.getElementById('username').value;
+              password = document.getElementById('password').value;
+              passwordConfirm = document.getElementById('passwordConfirm').value;
+              name = document.getElementById('name').value;
+              birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+              gender = genderSelect.options[genderSelect.selectedIndex].value;
+              document.getElementById('btnCreateAccount').textContent = 'Creating...';
+              _context.next = 27;
+              return (0, _login.register)(email, username, password, passwordConfirm, name, birthdate, gender);
+
+            case 27:
+              document.getElementById('btnCreateAccount').textContent = 'Continue';
+
+            case 28:
             case "end":
               return _context.stop();
           }
@@ -29364,35 +29365,44 @@ if (updatePersonalForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('selectGender'));
               (0, _attributeController.validateAttribute)(document.getElementById('userPhoto'));
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'), document.getElementById('userPhoto'));
-
-                if (_formController.formStatus === 5) {
-                  form = new FormData();
-                  document.getElementById('btnUpdateData').textContent = 'Updating...';
-                  selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');
-                  birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value, birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value, birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
-                  selectGender = document.getElementById('selectGender');
-                  birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
-                  photo = document.getElementById('userPhoto').files[0];
-                  photoUrlArr = document.getElementById('photoSource').src.split('/');
-                  photoParams = photoUrlArr[photoUrlArr.length - 1];
-                  if (!photo) photoParams = '';
-                  form.append('name', name.value);
-                  form.append('birthdate', birthdate);
-                  form.append('gender', gender);
-                  form.append('photo', photo); // await updateSettings(form, 'data', photoParams);
-
-                  document.getElementById('btnUpdateData').textContent = 'Update';
-                  document.getElementById('name').value = '';
-                  document.getElementById('selectBirthMonth').value = '';
-                  document.getElementById('selectBirthDay').value = '';
-                  document.getElementById('selectBirthYear').value = '';
-                  document.getElementById('selectGender').value = '';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context2.next = 32;
+                break;
               }
 
-            case 8:
+              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'), document.getElementById('selectGender'), document.getElementById('userPhoto'));
+
+              if (!(_formController.formStatus === 5)) {
+                _context2.next = 32;
+                break;
+              }
+
+              form = new FormData();
+              document.getElementById('btnUpdateData').textContent = 'Updating...';
+              selectBirthMonth = document.getElementById('selectBirthMonth'), selectBirthDay = document.getElementById('selectBirthDay'), selectBirthYear = document.getElementById('selectBirthYear');
+              birthMonth = selectBirthMonth.options[selectBirthMonth.selectedIndex].value, birthDay = selectBirthDay.options[selectBirthDay.selectedIndex].value, birthYear = selectBirthYear.options[selectBirthYear.selectedIndex].value;
+              selectGender = document.getElementById('selectGender');
+              birthdate = birthYear.concat('-', birthMonth, '-', birthDay), name = document.getElementById('name').value, gender = selectGender.options[selectGender.selectedIndex].value;
+              photo = document.getElementById('userPhoto').files[0];
+              photoUrlArr = document.getElementById('photoSource').src.split('/');
+              photoParams = photoUrlArr[photoUrlArr.length - 1];
+              if (!photo) photoParams = '';
+              form.append('name', name.value);
+              form.append('birthdate', birthdate);
+              form.append('gender', gender);
+              form.append('photo', photo);
+              _context2.next = 26;
+              return (0, _updateSettings.updateSettings)(form, 'data', photoParams);
+
+            case 26:
+              document.getElementById('btnUpdateData').textContent = 'Update';
+              document.getElementById('name').value = '';
+              document.getElementById('selectBirthMonth').value = '';
+              document.getElementById('selectBirthDay').value = '';
+              document.getElementById('selectBirthYear').value = '';
+              document.getElementById('selectGender').value = '';
+
+            case 32:
             case "end":
               return _context2.stop();
           }
@@ -29418,20 +29428,32 @@ if (updateEmailUsernameForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('email'));
               (0, _attributeController.validateAttribute)(document.getElementById('username'));
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('email'), document.getElementById('username'));
-
-                if (_formController.formStatus === 2) {
-                  document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
-                  email = document.getElementById('email').value, username = document.getElementById('username').value; // await updateSettings({ email, username }, 'email/username');
-
-                  document.getElementById('btnUpdateEmailUsername').textContent = 'Update';
-                  document.getElementById('email').value = '';
-                  document.getElementById('username').value = '';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context3.next = 13;
+                break;
               }
 
-            case 4:
+              (0, _formController.checkFormSubmit)(document.getElementById('email'), document.getElementById('username'));
+
+              if (!(_formController.formStatus === 2)) {
+                _context3.next = 13;
+                break;
+              }
+
+              document.getElementById('btnUpdateEmailUsername').textContent = 'Updating...';
+              email = document.getElementById('email').value, username = document.getElementById('username').value;
+              _context3.next = 10;
+              return (0, _updateSettings.updateSettings)({
+                email: email,
+                username: username
+              }, 'email/username');
+
+            case 10:
+              document.getElementById('btnUpdateEmailUsername').textContent = 'Update';
+              document.getElementById('email').value = '';
+              document.getElementById('username').value = '';
+
+            case 13:
             case "end":
               return _context3.stop();
           }
@@ -29458,24 +29480,34 @@ if (updatePassForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('newPass'));
               (0, _attributeController.validateAttribute)(document.getElementById('confirmNewPass'));
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('currentPass'), document.getElementById('newPass'), document.getElementById('confirmNewPass'));
-
-                if (_formController.formStatus === 3) {
-                  document.getElementById('btnUpdatePass').textContent = 'Updating...';
-                  passwordCurrent = document.getElementById('currentPass').value, password = document.getElementById('newPass').value, passwordConfirm = document.getElementById('confirmNewPass').value; // await updateSettings(
-                  //   { passwordCurrent, password, passwordConfirm },
-                  //   'password'
-                  // );
-
-                  document.getElementById('btnUpdatePass').textContent = 'Update';
-                  document.getElementById('currentPass').value = '';
-                  document.getElementById('newPass').value = '';
-                  document.getElementById('confirmNewPass').value = '';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context4.next = 15;
+                break;
               }
 
-            case 5:
+              (0, _formController.checkFormSubmit)(document.getElementById('currentPass'), document.getElementById('newPass'), document.getElementById('confirmNewPass'));
+
+              if (!(_formController.formStatus === 3)) {
+                _context4.next = 15;
+                break;
+              }
+
+              document.getElementById('btnUpdatePass').textContent = 'Updating...';
+              passwordCurrent = document.getElementById('currentPass').value, password = document.getElementById('newPass').value, passwordConfirm = document.getElementById('confirmNewPass').value;
+              _context4.next = 11;
+              return (0, _updateSettings.updateSettings)({
+                passwordCurrent: passwordCurrent,
+                password: password,
+                passwordConfirm: passwordConfirm
+              }, 'password');
+
+            case 11:
+              document.getElementById('btnUpdatePass').textContent = 'Update';
+              document.getElementById('currentPass').value = '';
+              document.getElementById('newPass').value = '';
+              document.getElementById('confirmNewPass').value = '';
+
+            case 15:
             case "end":
               return _context4.stop();
           }
@@ -29636,57 +29668,66 @@ if (eoFieldlist1) {
                 (0, _attributeController.validateAttribute)(document.getElementById('showEventOwner'));
               }
 
-              if (_attributeController.attributeStatus) {
-                if (roleType === 'admin') {
-                  roleAmount = 2;
-                  (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'), document.getElementById('showPrivateVenue'), document.getElementById('showEventOwner'));
-                } else if (roleType === 'event-owner') {
-                  roleAmount = 1;
-                  (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
-                }
-
-                if (_formController.formStatus === roleAmount) {
-                  form = new FormData();
-                  title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
-                  selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectMpaa = document.getElementById('selectMpaa');
-                  originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-                  originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay), mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, contentType = selectContentType.options[selectContentType.selectedIndex].value;
-                  overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
-                  language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, genres = document.getElementById('showGenre').value;
-                  selectSpecialVenue = document.getElementById('showSpecialVenue');
-                  specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-                  specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
-                  poster = document.getElementById('showPhoto').files[0];
-                  document.getElementById('btnCreateShow').textContent = 'Creating...';
-                  form.append('title', title);
-                  form.append('duration', duration);
-                  form.append('originalReleaseDate', originalReleaseDate);
-                  form.append('mpaaRating', mpaaRating);
-                  form.append('contentType', contentType);
-                  form.append('overview', overview);
-                  form.append('synopsis', synopsis);
-                  form.append('language', language);
-                  form.append('subtitles', subtitles);
-                  form.append('genres', genres);
-                  form.append('specialVenue', specialVenue);
-                  form.append('price', price);
-                  form.append('poster', poster);
-
-                  if (roleType === 'admin') {
-                    selectPrivateVenue = document.getElementById('showPrivateVenue');
-                    privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
-                    secretShow = privateVenueValue === 'y' ? true : false;
-                    eventOrganizer = [document.getElementById('showEventOwner').value];
-                    form.append('secretShow', secretShow);
-                    form.append('eventOrganizer', eventOrganizer);
-                  } // await createShow(form, roleType);
-
-
-                  document.getElementById('btnCreateShow').textContent = 'Create';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context6.next = 38;
+                break;
               }
 
-            case 7:
+              if (roleType === 'admin') {
+                roleAmount = 2;
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'), document.getElementById('showPrivateVenue'), document.getElementById('showEventOwner'));
+              } else if (roleType === 'event-owner') {
+                roleAmount = 1;
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
+              }
+
+              if (!(_formController.formStatus === roleAmount)) {
+                _context6.next = 38;
+                break;
+              }
+
+              form = new FormData();
+              title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
+              selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear'), selectContentType = document.getElementById('showContentType'), selectMpaa = document.getElementById('selectMpaa');
+              originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+              originalReleaseDate = originalYear.concat('-', originalMonth, '-', originalDay), mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, contentType = selectContentType.options[selectContentType.selectedIndex].value;
+              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
+              language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value, genres = document.getElementById('showGenre').value;
+              selectSpecialVenue = document.getElementById('showSpecialVenue');
+              specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+              specialVenue = specialVenueValue === 'y' ? true : false, price = document.getElementById('showPrice').value;
+              poster = document.getElementById('showPhoto').files[0];
+              document.getElementById('btnCreateShow').textContent = 'Creating...';
+              form.append('title', title);
+              form.append('duration', duration);
+              form.append('originalReleaseDate', originalReleaseDate);
+              form.append('mpaaRating', mpaaRating);
+              form.append('contentType', contentType);
+              form.append('overview', overview);
+              form.append('synopsis', synopsis);
+              form.append('language', language);
+              form.append('subtitles', subtitles);
+              form.append('genres', genres);
+              form.append('specialVenue', specialVenue);
+              form.append('price', price);
+              form.append('poster', poster);
+
+              if (roleType === 'admin') {
+                selectPrivateVenue = document.getElementById('showPrivateVenue');
+                privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+                secretShow = privateVenueValue === 'y' ? true : false;
+                eventOrganizer = [document.getElementById('showEventOwner').value];
+                form.append('secretShow', secretShow);
+                form.append('eventOrganizer', eventOrganizer);
+              }
+
+              _context6.next = 37;
+              return (0, _login.createShow)(form, roleType);
+
+            case 37:
+              document.getElementById('btnCreateShow').textContent = 'Create';
+
+            case 38:
             case "end":
               return _context6.stop();
           }
@@ -29773,35 +29814,44 @@ if (adFieldlist1) {
               (0, _attributeController.validateAttribute)(document.getElementById('theaterChainName'));
               (0, _attributeController.validateAttribute)(document.getElementById('theaterChainLogo'));
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'), document.getElementById('theaterChainLogo'));
-
-                if (_formController.formStatus === 0) {
-                  form = new FormData();
-                  name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value, address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), description = document.getElementById('theaterDescription').value, chainName = document.getElementById('theaterChainName').value; // chainCode = document.getElementById('theaterChainCode').value;
-
-                  geo = JSON.stringify([geoLong, geoLat]);
-                  photo = document.getElementById('theaterPhoto').files[0], chainLogo = document.getElementById('theaterChainLogo').files[0];
-                  document.getElementById('btnCreateTheater').textContent = 'Creating...';
-                  form.append('name', name);
-                  form.append('phone', phone);
-                  form.append('linkUrl', linkUrl);
-                  form.append('address', address);
-                  form.append('city', city);
-                  form.append('state', state);
-                  form.append('zipCode', zipCode);
-                  form.append('geo', geo);
-                  form.append('description', description);
-                  form.append('chainName', chainName); // form.append('chainCode', chainCode);
-
-                  form.append('theaterPhoto', photo);
-                  form.append('chainPhoto', chainLogo); // await createTheater(form);
-
-                  document.getElementById('btnCreateTheater').textContent = 'Create';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context7.next = 26;
+                break;
               }
 
-            case 4:
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'), document.getElementById('theaterChainLogo'));
+
+              if (!(_formController.formStatus === 0)) {
+                _context7.next = 26;
+                break;
+              }
+
+              form = new FormData();
+              name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value, address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), description = document.getElementById('theaterDescription').value, chainName = document.getElementById('theaterChainName').value; // chainCode = document.getElementById('theaterChainCode').value;
+
+              geo = JSON.stringify([geoLong, geoLat]);
+              photo = document.getElementById('theaterPhoto').files[0], chainLogo = document.getElementById('theaterChainLogo').files[0];
+              document.getElementById('btnCreateTheater').textContent = 'Creating...';
+              form.append('name', name);
+              form.append('phone', phone);
+              form.append('linkUrl', linkUrl);
+              form.append('address', address);
+              form.append('city', city);
+              form.append('state', state);
+              form.append('zipCode', zipCode);
+              form.append('geo', geo);
+              form.append('description', description);
+              form.append('chainName', chainName); // form.append('chainCode', chainCode);
+
+              form.append('theaterPhoto', photo);
+              form.append('chainPhoto', chainLogo);
+              _context7.next = 25;
+              return (0, _login.createTheater)(form);
+
+            case 25:
+              document.getElementById('btnCreateTheater').textContent = 'Create';
+
+            case 26:
             case "end":
               return _context7.stop();
           }
@@ -29836,23 +29886,37 @@ if (adCreateShowtimeForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('showtimeEndMinute'));
               (0, _attributeController.validateAttribute)(document.getElementById('showtimeEndSecond'));
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('showtimeShow'), document.getElementById('showtimeTheater'), document.getElementById('showtimeStartMonth'), document.getElementById('showtimeStartDay'), document.getElementById('showtimeStartYear'), document.getElementById('showtimeStartHour'), document.getElementById('showtimeStartMinute'), document.getElementById('showtimeStartSecond'), document.getElementById('showtimeEndHour'), document.getElementById('showtimeEndMinute'), document.getElementById('showtimeEndSecond'));
-
-                if (_formController.formStatus === 11) {
-                  shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
-                  selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
-                  startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
-                  startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)).toISOString(), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)).toISOString(); // const startDateTime = startYear.concat('-', startMonth, '-', startDay, ''),
-                  //   endDateTime = endYear.concat('-', endMonth, '-', endDay);
-
-                  document.getElementById('btnCreateShowtime').textContent = 'Creating...'; // await createShowtime({ shows, theaters, startDateTime, endDateTime });
-
-                  document.getElementById('btnCreateShowtime').textContent = 'Create';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context8.next = 23;
+                break;
               }
 
-            case 13:
+              (0, _formController.checkFormSubmit)(document.getElementById('showtimeShow'), document.getElementById('showtimeTheater'), document.getElementById('showtimeStartMonth'), document.getElementById('showtimeStartDay'), document.getElementById('showtimeStartYear'), document.getElementById('showtimeStartHour'), document.getElementById('showtimeStartMinute'), document.getElementById('showtimeStartSecond'), document.getElementById('showtimeEndHour'), document.getElementById('showtimeEndMinute'), document.getElementById('showtimeEndSecond'));
+
+              if (!(_formController.formStatus === 11)) {
+                _context8.next = 23;
+                break;
+              }
+
+              shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
+              selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
+              startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
+              startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)).toISOString(), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)).toISOString(); // const startDateTime = startYear.concat('-', startMonth, '-', startDay, ''),
+              //   endDateTime = endYear.concat('-', endMonth, '-', endDay);
+
+              document.getElementById('btnCreateShowtime').textContent = 'Creating...';
+              _context8.next = 22;
+              return (0, _login.createShowtime)({
+                shows: shows,
+                theaters: theaters,
+                startDateTime: startDateTime,
+                endDateTime: endDateTime
+              });
+
+            case 22:
+              document.getElementById('btnCreateShowtime').textContent = 'Create';
+
+            case 23:
             case "end":
               return _context8.stop();
           }
@@ -29902,33 +29966,42 @@ if (adCreateCastCrewFieldlist1) {
               (0, _attributeController.validateAttribute)(document.getElementById('biography'));
               (0, _attributeController.validateAttribute)(document.getElementById('photo'));
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('photo'));
-
-                if (_formController.formStatus === 1) {
-                  form = new FormData();
-                  name = document.getElementById('name').value, rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
-                  roles = JSON.stringify(rolesVal.split(', '));
-                  birthMonth = document.getElementById('selectBirthMonth');
-                  birthDay = document.getElementById('selectBirthDay');
-                  birthYear = document.getElementById('selectBirthYear');
-                  birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-                  birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-                  birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-                  birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-                  photo = document.getElementById('photo').files[0];
-                  document.getElementById('btnCreateCastCrew').textContent = 'Creating...';
-                  form.append('name', name);
-                  form.append('roles', roles);
-                  form.append('biography', biography);
-                  form.append('birthdate', birthdate);
-                  form.append('photo', photo); // await createCastCrew(form);
-
-                  document.getElementById('btnCreateCastCrew').textContent = 'Create';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context9.next = 26;
+                break;
               }
 
-            case 4:
+              (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('photo'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context9.next = 26;
+                break;
+              }
+
+              form = new FormData();
+              name = document.getElementById('name').value, rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
+              roles = JSON.stringify(rolesVal.split(', '));
+              birthMonth = document.getElementById('selectBirthMonth');
+              birthDay = document.getElementById('selectBirthDay');
+              birthYear = document.getElementById('selectBirthYear');
+              birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+              birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+              birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+              birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+              photo = document.getElementById('photo').files[0];
+              document.getElementById('btnCreateCastCrew').textContent = 'Creating...';
+              form.append('name', name);
+              form.append('roles', roles);
+              form.append('biography', biography);
+              form.append('birthdate', birthdate);
+              form.append('photo', photo);
+              _context9.next = 25;
+              return (0, _login.createCastCrew)(form);
+
+            case 25:
+              document.getElementById('btnCreateCastCrew').textContent = 'Create';
+
+            case 26:
             case "end":
               return _context9.stop();
           }
@@ -29963,40 +30036,49 @@ if (updateShowMainView) {
               if (roleType === 'admin') (0, _attributeController.validateAttribute)(document.getElementById('showEventOwner'));
               (0, _attributeController.validateAttribute)(updateShowDataBtn, showId);
 
-              if (_attributeController.attributeStatus) {
-                roleAmount = -100;
-
-                if (roleType === 'admin') {
-                  roleAmount = 7;
-                  (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showDuration'), document.getElementById('showEventOwner'));
-                } else if (roleType === 'event-owner') {
-                  roleAmount = 6;
-                  (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showDuration'));
-                }
-
-                if (_formController.formStatus === roleAmount) {
-                  form = new FormData();
-                  selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear');
-                  originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-                  mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
-                  title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
-                  document.getElementById('btnUpdateShowData').textContent = 'Updating...';
-                  form.append('title', title);
-                  form.append('duration', duration);
-                  form.append('mpaaRating', mpaaRating);
-                  form.append('originalReleaseDate', originalReleaseDate);
-
-                  if (roleType === 'admin') {
-                    eventOrganizer = [document.getElementById('showEventOwner').value];
-                    form.append('eventOrganizer', eventOrganizer);
-                  } // await updateShowSettings(form, 'setting', showId, roleType);
-
-
-                  document.getElementById('btnUpdateShowData').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context10.next = 29;
+                break;
               }
 
-            case 12:
+              roleAmount = -100;
+
+              if (roleType === 'admin') {
+                roleAmount = 7;
+                (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showDuration'), document.getElementById('showEventOwner'));
+              } else if (roleType === 'event-owner') {
+                roleAmount = 6;
+                (0, _formController.checkFormSubmit)(document.getElementById('showTitle'), document.getElementById('selectMpaa'), document.getElementById('showOriginalMonth'), document.getElementById('showOriginalDay'), document.getElementById('showOriginalYear'), document.getElementById('showDuration'));
+              }
+
+              if (!(_formController.formStatus === roleAmount)) {
+                _context10.next = 29;
+                break;
+              }
+
+              form = new FormData();
+              selectMpaa = document.getElementById('selectMpaa'), selectOriginalMonth = document.getElementById('showOriginalMonth'), selectOriginalDay = document.getElementById('showOriginalDay'), selectOriginalYear = document.getElementById('showOriginalYear');
+              originalMonth = selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value, originalDay = selectOriginalDay.options[selectOriginalDay.selectedIndex].value, originalYear = selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+              mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value, originalReleaseDate = [originalYear.concat('-', originalMonth, '-', originalDay)];
+              title = document.getElementById('showTitle').value, duration = document.getElementById('showDuration').value;
+              document.getElementById('btnUpdateShowData').textContent = 'Updating...';
+              form.append('title', title);
+              form.append('duration', duration);
+              form.append('mpaaRating', mpaaRating);
+              form.append('originalReleaseDate', originalReleaseDate);
+
+              if (roleType === 'admin') {
+                eventOrganizer = [document.getElementById('showEventOwner').value];
+                form.append('eventOrganizer', eventOrganizer);
+              }
+
+              _context10.next = 28;
+              return (0, _updateSettings.updateShowSettings)(form, 'setting', showId, roleType);
+
+            case 28:
+              document.getElementById('btnUpdateShowData').textContent = 'Update';
+
+            case 29:
             case "end":
               return _context10.stop();
           }
@@ -30025,21 +30107,30 @@ if (updateShowPoster) {
               (0, _attributeController.validateAttribute)(document.getElementById('showPhoto'));
               (0, _attributeController.validateAttribute)(updateShowPosterBtn, showId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('showPhoto'));
-
-                if (_formController.formStatus === 1) {
-                  form = new FormData();
-                  poster = document.getElementById('showPhoto').files[0], posterUrlArr = document.getElementById('posterSource').src.split('/');
-                  posterParams = posterUrlArr[posterUrlArr.length - 1];
-                  document.getElementById('btnUpdateShowPoster').textContent = 'Updating...';
-                  form.append('poster', poster); // await updateShowSettings(form, 'poster', showId, roleType, posterParams);
-
-                  document.getElementById('btnUpdateShowPoster').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context11.next = 16;
+                break;
               }
 
-            case 6:
+              (0, _formController.checkFormSubmit)(document.getElementById('showPhoto'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context11.next = 16;
+                break;
+              }
+
+              form = new FormData();
+              poster = document.getElementById('showPhoto').files[0], posterUrlArr = document.getElementById('posterSource').src.split('/');
+              posterParams = posterUrlArr[posterUrlArr.length - 1];
+              document.getElementById('btnUpdateShowPoster').textContent = 'Updating...';
+              form.append('poster', poster);
+              _context11.next = 15;
+              return (0, _updateSettings.updateShowSettings)(form, 'poster', showId, roleType, posterParams);
+
+            case 15:
+              document.getElementById('btnUpdateShowPoster').textContent = 'Update';
+
+            case 16:
             case "end":
               return _context11.stop();
           }
@@ -30069,18 +30160,30 @@ if (updateShowPlot) {
               (0, _attributeController.validateAttribute)(document.getElementById('showSynopsis'));
               (0, _attributeController.validateAttribute)(updateShowPlotBtn, showId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('showOverview'), document.getElementById('showSynopsis'));
-
-                if (_formController.formStatus === 1) {
-                  overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
-                  document.getElementById('btnUpdateShowPlot').textContent = 'Updating...'; // await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
-
-                  document.getElementById('btnUpdateShowPlot').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context12.next = 14;
+                break;
               }
 
-            case 7:
+              (0, _formController.checkFormSubmit)(document.getElementById('showOverview'), document.getElementById('showSynopsis'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context12.next = 14;
+                break;
+              }
+
+              overview = document.getElementById('showOverview').value, synopsis = document.getElementById('showSynopsis').value;
+              document.getElementById('btnUpdateShowPlot').textContent = 'Updating...';
+              _context12.next = 13;
+              return (0, _updateSettings.updateShowSettings)({
+                overview: overview,
+                synopsis: synopsis
+              }, 'plot', showId, roleType);
+
+            case 13:
+              document.getElementById('btnUpdateShowPlot').textContent = 'Update';
+
+            case 14:
             case "end":
               return _context12.stop();
           }
@@ -30109,18 +30212,26 @@ if (updateShowCastCrewForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('showCastCrew'));
               (0, _attributeController.validateAttribute)(updateShowCastCrewBtn, showId);
 
-              if (_attributeController.attributeStatus) {
-                castcrewValue = document.getElementById('showCastCrew').value;
-                castcrewValue = castcrewValue.replace(/ /g, '');
-                castcrewValue = castcrewValue.replace(/,$/g, '');
-                castcrewValue = castcrewValue.replace(/;$/g, '');
-                castcrew = castcrewValue.split(',');
-                document.getElementById('btnUpdateShowCastCrew').textContent = 'Updating...'; // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
-
-                document.getElementById('btnUpdateShowCastCrew').textContent = 'Update';
+              if (!_attributeController.attributeStatus) {
+                _context13.next = 15;
+                break;
               }
 
-            case 6:
+              castcrewValue = document.getElementById('showCastCrew').value;
+              castcrewValue = castcrewValue.replace(/ /g, '');
+              castcrewValue = castcrewValue.replace(/,$/g, '');
+              castcrewValue = castcrewValue.replace(/;$/g, '');
+              castcrew = castcrewValue.split(',');
+              document.getElementById('btnUpdateShowCastCrew').textContent = 'Updating...';
+              _context13.next = 14;
+              return (0, _updateSettings.updateShowSettings)({
+                castcrew: castcrew
+              }, 'casts/crews', showId, roleType);
+
+            case 14:
+              document.getElementById('btnUpdateShowCastCrew').textContent = 'Update';
+
+            case 15:
             case "end":
               return _context13.stop();
           }
@@ -30152,25 +30263,34 @@ if (updateShowAddl) {
               (0, _attributeController.validateAttribute)(document.getElementById('showSubtitles'));
               (0, _attributeController.validateAttribute)(updateShowAddlBtn, showId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('showContentType'), document.getElementById('showGenre'), document.getElementById('showLanguage'), document.getElementById('showSubtitles'));
-
-                if (_formController.formStatus === 1) {
-                  selectContentType = document.getElementById('showContentType');
-                  contentType = selectContentType.options[selectContentType.selectedIndex].value;
-                  genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value;
-                  document.getElementById('btnUpdateShowAddl').textContent = 'Updating...'; // await updateShowSettings(
-                  //   { genres, language, subtitles, contentType },
-                  //   "add'l info",
-                  //   showId,
-                  //   roleType
-                  // );
-
-                  document.getElementById('btnUpdateShowAddl').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context14.next = 18;
+                break;
               }
 
-            case 9:
+              (0, _formController.checkFormSubmit)(document.getElementById('showContentType'), document.getElementById('showGenre'), document.getElementById('showLanguage'), document.getElementById('showSubtitles'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context14.next = 18;
+                break;
+              }
+
+              selectContentType = document.getElementById('showContentType');
+              contentType = selectContentType.options[selectContentType.selectedIndex].value;
+              genres = document.getElementById('showGenre').value, language = document.getElementById('showLanguage').value, subtitles = document.getElementById('showSubtitles').value;
+              document.getElementById('btnUpdateShowAddl').textContent = 'Updating...';
+              _context14.next = 17;
+              return (0, _updateSettings.updateShowSettings)({
+                genres: genres,
+                language: language,
+                subtitles: subtitles,
+                contentType: contentType
+              }, "add'l info", showId, roleType);
+
+            case 17:
+              document.getElementById('btnUpdateShowAddl').textContent = 'Update';
+
+            case 18:
             case "end":
               return _context14.stop();
           }
@@ -30201,41 +30321,50 @@ if (updateShowPrice) {
               if (roleType === 'admin') (0, _attributeController.validateAttribute)(document.getElementById('showPrivateVenue'));
               (0, _attributeController.validateAttribute)(updateShowPriceBtn, showId);
 
-              if (_attributeController.attributeStatus) {
-                roleAmount = -100;
-
-                if (roleType === 'admin') {
-                  roleAmount = 1;
-                  (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'), document.getElementById('showPrivateVenue'));
-                } else if (roleType === 'event-owner') {
-                  roleAmount = 1;
-                  (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
-                }
-
-                if (_formController.formStatus === roleAmount) {
-                  selectSpecialVenue = document.getElementById('showSpecialVenue');
-                  specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-                  specialVenue = specialVenueValue === 'y' ? true : false;
-                  price = document.getElementById('showPrice').value, _updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
-                  _updateShowPriceBtn$d2 = _updateShowPriceBtn.dataset, _showId = _updateShowPriceBtn$d2.showId, _roleType = _updateShowPriceBtn$d2.roleType;
-                  data = {};
-                  data.price = price;
-                  data.specialVenue = specialVenue;
-
-                  if (_roleType === 'admin') {
-                    selectPrivateVenue = document.getElementById('showPrivateVenue');
-                    privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
-                    secretShow = privateVenueValue === 'y' ? true : false;
-                    data.secretShow = secretShow;
-                  }
-
-                  document.getElementById('btnUpdateShowPrice').textContent = 'Updating'; // await updateShowSettings(data, 'pricing', showId, roleType);
-
-                  document.getElementById('btnUpdateShowPrice').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context15.next = 24;
+                break;
               }
 
-            case 8:
+              roleAmount = -100;
+
+              if (roleType === 'admin') {
+                roleAmount = 1;
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'), document.getElementById('showPrivateVenue'));
+              } else if (roleType === 'event-owner') {
+                roleAmount = 1;
+                (0, _formController.checkFormSubmit)(document.getElementById('showPrice'), document.getElementById('showSpecialVenue'));
+              }
+
+              if (!(_formController.formStatus === roleAmount)) {
+                _context15.next = 24;
+                break;
+              }
+
+              selectSpecialVenue = document.getElementById('showSpecialVenue');
+              specialVenueValue = selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+              specialVenue = specialVenueValue === 'y' ? true : false;
+              price = document.getElementById('showPrice').value, _updateShowPriceBtn = document.getElementById('btnUpdateShowPrice');
+              _updateShowPriceBtn$d2 = _updateShowPriceBtn.dataset, _showId = _updateShowPriceBtn$d2.showId, _roleType = _updateShowPriceBtn$d2.roleType;
+              data = {};
+              data.price = price;
+              data.specialVenue = specialVenue;
+
+              if (_roleType === 'admin') {
+                selectPrivateVenue = document.getElementById('showPrivateVenue');
+                privateVenueValue = selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+                secretShow = privateVenueValue === 'y' ? true : false;
+                data.secretShow = secretShow;
+              }
+
+              document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
+              _context15.next = 23;
+              return (0, _updateSettings.updateShowSettings)(data, 'pricing', _showId, _roleType);
+
+            case 23:
+              document.getElementById('btnUpdateShowPrice').textContent = 'Update';
+
+            case 24:
             case "end":
               return _context15.stop();
           }
@@ -30264,19 +30393,31 @@ if (updateReview) {
               (0, _attributeController.validateAttribute)(document.getElementById('reviewRating'));
               (0, _attributeController.validateAttribute)(document.getElementById('review'));
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
-
-                if (_formController.formStatus === 2) {
-                  showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
-                  rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value;
-                  document.getElementById('btnUpdateReviewData').textContent = 'Updating...'; // await updateReviewSettings({ review, rating }, showId, showTitle);
-
-                  document.getElementById('btnUpdateReviewData').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context16.next = 15;
+                break;
               }
 
-            case 7:
+              (0, _formController.checkFormSubmit)(document.getElementById('reviewRating'), document.getElementById('review'));
+
+              if (!(_formController.formStatus === 2)) {
+                _context16.next = 15;
+                break;
+              }
+
+              showTitle = document.getElementById('reviewShowTitle').placeholder.split(' ')[2];
+              rating = document.getElementById('reviewRating').value, review = document.getElementById('review').value;
+              document.getElementById('btnUpdateReviewData').textContent = 'Updating...';
+              _context16.next = 14;
+              return (0, _updateSettings.updateReviewSettings)({
+                review: review,
+                rating: rating
+              }, showId, showTitle);
+
+            case 14:
+              document.getElementById('btnUpdateReviewData').textContent = 'Update';
+
+            case 15:
             case "end":
               return _context16.stop();
           }
@@ -30306,18 +30447,31 @@ if (updateTheaterMainView) {
               (0, _attributeController.validateAttribute)(document.getElementById('theaterLinkUrl'));
               (0, _attributeController.validateAttribute)(updateTheaterDataBtn, theaterId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('theaterName'), document.getElementById('theaterPhone'), document.getElementById('theaterLinkUrl'));
-
-                if (_formController.formStatus === 2) {
-                  name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value;
-                  document.getElementById('btnUpdateTheaterData').textContent = 'Updating...'; // await updateTheaterSettings({ name, phone, linkUrl }, 'data', theaterId);
-
-                  document.getElementById('btnUpdateTheaterData').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context17.next = 15;
+                break;
               }
 
-            case 8:
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterName'), document.getElementById('theaterPhone'), document.getElementById('theaterLinkUrl'));
+
+              if (!(_formController.formStatus === 2)) {
+                _context17.next = 15;
+                break;
+              }
+
+              name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value;
+              document.getElementById('btnUpdateTheaterData').textContent = 'Updating...';
+              _context17.next = 14;
+              return (0, _updateSettings.updateTheaterSettings)({
+                name: name,
+                phone: phone,
+                linkUrl: linkUrl
+              }, 'data', theaterId);
+
+            case 14:
+              document.getElementById('btnUpdateTheaterData').textContent = 'Update';
+
+            case 15:
             case "end":
               return _context17.stop();
           }
@@ -30345,28 +30499,31 @@ if (updateTheaterPhoto) {
               (0, _attributeController.validateAttribute)(document.getElementById('theaterPhoto'));
               (0, _attributeController.validateAttribute)(updateTheaterDataBtn, theaterId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('theaterPhoto'));
-
-                if (_formController.formStatus === 1) {
-                  form = new FormData();
-                  photo = document.getElementById('theaterPhoto').files[0];
-                  photoUrlArr = document.getElementById('photoSource').src.split('/');
-                  photoParams = photoUrlArr[photoUrlArr.length - 1];
-                  document.getElementById('btnUpdateTheaterPhoto').textContent = 'Updating...';
-                  form.append('photo', photo); // await updateTheaterSettings(
-                  //   form,
-                  //   'data',
-                  //   theaterId,
-                  //   photoParams,
-                  //   'theaterPhoto'
-                  // );
-
-                  document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context18.next = 17;
+                break;
               }
 
-            case 6:
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterPhoto'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context18.next = 17;
+                break;
+              }
+
+              form = new FormData();
+              photo = document.getElementById('theaterPhoto').files[0];
+              photoUrlArr = document.getElementById('photoSource').src.split('/');
+              photoParams = photoUrlArr[photoUrlArr.length - 1];
+              document.getElementById('btnUpdateTheaterPhoto').textContent = 'Updating...';
+              form.append('photo', photo);
+              _context18.next = 16;
+              return (0, _updateSettings.updateTheaterSettings)(form, 'data', theaterId, photoParams, 'theaterPhoto');
+
+            case 16:
+              document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update';
+
+            case 17:
             case "end":
               return _context18.stop();
           }
@@ -30399,25 +30556,34 @@ if (updateTheaterLocation) {
               (0, _attributeController.validateAttribute)(document.getElementById('theaterGeoLat'));
               (0, _attributeController.validateAttribute)(updateTheaterLocationBtn, theaterId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('theaterAddress'), document.getElementById('theaterCity'), document.getElementById('theaterState'), document.getElementById('theaterZipCode'), document.getElementById('theaterGeoLong'), document.getElementById('theaterGeoLat'));
-
-                if (_formController.formStatus === 6) {
-                  form = new FormData();
-                  address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value);
-                  geo = JSON.stringify([geoLong, geoLat]);
-                  document.getElementById('btnUpdateTheaterLocation').textContent = 'Updating...';
-                  form.append('address', address);
-                  form.append('city', city);
-                  form.append('state', state);
-                  form.append('zipCode', zipCode);
-                  form.append('geo', geo); // await updateTheaterSettings(form, 'location', theaterId);
-
-                  document.getElementById('btnUpdateTheaterLocation').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context19.next = 25;
+                break;
               }
 
-            case 11:
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterAddress'), document.getElementById('theaterCity'), document.getElementById('theaterState'), document.getElementById('theaterZipCode'), document.getElementById('theaterGeoLong'), document.getElementById('theaterGeoLat'));
+
+              if (!(_formController.formStatus === 6)) {
+                _context19.next = 25;
+                break;
+              }
+
+              form = new FormData();
+              address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value);
+              geo = JSON.stringify([geoLong, geoLat]);
+              document.getElementById('btnUpdateTheaterLocation').textContent = 'Updating...';
+              form.append('address', address);
+              form.append('city', city);
+              form.append('state', state);
+              form.append('zipCode', zipCode);
+              form.append('geo', geo);
+              _context19.next = 24;
+              return (0, _updateSettings.updateTheaterSettings)(form, 'location', theaterId);
+
+            case 24:
+              document.getElementById('btnUpdateTheaterLocation').textContent = 'Update';
+
+            case 25:
             case "end":
               return _context19.stop();
           }
@@ -30447,24 +30613,33 @@ if (updateTheaterAddl) {
               (0, _attributeController.validateAttribute)(document.getElementById('theaterShowTimes'));
               (0, _attributeController.validateAttribute)(updateTheaterAddlBtn, theaterId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('theaterDescription'), document.getElementById('theaterTicket'), document.getElementById('theaterShowTimes'));
-
-                if (_formController.formStatus === 0) {
-                  description = document.getElementById('theaterDescription').value, ticketingSelect = document.getElementById('theaterTicket'), showtimesSelect = document.getElementById('theaterShowTimes');
-                  ticketingVal = ticketingSelect.options[ticketingSelect.selectedIndex].value, showtimesVal = showtimesSelect.options[showtimesSelect.selectedIndex].value;
-                  isTicketing = ticketingVal === 'y' ? true : false, hasShowTimes = showtimesVal === 'y' ? true : false;
-                  document.getElementById('btnUpdateTheaterAddl').textContent = 'Updating...'; // await updateTheaterSettings(
-                  //   { description, isTicketing, hasShowTimes },
-                  //   "add'l info",
-                  //   theaterId
-                  // );
-
-                  document.getElementById('btnUpdateTheaterAddl').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context20.next = 17;
+                break;
               }
 
-            case 8:
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterDescription'), document.getElementById('theaterTicket'), document.getElementById('theaterShowTimes'));
+
+              if (!(_formController.formStatus === 0)) {
+                _context20.next = 17;
+                break;
+              }
+
+              description = document.getElementById('theaterDescription').value, ticketingSelect = document.getElementById('theaterTicket'), showtimesSelect = document.getElementById('theaterShowTimes');
+              ticketingVal = ticketingSelect.options[ticketingSelect.selectedIndex].value, showtimesVal = showtimesSelect.options[showtimesSelect.selectedIndex].value;
+              isTicketing = ticketingVal === 'y' ? true : false, hasShowTimes = showtimesVal === 'y' ? true : false;
+              document.getElementById('btnUpdateTheaterAddl').textContent = 'Updating...';
+              _context20.next = 16;
+              return (0, _updateSettings.updateTheaterSettings)({
+                description: description,
+                isTicketing: isTicketing,
+                hasShowTimes: hasShowTimes
+              }, "add'l info", theaterId);
+
+            case 16:
+              document.getElementById('btnUpdateTheaterAddl').textContent = 'Update';
+
+            case 17:
             case "end":
               return _context20.stop();
           }
@@ -30493,29 +30668,32 @@ if (updateTheaterChain) {
               (0, _attributeController.validateAttribute)(document.getElementById('theaterChainLogo'));
               (0, _attributeController.validateAttribute)(updateTheaterChainBtn, theaterId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'), document.getElementById('theaterChainLogo'));
-
-                if (_formController.formStatus === 0) {
-                  form = new FormData();
-                  chainName = document.getElementById('theaterChainName').value, chainLogo = document.getElementById('theaterChainLogo').files[0];
-                  photoUrlArr = document.getElementById('chainLogo').src.split('/');
-                  photoParams = photoUrlArr[photoUrlArr.length - 1];
-                  document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';
-                  form.append('chainName', chainName);
-                  form.append('photo', chainLogo); // await updateTheaterSettings(
-                  //   form,
-                  //   'chain',
-                  //   theaterId,
-                  //   photoParams,
-                  //   'chainLogo'
-                  // );
-
-                  document.getElementById('btnUpdateTheaterChain').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context21.next = 19;
+                break;
               }
 
-            case 7:
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'), document.getElementById('theaterChainLogo'));
+
+              if (!(_formController.formStatus === 0)) {
+                _context21.next = 19;
+                break;
+              }
+
+              form = new FormData();
+              chainName = document.getElementById('theaterChainName').value, chainLogo = document.getElementById('theaterChainLogo').files[0];
+              photoUrlArr = document.getElementById('chainLogo').src.split('/');
+              photoParams = photoUrlArr[photoUrlArr.length - 1];
+              document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';
+              form.append('chainName', chainName);
+              form.append('photo', chainLogo);
+              _context21.next = 18;
+              return (0, _updateSettings.updateTheaterSettings)(form, 'chain', theaterId, photoParams, 'chainLogo');
+
+            case 18:
+              document.getElementById('btnUpdateTheaterChain').textContent = 'Update';
+
+            case 19:
             case "end":
               return _context21.stop();
           }
@@ -30551,24 +30729,32 @@ if (updateShowtimeMainView) {
               (0, _attributeController.validateAttribute)(document.getElementById('showtimeEndSecond'));
               (0, _attributeController.validateAttribute)(updateShowtimeDataBtn, showtimeId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('showtimeStartMonth'), document.getElementById('showtimeStartDay'), document.getElementById('showtimeStartYear'), document.getElementById('showtimeStartHour'), document.getElementById('showtimeStartMinute'), document.getElementById('showtimeStartSecond'), document.getElementById('showtimeEndHour'), document.getElementById('showtimeEndMinute'), document.getElementById('showtimeEndSecond'));
-
-                if (_formController.formStatus === 9) {
-                  selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
-                  startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
-                  startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)).toISOString(), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)).toISOString();
-                  document.getElementById('btnUpdateShowtimeData').textContent = 'Updating...'; // await updateShowtimeSettings(
-                  //   { startDateTime, endDateTime },
-                  //   'data',
-                  //   showtimeId
-                  // );
-
-                  document.getElementById('btnUpdateShowtimeData').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context22.next = 23;
+                break;
               }
 
-            case 14:
+              (0, _formController.checkFormSubmit)(document.getElementById('showtimeStartMonth'), document.getElementById('showtimeStartDay'), document.getElementById('showtimeStartYear'), document.getElementById('showtimeStartHour'), document.getElementById('showtimeStartMinute'), document.getElementById('showtimeStartSecond'), document.getElementById('showtimeEndHour'), document.getElementById('showtimeEndMinute'), document.getElementById('showtimeEndSecond'));
+
+              if (!(_formController.formStatus === 9)) {
+                _context22.next = 23;
+                break;
+              }
+
+              selectStartMonth = document.getElementById('showtimeStartMonth'), selectStartDay = document.getElementById('showtimeStartDay'), selectStartYear = document.getElementById('showtimeStartYear'), selectStartHour = document.getElementById('showtimeStartHour'), selectStartMinute = document.getElementById('showtimeStartMinute'), selectStartSecond = document.getElementById('showtimeStartSecond'), selectEndHour = document.getElementById('showtimeEndHour'), selectEndMinute = document.getElementById('showtimeEndMinute'), selectEndSecond = document.getElementById('showtimeEndSecond');
+              startMonth = selectStartMonth.options[selectStartMonth.selectedIndex].value, startDay = selectStartDay.options[selectStartDay.selectedIndex].value, startYear = selectStartYear.options[selectStartYear.selectedIndex].value, startHour = selectStartHour.options[selectStartHour.selectedIndex].value, startMinute = selectStartMinute.options[selectStartMinute.selectedIndex].value, startSecond = selectStartSecond.options[selectStartSecond.selectedIndex].value, endHour = selectEndHour.options[selectEndHour.selectedIndex].value, endMinute = selectEndMinute.options[selectEndMinute.selectedIndex].value, endSecond = selectEndSecond.options[selectEndSecond.selectedIndex].value;
+              startDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(startHour, ":").concat(startMinute, ":").concat(startSecond)).toISOString(), endDateTime = new Date("".concat(startYear, "-").concat(startMonth, "-").concat(startDay, " ").concat(endHour, ":").concat(endMinute, ":").concat(endSecond)).toISOString();
+              document.getElementById('btnUpdateShowtimeData').textContent = 'Updating...';
+              _context22.next = 22;
+              return (0, _updateSettings.updateShowtimeSettings)({
+                startDateTime: startDateTime,
+                endDateTime: endDateTime
+              }, 'data', showtimeId);
+
+            case 22:
+              document.getElementById('btnUpdateShowtimeData').textContent = 'Update';
+
+            case 23:
             case "end":
               return _context22.stop();
           }
@@ -30597,18 +30783,30 @@ if (updateShowtimeAddl) {
               (0, _attributeController.validateAttribute)(document.getElementById('showtimeTheater'));
               (0, _attributeController.validateAttribute)(updateShowtimeAddlBtn, showtimeId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('showtimeShow'), document.getElementById('showtimeTheater'));
-
-                if (_formController.formStatus === 2) {
-                  shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
-                  document.getElementById('btnUpdateShowtimeAddl').textContent = 'Updating...'; // await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
-
-                  document.getElementById('btnUpdateShowtimeAddl').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context23.next = 14;
+                break;
               }
 
-            case 7:
+              (0, _formController.checkFormSubmit)(document.getElementById('showtimeShow'), document.getElementById('showtimeTheater'));
+
+              if (!(_formController.formStatus === 2)) {
+                _context23.next = 14;
+                break;
+              }
+
+              shows = document.getElementById('showtimeShow').value, theaters = document.getElementById('showtimeTheater').value;
+              document.getElementById('btnUpdateShowtimeAddl').textContent = 'Updating...';
+              _context23.next = 13;
+              return (0, _updateSettings.updateShowtimeSettings)({
+                shows: shows,
+                theaters: theaters
+              }, "add'l info", showtimeId);
+
+            case 13:
+              document.getElementById('btnUpdateShowtimeAddl').textContent = 'Update';
+
+            case 14:
             case "end":
               return _context23.stop();
           }
@@ -30638,28 +30836,37 @@ if (updateCastCrewMainView) {
               (0, _attributeController.validateAttribute)(document.getElementById('selectBirthYear'));
               (0, _attributeController.validateAttribute)(document.getElementById('btnUpdateCastCrewData'), castcrewId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'));
-
-                if (_formController.formStatus === 4) {
-                  form = new FormData();
-                  name = document.getElementById('name').value;
-                  birthMonth = document.getElementById('selectBirthMonth');
-                  birthDay = document.getElementById('selectBirthDay');
-                  birthYear = document.getElementById('selectBirthYear');
-                  birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
-                  birthDayVal = birthDay.options[birthDay.selectedIndex].value;
-                  birthYearVal = birthYear.options[birthYear.selectedIndex].value;
-                  birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
-                  document.getElementById('btnUpdateCastCrewData').textContent = 'Updating...';
-                  form.append('name', name);
-                  form.append('birthdate', birthdate); // await updateCastCrewSettings(form, 'data', castcrewId);
-
-                  document.getElementById('btnUpdateCastCrewData').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context24.next = 25;
+                break;
               }
 
-            case 8:
+              (0, _formController.checkFormSubmit)(document.getElementById('name'), document.getElementById('selectBirthMonth'), document.getElementById('selectBirthDay'), document.getElementById('selectBirthYear'));
+
+              if (!(_formController.formStatus === 4)) {
+                _context24.next = 25;
+                break;
+              }
+
+              form = new FormData();
+              name = document.getElementById('name').value;
+              birthMonth = document.getElementById('selectBirthMonth');
+              birthDay = document.getElementById('selectBirthDay');
+              birthYear = document.getElementById('selectBirthYear');
+              birthMonthVal = birthMonth.options[birthMonth.selectedIndex].value;
+              birthDayVal = birthDay.options[birthDay.selectedIndex].value;
+              birthYearVal = birthYear.options[birthYear.selectedIndex].value;
+              birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
+              document.getElementById('btnUpdateCastCrewData').textContent = 'Updating...';
+              form.append('name', name);
+              form.append('birthdate', birthdate);
+              _context24.next = 24;
+              return (0, _updateSettings.updateCastCrewSettings)(form, 'data', castcrewId);
+
+            case 24:
+              document.getElementById('btnUpdateCastCrewData').textContent = 'Update';
+
+            case 25:
             case "end":
               return _context24.stop();
           }
@@ -30686,22 +30893,31 @@ if (updateCastCrewPhoto) {
               (0, _attributeController.validateAttribute)(document.getElementById('castcrewPhoto'));
               (0, _attributeController.validateAttribute)(document.getElementById('btnUpdateCastCrewData'), castcrewId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('castcrewPhoto'));
-
-                if (_formController.formStatus === 1) {
-                  form = new FormData();
-                  photo = document.getElementById('castcrewPhoto').files[0];
-                  photoUrlArr = document.getElementById('photoSource').src.split('/');
-                  photoParams = photoUrlArr[photoUrlArr.length - 1];
-                  document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Updating...';
-                  form.append('photo', photo); // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
-
-                  document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context25.next = 16;
+                break;
               }
 
-            case 5:
+              (0, _formController.checkFormSubmit)(document.getElementById('castcrewPhoto'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context25.next = 16;
+                break;
+              }
+
+              form = new FormData();
+              photo = document.getElementById('castcrewPhoto').files[0];
+              photoUrlArr = document.getElementById('photoSource').src.split('/');
+              photoParams = photoUrlArr[photoUrlArr.length - 1];
+              document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Updating...';
+              form.append('photo', photo);
+              _context25.next = 15;
+              return (0, _updateSettings.updateCastCrewSettings)(form, 'photo', castcrewId, photoParams);
+
+            case 15:
+              document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Update';
+
+            case 16:
             case "end":
               return _context25.stop();
           }
@@ -30729,23 +30945,31 @@ if (updateCastCrewAddlForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('castcrewRoles'));
               (0, _attributeController.validateAttribute)(document.getElementById('btnUpdateCastCrewData'), castcrewId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('castcrewRoles'));
-
-                if (_formController.formStatus === 1) {
-                  rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
-                  roles = JSON.stringify(rolesVal.split(', '));
-                  document.getElementById('btnUpdateCastCrewAddl').textContent = 'Updating...'; // await updateCastCrewSettings(
-                  //   { biography, roles },
-                  //   "add'l info",
-                  //   castcrewId
-                  // );
-
-                  document.getElementById('btnUpdateCastCrewAddl').textContent = 'Update';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context26.next = 14;
+                break;
               }
 
-            case 6:
+              (0, _formController.checkFormSubmit)(document.getElementById('biography'), document.getElementById('castcrewRoles'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context26.next = 14;
+                break;
+              }
+
+              rolesVal = document.getElementById('castcrewRoles').value, biography = document.getElementById('biography').value;
+              roles = JSON.stringify(rolesVal.split(', '));
+              document.getElementById('btnUpdateCastCrewAddl').textContent = 'Updating...';
+              _context26.next = 13;
+              return (0, _updateSettings.updateCastCrewSettings)({
+                biography: biography,
+                roles: roles
+              }, "add'l info", castcrewId);
+
+            case 13:
+              document.getElementById('btnUpdateCastCrewAddl').textContent = 'Update';
+
+            case 14:
             case "end":
               return _context26.stop();
           }
@@ -30773,18 +30997,29 @@ if (deleteShowForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('password'));
               (0, _attributeController.validateAttribute)(deleteShowBtn, showId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('password'));
-
-                if (_formController.formStatus === 1) {
-                  password = document.getElementById('password').value;
-                  document.getElementById('btnDeleteShowData').textContent = 'Deleting...'; // await deleteShow({ password }, showId);
-
-                  document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context27.next = 13;
+                break;
               }
 
-            case 6:
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context27.next = 13;
+                break;
+              }
+
+              password = document.getElementById('password').value;
+              document.getElementById('btnDeleteShowData').textContent = 'Deleting...';
+              _context27.next = 12;
+              return (0, _deleteSettings.deleteShow)({
+                password: password
+              }, showId);
+
+            case 12:
+              document.getElementById('btnDeleteShowData').textContent = 'Delete Show';
+
+            case 13:
             case "end":
               return _context27.stop();
           }
@@ -30862,18 +31097,29 @@ if (deleteTheaterForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('password'));
               (0, _attributeController.validateAttribute)(deleteTheaterBtn, theaterId);
 
-              if (_attributeController.validateAttribute) {
-                (0, _formController.checkFormSubmit)(document.getElementById('password'));
-
-                if (_formController.formStatus === 1) {
-                  password = document.getElementById('password').value;
-                  document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...'; // await deleteTheater({ password }, theaterId);
-
-                  document.getElementById('btnDeleteTheaterData').textContent = 'Delete Theater';
-                }
+              if (!_attributeController.validateAttribute) {
+                _context29.next = 13;
+                break;
               }
 
-            case 6:
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context29.next = 13;
+                break;
+              }
+
+              password = document.getElementById('password').value;
+              document.getElementById('btnDeleteTheaterData').textContent = 'Deleting...';
+              _context29.next = 12;
+              return (0, _deleteSettings.deleteTheater)({
+                password: password
+              }, theaterId);
+
+            case 12:
+              document.getElementById('btnDeleteTheaterData').textContent = 'Delete Theater';
+
+            case 13:
             case "end":
               return _context29.stop();
           }
@@ -30901,18 +31147,29 @@ if (deleteShowtimeForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('password'));
               (0, _attributeController.validateAttribute)(deleteShowtimeBtn, showtimeId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('password'));
-
-                if (_formController.formStatus === 1) {
-                  password = document.getElementById('password').value;
-                  document.getElementById('btnDeleteShowtimeData').textContent = 'Deleting...'; // await deleteShowtime({ password }, showtimeId);
-
-                  document.getElementById('btnDeleteShowtimeData').textContent = 'Delete Showtime';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context30.next = 13;
+                break;
               }
 
-            case 6:
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context30.next = 13;
+                break;
+              }
+
+              password = document.getElementById('password').value;
+              document.getElementById('btnDeleteShowtimeData').textContent = 'Deleting...';
+              _context30.next = 12;
+              return (0, _deleteSettings.deleteShowtime)({
+                password: password
+              }, showtimeId);
+
+            case 12:
+              document.getElementById('btnDeleteShowtimeData').textContent = 'Delete Showtime';
+
+            case 13:
             case "end":
               return _context30.stop();
           }
@@ -30940,18 +31197,29 @@ if (deleteCastCrewForm) {
               (0, _attributeController.validateAttribute)(document.getElementById('password'));
               (0, _attributeController.validateAttribute)(deleteCastCrewBtn, castcrewId);
 
-              if (_attributeController.attributeStatus) {
-                (0, _formController.checkFormSubmit)(document.getElementById('password'));
-
-                if (_formController.formStatus === 1) {
-                  password = document.getElementById('password').value;
-                  document.getElementById('btnDeleteCastCrewData').textContent = 'Deleting...'; // await deleteCastCrew({ password }, castcrewId);
-
-                  document.getElementById('btnDeleteCastCrewData').textContent = 'Delete Cast | Crew';
-                }
+              if (!_attributeController.attributeStatus) {
+                _context31.next = 13;
+                break;
               }
 
-            case 6:
+              (0, _formController.checkFormSubmit)(document.getElementById('password'));
+
+              if (!(_formController.formStatus === 1)) {
+                _context31.next = 13;
+                break;
+              }
+
+              password = document.getElementById('password').value;
+              document.getElementById('btnDeleteCastCrewData').textContent = 'Deleting...';
+              _context31.next = 12;
+              return (0, _deleteSettings.deleteCastCrew)({
+                password: password
+              }, castcrewId);
+
+            case 12:
+              document.getElementById('btnDeleteCastCrewData').textContent = 'Delete Cast | Crew';
+
+            case 13:
             case "end":
               return _context31.stop();
           }

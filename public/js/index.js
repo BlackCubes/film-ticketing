@@ -3,9 +3,6 @@ import '@babel/polyfill';
 require('./modernizr');
 import gsap from 'gsap';
 import Rellax from 'rellax';
-// import { Swiper, Navigation } from 'swiper';
-// // import Swiper from 'swiper/bundle';
-// import 'swiper/swiper-bundle.css';
 import { displaySwiper } from './swiper';
 import { displayMap, displayHomeMap } from './mapbox';
 import { ticketShow } from './stripe';
@@ -307,15 +304,15 @@ if (registerFieldlist1) {
 
         document.getElementById('btnCreateAccount').textContent = 'Creating...';
 
-        // await register(
-        //   email,
-        //   username,
-        //   password,
-        //   passwordConfirm,
-        //   name,
-        //   birthdate,
-        //   gender
-        // );
+        await register(
+          email,
+          username,
+          password,
+          passwordConfirm,
+          name,
+          birthdate,
+          gender
+        );
 
         document.getElementById('btnCreateAccount').textContent = 'Continue';
       }
@@ -379,7 +376,7 @@ if (updatePersonalForm) {
         form.append('gender', gender);
         form.append('photo', photo);
 
-        // await updateSettings(form, 'data', photoParams);
+        await updateSettings(form, 'data', photoParams);
 
         document.getElementById('btnUpdateData').textContent = 'Update';
         document.getElementById('name').value = '';
@@ -412,7 +409,7 @@ if (updateEmailUsernameForm) {
         const email = document.getElementById('email').value,
           username = document.getElementById('username').value;
 
-        // await updateSettings({ email, username }, 'email/username');
+        await updateSettings({ email, username }, 'email/username');
 
         document.getElementById('btnUpdateEmailUsername').textContent =
           'Update';
@@ -445,10 +442,10 @@ if (updatePassForm) {
           password = document.getElementById('newPass').value,
           passwordConfirm = document.getElementById('confirmNewPass').value;
 
-        // await updateSettings(
-        //   { passwordCurrent, password, passwordConfirm },
-        //   'password'
-        // );
+        await updateSettings(
+          { passwordCurrent, password, passwordConfirm },
+          'password'
+        );
 
         document.getElementById('btnUpdatePass').textContent = 'Update';
         document.getElementById('currentPass').value = '';
@@ -701,7 +698,7 @@ if (eoFieldlist1) {
           form.append('eventOrganizer', eventOrganizer);
         }
 
-        // await createShow(form, roleType);
+        await createShow(form, roleType);
 
         document.getElementById('btnCreateShow').textContent = 'Create';
       }
@@ -832,7 +829,7 @@ if (adFieldlist1) {
         form.append('theaterPhoto', photo);
         form.append('chainPhoto', chainLogo);
 
-        // await createTheater(form);
+        await createTheater(form);
 
         document.getElementById('btnCreateTheater').textContent = 'Create';
       }
@@ -914,7 +911,7 @@ if (adCreateShowtimeForm) {
         document.getElementById('btnCreateShowtime').textContent =
           'Creating...';
 
-        // await createShowtime({ shows, theaters, startDateTime, endDateTime });
+        await createShowtime({ shows, theaters, startDateTime, endDateTime });
 
         document.getElementById('btnCreateShowtime').textContent = 'Create';
       }
@@ -1001,7 +998,7 @@ if (adCreateCastCrewFieldlist1) {
         form.append('birthdate', birthdate);
         form.append('photo', photo);
 
-        // await createCastCrew(form);
+        await createCastCrew(form);
 
         document.getElementById('btnCreateCastCrew').textContent = 'Create';
       }
@@ -1094,7 +1091,7 @@ if (updateShowMainView) {
           form.append('eventOrganizer', eventOrganizer);
         }
 
-        // await updateShowSettings(form, 'setting', showId, roleType);
+        await updateShowSettings(form, 'setting', showId, roleType);
 
         document.getElementById('btnUpdateShowData').textContent = 'Update';
       }
@@ -1126,7 +1123,13 @@ if (updateShowPoster) {
 
         form.append('poster', poster);
 
-        // await updateShowSettings(form, 'poster', showId, roleType, posterParams);
+        await updateShowSettings(
+          form,
+          'poster',
+          showId,
+          roleType,
+          posterParams
+        );
 
         document.getElementById('btnUpdateShowPoster').textContent = 'Update';
       }
@@ -1158,7 +1161,12 @@ if (updateShowPlot) {
         document.getElementById('btnUpdateShowPlot').textContent =
           'Updating...';
 
-        // await updateShowSettings({ overview, synopsis }, 'plot', showId, roleType);
+        await updateShowSettings(
+          { overview, synopsis },
+          'plot',
+          showId,
+          roleType
+        );
 
         document.getElementById('btnUpdateShowPlot').textContent = 'Update';
       }
@@ -1190,7 +1198,7 @@ if (updateShowCastCrewForm) {
       document.getElementById('btnUpdateShowCastCrew').textContent =
         'Updating...';
 
-      // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
+      await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
 
       document.getElementById('btnUpdateShowCastCrew').textContent = 'Update';
     }
@@ -1231,12 +1239,12 @@ if (updateShowAddl) {
         document.getElementById('btnUpdateShowAddl').textContent =
           'Updating...';
 
-        // await updateShowSettings(
-        //   { genres, language, subtitles, contentType },
-        //   "add'l info",
-        //   showId,
-        //   roleType
-        // );
+        await updateShowSettings(
+          { genres, language, subtitles, contentType },
+          "add'l info",
+          showId,
+          roleType
+        );
 
         document.getElementById('btnUpdateShowAddl').textContent = 'Update';
       }
@@ -1307,7 +1315,7 @@ if (updateShowPrice) {
 
         document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
 
-        // await updateShowSettings(data, 'pricing', showId, roleType);
+        await updateShowSettings(data, 'pricing', showId, roleType);
 
         document.getElementById('btnUpdateShowPrice').textContent = 'Update';
       }
@@ -1343,7 +1351,7 @@ if (updateReview) {
         document.getElementById('btnUpdateReviewData').textContent =
           'Updating...';
 
-        // await updateReviewSettings({ review, rating }, showId, showTitle);
+        await updateReviewSettings({ review, rating }, showId, showTitle);
 
         document.getElementById('btnUpdateReviewData').textContent = 'Update';
       }
@@ -1380,7 +1388,11 @@ if (updateTheaterMainView) {
         document.getElementById('btnUpdateTheaterData').textContent =
           'Updating...';
 
-        // await updateTheaterSettings({ name, phone, linkUrl }, 'data', theaterId);
+        await updateTheaterSettings(
+          { name, phone, linkUrl },
+          'data',
+          theaterId
+        );
 
         document.getElementById('btnUpdateTheaterData').textContent = 'Update';
       }
@@ -1418,13 +1430,13 @@ if (updateTheaterPhoto) {
 
         form.append('photo', photo);
 
-        // await updateTheaterSettings(
-        //   form,
-        //   'data',
-        //   theaterId,
-        //   photoParams,
-        //   'theaterPhoto'
-        // );
+        await updateTheaterSettings(
+          form,
+          'data',
+          theaterId,
+          photoParams,
+          'theaterPhoto'
+        );
 
         document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update';
       }
@@ -1480,7 +1492,7 @@ if (updateTheaterLocation) {
         form.append('zipCode', zipCode);
         form.append('geo', geo);
 
-        // await updateTheaterSettings(form, 'location', theaterId);
+        await updateTheaterSettings(form, 'location', theaterId);
 
         document.getElementById('btnUpdateTheaterLocation').textContent =
           'Update';
@@ -1526,11 +1538,11 @@ if (updateTheaterAddl) {
         document.getElementById('btnUpdateTheaterAddl').textContent =
           'Updating...';
 
-        // await updateTheaterSettings(
-        //   { description, isTicketing, hasShowTimes },
-        //   "add'l info",
-        //   theaterId
-        // );
+        await updateTheaterSettings(
+          { description, isTicketing, hasShowTimes },
+          "add'l info",
+          theaterId
+        );
 
         document.getElementById('btnUpdateTheaterAddl').textContent = 'Update';
       }
@@ -1572,13 +1584,13 @@ if (updateTheaterChain) {
         form.append('chainName', chainName);
         form.append('photo', chainLogo);
 
-        // await updateTheaterSettings(
-        //   form,
-        //   'chain',
-        //   theaterId,
-        //   photoParams,
-        //   'chainLogo'
-        // );
+        await updateTheaterSettings(
+          form,
+          'chain',
+          theaterId,
+          photoParams,
+          'chainLogo'
+        );
 
         document.getElementById('btnUpdateTheaterChain').textContent = 'Update';
       }
@@ -1657,11 +1669,11 @@ if (updateShowtimeMainView) {
         document.getElementById('btnUpdateShowtimeData').textContent =
           'Updating...';
 
-        // await updateShowtimeSettings(
-        //   { startDateTime, endDateTime },
-        //   'data',
-        //   showtimeId
-        // );
+        await updateShowtimeSettings(
+          { startDateTime, endDateTime },
+          'data',
+          showtimeId
+        );
 
         document.getElementById('btnUpdateShowtimeData').textContent = 'Update';
       }
@@ -1695,7 +1707,11 @@ if (updateShowtimeAddl) {
         document.getElementById('btnUpdateShowtimeAddl').textContent =
           'Updating...';
 
-        // await updateShowtimeSettings({ shows, theaters }, "add'l info", showtimeId);
+        await updateShowtimeSettings(
+          { shows, theaters },
+          "add'l info",
+          showtimeId
+        );
 
         document.getElementById('btnUpdateShowtimeAddl').textContent = 'Update';
       }
@@ -1755,7 +1771,7 @@ if (updateCastCrewMainView) {
         form.append('name', name);
         form.append('birthdate', birthdate);
 
-        // await updateCastCrewSettings(form, 'data', castcrewId);
+        await updateCastCrewSettings(form, 'data', castcrewId);
 
         document.getElementById('btnUpdateCastCrewData').textContent = 'Update';
       }
@@ -1795,7 +1811,7 @@ if (updateCastCrewPhoto) {
 
         form.append('photo', photo);
 
-        // await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
+        await updateCastCrewSettings(form, 'photo', castcrewId, photoParams);
 
         document.getElementById('btnUpdateCastCrewPhoto').textContent =
           'Update';
@@ -1834,11 +1850,11 @@ if (updateCastCrewAddlForm) {
         document.getElementById('btnUpdateCastCrewAddl').textContent =
           'Updating...';
 
-        // await updateCastCrewSettings(
-        //   { biography, roles },
-        //   "add'l info",
-        //   castcrewId
-        // );
+        await updateCastCrewSettings(
+          { biography, roles },
+          "add'l info",
+          castcrewId
+        );
 
         document.getElementById('btnUpdateCastCrewAddl').textContent = 'Update';
       }
@@ -1865,7 +1881,7 @@ if (deleteShowForm) {
         document.getElementById('btnDeleteShowData').textContent =
           'Deleting...';
 
-        // await deleteShow({ password }, showId);
+        await deleteShow({ password }, showId);
 
         document.getElementById('btnDeleteShowData').textContent =
           'Delete Show';
@@ -1921,7 +1937,7 @@ if (deleteTheaterForm) {
         document.getElementById('btnDeleteTheaterData').textContent =
           'Deleting...';
 
-        // await deleteTheater({ password }, theaterId);
+        await deleteTheater({ password }, theaterId);
 
         document.getElementById('btnDeleteTheaterData').textContent =
           'Delete Theater';
@@ -1949,7 +1965,7 @@ if (deleteShowtimeForm) {
         document.getElementById('btnDeleteShowtimeData').textContent =
           'Deleting...';
 
-        // await deleteShowtime({ password }, showtimeId);
+        await deleteShowtime({ password }, showtimeId);
 
         document.getElementById('btnDeleteShowtimeData').textContent =
           'Delete Showtime';
@@ -1977,7 +1993,7 @@ if (deleteCastCrewForm) {
         document.getElementById('btnDeleteCastCrewData').textContent =
           'Deleting...';
 
-        // await deleteCastCrew({ password }, castcrewId);
+        await deleteCastCrew({ password }, castcrewId);
 
         document.getElementById('btnDeleteCastCrewData').textContent =
           'Delete Cast | Crew';
