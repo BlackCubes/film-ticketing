@@ -1170,26 +1170,30 @@ if (updateShowCastCrewForm) {
   updateShowCastCrewForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    let castcrewValue = document.getElementById('showCastCrew').value;
-
-    castcrewValue = castcrewValue.replace(/ /g, '');
-    castcrewValue = castcrewValue.replace(/,$/g, '');
-    castcrewValue = castcrewValue.replace(/;$/g, '');
-
-    const castcrew = castcrewValue.split(',');
-
     const updateShowCastCrewBtn = document.getElementById(
       'btnUpdateShowCastCrew'
     );
-
     const { showId, roleType } = updateShowCastCrewBtn.dataset;
 
-    document.getElementById('btnUpdateShowCastCrew').textContent =
-      'Updating...';
+    validateAttribute(document.getElementById('showCastCrew'));
+    validateAttribute(updateShowCastCrewBtn, showId);
 
-    // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
+    if (attributeStatus) {
+      let castcrewValue = document.getElementById('showCastCrew').value;
 
-    document.getElementById('btnUpdateShowCastCrew').textContent = 'Update';
+      castcrewValue = castcrewValue.replace(/ /g, '');
+      castcrewValue = castcrewValue.replace(/,$/g, '');
+      castcrewValue = castcrewValue.replace(/;$/g, '');
+
+      const castcrew = castcrewValue.split(',');
+
+      document.getElementById('btnUpdateShowCastCrew').textContent =
+        'Updating...';
+
+      // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
+
+      document.getElementById('btnUpdateShowCastCrew').textContent = 'Update';
+    }
   });
 }
 

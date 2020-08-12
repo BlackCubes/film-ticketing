@@ -30097,25 +30097,30 @@ if (updateShowPlot) {
 if (updateShowCastCrewForm) {
   updateShowCastCrewForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref13 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee13(e) {
-      var castcrewValue, castcrew, updateShowCastCrewBtn, _updateShowCastCrewBt, showId, roleType;
+      var updateShowCastCrewBtn, _updateShowCastCrewBt, showId, roleType, castcrewValue, castcrew;
 
       return regeneratorRuntime.wrap(function _callee13$(_context13) {
         while (1) {
           switch (_context13.prev = _context13.next) {
             case 0:
               e.preventDefault();
-              castcrewValue = document.getElementById('showCastCrew').value;
-              castcrewValue = castcrewValue.replace(/ /g, '');
-              castcrewValue = castcrewValue.replace(/,$/g, '');
-              castcrewValue = castcrewValue.replace(/;$/g, '');
-              castcrew = castcrewValue.split(',');
               updateShowCastCrewBtn = document.getElementById('btnUpdateShowCastCrew');
               _updateShowCastCrewBt = updateShowCastCrewBtn.dataset, showId = _updateShowCastCrewBt.showId, roleType = _updateShowCastCrewBt.roleType;
-              document.getElementById('btnUpdateShowCastCrew').textContent = 'Updating...'; // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
+              (0, _attributeController.validateAttribute)(document.getElementById('showCastCrew'));
+              (0, _attributeController.validateAttribute)(updateShowCastCrewBtn, showId);
 
-              document.getElementById('btnUpdateShowCastCrew').textContent = 'Update';
+              if (_attributeController.attributeStatus) {
+                castcrewValue = document.getElementById('showCastCrew').value;
+                castcrewValue = castcrewValue.replace(/ /g, '');
+                castcrewValue = castcrewValue.replace(/,$/g, '');
+                castcrewValue = castcrewValue.replace(/;$/g, '');
+                castcrew = castcrewValue.split(',');
+                document.getElementById('btnUpdateShowCastCrew').textContent = 'Updating...'; // await updateShowSettings({ castcrew }, 'casts/crews', showId, roleType);
 
-            case 10:
+                document.getElementById('btnUpdateShowCastCrew').textContent = 'Update';
+              }
+
+            case 6:
             case "end":
               return _context13.stop();
           }
