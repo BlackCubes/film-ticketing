@@ -724,39 +724,59 @@ if (adFieldlist1) {
   firstNextBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('theaterName'),
-      document.getElementById('theaterPhone'),
-      document.getElementById('theaterLinkUrl')
-    );
+    validateAttribute(document.getElementById('theaterName'));
+    validateAttribute(document.getElementById('theaterPhone'));
+    validateAttribute(document.getElementById('theaterLinkUrl'));
 
-    if (formStatus === 2) multiForm.buttonNext();
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('theaterName'),
+        document.getElementById('theaterPhone'),
+        document.getElementById('theaterLinkUrl')
+      );
+
+      if (formStatus === 2) multiForm.buttonNext();
+    }
   });
 
   secondNextBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('theaterAddress'),
-      document.getElementById('theaterCity'),
-      document.getElementById('theaterState'),
-      document.getElementById('theaterZipCode'),
-      document.getElementById('theaterGeoLong'),
-      document.getElementById('theaterGeoLat')
-    );
+    validateAttribute(document.getElementById('theaterAddress'));
+    validateAttribute(document.getElementById('theaterCity'));
+    validateAttribute(document.getElementById('theaterState'));
+    validateAttribute(document.getElementById('theaterZipCode'));
+    validateAttribute(document.getElementById('theaterGeoLong'));
+    validateAttribute(document.getElementById('theaterGeoLat'));
 
-    if (formStatus === 6) multiForm.buttonNext();
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('theaterAddress'),
+        document.getElementById('theaterCity'),
+        document.getElementById('theaterState'),
+        document.getElementById('theaterZipCode'),
+        document.getElementById('theaterGeoLong'),
+        document.getElementById('theaterGeoLat')
+      );
+
+      if (formStatus === 6) multiForm.buttonNext();
+    }
   });
 
   thirdNextBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('theaterDescription'),
-      document.getElementById('theaterPhoto')
-    );
+    validateAttribute(document.getElementById('theaterDescription'));
+    validateAttribute(document.getElementById('theaterPhoto'));
 
-    if (formStatus === 1) multiForm.buttonNext();
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('theaterDescription'),
+        document.getElementById('theaterPhoto')
+      );
+
+      if (formStatus === 1) multiForm.buttonNext();
+    }
   });
 
   firstPreviousBtn.addEventListener('click', e => multiForm.buttonBack(e));
@@ -766,51 +786,56 @@ if (adFieldlist1) {
   adCreateTheaterForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('theaterChainName'),
-      document.getElementById('theaterChainLogo')
-    );
+    validateAttribute(document.getElementById('theaterChainName'));
+    validateAttribute(document.getElementById('theaterChainLogo'));
 
-    if (formStatus === 0) {
-      const form = new FormData();
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('theaterChainName'),
+        document.getElementById('theaterChainLogo')
+      );
 
-      const name = document.getElementById('theaterName').value,
-        phone = document.getElementById('theaterPhone').value,
-        linkUrl = document.getElementById('theaterLinkUrl').value,
-        address = document.getElementById('theaterAddress').value,
-        city = document.getElementById('theaterCity').value,
-        state = document.getElementById('theaterState').value,
-        zipCode = document.getElementById('theaterZipCode').value,
-        geoLong = parseFloat(document.getElementById('theaterGeoLong').value),
-        geoLat = parseFloat(document.getElementById('theaterGeoLat').value),
-        description = document.getElementById('theaterDescription').value,
-        chainName = document.getElementById('theaterChainName').value;
-      // chainCode = document.getElementById('theaterChainCode').value;
+      if (formStatus === 0) {
+        const form = new FormData();
 
-      const geo = JSON.stringify([geoLong, geoLat]);
+        const name = document.getElementById('theaterName').value,
+          phone = document.getElementById('theaterPhone').value,
+          linkUrl = document.getElementById('theaterLinkUrl').value,
+          address = document.getElementById('theaterAddress').value,
+          city = document.getElementById('theaterCity').value,
+          state = document.getElementById('theaterState').value,
+          zipCode = document.getElementById('theaterZipCode').value,
+          geoLong = parseFloat(document.getElementById('theaterGeoLong').value),
+          geoLat = parseFloat(document.getElementById('theaterGeoLat').value),
+          description = document.getElementById('theaterDescription').value,
+          chainName = document.getElementById('theaterChainName').value;
+        // chainCode = document.getElementById('theaterChainCode').value;
 
-      const photo = document.getElementById('theaterPhoto').files[0],
-        chainLogo = document.getElementById('theaterChainLogo').files[0];
+        const geo = JSON.stringify([geoLong, geoLat]);
 
-      document.getElementById('btnCreateTheater').textContent = 'Creating...';
+        const photo = document.getElementById('theaterPhoto').files[0],
+          chainLogo = document.getElementById('theaterChainLogo').files[0];
 
-      form.append('name', name);
-      form.append('phone', phone);
-      form.append('linkUrl', linkUrl);
-      form.append('address', address);
-      form.append('city', city);
-      form.append('state', state);
-      form.append('zipCode', zipCode);
-      form.append('geo', geo);
-      form.append('description', description);
-      form.append('chainName', chainName);
-      // form.append('chainCode', chainCode);
-      form.append('theaterPhoto', photo);
-      form.append('chainPhoto', chainLogo);
+        document.getElementById('btnCreateTheater').textContent = 'Creating...';
 
-      // await createTheater(form);
+        form.append('name', name);
+        form.append('phone', phone);
+        form.append('linkUrl', linkUrl);
+        form.append('address', address);
+        form.append('city', city);
+        form.append('state', state);
+        form.append('zipCode', zipCode);
+        form.append('geo', geo);
+        form.append('description', description);
+        form.append('chainName', chainName);
+        // form.append('chainCode', chainCode);
+        form.append('theaterPhoto', photo);
+        form.append('chainPhoto', chainLogo);
 
-      document.getElementById('btnCreateTheater').textContent = 'Create';
+        // await createTheater(form);
+
+        document.getElementById('btnCreateTheater').textContent = 'Create';
+      }
     }
   });
 }
