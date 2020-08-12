@@ -844,65 +844,80 @@ if (adCreateShowtimeForm) {
   adCreateShowtimeForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('showtimeShow'),
-      document.getElementById('showtimeTheater'),
-      document.getElementById('showtimeStartMonth'),
-      document.getElementById('showtimeStartDay'),
-      document.getElementById('showtimeStartYear'),
-      document.getElementById('showtimeStartHour'),
-      document.getElementById('showtimeStartMinute'),
-      document.getElementById('showtimeStartSecond'),
-      document.getElementById('showtimeEndHour'),
-      document.getElementById('showtimeEndMinute'),
-      document.getElementById('showtimeEndSecond')
-    );
+    validateAttribute(document.getElementById('showtimeShow'));
+    validateAttribute(document.getElementById('showtimeTheater'));
+    validateAttribute(document.getElementById('showtimeStartMonth'));
+    validateAttribute(document.getElementById('showtimeStartDay'));
+    validateAttribute(document.getElementById('showtimeStartYear'));
+    validateAttribute(document.getElementById('showtimeStartHour'));
+    validateAttribute(document.getElementById('showtimeStartMinute'));
+    validateAttribute(document.getElementById('showtimeStartSecond'));
+    validateAttribute(document.getElementById('showtimeEndHour'));
+    validateAttribute(document.getElementById('showtimeEndMinute'));
+    validateAttribute(document.getElementById('showtimeEndSecond'));
 
-    if (formStatus === 11) {
-      const shows = document.getElementById('showtimeShow').value,
-        theaters = document.getElementById('showtimeTheater').value;
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('showtimeShow'),
+        document.getElementById('showtimeTheater'),
+        document.getElementById('showtimeStartMonth'),
+        document.getElementById('showtimeStartDay'),
+        document.getElementById('showtimeStartYear'),
+        document.getElementById('showtimeStartHour'),
+        document.getElementById('showtimeStartMinute'),
+        document.getElementById('showtimeStartSecond'),
+        document.getElementById('showtimeEndHour'),
+        document.getElementById('showtimeEndMinute'),
+        document.getElementById('showtimeEndSecond')
+      );
 
-      const selectStartMonth = document.getElementById('showtimeStartMonth'),
-        selectStartDay = document.getElementById('showtimeStartDay'),
-        selectStartYear = document.getElementById('showtimeStartYear'),
-        selectStartHour = document.getElementById('showtimeStartHour'),
-        selectStartMinute = document.getElementById('showtimeStartMinute'),
-        selectStartSecond = document.getElementById('showtimeStartSecond'),
-        selectEndHour = document.getElementById('showtimeEndHour'),
-        selectEndMinute = document.getElementById('showtimeEndMinute'),
-        selectEndSecond = document.getElementById('showtimeEndSecond');
+      if (formStatus === 11) {
+        const shows = document.getElementById('showtimeShow').value,
+          theaters = document.getElementById('showtimeTheater').value;
 
-      const startMonth =
-          selectStartMonth.options[selectStartMonth.selectedIndex].value,
-        startDay = selectStartDay.options[selectStartDay.selectedIndex].value,
-        startYear =
-          selectStartYear.options[selectStartYear.selectedIndex].value,
-        startHour =
-          selectStartHour.options[selectStartHour.selectedIndex].value,
-        startMinute =
-          selectStartMinute.options[selectStartMinute.selectedIndex].value,
-        startSecond =
-          selectStartSecond.options[selectStartSecond.selectedIndex].value,
-        endHour = selectEndHour.options[selectEndHour.selectedIndex].value,
-        endMinute =
-          selectEndMinute.options[selectEndMinute.selectedIndex].value,
-        endSecond =
-          selectEndSecond.options[selectEndSecond.selectedIndex].value;
+        const selectStartMonth = document.getElementById('showtimeStartMonth'),
+          selectStartDay = document.getElementById('showtimeStartDay'),
+          selectStartYear = document.getElementById('showtimeStartYear'),
+          selectStartHour = document.getElementById('showtimeStartHour'),
+          selectStartMinute = document.getElementById('showtimeStartMinute'),
+          selectStartSecond = document.getElementById('showtimeStartSecond'),
+          selectEndHour = document.getElementById('showtimeEndHour'),
+          selectEndMinute = document.getElementById('showtimeEndMinute'),
+          selectEndSecond = document.getElementById('showtimeEndSecond');
 
-      const startDateTime = new Date(
-          `${startYear}-${startMonth}-${startDay} ${startHour}:${startMinute}:${startSecond}`
-        ).toISOString(),
-        endDateTime = new Date(
-          `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
-        ).toISOString();
-      // const startDateTime = startYear.concat('-', startMonth, '-', startDay, ''),
-      //   endDateTime = endYear.concat('-', endMonth, '-', endDay);
+        const startMonth =
+            selectStartMonth.options[selectStartMonth.selectedIndex].value,
+          startDay = selectStartDay.options[selectStartDay.selectedIndex].value,
+          startYear =
+            selectStartYear.options[selectStartYear.selectedIndex].value,
+          startHour =
+            selectStartHour.options[selectStartHour.selectedIndex].value,
+          startMinute =
+            selectStartMinute.options[selectStartMinute.selectedIndex].value,
+          startSecond =
+            selectStartSecond.options[selectStartSecond.selectedIndex].value,
+          endHour = selectEndHour.options[selectEndHour.selectedIndex].value,
+          endMinute =
+            selectEndMinute.options[selectEndMinute.selectedIndex].value,
+          endSecond =
+            selectEndSecond.options[selectEndSecond.selectedIndex].value;
 
-      document.getElementById('btnCreateShowtime').textContent = 'Creating...';
+        const startDateTime = new Date(
+            `${startYear}-${startMonth}-${startDay} ${startHour}:${startMinute}:${startSecond}`
+          ).toISOString(),
+          endDateTime = new Date(
+            `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
+          ).toISOString();
+        // const startDateTime = startYear.concat('-', startMonth, '-', startDay, ''),
+        //   endDateTime = endYear.concat('-', endMonth, '-', endDay);
 
-      // await createShowtime({ shows, theaters, startDateTime, endDateTime });
+        document.getElementById('btnCreateShowtime').textContent =
+          'Creating...';
 
-      document.getElementById('btnCreateShowtime').textContent = 'Create';
+        // await createShowtime({ shows, theaters, startDateTime, endDateTime });
+
+        document.getElementById('btnCreateShowtime').textContent = 'Create';
+      }
     }
   });
 }
