@@ -57,11 +57,22 @@ router.get(
   viewsController.getForgotPasswordForm
 );
 router.get('/me', authController.protect, viewsController.getAccount);
-router.get('/myTickets', authController.protect, viewsController.getMyTickets);
-router.get('/myReviews', authController.protect, viewsController.getMyReviews);
+router.get(
+  '/myTickets',
+  authController.protect,
+  authController.restrictTo('user', 'admin'),
+  viewsController.getMyTickets
+);
+router.get(
+  '/myReviews',
+  authController.protect,
+  authController.restrictTo('user', 'admin'),
+  viewsController.getMyReviews
+);
 router.get(
   '/myReviews/:slug',
   authController.protect,
+  authController.restrictTo('user', 'admin'),
   viewsController.getMyReviewForm
 );
 
@@ -69,18 +80,21 @@ router.get(
 router.get(
   '/createMyShow',
   authController.protect,
+  authController.restrictTo('event-owner', 'admin'),
   viewsController.getEventOwnerCreateShow
 );
 
 router.get(
   '/myShows',
   authController.protect,
+  authController.restrictTo('event-owner', 'admin'),
   viewsController.getEventOwnerGetShows
 );
 
 router.get(
   '/myShows/:slug',
   authController.protect,
+  authController.restrictTo('event-owner', 'admin'),
   viewsController.getEventOwnerShow
 );
 
