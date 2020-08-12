@@ -510,48 +510,73 @@ if (eoFieldlist1) {
   firstNextBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('showTitle'),
-      document.getElementById('selectMpaa'),
-      document.getElementById('showDuration'),
-      document.getElementById('showOriginalMonth'),
-      document.getElementById('showOriginalDay'),
-      document.getElementById('showOriginalYear'),
-      document.getElementById('showContentType')
-    );
+    validateAttribute(document.getElementById('showTitle'));
+    validateAttribute(document.getElementById('selectMpaa'));
+    validateAttribute(document.getElementById('showDuration'));
+    validateAttribute(document.getElementById('showOriginalMonth'));
+    validateAttribute(document.getElementById('showOriginalDay'));
+    validateAttribute(document.getElementById('showOriginalYear'));
+    validateAttribute(document.getElementById('showContentType'));
 
-    if (formStatus === 7) multiForm.buttonNext();
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('showTitle'),
+        document.getElementById('selectMpaa'),
+        document.getElementById('showDuration'),
+        document.getElementById('showOriginalMonth'),
+        document.getElementById('showOriginalDay'),
+        document.getElementById('showOriginalYear'),
+        document.getElementById('showContentType')
+      );
+
+      if (formStatus === 7) multiForm.buttonNext();
+    }
   });
 
   secondNextBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    checkFormSubmit(document.getElementById('showPhoto'));
+    validateAttribute(document.getElementById('showPhoto'));
 
-    if (formStatus === 1) multiForm.buttonNext();
+    if (attributeStatus) {
+      checkFormSubmit(document.getElementById('showPhoto'));
+
+      if (formStatus === 1) multiForm.buttonNext();
+    }
   });
 
   thirdNextBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('showOverview'),
-      document.getElementById('showSynopsis')
-    );
+    validateAttribute(document.getElementById('showOverview'));
+    validateAttribute(document.getElementById('showSynopsis'));
 
-    if (formStatus === 1) multiForm.buttonNext();
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('showOverview'),
+        document.getElementById('showSynopsis')
+      );
+
+      if (formStatus === 1) multiForm.buttonNext();
+    }
   });
 
   fourthNextBtn.addEventListener('click', e => {
     e.preventDefault();
 
-    checkFormSubmit(
-      document.getElementById('showLanguage'),
-      document.getElementById('showSubtitles'),
-      document.getElementById('showGenre')
-    );
+    validateAttribute(document.getElementById('showLanguage'));
+    validateAttribute(document.getElementById('showSubtitles'));
+    validateAttribute(document.getElementById('showGenre'));
 
-    if (formStatus === 0) multiForm.buttonNext();
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('showLanguage'),
+        document.getElementById('showSubtitles'),
+        document.getElementById('showGenre')
+      );
+
+      if (formStatus === 0) multiForm.buttonNext();
+    }
   });
 
   // Initiate previous buttons
@@ -566,105 +591,120 @@ if (eoFieldlist1) {
     const { roleType } = createShowBtn.dataset;
     var roleAmount = -100;
 
+    validateAttribute(document.getElementById('showPrice'));
+    validateAttribute(document.getElementById('showSpecialVenue'));
+
     if (roleType === 'admin') {
-      roleAmount = 2;
-
-      checkFormSubmit(
-        document.getElementById('showPrice'),
-        document.getElementById('showSpecialVenue'),
-        document.getElementById('showPrivateVenue'),
-        document.getElementById('showEventOwner')
-      );
-    } else if (roleType === 'event-owner') {
-      roleAmount = 1;
-
-      checkFormSubmit(
-        document.getElementById('showPrice'),
-        document.getElementById('showSpecialVenue')
-      );
+      validateAttribute(document.getElementById('showPrivateVenue'));
+      validateAttribute(document.getElementById('showEventOwner'));
     }
 
-    if (formStatus === roleAmount) {
-      const form = new FormData();
-
-      const title = document.getElementById('showTitle').value,
-        duration = document.getElementById('showDuration').value;
-
-      const selectOriginalMonth = document.getElementById('showOriginalMonth'),
-        selectOriginalDay = document.getElementById('showOriginalDay'),
-        selectOriginalYear = document.getElementById('showOriginalYear'),
-        selectContentType = document.getElementById('showContentType'),
-        selectMpaa = document.getElementById('selectMpaa');
-
-      const originalMonth =
-          selectOriginalMonth.options[selectOriginalMonth.selectedIndex].value,
-        originalDay =
-          selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
-        originalYear =
-          selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
-
-      const originalReleaseDate = originalYear.concat(
-          '-',
-          originalMonth,
-          '-',
-          originalDay
-        ),
-        mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-        contentType =
-          selectContentType.options[selectContentType.selectedIndex].value;
-
-      const overview = document.getElementById('showOverview').value,
-        synopsis = document.getElementById('showSynopsis').value;
-
-      const language = document.getElementById('showLanguage').value,
-        subtitles = document.getElementById('showSubtitles').value,
-        genres = document.getElementById('showGenre').value;
-
-      const selectSpecialVenue = document.getElementById('showSpecialVenue');
-
-      const specialVenueValue =
-        selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
-
-      const specialVenue = specialVenueValue === 'y' ? true : false,
-        price = document.getElementById('showPrice').value;
-
-      const poster = document.getElementById('showPhoto').files[0];
-
-      document.getElementById('btnCreateShow').textContent = 'Creating...';
-
-      form.append('title', title);
-      form.append('duration', duration);
-      form.append('originalReleaseDate', originalReleaseDate);
-      form.append('mpaaRating', mpaaRating);
-      form.append('contentType', contentType);
-      form.append('overview', overview);
-      form.append('synopsis', synopsis);
-      form.append('language', language);
-      form.append('subtitles', subtitles);
-      form.append('genres', genres);
-      form.append('specialVenue', specialVenue);
-      form.append('price', price);
-      form.append('poster', poster);
-
+    if (attributeStatus) {
       if (roleType === 'admin') {
-        const selectPrivateVenue = document.getElementById('showPrivateVenue');
+        roleAmount = 2;
 
-        const privateVenueValue =
-          selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+        checkFormSubmit(
+          document.getElementById('showPrice'),
+          document.getElementById('showSpecialVenue'),
+          document.getElementById('showPrivateVenue'),
+          document.getElementById('showEventOwner')
+        );
+      } else if (roleType === 'event-owner') {
+        roleAmount = 1;
 
-        const secretShow = privateVenueValue === 'y' ? true : false;
-
-        const eventOrganizer = [
-          document.getElementById('showEventOwner').value
-        ];
-
-        form.append('secretShow', secretShow);
-        form.append('eventOrganizer', eventOrganizer);
+        checkFormSubmit(
+          document.getElementById('showPrice'),
+          document.getElementById('showSpecialVenue')
+        );
       }
 
-      // await createShow(form, roleType);
+      if (formStatus === roleAmount) {
+        const form = new FormData();
 
-      document.getElementById('btnCreateShow').textContent = 'Create';
+        const title = document.getElementById('showTitle').value,
+          duration = document.getElementById('showDuration').value;
+
+        const selectOriginalMonth = document.getElementById(
+            'showOriginalMonth'
+          ),
+          selectOriginalDay = document.getElementById('showOriginalDay'),
+          selectOriginalYear = document.getElementById('showOriginalYear'),
+          selectContentType = document.getElementById('showContentType'),
+          selectMpaa = document.getElementById('selectMpaa');
+
+        const originalMonth =
+            selectOriginalMonth.options[selectOriginalMonth.selectedIndex]
+              .value,
+          originalDay =
+            selectOriginalDay.options[selectOriginalDay.selectedIndex].value,
+          originalYear =
+            selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
+
+        const originalReleaseDate = originalYear.concat(
+            '-',
+            originalMonth,
+            '-',
+            originalDay
+          ),
+          mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
+          contentType =
+            selectContentType.options[selectContentType.selectedIndex].value;
+
+        const overview = document.getElementById('showOverview').value,
+          synopsis = document.getElementById('showSynopsis').value;
+
+        const language = document.getElementById('showLanguage').value,
+          subtitles = document.getElementById('showSubtitles').value,
+          genres = document.getElementById('showGenre').value;
+
+        const selectSpecialVenue = document.getElementById('showSpecialVenue');
+
+        const specialVenueValue =
+          selectSpecialVenue.options[selectSpecialVenue.selectedIndex].value;
+
+        const specialVenue = specialVenueValue === 'y' ? true : false,
+          price = document.getElementById('showPrice').value;
+
+        const poster = document.getElementById('showPhoto').files[0];
+
+        document.getElementById('btnCreateShow').textContent = 'Creating...';
+
+        form.append('title', title);
+        form.append('duration', duration);
+        form.append('originalReleaseDate', originalReleaseDate);
+        form.append('mpaaRating', mpaaRating);
+        form.append('contentType', contentType);
+        form.append('overview', overview);
+        form.append('synopsis', synopsis);
+        form.append('language', language);
+        form.append('subtitles', subtitles);
+        form.append('genres', genres);
+        form.append('specialVenue', specialVenue);
+        form.append('price', price);
+        form.append('poster', poster);
+
+        if (roleType === 'admin') {
+          const selectPrivateVenue = document.getElementById(
+            'showPrivateVenue'
+          );
+
+          const privateVenueValue =
+            selectPrivateVenue.options[selectPrivateVenue.selectedIndex].value;
+
+          const secretShow = privateVenueValue === 'y' ? true : false;
+
+          const eventOrganizer = [
+            document.getElementById('showEventOwner').value
+          ];
+
+          form.append('secretShow', secretShow);
+          form.append('eventOrganizer', eventOrganizer);
+        }
+
+        // await createShow(form, roleType);
+
+        document.getElementById('btnCreateShow').textContent = 'Create';
+      }
     }
   });
 }
