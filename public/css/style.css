@@ -355,6 +355,9 @@ body {
   .card__poster-link {
     display: block;
     height: 68rem; }
+    @media (min-width: 30em) {
+      .card__poster-link {
+        max-height: 58rem; } }
     @media (min-width: 37.5em) {
       .card__poster-link {
         height: 78vh; } }
