@@ -37,7 +37,8 @@
 .heading-box {
   position: relative;
   width: 100%;
-  height: 85vh;
+  // height: 85vh;
+  height: 55rem;
 
   @include respond(tab-land) {
     height: 85vw;
