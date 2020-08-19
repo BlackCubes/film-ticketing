@@ -21,7 +21,8 @@
   margin-bottom: 2rem;
 
   @include respond(tab-port) {
-    width: 70vw;
+    // width: 70vw;
+    width: 100%;
     margin-top: 6rem;
     margin-bottom: 6rem;
     margin-left: auto;
@@ -50,7 +51,7 @@
       }
 
       @include respond(tab-port) {
-        height: 78vh;
+        // height: 78vh;
       }
 
       @include respond(tab-land) {

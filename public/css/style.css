@@ -340,7 +340,7 @@ body {
   margin-bottom: 2rem; }
   @media (min-width: 37.5em) {
     .card {
-      width: 70vw;
+      width: 100%;
       margin-top: 6rem;
       margin-bottom: 6rem;
       margin-left: auto;
@@ -359,9 +359,6 @@ body {
     @media (min-width: 30em) {
       .card__poster-link {
         max-height: 58rem; } }
-    @media (min-width: 37.5em) {
-      .card__poster-link {
-        height: 78vh; } }
     @media (min-width: 56.25em) {
       .card__poster-link {
         height: 78vw; } }
