@@ -44,6 +44,10 @@
     height: 65rem;
   }
 
+  @include respond(min-768) {
+    height: 75rem;
+  }
+
   @include respond(tab-land) {
     height: 85vw;
   }
