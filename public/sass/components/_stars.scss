@@ -3,6 +3,10 @@
   font-size: 2rem;
   font-weight: 900;
 
+  @include respond(max-320) {
+    font-size: 1.5rem;
+  }
+
   @include respond(tab-port) {
     font-size: 1.9rem;
   }
@@ -11,6 +15,10 @@
     color: $color-lightseagreen;
     font-size: 2rem;
     padding: 0 0.6rem;
+
+    @include respond(max-320) {
+      font-size: 1.5rem;
+    }
 
     @include respond(tab-port) {
       font-size: 1.9rem;

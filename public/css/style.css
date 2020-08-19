@@ -1366,6 +1366,10 @@ body {
 .stars-user {
   font-size: 2rem;
   font-weight: 900; }
+  @media (max-width: 20em) {
+    .stars,
+    .stars-user {
+      font-size: 1.5rem; } }
   @media (min-width: 37.5em) {
     .stars,
     .stars-user {
@@ -1375,6 +1379,10 @@ body {
     color: #20b2aa;
     font-size: 2rem;
     padding: 0 0.6rem; }
+    @media (max-width: 20em) {
+      .stars .star,
+      .stars-user .star {
+        font-size: 1.5rem; } }
     @media (min-width: 37.5em) {
       .stars .star,
       .stars-user .star {
