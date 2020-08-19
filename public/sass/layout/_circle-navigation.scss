@@ -44,7 +44,11 @@ svg {
   & .menu-trigger text {
     transition: fill 0.2s linear 0s;
 
-    @include respond(max-320) {
+    // @include respond(max-320) {
+    //   font-size: 2.4rem;
+    // }
+
+    @include respond(small-mobile) {
       font-size: 2.4rem;
     }
 
