@@ -1,5 +1,14 @@
 .card-container {
   width: 95%;
+  max-width: none;
   margin-left: auto;
   margin-right: auto;
+
+  @include respond(max-599) {
+    max-width: 40rem;
+  }
+
+  @include respond(big-mobile) {
+    max-width: none;
+  }
 }

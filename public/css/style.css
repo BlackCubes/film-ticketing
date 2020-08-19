@@ -2737,8 +2737,15 @@ svg {
 
 .card-container {
   width: 95%;
+  max-width: none;
   margin-left: auto;
   margin-right: auto; }
+  @media (max-width: 37.4375em) {
+    .card-container {
+      max-width: 40rem; } }
+  @media (min-width: 30em) {
+    .card-container {
+      max-width: none; } }
 
 .section-show-showtimes,
 .section-show-synopsis,
