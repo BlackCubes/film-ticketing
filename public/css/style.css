@@ -2825,7 +2825,7 @@ svg {
           display: none; } }
   .heading-box__poster {
     position: absolute;
-    top: 7rem;
+    top: 3rem;
     left: 1rem; }
     @media (min-width: 37.5em) {
       .heading-box__poster {
@@ -2848,7 +2848,7 @@ svg {
   .heading-box__data-container {
     position: absolute;
     width: 55%;
-    top: 13rem;
+    top: 10rem;
     right: 1rem; }
     @media (min-width: 37.5em) {
       .heading-box__data-container {
@@ -2881,7 +2881,7 @@ svg {
       content: ' - '; }
   .heading-box__info-container {
     position: absolute;
-    bottom: 5rem; }
+    bottom: 2rem; }
     @media (min-width: 37.5em) {
       .heading-box__info-container {
         width: 95%;

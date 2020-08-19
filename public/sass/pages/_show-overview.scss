@@ -98,7 +98,8 @@
 
   &__poster {
     position: absolute;
-    top: 7rem;
+    // top: 7rem;
+    top: 3rem;
     left: 1rem;
 
     @include respond(tab-port) {
@@ -133,7 +134,8 @@
   &__data-container {
     position: absolute;
     width: 55%;
-    top: 13rem;
+    // top: 13rem;
+    top: 10rem;
     right: 1rem;
 
     @include respond(tab-port) {
@@ -182,7 +184,8 @@
 
   &__info-container {
     position: absolute;
-    bottom: 5rem;
+    // bottom: 5rem;
+    bottom: 2rem;
 
     @include respond(tab-port) {
       width: 95%;
