@@ -8,7 +8,7 @@ svg {
   z-index: 101;
 
   @include respond(max-320) {
-    width: 60rem;
+    width: 50rem;
   }
 
   @include respond(desktop) {
