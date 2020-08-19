@@ -37,10 +37,18 @@
   font-weight: 300;
   padding-bottom: 0.5rem;
 
+  @include respond(max-320) {
+    font-size: 2rem;
+  }
+
   & .star {
     color: $color-lightseagreen;
     font-size: 1.1rem;
     padding: 0 0.5rem;
+
+    @include respond(max-320) {
+      font-size: 2rem;
+    }
 
     &::before {
       content: '\2606';

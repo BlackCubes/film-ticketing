@@ -1395,10 +1395,16 @@ body {
   font-size: 1.1rem;
   font-weight: 300;
   padding-bottom: 0.5rem; }
+  @media (max-width: 20em) {
+    .stars-show {
+      font-size: 2rem; } }
   .stars-show .star {
     color: #20b2aa;
     font-size: 1.1rem;
     padding: 0 0.5rem; }
+    @media (max-width: 20em) {
+      .stars-show .star {
+        font-size: 2rem; } }
     .stars-show .star::before {
       content: '\2606'; }
     .stars-show .star.rated::before {
