@@ -19,7 +19,15 @@ svg {
   & .icon text {
     transition: fill 0.2s linear 0s;
 
-    @include respond(max-320) {
+    // @include respond(max-320) {
+    //   font-size: 2rem;
+    // }
+
+    // @include respond(max-375) {
+    //   font-size: 2rem;
+    // }
+
+    @include respond(small-mobile) {
       font-size: 2rem;
     }
 
