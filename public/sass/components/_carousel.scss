@@ -591,7 +591,8 @@
 
     & .tile-ticket__options > button {
       font-size: 1.2rem;
-      padding: 0.7rem;
+      // padding: 0.7rem;
+      padding: 1rem;
 
       @include respond(tab-port) {
         padding: 1rem;
