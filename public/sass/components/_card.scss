@@ -81,7 +81,7 @@
       height: 34rem;
 
       @include respond(tab-port) {
-        height: 44vh;
+        // height: 44vh;
       }
 
       @include respond(tab-land) {

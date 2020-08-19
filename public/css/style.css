@@ -376,9 +376,6 @@ body {
   .card__logo-link {
     display: block;
     height: 34rem; }
-    @media (min-width: 37.5em) {
-      .card__logo-link {
-        height: 44vh; } }
     @media (min-width: 56.25em) {
       .card__logo-link {
         height: 44vw; } }
