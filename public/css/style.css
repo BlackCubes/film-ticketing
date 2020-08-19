@@ -1430,12 +1430,12 @@ svg {
   max-width: 60rem;
   border-radius: 12.5rem 12.5rem 0 0;
   z-index: 101; }
-  @media (max-width: 20em) {
-    svg {
-      width: 50rem; } }
   @media (max-width: 25em) {
     svg {
       width: 55rem; } }
+  @media (max-width: 20em) {
+    svg {
+      width: 50rem; } }
   @media (min-width: 75em) {
     svg {
       width: 52rem; } }
