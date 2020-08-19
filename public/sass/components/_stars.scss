@@ -41,7 +41,7 @@
 }
 
 .stars-show {
-  font-size: 1.1rem;
+  font-size: 2rem;
   font-weight: 300;
   padding-bottom: 0.5rem;
 
@@ -51,7 +51,7 @@
 
   & .star {
     color: $color-lightseagreen;
-    font-size: 1.1rem;
+    font-size: 2rem;
     padding: 0 0.5rem;
 
     @include respond(max-320) {

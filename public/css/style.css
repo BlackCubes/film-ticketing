@@ -1403,7 +1403,7 @@ body {
       content: '\2605'; }
 
 .stars-show {
-  font-size: 1.1rem;
+  font-size: 2rem;
   font-weight: 300;
   padding-bottom: 0.5rem; }
   @media (max-width: 20em) {
@@ -1411,7 +1411,7 @@ body {
       font-size: 2rem; } }
   .stars-show .star {
     color: #20b2aa;
-    font-size: 1.1rem;
+    font-size: 2rem;
     padding: 0 0.5rem; }
     @media (max-width: 20em) {
       .stars-show .star {
