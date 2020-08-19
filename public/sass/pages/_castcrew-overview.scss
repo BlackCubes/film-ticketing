@@ -1,6 +1,12 @@
 .section-castcrew-header {
   width: 100%;
 
+  & .heading-box {
+    @include respond(min-768) {
+      height: 60rem;
+    }
+  }
+
   .heading-box__background-img {
     -o-object-position: 35% 16%;
     object-position: 35% 16%;
