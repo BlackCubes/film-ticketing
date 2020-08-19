@@ -32,6 +32,7 @@ MIN-WIDTH
 25em = 400px
 30em = 480px
 37.5em = 600px
+48em = 768px
 56.25em = 900px
 75em = 1200px
 112.5em = 1800px
@@ -70,6 +71,11 @@ MAX-WIDTH
   }
   @if $breakpoint == tab-port {
     @media (min-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == min-768 {
+    @media (min-width: 48em) {
       @content;
     }
   }
