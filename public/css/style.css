@@ -2789,6 +2789,9 @@ svg {
   position: relative;
   width: 100%;
   height: 55rem; }
+  @media (min-width: 37.5em) {
+    .heading-box {
+      height: 65rem; } }
   @media (min-width: 56.25em) {
     .heading-box {
       height: 85vw; } }
