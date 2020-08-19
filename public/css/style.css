@@ -2904,7 +2904,7 @@ svg {
     padding: 1rem; }
     @media (min-width: 37.5em) {
       .heading-box__overview {
-        padding: 0; } }
+        padding: 0.5rem; } }
     @media (min-width: 37.5em) {
       .heading-box__overview > .paragraph {
         line-height: 1.5; } }
