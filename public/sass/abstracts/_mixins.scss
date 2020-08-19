@@ -31,7 +31,6 @@ $breakpoint argument choices:
 MIN-WIDTH
 25em = 400px
 30em = 480px
-37.4375em = 599px <-- For when phones are in landscape
 37.5em = 600px
 56.25em = 900px
 75em = 1200px
@@ -40,6 +39,7 @@ MIN-WIDTH
 MAX-WIDTH
 20em = 320px
 23.4375 = 375px
+37.4375em = 599px
 */
 @mixin respond($breakpoint) {
   @if $breakpoint == max-320 {
@@ -47,18 +47,22 @@ MAX-WIDTH
       @content;
     }
   }
-
   @if $breakpoint == max-375 {
     @media (max-width: 23.4375em) {
       @content;
     }
   }
-
   @if $breakpoint == small-mobile {
     @media (max-width: 25em) {
       @content;
     }
   }
+  @if $breakpoint == max-599 {
+    @media (max-width: 37.4375em) {
+      @content;
+    }
+  }
+
   @if $breakpoint == big-mobile {
     @media (min-width: 30em) {
       @content;
