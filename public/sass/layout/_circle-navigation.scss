@@ -12,6 +12,10 @@ svg {
     width: 50rem;
   }
 
+  @include respond(max-375) {
+    width: 55rem;
+  }
+
   @include respond(desktop) {
     width: 52rem;
   }
@@ -23,11 +27,7 @@ svg {
     //   font-size: 2rem;
     // }
 
-    // @include respond(max-375) {
-    //   font-size: 2rem;
-    // }
-
-    @include respond(small-mobile) {
+    @include respond(max-375) {
       font-size: 2rem;
     }
 
