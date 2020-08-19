@@ -2862,6 +2862,9 @@ svg {
         width: 50%;
         top: 14rem;
         right: 0.5rem; } }
+    @media (min-width: 48em) {
+      .heading-box__data-container {
+        width: 55%; } }
     @media (min-width: 56.25em) {
       .heading-box__data-container {
         right: 2.5rem; } }

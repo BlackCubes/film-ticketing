@@ -153,6 +153,10 @@
       right: 0.5rem;
     }
 
+    @include respond(min-768) {
+      width: 55%;
+    }
+
     @include respond(tab-land) {
       right: 2.5rem;
     }
