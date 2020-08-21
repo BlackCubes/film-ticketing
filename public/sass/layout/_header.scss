@@ -537,14 +537,14 @@
   }
 
   &:nth-child(1) {
-    letter-spacing: -0.8rem;
+    letter-spacing: -0.7rem;
   }
 
   &:nth-child(2) {
     letter-spacing: -0.7rem;
 
     @include respond(tab-port) {
-      letter-spacing: -0.8rem;
+      letter-spacing: -0.7rem;
     }
   }
 

@@ -2119,12 +2119,12 @@ svg {
     .nav__toggle-item:nth-child(5):before {
       transition-delay: 0.2s; }
   .nav__toggle-item:nth-child(1) {
-    letter-spacing: -0.8rem; }
+    letter-spacing: -0.7rem; }
   .nav__toggle-item:nth-child(2) {
     letter-spacing: -0.7rem; }
     @media (min-width: 37.5em) {
       .nav__toggle-item:nth-child(2) {
-        letter-spacing: -0.8rem; } }
+        letter-spacing: -0.7rem; } }
   .nav__toggle-item:nth-child(n + 4) {
     letter-spacing: -0.8rem;
     margin-top: -0.7rem;
