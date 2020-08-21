@@ -203,7 +203,8 @@
 
   &__input {
     @include respond(tab-port) {
-      height: 6vh;
+      // height: 6vh;
+      height: 4rem;
     }
     @include respond(tab-land) {
       height: 6.5vw;
@@ -384,7 +385,7 @@
     // margin-right: auto;
     // margin-bottom: 4rem;
     @include respond(tab-port) {
-      padding-bottom: 1rem;
+      // padding-bottom: 1rem;
     }
 
     @include respond(tab-land) {
@@ -431,7 +432,7 @@
 
   &__gender {
     @include respond(tab-port) {
-      padding-bottom: 1rem;
+      // padding-bottom: 1rem;
     }
 
     @include respond(tab-land) {

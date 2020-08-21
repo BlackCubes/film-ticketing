@@ -1068,7 +1068,7 @@ body {
 
 @media (min-width: 37.5em) {
   .form__input {
-    height: 6vh; } }
+    height: 4rem; } }
 
 @media (min-width: 56.25em) {
   .form__input {
@@ -1197,10 +1197,6 @@ body {
     .form__date, .form__duo-btn {
       margin-bottom: 2rem; } }
 
-@media (min-width: 37.5em) {
-  .form__date {
-    padding-bottom: 1rem; } }
-
 @media (min-width: 56.25em) {
   .form__date {
     padding-bottom: 0; } }
@@ -1231,10 +1227,6 @@ body {
     .form__date .form__label {
       margin-left: 0.3rem;
       margin-right: 0.3rem; } }
-
-@media (min-width: 37.5em) {
-  .form__gender {
-    padding-bottom: 1rem; } }
 
 @media (min-width: 56.25em) {
   .form__gender {
