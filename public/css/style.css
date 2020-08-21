@@ -1982,6 +1982,8 @@ svg {
         transition-delay: 0s; }
     #navToggle:checked ~ .nav__toggle-menu .nav__toggle-item:before {
       opacity: 0; }
+  #navToggle:checked ~ .nav__toggle-menu .nav__toggle-link {
+    opacity: 1; }
 
 .nav__toggle-button {
   position: absolute;
@@ -2140,6 +2142,9 @@ svg {
       .nav__toggle-item:before {
         width: 120%;
         height: 0.3rem; } }
+
+.nav__toggle-link {
+  opacity: 0; }
 
 .nav-account {
   height: 10rem;
