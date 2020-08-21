@@ -559,14 +559,15 @@
     content: '';
     top: 50%;
     left: 0;
-    width: 110%;
+    // width: 110%;
+    width: 100%;
     height: 2px;
     background-color: $color-white;
     transform: translateY(-50%) scaleY(5);
     transition: $transition-duration - 0.3;
 
     @include respond(tab-port) {
-      width: 120%;
+      // width: 120%;
       height: 0.3rem;
     }
   }

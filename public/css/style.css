@@ -2134,14 +2134,13 @@ svg {
     content: '';
     top: 50%;
     left: 0;
-    width: 110%;
+    width: 100%;
     height: 2px;
     background-color: #fff;
     transform: translateY(-50%) scaleY(5);
     transition: 0.2s; }
     @media (min-width: 37.5em) {
       .nav__toggle-item:before {
-        width: 120%;
         height: 0.3rem; } }
 
 .nav__toggle-link {
