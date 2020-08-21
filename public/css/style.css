@@ -897,7 +897,7 @@ body {
   @media (min-width: 37.5em) {
     .dropdown {
       font-size: 1.6rem;
-      height: 6vh; } }
+      height: 4rem; } }
   @media (min-width: 56.25em) {
     .dropdown {
       font-size: 1.8rem;
