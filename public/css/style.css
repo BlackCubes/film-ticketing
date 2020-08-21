@@ -1983,7 +1983,8 @@ svg {
     #navToggle:checked ~ .nav__toggle-menu .nav__toggle-item:before {
       opacity: 0; }
   #navToggle:checked ~ .nav__toggle-menu .nav__toggle-link {
-    opacity: 1; }
+    opacity: 1;
+    transition: opacity 5s; }
 
 .nav__toggle-button {
   position: absolute;
