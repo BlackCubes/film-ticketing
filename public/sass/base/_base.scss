@@ -62,6 +62,10 @@ a {
   position: relative;
   min-height: 100vh;
 
+  @include respond(tab-port) {
+    min-height: 130vw;
+  }
+
   @include respond(tab-land) {
     min-height: 100vw;
   }
