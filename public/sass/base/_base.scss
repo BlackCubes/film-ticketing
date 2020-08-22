@@ -79,8 +79,16 @@ a {
     min-height: 140vw;
   }
 
+  // @include respond(max-991-min-768) {
+
+  // }
+
   @include respond(tab-land) {
     min-height: 100vw;
+  }
+
+  @include respond(max-1199-min-992) {
+    min-height: 114rem;
   }
 
   @include respond(desktop) {
