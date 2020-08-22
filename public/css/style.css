@@ -79,11 +79,18 @@ a {
 .body-account {
   position: relative;
   min-height: 100vh; }
-  @media (min-width: 37.5em) {
-    .body-account {
-      min-height: 130vw; } }
   @media (min-width: 56.25em) {
     .body-account {
+      min-height: 100vw; } }
+
+.body-error {
+  position: relative;
+  min-height: 100vh; }
+  @media (min-width: 37.5em) {
+    .body-error {
+      min-height: 130vw; } }
+  @media (min-width: 56.25em) {
+    .body-error {
       min-height: 100vw; } }
 
 .main-account {
