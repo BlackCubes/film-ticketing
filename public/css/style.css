@@ -91,7 +91,7 @@ a {
       min-height: 120vw; } }
   @media (min-width: 37.5em) {
     .body-error {
-      min-height: 130vw; } }
+      min-height: 140vw; } }
   @media (min-width: 56.25em) {
     .body-error {
       min-height: 100vw; } }

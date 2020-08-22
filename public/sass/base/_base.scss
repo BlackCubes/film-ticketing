@@ -76,7 +76,7 @@ a {
   }
 
   @include respond(tab-port) {
-    min-height: 130vw;
+    min-height: 140vw;
   }
 
   @include respond(tab-land) {
