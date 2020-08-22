@@ -102,9 +102,6 @@ a {
   @media (min-width: 56.25em) {
     .body-error {
       min-height: 100vw; } }
-  @media (max-width: 74.9375em) and (min-width: 62em) {
-    .body-error {
-      min-height: 114rem; } }
   @media (min-width: 75em) {
     .body-error {
       min-height: 90vw; } }

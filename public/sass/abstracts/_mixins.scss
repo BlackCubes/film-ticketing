@@ -104,8 +104,8 @@ MAX-WIDTH AND MIN-WIDTH
       @content;
     }
   }
-  @if $breakpoint == max-1199-min-992 {
-    @media (max-width: 74.9375em) and (min-width: 62em) {
+  @if $breakpoint == port-1199x-992n {
+    @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       @content;
     }
   }
