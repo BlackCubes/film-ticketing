@@ -87,8 +87,8 @@ a {
     min-height: 100vw;
   }
 
-  @include respond(max-1199-min-992) {
-    min-height: 114rem;
+  @include respond(port-1199x-992n) {
+    min-height: 100vh;
   }
 
   @include respond(desktop) {
