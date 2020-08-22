@@ -95,6 +95,9 @@ a {
   @media (min-width: 56.25em) {
     .body-error {
       min-height: 100vh; } }
+  @media (min-width: 75em) {
+    .body-error {
+      min-height: 80vw; } }
 
 .main-account {
   padding-bottom: 13rem; }
