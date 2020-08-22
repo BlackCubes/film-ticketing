@@ -94,7 +94,7 @@ a {
       min-height: 140vw; } }
   @media (min-width: 56.25em) {
     .body-error {
-      min-height: 100vw; } }
+      min-height: 100vh; } }
 
 .main-account {
   padding-bottom: 13rem; }
