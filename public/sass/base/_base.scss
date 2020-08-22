@@ -71,6 +71,10 @@ a {
   position: relative;
   min-height: 100vh;
 
+  @include respond(big-mobile) {
+    min-height: 120vw;
+  }
+
   @include respond(tab-port) {
     min-height: 130vw;
   }

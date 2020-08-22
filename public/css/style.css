@@ -86,6 +86,9 @@ a {
 .body-error {
   position: relative;
   min-height: 100vh; }
+  @media (min-width: 30em) {
+    .body-error {
+      min-height: 120vw; } }
   @media (min-width: 37.5em) {
     .body-error {
       min-height: 130vw; } }
