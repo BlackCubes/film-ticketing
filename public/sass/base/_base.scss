@@ -80,7 +80,7 @@ a {
   }
 
   @include respond(tab-land) {
-    min-height: 100vh;
+    min-height: 100vw;
   }
 
   @include respond(desktop) {
