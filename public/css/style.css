@@ -32,6 +32,10 @@ MAX-WIDTH
 20em = 320px
 23.4375 = 375px
 37.4375em = 599px
+
+MAX-WIDTH AND MIN-WIDTH
+61.9375em = 991px AND 48em = 768px
+74.9375em = 1199px AND 62em = 992px
 */
 *,
 *::before,

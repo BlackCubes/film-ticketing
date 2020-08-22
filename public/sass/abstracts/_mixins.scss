@@ -41,6 +41,10 @@ MAX-WIDTH
 20em = 320px
 23.4375 = 375px
 37.4375em = 599px
+
+MAX-WIDTH AND MIN-WIDTH
+61.9375em = 991px AND 48em = 768px
+74.9375em = 1199px AND 62em = 992px
 */
 @mixin respond($breakpoint) {
   @if $breakpoint == max-320 {
@@ -91,6 +95,17 @@ MAX-WIDTH
   }
   @if $breakpoint == big-desktop {
     @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == max-991-min-768 {
+    @media (max-width: 61.9375em) and (min-width: 48em) {
+      @content;
+    }
+  }
+  @if $breakpoint == max-1199-min-992 {
+    @media (max-width: 74.9375em) and (min-width: 62em) {
       @content;
     }
   }
