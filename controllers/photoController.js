@@ -34,9 +34,11 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
 
   // const fileName = req.file.originalname;
 
-  const uploadStream = cloudinary.uploader.upload_stream();
+  const uploadStream = cloudinary.uploader.upload_stream({
+    upload_preset: 'kinetotickets-shows'
+  });
 
-  const uploadResult = await fs.createReadStream(req.file.buffer);
+  const uploadResult = await req.file.buffer.pipe(uploadStream);
 
   console.log(uploadResult);
 
