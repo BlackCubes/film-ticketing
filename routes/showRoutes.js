@@ -34,7 +34,7 @@ router.use(authController.protect);
 //   showController.getMyShows
 // );
 
-router.post('/cloudinary-test', photoController.uploadPhoto);
+router.post('/cloudinaryTest', photoController.uploadPhoto);
 
 router.post(
   '/createMyShow',
