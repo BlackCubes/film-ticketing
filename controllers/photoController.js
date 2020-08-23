@@ -44,8 +44,8 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
       }
 
       req.body.poster = {
-        cloudinaryId: uploadCloudinary.public_id,
-        cloudinaryUrl: uploadCloudinary.secure_url
+        cloudinaryId: result.public_id,
+        cloudinaryUrl: result.secure_url
       };
     }
   );
