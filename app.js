@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const multer = require('multer');
 const path = require('path');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
@@ -20,9 +21,13 @@ const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
+const upload = multer();
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+// For parsing multipart/form-data
+app.use(upload.array());
 
 // Static -- displaying static files
 app.use(express.static(path.join(__dirname, 'public')));
