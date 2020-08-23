@@ -36,9 +36,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
 
   const uploadStream = cloudinary.uploader.upload_stream();
 
-  const uploadResult = await fs
-    .createReadStream(req.file.buffer)
-    .pipe(uploadStream);
+  const uploadResult = await fs.createReadStream(req.file.buffer);
 
   console.log(uploadResult);
 
