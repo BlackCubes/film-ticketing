@@ -36,7 +36,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
       upload_preset: 'kinetotickets-shows'
     },
     function(err, result) {
-      if (err) {
+      if (result) {
         return next(
           new AppError(
             'There is a problem uploading your image! Please contact the system administration.',
@@ -44,7 +44,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
           )
         );
       }
-      return next(new AppError('This is a test for errors..', 400));
+      // return result;
     }
   );
 
