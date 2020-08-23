@@ -28,6 +28,7 @@ exports.bufferPhoto = key => upload.single(`${key}`);
 
 exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
+  req.body.poster = {};
 
   const uploadCloudinary = await cloudinary.uploader.upload_stream(
     {
