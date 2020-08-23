@@ -34,13 +34,15 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
       upload_preset: 'kinetotickets-shows'
     },
     function(err, result) {
-      if (err)
+      if (err) {
         return next(
           new AppError(
             'There is a problem uploading your image! Please contact the system administration.',
             500
           )
         );
+      }
+      return result;
     }
   );
 
