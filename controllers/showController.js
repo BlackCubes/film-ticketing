@@ -160,12 +160,12 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
   );
   if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
 
-  const newShow = await Show.create(filteredBody);
+  // const newShow = await Show.create(filteredBody);
 
   res.status(200).json({
     status: 'success',
     data: {
-      data: newShow
+      data: filteredBody
     }
   });
 });
