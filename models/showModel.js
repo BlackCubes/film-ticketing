@@ -66,10 +66,15 @@ const showSchema = new mongoose.Schema(
       ]
     },
     poster: {
-      urlLarge: {
+      cloudinaryId: {
         type: String,
-        required: [true, 'A show must have a poster!']
+        required: [true, 'A show image needs to be in Cloudinary!']
       },
+      cloudinaryUrl: {
+        type: String,
+        required: [true, 'A show image must have a Cloudinary URL!']
+      },
+      urlLarge: String,
       urlSmall: String
     },
     language: {
