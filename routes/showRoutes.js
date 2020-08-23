@@ -1,4 +1,5 @@
 const express = require('express');
+const photoController = require('./../controllers/photoController');
 const showController = require('./../controllers/showController');
 const authController = require('./../controllers/authController');
 const castcrewRouter = require('./castcrewRoutes');
@@ -32,6 +33,8 @@ router.use(authController.protect);
 //   authController.restrictTo('event-owner'),
 //   showController.getMyShows
 // );
+
+router.post('/cloudinary-test', photoController.uploadPhoto);
 
 router.post(
   '/createMyShow',
