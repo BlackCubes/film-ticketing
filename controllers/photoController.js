@@ -28,7 +28,7 @@ exports.bufferPhoto = key => upload.single(`${key}`);
 
 exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
-  req.body.poster = {};
+  let returnedObj = {};
 
   const uploadCloudinary = await cloudinary.uploader.upload_stream(
     {
@@ -44,7 +44,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
         );
       }
 
-      req.body.poster = {
+      returnedObj = {
         cloudinaryId: result.public_id,
         cloudinaryUrl: result.secure_url
       };
@@ -52,6 +52,8 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   );
 
   streamifier.createReadStream(req.file.buffer).pipe(uploadCloudinary);
+
+  req.body.poster = returnedObj;
 
   // console.log('Cloudinary Result: ', uploadCloudinary);
 
