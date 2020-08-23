@@ -26,6 +26,9 @@ const upload = multer();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+// For parsing application/xwww-
+app.use(express.urlencoded({ limit: '50mb', extended: true })); // Check on the limit!!!
+
 // For parsing multipart/form-data
 app.use(upload.array());
 
