@@ -44,7 +44,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
           )
         );
       }
-      return result;
+      return next(new AppError('This is a test for errors..', 400));
     }
   );
 
