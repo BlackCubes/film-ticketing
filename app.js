@@ -21,7 +21,7 @@ const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
-const upload = multer();
+// const upload = multer();
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ limit: '50mb', extended: true })); // Check on the limit!!!
 
 // For parsing multipart/form-data
-app.use(upload.array());
+// app.use(upload.array());
 
 // Static -- displaying static files
 app.use(express.static(path.join(__dirname, 'public')));
