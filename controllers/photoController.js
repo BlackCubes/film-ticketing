@@ -28,7 +28,8 @@ exports.bufferPhoto = key => upload.single(`${key}`);
 
 exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
-  let returnedObj = {};
+  let cloudinaryId = '';
+  let cloudinaryUrl = '';
 
   const uploadCloudinary = await cloudinary.uploader.upload_stream(
     {
@@ -44,16 +45,17 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
         );
       }
 
-      returnedObj = {
-        cloudinaryId: result.public_id,
-        cloudinaryUrl: result.secure_url
-      };
+      cloudinaryId = result.public_id;
+      cloudinaryUrl = result.secure_url;
     }
   );
 
   streamifier.createReadStream(req.file.buffer).pipe(uploadCloudinary);
 
-  req.body.poster = returnedObj;
+  console.log('CloudinaryID: ', cloudinaryId);
+  console.log('CloudinaryURL: ', cloudinaryUrl);
+
+  req.body.poster = { cloudinaryId, cloudinaryUrl };
 
   // console.log('Cloudinary Result: ', uploadCloudinary);
 
