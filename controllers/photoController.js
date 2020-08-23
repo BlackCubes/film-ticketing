@@ -48,7 +48,10 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
 
   console.log('Cloudinary Result: ', uploadCloudinary);
 
-  // req.body.poster = { urlLarge: uploadResult.url };
+  req.body.poster = {
+    cloudinaryId: uploadCloudinary.public_id,
+    cloudinaryUrl: uploadCloudinary.secure_url
+  };
 
   next();
 });
