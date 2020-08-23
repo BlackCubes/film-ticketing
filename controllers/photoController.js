@@ -2,6 +2,11 @@ var cloudinary = require('cloudinary').v2;
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
-exports.uploadPhoto = catchAsync(async (req, res, next) => {
+exports.uploadPhoto = (req, res, next) => {
   if (!req.file) return next();
-});
+
+  console.log('Req: ', req);
+  console.log('Req.file: ', req.file);
+
+  next();
+};
