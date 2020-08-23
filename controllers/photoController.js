@@ -42,15 +42,15 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
           )
         );
       }
-      console.log('Cloudinary Result: ', result);
+
+      req.body.poster = {
+        cloudinaryId: uploadCloudinary.public_id,
+        cloudinaryUrl: uploadCloudinary.secure_url
+      };
     }
   );
 
-  const testing = streamifier
-    .createReadStream(req.file.buffer)
-    .pipe(uploadCloudinary);
-
-  console.log('Testing var: ', testing);
+  streamifier.createReadStream(req.file.buffer).pipe(uploadCloudinary);
 
   // console.log('Cloudinary Result: ', uploadCloudinary);
 
