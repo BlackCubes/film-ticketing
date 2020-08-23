@@ -36,10 +36,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
       upload_preset: 'kinetotickets-shows'
     },
     function(err, result) {
-      if (result) {
-        cloudinaryId = result.public_id;
-        cloudinaryUrl = result.secure_url;
-      } else {
+      if (err) {
         return next(
           new AppError(
             'There is a problem uploading your image! Please contact the system administration.',
@@ -47,13 +44,17 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
           )
         );
       }
+      return result;
     }
   );
 
-  streamifier.createReadStream(req.file.buffer).pipe(uploadCloudinary);
+  const uploadResult = streamifier
+    .createReadStream(req.file.buffer)
+    .pipe(uploadCloudinary);
 
-  console.log('CloudinaryID: ', cloudinaryId);
-  console.log('CloudinaryURL: ', cloudinaryUrl);
+  console.log(uploadResult);
+  // console.log('CloudinaryID: ', cloudinaryId);
+  // console.log('CloudinaryURL: ', cloudinaryUrl);
 
   req.body.poster = { cloudinaryId, cloudinaryUrl };
 
