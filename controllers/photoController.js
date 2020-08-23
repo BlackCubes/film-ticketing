@@ -8,5 +8,7 @@ exports.uploadPhoto = (req, res, next) => {
   console.log('Req: ', req);
   console.log('Req.file: ', req.file);
 
-  next();
+  res.status(200).json({
+    status: 'success'
+  });
 };
