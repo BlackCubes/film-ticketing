@@ -21,13 +21,14 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
-exports.uploadPhoto = (req, res, next) => {
-  upload.single('poster');
+exports.uploadShotPhoto = upload.single('poster');
 
+exports.uploadPhoto = (req, res, next) => {
   if (!req.file) return next();
 
   console.log('Req: ', req);
   console.log('Req.file: ', req.file);
+  console.log('Req.file.buffer: ', req.file.buffer);
 
   next();
 };
