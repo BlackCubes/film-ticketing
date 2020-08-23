@@ -39,8 +39,7 @@ router.post('/cloudinaryTest', photoController.uploadPhoto);
 router.post(
   '/createMyShow',
   authController.restrictTo('event-owner'),
-  showController.uploadShowPhoto,
-  showController.resizeShowPhotoLarge,
+  photoController.uploadPhoto,
   showController.getEventOrganizer,
   showController.createMyShow
 );
