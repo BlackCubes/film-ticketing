@@ -21,9 +21,9 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
-upload.single('poster');
-
 exports.uploadPhoto = (req, res, next) => {
+  upload.single('poster');
+
   if (!req.file) return next();
 
   console.log('Req: ', req);
