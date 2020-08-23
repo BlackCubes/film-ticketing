@@ -36,7 +36,10 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
       upload_preset: 'kinetotickets-shows'
     },
     function(err, result) {
-      if (err) {
+      if (result) {
+        cloudinaryId = result.public_id;
+        cloudinaryUrl = result.secure_url;
+      } else {
         return next(
           new AppError(
             'There is a problem uploading your image! Please contact the system administration.',
@@ -44,9 +47,6 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
           )
         );
       }
-
-      cloudinaryId = result.public_id;
-      cloudinaryUrl = result.secure_url;
     }
   );
 
