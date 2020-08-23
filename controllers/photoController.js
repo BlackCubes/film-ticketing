@@ -1,6 +1,7 @@
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const multer = require('multer');
+const streamifier = require('streamifier');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
@@ -34,11 +35,18 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
 
   // const fileName = req.file.originalname;
 
-  const uploadStream = cloudinary.uploader.upload_stream({
-    upload_preset: 'kinetotickets-shows'
-  });
+  const uploadStream = cloudinary.uploader.upload_stream(
+    {
+      upload_preset: 'kinetotickets-shows'
+    },
+    function(err, result) {
+      console.log('Error: ', err, ' ----- Result: ', result);
+    }
+  );
 
-  const uploadResult = await req.file.buffer.pipe(uploadStream);
+  const uploadResult = await streamifier
+    .createReadStream(req.file.buffer)
+    .pipe(uploadStream);
 
   console.log(uploadResult);
 
