@@ -1,4 +1,5 @@
 const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
 const multer = require('multer');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
@@ -33,13 +34,15 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
 
   // const fileName = req.file.originalname;
 
-  const uploadResult = await cloudinary.uploader.upload(req.file.buffer, {
-    upload_preset: 'kinetotickets-shows'
-  });
+  const uploadStream = cloudinary.uploader.upload_stream();
+
+  const uploadResult = await fs
+    .readReadStream(req.file.buffer)
+    .pipe(uploadStream);
 
   console.log(uploadResult);
 
-  req.body.poster = { urlLarge: uploadResult.url };
+  // req.body.poster = { urlLarge: uploadResult.url };
 
   next();
 });
