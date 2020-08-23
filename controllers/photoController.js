@@ -42,18 +42,22 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
           )
         );
       }
-      return result;
+      console.log('Cloudinary Result: ', result);
     }
   );
 
-  streamifier.createReadStream(req.file.buffer).pipe(uploadCloudinary);
+  const testing = streamifier
+    .createReadStream(req.file.buffer)
+    .pipe(uploadCloudinary);
 
-  console.log('Cloudinary Result: ', uploadCloudinary);
+  console.log('Testing var: ', testing);
 
-  req.body.poster = {
-    cloudinaryId: uploadCloudinary.public_id,
-    cloudinaryUrl: uploadCloudinary.secure_url
-  };
+  // console.log('Cloudinary Result: ', uploadCloudinary);
+
+  // req.body.poster = {
+  //   cloudinaryId: uploadCloudinary.public_id,
+  //   cloudinaryUrl: uploadCloudinary.secure_url
+  // };
 
   next();
 });
