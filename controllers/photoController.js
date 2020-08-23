@@ -1,9 +1,11 @@
-var cloudinary = require('cloudinary').v2;
+const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
 const multerStorage = multer.memoryStorage();
+
+// cloudinary.config()
 
 const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image')) {
@@ -23,11 +25,21 @@ const upload = multer({
 
 exports.bufferPhoto = key => upload.single(`${key}`);
 
-exports.uploadPhoto = (req, res, next) => {
+exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
 
   console.log('Req.file: ', req.file);
   console.log('Req.file.buffer: ', req.file.buffer);
 
+  // const fileName = req.file.originalname;
+
+  const uploadResult = await cloudinary.uploader.upload(req.file.buffer, {
+    upload_preset: 'kinetotickets-shows'
+  });
+
+  console.log(uploadResult);
+
+  req.body.poster = { urlLarge: uploadResult.url };
+
   next();
-};
+});
