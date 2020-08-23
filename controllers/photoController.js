@@ -1,5 +1,4 @@
 const cloudinary = require('cloudinary').v2;
-const fs = require('fs');
 const multer = require('multer');
 const streamifier = require('streamifier');
 const catchAsync = require('./../utils/catchAsync');
@@ -30,25 +29,24 @@ exports.bufferPhoto = key => upload.single(`${key}`);
 exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
 
-  console.log('Req.file: ', req.file);
-  console.log('Req.file.buffer: ', req.file.buffer);
-
-  // const fileName = req.file.originalname;
-
-  const uploadStream = cloudinary.uploader.upload_stream(
+  const uploadCloudinary = await cloudinary.uploader.upload_stream(
     {
       upload_preset: 'kinetotickets-shows'
     },
     function(err, result) {
-      console.log('Error: ', err, ' ----- Result: ', result);
+      if (err)
+        return next(
+          new AppError(
+            'There is a problem uploading your image! Please contact the system administration.',
+            500
+          )
+        );
     }
   );
 
-  const uploadResult = await streamifier
-    .createReadStream(req.file.buffer)
-    .pipe(uploadStream);
+  streamifier.createReadStream(req.file.buffer).pipe(uploadCloudinary);
 
-  console.log(uploadResult);
+  console.log('Cloudinary Result: ', uploadCloudinary);
 
   // req.body.poster = { urlLarge: uploadResult.url };
 
