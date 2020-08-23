@@ -21,7 +21,7 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
-exports.bufferShowPhoto = key => upload.single(`${key}`);
+exports.bufferPhoto = key => upload.single(`${key}`);
 
 exports.uploadPhoto = (req, res, next) => {
   if (!req.file) return next();
