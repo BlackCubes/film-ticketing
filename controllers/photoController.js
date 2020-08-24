@@ -30,6 +30,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
   let cloudinaryId = '';
   let cloudinaryUrl = '';
+  const testing = 'hello';
 
   const cloudinaryUpload = async stream => {
     try {
@@ -62,7 +63,8 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
 
   console.log('CloudinaryID: ', cloudinaryId);
   console.log('CloudinaryURL: ', cloudinaryUrl);
-  await cloudinaryUpload(req.file.buffer);
+  // await cloudinaryUpload(req.file.buffer);
+  await cloudinaryUpload(testing);
 
   req.body.poster = { cloudinaryId, cloudinaryUrl };
 
