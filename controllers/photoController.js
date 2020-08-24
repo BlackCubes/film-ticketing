@@ -42,15 +42,18 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
         cloudinaryUrl = result.secure_url;
       } else {
         console.log(error);
+        return next(
+          new AppError('There is a problem uploading your image!', 500)
+        );
       }
     }
   );
 
   streamifier.createReadStream(testing).pipe(cloudinaryStream);
 
-  if (!cloudinaryStream) {
-    return next(new AppError('There is a problem uploading your image!', 500));
-  }
+  // if (!cloudinaryStream) {
+  //   return next(new AppError('There is a problem uploading your image!', 500));
+  // }
 
   // const cloudinaryUpload = async stream => {
   //   const cloudinaryStream = await cloudinary.uploader.upload_stream(
