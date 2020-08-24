@@ -48,7 +48,7 @@ exports.uploadPhoto = (preset, required = true) =>
 
     const file64 = formatBufferTo64(req.file);
 
-    const cloudinaryResult = await cloudinaryUpload(file64, preset);
+    const cloudinaryResult = await cloudinaryUpload(file64.content, preset);
 
     if (!cloudinaryResult) {
       return next(
