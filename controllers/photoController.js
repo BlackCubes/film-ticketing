@@ -11,6 +11,7 @@ const parser = new DatauriParser();
 
 // cloudinary.config()
 
+// MULTER SETUP
 const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
@@ -29,9 +30,11 @@ const upload = multer({
 
 exports.bufferPhoto = key => upload.single(`${key}`);
 
+// CONVERT BUFFER
 const formatBufferTo64 = file =>
   parser.format(path.extname(file.originalname).toString(), file.buffer);
 
+// CLOUDINARY
 const cloudinaryUpload = (file, preset) =>
   cloudinary.uploader.upload(file, {
     upload_preset: `${preset}`
