@@ -28,27 +28,15 @@ exports.bufferPhoto = key => upload.single(`${key}`);
 
 exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
+  const file64 = '';
+
   let cloudinaryId = '';
   let cloudinaryUrl = '';
   const testing = 'hello';
 
-  const cloudinaryStream = await cloudinary.uploader.upload_stream(
-    {
-      upload_preset: 'kinetotickets-shows'
-    }
-    // function(error, result) {
-    //   if (error) {
-    //     console.log(error);
-    //     return next(
-    //       new AppError('There is a problem uploading your image!', 500)
-    //     );
-    //   }
-    //   cloudinaryId = result.public_id;
-    //   cloudinaryUrl = result.secure_url;
-    // }
-  );
-
-  streamifier.createReadStream(testing).pipe(cloudinaryStream);
+  const cloudinaryStream = await cloudinary.uploader.upload(file64, {
+    upload_preset: 'kinetotickets-shows'
+  });
 
   if (!cloudinaryStream) {
     return next(new AppError('There is a problem uploading your image!', 500));
