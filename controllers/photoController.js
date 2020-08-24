@@ -53,10 +53,10 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
 
   console.log('Cloudinary Result: ', cloudinaryResult);
 
-  // req.body.poster = {
-  //   cloudinaryId: uploadCloudinary.public_id,
-  //   cloudinaryUrl: uploadCloudinary.secure_url
-  // };
+  req.body.poster = {
+    cloudinaryId: cloudinaryResult.public_id,
+    cloudinaryUrl: cloudinaryResult.secure_url
+  };
 
   next();
 });
