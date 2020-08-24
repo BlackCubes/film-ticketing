@@ -37,28 +37,29 @@ const cloudinaryUpload = (file, preset) =>
     upload_preset: `${preset}`
   });
 
-exports.uploadPhoto = catchAsync(async (req, res, next) => {
-  if (!req.file) return next();
-  const file64 = formatBufferTo64(req.file);
+exports.uploadPhoto = (preset, required = true) =>
+  catchAsync(async (req, res, next) => {
+    if (!req.file && required)
+      return next(new AppError('You must provide an image!', 400));
+    if (!req.file && !required) return next();
 
-  const cloudinaryResult = await cloudinaryUpload(
-    file64,
-    'kinetotickets-shows'
-  );
+    const file64 = formatBufferTo64(req.file);
 
-  if (!cloudinaryResult) {
-    return next(
-      new AppError(
-        'There is a problem uploading your image! Please contact the system administrator.',
-        422
-      )
-    );
-  }
+    const cloudinaryResult = await cloudinaryUpload(file64, preset);
 
-  req.body.poster = {
-    cloudinaryId: cloudinaryResult.public_id,
-    cloudinaryUrl: cloudinaryResult.secure_url
-  };
+    if (!cloudinaryResult) {
+      return next(
+        new AppError(
+          'There is a problem uploading your image! Please contact the system administrator.',
+          422
+        )
+      );
+    }
 
-  next();
-});
+    req.body.poster = {
+      cloudinaryId: cloudinaryResult.public_id,
+      cloudinaryUrl: cloudinaryResult.secure_url
+    };
+
+    next();
+  });
