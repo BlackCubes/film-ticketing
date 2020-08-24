@@ -37,15 +37,14 @@ exports.uploadPhoto = async (req, res, next) => {
       upload_preset: 'kinetotickets-shows'
     },
     function(error, result) {
-      if (result) {
-        cloudinaryId = result.public_id;
-        cloudinaryUrl = result.secure_url;
-      } else {
+      if (error) {
         console.log(error);
         return next(
           new AppError('There is a problem uploading your image!', 500)
         );
       }
+      cloudinaryId = result.public_id;
+      cloudinaryUrl = result.secure_url;
     }
   );
 
