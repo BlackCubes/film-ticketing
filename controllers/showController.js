@@ -196,7 +196,8 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'castcrew',
     'price',
     'genres',
-    'specialVenue'
+    'specialVenue',
+    'poster'
   );
   // if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
   // if (req.files) {
