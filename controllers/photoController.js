@@ -32,7 +32,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   let cloudinaryUrl = '';
   const testing = 'hello';
 
-  const cloudinaryStream = await cloudinary.uploader.upload_stream(
+  const cloudinaryStream = cloudinary.uploader.upload_stream(
     {
       upload_preset: 'kinetotickets-shows'
     },
@@ -49,7 +49,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
     }
   );
 
-  streamifier.createReadStream(testing).pipe(cloudinaryStream);
+  await streamifier.createReadStream(testing).pipe(cloudinaryStream);
 
   // if (!cloudinaryStream) {
   //   return next(new AppError('There is a problem uploading your image!', 500));
