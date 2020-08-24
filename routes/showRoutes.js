@@ -54,7 +54,7 @@ router.patch(
 router.patch(
   '/updateMyShow/:id/:showPoster',
   authController.restrictTo('event-owner'),
-  photoController.deletePhoto('kinetotickets/shows'),
+  photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
   photoController.uploadPhoto('kinetotickets-shows'),
   showController.updateMyShow
