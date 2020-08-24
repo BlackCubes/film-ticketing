@@ -39,6 +39,7 @@ const cloudinaryUpload = (file, preset) =>
   cloudinary.uploader.upload(file, {
     upload_preset: `${preset}`
   });
+const cloudinaryDelete = file => cloudinary.uploader.destroy(file);
 
 exports.uploadPhoto = (preset, required = true) =>
   catchAsync(async (req, res, next) => {
@@ -63,6 +64,24 @@ exports.uploadPhoto = (preset, required = true) =>
       cloudinaryId: cloudinaryResult.public_id,
       cloudinaryUrl: cloudinaryResult.secure_url
     };
+
+    next();
+  });
+
+exports.deletePhoto = file =>
+  catchAsync(async (req, res, next) => {
+    if (!file) return next();
+
+    const cloudinaryResult = await cloudinaryDelete(file);
+
+    if (!cloudinaryResult) {
+      return next(
+        new AppError(
+          'There is a problem deleting your image! Please contact the system administrator.',
+          422
+        )
+      );
+    }
 
     next();
   });
