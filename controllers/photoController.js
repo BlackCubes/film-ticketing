@@ -32,30 +32,26 @@ exports.bufferPhoto = key => upload.single(`${key}`);
 const formatBufferTo64 = file =>
   parser.format(path.extname(file.originalname).toString(), file.buffer);
 
+const cloudinaryUpload = (file, preset) =>
+  cloudinary.uploader.upload(file, {
+    upload_preset: `${preset}`
+  });
+
 exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
   const file64 = formatBufferTo64(req.file);
-  console.log(file64);
-
-  let cloudinaryId = '';
-  let cloudinaryUrl = '';
   const testing = 'hello';
 
-  // const cloudinaryStream = await cloudinary.uploader.upload(file64, {
-  //   upload_preset: 'kinetotickets-shows'
-  // });
+  const cloudinaryResult = await cloudinaryUpload(
+    file64.content,
+    'kinetotickets-shows'
+  );
 
-  // if (!cloudinaryStream) {
-  //   return next(new AppError('There is a problem uploading your image!', 500));
-  // }
+  if (!cloudinaryResult) {
+    return next(new AppError('There is a problem uploading your image!', 422));
+  }
 
-  console.log('CloudinaryID: ', cloudinaryId);
-  console.log('CloudinaryURL: ', cloudinaryUrl);
-  // await cloudinaryUpload(req.file.buffer);
-
-  req.body.poster = { cloudinaryId, cloudinaryUrl };
-
-  // console.log('Cloudinary Result: ', uploadCloudinary);
+  console.log('Cloudinary Result: ', cloudinaryResult);
 
   // req.body.poster = {
   //   cloudinaryId: uploadCloudinary.public_id,
