@@ -75,7 +75,7 @@ exports.uploadPhoto = async (req, res, next) => {
         streamifier.createReadStream(stream).pipe(cloudinaryStream);
       });
     } catch (err) {
-      throw new AppError(
+      return new AppError(
         'There is a problem uploading your image! Please contact the system administrator.',
         500
       );
