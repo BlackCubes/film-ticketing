@@ -70,7 +70,13 @@ exports.uploadPhoto = (preset, required = true) =>
 
 exports.deletePhoto = photoType =>
   catchAsync(async (req, res, next) => {
-    if (!req.params.showPoster) return next();
+    if (
+      !req.params.showPoster ||
+      !req.params.castcrewsPhoto ||
+      !req.params.theaterPhoto ||
+      !req.params.userPhoto
+    )
+      return next();
 
     const cloudinaryResult = await cloudinaryDelete(
       `kinetotickets/${photoType}/${req.params.showPoster}`
