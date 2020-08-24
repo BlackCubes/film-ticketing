@@ -47,7 +47,12 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   );
 
   if (!cloudinaryResult) {
-    return next(new AppError('There is a problem uploading your image!', 422));
+    return next(
+      new AppError(
+        'There is a problem uploading your image! Please contact the system administrator.',
+        422
+      )
+    );
   }
 
   req.body.poster = {
