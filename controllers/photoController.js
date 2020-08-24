@@ -32,65 +32,63 @@ exports.uploadPhoto = async (req, res, next) => {
   let cloudinaryUrl = '';
   const testing = 'hello';
 
-  // const cloudinaryUpload = stream => {
-  //   const cloudinaryStream = cloudinary.uploader.upload_stream(
-  //     {
-  //       upload_preset: 'kinetotickets-shows'
-  //     },
-  //     function(error, result) {
-  //       if (result) {
-  //         cloudinaryId = result.public_id;
-  //         cloudinaryUrl = result.secure_url;
-  //       } else {
-  //         return next(
-  //           new AppError(
-  //             'There is a problem uploading your image! Please contact the system administrator',
-  //             500
-  //           )
-  //         );
-  //       }
-  //     }
-  //   );
+  const cloudinaryUpload = stream => {
+    const cloudinaryStream = cloudinary.uploader.upload_stream(
+      {
+        upload_preset: 'kinetotickets-shows'
+      },
+      function(error, result) {
+        if (result) {
+          cloudinaryId = result.public_id;
+          cloudinaryUrl = result.secure_url;
+        } else {
+          console.log(error);
+        }
+      }
+    );
 
-  //   streamifier.createReadStream(stream).pipe(cloudinaryStream);
-  // };
-
-  const cloudinaryUpload = async stream => {
-    try {
-      await new Promise((resolve, reject) => {
-        const cloudinaryStream = cloudinary.uploader.upload_stream(
-          {
-            upload_preset: 'kinetotickets-shows'
-          },
-          function(error, result) {
-            if (result) {
-              cloudinaryId = result.public_id;
-              cloudinaryUrl = result.secure_url;
-              resolve(cloudinaryId);
-            } else {
-              reject(error);
-            }
-          }
-        );
-        streamifier.createReadStream(stream).pipe(cloudinaryStream);
-      });
-    } catch (err) {
-      throw new Error(
-        `There is a problem uploading your image! Error: ${err.message}`
-      );
-      // return next(
-      //   new AppError(
-      //     'There is a problem uploading your image! Please contact the system administrator.',
-      //     500
-      //   )
-      // );
-    }
+    streamifier.createReadStream(stream).pipe(cloudinaryStream);
   };
+
+  // const cloudinaryUpload = async stream => {
+  //   try {
+  //     await new Promise((resolve, reject) => {
+  //       const cloudinaryStream = cloudinary.uploader.upload_stream(
+  //         {
+  //           upload_preset: 'kinetotickets-shows'
+  //         },
+  //         function(error, result) {
+  //           if (result) {
+  //             cloudinaryId = result.public_id;
+  //             cloudinaryUrl = result.secure_url;
+  //             resolve(cloudinaryId);
+  //           } else {
+  //             reject(error);
+  //           }
+  //         }
+  //       );
+  //       streamifier.createReadStream(stream).pipe(cloudinaryStream);
+  //     });
+  //   } catch (err) {
+  //     throw new Error(
+  //       `There is a problem uploading your image! Error: ${err.message}`
+  //     );
+  //     // return next(
+  //     //   new AppError(
+  //     //     'There is a problem uploading your image! Please contact the system administrator.',
+  //     //     500
+  //     //   )
+  //     // );
+  //   }
+  // };
 
   console.log('CloudinaryID: ', cloudinaryId);
   console.log('CloudinaryURL: ', cloudinaryUrl);
   // await cloudinaryUpload(req.file.buffer);
-  cloudinaryUpload(testing);
+  const cloudinaryResult = await cloudinaryUpload(testing);
+
+  if (!cloudinaryResult)
+    return next(new AppError('There is a problem uploading your image!', 500));
 
   req.body.poster = { cloudinaryId, cloudinaryUrl };
 
