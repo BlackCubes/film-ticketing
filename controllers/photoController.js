@@ -32,23 +32,43 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   let cloudinaryUrl = '';
   const testing = 'hello';
 
-  const cloudinaryUpload = async stream => {
-    const cloudinaryStream = await cloudinary.uploader.upload_stream(
-      {
-        upload_preset: 'kinetotickets-shows'
-      },
-      function(error, result) {
-        if (result) {
-          cloudinaryId = result.public_id;
-          cloudinaryUrl = result.secure_url;
-        } else {
-          console.log(error);
-        }
+  const cloudinaryStream = await cloudinary.uploader.upload_stream(
+    {
+      upload_preset: 'kinetotickets-shows'
+    },
+    function(error, result) {
+      if (result) {
+        cloudinaryId = result.public_id;
+        cloudinaryUrl = result.secure_url;
+      } else {
+        console.log(error);
       }
-    );
+    }
+  );
 
-    streamifier.createReadStream(stream).pipe(cloudinaryStream);
-  };
+  streamifier.createReadStream(testing).pipe(cloudinaryStream);
+
+  if (!cloudinaryStream) {
+    return next(new AppError('There is a problem uploading your image!', 500));
+  }
+
+  // const cloudinaryUpload = async stream => {
+  //   const cloudinaryStream = await cloudinary.uploader.upload_stream(
+  //     {
+  //       upload_preset: 'kinetotickets-shows'
+  //     },
+  //     function(error, result) {
+  //       if (result) {
+  //         cloudinaryId = result.public_id;
+  //         cloudinaryUrl = result.secure_url;
+  //       } else {
+  //         console.log(error);
+  //       }
+  //     }
+  //   );
+
+  //   streamifier.createReadStream(stream).pipe(cloudinaryStream);
+  // };
 
   // const cloudinaryUpload = async stream => {
   //   try {
@@ -85,10 +105,6 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   console.log('CloudinaryID: ', cloudinaryId);
   console.log('CloudinaryURL: ', cloudinaryUrl);
   // await cloudinaryUpload(req.file.buffer);
-  const cloudinaryResult = await cloudinaryUpload(testing);
-
-  if (!cloudinaryResult)
-    return next(new AppError('There is a problem uploading your image!', 500));
 
   req.body.poster = { cloudinaryId, cloudinaryUrl };
 
