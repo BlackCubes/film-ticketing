@@ -26,7 +26,7 @@ const upload = multer({
 
 exports.bufferPhoto = key => upload.single(`${key}`);
 
-exports.uploadPhoto = catchAsync(async (req, res, next) => {
+exports.uploadPhoto = async (req, res, next) => {
   if (!req.file) return next();
   let cloudinaryId = '';
   let cloudinaryUrl = '';
@@ -119,4 +119,4 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   // };
 
   next();
-});
+};
