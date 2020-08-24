@@ -68,20 +68,19 @@ exports.uploadPhoto = (preset, required = true) =>
     next();
   });
 
-exports.deletePhoto = file =>
-  catchAsync(async (req, res, next) => {
-    if (!file) return next();
+exports.deletePhoto = catchAsync(async (req, res, next) => {
+  if (!req.params.showPoster) return next();
 
-    const cloudinaryResult = await cloudinaryDelete(file);
+  const cloudinaryResult = await cloudinaryDelete(req.params.showPoster);
 
-    if (!cloudinaryResult) {
-      return next(
-        new AppError(
-          'There is a problem deleting your image! Please contact the system administrator.',
-          422
-        )
-      );
-    }
+  if (!cloudinaryResult) {
+    return next(
+      new AppError(
+        'There is a problem deleting your image! Please contact the system administrator.',
+        422
+      )
+    );
+  }
 
-    next();
-  });
+  next();
+});
