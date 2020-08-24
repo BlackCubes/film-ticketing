@@ -26,7 +26,7 @@ const upload = multer({
 
 exports.bufferPhoto = key => upload.single(`${key}`);
 
-exports.uploadPhoto = async (req, res, next) => {
+exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
   let cloudinaryId = '';
   let cloudinaryUrl = '';
@@ -35,74 +35,24 @@ exports.uploadPhoto = async (req, res, next) => {
   const cloudinaryStream = cloudinary.uploader.upload_stream(
     {
       upload_preset: 'kinetotickets-shows'
-    },
-    function(error, result) {
-      if (error) {
-        console.log(error);
-        return next(
-          new AppError('There is a problem uploading your image!', 500)
-        );
-      }
-      cloudinaryId = result.public_id;
-      cloudinaryUrl = result.secure_url;
     }
+    // function(error, result) {
+    //   if (error) {
+    //     console.log(error);
+    //     return next(
+    //       new AppError('There is a problem uploading your image!', 500)
+    //     );
+    //   }
+    //   cloudinaryId = result.public_id;
+    //   cloudinaryUrl = result.secure_url;
+    // }
   );
 
-  await streamifier.createReadStream(testing).pipe(cloudinaryStream);
+  streamifier.createReadStream(testing).pipe(cloudinaryStream);
 
-  // if (!cloudinaryStream) {
-  //   return next(new AppError('There is a problem uploading your image!', 500));
-  // }
-
-  // const cloudinaryUpload = async stream => {
-  //   const cloudinaryStream = await cloudinary.uploader.upload_stream(
-  //     {
-  //       upload_preset: 'kinetotickets-shows'
-  //     },
-  //     function(error, result) {
-  //       if (result) {
-  //         cloudinaryId = result.public_id;
-  //         cloudinaryUrl = result.secure_url;
-  //       } else {
-  //         console.log(error);
-  //       }
-  //     }
-  //   );
-
-  //   streamifier.createReadStream(stream).pipe(cloudinaryStream);
-  // };
-
-  // const cloudinaryUpload = async stream => {
-  //   try {
-  //     await new Promise((resolve, reject) => {
-  //       const cloudinaryStream = cloudinary.uploader.upload_stream(
-  //         {
-  //           upload_preset: 'kinetotickets-shows'
-  //         },
-  //         function(error, result) {
-  //           if (result) {
-  //             cloudinaryId = result.public_id;
-  //             cloudinaryUrl = result.secure_url;
-  //             resolve(cloudinaryId);
-  //           } else {
-  //             reject(error);
-  //           }
-  //         }
-  //       );
-  //       streamifier.createReadStream(stream).pipe(cloudinaryStream);
-  //     });
-  //   } catch (err) {
-  //     throw new Error(
-  //       `There is a problem uploading your image! Error: ${err.message}`
-  //     );
-  //     // return next(
-  //     //   new AppError(
-  //     //     'There is a problem uploading your image! Please contact the system administrator.',
-  //     //     500
-  //     //   )
-  //     // );
-  //   }
-  // };
+  if (!cloudinaryStream) {
+    return next(new AppError('There is a problem uploading your image!', 500));
+  }
 
   console.log('CloudinaryID: ', cloudinaryId);
   console.log('CloudinaryURL: ', cloudinaryUrl);
@@ -118,4 +68,4 @@ exports.uploadPhoto = async (req, res, next) => {
   // };
 
   next();
-};
+});
