@@ -32,8 +32,8 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   let cloudinaryUrl = '';
   const testing = 'hello';
 
-  const cloudinaryUpload = async stream => {
-    const cloudinaryStream = await cloudinary.uploader.upload_stream(
+  const cloudinaryUpload = stream => {
+    const cloudinaryStream = cloudinary.uploader.upload_stream(
       {
         upload_preset: 'kinetotickets-shows'
       },
@@ -42,9 +42,11 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
           cloudinaryId = result.public_id;
           cloudinaryUrl = result.secure_url;
         } else {
-          return new AppError(
-            'There is a problem uploading your image! Please contact the system administrator',
-            500
+          return next(
+            new AppError(
+              'There is a problem uploading your image! Please contact the system administrator',
+              500
+            )
           );
         }
       }
