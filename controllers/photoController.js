@@ -51,8 +51,6 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
     return next(new AppError('There is a problem uploading your image!', 422));
   }
 
-  console.log('Cloudinary Result: ', cloudinaryResult);
-
   req.body.poster = {
     cloudinaryId: cloudinaryResult.public_id,
     cloudinaryUrl: cloudinaryResult.secure_url
