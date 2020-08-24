@@ -43,7 +43,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   const testing = 'hello';
 
   const cloudinaryResult = await cloudinaryUpload(
-    file64.content,
+    testing,
     'kinetotickets-shows'
   );
 
