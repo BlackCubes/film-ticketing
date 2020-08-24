@@ -32,8 +32,8 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   let cloudinaryUrl = '';
   const testing = 'hello';
 
-  const cloudinaryUpload = stream => {
-    const cloudinaryStream = cloudinary.uploader.upload_stream(
+  const cloudinaryUpload = async stream => {
+    const cloudinaryStream = await cloudinary.uploader.upload_stream(
       {
         upload_preset: 'kinetotickets-shows'
       },
