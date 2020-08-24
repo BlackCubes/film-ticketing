@@ -42,7 +42,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
           cloudinaryId = result.public_id;
           cloudinaryUrl = result.secure_url;
         } else {
-          next(
+          return next(
             new AppError(
               'There is a problem uploading your image! Please contact the system administrator',
               500
@@ -85,7 +85,7 @@ exports.uploadPhoto = catchAsync(async (req, res, next) => {
   console.log('CloudinaryID: ', cloudinaryId);
   console.log('CloudinaryURL: ', cloudinaryUrl);
   // await cloudinaryUpload(req.file.buffer);
-  await cloudinaryUpload(testing);
+  cloudinaryUpload(testing);
 
   req.body.poster = { cloudinaryId, cloudinaryUrl };
 
