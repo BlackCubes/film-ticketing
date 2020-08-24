@@ -215,14 +215,14 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
 
   // })
 
-  const updatedShow = await Show.findOneAndUpdate(
-    { id: req.params.id, eventOrganizer: req.user.id },
-    filteredBody,
-    {
-      new: true,
-      runValidators: true
-    }
-  );
+  // const updatedShow = await Show.findOneAndUpdate(
+  //   { id: req.params.id, eventOrganizer: req.user.id },
+  //   filteredBody,
+  //   {
+  //     new: true,
+  //     runValidators: true
+  //   }
+  // );
 
   res.status(200).json({
     status: 'success',
