@@ -68,12 +68,12 @@ exports.uploadPhoto = (preset, required = true) =>
     next();
   });
 
-exports.deletePhoto = path =>
+exports.deletePhoto = photoPath =>
   catchAsync(async (req, res, next) => {
     if (!req.params.showPoster) return next();
 
     const cloudinaryResult = await cloudinaryDelete(
-      `${path}/req.params.showPoster`
+      `${photoPath}/${req.params.showPoster}`
     );
 
     if (!cloudinaryResult) {
