@@ -1,10 +1,13 @@
 const cloudinary = require('cloudinary').v2;
+const DatauriParser = require('datauri/parser');
 const multer = require('multer');
-const streamifier = require('streamifier');
+const path = require('path');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
 const multerStorage = multer.memoryStorage();
+
+const parser = new DatauriParser();
 
 // cloudinary.config()
 
@@ -26,21 +29,25 @@ const upload = multer({
 
 exports.bufferPhoto = key => upload.single(`${key}`);
 
+const formatBufferTo64 = file =>
+  parser.format(path.extname(file.originalname).toString(), file.buffer);
+
 exports.uploadPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
-  const file64 = '';
+  const file64 = formatBufferTo64(req.file);
+  console.log(file64);
 
   let cloudinaryId = '';
   let cloudinaryUrl = '';
   const testing = 'hello';
 
-  const cloudinaryStream = await cloudinary.uploader.upload(file64, {
-    upload_preset: 'kinetotickets-shows'
-  });
+  // const cloudinaryStream = await cloudinary.uploader.upload(file64, {
+  //   upload_preset: 'kinetotickets-shows'
+  // });
 
-  if (!cloudinaryStream) {
-    return next(new AppError('There is a problem uploading your image!', 500));
-  }
+  // if (!cloudinaryStream) {
+  //   return next(new AppError('There is a problem uploading your image!', 500));
+  // }
 
   console.log('CloudinaryID: ', cloudinaryId);
   console.log('CloudinaryURL: ', cloudinaryUrl);
