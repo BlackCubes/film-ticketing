@@ -68,12 +68,12 @@ exports.uploadPhoto = (preset, required = true) =>
     next();
   });
 
-exports.deletePhoto = photoPath =>
+exports.deletePhoto = photoType =>
   catchAsync(async (req, res, next) => {
     if (!req.params.showPoster) return next();
 
     const cloudinaryResult = await cloudinaryDelete(
-      `${photoPath}/${req.params.showPoster}`
+      `kinetotickets/${photoType}/${req.params.showPoster}`
     );
 
     if (!cloudinaryResult) {
