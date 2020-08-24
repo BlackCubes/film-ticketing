@@ -78,8 +78,27 @@ exports.deletePhoto = photoType =>
     )
       return next();
 
+    let paramsExt = '';
+
+    switch (photoType) {
+      case 'shows':
+        paramsExt = req.params.showPoster;
+        break;
+      case 'users':
+        paramsExt = req.params.userPhoto;
+        break;
+      case 'theaters':
+        paramsExt = req.params.theaterPhoto;
+        break;
+      case 'castcrews':
+        paramsExt = req.params.castcrews;
+        break;
+      default:
+        return next();
+    }
+
     const cloudinaryResult = await cloudinaryDelete(
-      `kinetotickets/${photoType}/${req.params.showPoster}`
+      `kinetotickets/${photoType}/${paramsExt}`
     );
 
     if (!cloudinaryResult) {
