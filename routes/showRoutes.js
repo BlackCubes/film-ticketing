@@ -40,7 +40,7 @@ router.post(
   '/createMyShow',
   authController.restrictTo('event-owner'),
   photoController.bufferPhoto('poster'),
-  photoController.uploadPhoto,
+  photoController.uploadPhoto('kinetotickets-shows'),
   showController.getEventOrganizer,
   showController.createMyShow
 );
