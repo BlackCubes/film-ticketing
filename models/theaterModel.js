@@ -62,7 +62,17 @@ const theaterSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
-    photo: String
+    photo: String,
+    cloudinaryPhoto: {
+      cloudinaryId: {
+        type: String,
+        required: [true, 'A theater image needs to be in Cloudinary!']
+      },
+      cloudinaryUrl: {
+        type: String,
+        required: [true, 'A theater image must have a Cloudinary URL!']
+      }
+    }
   },
   {
     toJSON: { virtuals: true },
