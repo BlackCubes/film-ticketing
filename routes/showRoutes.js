@@ -85,7 +85,7 @@ router
   );
 
 router.patch(
-  '/:id/:showPoster/',
+  '/:id/:showPoster',
   authController.restrictTo('admin'),
   showController.deletePoster,
   showController.uploadShowPhoto,
