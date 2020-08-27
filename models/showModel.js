@@ -66,6 +66,10 @@ const showSchema = new mongoose.Schema(
       ]
     },
     poster: {
+      urlLarge: String,
+      urlSmall: String
+    },
+    cloudinaryPhoto: {
       cloudinaryId: {
         type: String,
         required: [true, 'A show image needs to be in Cloudinary!']
@@ -73,9 +77,7 @@ const showSchema = new mongoose.Schema(
       cloudinaryUrl: {
         type: String,
         required: [true, 'A show image must have a Cloudinary URL!']
-      },
-      urlLarge: String,
-      urlSmall: String
+      }
     },
     language: {
       type: String,
