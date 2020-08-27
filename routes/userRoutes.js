@@ -21,13 +21,18 @@ router.patch('/updateMyPassword', authController.updateMyPassword);
 
 router.get('/me', userController.getMe, userController.getUser);
 
-router.patch('/updateMe', userController.updateMe);
+router.patch(
+  '/updateMe',
+  photoController.bufferPhoto('photo'),
+  photoController.uploadPhoto('kinetotickets-users', false),
+  userController.updateMe
+);
 
 router.patch(
   '/updateMe/:userPhoto',
   photoController.deletePhoto('users'),
   photoController.bufferPhoto('photo'),
-  photoController.uploadPhoto('kinetotickets-users'),
+  photoController.uploadPhoto('kinetotickets-users', false),
   userController.updateMe
 );
 
