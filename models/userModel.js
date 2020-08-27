@@ -26,6 +26,16 @@ const userSchema = new mongoose.Schema({
     lowercase: true
   },
   photo: { type: String, default: 'default.jpg' },
+  cloudinaryPhoto: {
+    cloudinaryId: {
+      type: String,
+      required: [true, 'A show image needs to be in Cloudinary!']
+    },
+    cloudinaryUrl: {
+      type: String,
+      required: [true, 'A show image must have a Cloudinary URL!']
+    }
+  },
   role: {
     type: String,
     enum: ['user', 'event-owner', 'admin'],
