@@ -76,14 +76,6 @@ exports.uploadPhoto = (preset, required = true) =>
 // DELETE
 exports.deletePhoto = photoType =>
   catchAsync(async (req, res, next) => {
-    // if (
-    //   !req.params.showPoster ||
-    //   !req.params.castcrewsPhoto ||
-    //   !req.params.theaterPhoto ||
-    //   !req.params.userPhoto
-    // )
-    //   return next();
-
     let paramsExt;
 
     if (photoType === 'shows') paramsExt = req.params.showPoster;
@@ -91,32 +83,11 @@ exports.deletePhoto = photoType =>
     if (photoType === 'theaters') paramsExt = req.params.theaterPhoto;
     if (photoType === 'castcrews') paramsExt = req.params.castcrewsPhoto;
 
-    // switch (photoType) {
-    //   case 'shows':
-    //     paramsExt = req.params.showPoster;
-    //     break;
-    //   case 'users':
-    //     paramsExt = req.params.userPhoto;
-    //     break;
-    //   case 'theaters':
-    //     paramsExt = req.params.theaterPhoto;
-    //     break;
-    //   case 'castcrews':
-    //     paramsExt = req.params.castcrews;
-    //     break;
-    //   default:
-    //     return next();
-    // }
-
-    console.log('Is this a delete route?');
-
     const cloudinaryResult = await cloudinaryDelete(
       `kinetotickets/${photoType}/${paramsExt}`
     );
 
-    console.log('Delete Result: ', cloudinaryResult);
-
-    if (!cloudinaryResult) {
+    if (cloudinaryResult.result !== 'ok') {
       return next(
         new AppError(
           'There is a problem deleting your image! Please contact the system administrator.',
