@@ -21,19 +21,20 @@ exports.updateOne = Model =>
     if (req.file && req.params.showPoster)
       req.body.poster = { urlLarge: req.file.filename };
 
-    const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true
-    });
+    // const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
+    //   new: true,
+    //   runValidators: true
+    // });
 
-    if (!doc) {
-      return next(new AppError('There is no document with that ID!', 404));
-    }
+    // if (!doc) {
+    //   return next(new AppError('There is no document with that ID!', 404));
+    // }
+    console.log(`Model: ${Model}`); // Delete!
 
     res.status(200).json({
       status: 'success',
       data: {
-        data: doc
+        data: 'This is test! When done, uncomment!'
       }
     });
   });
@@ -42,12 +43,13 @@ exports.createOne = Model =>
   catchAsync(async (req, res, next) => {
     // if (req.file) req.body.poster = { urlLarge: req.file.filename };
 
-    const doc = await Model.create(req.body);
+    // const doc = await Model.create(req.body);
+    console.log(`Model: ${Model}`); // Delete!
 
     res.status(201).json({
       status: 'success',
       data: {
-        data: doc
+        data: 'This is test for cloudinary! When done, uncomment!'
       }
     });
   });
