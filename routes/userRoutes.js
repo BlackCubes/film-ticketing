@@ -49,14 +49,18 @@ router
 router
   .route('/:id')
   .get(userController.getUser)
-  .patch(userController.updateUser)
+  .patch(
+    photoController.bufferPhoto('photo'),
+    photoController.uploadPhoto('kinetotickets-users', false),
+    userController.updateUser
+  )
   .delete(userController.deleteUser);
 
 router.patch(
   '/:id/:userPhoto',
   photoController.deletePhoto('users'),
   photoController.bufferPhoto('photo'),
-  photoController.uploadPhoto('kinetotickets-users'),
+  photoController.uploadPhoto('kinetotickets-users', false),
   userController.updateUser
 );
 
