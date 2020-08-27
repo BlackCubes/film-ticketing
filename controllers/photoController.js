@@ -76,6 +76,8 @@ exports.uploadPhoto = (preset, required = true) =>
 // DELETE
 exports.deletePhoto = photoType =>
   catchAsync(async (req, res, next) => {
+    if (photoType === 'users' && !req.params.userPhoto) return next();
+
     let paramsExt;
 
     if (photoType === 'shows') paramsExt = req.params.showPoster;
