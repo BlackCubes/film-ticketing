@@ -1,6 +1,7 @@
 const express = require('express');
 const userController = require('./../controllers/userController');
 const authController = require('./../controllers/authController');
+const photoController = require('./../controllers/photoController');
 const showRouter = require('./showRoutes');
 
 const router = express.Router({ mergeParams: true });
@@ -24,9 +25,9 @@ router.patch('/updateMe', userController.updateMe);
 
 router.patch(
   '/updateMe/:userPhoto',
-  userController.deletePhoto,
-  userController.uploadUserPhoto,
-  userController.resizeUserPhoto,
+  photoController.deletePhoto('users'),
+  photoController.bufferPhoto('photo'),
+  photoController.uploadPhoto('kinetotickets-users'),
   userController.updateMe
 );
 
@@ -45,5 +46,13 @@ router
   .get(userController.getUser)
   .patch(userController.updateUser)
   .delete(userController.deleteUser);
+
+router.patch(
+  '/:id/:userPhoto',
+  photoController.deletePhoto('users'),
+  photoController.bufferPhoto('photo'),
+  photoController.uploadPhoto('kinetotickets-users'),
+  userController.updateUser
+);
 
 module.exports = router;
