@@ -28,6 +28,7 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
+// BUFFER THE PHOTO
 exports.bufferPhoto = key => upload.single(`${key}`);
 
 // CONVERT BUFFER
