@@ -81,24 +81,29 @@ exports.deletePhoto = photoType =>
     )
       return next();
 
-    let paramsExt = '';
+    let paramsExt;
 
-    switch (photoType) {
-      case 'shows':
-        paramsExt = req.params.showPoster;
-        break;
-      case 'users':
-        paramsExt = req.params.userPhoto;
-        break;
-      case 'theaters':
-        paramsExt = req.params.theaterPhoto;
-        break;
-      case 'castcrews':
-        paramsExt = req.params.castcrews;
-        break;
-      default:
-        return next();
-    }
+    if (photoType === 'shows') paramsExt = req.params.showPoster;
+    if (photoType === 'users') paramsExt = req.params.userPhoto;
+    if (photoType === 'theaters') paramsExt = req.params.theaterPhoto;
+    if (photoType === 'castcrews') paramsExt = req.params.castcrewsPhoto;
+
+    // switch (photoType) {
+    //   case 'shows':
+    //     paramsExt = req.params.showPoster;
+    //     break;
+    //   case 'users':
+    //     paramsExt = req.params.userPhoto;
+    //     break;
+    //   case 'theaters':
+    //     paramsExt = req.params.theaterPhoto;
+    //     break;
+    //   case 'castcrews':
+    //     paramsExt = req.params.castcrews;
+    //     break;
+    //   default:
+    //     return next();
+    // }
 
     const cloudinaryResult = await cloudinaryDelete(
       `kinetotickets/${photoType}/${paramsExt}`
