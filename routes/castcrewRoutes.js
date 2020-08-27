@@ -1,6 +1,7 @@
 const express = require('express');
 const castcrewConroller = require('./../controllers/castcrewController');
 const authController = require('./../controllers/authController');
+const photoController = require('./../controllers/photoController');
 const showRouter = require('./showRoutes');
 
 const router = express.Router();
@@ -16,8 +17,8 @@ router.use(authController.restrictTo('admin'));
 router
   .route('/')
   .post(
-    castcrewConroller.uploadCastCrewPhoto,
-    castcrewConroller.resizeCastCrewPhotoLarge,
+    photoController.bufferPhoto('photo'),
+    photoController.uploadPhoto('kinetotickets-castcrews'),
     castcrewConroller.rolesParse,
     castcrewConroller.createCastCrew
   );
@@ -28,10 +29,10 @@ router
   .delete(authController.verifyPassword, castcrewConroller.deleteCastCrew);
 
 router.patch(
-  '/:id/:photo',
-  castcrewConroller.deletePhoto,
-  castcrewConroller.uploadCastCrewPhoto,
-  castcrewConroller.resizeCastCrewPhotoLarge,
+  '/:id/:castcrewsPhoto',
+  photoController.deletePhoto('castcrews'),
+  photoController.bufferPhoto('photo'),
+  photoController.uploadPhoto('kinetotickets-castcrews'),
   castcrewConroller.updateCastCrew
 );
 
