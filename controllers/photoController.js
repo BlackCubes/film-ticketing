@@ -108,6 +108,8 @@ exports.deletePhoto = photoType =>
     //     return next();
     // }
 
+    console.log('Is this a delete route?');
+
     const cloudinaryResult = await cloudinaryDelete(
       `kinetotickets/${photoType}/${paramsExt}`
     );
