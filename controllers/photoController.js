@@ -62,6 +62,9 @@ exports.uploadPhoto = (preset, required = true) =>
       );
     }
 
+    console.log('CloudinaryId: ', cloudinaryResult.public_id);
+    console.log('CloudinaryUrl: ', cloudinaryResult.secure_url);
+
     req.body.poster = {
       cloudinaryId: cloudinaryResult.public_id,
       cloudinaryUrl: cloudinaryResult.secure_url
@@ -108,6 +111,8 @@ exports.deletePhoto = photoType =>
     const cloudinaryResult = await cloudinaryDelete(
       `kinetotickets/${photoType}/${paramsExt}`
     );
+
+    console.log('Delete Result: ', cloudinaryResult);
 
     if (!cloudinaryResult) {
       return next(
