@@ -157,7 +157,8 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     'genres',
     'specialVenue',
     'eventOrganizer',
-    'poster'
+    'poster',
+    'cloudinaryPhoto'
   );
 
   // const newShow = await Show.create(filteredBody);
@@ -197,7 +198,8 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'price',
     'genres',
     'specialVenue',
-    'poster'
+    'poster',
+    'cloudinaryPhoto'
   );
   // if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
   // if (req.files) {
