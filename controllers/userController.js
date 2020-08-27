@@ -104,19 +104,21 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'username',
     'email',
     'birthdate',
-    'gender'
+    'gender',
+    'cloudinaryPhoto'
   );
-  if (req.file) filteredBody.photo = req.file.filename;
+  // if (req.file) filteredBody.photo = req.file.filename; DELETE?
 
-  const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
-    new: true,
-    runValidators: true
-  });
+  // const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
+  //   new: true,
+  //   runValidators: true
+  // });
+  console.log('Filtered Body: ', filteredBody);
 
   res.status(200).json({
     status: 'success',
     data: {
-      user: updatedUser
+      user: 'This is a cloudinary test! Refactor when done.'
     }
   });
 });
