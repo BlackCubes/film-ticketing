@@ -19,7 +19,7 @@ exports.deleteOne = Model =>
 exports.updateOne = Model =>
   catchAsync(async (req, res, next) => {
     if (req.file && req.params.showPoster)
-      req.body.poster = { urlLarge: req.file.filename };
+      req.body.poster = { urlLarge: req.file.filename }; // Delete?
 
     // const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
     //   new: true,
@@ -34,14 +34,14 @@ exports.updateOne = Model =>
     res.status(200).json({
       status: 'success',
       data: {
-        data: 'This is test! When done, uncomment!'
+        data: 'This is a test! When done, uncomment!'
       }
     });
   });
 
 exports.createOne = Model =>
   catchAsync(async (req, res, next) => {
-    // if (req.file) req.body.poster = { urlLarge: req.file.filename };
+    // if (req.file) req.body.poster = { urlLarge: req.file.filename }; DELETE?
 
     // const doc = await Model.create(req.body);
     console.log(`Model: ${Model}`); // Delete!
@@ -49,7 +49,7 @@ exports.createOne = Model =>
     res.status(201).json({
       status: 'success',
       data: {
-        data: 'This is test for cloudinary! When done, uncomment!'
+        data: 'This is a test for cloudinary! When done, uncomment!'
       }
     });
   });
