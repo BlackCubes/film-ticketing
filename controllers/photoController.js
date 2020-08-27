@@ -65,7 +65,7 @@ exports.uploadPhoto = (preset, required = true) =>
     console.log('CloudinaryId: ', cloudinaryResult.public_id);
     console.log('CloudinaryUrl: ', cloudinaryResult.secure_url);
 
-    req.body.poster = {
+    req.body.cloudinaryPhoto = {
       cloudinaryId: cloudinaryResult.public_id,
       cloudinaryUrl: cloudinaryResult.secure_url
     };
