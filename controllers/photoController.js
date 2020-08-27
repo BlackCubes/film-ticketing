@@ -41,6 +41,7 @@ const cloudinaryUpload = (file, preset) =>
   });
 const cloudinaryDelete = file => cloudinary.uploader.destroy(file);
 
+// UPLOAD
 exports.uploadPhoto = (preset, required = true) =>
   catchAsync(async (req, res, next) => {
     if (!req.file && required)
@@ -68,6 +69,7 @@ exports.uploadPhoto = (preset, required = true) =>
     next();
   });
 
+// DELETE
 exports.deletePhoto = photoType =>
   catchAsync(async (req, res, next) => {
     if (
