@@ -65,8 +65,8 @@ router
   .post(
     authController.protect,
     authController.restrictTo('admin'),
-    showController.uploadShowPhoto,
-    showController.resizeShowPhotoLarge,
+    photoController.bufferPhoto('poster'),
+    photoController.uploadPhoto('kinetotickets-shows'),
     showController.createShow
   );
 
@@ -87,9 +87,9 @@ router
 router.patch(
   '/:id/:showPoster',
   authController.restrictTo('admin'),
-  showController.deletePoster,
-  showController.uploadShowPhoto,
-  showController.resizeShowPhotoLarge,
+  photoController.deletePhoto('shows'),
+  photoController.bufferPhoto('poster'),
+  photoController.uploadPhoto('kinetotickets-shows'),
   showController.updateShow
 );
 
