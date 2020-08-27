@@ -76,13 +76,13 @@ exports.uploadPhoto = (preset, required = true) =>
 // DELETE
 exports.deletePhoto = photoType =>
   catchAsync(async (req, res, next) => {
-    if (
-      !req.params.showPoster ||
-      !req.params.castcrewsPhoto ||
-      !req.params.theaterPhoto ||
-      !req.params.userPhoto
-    )
-      return next();
+    // if (
+    //   !req.params.showPoster ||
+    //   !req.params.castcrewsPhoto ||
+    //   !req.params.theaterPhoto ||
+    //   !req.params.userPhoto
+    // )
+    //   return next();
 
     let paramsExt;
 
