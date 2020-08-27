@@ -1,5 +1,6 @@
 const express = require('express');
 const authController = require('./../controllers/authController');
+const photoController = require('./../controllers/photoController');
 const theaterController = require('./../controllers/theaterController');
 const showtimeRouter = require('./showtimesRoutes');
 
@@ -26,8 +27,8 @@ router.use(authController.restrictTo('admin'));
 router
   .route('/')
   .post(
-    theaterController.uploadTheaterPhotos,
-    theaterController.resizeTheaterPhotos,
+    photoController.bufferPhoto('photo'),
+    photoController.uploadPhoto('kinetotickets-theaters'),
     theaterController.geoParse,
     theaterController.createTheater
   );
@@ -38,11 +39,19 @@ router
   .delete(authController.verifyPassword, theaterController.deleteTheater);
 
 router.patch(
-  '/:id/:photo/:type',
-  theaterController.deletePhoto,
-  theaterController.uploadTheaterPhoto,
-  theaterController.resizeTheaterPhoto,
+  '/:id/:theaterPhoto',
+  photoController.deletePhoto('theaters'),
+  photoController.bufferPhoto('photo'),
+  photoController.uploadPhoto('kinetotickets-theaters'),
   theaterController.updateTheater
 );
+
+// router.patch(
+//   '/:id/:photo/:type',
+//   theaterController.deletePhoto,
+//   theaterController.uploadTheaterPhoto,
+//   theaterController.resizeTheaterPhoto,
+//   theaterController.updateTheater
+// );
 
 module.exports = router;
