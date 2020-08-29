@@ -18,15 +18,14 @@ router
     showtimesController.createMyShowtime
   );
 
+router.use(authController.restrictTo('admin'));
+
 router
   .route('/')
   .post(
-    authController.restrictTo('admin'),
     showtimesController.setShowTheaterIds,
     showtimesController.createShowtime
   );
-
-router.use(authController.restrictTo('admin'));
 
 router
   .route('/:id')
