@@ -51,8 +51,8 @@ const theaterSchema = new mongoose.Schema(
       coordinates: [Number]
     },
     chainName: String,
-    chainCode: String,
-    chainLogo: String,
+    // chainCode: String,
+    // chainLogo: String,
     linkUrl: String,
     isTicketing: {
       type: Boolean,
