@@ -46,12 +46,4 @@ router.patch(
   theaterController.updateTheater
 );
 
-// router.patch(
-//   '/:id/:photo/:type',
-//   theaterController.deletePhoto,
-//   theaterController.uploadTheaterPhoto,
-//   theaterController.resizeTheaterPhoto,
-//   theaterController.updateTheater
-// );
-
 module.exports = router;
