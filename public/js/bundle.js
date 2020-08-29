@@ -30117,7 +30117,10 @@ if (updateShowPoster) {
 
               form = new FormData();
               poster = document.getElementById('showPhoto').files[0], posterUrlArr = document.getElementById('posterSource').src.split('/');
-              posterParams = posterUrlArr[posterUrlArr.length - 1];
+              posterParams = posterUrlArr[posterUrlArr.length - 1]; // const photoUrlArr = document
+              //   .getElementById('photoSource')
+              //   .dataset.cloudinaryId.split('/');
+
               document.getElementById('btnUpdateShowPoster').textContent = 'Updating...';
               form.append('poster', poster);
               _context11.next = 15;

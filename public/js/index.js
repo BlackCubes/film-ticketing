@@ -1111,6 +1111,9 @@ if (updateShowPoster) {
         const poster = document.getElementById('showPhoto').files[0],
           posterUrlArr = document.getElementById('posterSource').src.split('/');
         const posterParams = posterUrlArr[posterUrlArr.length - 1];
+        // const photoUrlArr = document
+        //   .getElementById('photoSource')
+        //   .dataset.cloudinaryId.split('/');
 
         document.getElementById('btnUpdateShowPoster').textContent =
           'Updating...';
