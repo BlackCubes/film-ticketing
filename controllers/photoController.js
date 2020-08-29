@@ -76,7 +76,11 @@ exports.uploadPhoto = (preset, required = true) =>
 // DELETE
 exports.deletePhoto = photoType =>
   catchAsync(async (req, res, next) => {
-    if (photoType === 'users' && !req.params.userPhoto) return next();
+    if (
+      photoType === 'users' &&
+      (!req.params.userPhoto || req.params.userPhoto === 'default.jpg')
+    )
+      return next();
 
     let paramsExt;
 
