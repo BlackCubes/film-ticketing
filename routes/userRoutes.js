@@ -15,14 +15,24 @@ router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
 
 // PROTECT ALL OTHER ROUTES LEAKING
-router.use(authController.protect);
+// router.use(authController.protect);
 
-router.patch('/updateMyPassword', authController.updateMyPassword);
+router.patch(
+  '/updateMyPassword',
+  authController.protect,
+  authController.updateMyPassword
+);
 
-router.get('/me', userController.getMe, userController.getUser);
+router.get(
+  '/me',
+  authController.protect,
+  userController.getMe,
+  userController.getUser
+);
 
 router.patch(
   '/updateMe',
+  authController.protect,
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-users', false),
   userController.updateMe
@@ -30,34 +40,55 @@ router.patch(
 
 router.patch(
   '/updateMe/:userPhoto',
+  authController.protect,
   photoController.deletePhoto('users'),
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-users', false),
   userController.updateMe
 );
 
-router.delete('/deleteMe', userController.deleteMe);
+router.delete('/deleteMe', authController.protect, userController.deleteMe);
 
 // RESTRICT ROUTES ONLY TO ADMINS
-router.use(authController.restrictTo('admin'));
+// router.use(authController.restrictTo('admin'));
 
 router
   .route('/')
-  .get(userController.getAllUsers)
-  .post(userController.createUser);
+  .get(
+    authController.protect,
+    authController.restrictTo('admin'),
+    userController.getAllUsers
+  )
+  .post(
+    authController.protect,
+    authController.restrictTo('admin'),
+    userController.createUser
+  );
 
 router
   .route('/:id')
-  .get(userController.getUser)
+  .get(
+    authController.protect,
+    authController.restrictTo('admin'),
+    userController.getUser
+  )
   .patch(
+    authController.protect,
+    authController.restrictTo('admin'),
     photoController.bufferPhoto('photo'),
     photoController.uploadPhoto('kinetotickets-users', false),
     userController.updateUser
   )
-  .delete(userController.deleteUser);
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    userController.deleteUser
+  );
 
 router.patch(
   '/:id/:userPhoto',
+  authController.protect,
+  authController.restrictTo('admin'),
   photoController.deletePhoto('users'),
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-users', false),
