@@ -28357,7 +28357,6 @@ exports.updateReviewSettings = updateReviewSettings;
 var updateTheaterSettings = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, message, theaterId) {
     var photoParams,
-        typeParams,
         url,
         res,
         _args4 = arguments;
@@ -28366,37 +28365,36 @@ var updateTheaterSettings = /*#__PURE__*/function () {
         switch (_context4.prev = _context4.next) {
           case 0:
             photoParams = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : null;
-            typeParams = _args4.length > 4 && _args4[4] !== undefined ? _args4[4] : null;
-            _context4.prev = 2;
-            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId) : "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId, "/").concat(photoParams, "/").concat(typeParams);
-            _context4.next = 6;
+            _context4.prev = 1;
+            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId) : "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId, "/").concat(photoParams);
+            _context4.next = 5;
             return (0, _axios.default)({
               method: 'PATCH',
               url: url,
               data: data
             });
 
-          case 6:
+          case 5:
             res = _context4.sent;
 
             if (res.data.status === 'success') {
               (0, _alerts.showAlert)('success', "Your theater's ".concat(message, " has been updated!"));
             }
 
-            _context4.next = 13;
+            _context4.next = 12;
             break;
 
-          case 10:
-            _context4.prev = 10;
-            _context4.t0 = _context4["catch"](2);
+          case 9:
+            _context4.prev = 9;
+            _context4.t0 = _context4["catch"](1);
             (0, _alerts.showAlert)('error', _context4.t0.response.data.message);
 
-          case 13:
+          case 12:
           case "end":
             return _context4.stop();
         }
       }
-    }, _callee4, null, [[2, 10]]);
+    }, _callee4, null, [[1, 9]]);
   }));
 
   return function updateTheaterSettings(_x10, _x11, _x12) {

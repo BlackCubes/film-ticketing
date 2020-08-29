@@ -81,14 +81,13 @@ export const updateTheaterSettings = async (
   data,
   message,
   theaterId,
-  photoParams = null,
-  typeParams = null
+  photoParams = null
 ) => {
   try {
     const url =
       photoParams === null
         ? `http://127.0.0.1:3000/api/v1/theaters/${theaterId}`
-        : `http://127.0.0.1:3000/api/v1/theaters/${theaterId}/${photoParams}/${typeParams}`;
+        : `http://127.0.0.1:3000/api/v1/theaters/${theaterId}/${photoParams}`;
 
     const res = await axios({
       method: 'PATCH',
