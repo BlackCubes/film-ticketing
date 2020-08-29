@@ -47,20 +47,20 @@ router.get(
 // USER ROUTES
 router.get(
   '/login',
-  authController.checkLogin,
   authController.isLoggedIn,
+  authController.checkLogin,
   viewsController.getLoginForm
 );
 router.get(
   '/register',
-  authController.checkLogin,
   authController.isLoggedIn,
+  authController.checkLogin,
   viewsController.getRegisterForm
 );
 router.get(
   '/forgotPassword',
-  authController.checkLogin,
   authController.isLoggedIn,
+  authController.checkLogin,
   viewsController.getForgotPasswordForm
 );
 router.get('/me', authController.protect, viewsController.getAccount);
