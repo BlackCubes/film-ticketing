@@ -48,19 +48,19 @@ router.get(
 router.get(
   '/login',
   authController.isLoggedIn,
-  authController.checkLogin,
+  // authController.checkLogin,
   viewsController.getLoginForm
 );
 router.get(
   '/register',
   authController.isLoggedIn,
-  authController.checkLogin,
+  // authController.checkLogin,
   viewsController.getRegisterForm
 );
 router.get(
   '/forgotPassword',
   authController.isLoggedIn,
-  authController.checkLogin,
+  // authController.checkLogin,
   viewsController.getForgotPasswordForm
 );
 router.get('/me', authController.protect, viewsController.getAccount);
