@@ -30654,7 +30654,7 @@ if (updateTheaterAddl) {
 if (updateTheaterChain) {
   updateTheaterChain.addEventListener('submit', /*#__PURE__*/function () {
     var _ref21 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee21(e) {
-      var updateTheaterChainBtn, theaterId, form, chainName, chainLogo, photoUrlArr, photoParams;
+      var updateTheaterChainBtn, theaterId, chainName;
       return regeneratorRuntime.wrap(function _callee21$(_context21) {
         while (1) {
           switch (_context21.prev = _context21.next) {
@@ -30663,35 +30663,31 @@ if (updateTheaterChain) {
               updateTheaterChainBtn = document.getElementById('btnUpdateTheaterChain');
               theaterId = updateTheaterChainBtn.dataset.theaterId;
               (0, _attributeController.validateAttribute)(document.getElementById('theaterChainName'));
-              (0, _attributeController.validateAttribute)(document.getElementById('theaterChainLogo'));
               (0, _attributeController.validateAttribute)(updateTheaterChainBtn, theaterId);
 
               if (!_attributeController.attributeStatus) {
-                _context21.next = 19;
+                _context21.next = 13;
                 break;
               }
 
-              (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'), document.getElementById('theaterChainLogo'));
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'));
 
               if (!(_formController.formStatus === 0)) {
-                _context21.next = 19;
+                _context21.next = 13;
                 break;
               }
 
-              form = new FormData();
-              chainName = document.getElementById('theaterChainName').value, chainLogo = document.getElementById('theaterChainLogo').files[0];
-              photoUrlArr = document.getElementById('chainLogo').src.split('/');
-              photoParams = photoUrlArr[photoUrlArr.length - 1];
+              chainName = document.getElementById('theaterChainName').value;
               document.getElementById('btnUpdateTheaterChain').textContent = 'Updating...';
-              form.append('chainName', chainName);
-              form.append('photo', chainLogo);
-              _context21.next = 18;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'chain', theaterId, photoParams, 'chainLogo');
+              _context21.next = 12;
+              return (0, _updateSettings.updateTheaterSettings)({
+                chainName: chainName
+              }, 'chain', theaterId);
 
-            case 18:
+            case 12:
               document.getElementById('btnUpdateTheaterChain').textContent = 'Update';
 
-            case 19:
+            case 13:
             case "end":
               return _context21.stop();
           }

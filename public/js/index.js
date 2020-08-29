@@ -1554,37 +1554,18 @@ if (updateTheaterChain) {
     const { theaterId } = updateTheaterChainBtn.dataset;
 
     validateAttribute(document.getElementById('theaterChainName'));
-    validateAttribute(document.getElementById('theaterChainLogo'));
     validateAttribute(updateTheaterChainBtn, theaterId);
 
     if (attributeStatus) {
-      checkFormSubmit(
-        document.getElementById('theaterChainName'),
-        document.getElementById('theaterChainLogo')
-      );
+      checkFormSubmit(document.getElementById('theaterChainName'));
 
       if (formStatus === 0) {
-        const form = new FormData();
-
-        const chainName = document.getElementById('theaterChainName').value,
-          chainLogo = document.getElementById('theaterChainLogo').files[0];
-
-        const photoUrlArr = document.getElementById('chainLogo').src.split('/');
-        const photoParams = photoUrlArr[photoUrlArr.length - 1];
+        const chainName = document.getElementById('theaterChainName').value;
 
         document.getElementById('btnUpdateTheaterChain').textContent =
           'Updating...';
 
-        form.append('chainName', chainName);
-        form.append('photo', chainLogo);
-
-        await updateTheaterSettings(
-          form,
-          'chain',
-          theaterId,
-          photoParams,
-          'chainLogo'
-        );
+        await updateTheaterSettings({ chainName }, 'chain', theaterId);
 
         document.getElementById('btnUpdateTheaterChain').textContent = 'Update';
       }
