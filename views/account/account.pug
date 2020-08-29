@@ -74,6 +74,7 @@ block content
 
             .form__group
               .form__photo-upload
+                //- src=`${theater.cloudinaryPhoto.cloudinaryUrl}`
                 img#photoSource.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
                 input#userPhoto.form__upload(type='file', accept='image/*', name='photo')
                 label.form__label-upload.label-text(for='userPhoto') Choose new photo
