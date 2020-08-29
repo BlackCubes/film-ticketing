@@ -30516,7 +30516,7 @@ if (updateTheaterPhoto) {
               document.getElementById('btnUpdateTheaterPhoto').textContent = 'Updating...';
               form.append('photo', photo);
               _context18.next = 16;
-              return (0, _updateSettings.updateTheaterSettings)(form, 'data', theaterId, photoParams, 'theaterPhoto');
+              return (0, _updateSettings.updateTheaterSettings)(form, 'data', theaterId, photoParams);
 
             case 16:
               document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update';

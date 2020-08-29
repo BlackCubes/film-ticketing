@@ -1430,13 +1430,7 @@ if (updateTheaterPhoto) {
 
         form.append('photo', photo);
 
-        await updateTheaterSettings(
-          form,
-          'data',
-          theaterId,
-          photoParams,
-          'theaterPhoto'
-        );
+        await updateTheaterSettings(form, 'data', theaterId, photoParams);
 
         document.getElementById('btnUpdateTheaterPhoto').textContent = 'Update';
       }
