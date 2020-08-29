@@ -29803,24 +29803,23 @@ if (adFieldlist1) {
 
   adCreateTheaterForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(e) {
-      var form, name, phone, linkUrl, address, city, state, zipCode, geoLong, geoLat, description, chainName, geo, photo, chainLogo;
+      var form, name, phone, linkUrl, address, city, state, zipCode, geoLong, geoLat, description, chainName, geo, photo;
       return regeneratorRuntime.wrap(function _callee7$(_context7) {
         while (1) {
           switch (_context7.prev = _context7.next) {
             case 0:
               e.preventDefault();
               (0, _attributeController.validateAttribute)(document.getElementById('theaterChainName'));
-              (0, _attributeController.validateAttribute)(document.getElementById('theaterChainLogo'));
 
               if (!_attributeController.attributeStatus) {
-                _context7.next = 26;
+                _context7.next = 24;
                 break;
               }
 
-              (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'), document.getElementById('theaterChainLogo'));
+              (0, _formController.checkFormSubmit)(document.getElementById('theaterChainName'));
 
               if (!(_formController.formStatus === 0)) {
-                _context7.next = 26;
+                _context7.next = 24;
                 break;
               }
 
@@ -29828,7 +29827,7 @@ if (adFieldlist1) {
               name = document.getElementById('theaterName').value, phone = document.getElementById('theaterPhone').value, linkUrl = document.getElementById('theaterLinkUrl').value, address = document.getElementById('theaterAddress').value, city = document.getElementById('theaterCity').value, state = document.getElementById('theaterState').value, zipCode = document.getElementById('theaterZipCode').value, geoLong = parseFloat(document.getElementById('theaterGeoLong').value), geoLat = parseFloat(document.getElementById('theaterGeoLat').value), description = document.getElementById('theaterDescription').value, chainName = document.getElementById('theaterChainName').value; // chainCode = document.getElementById('theaterChainCode').value;
 
               geo = JSON.stringify([geoLong, geoLat]);
-              photo = document.getElementById('theaterPhoto').files[0], chainLogo = document.getElementById('theaterChainLogo').files[0];
+              photo = document.getElementById('theaterPhoto').files[0];
               document.getElementById('btnCreateTheater').textContent = 'Creating...';
               form.append('name', name);
               form.append('phone', phone);
@@ -29842,14 +29841,13 @@ if (adFieldlist1) {
               form.append('chainName', chainName); // form.append('chainCode', chainCode);
 
               form.append('theaterPhoto', photo);
-              form.append('chainPhoto', chainLogo);
-              _context7.next = 25;
+              _context7.next = 23;
               return (0, _login.createTheater)(form);
 
-            case 25:
+            case 23:
               document.getElementById('btnCreateTheater').textContent = 'Create';
 
-            case 26:
+            case 24:
             case "end":
               return _context7.stop();
           }

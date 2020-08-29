@@ -784,13 +784,9 @@ if (adFieldlist1) {
     e.preventDefault();
 
     validateAttribute(document.getElementById('theaterChainName'));
-    validateAttribute(document.getElementById('theaterChainLogo'));
 
     if (attributeStatus) {
-      checkFormSubmit(
-        document.getElementById('theaterChainName'),
-        document.getElementById('theaterChainLogo')
-      );
+      checkFormSubmit(document.getElementById('theaterChainName'));
 
       if (formStatus === 0) {
         const form = new FormData();
@@ -810,8 +806,7 @@ if (adFieldlist1) {
 
         const geo = JSON.stringify([geoLong, geoLat]);
 
-        const photo = document.getElementById('theaterPhoto').files[0],
-          chainLogo = document.getElementById('theaterChainLogo').files[0];
+        const photo = document.getElementById('theaterPhoto').files[0];
 
         document.getElementById('btnCreateTheater').textContent = 'Creating...';
 
@@ -827,7 +822,6 @@ if (adFieldlist1) {
         form.append('chainName', chainName);
         // form.append('chainCode', chainCode);
         form.append('theaterPhoto', photo);
-        form.append('chainPhoto', chainLogo);
 
         await createTheater(form);
 
