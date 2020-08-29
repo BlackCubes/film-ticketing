@@ -162,6 +162,20 @@ exports.restrictTo = (...roles) => {
   };
 };
 
+exports.checkLogin = (req, res, next) => {
+  if (req.cookies.jwt) {
+    return next(
+      new AppError(
+        'You are still logged in! You do not have permission to perform this action!',
+        403
+      )
+    );
+  }
+
+  next();
+};
+
+// Delete!
 exports.restrictUsers = (...roles) => {
   return (req, res, next) => {
     if (roles.includes(req.user.role)) {
