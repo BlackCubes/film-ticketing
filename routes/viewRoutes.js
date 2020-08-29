@@ -106,35 +106,147 @@ router.get(
 );
 
 // ADMIN ROUTES
-router.use(authController.protect);
-router.use(authController.restrictTo('admin'));
+router.get(
+  '/admin',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminPage
+);
+router.get(
+  '/admin/user-options',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminUserOptions
+);
+router.get(
+  '/admin/users',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminUsers
+);
+router.get(
+  '/admin/users/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminUser
+);
+router.get(
+  '/admin/users/:id/shows',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminUserShows
+);
+router.get(
+  '/admin/users/:id/reviews',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminUserReviews
+);
 
-router.get('/admin', viewsController.getAdminPage);
-router.get('/admin/user-options', viewsController.getAdminUserOptions);
-router.get('/admin/users', viewsController.getAdminUsers);
-router.get('/admin/users/:id', viewsController.getAdminUser);
-router.get('/admin/users/:id/shows', viewsController.getAdminUserShows);
-router.get('/admin/users/:id/reviews', viewsController.getAdminUserReviews);
+router.get(
+  '/admin/show-options',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowOptions
+);
+router.get(
+  '/admin/shows',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShows
+);
+router.get(
+  '/admin/shows/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShow
+);
+router.get(
+  '/admin/shows/:id/reviews',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowReviews
+);
+router.get(
+  '/admin/create-show',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCreateShow
+);
 
-router.get('/admin/show-options', viewsController.getAdminShowOptions);
-router.get('/admin/shows', viewsController.getAdminShows);
-router.get('/admin/shows/:id', viewsController.getAdminShow);
-router.get('/admin/shows/:id/reviews', viewsController.getAdminShowReviews);
-router.get('/admin/create-show', viewsController.getAdminCreateShow);
+router.get(
+  '/admin/theater-options',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminTheaterOptions
+);
+router.get(
+  '/admin/theaters',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminTheaters
+);
+router.get(
+  '/admin/theaters/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminTheater
+);
+router.get(
+  '/admin/create-theater',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCreateTheater
+);
 
-router.get('/admin/theater-options', viewsController.getAdminTheaterOptions);
-router.get('/admin/theaters', viewsController.getAdminTheaters);
-router.get('/admin/theaters/:id', viewsController.getAdminTheater);
-router.get('/admin/create-theater', viewsController.getAdminCreateTheater);
+router.get(
+  '/admin/showtimes-options',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowtimeOptions
+);
+router.get(
+  '/admin/showtimes',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowtimes
+);
+router.get(
+  '/admin/showtimes/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminShowtime
+);
+router.get(
+  '/admin/create-showtime',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCreateShowtime
+);
 
-router.get('/admin/showtimes-options', viewsController.getAdminShowtimeOptions);
-router.get('/admin/showtimes', viewsController.getAdminShowtimes);
-router.get('/admin/showtimes/:id', viewsController.getAdminShowtime);
-router.get('/admin/create-showtime', viewsController.getAdminCreateShowtime);
-
-router.get('/admin/castcrew-options', viewsController.getAdminCastCrewOptions);
-router.get('/admin/castcrews', viewsController.getAdminCastCrews);
-router.get('/admin/castcrews/:id', viewsController.getAdminCastCrew);
-router.get('/admin/create-castcrew', viewsController.getAdminCreateCastCrew);
+router.get(
+  '/admin/castcrew-options',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCastCrewOptions
+);
+router.get(
+  '/admin/castcrews',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCastCrews
+);
+router.get(
+  '/admin/castcrews/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCastCrew
+);
+router.get(
+  '/admin/create-castcrew',
+  authController.protect,
+  authController.restrictTo('admin'),
+  viewsController.getAdminCreateCastCrew
+);
 
 module.exports = router;
