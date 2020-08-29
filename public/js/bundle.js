@@ -30508,7 +30508,10 @@ if (updateTheaterPhoto) {
               }
 
               form = new FormData();
-              photo = document.getElementById('theaterPhoto').files[0];
+              photo = document.getElementById('theaterPhoto').files[0]; // const photoUrlArr = document
+              //   .getElementById('photoSource')
+              //   .dataset.cloudinaryId.split('/');
+
               photoUrlArr = document.getElementById('photoSource').src.split('/');
               photoParams = photoUrlArr[photoUrlArr.length - 1];
               document.getElementById('btnUpdateTheaterPhoto').textContent = 'Updating...';

@@ -1414,6 +1414,9 @@ if (updateTheaterPhoto) {
 
         const photo = document.getElementById('theaterPhoto').files[0];
 
+        // const photoUrlArr = document
+        //   .getElementById('photoSource')
+        //   .dataset.cloudinaryId.split('/');
         const photoUrlArr = document
           .getElementById('photoSource')
           .src.split('/');
