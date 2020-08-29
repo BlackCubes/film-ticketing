@@ -30901,7 +30901,10 @@ if (updateCastCrewPhoto) {
               }
 
               form = new FormData();
-              photo = document.getElementById('castcrewPhoto').files[0];
+              photo = document.getElementById('castcrewPhoto').files[0]; // const photoUrlArr = document
+              //   .getElementById('photoSource')
+              //   .dataset.cloudinaryId.split('/');
+
               photoUrlArr = document.getElementById('photoSource').src.split('/');
               photoParams = photoUrlArr[photoUrlArr.length - 1];
               document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Updating...';

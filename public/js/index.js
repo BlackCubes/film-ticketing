@@ -1773,6 +1773,9 @@ if (updateCastCrewPhoto) {
 
         const photo = document.getElementById('castcrewPhoto').files[0];
 
+        // const photoUrlArr = document
+        //   .getElementById('photoSource')
+        //   .dataset.cloudinaryId.split('/');
         const photoUrlArr = document
           .getElementById('photoSource')
           .src.split('/');
