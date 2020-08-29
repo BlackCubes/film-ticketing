@@ -27,14 +27,8 @@ const userSchema = new mongoose.Schema({
   },
   photo: { type: String, default: 'default.jpg' },
   cloudinaryPhoto: {
-    cloudinaryId: {
-      type: String,
-      required: [true, 'A show image needs to be in Cloudinary!']
-    },
-    cloudinaryUrl: {
-      type: String,
-      required: [true, 'A show image must have a Cloudinary URL!']
-    }
+    cloudinaryId: String,
+    cloudinaryUrl: String
   },
   role: {
     type: String,
