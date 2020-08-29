@@ -107,7 +107,6 @@ block content
             .form__group
               .form__photo-upload
                 //- src=`${theater.cloudinaryPhoto.cloudinaryUrl}`
-                //- data-cloudinary-id=`${theater.cloudinaryPhoto.cloudinaryId}`
                 img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
                 input#showPhoto.form__upload(type='file' accept='image/*' name='poster' required)
                 label.form__label-upload.label-text(for='showPhoto') Choose a different poster*
