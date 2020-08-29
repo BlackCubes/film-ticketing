@@ -45,21 +45,14 @@ router.get(
 );
 
 // USER ROUTES
-router.get(
-  '/login',
-  // authController.isLoggedIn,
-  authController.checkLogin,
-  viewsController.getLoginForm
-);
+router.get('/login', authController.checkLogin, viewsController.getLoginForm);
 router.get(
   '/register',
-  // authController.isLoggedIn,
   authController.checkLogin,
   viewsController.getRegisterForm
 );
 router.get(
   '/forgotPassword',
-  // authController.isLoggedIn,
   authController.checkLogin,
   viewsController.getForgotPasswordForm
 );
