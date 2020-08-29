@@ -30117,10 +30117,7 @@ if (updateShowPoster) {
 
               form = new FormData();
               poster = document.getElementById('showPhoto').files[0], posterUrlArr = document.getElementById('posterSource').src.split('/');
-              posterParams = posterUrlArr[posterUrlArr.length - 1]; // const photoUrlArr = document
-              //   .getElementById('photoSource')
-              //   .dataset.cloudinaryId.split('/');
-
+              posterParams = posterUrlArr[posterUrlArr.length - 1];
               document.getElementById('btnUpdateShowPoster').textContent = 'Updating...';
               form.append('poster', poster);
               _context11.next = 15;
@@ -30511,10 +30508,7 @@ if (updateTheaterPhoto) {
               }
 
               form = new FormData();
-              photo = document.getElementById('theaterPhoto').files[0]; // const photoUrlArr = document
-              //   .getElementById('photoSource')
-              //   .dataset.cloudinaryId.split('/');
-
+              photo = document.getElementById('theaterPhoto').files[0];
               photoUrlArr = document.getElementById('photoSource').src.split('/');
               photoParams = photoUrlArr[photoUrlArr.length - 1];
               document.getElementById('btnUpdateTheaterPhoto').textContent = 'Updating...';
@@ -30904,10 +30898,7 @@ if (updateCastCrewPhoto) {
               }
 
               form = new FormData();
-              photo = document.getElementById('castcrewPhoto').files[0]; // const photoUrlArr = document
-              //   .getElementById('photoSource')
-              //   .dataset.cloudinaryId.split('/');
-
+              photo = document.getElementById('castcrewPhoto').files[0];
               photoUrlArr = document.getElementById('photoSource').src.split('/');
               photoParams = photoUrlArr[photoUrlArr.length - 1];
               document.getElementById('btnUpdateCastCrewPhoto').textContent = 'Updating...';

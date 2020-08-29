@@ -1111,9 +1111,6 @@ if (updateShowPoster) {
         const poster = document.getElementById('showPhoto').files[0],
           posterUrlArr = document.getElementById('posterSource').src.split('/');
         const posterParams = posterUrlArr[posterUrlArr.length - 1];
-        // const photoUrlArr = document
-        //   .getElementById('photoSource')
-        //   .dataset.cloudinaryId.split('/');
 
         document.getElementById('btnUpdateShowPoster').textContent =
           'Updating...';
@@ -1417,9 +1414,6 @@ if (updateTheaterPhoto) {
 
         const photo = document.getElementById('theaterPhoto').files[0];
 
-        // const photoUrlArr = document
-        //   .getElementById('photoSource')
-        //   .dataset.cloudinaryId.split('/');
         const photoUrlArr = document
           .getElementById('photoSource')
           .src.split('/');
@@ -1776,9 +1770,6 @@ if (updateCastCrewPhoto) {
 
         const photo = document.getElementById('castcrewPhoto').files[0];
 
-        // const photoUrlArr = document
-        //   .getElementById('photoSource')
-        //   .dataset.cloudinaryId.split('/');
         const photoUrlArr = document
           .getElementById('photoSource')
           .src.split('/');
