@@ -25,12 +25,13 @@ module.exports = class Email {
     });
   }
 
-  async send(template, subject, ip = '') {
+  async send(template, subject, ip = '', userAgent = '') {
     const html = pug.renderFile(`${__dirname}/../views/email/${template}.pug`, {
       firstName: this.firstName,
       url: this.url,
       subject,
-      ip
+      ip,
+      userAgent
     });
 
     const mailOptions = {
@@ -48,11 +49,12 @@ module.exports = class Email {
     await this.send('welcome', 'Welcome to Kinetotickets!');
   }
 
-  async sendPasswordReset(ip) {
+  async sendPasswordReset(ip, userAgent) {
     await this.send(
       'passwordReset',
       'Use this link to reset your password. The link is only valid for 10 minutes.',
-      ip
+      ip,
+      userAgent
     );
   }
 };
