@@ -28,7 +28,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // Expose User-Agent
-app.use(useragent);
+app.use(useragent.express());
 
 // For parsing application/xwww-
 app.use(express.urlencoded({ limit: '50mb', extended: true })); // Check on the limit!!!
