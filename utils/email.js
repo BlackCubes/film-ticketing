@@ -48,7 +48,7 @@ module.exports = class Email {
     await this.send('welcome', 'Welcome to Kinetotickets!');
   }
 
-  async sendPasswordReset(ip = null) {
+  async sendPasswordReset(ip) {
     await this.send(
       'passwordReset',
       'Use this link to reset your password. The link is only valid for 10 minutes.',
