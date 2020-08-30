@@ -99,12 +99,12 @@ export const forgotPassword = async email => {
   }
 };
 
-export const resetPassword = async (password, passwordConfirm, token) => {
+export const resetPassword = async (data, token) => {
   try {
     const res = await axios({
       method: 'PATCH',
       url: `http://127.0.0.1:3000/api/v1/users/resetPassword/${token}`,
-      data: { password, passwordConfirm }
+      data
     });
 
     if (res.data.status === 'success') {

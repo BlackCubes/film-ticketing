@@ -27943,7 +27943,7 @@ var forgotPassword = /*#__PURE__*/function () {
 exports.forgotPassword = forgotPassword;
 
 var resetPassword = /*#__PURE__*/function () {
-  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(password, passwordConfirm, token) {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(data, token) {
     var res;
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
@@ -27954,10 +27954,7 @@ var resetPassword = /*#__PURE__*/function () {
             return (0, _axios.default)({
               method: 'PATCH',
               url: "http://127.0.0.1:3000/api/v1/users/resetPassword/".concat(token),
-              data: {
-                password: password,
-                passwordConfirm: passwordConfirm
-              }
+              data: data
             });
 
           case 3:
@@ -27986,7 +27983,7 @@ var resetPassword = /*#__PURE__*/function () {
     }, _callee5, null, [[0, 7]]);
   }));
 
-  return function resetPassword(_x11, _x12, _x13) {
+  return function resetPassword(_x11, _x12) {
     return _ref5.apply(this, arguments);
   };
 }();
@@ -28035,7 +28032,7 @@ var createShow = /*#__PURE__*/function () {
     }, _callee6, null, [[0, 8]]);
   }));
 
-  return function createShow(_x14, _x15) {
+  return function createShow(_x13, _x14) {
     return _ref6.apply(this, arguments);
   };
 }();
@@ -28084,7 +28081,7 @@ var createReview = /*#__PURE__*/function () {
     }, _callee7, null, [[0, 8]]);
   }));
 
-  return function createReview(_x16, _x17, _x18) {
+  return function createReview(_x15, _x16, _x17) {
     return _ref7.apply(this, arguments);
   };
 }();
@@ -28133,7 +28130,7 @@ var createTheater = /*#__PURE__*/function () {
     }, _callee8, null, [[0, 8]]);
   }));
 
-  return function createTheater(_x19) {
+  return function createTheater(_x18) {
     return _ref8.apply(this, arguments);
   };
 }();
@@ -28182,7 +28179,7 @@ var createShowtime = /*#__PURE__*/function () {
     }, _callee9, null, [[0, 8]]);
   }));
 
-  return function createShowtime(_x20) {
+  return function createShowtime(_x19) {
     return _ref9.apply(this, arguments);
   };
 }();
@@ -28231,7 +28228,7 @@ var createCastCrew = /*#__PURE__*/function () {
     }, _callee10, null, [[0, 8]]);
   }));
 
-  return function createCastCrew(_x21) {
+  return function createCastCrew(_x20) {
     return _ref10.apply(this, arguments);
   };
 }();
