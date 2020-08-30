@@ -58,6 +58,7 @@ export const validateRegex = (e, test) => {
   const regexTimeMinSecs = [...Array(61).keys()].splice(0);
   const regexRating = /^[1-5]{1}$/;
   const regexMongo = /^[a-f\d]{24}$/i;
+  const regexToken = /^[a-f\d]{64}$/i;
   const regexAttrName = [
     'password',
     'current-password',
