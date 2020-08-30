@@ -25,7 +25,7 @@ module.exports = class Email {
     });
   }
 
-  async send(template, subject, ip = null) {
+  async send(template, subject, ip = '') {
     const html = pug.renderFile(`${__dirname}/../views/email/${template}.pug`, {
       firstName: this.firstName,
       url: this.url,
