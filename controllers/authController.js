@@ -191,7 +191,9 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
       req.socket.remoteAddress ||
       req.connection.socket.remoteAddress;
 
-    await new Email(user, resetURL).sendPasswordReset(ip);
+    const userAgent = `${req.useragent.browser} browser, ${req.useragent.os} operating system`;
+
+    await new Email(user, resetURL).sendPasswordReset(ip, userAgent);
 
     res.status(200).json({
       status: 'success',
