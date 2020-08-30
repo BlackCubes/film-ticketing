@@ -181,9 +181,12 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   try {
-    const resetURL = `${req.protocol}://${req.get(
-      'host'
-    )}/api/v1/users/resetPassword/${resetToken}`;
+    const resetURL =
+      req.user && req.user.role === 'admin'
+        ? `${req.protocol}://${req.get(
+            'host'
+          )}/api/v1/users/resetPassword/${resetToken}`
+        : `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}`;
 
     const ip =
       (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
