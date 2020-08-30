@@ -185,7 +185,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
       'host'
     )}/api/v1/users/resetPassword/${resetToken}`;
 
-    await new Email(user, resetURL).sendPasswordReset();
+    const ip =
+      (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
+      req.connection.remoteAddress ||
+      req.socket.remoteAddress ||
+      req.connection.socket.remoteAddress;
+
+    await new Email(user, resetURL).sendPasswordReset(ip);
 
     res.status(200).json({
       status: 'success',
