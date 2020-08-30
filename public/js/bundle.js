@@ -27964,8 +27964,8 @@ var resetPassword = /*#__PURE__*/function () {
             if (res.data.status === 'success') {
               (0, _alerts.showAlert)('success', 'You have successfully reset your password!');
               window.setTimeout(function () {
-                location.assign('/login');
-              }, 1000);
+                location.assign('/');
+              }, 1500);
             }
 
             _context5.next = 10;

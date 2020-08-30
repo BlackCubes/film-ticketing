@@ -110,8 +110,8 @@ export const resetPassword = async (data, token) => {
     if (res.data.status === 'success') {
       showAlert('success', 'You have successfully reset your password!');
       window.setTimeout(() => {
-        location.assign('/login');
-      }, 1000);
+        location.assign('/');
+      }, 1500);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
