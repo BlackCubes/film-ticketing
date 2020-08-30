@@ -56,6 +56,8 @@ exports.getShow = catchAsync(async (req, res, next) => {
     return next(new AppError('There is no show with that name!', 404));
   }
 
+  console.log('User-agent: ', req.useragent);
+
   res.status(200).render('show-overview', {
     title: show.title,
     show
