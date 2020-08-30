@@ -99,6 +99,25 @@ export const forgotPassword = async email => {
   }
 };
 
+export const resetPassword = async (password, passwordConfirm, token) => {
+  try {
+    const res = await axios({
+      method: 'PATCH',
+      url: `http://127.0.0.1:3000/api/v1/users/resetPassword/${token}`,
+      data: { password, passwordConfirm }
+    });
+
+    if (res.data.status === 'success') {
+      showAlert('success', 'You have successfully reset your password!');
+      window.setTimeout(() => {
+        location.assign('/login');
+      }, 1000);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
+
 export const createShow = async (data, role) => {
   try {
     const url =

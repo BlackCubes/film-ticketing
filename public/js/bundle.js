@@ -27726,7 +27726,7 @@ exports.MultiForm = MultiForm;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createCastCrew = exports.createShowtime = exports.createTheater = exports.createReview = exports.createShow = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
+exports.createCastCrew = exports.createShowtime = exports.createTheater = exports.createReview = exports.createShow = exports.resetPassword = exports.forgotPassword = exports.register = exports.logout = exports.login = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -27942,64 +27942,66 @@ var forgotPassword = /*#__PURE__*/function () {
 
 exports.forgotPassword = forgotPassword;
 
-var createShow = /*#__PURE__*/function () {
-  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(data, role) {
-    var url, res;
+var resetPassword = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(password, passwordConfirm, token) {
+    var res;
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.prev = 0;
-            url = role === 'admin' ? 'http://127.0.0.1:3000/api/v1/shows' : 'http://127.0.0.1:3000/api/v1/shows/createMyShow';
-            _context5.next = 4;
+            _context5.next = 3;
             return (0, _axios.default)({
-              method: 'POST',
-              url: url,
-              data: data
+              method: 'PATCH',
+              url: "http://127.0.0.1:3000/api/v1/users/resetPassword/".concat(token),
+              data: {
+                password: password,
+                passwordConfirm: passwordConfirm
+              }
             });
 
-          case 4:
+          case 3:
             res = _context5.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Congrats! Your show has been created!');
+              (0, _alerts.showAlert)('success', 'You have successfully reset your password!');
               window.setTimeout(function () {
-                location.assign('/shows');
-              }, 1500);
+                location.assign('/login');
+              }, 1000);
             }
 
-            _context5.next = 11;
+            _context5.next = 10;
             break;
 
-          case 8:
-            _context5.prev = 8;
+          case 7:
+            _context5.prev = 7;
             _context5.t0 = _context5["catch"](0);
             (0, _alerts.showAlert)('error', _context5.t0.response.data.message);
 
-          case 11:
+          case 10:
           case "end":
             return _context5.stop();
         }
       }
-    }, _callee5, null, [[0, 8]]);
+    }, _callee5, null, [[0, 7]]);
   }));
 
-  return function createShow(_x11, _x12) {
+  return function resetPassword(_x11, _x12, _x13) {
     return _ref5.apply(this, arguments);
   };
 }();
 
-exports.createShow = createShow;
+exports.resetPassword = resetPassword;
 
-var createReview = /*#__PURE__*/function () {
-  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(data, showId, role) {
+var createShow = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(data, role) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee6$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.prev = 0;
-            url = role === 'admin' ? "http://127.0.0.1:3000/api/v1/shows/".concat(showId, "/reviews") : "http://127.0.0.1:3000/api/v1/reviews/createMyReview/".concat(showId);
+            url = role === 'admin' ? 'http://127.0.0.1:3000/api/v1/shows' : 'http://127.0.0.1:3000/api/v1/shows/createMyShow';
             _context6.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -28011,10 +28013,10 @@ var createReview = /*#__PURE__*/function () {
             res = _context6.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Congrats! Your review has been created!');
+              (0, _alerts.showAlert)('success', 'Congrats! Your show has been created!');
               window.setTimeout(function () {
-                location.reload();
-              }, 1000);
+                location.assign('/shows');
+              }, 1500);
             }
 
             _context6.next = 11;
@@ -28033,22 +28035,22 @@ var createReview = /*#__PURE__*/function () {
     }, _callee6, null, [[0, 8]]);
   }));
 
-  return function createReview(_x13, _x14, _x15) {
+  return function createShow(_x14, _x15) {
     return _ref6.apply(this, arguments);
   };
 }();
 
-exports.createReview = createReview;
+exports.createShow = createShow;
 
-var createTheater = /*#__PURE__*/function () {
-  var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(data) {
+var createReview = /*#__PURE__*/function () {
+  var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(data, showId, role) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee7$(_context7) {
       while (1) {
         switch (_context7.prev = _context7.next) {
           case 0:
             _context7.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/theaters';
+            url = role === 'admin' ? "http://127.0.0.1:3000/api/v1/shows/".concat(showId, "/reviews") : "http://127.0.0.1:3000/api/v1/reviews/createMyReview/".concat(showId);
             _context7.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -28060,10 +28062,10 @@ var createTheater = /*#__PURE__*/function () {
             res = _context7.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Congrats! The theater has been created!');
+              (0, _alerts.showAlert)('success', 'Congrats! Your review has been created!');
               window.setTimeout(function () {
-                location.assign('/admin/theaters');
-              }, 1500);
+                location.reload();
+              }, 1000);
             }
 
             _context7.next = 11;
@@ -28082,14 +28084,14 @@ var createTheater = /*#__PURE__*/function () {
     }, _callee7, null, [[0, 8]]);
   }));
 
-  return function createTheater(_x16) {
+  return function createReview(_x16, _x17, _x18) {
     return _ref7.apply(this, arguments);
   };
 }();
 
-exports.createTheater = createTheater;
+exports.createReview = createReview;
 
-var createShowtime = /*#__PURE__*/function () {
+var createTheater = /*#__PURE__*/function () {
   var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(data) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee8$(_context8) {
@@ -28097,7 +28099,7 @@ var createShowtime = /*#__PURE__*/function () {
         switch (_context8.prev = _context8.next) {
           case 0:
             _context8.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/showtimes';
+            url = 'http://127.0.0.1:3000/api/v1/theaters';
             _context8.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -28109,9 +28111,9 @@ var createShowtime = /*#__PURE__*/function () {
             res = _context8.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Congrats! The showtime has been created!');
+              (0, _alerts.showAlert)('success', 'Congrats! The theater has been created!');
               window.setTimeout(function () {
-                location.assign('/admin/showtimes');
+                location.assign('/admin/theaters');
               }, 1500);
             }
 
@@ -28131,14 +28133,14 @@ var createShowtime = /*#__PURE__*/function () {
     }, _callee8, null, [[0, 8]]);
   }));
 
-  return function createShowtime(_x17) {
+  return function createTheater(_x19) {
     return _ref8.apply(this, arguments);
   };
 }();
 
-exports.createShowtime = createShowtime;
+exports.createTheater = createTheater;
 
-var createCastCrew = /*#__PURE__*/function () {
+var createShowtime = /*#__PURE__*/function () {
   var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(data) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee9$(_context9) {
@@ -28146,7 +28148,7 @@ var createCastCrew = /*#__PURE__*/function () {
         switch (_context9.prev = _context9.next) {
           case 0:
             _context9.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/castcrews';
+            url = 'http://127.0.0.1:3000/api/v1/showtimes';
             _context9.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -28158,9 +28160,9 @@ var createCastCrew = /*#__PURE__*/function () {
             res = _context9.sent;
 
             if (res.data.status === 'success') {
-              (0, _alerts.showAlert)('success', 'Congrats! The cast/crew has been created!');
+              (0, _alerts.showAlert)('success', 'Congrats! The showtime has been created!');
               window.setTimeout(function () {
-                location.assign('/admin/castcrews');
+                location.assign('/admin/showtimes');
               }, 1500);
             }
 
@@ -28180,8 +28182,57 @@ var createCastCrew = /*#__PURE__*/function () {
     }, _callee9, null, [[0, 8]]);
   }));
 
-  return function createCastCrew(_x18) {
+  return function createShowtime(_x20) {
     return _ref9.apply(this, arguments);
+  };
+}();
+
+exports.createShowtime = createShowtime;
+
+var createCastCrew = /*#__PURE__*/function () {
+  var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(data) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee10$(_context10) {
+      while (1) {
+        switch (_context10.prev = _context10.next) {
+          case 0:
+            _context10.prev = 0;
+            url = 'http://127.0.0.1:3000/api/v1/castcrews';
+            _context10.next = 4;
+            return (0, _axios.default)({
+              method: 'POST',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context10.sent;
+
+            if (res.data.status === 'success') {
+              (0, _alerts.showAlert)('success', 'Congrats! The cast/crew has been created!');
+              window.setTimeout(function () {
+                location.assign('/admin/castcrews');
+              }, 1500);
+            }
+
+            _context10.next = 11;
+            break;
+
+          case 8:
+            _context10.prev = 8;
+            _context10.t0 = _context10["catch"](0);
+            (0, _alerts.showAlert)('error', _context10.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context10.stop();
+        }
+      }
+    }, _callee10, null, [[0, 8]]);
+  }));
+
+  return function createCastCrew(_x21) {
+    return _ref10.apply(this, arguments);
   };
 }();
 
