@@ -56,6 +56,11 @@ router.get(
   authController.checkLogin,
   viewsController.getForgotPasswordForm
 );
+router.get(
+  '/resetPassword/:token',
+  authController.checkLogin,
+  viewsController.getResetPasswordForm
+);
 router.get('/me', authController.protect, viewsController.getAccount);
 router.get(
   '/myTickets',
