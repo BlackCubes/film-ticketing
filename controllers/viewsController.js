@@ -132,6 +132,12 @@ exports.getForgotPasswordForm = (req, res) => {
   });
 };
 
+exports.getResetPasswordForm = (req, res) => {
+  res.status(200).render('account/resetPassword', {
+    title: 'Reset My Password'
+  });
+};
+
 exports.getAccount = (req, res) => {
   res.status(200).render('account/account', {
     title: 'My Account'
