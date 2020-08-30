@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const mongoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const useragent = require('express-useragent');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -25,6 +26,9 @@ const app = express();
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+// Expose User-Agent
+app.use(useragent);
 
 // For parsing application/xwww-
 app.use(express.urlencoded({ limit: '50mb', extended: true })); // Check on the limit!!!
