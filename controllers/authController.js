@@ -186,7 +186,10 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     )}/api/v1/users/resetPassword/${resetToken}`;
 
     const ip =
-      (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
+      (req.headers['x-forwarded-for'] || '')
+        .split(',')
+        .pop()
+        .trim() ||
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||
       req.connection.socket.remoteAddress;
