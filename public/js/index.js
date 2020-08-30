@@ -194,7 +194,7 @@ if (stars) {
 }
 
 if (loginForm) {
-  loginForm.addEventListener('submit', e => {
+  loginForm.addEventListener('submit', async e => {
     e.preventDefault();
     const email = document.getElementById('email');
     const password = document.getElementById('password');
@@ -206,7 +206,11 @@ if (loginForm) {
       checkFormSubmit(email, password);
 
       if (formStatus === 2) {
-        login(email.value, password.value);
+        document.getElementById('btnLogin').textContent = 'Logging...';
+
+        await login(email.value, password.value);
+
+        document.getElementById('btnLogin').textContent = 'Login';
       }
     }
   });
@@ -215,7 +219,7 @@ if (loginForm) {
 if (logoutBtn) logoutBtn.addEventListener('click', logout);
 
 if (forgotPassForm) {
-  forgotPassForm.addEventListener('submit', e => {
+  forgotPassForm.addEventListener('submit', async e => {
     e.preventDefault();
     const email = document.getElementById('email');
 
@@ -225,7 +229,11 @@ if (forgotPassForm) {
       checkFormSubmit(email);
 
       if (formStatus === 1) {
-        forgotPassword(email.value);
+        document.getElementById('btnForgotPass').textContent = 'Sending...';
+
+        await forgotPassword(email.value);
+
+        document.getElementById('btnForgotPass').textContent = 'Send Email';
       }
     }
   });
