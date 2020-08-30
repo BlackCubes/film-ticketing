@@ -17,6 +17,7 @@ import {
   logout,
   register,
   forgotPassword,
+  resetPassword,
   createShow,
   createReview,
   createTheater,
@@ -58,6 +59,7 @@ const loginForm = document.getElementById('loginForm');
 // Possibly change class selector to an id selector for all logout's to use
 const logoutBtn = document.querySelector('.nav__profile--logout');
 const forgotPassForm = document.getElementById('forgotPassForm');
+const resetPassForm = document.getElementById('resetpassForm');
 const registerForm = document.getElementById('registerForm'),
   registerFieldlist1 = document.getElementById('registerFieldlist1');
 const updatePersonalForm = document.getElementById('updatePersonalForm');
@@ -224,6 +226,35 @@ if (forgotPassForm) {
 
       if (formStatus === 1) {
         forgotPassword(email.value);
+      }
+    }
+  });
+}
+
+if (resetPassForm) {
+  resetPassForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    validateAttribute(document.getElementById('newPass'));
+    validateAttribute(document.getElementById('confirmNewPass'));
+
+    if (attributeStatus) {
+      checkFormSubmit(
+        document.getElementById('newPass'),
+        document.getElementById('confirmNewPass')
+      );
+
+      if (formStatus === 2) {
+        const password = document.getElementById('newPass').value;
+        const passwordConfirm = document.getElementById('confirmNewPass').value;
+        const urlArr = window.location.pathname.split('/');
+        const token = urlArr[urlArr.length - 1];
+
+        document.getElementById('btnResetPass').textContent = 'Resetting...';
+
+        await resetPassword({ password, passwordConfirm }, token);
+
+        document.getElementById('btnResetPass').textContent = 'Reset';
       }
     }
   });
