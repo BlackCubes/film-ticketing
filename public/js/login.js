@@ -95,6 +95,7 @@ export const forgotPassword = async email => {
       }, 1500);
     }
   } catch (err) {
+    console.log('Err: ', err);
     showAlert('error', err.response.data.message);
   }
 };
