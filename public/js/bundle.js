@@ -27926,7 +27926,7 @@ var forgotPassword = /*#__PURE__*/function () {
           case 7:
             _context4.prev = 7;
             _context4.t0 = _context4["catch"](0);
-            console.log('Err: ', _context4.t0);
+            console.log('Err.response: ', _context4.t0.response);
             (0, _alerts.showAlert)('error', _context4.t0.response.data.message);
 
           case 11:
