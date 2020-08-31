@@ -193,10 +193,10 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
       req.body.email
     );
 
-    res.status(404).json({
-      status: 'fail',
-      message: 'There is no user with that email!'
-    });
+    // res.status(404).json({
+    //   status: 'fail',
+    //   message: 'There is no user with that email!'
+    // });
 
     return next();
   }
