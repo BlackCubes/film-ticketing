@@ -173,8 +173,28 @@ exports.checkLogin = (req, res, next) => {
 exports.forgotPassword = catchAsync(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
 
+  const ip =
+    (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress;
+
+  const userAgent = `${req.useragent.browser} browser, ${req.useragent.os} operating system`;
+
   if (!user) {
-    return next(new AppError('There is no user with that email!', 404));
+    const forgotURL =
+      req.user && req.user.role === 'admin'
+        ? `${req.protocol}://${req.get('host')}/api/v1/users/forgotPassword`
+        : `${req.protocol}://${req.get('host')}/forgotPassword`;
+
+    await new Email(user, forgotURL).sendPasswordReset(ip, userAgent);
+
+    res.status(404).json({
+      status: 'fail',
+      message: 'There is no user with that email!'
+    });
+
+    return next();
   }
 
   const resetToken = user.createPasswordResetToken();
@@ -187,14 +207,6 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
             'host'
           )}/api/v1/users/resetPassword/${resetToken}`
         : `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}`;
-
-    const ip =
-      (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
-      req.connection.remoteAddress ||
-      req.socket.remoteAddress ||
-      req.connection.socket.remoteAddress;
-
-    const userAgent = `${req.useragent.browser} browser, ${req.useragent.os} operating system`;
 
     await new Email(user, resetURL).sendPasswordReset(ip, userAgent);
 
