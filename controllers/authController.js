@@ -182,23 +182,32 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const userAgent = `${req.useragent.browser} browser, ${req.useragent.os} operating system`;
 
   if (!user) {
-    const forgotURL =
-      req.user && req.user.role === 'admin'
-        ? `${req.protocol}://${req.get('host')}/api/v1/users/forgotPassword`
-        : `${req.protocol}://${req.get('host')}/forgotPassword`;
+    try {
+      const forgotURL =
+        req.user && req.user.role === 'admin'
+          ? `${req.protocol}://${req.get('host')}/api/v1/users/forgotPassword`
+          : `${req.protocol}://${req.get('host')}/forgotPassword`;
 
-    await new Email(req.body.email, forgotURL).sendPasswordResetHelp(
-      ip,
-      userAgent,
-      req.body.email
-    );
+      await new Email(req.body.email, forgotURL).sendPasswordResetHelp(
+        ip,
+        userAgent,
+        req.body.email
+      );
 
-    // res.status(404).json({
-    //   status: 'fail',
-    //   message: 'There is no user with that email!'
-    // });
+      // res.status(404).json({
+      //   status: 'fail',
+      //   message: 'There is no user with that email!'
+      // });
 
-    return next();
+      return next();
+    } catch (err) {
+      return next(
+        new AppError(
+          'There was an error sending the provided email! Try again later!'
+        ),
+        500
+      );
+    }
   }
 
   const resetToken = user.createPasswordResetToken();
