@@ -27925,16 +27925,15 @@ var forgotPassword = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context4.next = 11;
+            _context4.next = 10;
             break;
 
           case 7:
             _context4.prev = 7;
             _context4.t0 = _context4["catch"](0);
-            console.log('Err.response: ', _context4.t0.response);
             (0, _alerts.showAlert)('error', _context4.t0.response.data.message);
 
-          case 11:
+          case 10:
           case "end":
             return _context4.stop();
         }
