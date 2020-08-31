@@ -57,4 +57,13 @@ module.exports = class Email {
       userAgent
     );
   }
+
+  async sendPasswordResetHelp(ip, userAgent) {
+    await this.send(
+      'passwordResetHelp',
+      'We received a request to reset your password with this email address.',
+      ip,
+      userAgent
+    );
+  }
 };
