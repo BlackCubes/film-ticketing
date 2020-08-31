@@ -18,6 +18,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
       show.slug
     }`,
     customer_email: req.user.email,
+    receipt_email: req.user.email,
     client_reference_id: req.params.showId,
     line_items: [
       {
