@@ -187,7 +187,11 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
         ? `${req.protocol}://${req.get('host')}/api/v1/users/forgotPassword`
         : `${req.protocol}://${req.get('host')}/forgotPassword`;
 
-    await new Email(user, forgotURL).sendPasswordResetHelp(ip, userAgent);
+    await new Email(req.body.email, forgotURL).sendPasswordResetHelp(
+      ip,
+      userAgent,
+      req.body.email
+    );
 
     res.status(404).json({
       status: 'fail',
