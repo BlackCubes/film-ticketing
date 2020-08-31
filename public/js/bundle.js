@@ -27913,8 +27913,13 @@ var forgotPassword = /*#__PURE__*/function () {
           case 3:
             res = _context4.sent;
 
-            if (res.data.status === 'success') {
+            if (res.data.status === 'success' && res.status === 200) {
               (0, _alerts.showAlert)('success', 'A password reset link has been sent to your email!');
+              window.setTimeout(function () {
+                location.assign('/');
+              }, 1500);
+            } else if (res.data.status === 'success' && res.status === 202) {
+              (0, _alerts.showAlert)('success', 'A message has been sent to your email!');
               window.setTimeout(function () {
                 location.assign('/');
               }, 1500);

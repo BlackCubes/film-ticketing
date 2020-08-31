@@ -85,11 +85,16 @@ export const forgotPassword = async email => {
       data: { email }
     });
 
-    if (res.data.status === 'success') {
+    if (res.data.status === 'success' && res.status === 200) {
       showAlert(
         'success',
         'A password reset link has been sent to your email!'
       );
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1500);
+    } else if (res.data.status === 'success' && res.status === 202) {
+      showAlert('success', 'A message has been sent to your email!');
       window.setTimeout(() => {
         location.assign('/');
       }, 1500);
