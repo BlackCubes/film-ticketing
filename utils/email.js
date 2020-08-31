@@ -25,13 +25,14 @@ module.exports = class Email {
     });
   }
 
-  async send(template, subject, ip = '', userAgent = '') {
+  async send(template, subject, ip = '', userAgent = '', email = '') {
     const html = pug.renderFile(`${__dirname}/../views/email/${template}.pug`, {
       firstName: this.firstName,
       url: this.url,
       subject,
       ip,
-      userAgent
+      userAgent,
+      email
     });
 
     const mailOptions = {
@@ -58,12 +59,13 @@ module.exports = class Email {
     );
   }
 
-  async sendPasswordResetHelp(ip, userAgent) {
+  async sendPasswordResetHelp(ip, userAgent, email) {
     await this.send(
       'passwordResetHelp',
       'We received a request to reset your password with this email address.',
       ip,
-      userAgent
+      userAgent,
+      email
     );
   }
 };
