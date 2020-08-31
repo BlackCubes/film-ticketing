@@ -5,7 +5,9 @@ const pug = require('pug');
 module.exports = class Email {
   constructor(user, url) {
     this.to = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user) ? user : user.email;
-    this.firstName = user.name.split(' ')[0];
+    this.firstName = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user)
+      ? 'User'
+      : user.name.split(' ')[0];
     this.url = url;
     this.from = `Elias Gutierrez <${process.env.EMAIL_FROM}>`;
   }
