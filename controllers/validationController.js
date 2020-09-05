@@ -17,6 +17,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     username: 'required|string|min:3|max:9|regexUsername',
     email: 'required|email',
     password: 'required|string|min:8|max:60|confirmed|regexPass',
+    passwordConfirm: 'required|string',
     birthdate: 'required|date',
     gender: 'required|string|max:1|regexGender'
   };
