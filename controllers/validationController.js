@@ -46,3 +46,15 @@ exports.login = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.forgotPass = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    email: 'required|email'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
