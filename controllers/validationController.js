@@ -23,6 +23,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
+    req.body.password_confirmation = req.body.passwordConfirm;
     if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
 
     next();
