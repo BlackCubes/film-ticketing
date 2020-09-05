@@ -30,7 +30,7 @@ router.patch(
 );
 
 // PROTECT ALL OTHER ROUTES LEAKING
-router.use(authController.protect);
+// router.use(authController.protect);
 
 router.patch(
   '/updateMyPassword',
