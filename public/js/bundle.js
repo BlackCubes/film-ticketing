@@ -29453,7 +29453,7 @@ if (registerFieldlist1) {
   });
   registerForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(e) {
-      var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, name, birthdate, gender;
+      var genderSelect, birthMonth, birthDay, birthYear, birthMonthVal, birthDayVal, birthYearVal, email, username, password, passwordConfirm, password_confirmation, name, birthdate, gender;
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
@@ -29488,13 +29488,13 @@ if (registerFieldlist1) {
               email = document.getElementById('email').value;
               username = document.getElementById('username').value;
               password = document.getElementById('password').value;
-              passwordConfirm = document.getElementById('passwordConfirm').value;
+              passwordConfirm = document.getElementById('passwordConfirm').value, password_confirmation = document.getElementById('passwordConfirm').value;
               name = document.getElementById('name').value;
               birthdate = birthYearVal.concat('-', birthMonthVal, '-', birthDayVal);
               gender = genderSelect.options[genderSelect.selectedIndex].value;
               document.getElementById('btnCreateAccount').textContent = 'Creating...';
               _context4.next = 27;
-              return (0, _login.register)(email, username, password, passwordConfirm, name, birthdate, gender);
+              return (0, _login.register)(email, username, password, passwordConfirm, password_confirmation, name, birthdate, gender);
 
             case 27:
               document.getElementById('btnCreateAccount').textContent = 'Continue';
