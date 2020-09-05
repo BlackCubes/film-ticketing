@@ -11,6 +11,11 @@ const errMessage = errObj => {
   return message.slice(0, -1);
 };
 
+exports.insertPasswordConfirm = (req, res, next) => {
+  req.body.password_confirm = req.body.passwordConfirm;
+  next();
+};
+
 exports.signup = catchAsync(async (req, res, next) => {
   const validationRule = {
     name: 'required|string|min:2|max:70|regexName',
@@ -23,7 +28,6 @@ exports.signup = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    req.body.password_confirmation = req.body.passwordConfirm;
     if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
 
     next();
