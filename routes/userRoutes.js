@@ -17,7 +17,11 @@ router.post(
 );
 router.post('/login', validationController.login, authController.login);
 router.get('/logout', authController.logout);
-router.post('/forgotPassword', authController.forgotPassword);
+router.post(
+  '/forgotPassword',
+  validationController.forgotPass,
+  authController.forgotPassword
+);
 router.patch('/resetPassword/:token', authController.resetPassword);
 
 // PROTECT ALL OTHER ROUTES LEAKING
