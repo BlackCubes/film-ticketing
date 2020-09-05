@@ -331,9 +331,7 @@ if (registerFieldlist1) {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         const passwordConfirm = document.getElementById('passwordConfirm')
-            .value,
-          password_confirmation = document.getElementById('passwordConfirm')
-            .value;
+          .value;
         const name = document.getElementById('name').value;
         const birthdate = birthYearVal.concat(
           '-',
@@ -350,7 +348,6 @@ if (registerFieldlist1) {
           username,
           password,
           passwordConfirm,
-          password_confirmation,
           name,
           birthdate,
           gender
