@@ -11,18 +11,38 @@ router.get(
   ticketController.getCheckoutSession
 );
 
-router.use(authController.protect);
-router.use(authController.restrictTo('admin'));
+// router.use(authController.protect);
+// router.use(authController.restrictTo('admin'));
 
 router
   .route('/')
-  .get(ticketController.getAllTickets)
-  .post(ticketController.createTicket);
+  .get(
+    authController.protect,
+    authController.restrictTo('admin'),
+    ticketController.getAllTickets
+  )
+  .post(
+    authController.protect,
+    authController.restrictTo('admin'),
+    ticketController.createTicket
+  );
 
 router
   .route('/:id')
-  .get(ticketController.getTicket)
-  .patch(ticketController.updateTicket)
-  .delete(ticketController.deleteTicket);
+  .get(
+    authController.protect,
+    authController.restrictTo('admin'),
+    ticketController.getTicket
+  )
+  .patch(
+    authController.protect,
+    authController.restrictTo('admin'),
+    ticketController.updateTicket
+  )
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    ticketController.deleteTicket
+  );
 
 module.exports = router;
