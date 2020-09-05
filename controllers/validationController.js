@@ -11,6 +11,23 @@ const errMessage = errObj => {
   return message.slice(0, -1);
 };
 
+exports.signup = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    name: 'required|string|min:2|max:70|regexName',
+    username: 'required|string|min:3|max:9|regexUsername',
+    email: 'required|email',
+    password: 'required|string|min:8|max:60|confirmed|regexPass',
+    birthdate: 'required|date',
+    gender: 'required|string|max:1|regexGender'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
+
 exports.login = catchAsync(async (req, res, next) => {
   const validationRule = {
     email: 'required|email',
@@ -18,9 +35,7 @@ exports.login = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) {
-      return next(new AppError(`${errMessage(err.errors)}`, 401));
-    }
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
 
     next();
   });
