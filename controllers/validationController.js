@@ -71,3 +71,30 @@ exports.forgotPass = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.resetPass = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    password: 'required|string|min:8|max:60|confirmed|regexPass',
+    passwordConfirm: 'required|string'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
+
+exports.updatePass = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    passwordCurrent: 'required|string|min:8|max:60|regexPass',
+    password: 'required|string|min:8|max:60|confirmed|regexPass',
+    passwordConfirm: 'required|string'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
