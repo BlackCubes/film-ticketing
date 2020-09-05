@@ -52,6 +52,7 @@
     "stripe": "^7.15.0",
     "swiper": "^6.1.1",
     "validator": "^13.0.0",
+    "validatorjs": "^3.19.2",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
