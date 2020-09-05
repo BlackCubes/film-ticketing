@@ -9,13 +9,15 @@ exports.login = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status)
+    if (!status) {
+      console.log(err);
       return next(
         new AppError(
           'A test message for validator fail for validation controller',
           401
         )
       );
+    }
 
     next();
   });
