@@ -22,7 +22,12 @@ router.post(
   validationController.forgotPass,
   authController.forgotPassword
 );
-router.patch('/resetPassword/:token', authController.resetPassword);
+router.patch(
+  '/resetPassword/:token',
+  validationController.insertPasswordConfirm,
+  validationController.checkPassAndPassConfirm,
+  authController.resetPassword
+);
 
 // PROTECT ALL OTHER ROUTES LEAKING
 // router.use(authController.protect);
