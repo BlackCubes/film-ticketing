@@ -59,7 +59,7 @@ router.patch(
 
 router.patch(
   '/updateMe/:userPhoto',
-  // authController.protect,
+  authController.protect,
   // authController.restrictTo('users', 'event-owner', 'admin'),
   photoController.deletePhoto('users'),
   photoController.bufferPhoto('photo'),
