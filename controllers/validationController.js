@@ -19,7 +19,6 @@ exports.login = catchAsync(async (req, res, next) => {
 
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
-      console.log(err);
       return next(new AppError(`${errMessage(err.errors)}`, 401));
     }
 
