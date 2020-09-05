@@ -21,12 +21,14 @@ router.route('/').get(theaterController.getAllTheaters);
 router.route('/:id').get(theaterController.getTheater);
 
 // PROTECT ALL OTHER ROUTES LEAKING AND RESTRICT ONLY TO ADMINS
-router.use(authController.protect);
-router.use(authController.restrictTo('admin'));
+// router.use(authController.protect);
+// router.use(authController.restrictTo('admin'));
 
 router
   .route('/')
   .post(
+    authController.protect,
+    authController.restrictTo('admin'),
     photoController.bufferPhoto('photo'),
     photoController.uploadPhoto('kinetotickets-theaters'),
     theaterController.geoParse,
@@ -35,11 +37,23 @@ router
 
 router
   .route('/:id')
-  .patch(theaterController.geoParse, theaterController.updateTheater)
-  .delete(authController.verifyPassword, theaterController.deleteTheater);
+  .patch(
+    authController.protect,
+    authController.restrictTo('admin'),
+    theaterController.geoParse,
+    theaterController.updateTheater
+  )
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    authController.verifyPassword,
+    theaterController.deleteTheater
+  );
 
 router.patch(
   '/:id/:theaterPhoto',
+  authController.protect,
+  authController.restrictTo('admin'),
   photoController.deletePhoto('theaters'),
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-theaters'),
