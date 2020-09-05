@@ -13,6 +13,7 @@ const errMessage = errObj => {
 
 exports.insertPasswordConfirm = (req, res, next) => {
   req.body.password_confirm = req.body.passwordConfirm;
+  console.log(req.body.passwordConfirm);
   next();
 };
 
