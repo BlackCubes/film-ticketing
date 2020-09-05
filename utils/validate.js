@@ -4,7 +4,7 @@ const Validator = require('validatorjs');
 const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
 
 Validator.register(
-  'strict',
+  'regexPass',
   val => regexPass.test(val),
   'Please use at least one number, one special character, and one capital letter between 8 to 60 characters'
 );
