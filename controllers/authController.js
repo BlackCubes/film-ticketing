@@ -96,7 +96,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     );
   }
 
-  console.log('Headers: ', req.headers.authorization);
+  console.log('Headers: ', req.headers);
   console.log('Cookies: ', req.cookies);
   console.log('Token 2nd Check: ', token);
 
