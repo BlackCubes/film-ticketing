@@ -80,6 +80,7 @@ exports.logout = (req, res) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
+  console.log('Token 1st Check: ', token);
 
   if (
     req.headers.authorization &&
@@ -98,6 +99,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   console.log('Headers: ', req.headers.authorization);
   console.log('Cookies: ', req.cookies);
+  console.log('Token 2nd Check: ', token);
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
