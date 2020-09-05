@@ -80,7 +80,6 @@ exports.logout = (req, res) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
-  console.log('Token 1st Check: ', token);
 
   if (
     req.headers.authorization &&
