@@ -5,7 +5,7 @@ const validator = require('./../utils/validate');
 const errMessage = errObj => {
   let message = '';
   Object.values(errObj).forEach(err => {
-    message += err[0];
+    message += `${err[0]} `;
   });
 
   return message;
