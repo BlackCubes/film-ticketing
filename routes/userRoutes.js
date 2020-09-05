@@ -42,14 +42,16 @@ router.patch(
 
 router.get(
   '/me',
-  authController.protect,
+  // authController.protect,
+  authController.restrictTo('users', 'event-owner', 'admin'),
   userController.getMe,
   userController.getUser
 );
 
 router.patch(
   '/updateMe',
-  authController.protect,
+  // authController.protect,
+  authController.restrictTo('users', 'event-owner', 'admin'),
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-users', false),
   userController.updateMe
@@ -57,7 +59,8 @@ router.patch(
 
 router.patch(
   '/updateMe/:userPhoto',
-  authController.protect,
+  // authController.protect,
+  authController.restrictTo('users', 'event-owner', 'admin'),
   photoController.deletePhoto('users'),
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-users', false),
