@@ -24,7 +24,7 @@ Validator.register(
 Validator.register(
   'regexGender',
   val => regexGender.test(val),
-  'Please use a valid gender/non-gender with m="male", f="female", or p="prefer not to say".'
+  "Please use a valid gender/non-gender with m='male', f='female', or p='prefer not to say'."
 );
 
 module.exports = (body, rules, customMessages, cb) => {
