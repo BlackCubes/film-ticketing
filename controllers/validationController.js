@@ -16,6 +16,19 @@ exports.insertPasswordConfirm = (req, res, next) => {
   next();
 };
 
+exports.checkPassAndPassConfirm = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    password: 'required|string|min:8|max:60|confirmed|regexPass',
+    passwordConfirm: 'required|string'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
+
 exports.signup = catchAsync(async (req, res, next) => {
   const validationRule = {
     name: 'required|string|min:2|max:70|regexName',
