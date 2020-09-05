@@ -5,7 +5,7 @@ const validator = require('./../utils/validate');
 exports.login = catchAsync(async (req, res, next) => {
   const validationRule = {
     email: 'required|email',
-    password: 'required|string|min:8|max:60'
+    password: 'required|string|min:8|max:60|strict'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
