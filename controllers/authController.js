@@ -100,7 +100,8 @@ exports.protect = catchAsync(async (req, res, next) => {
   console.log('Cookies: ', req.cookies);
   console.log('Token 2nd Check: ', token);
 
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  // const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const decoded = await jwt.verify(token, process.env.JWT_SECRET);
 
   const currentUser = await User.findById(decoded.id);
   if (!currentUser) {
