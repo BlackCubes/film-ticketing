@@ -25,7 +25,7 @@ router.post(
 router.patch(
   '/resetPassword/:token',
   validationController.insertPasswordConfirm,
-  validationController.checkPassAndPassConfirm,
+  validationController.resetPass,
   authController.resetPassword
 );
 
@@ -35,6 +35,8 @@ router.patch(
 router.patch(
   '/updateMyPassword',
   authController.protect,
+  validationController.insertPasswordConfirm,
+  validationController.updatePass,
   authController.updateMyPassword
 );
 
