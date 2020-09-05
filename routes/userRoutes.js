@@ -9,7 +9,7 @@ const router = express.Router({ mergeParams: true });
 
 router.use('/:userId/shows', showRouter);
 
-router.post('/signup', authController.signup);
+router.post('/signup', validationController.signup, authController.signup);
 router.post('/login', validationController.login, authController.login);
 router.get('/logout', authController.logout);
 router.post('/forgotPassword', authController.forgotPassword);
