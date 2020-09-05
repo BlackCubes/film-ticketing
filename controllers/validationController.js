@@ -8,7 +8,7 @@ const errMessage = errObj => {
     message += `${err[0]} `;
   });
 
-  return message;
+  return message.slice(0, -1);
 };
 
 exports.login = catchAsync(async (req, res, next) => {
