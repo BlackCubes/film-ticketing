@@ -2,6 +2,7 @@ const express = require('express');
 const userController = require('./../controllers/userController');
 const authController = require('./../controllers/authController');
 const photoController = require('./../controllers/photoController');
+const validationController = require('./../controllers/validationController');
 const showRouter = require('./showRoutes');
 
 const router = express.Router({ mergeParams: true });
@@ -9,7 +10,7 @@ const router = express.Router({ mergeParams: true });
 router.use('/:userId/shows', showRouter);
 
 router.post('/signup', authController.signup);
-router.post('/login', authController.login);
+router.post('/login', validationController.login, authController.login);
 router.get('/logout', authController.logout);
 router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
