@@ -26,7 +26,7 @@ router.route('/').get(showController.getAllShows);
 router.route('/:id').get(showController.getShow);
 
 // PROTECT ALL OTHER ROUTES LEAKING
-router.use(authController.protect);
+// router.use(authController.protect);
 
 // router.get(
 //   '/getMyShows',
@@ -36,6 +36,7 @@ router.use(authController.protect);
 
 router.post(
   '/createMyShow',
+  authController.protect,
   authController.restrictTo('event-owner'),
   photoController.bufferPhoto('poster'),
   photoController.uploadPhoto('kinetotickets-shows'),
@@ -45,12 +46,14 @@ router.post(
 
 router.patch(
   '/updateMyShow/:id',
+  authController.protect,
   authController.restrictTo('event-owner'),
   showController.updateMyShow
 );
 
 router.patch(
   '/updateMyShow/:id/:showPoster',
+  authController.protect,
   authController.restrictTo('event-owner'),
   photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
@@ -84,6 +87,7 @@ router
 
 router.patch(
   '/:id/:showPoster',
+  authController.protect,
   authController.restrictTo('admin'),
   photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
@@ -93,6 +97,10 @@ router.patch(
 
 router
   .route('/:userId')
-  .get(authController.restrictTo('admin'), showController.getAllShows);
+  .get(
+    authController.protect,
+    authController.restrictTo('admin'),
+    showController.getAllShows
+  );
 
 module.exports = router;
