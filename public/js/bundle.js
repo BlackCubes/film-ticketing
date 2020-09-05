@@ -27838,7 +27838,7 @@ var logout = /*#__PURE__*/function () {
 exports.logout = logout;
 
 var register = /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(email, username, password, passwordConfirm, password_confirmation, name, birthdate, gender) {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(email, username, password, passwordConfirm, name, birthdate, gender) {
     var res;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
@@ -27854,7 +27854,6 @@ var register = /*#__PURE__*/function () {
                 username: username,
                 password: password,
                 passwordConfirm: passwordConfirm,
-                password_confirmation: password_confirmation,
                 name: name,
                 birthdate: birthdate,
                 gender: gender
@@ -27887,7 +27886,7 @@ var register = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 7]]);
   }));
 
-  return function register(_x3, _x4, _x5, _x6, _x7, _x8, _x9, _x10) {
+  return function register(_x3, _x4, _x5, _x6, _x7, _x8, _x9) {
     return _ref3.apply(this, arguments);
   };
 }();
@@ -27942,7 +27941,7 @@ var forgotPassword = /*#__PURE__*/function () {
     }, _callee4, null, [[0, 7]]);
   }));
 
-  return function forgotPassword(_x11) {
+  return function forgotPassword(_x10) {
     return _ref4.apply(this, arguments);
   };
 }();
@@ -27990,7 +27989,7 @@ var resetPassword = /*#__PURE__*/function () {
     }, _callee5, null, [[0, 7]]);
   }));
 
-  return function resetPassword(_x12, _x13) {
+  return function resetPassword(_x11, _x12) {
     return _ref5.apply(this, arguments);
   };
 }();
@@ -28039,7 +28038,7 @@ var createShow = /*#__PURE__*/function () {
     }, _callee6, null, [[0, 8]]);
   }));
 
-  return function createShow(_x14, _x15) {
+  return function createShow(_x13, _x14) {
     return _ref6.apply(this, arguments);
   };
 }();
@@ -28088,7 +28087,7 @@ var createReview = /*#__PURE__*/function () {
     }, _callee7, null, [[0, 8]]);
   }));
 
-  return function createReview(_x16, _x17, _x18) {
+  return function createReview(_x15, _x16, _x17) {
     return _ref7.apply(this, arguments);
   };
 }();
@@ -28137,7 +28136,7 @@ var createTheater = /*#__PURE__*/function () {
     }, _callee8, null, [[0, 8]]);
   }));
 
-  return function createTheater(_x19) {
+  return function createTheater(_x18) {
     return _ref8.apply(this, arguments);
   };
 }();
@@ -28186,7 +28185,7 @@ var createShowtime = /*#__PURE__*/function () {
     }, _callee9, null, [[0, 8]]);
   }));
 
-  return function createShowtime(_x20) {
+  return function createShowtime(_x19) {
     return _ref9.apply(this, arguments);
   };
 }();
@@ -28235,7 +28234,7 @@ var createCastCrew = /*#__PURE__*/function () {
     }, _callee10, null, [[0, 8]]);
   }));
 
-  return function createCastCrew(_x21) {
+  return function createCastCrew(_x20) {
     return _ref10.apply(this, arguments);
   };
 }();
