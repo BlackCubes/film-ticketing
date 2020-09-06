@@ -50,6 +50,7 @@ router.patch(
   '/updateMyShow/:id',
   authController.protect,
   authController.restrictTo('event-owner'),
+  validationController.insertParamsId,
   validationController.updateShow,
   showController.updateMyShow
 );
@@ -58,6 +59,7 @@ router.patch(
   '/updateMyShow/:id/:showPoster',
   authController.protect,
   authController.restrictTo('event-owner'),
+  validationController.insertParamsId,
   validationController.updateShow,
   photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
@@ -81,6 +83,7 @@ router
   .patch(
     authController.protect,
     authController.restrictTo('admin'),
+    validationController.insertParamsId,
     validationController.updateShow,
     showController.updateShow
   )
@@ -95,6 +98,7 @@ router.patch(
   '/:id/:showPoster',
   authController.protect,
   authController.restrictTo('admin'),
+  validationController.insertParamsId,
   validationController.updateShow,
   photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
