@@ -1,6 +1,7 @@
 const Validator = require('validatorjs');
 
 const regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
+const regexNameOpt = /^([a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*)?$/;
 const regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
 // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
 const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
@@ -9,6 +10,11 @@ const regexGender = /^\b(f|m|p)\b$/;
 Validator.register(
   'regexName',
   val => regexName.test(val),
+  'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters for the name.'
+);
+Validator.register(
+  'regexNameOpt',
+  val => regexNameOpt.test(val),
   'Please use at least 2 characters with no lonely empty spaces, no accents, and does not exceed 70 characters for the name.'
 );
 Validator.register(
