@@ -102,7 +102,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createShowEventOwner = catchAsync(async (req, res, next) => {
+exports.createShow = catchAsync(async (req, res, next) => {
   let validationRule;
 
   if (req.user && req.user.role === 'event-owner') {
