@@ -88,11 +88,11 @@ exports.updatePass = catchAsync(async (req, res, next) => {
 
 exports.updateUser = catchAsync(async (req, res, next) => {
   const validationRule = {
-    name: 'string|max:70|regexName',
-    username: 'string|max:9|regexUsername',
+    name: 'string|max:70|regexNameOpt',
+    username: 'string|max:9|regexUsernameOpt',
     email: 'email',
     birthdate: 'date',
-    gender: 'string|max:1|regexGender'
+    gender: 'string|max:1|regexGenderOpt'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
