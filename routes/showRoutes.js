@@ -50,6 +50,7 @@ router.patch(
   '/updateMyShow/:id',
   authController.protect,
   authController.restrictTo('event-owner'),
+  validationController.updateShow,
   showController.updateMyShow
 );
 
@@ -57,6 +58,7 @@ router.patch(
   '/updateMyShow/:id/:showPoster',
   authController.protect,
   authController.restrictTo('event-owner'),
+  validationController.updateShow,
   photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
   photoController.uploadPhoto('kinetotickets-shows'),
@@ -79,6 +81,7 @@ router
   .patch(
     authController.protect,
     authController.restrictTo('admin'),
+    validationController.updateShow,
     showController.updateShow
   )
   .delete(
@@ -92,6 +95,7 @@ router.patch(
   '/:id/:showPoster',
   authController.protect,
   authController.restrictTo('admin'),
+  validationController.updateShow,
   photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
   photoController.uploadPhoto('kinetotickets-shows'),
