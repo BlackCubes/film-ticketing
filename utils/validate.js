@@ -13,6 +13,7 @@ const regexContent = /^\b(Film|TV)\b$/;
 const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
 const regexSelectOpt = /^(\b(y|n)\b)?$/;
 const regexMongo = /^[a-f\d]{24}$/i;
+const regexDurationOpt = /^([1-9]{1}[0-9]{1,})?$/;
 
 Validator.register(
   'regexName',
@@ -73,6 +74,11 @@ Validator.register(
   'regexMongo',
   val => regexMongo.test(val),
   'Please use a valid MongoDB ObjectID.'
+);
+Validator.register(
+  'regexDurationOpt',
+  val => regexDurationOpt.test(val),
+  'Please enter a duration in minutes that is at least 10 minutes long.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
