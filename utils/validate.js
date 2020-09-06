@@ -9,6 +9,7 @@ const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
 const regexGender = /^\b(f|m|p)\b$/;
 const regexGenderOpt = /^(\b(f|m|p)\b)?$/;
 const regexMpaa = /^\b(G|PG|PG-13|R|NC-17|NR|Unrated|TV-Y|TV-Y7|TV-G|TV-PG|TV-14|TV-MA)\b$/;
+const regexContent = /^\b(Film|TV)\b$/;
 
 Validator.register(
   'regexName',
@@ -38,17 +39,22 @@ Validator.register(
 Validator.register(
   'regexGender',
   val => regexGender.test(val),
-  "Please use a valid gender/non-gender with m='male', f='female', or p='prefer not to say'."
+  "Please use a valid gender/non-gender of m='male', f='female', or p='prefer not to say'."
 );
 Validator.register(
   'regexGenderOpt',
   val => regexGenderOpt.test(val),
-  "Please use a valid gender/non-gender with m='male', f='female', or p='prefer not to say'."
+  "Please use a valid gender/non-gender of m='male', f='female', or p='prefer not to say'."
 );
 Validator.register(
   'regexMpaa',
   val => regexMpaa.test(val),
   "Please use a valid MPAA rating of 'G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', or 'TV-MA'."
+);
+Validator.register(
+  'regexContent',
+  val => regexContent.test(val),
+  "Please use a valid content type of 'Film' or 'TV'."
 );
 
 module.exports = (body, rules, customMessages, cb) => {
