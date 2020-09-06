@@ -167,7 +167,8 @@ exports.updateShow = catchAsync(async (req, res, next) => {
       contentType: 'string|regexContentOpt',
       price: 'numeric|min:5|regexPrice',
       genres: 'string|min:3',
-      specialVenue: 'string|max:1|regexSelectOpt'
+      specialVenue: 'string|max:1|regexSelectOpt',
+      paramsId: 'required|hex|regexMongo'
     };
   } else if (req.user && req.user.role === 'admin') {
     validationRule = {
@@ -184,7 +185,8 @@ exports.updateShow = catchAsync(async (req, res, next) => {
       genres: 'string|min:3',
       specialVenue: 'string|max:1|regexSelectOpt',
       secretShow: 'string|max:1|regexSelectOpt',
-      eventOrganizer: 'hex|regexMongoOpt'
+      eventOrganizer: 'hex|regexMongoOpt',
+      paramsId: 'required|hex|regexMongo'
     };
   }
 
