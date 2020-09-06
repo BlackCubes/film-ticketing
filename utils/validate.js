@@ -11,6 +11,7 @@ const regexGenderOpt = /^(\b(f|m|p)\b)?$/;
 const regexMpaa = /^\b(G|PG|PG-13|R|NC-17|NR|Unrated|TV-Y|TV-Y7|TV-G|TV-PG|TV-14|TV-MA)\b$/;
 const regexContent = /^\b(Film|TV)\b$/;
 const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
+const regexSelectOpt = /^(\b(y|n)\b)?$/;
 
 Validator.register(
   'regexName',
@@ -61,6 +62,11 @@ Validator.register(
   'regexPrice',
   val => regexPrice.test(val),
   'Please provide a valid price with a minimum of $5.'
+);
+Validator.register(
+  'regexSelectOpt',
+  val => regexSelectOpt.test(val),
+  "Please use a valid value of y='yes' or n='no'."
 );
 
 module.exports = (body, rules, customMessages, cb) => {
