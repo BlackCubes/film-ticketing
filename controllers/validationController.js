@@ -101,3 +101,47 @@ exports.updateUser = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.createShowEventOwner = catchAsync(async (req, res, next) => {
+  let validationRule;
+
+  if (req.user && req.user.role === 'event-owner') {
+    validationRule = {
+      title: 'required|string|max:100',
+      originalReleaseDate: 'required|date',
+      duration: 'required|numeric|min:10',
+      mpaaRating: 'required|string|regexMpaa',
+      overview: 'required|string|max:183',
+      synopsis: 'string|max:1100',
+      language: 'string|min:3',
+      subtitles: 'string|min:3',
+      contentType: 'required|string|regexContent',
+      price: 'required|numeric|min:5|regexPrice',
+      genres: 'string|min:3',
+      specialVenue: 'string|max:1|regexSelectOpt'
+    };
+  } else if (req.user && req.user.role === 'admin') {
+    validationRule = {
+      title: 'required|string|max:100',
+      originalReleaseDate: 'required|date',
+      duration: 'required|numeric|min:10',
+      mpaaRating: 'required|string|regexMpaa',
+      overview: 'required|string|max:183',
+      synopsis: 'string|max:1100',
+      language: 'string|min:3',
+      subtitles: 'string|min:3',
+      contentType: 'required|string|regexContent',
+      price: 'required|numeric|min:5|regexPrice',
+      genres: 'string|min:3',
+      specialVenue: 'string|max:1|regexSelectOpt',
+      secretShow: 'string|max:1|regexSelectOpt',
+      eventOrganizer: 'required|hex|regexMongo'
+    };
+  }
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
