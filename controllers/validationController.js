@@ -86,7 +86,7 @@ exports.updatePass = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.updateMe = catchAsync(async (req, res, next) => {
+exports.updateUser = catchAsync(async (req, res, next) => {
   const validationRule = {
     name: 'required|string|min:2|max:70|regexName',
     username: 'required|string|min:3|max:9|regexUsername',
