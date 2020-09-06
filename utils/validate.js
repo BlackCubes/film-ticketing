@@ -11,6 +11,7 @@ const regexGenderOpt = /^(\b(f|m|p)\b)?$/;
 const regexMpaa = /^\b(G|PG|PG-13|R|NC-17|NR|Unrated|TV-Y|TV-Y7|TV-G|TV-PG|TV-14|TV-MA)\b$/;
 const regexMpaaOpt = /^(\b(G|PG|PG-13|R|NC-17|NR|Unrated|TV-Y|TV-Y7|TV-G|TV-PG|TV-14|TV-MA)\b)?$/;
 const regexContent = /^\b(Film|TV)\b$/;
+const regexContentOpt = /^(\b(Film|TV)\b)?$/;
 const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
 const regexSelectOpt = /^(\b(y|n)\b)?$/;
 const regexMongo = /^[a-f\d]{24}$/i;
@@ -64,6 +65,11 @@ Validator.register(
 Validator.register(
   'regexContent',
   val => regexContent.test(val),
+  "Please use a valid content type of 'Film' or 'TV'."
+);
+Validator.register(
+  'regexContentOpt',
+  val => regexContentOpt.test(val),
   "Please use a valid content type of 'Film' or 'TV'."
 );
 Validator.register(
