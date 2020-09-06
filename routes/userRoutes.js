@@ -35,8 +35,8 @@ router.patch(
 router.patch(
   '/updateMyPassword',
   authController.protect,
-  validationController.insertPasswordConfirm,
-  validationController.updatePass,
+  // validationController.insertPasswordConfirm,
+  // validationController.updatePass,
   authController.updateMyPassword
 );
 
