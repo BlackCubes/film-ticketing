@@ -16,6 +16,11 @@ exports.insertPasswordConfirm = (req, res, next) => {
   next();
 };
 
+exports.insertParamsId = (req, res, next) => {
+  req.body.paramsId = req.params.id;
+  next();
+};
+
 exports.signup = catchAsync(async (req, res, next) => {
   const validationRule = {
     name: 'required|string|min:2|max:70|regexName',
