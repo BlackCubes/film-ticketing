@@ -145,3 +145,47 @@ exports.createShow = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.updateShow = catchAsync(async (req, res, next) => {
+  let validationRule;
+
+  if (req.user && req.user.role === 'event-owner') {
+    validationRule = {
+      title: 'string|max:100',
+      originalReleaseDate: 'date',
+      duration: 'numeric|regexDurationOpt',
+      mpaaRating: 'string|regexMpaaOpt',
+      overview: 'string|max:183',
+      synopsis: 'string|max:1100',
+      language: 'string|min:3',
+      subtitles: 'string|min:3',
+      contentType: 'string|regexContentOpt',
+      price: 'numeric|min:5|regexPrice',
+      genres: 'string|min:3',
+      specialVenue: 'string|max:1|regexSelectOpt'
+    };
+  } else if (req.user && req.user.role === 'admin') {
+    validationRule = {
+      title: 'string|max:100',
+      originalReleaseDate: 'date',
+      duration: 'numeric|regexDurationOpt',
+      mpaaRating: 'string|regexMpaaOpt',
+      overview: 'string|max:183',
+      synopsis: 'string|max:1100',
+      language: 'string|min:3',
+      subtitles: 'string|min:3',
+      contentType: 'string|regexContentOpt',
+      price: 'numeric|min:5|regexPrice',
+      genres: 'string|min:3',
+      specialVenue: 'string|max:1|regexSelectOpt',
+      secretShow: 'string|max:1|regexSelectOpt',
+      eventOrganizer: 'hex|regexMongoOpt'
+    };
+  }
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
