@@ -3,6 +3,7 @@ const Validator = require('validatorjs');
 const regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
 const regexNameOpt = /^([a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*)?$/;
 const regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
+const regexUsernameOpt = /^((?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9})?$/;
 // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
 const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
 const regexGender = /^\b(f|m|p)\b$/;
@@ -20,6 +21,11 @@ Validator.register(
 Validator.register(
   'regexUsername',
   val => regexUsername.test(val),
+  'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters for the username.'
+);
+Validator.register(
+  'regexUsernameOpt',
+  val => regexUsernameOpt.test(val),
   'Please use at least 3 characters with optional underscores and hypens, that is all lowercase, and does not exceed 9 characters for the username.'
 );
 Validator.register(
