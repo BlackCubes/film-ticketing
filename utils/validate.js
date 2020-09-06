@@ -15,6 +15,7 @@ const regexContentOpt = /^(\b(Film|TV)\b)?$/;
 const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
 const regexSelectOpt = /^(\b(y|n)\b)?$/;
 const regexMongo = /^[a-f\d]{24}$/i;
+const regexMongoOpt = /^([a-f\d]{24})?$/i;
 const regexDurationOpt = /^([1-9]{1}[0-9]{1,})?$/;
 
 Validator.register(
@@ -85,6 +86,11 @@ Validator.register(
 Validator.register(
   'regexMongo',
   val => regexMongo.test(val),
+  'Please use a valid MongoDB ObjectID.'
+);
+Validator.register(
+  'regexMongoOpt',
+  val => regexMongoOpt.test(val),
   'Please use a valid MongoDB ObjectID.'
 );
 Validator.register(
