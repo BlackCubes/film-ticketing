@@ -75,7 +75,7 @@ Validator.register(
 Validator.register(
   'regexPrice',
   val => regexPrice.test(val),
-  'Please provide a valid price with a minimum of $5.'
+  'Please provide a valid price with a minimum of 5.'
 );
 Validator.register(
   'regexSelectOpt',
