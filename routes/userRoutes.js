@@ -97,6 +97,7 @@ router
   .patch(
     authController.protect,
     authController.restrictTo('admin'),
+    validationController.updateUser,
     photoController.bufferPhoto('photo'),
     photoController.uploadPhoto('kinetotickets-users', false),
     userController.updateUser
@@ -111,6 +112,7 @@ router.patch(
   '/:id/:userPhoto',
   authController.protect,
   authController.restrictTo('admin'),
+  validationController.updateUser,
   photoController.deletePhoto('users'),
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-users', false),
