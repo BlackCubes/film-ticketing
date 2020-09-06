@@ -79,8 +79,6 @@ exports.updatePass = catchAsync(async (req, res, next) => {
     passwordConfirm: 'required|string'
   };
 
-  console.log('Headers: ', req.headers);
-
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
 
