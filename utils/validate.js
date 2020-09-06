@@ -7,6 +7,7 @@ const regexUsernameOpt = /^((?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9})?$/;
 // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
 const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
 const regexGender = /^\b(f|m|p)\b$/;
+const regexGenderOpt = /^(\b(f|m|p)\b)?$/;
 
 Validator.register(
   'regexName',
@@ -36,6 +37,11 @@ Validator.register(
 Validator.register(
   'regexGender',
   val => regexGender.test(val),
+  "Please use a valid gender/non-gender with m='male', f='female', or p='prefer not to say'."
+);
+Validator.register(
+  'regexGenderOpt',
+  val => regexGenderOpt.test(val),
   "Please use a valid gender/non-gender with m='male', f='female', or p='prefer not to say'."
 );
 
