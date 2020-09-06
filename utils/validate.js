@@ -9,6 +9,7 @@ const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
 const regexGender = /^\b(f|m|p)\b$/;
 const regexGenderOpt = /^(\b(f|m|p)\b)?$/;
 const regexMpaa = /^\b(G|PG|PG-13|R|NC-17|NR|Unrated|TV-Y|TV-Y7|TV-G|TV-PG|TV-14|TV-MA)\b$/;
+const regexMpaaOpt = /^(\b(G|PG|PG-13|R|NC-17|NR|Unrated|TV-Y|TV-Y7|TV-G|TV-PG|TV-14|TV-MA)\b)?$/;
 const regexContent = /^\b(Film|TV)\b$/;
 const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
 const regexSelectOpt = /^(\b(y|n)\b)?$/;
@@ -53,6 +54,11 @@ Validator.register(
 Validator.register(
   'regexMpaa',
   val => regexMpaa.test(val),
+  "Please use a valid MPAA rating of 'G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', or 'TV-MA'."
+);
+Validator.register(
+  'regexMpaaOpt',
+  val => regexMpaaOpt.test(val),
   "Please use a valid MPAA rating of 'G', 'PG', 'PG-13', 'R', 'NC-17', 'NR', 'Unrated', 'TV-Y', 'TV-Y7', 'TV-G', 'TV-PG', 'TV-14', or 'TV-MA'."
 );
 Validator.register(
