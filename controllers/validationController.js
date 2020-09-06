@@ -85,3 +85,19 @@ exports.updatePass = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.updateMe = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    name: 'required|string|min:2|max:70|regexName',
+    username: 'required|string|min:3|max:9|regexUsername',
+    email: 'required|email',
+    birthdate: 'required|date',
+    gender: 'required|string|max:1|regexGender'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
