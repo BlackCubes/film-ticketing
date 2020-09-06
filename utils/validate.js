@@ -12,6 +12,7 @@ const regexMpaa = /^\b(G|PG|PG-13|R|NC-17|NR|Unrated|TV-Y|TV-Y7|TV-G|TV-PG|TV-14
 const regexContent = /^\b(Film|TV)\b$/;
 const regexPrice = /^(?!0*\.0+$)\d*(?:\.\d+)?$/;
 const regexSelectOpt = /^(\b(y|n)\b)?$/;
+const regexMongo = /^[a-f\d]{24}$/i;
 
 Validator.register(
   'regexName',
@@ -67,6 +68,11 @@ Validator.register(
   'regexSelectOpt',
   val => regexSelectOpt.test(val),
   "Please use a valid value of y='yes' or n='no'."
+);
+Validator.register(
+  'regexMongo',
+  val => regexMongo.test(val),
+  'Please use a valid MongoDB ObjectID.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
