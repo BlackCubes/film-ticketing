@@ -43,6 +43,7 @@ router
     authController.protect,
     authController.restrictTo('admin'),
     theaterController.geoParse,
+    validationController.updateTheater,
     theaterController.updateTheater
   )
   .delete(
@@ -56,6 +57,8 @@ router.patch(
   '/:id/:theaterPhoto',
   authController.protect,
   authController.restrictTo('admin'),
+  theaterController.geoParse,
+  validationController.updateTheater,
   photoController.deletePhoto('theaters'),
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-theaters'),
