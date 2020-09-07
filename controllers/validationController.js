@@ -196,3 +196,24 @@ exports.updateShow = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.createTheater = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    name: 'required|string|min:7|max:100',
+    phone: 'required|string|regexPhone',
+    linkUrl: 'url',
+    address: 'required|string|min:3|max:96|regexAddress',
+    city: 'required|string|min:3|max:50|regexCity',
+    state: 'required|string|min:2|max:2|regexState',
+    zipCode: 'required|string|min:5|max:5|regexZipCode',
+    description: 'string|max:3900',
+    chainName: 'string|min:7|max:80',
+    geo: 'required|array|regexGeo'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
