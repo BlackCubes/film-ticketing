@@ -1,6 +1,7 @@
 const express = require('express');
 const showtimesController = require('./../controllers/showtimesController');
 const authController = require('./../controllers/authController');
+const validationController = require('./../controllers/validationController');
 
 const router = express.Router({ mergeParams: true });
 
@@ -11,6 +12,7 @@ router.route('/daily-plan/:date').get(showtimesController.getDailyPlan);
 // PROTECT ALL OTHER ROUTES LEAKING
 // router.use(authController.protect);
 
+// DELETE ROUTE???
 router
   .route('/createMyShowtime')
   .post(
@@ -27,6 +29,7 @@ router
     authController.protect,
     authController.restrictTo('admin'),
     showtimesController.setShowTheaterIds,
+    validationController.createShowtime,
     showtimesController.createShowtime
   );
 
