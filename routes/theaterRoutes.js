@@ -2,6 +2,7 @@ const express = require('express');
 const authController = require('./../controllers/authController');
 const photoController = require('./../controllers/photoController');
 const theaterController = require('./../controllers/theaterController');
+const validationController = require('./../controllers/validationController');
 const showtimeRouter = require('./showtimesRoutes');
 
 const router = express.Router();
@@ -28,8 +29,9 @@ router
   .route('/')
   .post(
     authController.protect,
-    theaterController.geoParse,
     authController.restrictTo('admin'),
+    theaterController.geoParse,
+    validationController.createTheater,
     photoController.bufferPhoto('photo'),
     photoController.uploadPhoto('kinetotickets-theaters'),
     theaterController.createTheater
