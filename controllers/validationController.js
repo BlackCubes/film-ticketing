@@ -242,3 +242,18 @@ exports.updateTheater = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.createCastCrew = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    name: 'required|string|min:2|max:70|regexCastCrewName',
+    roles: 'required|array|regexRoles',
+    biography: 'string|max:3000',
+    birthdate: 'required|date'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
