@@ -208,7 +208,9 @@ exports.createTheater = catchAsync(async (req, res, next) => {
     zipCode: 'required|string|min:5|max:5|regexZipCode',
     description: 'string|max:3900',
     chainName: 'string|min:7|max:80',
-    geo: 'required|array|regexGeo'
+    geo: {
+      coordinates: 'required|array|regexGeo'
+    }
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
