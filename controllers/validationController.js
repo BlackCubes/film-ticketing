@@ -318,3 +318,16 @@ exports.createReview = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.updateReview = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    review: 'string|min:20|max:280',
+    rating: 'numeric|min:1|max:5|regexRatingOpt'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
