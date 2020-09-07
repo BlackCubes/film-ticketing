@@ -18,6 +18,7 @@ const regexMongo = /^[a-f\d]{24}$/i;
 const regexMongoOpt = /^([a-f\d]{24})?$/i;
 const regexDurationOpt = /^([1-9]{1}[0-9]{1,})?$/;
 const regexPhone = /[(]\d{3}[)]\s?\d{3}[-]\d{4}/;
+const regexAddress = /^[A-Z0-9 ,#'/.]{3,96}$/iu;
 
 Validator.register(
   'regexName',
@@ -101,8 +102,13 @@ Validator.register(
 );
 Validator.register(
   'regexPhone',
-  val => regexDurationOpt.test(val),
+  val => regexPhone.test(val),
   'Please provide a valid phone number in the form of (###)###-#### or (###) ###-####.'
+);
+Validator.register(
+  'regexAddress',
+  val => regexAddress.test(val),
+  'Please provide a valid US address.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
