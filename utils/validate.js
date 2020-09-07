@@ -169,9 +169,9 @@ Validator.register(
 Validator.register(
   'regexRoles',
   function(val) {
-    return val.join(', ').length >= 4;
+    return val.join(', ').length >= 4 && typeof val.join(', ') === 'string';
   },
-  'Please enter role(s) a minimum of 4 characters.'
+  'Please enter role(s) a minimum of 4 characters and non-numeric.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
