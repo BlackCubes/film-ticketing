@@ -166,6 +166,13 @@ Validator.register(
   val => regexUnicode.test(val),
   'Please provide a valid name that is between 2 and 70 characters.'
 );
+Validator.register(
+  'regexRoles',
+  function(val) {
+    return val.join(', ').length >= 4;
+  },
+  'Please enter role(s) a minimum of 4 characters.'
+);
 
 module.exports = (body, rules, customMessages, cb) => {
   const validation = new Validator(body, rules, customMessages);
