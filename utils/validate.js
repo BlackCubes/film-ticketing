@@ -22,6 +22,8 @@ const regexAddress = /^[A-Z0-9 ,#'/.]{3,96}$/iu;
 const regexUnicode = /^[a-zA-Z\u0080-\u024F]+(?:([ \-']|(\. ))[a-zA-Z\u0080-\u024F]+)*$/;
 const regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
 const regexZipCode = /^[0-9]{5}$/;
+const regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
+const regexLatitude = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
 
 Validator.register(
   'regexName',
@@ -127,6 +129,13 @@ Validator.register(
   'regexZipCode',
   val => regexZipCode.test(val),
   'Please provide a valid US ZIP code that is 5 characters long.'
+);
+Validator.register(
+  'regexGeo',
+  function(val) {
+    return regexLongitude.test(val[0]) && regexLatitude.test(val[1]);
+  },
+  'Please provide a valid longitude that is between -180 and 180 degrees, and/or a valid latitude that is between -90 and 90 degrees.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
