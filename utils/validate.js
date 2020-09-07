@@ -161,6 +161,11 @@ Validator.register(
   },
   'Please provide a valid longitude that is between -180 and 180 degrees, and/or a valid latitude that is between -90 and 90 degrees.'
 );
+Validator.register(
+  'regexCastCrewName',
+  val => regexUnicode.test(val),
+  'Please provide a valid name that is between 2 and 70 characters.'
+);
 
 module.exports = (body, rules, customMessages, cb) => {
   const validation = new Validator(body, rules, customMessages);
