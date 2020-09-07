@@ -33,6 +33,7 @@ router
     authController.protect,
     authController.restrictTo('admin'),
     castcrewConroller.rolesParse,
+    validationController.insertParamsId,
     validationController.updateCastCrew,
     castcrewConroller.updateCastCrew
   )
@@ -48,6 +49,7 @@ router.patch(
   authController.protect,
   authController.restrictTo('admin'),
   castcrewConroller.rolesParse,
+  validationController.insertParamsId,
   validationController.updateCastCrew,
   photoController.deletePhoto('castcrews'),
   photoController.bufferPhoto('photo'),
