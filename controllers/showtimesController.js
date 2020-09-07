@@ -14,8 +14,8 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 exports.setShowTheaterIds = (req, res, next) => {
-  if (!req.body.shows) req.body.shows = [req.params.showId]; // Array??
-  if (!req.body.theaters) req.body.theaters = [req.params.theaterId]; // Array??
+  if (!req.body.shows) req.body.shows = req.params.showId; // Array??
+  if (!req.body.theaters) req.body.theaters = req.params.theaterId; // Array??
   next();
 };
 
