@@ -1,6 +1,7 @@
 const express = require('express');
 const authController = require('./../controllers/authController');
 const reviewController = require('./../controllers/reviewController');
+const validationController = require('./../controllers/validationController');
 
 const router = express.Router({ mergeParams: true });
 
@@ -11,6 +12,8 @@ router.post(
   authController.protect,
   authController.restrictTo('user'),
   // reviewController.setShowUserIds,
+  validationController.insertParamsId,
+  validationController.createReview,
   reviewController.createMyReview
 );
 
