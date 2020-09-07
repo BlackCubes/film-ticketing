@@ -20,6 +20,7 @@ router.patch(
   '/updateMyReview/:showId',
   authController.protect,
   authController.restrictTo('user'),
+  validationController.updateReview,
   reviewController.updateMyReview
 );
 
@@ -47,6 +48,7 @@ router
   .patch(
     authController.protect,
     authController.restrictTo('user', 'admin'),
+    validationController.updateReview,
     reviewController.updateReview
   )
   .delete(
