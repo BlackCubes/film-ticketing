@@ -219,3 +219,26 @@ exports.createTheater = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.updateTheater = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    name: 'string|min:7|max:100',
+    phone: 'string|regexPhoneOpt',
+    linkUrl: 'url',
+    address: 'string|min:3|max:96|regexAddressOpt',
+    city: 'string|min:3|max:50|regexCityOpt',
+    state: 'string|min:2|max:2|regexState',
+    zipCode: 'string|min:5|max:5|regexZipCodeOpt',
+    description: 'string|max:3900',
+    chainName: 'string|min:7|max:80',
+    geo: {
+      coordinates: 'array|regexGeo'
+    }
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
