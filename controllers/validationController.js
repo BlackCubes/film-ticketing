@@ -290,7 +290,7 @@ exports.createShowtime = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createShowtime = catchAsync(async (req, res, next) => {
+exports.updateShowtime = catchAsync(async (req, res, next) => {
   const validationRule = {
     startDateTime: 'date',
     endDateTime: 'date',
