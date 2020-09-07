@@ -28,6 +28,7 @@ const regexZipCode = /^[0-9]{5}$/;
 const regexZipCodeOpt = /^([0-9]{5})?$/;
 const regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
 const regexLatitude = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
+const regexRating = /^[1-5]{1}$/;
 
 Validator.register(
   'regexName',
@@ -185,6 +186,11 @@ Validator.register(
     return val.join(', ').length >= 4;
   },
   'Please enter role(s) a minimum of 4 characters.'
+);
+Validator.register(
+  'regexRating',
+  val => regexRating.test(val),
+  'Please provide a valid rating between 1 and 5.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
