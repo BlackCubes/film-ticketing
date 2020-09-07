@@ -19,6 +19,7 @@ const regexMongoOpt = /^([a-f\d]{24})?$/i;
 const regexDurationOpt = /^([1-9]{1}[0-9]{1,})?$/;
 const regexPhone = /[(]\d{3}[)]\s?\d{3}[-]\d{4}/;
 const regexAddress = /^[A-Z0-9 ,#'/.]{3,96}$/iu;
+const regexUnicode = /^[a-zA-Z\u0080-\u024F]+(?:([ \-']|(\. ))[a-zA-Z\u0080-\u024F]+)*$/;
 
 Validator.register(
   'regexName',
@@ -109,6 +110,11 @@ Validator.register(
   'regexAddress',
   val => regexAddress.test(val),
   'Please provide a valid US address.'
+);
+Validator.register(
+  'regexCity',
+  val => regexUnicode.test(val),
+  'Please provide a valid US city that is at least 3 characters long and 50 characters max.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
