@@ -17,11 +17,15 @@ const regexSelectOpt = /^(\b(y|n)\b)?$/;
 const regexMongo = /^[a-f\d]{24}$/i;
 const regexMongoOpt = /^([a-f\d]{24})?$/i;
 const regexDurationOpt = /^([1-9]{1}[0-9]{1,})?$/;
-const regexPhone = /[(]\d{3}[)]\s?\d{3}[-]\d{4}/;
+const regexPhone = /^[(]\d{3}[)]\s?\d{3}[-]\d{4}$/;
+const regexPhoneOpt = /^([(]\d{3}[)]\s?\d{3}[-]\d{4})?$/;
 const regexAddress = /^[A-Z0-9 ,#'/.]{3,96}$/iu;
+const regexAddressOpt = /^([A-Z0-9 ,#'/.]{3,96})?$/iu;
 const regexUnicode = /^[a-zA-Z\u0080-\u024F]+(?:([ \-']|(\. ))[a-zA-Z\u0080-\u024F]+)*$/;
+const regexUnicodeOpt = /^([a-zA-Z\u0080-\u024F]+(?:([ \-']|(\. ))[a-zA-Z\u0080-\u024F]+)*)?$/;
 const regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
 const regexZipCode = /^[0-9]{5}$/;
+const regexZipCodeOpt = /^([0-9]{5})?$/;
 const regexLongitude = /^[+-]?((1[0-7]|[1-9])?\d(\.\d+)?|180(\.0+)?)$/;
 const regexLatitude = /^[+-]?([1-8]?\d(\.\d+)?|90(\.0+)?)$/;
 
@@ -111,13 +115,28 @@ Validator.register(
   'Please provide a valid phone number in the form of (###)###-#### or (###) ###-####.'
 );
 Validator.register(
+  'regexPhoneOpt',
+  val => regexPhoneOpt.test(val),
+  'Please provide a valid phone number in the form of (###)###-#### or (###) ###-####.'
+);
+Validator.register(
   'regexAddress',
   val => regexAddress.test(val),
   'Please provide a valid US address.'
 );
 Validator.register(
+  'regexAddressOpt',
+  val => regexAddressOpt.test(val),
+  'Please provide a valid US address.'
+);
+Validator.register(
   'regexCity',
   val => regexUnicode.test(val),
+  'Please provide a valid US city that is at least 3 characters long and 50 characters max.'
+);
+Validator.register(
+  'regexCityOpt',
+  val => regexUnicodeOpt.test(val),
   'Please provide a valid US city that is at least 3 characters long and 50 characters max.'
 );
 Validator.register(
@@ -128,6 +147,11 @@ Validator.register(
 Validator.register(
   'regexZipCode',
   val => regexZipCode.test(val),
+  'Please provide a valid US ZIP code that is 5 characters long.'
+);
+Validator.register(
+  'regexZipCodeOpt',
+  val => regexZipCodeOpt.test(val),
   'Please provide a valid US ZIP code that is 5 characters long.'
 );
 Validator.register(
