@@ -233,7 +233,8 @@ exports.updateTheater = catchAsync(async (req, res, next) => {
     chainName: 'string|min:7|max:80',
     geo: {
       coordinates: 'array|regexGeo'
-    }
+    },
+    paramsId: 'required|hex|regexMongo'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
@@ -263,7 +264,8 @@ exports.updateCastCrew = catchAsync(async (req, res, next) => {
     name: 'string|min:2|max:70|regexCastCrewNameOpt',
     roles: 'array|regexRolesOpt',
     biography: 'string|max:3000',
-    birthdate: 'date'
+    birthdate: 'date',
+    paramsId: 'required|hex|regexMongo'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
