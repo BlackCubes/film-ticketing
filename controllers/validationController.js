@@ -305,3 +305,16 @@ exports.updateShowtime = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.createReview = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    review: 'required|string|min:20|max:280',
+    rating: 'required|numeric|min:1|max:5|regexRating'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
