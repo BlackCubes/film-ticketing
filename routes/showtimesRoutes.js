@@ -38,6 +38,8 @@ router
   .patch(
     authController.protect,
     authController.restrictTo('admin'),
+    validationController.insertParamsId,
+    validationController.updateShowtime,
     showtimesController.updateShowtime
   )
   .delete(
