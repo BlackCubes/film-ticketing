@@ -21,6 +21,7 @@ const regexPhone = /[(]\d{3}[)]\s?\d{3}[-]\d{4}/;
 const regexAddress = /^[A-Z0-9 ,#'/.]{3,96}$/iu;
 const regexUnicode = /^[a-zA-Z\u0080-\u024F]+(?:([ \-']|(\. ))[a-zA-Z\u0080-\u024F]+)*$/;
 const regexState = /^(?:A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])*$/;
+const regexZipCode = /^[0-9]{5}$/;
 
 Validator.register(
   'regexName',
@@ -121,6 +122,11 @@ Validator.register(
   'regexState',
   val => regexState.test(val),
   'Please provide a valid US state that is 2 characters long, capitalize, and abbreviated.'
+);
+Validator.register(
+  'regexZipCode',
+  val => regexZipCode.test(val),
+  'Please provide a valid US ZIP code that is 5 characters long.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
