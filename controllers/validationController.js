@@ -289,3 +289,19 @@ exports.createShowtime = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.createShowtime = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    startDateTime: 'date',
+    endDateTime: 'date',
+    shows: 'hex|regexMongoOpt',
+    theaters: 'hex|regexMongoOpt',
+    paramsId: 'required|hex|regexMongo'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
