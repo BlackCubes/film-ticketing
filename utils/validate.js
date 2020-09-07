@@ -167,8 +167,21 @@ Validator.register(
   'Please provide a valid name that is between 2 and 70 characters.'
 );
 Validator.register(
+  'regexCastCrewNameOpt',
+  val => regexUnicodeOpt.test(val),
+  'Please provide a valid name that is between 2 and 70 characters.'
+);
+Validator.register(
   'regexRoles',
   function(val) {
+    return val.join(', ').length >= 4;
+  },
+  'Please enter role(s) a minimum of 4 characters.'
+);
+Validator.register(
+  'regexRolesOpt',
+  function(val) {
+    if (!val.join(', ')) return true;
     return val.join(', ').length >= 4;
   },
   'Please enter role(s) a minimum of 4 characters.'
