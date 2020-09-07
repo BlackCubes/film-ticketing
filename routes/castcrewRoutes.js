@@ -2,6 +2,7 @@ const express = require('express');
 const castcrewConroller = require('./../controllers/castcrewController');
 const authController = require('./../controllers/authController');
 const photoController = require('./../controllers/photoController');
+const validationController = require('./../controllers/validationController');
 const showRouter = require('./showRoutes');
 
 const router = express.Router();
@@ -19,9 +20,10 @@ router
   .post(
     authController.protect,
     authController.restrictTo('admin'),
+    castcrewConroller.rolesParse,
+    validationController.createCastCrew,
     photoController.bufferPhoto('photo'),
     photoController.uploadPhoto('kinetotickets-castcrews'),
-    castcrewConroller.rolesParse,
     castcrewConroller.createCastCrew
   );
 
