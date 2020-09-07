@@ -33,6 +33,7 @@ router
     authController.protect,
     authController.restrictTo('admin'),
     castcrewConroller.rolesParse,
+    validationController.updateCastCrew,
     castcrewConroller.updateCastCrew
   )
   .delete(
@@ -46,6 +47,8 @@ router.patch(
   '/:id/:castcrewsPhoto',
   authController.protect,
   authController.restrictTo('admin'),
+  castcrewConroller.rolesParse,
+  validationController.updateCastCrew,
   photoController.deletePhoto('castcrews'),
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-castcrews'),
