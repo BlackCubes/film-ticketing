@@ -274,3 +274,18 @@ exports.updateCastCrew = catchAsync(async (req, res, next) => {
     next();
   });
 });
+
+exports.createShowtime = catchAsync(async (req, res, next) => {
+  const validationRule = {
+    startDateTime: 'required|date',
+    endDateTime: 'required|date',
+    shows: 'required|hex|regexMongo',
+    theaters: 'required|hex|regexMongo'
+  };
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+
+    next();
+  });
+});
