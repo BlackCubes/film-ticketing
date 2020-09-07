@@ -17,6 +17,7 @@ const regexSelectOpt = /^(\b(y|n)\b)?$/;
 const regexMongo = /^[a-f\d]{24}$/i;
 const regexMongoOpt = /^([a-f\d]{24})?$/i;
 const regexDurationOpt = /^([1-9]{1}[0-9]{1,})?$/;
+const regexPhone = /[(]\d{3}[)]\s?\d{3}[-]\d{4}/;
 
 Validator.register(
   'regexName',
@@ -97,6 +98,11 @@ Validator.register(
   'regexDurationOpt',
   val => regexDurationOpt.test(val),
   'Please enter a duration in minutes that is at least 10 minutes long.'
+);
+Validator.register(
+  'regexPhone',
+  val => regexDurationOpt.test(val),
+  'Please provide a valid phone number in the form of (###)###-#### or (###) ###-####.'
 );
 
 module.exports = (body, rules, customMessages, cb) => {
