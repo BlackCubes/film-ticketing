@@ -28,10 +28,10 @@ router
   .route('/')
   .post(
     authController.protect,
+    theaterController.geoParse,
     authController.restrictTo('admin'),
     photoController.bufferPhoto('photo'),
     photoController.uploadPhoto('kinetotickets-theaters'),
-    theaterController.geoParse,
     theaterController.createTheater
   );
 
