@@ -6,6 +6,8 @@ const factory = require('./handlerFactory');
 
 exports.geoParse = (req, res, next) => {
   if (!req.body.geo) return next();
+  if (typeof req.body.geo !== 'string')
+    return next(new AppError('Please provide a JSON string', 401));
 
   req.body.geo = { coordinates: JSON.parse(req.body.geo) };
   next();
