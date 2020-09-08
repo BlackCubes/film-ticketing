@@ -8,7 +8,7 @@ const router = express.Router({ mergeParams: true });
 // router.use(authController.protect);
 
 router.post(
-  '/createMyReview/:showId',
+  '/createMyReview/:id',
   authController.protect,
   authController.restrictTo('user'),
   // reviewController.setShowUserIds,
@@ -17,7 +17,7 @@ router.post(
 );
 
 router.patch(
-  '/updateMyReview/:showId',
+  '/updateMyReview/:id',
   authController.protect,
   authController.restrictTo('user'),
   validationController.updateReview,
