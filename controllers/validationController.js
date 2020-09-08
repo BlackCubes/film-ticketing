@@ -18,6 +18,7 @@ exports.insertPasswordConfirm = (req, res, next) => {
 
 exports.insertParamsId = (req, res, next) => {
   req.body.paramsId = req.params.id;
+  if (req.params.showId) req.body.paramsId = req.params.showId;
   next();
 };
 
