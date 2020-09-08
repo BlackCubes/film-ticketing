@@ -204,14 +204,14 @@ Validator.registerAsync('exist', function(value, attrubute, req, passes) {
   if (!attrubute)
     throw new Error('Specify Requirements i.e. fieldName: exist:table,column');
 
-  let attArr = attrubute.split(', ');
+  const attArr = attrubute.split(', ');
   if (attArr.length !== 2)
     throw new Error(`Invalid format for validation rule on ${attrubute}`);
 
   const { 0: table, 1: column } = attArr;
 
-  let msg =
-    column == 'username'
+  const msg =
+    column === 'username'
       ? `${column} has already been taken.`
       : `${column} already in use`;
 
