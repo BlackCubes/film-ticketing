@@ -168,6 +168,7 @@ exports.restrictTo = (...roles) => {
 };
 
 exports.checkLogin = (req, res, next) => {
+  console.log('Req: ', req);
   if (req.cookies.jwt) {
     return next(new AppError('You are still logged in!', 403));
   }
