@@ -24,8 +24,8 @@ exports.insertParamsId = (req, res, next) => {
 exports.signup = catchAsync(async (req, res, next) => {
   const validationRule = {
     name: 'required|string|min:2|max:70|regexName',
-    username: 'required|string|min:3|max:9|regexUsername',
-    email: 'required|email',
+    username: 'required|string|min:3|max:9|regexUsername|exist:User,username',
+    email: 'required|email|exist:User,email',
     password: 'required|string|min:8|max:60|confirmed|regexPass',
     passwordConfirm: 'required|string',
     birthdate: 'required|date',
