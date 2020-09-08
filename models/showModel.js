@@ -280,6 +280,12 @@ showSchema.pre('aggregate', function(next) {
   next();
 });
 
+// STATIC METHODS
+// -- find query in DB
+showSchema.statics.valueExists = function(query) {
+  return this.findOne(query).then(result => result);
+};
+
 const Show = mongoose.model('Show', showSchema);
 
 module.exports = Show;
