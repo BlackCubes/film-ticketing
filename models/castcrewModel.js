@@ -82,6 +82,12 @@ castcrewSchema.virtual('shows', {
   localField: '_id'
 });
 
+// STATIC METHODS
+// -- find query in DB
+castcrewSchema.statics.valueExists = function(query) {
+  return this.findOne(query).then(result => result);
+};
+
 const CastCrew = mongoose.model('CastCrew', castcrewSchema);
 
 module.exports = CastCrew;
