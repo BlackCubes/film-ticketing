@@ -100,6 +100,12 @@ theaterSchema.pre('save', function(next) {
   next();
 });
 
+// THEATER METHODS
+// -- find query in DB
+theaterSchema.statics.valueExists = function(query) {
+  return this.findOne(query).then(result => result);
+};
+
 const Theater = mongoose.model('Theater', theaterSchema);
 
 module.exports = Theater;
