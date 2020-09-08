@@ -309,7 +309,8 @@ exports.updateShowtime = catchAsync(async (req, res, next) => {
 exports.createReview = catchAsync(async (req, res, next) => {
   const validationRule = {
     review: 'required|string|min:20|max:280',
-    rating: 'required|numeric|min:1|max:5|regexRating'
+    rating: 'required|numeric|min:1|max:5|regexRating',
+    paramsId: 'required|hex|regexMongo|exist:Review,show'
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
