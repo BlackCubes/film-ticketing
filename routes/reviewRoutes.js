@@ -13,6 +13,7 @@ router.post(
   authController.restrictTo('user'),
   // reviewController.setShowUserIds,
   validationController.createReview,
+  reviewController.checkReviewExists,
   reviewController.createMyReview
 );
 
@@ -39,6 +40,7 @@ router
     authController.restrictTo('admin'),
     validationController.createReview,
     reviewController.setShowUserIds,
+    reviewController.checkReviewExists,
     reviewController.createReview
   );
 
