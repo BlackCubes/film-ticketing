@@ -12,7 +12,6 @@ router.post(
   authController.protect,
   authController.restrictTo('user'),
   // reviewController.setShowUserIds,
-  validationController.insertParamsId,
   validationController.createReview,
   reviewController.createMyReview
 );
@@ -38,7 +37,6 @@ router
   .post(
     authController.protect,
     authController.restrictTo('admin'),
-    validationController.insertParamsId,
     validationController.createReview,
     reviewController.setShowUserIds,
     reviewController.createReview
