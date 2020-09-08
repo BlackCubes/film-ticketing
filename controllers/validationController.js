@@ -199,7 +199,7 @@ exports.updateShow = catchAsync(async (req, res, next) => {
 
 exports.createTheater = catchAsync(async (req, res, next) => {
   const validationRule = {
-    name: 'required|string|min:7|max:100',
+    name: 'required|string|min:7|max:100|exist:Theater,name',
     phone: 'required|string|regexPhone',
     linkUrl: 'url',
     address: 'required|string|min:3|max:96|regexAddress',
