@@ -1,4 +1,5 @@
 const Validator = require('validatorjs');
+const Models = require('./../models');
 
 const regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
 const regexNameOpt = /^([a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*)?$/;
@@ -198,6 +199,30 @@ Validator.register(
   val => regexRatingOpt.test(val),
   'Please provide a valid rating between 1 and 5.'
 );
+
+Validator.registerAsync('exist', function(value, attrubute, req, passes) {
+  if (!attrubute)
+    throw new Error('Specify Requirements i.e. fieldName: exist:table,column');
+
+  let attArr = attrubute.split(', ');
+  if (attArr.length !== 2)
+    throw new Error(`Invalid format for validation rule on ${attrubute}`);
+
+  const { 0: table, 1: column } = attArr;
+
+  let msg =
+    column == 'username'
+      ? `${column} has already been taken.`
+      : `${column} already in use`;
+
+  Models[table].valueExists({ [column]: value }).then(result => {
+    if (result) {
+      passes(false, msg);
+      return;
+    }
+    passes();
+  });
+});
 
 module.exports = (body, rules, customMessages, cb) => {
   const validation = new Validator(body, rules, customMessages);
