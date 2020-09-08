@@ -211,35 +211,18 @@ Validator.registerAsync('exist', function(value, attrubute, req, passes) {
 
   const { 0: table, 1: column } = attArr;
 
-  let msg =
+  const msg =
     column === 'username'
       ? `${capitalize(column)} has already been taken.`
       : `${capitalize(column)} already in use.`;
 
-  msg =
-    table === 'Review'
-      ? 'You have already created a review for this movie.'
-      : msg;
-
-  if (table === 'Review') {
-    Models[table]
-      .valueExists({ [column]: value, user: req.user.id })
-      .then(result => {
-        if (result) {
-          passes(false, msg);
-          return;
-        }
-        passes();
-      });
-  } else {
-    Models[table].valueExists({ [column]: value }).then(result => {
-      if (result) {
-        passes(false, msg);
-        return;
-      }
-      passes();
-    });
-  }
+  Models[table].valueExists({ [column]: value }).then(result => {
+    if (result) {
+      passes(false, msg);
+      return;
+    }
+    passes();
+  });
 });
 
 module.exports = (body, rules, customMessages, cb) => {
