@@ -11,6 +11,7 @@ router.use('/:userId/shows', showRouter);
 
 router.post(
   '/signup',
+  authController.checkLogin,
   validationController.insertPasswordConfirm,
   validationController.signup,
   authController.signup
@@ -19,11 +20,13 @@ router.post('/login', validationController.login, authController.login);
 router.get('/logout', authController.logout);
 router.post(
   '/forgotPassword',
+  authController.checkLogin,
   validationController.forgotPass,
   authController.forgotPassword
 );
 router.patch(
   '/resetPassword/:token',
+  authController.checkLogin,
   validationController.insertPasswordConfirm,
   validationController.resetPass,
   authController.resetPassword
