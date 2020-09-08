@@ -112,7 +112,7 @@ exports.createShow = catchAsync(async (req, res, next) => {
 
   if (req.user && req.user.role === 'event-owner') {
     validationRule = {
-      title: 'required|string|max:100',
+      title: 'required|string|max:100|exist:Show,title',
       originalReleaseDate: 'required|date',
       duration: 'required|numeric|min:10',
       mpaaRating: 'required|string|regexMpaa',
@@ -127,7 +127,7 @@ exports.createShow = catchAsync(async (req, res, next) => {
     };
   } else if (req.user && req.user.role === 'admin') {
     validationRule = {
-      title: 'required|string|max:100',
+      title: 'required|string|max:100|exist:Show,title',
       originalReleaseDate: 'required|date',
       duration: 'required|numeric|min:10',
       mpaaRating: 'required|string|regexMpaa',
