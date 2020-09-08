@@ -96,6 +96,12 @@ reviewSchema.post(/^findOneAnd/, async function() {
   await this.r.constructor.calcAverageRatings(this.r.show);
 });
 
+// STATIC METHODS
+// -- find query in DB
+reviewSchema.statics.valueExists = function(query) {
+  return this.findOne(query).then(result => result);
+};
+
 const Review = mongoose.model('Review', reviewSchema);
 
 module.exports = Review;
