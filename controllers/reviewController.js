@@ -17,7 +17,7 @@ const filterObj = (obj, ...allowedFields) => {
 exports.createMyReview = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(req.body, 'review', 'rating');
 
-  if (!filteredBody.show) filteredBody.show = req.params.showId;
+  if (!filteredBody.show) filteredBody.show = req.params.id;
   if (!filteredBody.user) filteredBody.user = req.user.id;
 
   const newReview = await Review.create(filteredBody);
@@ -34,7 +34,7 @@ exports.updateMyReview = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(req.body, 'review', 'rating');
 
   const updatedReview = await Review.findOneAndUpdate(
-    { show: req.params.showId, user: req.user.id },
+    { show: req.params.id, user: req.user.id },
     filteredBody,
     { new: true, runValidators: true }
   );
