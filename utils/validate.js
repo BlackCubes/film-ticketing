@@ -204,7 +204,7 @@ Validator.registerAsync('exist', function(value, attrubute, req, passes) {
   if (!attrubute)
     throw new Error('Specify Requirements i.e. fieldName: exist:table,column');
 
-  const attArr = attrubute.split(', ');
+  const attArr = attrubute.split(',');
   if (attArr.length !== 2)
     throw new Error(`Invalid format for validation rule on ${attrubute}`);
 
