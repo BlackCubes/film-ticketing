@@ -1,5 +1,6 @@
 const Validator = require('validatorjs');
 const Models = require('./../models');
+const capitalize = require('./capitalize');
 
 const regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
 const regexNameOpt = /^([a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*)?$/;
@@ -212,8 +213,8 @@ Validator.registerAsync('exist', function(value, attrubute, req, passes) {
 
   const msg =
     column === 'username'
-      ? `${column} has already been taken.`
-      : `${column} already in use`;
+      ? `${capitalize(column)} has already been taken.`
+      : `${capitalize(column)} already in use.`;
 
   Models[table].valueExists({ [column]: value }).then(result => {
     if (result) {
