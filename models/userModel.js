@@ -139,6 +139,12 @@ userSchema.methods.createPasswordResetToken = function() {
   return resetToken;
 };
 
+// STATIC METHODS
+// -- find query in DB
+userSchema.statics.valueExists = function(query) {
+  return this.findOne(query).then(result => result);
+};
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
