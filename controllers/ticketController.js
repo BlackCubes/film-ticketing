@@ -1,8 +1,33 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Show = require('./../models/showModel');
 const Ticket = require('./../models/ticketModel');
+const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
+
+exports.checkTicketExists = catchAsync(async (req, res, next) => {
+  if (!req.params.showId || !req.params.theaterId || !req.params.showtimeId)
+    return next(
+      new AppError(
+        'The query parameters for show, theater, and/or showtime are missing!',
+        401
+      )
+    );
+
+  const findTicket = await Ticket.valueExists({
+    show: req.params.showId,
+    theater: req.params.theaterId,
+    showtime: req.params.showtimeId,
+    user: req.user.id
+  });
+
+  if (findTicket)
+    return next(
+      new AppError('You have already bought a ticket for this show.', 401)
+    );
+
+  next();
+});
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const show = await Show.findById(req.params.showId);
