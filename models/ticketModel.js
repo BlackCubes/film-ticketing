@@ -86,6 +86,12 @@ ticketSchema.post(/^findOneAnd/, async function() {
   await this.p.constructor.calcParticipants(this.p.showtime);
 });
 
+// STATIC METHODS
+// -- find query in DB
+ticketSchema.statics.valueExists = function(query) {
+  return this.findOne(query).then(result => result);
+};
+
 const Ticket = mongoose.model('Ticket', ticketSchema);
 
 module.exports = Ticket;
