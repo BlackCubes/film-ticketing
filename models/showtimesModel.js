@@ -70,6 +70,12 @@ showtimesSchema.pre(/^find/, function(next) {
   next();
 });
 
+// STATIC METHODS
+// -- find query in DB
+showtimesSchema.statics.valueExists = function(query) {
+  return this.findOne(query).then(result => result);
+};
+
 const Showtimes = mongoose.model('Showtimes', showtimesSchema);
 
 module.exports = Showtimes;
