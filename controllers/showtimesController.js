@@ -19,6 +19,18 @@ exports.setShowTheaterIds = (req, res, next) => {
   next();
 };
 
+exports.checkSoldOut = catchAsync(async (req, res, next) => {
+  const showtimesSoldOut = await Showtimes.valueExists({
+    shows: req.params.showId,
+    theaters: req.params.theaterId
+  });
+
+  if (showtimesSoldOut && showtimesSoldOut.soldOut)
+    return next(new AppError('This show has been sold out.', 401));
+
+  next();
+});
+
 exports.createMyShowtime = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(
     req.body,
