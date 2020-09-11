@@ -9,8 +9,8 @@ router.get(
   '/checkout-session/:showId/:theaterId/:showtimeId',
   authController.protect,
   authController.restrictTo('admin', 'user'),
-  showtimesController.checkSoldOut,
   ticketController.checkTicketExists,
+  showtimesController.checkSoldOut,
   ticketController.getCheckoutSession
 );
 
