@@ -12,8 +12,13 @@ const parser = new DatauriParser();
 // cloudinary.config()
 
 // MULTER SETUP
+
 const multerFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('image')) {
+  const fileTypes = /jpeg|jpg|png/;
+  const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
+  const mimeType = fileTypes.test(file.mimetype);
+
+  if (file.mimetype.startsWith('image') && extName && mimeType) {
     cb(null, true);
   } else {
     cb(
@@ -25,8 +30,23 @@ const multerFilter = (req, file, cb) => {
 
 const upload = multer({
   storage: multerStorage,
+  limits: { fileSize: 1024000 },
   fileFilter: multerFilter
 });
+
+exports.checkMulter = (req, res, next) => {
+  upload(req, res, function(err) {
+    if (err instanceof multer.MulterError) {
+      return next(new AppError(`${err}`, 400));
+    } else if (err) {
+      return next(
+        new AppError(`An unknown error has occured when uploading. ${err}`)
+      );
+    }
+
+    next();
+  });
+};
 
 // BUFFER THE PHOTO
 exports.bufferPhoto = key => upload.single(`${key}`);
