@@ -1,17 +1,9 @@
-const User = require('./../models/userModel');
-const catchAsync = require('./../utils/catchAsync');
-const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
-
-const filterObj = (obj, ...allowedFields) => {
-  const newObj = {};
-
-  Object.keys(obj).forEach(el => {
-    if (allowedFields.includes(el)) newObj[el] = obj[el];
-  });
-
-  return newObj;
-};
+const User = require('./../models/userModel');
+const AppError = require('./../utils/appError');
+const catchAsync = require('./../utils/catchAsync');
+const filterObj = require('./../utils/filterObject');
+const sanitize = require('./../utils/sanitize');
 
 exports.getAllUsers = factory.getAll(User);
 
@@ -30,7 +22,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     );
   }
 
-  const filteredBody = filterObj(
+  let filteredBody = filterObj(
     req.body,
     'name',
     'username',
@@ -45,6 +37,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   //   new: true,
   //   runValidators: true
   // });
+  filteredBody = sanitize(filteredBody);
   console.log('Filtered Body: ', filteredBody);
 
   res.status(200).json({
