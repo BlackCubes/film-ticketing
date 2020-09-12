@@ -56,7 +56,7 @@ exports.createMyShowtime = catchAsync(async (req, res, next) => {
   );
 
   console.log('Without sanitized: ', filteredBody);
-  sanitize(filteredBody);
+  filteredBody = sanitize(filteredBody);
   console.log('With sanitized: ', filteredBody);
 
   // const newShowtime = await Showtimes.create(filteredBody);
