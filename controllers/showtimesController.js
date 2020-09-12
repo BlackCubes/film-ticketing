@@ -2,17 +2,18 @@ const Showtimes = require('./../models/showtimesModel');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
+const filterObj = require('./../utils/filterObject');
 const sanitize = require('./../utils/sanitize');
 
-const filterObj = (obj, ...allowedFields) => {
-  const newObj = {};
+// const filterObj = (obj, ...allowedFields) => {
+//   const newObj = {};
 
-  Object.keys(obj).forEach(el => {
-    if (allowedFields.includes(el)) newObj[el] = obj[el];
-  });
+//   Object.keys(obj).forEach(el => {
+//     if (allowedFields.includes(el)) newObj[el] = obj[el];
+//   });
 
-  return newObj;
-};
+//   return newObj;
+// };
 
 exports.setShowTheaterIds = (req, res, next) => {
   if (!req.body.shows) req.body.shows = req.params.showId; // Array??
