@@ -23,7 +23,7 @@ exports.checkExpired = catchAsync(async (req, res, next) => {
   const showtimesExpired = await Showtimes.valueExists({
     shows: req.params.showId,
     theaters: req.params.theaterId,
-    id: req.params.showtimeId
+    _id: req.params.showtimeId
   });
 
   console.log(showtimesExpired);
