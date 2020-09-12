@@ -102,6 +102,7 @@ router.patch(
   validationController.updateShow,
   photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
+  photoController.checkMulter,
   photoController.uploadPhoto('kinetotickets-shows'),
   showController.updateShow
 );
