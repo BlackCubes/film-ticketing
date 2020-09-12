@@ -2,9 +2,11 @@ const crypto = require('crypto');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
-const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
+const catchAsync = require('./../utils/catchAsync');
 const Email = require('./../utils/email');
+const filterObj = require('./../utils/filterObject');
+const sanitize = require('./../utils/sanitize');
 
 const signToken = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -38,15 +40,20 @@ const createSendToken = (user, statusCode, res) => {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
-  const newUser = await User.create({
-    name: req.body.name,
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm,
-    birthdate: req.body.birthdate,
-    gender: req.body.gender
-  });
+  let filteredBody = filterObj(
+    req.body,
+    'name',
+    'username',
+    'email',
+    'password',
+    'passwordConfirm',
+    'birthdate',
+    'gender'
+  );
+
+  filteredBody = sanitize(filteredBody);
+
+  const newUser = await User.create(filteredBody);
 
   const url = `${req.protocol}://${req.get('host')}/me`;
   await new Email(newUser, url).sendWelcome();
@@ -55,10 +62,12 @@ exports.signup = catchAsync(async (req, res, next) => {
 });
 
 exports.login = catchAsync(async (req, res, next) => {
-  const { email, password } = req.body;
+  let filteredBody = filterObj(req.body, 'email', 'password');
+  filteredBody = sanitize(filteredBody);
+  const { email, password } = filteredBody;
 
   if (!email || !password) {
-    return next(new AppError('Please provide email and password!', 400));
+    return next(new AppError('Please provide an email and password!', 400));
   }
 
   const user = await User.findOne({ email }).select('+password');
@@ -177,7 +186,9 @@ exports.checkLogin = (req, res, next) => {
 };
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
-  const user = await User.findOne({ email: req.body.email });
+  let filteredBody = filterObj(req.body, 'email');
+  filteredBody = sanitize(filteredBody);
+  const user = await User.findOne({ email: filteredBody.email });
 
   const ip =
     (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
@@ -194,10 +205,10 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
           ? `${req.protocol}://${req.get('host')}/api/v1/users/forgotPassword`
           : `${req.protocol}://${req.get('host')}/forgotPassword`;
 
-      await new Email(req.body.email, forgotURL).sendPasswordResetHelp(
+      await new Email(filteredBody.email, forgotURL).sendPasswordResetHelp(
         ip,
         userAgent,
-        req.body.email
+        filteredBody.email
       );
 
       res.status(202).json({
@@ -262,8 +273,11 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     return next(new AppError('Token is either invalid or expired!', 400));
   }
 
-  user.password = req.body.password;
-  user.passwordConfirm = req.body.passwordConfirm;
+  let filteredBody = filterObj(req.body, 'password', 'passwordConfirm');
+  filteredBody = sanitize(filteredBody);
+
+  user.password = filteredBody.password;
+  user.passwordConfirm = filteredBody.passwordConfirm;
   user.passwordResetToken = undefined;
   user.passwordResetExpires = undefined;
   await user.save();
@@ -272,21 +286,32 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 });
 
 exports.updateMyPassword = catchAsync(async (req, res, next) => {
+  let filteredBody = filterObj(
+    req.body,
+    'password',
+    'passwordConfirm',
+    'passwordCurrent'
+  );
+  filteredBody = sanitize(filteredBody);
   const user = await User.findById(req.user.id).select('+password');
 
-  if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
+  if (
+    !(await user.correctPassword(filteredBody.passwordCurrent, user.password))
+  ) {
     return next(new AppError('Your current password is wrong!', 401));
   }
 
-  user.password = req.body.password;
-  user.passwordConfirm = req.body.passwordConfirm;
+  user.password = filteredBody.password;
+  user.passwordConfirm = filteredBody.passwordConfirm;
   await user.save();
 
   createSendToken(user, 200, res);
 });
 
 exports.verifyPassword = catchAsync(async (req, res, next) => {
-  const { password } = req.body;
+  let filteredBody = filterObj(req.body, 'password');
+  filteredBody = sanitize(filteredBody);
+  const { password } = filteredBody;
 
   if (!password) return next(new AppError('Please provide a password!', 400));
 
