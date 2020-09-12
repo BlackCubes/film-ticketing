@@ -41,7 +41,7 @@ exports.checkMulter = (req, res, next) => {
 
     if (err)
       return next(
-        new AppError(`An unknown error has occured when uploading. ${err}`)
+        new AppError(`An unknown error has occured when uploading. ${err}`, 400)
       );
 
     next();
