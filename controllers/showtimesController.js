@@ -26,9 +26,6 @@ exports.checkExpired = catchAsync(async (req, res, next) => {
     _id: req.params.showtimeId
   });
 
-  console.log(showtimesExpired);
-  // console.log(req.params.showtimeId === showtimesExpired.id);
-
   if (showtimesExpired && Date.now() > showtimesExpired.endDateTime)
     return next(new AppError('This show has been expired.', 401));
 
@@ -37,10 +34,12 @@ exports.checkExpired = catchAsync(async (req, res, next) => {
 
 exports.checkSoldOut = catchAsync(async (req, res, next) => {
   const showtimesSoldOut = await Showtimes.valueExists({
-    id: req.params.showtimeId,
     shows: req.params.showId,
-    theaters: req.params.theaterId
+    theaters: req.params.theaterId,
+    _id: req.params.showtimeId
   });
+
+  console.log(showtimesExpired);
 
   if (showtimesSoldOut && showtimesSoldOut.soldOut)
     return next(new AppError('This show has been sold out.', 401));
