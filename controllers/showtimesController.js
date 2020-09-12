@@ -21,13 +21,13 @@ exports.setShowTheaterIds = (req, res, next) => {
 
 exports.checkExpired = catchAsync(async (req, res, next) => {
   const showtimesExpired = await Showtimes.valueExists({
-    // id: req.params.showtimeId,
+    id: req.params.showtimeId,
     shows: req.params.showId,
     theaters: req.params.theaterId
   });
 
   console.log(showtimesExpired);
-  console.log(req.params.showtimeId === showtimesExpired.id);
+  // console.log(req.params.showtimeId === showtimesExpired.id);
 
   if (showtimesExpired && Date.now() > showtimesExpired.endDateTime)
     return next(new AppError('This show has been expired.', 401));
