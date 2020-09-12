@@ -21,8 +21,8 @@ exports.setShowTheaterIds = (req, res, next) => {
 
 exports.checkExpired = catchAsync(async (req, res, next) => {
   const showtimesExpired = await Showtimes.valueExists({
-    // id: req.params.showtimeId,
-    show: req.params.showId,
+    id: req.params.showtimeId,
+    shows: req.params.showId,
     theaters: req.params.theaterId
   });
 
