@@ -1,18 +1,10 @@
+const factory = require('./handlerFactory');
 const Review = require('./../models/reviewModel');
 const User = require('./../models/userModel');
-const catchAsync = require('./../utils/catchAsync');
-const factory = require('./handlerFactory');
 const AppError = require('../utils/appError');
-
-const filterObj = (obj, ...allowedFields) => {
-  const newObj = {};
-
-  Object.keys(obj).forEach(el => {
-    if (allowedFields.includes(el)) newObj[el] = obj[el];
-  });
-
-  return newObj;
-};
+const catchAsync = require('./../utils/catchAsync');
+const filterObj = require('./../utils/filterObject');
+const sanitize = require('./../utils/sanitize');
 
 exports.checkReviewExists = catchAsync(async (req, res, next) => {
   if (!req.body.show) req.body.show = req.params.id;
@@ -32,10 +24,12 @@ exports.checkReviewExists = catchAsync(async (req, res, next) => {
 });
 
 exports.createMyReview = catchAsync(async (req, res, next) => {
-  const filteredBody = filterObj(req.body, 'review', 'rating');
+  let filteredBody = filterObj(req.body, 'review', 'rating');
 
   if (!filteredBody.show) filteredBody.show = req.params.showId;
   if (!filteredBody.user) filteredBody.user = req.user.id;
+
+  filteredBody = sanitize(filteredBody);
 
   const newReview = await Review.create(filteredBody);
 
@@ -48,7 +42,8 @@ exports.createMyReview = catchAsync(async (req, res, next) => {
 });
 
 exports.updateMyReview = catchAsync(async (req, res, next) => {
-  const filteredBody = filterObj(req.body, 'review', 'rating');
+  let filteredBody = filterObj(req.body, 'review', 'rating');
+  filteredBody = sanitize(filteredBody);
 
   const updatedReview = await Review.findOneAndUpdate(
     { show: req.params.showId, user: req.user.id },
