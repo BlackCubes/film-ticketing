@@ -39,8 +39,6 @@ exports.checkSoldOut = catchAsync(async (req, res, next) => {
     _id: req.params.showtimeId
   });
 
-  console.log(showtimesSoldOut);
-
   if (showtimesSoldOut && showtimesSoldOut.soldOut)
     return next(new AppError('This show has been sold out.', 401));
 
