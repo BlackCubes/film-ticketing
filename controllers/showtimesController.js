@@ -47,7 +47,7 @@ exports.checkSoldOut = catchAsync(async (req, res, next) => {
 });
 
 exports.createMyShowtime = catchAsync(async (req, res, next) => {
-  const filteredBody = filterObj(
+  let filteredBody = filterObj(
     req.body,
     'startDateTime',
     'endDateTime',
