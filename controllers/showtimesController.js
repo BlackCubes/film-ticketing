@@ -5,16 +5,6 @@ const factory = require('./handlerFactory');
 const filterObj = require('./../utils/filterObject');
 const sanitize = require('./../utils/sanitize');
 
-// const filterObj = (obj, ...allowedFields) => {
-//   const newObj = {};
-
-//   Object.keys(obj).forEach(el => {
-//     if (allowedFields.includes(el)) newObj[el] = obj[el];
-//   });
-
-//   return newObj;
-// };
-
 exports.setShowTheaterIds = (req, res, next) => {
   if (!req.body.shows) req.body.shows = req.params.showId; // Array??
   if (!req.body.theaters) req.body.theaters = req.params.theaterId; // Array??
@@ -56,17 +46,14 @@ exports.createMyShowtime = catchAsync(async (req, res, next) => {
     'theaters'
   );
 
-  console.log('Without sanitized: ', filteredBody);
   filteredBody = sanitize(filteredBody);
-  console.log('With sanitized: ', filteredBody);
 
-  // const newShowtime = await Showtimes.create(filteredBody);
+  const newShowtime = await Showtimes.create(filteredBody);
 
   res.status(200).json({
     status: 'success',
     data: {
-      // data: newShowtime
-      data: 'Test'
+      data: newShowtime
     }
   });
 });
