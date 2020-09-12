@@ -64,7 +64,8 @@ exports.createMyShowtime = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: {
-      data: newShowtime
+      // data: newShowtime
+      data: 'Test'
     }
   });
 });
