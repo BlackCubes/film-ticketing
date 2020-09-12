@@ -100,9 +100,9 @@ router.patch(
   authController.restrictTo('admin'),
   validationController.insertParamsId,
   validationController.updateShow,
-  photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
   photoController.checkMulter,
+  photoController.deletePhoto('shows'),
   photoController.uploadPhoto('kinetotickets-shows'),
   showController.updateShow
 );
