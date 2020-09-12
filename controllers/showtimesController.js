@@ -27,6 +27,7 @@ exports.checkExpired = catchAsync(async (req, res, next) => {
   });
 
   console.log(showtimesExpired);
+  console.log(req.params.showtimeId);
 
   if (showtimesExpired && Date.now() > showtimesExpired.endDateTime)
     return next(new AppError('This show has been expired.', 401));
