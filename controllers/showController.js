@@ -1,18 +1,10 @@
+const factory = require('./handlerFactory');
 const Show = require('./../models/showModel');
 const APIFeatures = require('./../utils/apiFeatures');
-const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
-const factory = require('./handlerFactory');
-
-const filterObj = (obj, ...allowedFields) => {
-  const newObj = {};
-
-  Object.keys(obj).forEach(el => {
-    if (allowedFields.includes(el)) newObj[el] = obj[el];
-  });
-
-  return newObj;
-};
+const catchAsync = require('./../utils/catchAsync');
+const filterObj = require('./../utils/filterObject');
+const sanitize = require('./../utils/sanitize');
 
 exports.aliasTopShows = (req, res, next) => {
   req.query.limit = '5';
@@ -32,7 +24,7 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     return next(new AppError('This route is not for making reviews!', 400));
   }
 
-  const filteredBody = filterObj(
+  let filteredBody = filterObj(
     req.body,
     'title',
     'originalReleaseDate',
@@ -52,6 +44,8 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
     'poster',
     'cloudinaryPhoto'
   );
+
+  filteredBody = sanitize(filteredBody);
 
   // const newShow = await Show.create(filteredBody);
   console.log('Filteredbody: ', filteredBody);
@@ -75,7 +69,7 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
   if (req.body.priceDiscount)
     return next(new AppError('This route is not for price discounts!'));
 
-  const filteredBody = filterObj(
+  let filteredBody = filterObj(
     req.body,
     'title',
     'originalReleaseDate',
@@ -118,6 +112,8 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
   //     runValidators: true
   //   }
   // );
+
+  filteredBody = sanitize(filteredBody);
 
   res.status(200).json({
     status: 'success',
