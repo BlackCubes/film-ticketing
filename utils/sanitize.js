@@ -1,6 +1,8 @@
 const sanitizeHtml = require('sanitize-html');
 
 module.exports = data => {
-  Object.values(data).forEach(val => sanitizeHtml(val));
+  Object.keys(data).forEach(key => {
+    data[key] = sanitizeHtml(data[key]);
+  });
   return data;
 };
