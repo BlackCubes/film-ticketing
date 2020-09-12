@@ -2,6 +2,7 @@ const Showtimes = require('./../models/showtimesModel');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const factory = require('./handlerFactory');
+const sanitize = require('./../utils/sanitize');
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
@@ -54,7 +55,11 @@ exports.createMyShowtime = catchAsync(async (req, res, next) => {
     'theaters'
   );
 
-  const newShowtime = await Showtimes.create(filteredBody);
+  console.log('Without sanitized: ', filteredBody);
+  sanitize(filteredBody);
+  console.log('With sanitized: ', filteredBody);
+
+  // const newShowtime = await Showtimes.create(filteredBody);
 
   res.status(200).json({
     status: 'success',
