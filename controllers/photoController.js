@@ -36,13 +36,13 @@ const upload = multer({
 
 exports.checkMulter = (req, res, next) => {
   upload(req, res, function(err) {
-    if (err instanceof multer.MulterError) {
+    if (err instanceof multer.MulterError)
       return next(new AppError(`${err}`, 400));
-    } else if (err) {
+
+    if (err)
       return next(
         new AppError(`An unknown error has occured when uploading. ${err}`)
       );
-    }
 
     next();
   });
