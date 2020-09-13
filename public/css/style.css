@@ -418,7 +418,8 @@ body {
         max-height: 58rem; } }
     @media (min-width: 56.25em) {
       .card__poster-link {
-        height: 78vw; } }
+        height: 78rem;
+        max-height: 78rem; } }
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       .card__poster-link {
         height: 55rem;
