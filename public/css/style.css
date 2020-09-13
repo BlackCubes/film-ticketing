@@ -691,9 +691,18 @@ body {
     transform: translate3d(7.5rem, 0, 0); }
   .tile.swiper-slide {
     transition: 450ms all ease-out; }
+    @media (max-width: 23.5em) {
+      .tile.swiper-slide {
+        margin-left: 0.5rem;
+        margin-right: 0; } }
     .tile.swiper-slide .tile__img,
     .tile.swiper-slide .tile__poster {
       width: 100%; }
+      @media (max-width: 23.5em) {
+        .tile.swiper-slide .tile__img,
+        .tile.swiper-slide .tile__poster {
+          width: 42rem;
+          height: 25rem; } }
     .tile.swiper-slide .tile__link {
       font-size: 1.2rem; }
       @media (min-width: 37.5em) {
