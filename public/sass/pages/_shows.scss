@@ -14,4 +14,8 @@
   @include respond(port-1199x-992n) {
     max-width: none;
   }
+
+  @include respond(desktop) {
+    max-width: none;
+  }
 }
