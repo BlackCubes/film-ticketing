@@ -185,7 +185,8 @@
 
     @include respond(max-376) {
       margin-left: 0.5rem;
-      margin-right: 0;
+      margin-right: -0.4rem;
+      // margin-right: 0;
     }
 
     & .tile__img,
