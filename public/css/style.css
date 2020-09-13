@@ -3181,6 +3181,9 @@ svg {
   left: 0;
   right: 0;
   bottom: 1rem; }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .heading-box__theater-info-container {
+      bottom: 3rem; } }
 
 @media (min-width: 75em) {
   .location-box {

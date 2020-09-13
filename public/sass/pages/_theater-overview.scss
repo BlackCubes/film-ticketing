@@ -111,6 +111,10 @@
     left: 0;
     right: 0;
     bottom: 1rem;
+
+    @include respond(port-1199x-992n) {
+      bottom: 3rem;
+    }
   }
 }
 
