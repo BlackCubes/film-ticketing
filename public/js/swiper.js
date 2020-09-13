@@ -26,7 +26,7 @@ export const displaySwiper = obj => {
     direction: 'horizontal',
     slidePerView: slidesSmallMobile,
     spaceBetween: spaceSmallMobile,
-    slidesPerGroup: 1,
+    slidesPerGroup: 2,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
