@@ -49,11 +49,15 @@
     font-size: 2rem;
   }
 
+  @include respond(tab-port) {
+    font-size: 2.5rem;
+  }
+
   @include respond(port-991x-768n) {
     font-size: 2.5rem;
   }
 
-  @include respond(port-1199x-992n) {
+  @include respond(tab-land) {
     font-size: 3rem;
   }
 
@@ -66,11 +70,15 @@
       font-size: 2rem;
     }
 
+    @include respond(tab-port) {
+      font-size: 2.5rem;
+    }
+
     @include respond(port-991x-768n) {
       font-size: 2.5rem;
     }
 
-    @include respond(port-1199x-992n) {
+    @include respond(tab-land) {
       font-size: 3rem;
     }
 

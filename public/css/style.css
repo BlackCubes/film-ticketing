@@ -1467,10 +1467,13 @@ body {
   @media (max-width: 20em) {
     .stars-show {
       font-size: 2rem; } }
+  @media (min-width: 37.5em) {
+    .stars-show {
+      font-size: 2.5rem; } }
   @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
     .stars-show {
       font-size: 2.5rem; } }
-  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+  @media (min-width: 56.25em) {
     .stars-show {
       font-size: 3rem; } }
   .stars-show .star {
@@ -1480,10 +1483,13 @@ body {
     @media (max-width: 20em) {
       .stars-show .star {
         font-size: 2rem; } }
+    @media (min-width: 37.5em) {
+      .stars-show .star {
+        font-size: 2.5rem; } }
     @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
       .stars-show .star {
         font-size: 2.5rem; } }
-    @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    @media (min-width: 56.25em) {
       .stars-show .star {
         font-size: 3rem; } }
     .stars-show .star::before {
