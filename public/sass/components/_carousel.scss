@@ -287,6 +287,10 @@
     & .tile__img,
     & .tile__poster {
       width: 100%;
+
+      @include respond(max-375) {
+        width: 42rem;
+      }
     }
 
     & .tile-show__link {
