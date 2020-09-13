@@ -284,6 +284,11 @@
   &.swiper-slide {
     transition: $carousel-transition-duration all ease-out;
 
+    @include respond(max-376) {
+      margin-left: 0.5rem;
+      margin-right: 0;
+    }
+
     & .tile__img,
     & .tile__poster {
       width: 100%;
