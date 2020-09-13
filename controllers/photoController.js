@@ -40,15 +40,19 @@ exports.bufferPhoto = key =>
     const streamUpload = upload.single(`${key}`);
 
     streamUpload(req, res, function(err) {
-      if (err instanceof multer.MulterError)
+      if (err instanceof multer.MulterError) {
+        console.log(err);
         return next(
           new AppError(`An error occured when uploading: ${err}`, 401)
         );
+      }
 
-      if (err)
+      if (err) {
+        console.log(err);
         return next(
           new AppError(`An unknown error occured when uploading: ${err}`, 401)
         );
+      }
 
       next();
     });
