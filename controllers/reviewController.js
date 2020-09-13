@@ -17,7 +17,7 @@ exports.checkReviewExists = catchAsync(async (req, res, next) => {
 
   if (findReview)
     return next(
-      new AppError('You have already created a review for this show.', 401)
+      new AppError('You have already created a review for this show.', 403)
     );
 
   next();
