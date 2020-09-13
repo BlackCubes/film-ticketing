@@ -24583,18 +24583,18 @@ var displaySwiper = function displaySwiper(obj) {
     observer: true,
     observeParents: true,
     direction: 'horizontal',
-    slidesPerView: slidesPerView,
-    spaceBetween: spaceBetween,
-    slidesPerGroup: 2,
+    slidesSmallMobile: slidesSmallMobile,
+    spaceSmallMobile: spaceSmallMobile,
+    slidesPerGroup: 1,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
     },
     breakpoints: {
-      320: {
+      380: {
         slidesPerView: slidesSmallMobile,
-        spaceBetween: spaceSmallMobile,
-        slidesPerGroup: 1
+        spaceBetween: spaceBetween,
+        slidesPerGroup: 2
       },
       600: {
         slidesPerView: slidesPortrait,
