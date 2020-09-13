@@ -32,7 +32,7 @@ export const displaySwiper = obj => {
       prevEl: '.swiper-button-prev'
     },
     breakpoints: {
-      380: {
+      376: {
         slidesPerView: slidesPerView,
         spaceBetween: spaceBetween,
         slidesPerGroup: 2
