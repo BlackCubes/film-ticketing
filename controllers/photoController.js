@@ -38,9 +38,9 @@ exports.bufferPhoto = key =>
 
     streamUpload(req, res, function(err) {
       if (err instanceof multer.MulterError)
-        return next(new AppError(`${err.message}`, 401));
+        return next(new AppError(`${err.message}`, 400));
 
-      if (err) return next(new AppError(`${err.message}`, 401));
+      if (err) return next(new AppError(`${err.message}`, 400));
 
       next();
     });
