@@ -19,7 +19,7 @@ exports.checkExpired = catchAsync(async (req, res, next) => {
   });
 
   if (showtimesExpired && Date.now() > showtimesExpired.endDateTime)
-    return next(new AppError('This show has been expired.', 401));
+    return next(new AppError('This show has been expired.', 403));
 
   next();
 });
@@ -32,7 +32,7 @@ exports.checkSoldOut = catchAsync(async (req, res, next) => {
   });
 
   if (showtimesSoldOut && showtimesSoldOut.soldOut)
-    return next(new AppError('This show has been sold out.', 401));
+    return next(new AppError('This show has been sold out.', 403));
 
   next();
 });
