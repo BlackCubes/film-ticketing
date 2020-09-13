@@ -42,6 +42,10 @@
     top: 4rem;
     left: 1rem;
 
+    @include respond(port-1199x-992n) {
+      display: none;
+    }
+
     @include respond(desktop) {
       display: none;
     }

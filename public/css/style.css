@@ -2313,6 +2313,9 @@ svg {
   position: absolute;
   top: 4rem;
   left: 1rem; }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .heading-box__photo {
+      display: none; } }
   @media (min-width: 75em) {
     .heading-box__photo {
       display: none; } }
