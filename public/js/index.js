@@ -1674,8 +1674,6 @@ if (updateShowtimeMainView) {
             `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
           ).toISOString();
 
-        console.log('Startdatetime: ', startDateTime.toString());
-
         document.getElementById('btnUpdateShowtimeData').textContent =
           'Updating...';
 
