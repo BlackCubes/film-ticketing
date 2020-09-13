@@ -21,20 +21,19 @@ exports.updateOne = Model =>
     if (req.file && req.params.showPoster)
       req.body.poster = { urlLarge: req.file.filename }; // Delete?
 
-    // const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
-    //   new: true,
-    //   runValidators: true
-    // });
+    const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
 
-    // if (!doc) {
-    //   return next(new AppError('There is no document with that ID!', 404));
-    // }
-    console.log(`Model: ${Model}`); // Delete!
+    if (!doc) {
+      return next(new AppError('There is no document with that ID!', 404));
+    }
 
     res.status(200).json({
       status: 'success',
       data: {
-        data: 'This is a test! When done, uncomment!'
+        data: doc
       }
     });
   });
