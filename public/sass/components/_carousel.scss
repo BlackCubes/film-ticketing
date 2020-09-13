@@ -77,6 +77,10 @@
       &:focus .tile-card,
       &:active .tile-card {
         transition: $carousel-transition-duration all ease-out;
+
+        @include respond(max-376) {
+          margin: 0 -3rem;
+        }
       }
 
       &:hover .tile:last-child:hover,
