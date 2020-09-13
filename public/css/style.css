@@ -86,6 +86,9 @@ a {
   @media (min-width: 56.25em) {
     .body-account {
       min-height: 100vw; } }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .body-account {
+      min-height: 100vh; } }
 
 .body-error {
   position: relative;

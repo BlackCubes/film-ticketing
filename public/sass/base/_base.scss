@@ -65,6 +65,10 @@ a {
   @include respond(tab-land) {
     min-height: 100vw;
   }
+
+  @include respond(port-1199x-992n) {
+    min-height: 100vh;
+  }
 }
 
 .body-error {
