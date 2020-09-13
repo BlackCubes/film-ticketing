@@ -703,6 +703,9 @@ body {
         .tile.swiper-slide .tile__poster {
           width: 42rem;
           height: 25rem; } }
+    @media (max-width: 23.5em) {
+      .tile.swiper-slide .tile__title {
+        left: 40%; } }
     .tile.swiper-slide .tile__link {
       font-size: 1.2rem; }
       @media (min-width: 37.5em) {
