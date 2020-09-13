@@ -1468,7 +1468,7 @@ body {
       font-size: 2rem; } }
   @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
     .stars-show {
-      font-size: 2.5; } }
+      font-size: 2.5rem; } }
   @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
     .stars-show {
       font-size: 3rem; } }
@@ -1481,7 +1481,7 @@ body {
         font-size: 2rem; } }
     @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
       .stars-show .star {
-        font-size: 2.5; } }
+        font-size: 2.5rem; } }
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       .stars-show .star {
         font-size: 3rem; } }

@@ -50,7 +50,7 @@
   }
 
   @include respond(port-991x-768n) {
-    font-size: 2.5;
+    font-size: 2.5rem;
   }
 
   @include respond(port-1199x-992n) {
@@ -67,7 +67,7 @@
     }
 
     @include respond(port-991x-768n) {
-      font-size: 2.5;
+      font-size: 2.5rem;
     }
 
     @include respond(port-1199x-992n) {
