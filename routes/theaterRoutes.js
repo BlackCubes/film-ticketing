@@ -61,8 +61,8 @@ router.patch(
   theaterController.geoParse,
   validationController.insertParamsId,
   validationController.updateTheater,
-  photoController.deletePhoto('theaters'),
   photoController.bufferPhoto('photo'),
+  photoController.deletePhoto('theaters'),
   photoController.uploadPhoto('kinetotickets-theaters'),
   theaterController.updateTheater
 );
