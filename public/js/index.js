@@ -1679,11 +1679,11 @@ if (updateShowtimeMainView) {
         document.getElementById('btnUpdateShowtimeData').textContent =
           'Updating...';
 
-        // await updateShowtimeSettings(
-        //   { startDateTime, endDateTime },
-        //   'data',
-        //   showtimeId
-        // );
+        await updateShowtimeSettings(
+          { startDateTime, endDateTime },
+          'data',
+          showtimeId
+        );
 
         document.getElementById('btnUpdateShowtimeData').textContent = 'Update';
       }
