@@ -61,8 +61,8 @@ router.patch(
   authController.restrictTo('event-owner'),
   validationController.insertParamsId,
   validationController.updateShow,
-  photoController.deletePhoto('shows'),
   photoController.bufferPhoto('poster'),
+  photoController.deletePhoto('shows'),
   photoController.uploadPhoto('kinetotickets-shows'),
   showController.updateMyShow
 );
