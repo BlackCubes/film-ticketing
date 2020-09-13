@@ -1674,16 +1674,16 @@ if (updateShowtimeMainView) {
             `${startYear}-${startMonth}-${startDay} ${endHour}:${endMinute}:${endSecond}`
           ).toISOString();
 
-        console.log('Startdatetime: ', startDateTime);
+        console.log('Startdatetime: ', startDateTime.toString());
 
         document.getElementById('btnUpdateShowtimeData').textContent =
           'Updating...';
 
-        await updateShowtimeSettings(
-          { startDateTime, endDateTime },
-          'data',
-          showtimeId
-        );
+        // await updateShowtimeSettings(
+        //   { startDateTime, endDateTime },
+        //   'data',
+        //   showtimeId
+        // );
 
         document.getElementById('btnUpdateShowtimeData').textContent = 'Update';
       }
