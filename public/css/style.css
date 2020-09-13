@@ -349,6 +349,13 @@ body {
     background-color: #ff0000;
     color: #000; }
 
+@media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+  .card-wrapper {
+    display: grid;
+    align-content: space-evenly;
+    grid-template-columns: auto auto;
+    gap: 1rem; } }
+
 @media (min-width: 75em) {
   .card-wrapper {
     display: grid;
@@ -374,6 +381,9 @@ body {
   @media (min-width: 56.25em) {
     .card {
       width: 90vh; } }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .card {
+      width: 36rem; } }
   @media (min-width: 75em) {
     .card {
       width: 20rem;
@@ -388,6 +398,10 @@ body {
     @media (min-width: 56.25em) {
       .card__poster-link {
         height: 78vw; } }
+    @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+      .card__poster-link {
+        height: 55rem;
+        max-height: none; } }
     @media (min-width: 75em) {
       .card__poster-link {
         height: 30rem; } }

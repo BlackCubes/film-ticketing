@@ -1,4 +1,11 @@
 .card-wrapper {
+  @include respond(port-1199x-992n) {
+    display: grid;
+    align-content: space-evenly;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+  }
+
   @include respond(desktop) {
     display: grid;
     width: 85%;
@@ -34,6 +41,10 @@
     // width: 85vmin;
   }
 
+  @include respond(port-1199x-992n) {
+    width: 36rem;
+  }
+
   @include respond(desktop) {
     width: 20rem;
     margin-top: 4rem;
@@ -57,6 +68,11 @@
       @include respond(tab-land) {
         height: 78vw;
         // height: 78vmax;
+      }
+
+      @include respond(port-1199x-992n) {
+        height: 55rem;
+        max-height: none;
       }
 
       @include respond(desktop) {
