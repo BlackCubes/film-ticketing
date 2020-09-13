@@ -186,6 +186,10 @@
     top: -2rem;
     padding: 1.4rem;
 
+    @include respond(port-991x-768n) {
+      padding: 3rem;
+    }
+
     @include respond(port-1199x-992n) {
       padding: 4rem;
     }
@@ -330,6 +334,10 @@
     position: relative;
     top: -2rem;
     padding: 1.4rem;
+
+    @include respond(port-991x-768n) {
+      padding: 3rem;
+    }
 
     @include respond(port-1199x-992n) {
       padding: 4rem;

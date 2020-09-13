@@ -2604,6 +2604,9 @@ svg {
     position: relative;
     top: -2rem;
     padding: 1.4rem; }
+    @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
+      .promo__text-wrapper {
+        padding: 3rem; } }
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       .promo__text-wrapper {
         padding: 4rem; } }
@@ -2697,6 +2700,9 @@ svg {
     position: relative;
     top: -2rem;
     padding: 1.4rem; }
+    @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
+      .member__text-wrapper {
+        padding: 3rem; } }
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       .member__text-wrapper {
         padding: 4rem; } }
