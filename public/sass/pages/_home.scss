@@ -186,6 +186,10 @@
     top: -2rem;
     padding: 1.4rem;
 
+    @include respond(port-1199x-992n) {
+      padding: 4rem;
+    }
+
     @include respond(desktop) {
       position: absolute;
       width: 40rem;
@@ -326,6 +330,10 @@
     position: relative;
     top: -2rem;
     padding: 1.4rem;
+
+    @include respond(port-1199x-992n) {
+      padding: 4rem;
+    }
 
     @include respond(desktop) {
       position: absolute;
