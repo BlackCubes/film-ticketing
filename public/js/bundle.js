@@ -24592,7 +24592,7 @@ var displaySwiper = function displaySwiper(obj) {
     },
     breakpoints: {
       380: {
-        slidesPerView: slidesSmallMobile,
+        slidesPerView: slidesPerView,
         spaceBetween: spaceBetween,
         slidesPerGroup: 2
       },
