@@ -41,14 +41,14 @@ exports.bufferPhoto = key =>
 
     streamUpload(req, res, function(err) {
       if (err instanceof multer.MulterError) {
-        console.log(req);
+        console.log(err);
         return next(
           new AppError(`An error occured when uploading: ${err}`, 401)
         );
       }
 
       if (err) {
-        console.log(req);
+        console.log(err);
         return next(
           new AppError(`An unknown error occured when uploading: ${err}`, 401)
         );
