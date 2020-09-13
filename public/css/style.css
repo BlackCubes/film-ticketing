@@ -401,7 +401,7 @@ body {
       margin-right: auto; } }
   @media (min-width: 56.25em) {
     .card {
-      width: 90vh; } }
+      width: 50rem; } }
   @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
     .card {
       width: 36rem; } }
