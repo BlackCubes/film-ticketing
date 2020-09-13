@@ -706,8 +706,8 @@ body {
       @media (max-width: 20em) {
         .tile.swiper-slide .tile__img,
         .tile.swiper-slide .tile__poster {
-          width: 37rem;
-          height: 20rem; } }
+          width: 32rem;
+          height: 27rem; } }
     @media (max-width: 23.5em) {
       .tile.swiper-slide .tile__title {
         left: 40%; } }
