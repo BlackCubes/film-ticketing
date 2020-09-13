@@ -1442,6 +1442,9 @@ body {
   @media (max-width: 20em) {
     .stars-show {
       font-size: 2rem; } }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .stars-show {
+      font-size: 3rem; } }
   .stars-show .star {
     color: #20b2aa;
     font-size: 2rem;
@@ -1449,6 +1452,9 @@ body {
     @media (max-width: 20em) {
       .stars-show .star {
         font-size: 2rem; } }
+    @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+      .stars-show .star {
+        font-size: 3rem; } }
     .stars-show .star::before {
       content: '\2606'; }
     .stars-show .star.rated::before {

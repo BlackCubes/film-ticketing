@@ -49,6 +49,10 @@
     font-size: 2rem;
   }
 
+  @include respond(port-1199x-992n) {
+    font-size: 3rem;
+  }
+
   & .star {
     color: $color-lightseagreen;
     font-size: 2rem;
@@ -56,6 +60,10 @@
 
     @include respond(max-320) {
       font-size: 2rem;
+    }
+
+    @include respond(port-1199x-992n) {
+      font-size: 3rem;
     }
 
     &::before {
