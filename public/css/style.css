@@ -3117,6 +3117,9 @@ svg {
     @media (min-width: 56.25em) {
       .section-theater-header .heading-box {
         height: 55vw; } }
+    @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+      .section-theater-header .heading-box {
+        height: 60rem !important; } }
     @media (min-width: 75em) {
       .section-theater-header .heading-box {
         height: 63rem; } }
