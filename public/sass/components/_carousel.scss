@@ -184,7 +184,7 @@
     transition: $carousel-transition-duration all ease-out;
 
     @include respond(max-376) {
-      margin-left: 0.5rem;
+      margin-left: 0.4rem;
       margin-right: -0.4rem;
       // margin-right: 0;
     }
