@@ -34,23 +34,6 @@ const upload = multer({
   fileFilter: multerFilter
 });
 
-exports.checkMulter = (req, res, next) => {
-  upload(req, res, function(err) {
-    if (err instanceof multer.MulterError)
-      return next(new AppError(`Hello! ${err}`, 400));
-
-    if (err)
-      return next(
-        new AppError(
-          `Dude. An unknown error has occured when uploading. ${err}`,
-          400
-        )
-      );
-
-    next();
-  });
-};
-
 // BUFFER THE PHOTO
 exports.bufferPhoto = key => upload.single(`${key}`);
 
