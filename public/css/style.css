@@ -2832,6 +2832,9 @@ svg {
 
 .section-show-header {
   width: 100%; }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .section-show-header video {
+      transform: scale(1.4); } }
   @media (min-width: 75em) {
     .section-show-header video {
       transform: scale(1.5); } }
@@ -2864,6 +2867,9 @@ svg {
       background-image: -webkit-gradient(linear, left top, right bottom, from(black), to(#0067aa));
       background-image: linear-gradient(linear, left top, right bottom, black, #0067aa);
       opacity: 0.85; }
+      @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+        .heading-box__background-overlay {
+          display: none; } }
       @media (min-width: 75em) {
         .heading-box__background-overlay {
           display: none; } }
@@ -2880,6 +2886,9 @@ svg {
         .heading-box__background-img {
           -o-object-fit: cover;
           object-fit: cover; } }
+      @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+        .heading-box__background-img {
+          display: none; } }
       @media (min-width: 75em) {
         .heading-box__background-img {
           display: none; } }
@@ -2893,6 +2902,9 @@ svg {
     @media (min-width: 56.25em) {
       .heading-box__poster {
         left: 3rem; } }
+    @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+      .heading-box__poster {
+        display: none; } }
     @media (min-width: 75em) {
       .heading-box__poster {
         display: none; } }
@@ -2921,6 +2933,13 @@ svg {
     @media (min-width: 56.25em) {
       .heading-box__data-container {
         right: 2.5rem; } }
+    @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+      .heading-box__data-container {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0; } }
     @media (min-width: 75em) {
       .heading-box__data-container {
         width: 95%;
@@ -2953,6 +2972,9 @@ svg {
         bottom: 1rem;
         left: 0;
         right: 0; } }
+    @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+      .heading-box__info-container {
+        bottom: 4rem; } }
   .heading-box__overview {
     padding: 1rem; }
     @media (min-width: 37.5em) {

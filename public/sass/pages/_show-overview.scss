@@ -24,6 +24,10 @@
   width: 100%;
 
   & video {
+    @include respond(port-1199x-992n) {
+      transform: scale(1.4);
+    }
+
     @include respond(desktop) {
       transform: scale(1.5);
     }
@@ -79,6 +83,10 @@
       );
       opacity: 0.85;
 
+      @include respond(port-1199x-992n) {
+        display: none;
+      }
+
       @include respond(desktop) {
         display: none;
       }
@@ -99,6 +107,10 @@
         object-fit: cover;
       }
 
+      @include respond(port-1199x-992n) {
+        display: none;
+      }
+
       @include respond(desktop) {
         display: none;
       }
@@ -117,6 +129,10 @@
 
     @include respond(tab-land) {
       left: 3rem;
+    }
+
+    @include respond(port-1199x-992n) {
+      display: none;
     }
 
     @include respond(desktop) {
@@ -159,6 +175,14 @@
 
     @include respond(tab-land) {
       right: 2.5rem;
+    }
+
+    @include respond(port-1199x-992n) {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
     }
 
     @include respond(desktop) {
@@ -207,6 +231,10 @@
       bottom: 1rem;
       left: 0;
       right: 0;
+    }
+
+    @include respond(port-1199x-992n) {
+      bottom: 4rem;
     }
   }
 
