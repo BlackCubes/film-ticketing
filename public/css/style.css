@@ -3157,6 +3157,14 @@ svg {
   width: 55%;
   top: 4rem;
   right: 1rem; }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .heading-box__theater-data-container {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: 10rem; } }
   @media (min-width: 75em) {
     .heading-box__theater-data-container {
       width: 95%;

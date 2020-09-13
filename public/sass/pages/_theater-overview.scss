@@ -85,6 +85,15 @@
     top: 4rem;
     right: 1rem;
 
+    @include respond(port-1199x-992n) {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: 10rem;
+    }
+
     @include respond(desktop) {
       width: 95%;
       margin-left: auto;
