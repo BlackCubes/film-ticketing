@@ -45,7 +45,7 @@ exports.bufferPhoto = key =>
 
       if (err) {
         console.log(err.message);
-        return next(new AppError(`${err}`, 401));
+        return next(new AppError(`${err.message}`, 401));
       }
 
       next();
