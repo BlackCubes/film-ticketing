@@ -440,7 +440,7 @@ body {
     height: 34rem; }
     @media (min-width: 56.25em) {
       .card__logo-link {
-        height: 44vw; } }
+        height: 44rem; } }
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       .card__logo-link {
         height: 30rem; } }

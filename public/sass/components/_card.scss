@@ -103,7 +103,8 @@
       }
 
       @include respond(tab-land) {
-        height: 44vw;
+        height: 44rem;
+        // height: 44vw;
       }
 
       @include respond(port-1199x-992n) {
