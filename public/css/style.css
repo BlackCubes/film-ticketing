@@ -2885,6 +2885,9 @@ svg {
   @media (min-width: 56.25em) {
     .heading-box {
       height: 85vw; } }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .heading-box {
+      height: 60rem !important; } }
   @media (min-width: 75em) {
     .heading-box {
       height: 63rem; } }
