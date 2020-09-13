@@ -29243,7 +29243,7 @@ if (swiperClass) {
     containerClass: '.swiper--review.swiper-container',
     slidesPerView: 2,
     spaceBetween: 4,
-    slidesSmallMobile: 1,
+    slidesSmallMobile: 2,
     spaceSmallMobile: 4,
     slidesPortrait: 2,
     spacePortrait: 15,
