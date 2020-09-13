@@ -626,17 +626,6 @@ body {
     .row--scroll.swiper-container .row__inner:focus .tile-card,
     .row--scroll.swiper-container .row__inner:active .tile-card {
       transition: 450ms all ease-out; }
-      @media (max-width: 23.5em) {
-        .row--scroll.swiper-container .row__inner:hover .tile,
-        .row--scroll.swiper-container .row__inner:focus .tile,
-        .row--scroll.swiper-container .row__inner:active .tile,
-        .row--scroll.swiper-container .row__inner:hover .tile-show,
-        .row--scroll.swiper-container .row__inner:focus .tile-show,
-        .row--scroll.swiper-container .row__inner:active .tile-show,
-        .row--scroll.swiper-container .row__inner:hover .tile-card,
-        .row--scroll.swiper-container .row__inner:focus .tile-card,
-        .row--scroll.swiper-container .row__inner:active .tile-card {
-          margin: 0 -3rem; } }
     .row--scroll.swiper-container .row__inner:hover .tile:last-child:hover,
     .row--scroll.swiper-container .row__inner:hover .tile-show:last-child:hover,
     .row--scroll.swiper-container .row__inner:hover .tile-card:last-child:hover {
