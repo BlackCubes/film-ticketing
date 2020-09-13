@@ -29231,7 +29231,7 @@ if (swiperClass) {
     slidesPerView: 2,
     spaceBetween: 7,
     slidesSmallMobile: 1,
-    spaceSmallMobile: 7,
+    spaceSmallMobile: 20,
     slidesPortrait: 3,
     spacePortrait: 15,
     slidesLand: 4,
