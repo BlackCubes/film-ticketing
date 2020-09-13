@@ -5,7 +5,7 @@ const factory = require('./handlerFactory');
 exports.rolesParse = (req, res, next) => {
   if (!req.body.roles) return next();
   if (typeof req.body.roles !== 'string')
-    return next(new AppError('Please provide a JSON string for roles', 401));
+    return next(new AppError('Please provide a JSON string for roles', 400));
 
   req.body.roles = JSON.parse(req.body.roles);
   next();
