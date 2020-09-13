@@ -21,7 +21,7 @@ exports.getEventOrganizer = (req, res, next) => {
 
 exports.createMyShow = catchAsync(async (req, res, next) => {
   if (req.body.ratingsAverage || req.body.ratingsQuantity) {
-    return next(new AppError('This route is not for making reviews!', 400));
+    return next(new AppError('This route is not for making reviews!', 403));
   }
 
   let filteredBody = filterObj(
@@ -60,14 +60,14 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
 
 exports.updateMyShow = catchAsync(async (req, res, next) => {
   if (req.body.ratingsAverage || req.body.ratingsQuantity) {
-    return next(new AppError('This route is not for making reviews!', 400));
+    return next(new AppError('This route is not for making reviews!', 403));
   }
 
   if (req.body.eventOrganizer)
-    return next(new AppError('This route is not for fixing yourself!', 400));
+    return next(new AppError('This route is not for fixing yourself!', 403));
 
   if (req.body.priceDiscount)
-    return next(new AppError('This route is not for price discounts!'));
+    return next(new AppError('This route is not for price discounts!', 403));
 
   let filteredBody = filterObj(
     req.body,
