@@ -16,6 +16,11 @@ svg {
     width: 50rem;
   }
 
+  @include respond(port-991x-768n) {
+    width: 60rem;
+    max-width: 60rem;
+  }
+
   @include respond(port-1199x-992n) {
     width: 70rem;
     max-width: 70rem;
@@ -40,6 +45,10 @@ svg {
       font-size: 2rem;
     }
 
+    @include respond(port-991x-768n) {
+      font-size: 1.6rem;
+    }
+
     @include respond(port-1199x-992n) {
       font-size: 1.4rem;
     }
@@ -59,6 +68,10 @@ svg {
 
     @include respond(small-mobile) {
       font-size: 2.4rem;
+    }
+
+    @include respond(port-991x-768n) {
+      font-size: 2rem;
     }
 
     @include respond(port-1199x-992n) {

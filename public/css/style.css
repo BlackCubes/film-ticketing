@@ -1508,6 +1508,10 @@ svg {
   @media (max-width: 20em) {
     svg {
       width: 50rem; } }
+  @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
+    svg {
+      width: 60rem;
+      max-width: 60rem; } }
   @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
     svg {
       width: 70rem;
@@ -1520,6 +1524,9 @@ svg {
     @media (max-width: 25em) {
       svg .icon text {
         font-size: 2rem; } }
+    @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
+      svg .icon text {
+        font-size: 1.6rem; } }
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       svg .icon text {
         font-size: 1.4rem; } }
@@ -1533,6 +1540,10 @@ svg {
       svg .menu-trigger a,
       svg .menu-trigger text {
         font-size: 2.4rem; } }
+    @media (max-width: 61.9375em) and (min-width: 48em) and (orientation: portrait) {
+      svg .menu-trigger a,
+      svg .menu-trigger text {
+        font-size: 2rem; } }
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       svg .menu-trigger a,
       svg .menu-trigger text {
