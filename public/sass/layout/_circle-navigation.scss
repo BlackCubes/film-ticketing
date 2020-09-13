@@ -17,8 +17,8 @@ svg {
   }
 
   @include respond(port-991x-768n) {
-    width: 60rem;
-    max-width: 60rem;
+    width: 65rem;
+    max-width: 65rem;
   }
 
   @include respond(port-1199x-992n) {
