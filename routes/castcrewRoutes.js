@@ -51,8 +51,8 @@ router.patch(
   castcrewConroller.rolesParse,
   validationController.insertParamsId,
   validationController.updateCastCrew,
-  photoController.deletePhoto('castcrews'),
   photoController.bufferPhoto('photo'),
+  photoController.deletePhoto('castcrews'),
   photoController.uploadPhoto('kinetotickets-castcrews'),
   castcrewConroller.updateCastCrew
 );
