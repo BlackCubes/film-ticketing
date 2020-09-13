@@ -24585,7 +24585,7 @@ var displaySwiper = function displaySwiper(obj) {
     direction: 'horizontal',
     slidePerView: slidesSmallMobile,
     spaceBetween: spaceSmallMobile,
-    slidesPerGroup: 2,
+    slidesPerGroup: 1,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
