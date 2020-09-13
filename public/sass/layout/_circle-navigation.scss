@@ -40,6 +40,10 @@ svg {
       font-size: 2rem;
     }
 
+    @include respond(port-1199x-992n) {
+      font-size: 1.6rem;
+    }
+
     @include respond(desktop) {
       font-size: 1.2rem;
     }
@@ -55,6 +59,10 @@ svg {
 
     @include respond(small-mobile) {
       font-size: 2.4rem;
+    }
+
+    @include respond(port-1199x-992n) {
+      font-size: 2rem;
     }
 
     @include respond(desktop) {
