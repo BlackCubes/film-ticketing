@@ -104,6 +104,10 @@
         height: 44vw;
       }
 
+      @include respond(port-1199x-992n) {
+        height: 30rem;
+      }
+
       @include respond(desktop) {
         height: 20rem;
       }
