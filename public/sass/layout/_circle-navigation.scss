@@ -41,7 +41,7 @@ svg {
     }
 
     @include respond(port-1199x-992n) {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
 
     @include respond(desktop) {
@@ -62,7 +62,7 @@ svg {
     }
 
     @include respond(port-1199x-992n) {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     @include respond(desktop) {

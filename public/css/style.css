@@ -1510,7 +1510,7 @@ svg {
         font-size: 2rem; } }
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       svg .icon text {
-        font-size: 1.6rem; } }
+        font-size: 1.4rem; } }
     @media (min-width: 75em) {
       svg .icon text {
         font-size: 1.2rem; } }
@@ -1524,7 +1524,7 @@ svg {
     @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
       svg .menu-trigger a,
       svg .menu-trigger text {
-        font-size: 2rem; } }
+        font-size: 1.8rem; } }
     @media (min-width: 75em) {
       svg .menu-trigger a,
       svg .menu-trigger text {
