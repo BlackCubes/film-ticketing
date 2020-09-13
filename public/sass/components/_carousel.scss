@@ -199,11 +199,11 @@
       }
 
       @include respond(max-320) {
-        width: 32rem;
-        height: 19rem;
+        // width: 32rem;
+        // height: 19rem;
         // height: 27rem;
-        // width: 37rem;
-        // height: 20rem;
+        width: 37rem;
+        height: 20rem;
       }
     }
 
@@ -324,8 +324,8 @@
       }
 
       @include respond(max-320) {
-        width: 32rem;
-        // width: 37rem;
+        // width: 32rem;
+        width: 37rem;
       }
     }
 
