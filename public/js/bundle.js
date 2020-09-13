@@ -24593,7 +24593,8 @@ var displaySwiper = function displaySwiper(obj) {
     breakpoints: {
       320: {
         slidesPerView: slidesSmallMobile,
-        spaceBetween: spaceSmallMobile
+        spaceBetween: spaceSmallMobile,
+        slidesPerGroup: 1
       },
       600: {
         slidesPerView: slidesPortrait,
