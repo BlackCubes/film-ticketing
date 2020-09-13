@@ -21,10 +21,7 @@ const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image') && extName && mimeType) {
     cb(null, true);
   } else {
-    cb(
-      new AppError('This is not an image! Please upload only images!', 400),
-      false
-    );
+    cb(new AppError('Please upload only images', 400), false);
   }
 };
 
