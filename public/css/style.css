@@ -773,6 +773,10 @@ body {
         .tile-show.swiper-slide .tile__img,
         .tile-show.swiper-slide .tile__poster {
           width: 43rem; } }
+      @media (max-width: 20em) {
+        .tile-show.swiper-slide .tile__img,
+        .tile-show.swiper-slide .tile__poster {
+          width: 35rem; } }
     @media (max-width: 23.5em) {
       .tile-show.swiper-slide .tile-show__title {
         left: 40%; } }
