@@ -24,6 +24,10 @@
   }
 
   @include respond(tab-land) {
+    width: 90%;
+  }
+
+  @include respond(desktop) {
     width: 98%;
   }
 }
@@ -54,6 +58,15 @@
     top: 4rem;
     right: 1rem;
 
+    @include respond(port-1199x-992n) {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: 10rem;
+    }
+
     @include respond(desktop) {
       width: 95%;
       margin-left: auto;
@@ -71,6 +84,10 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
+
+    @include respond(port-1199x-992n) {
+      bottom: 5rem;
+    }
   }
 }
 

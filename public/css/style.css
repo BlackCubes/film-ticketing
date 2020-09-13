@@ -2300,6 +2300,10 @@ svg {
   @media (min-width: 56.25em) {
     .section-castcrew-about,
     .section-castcrew-resume {
+      width: 90%; } }
+  @media (min-width: 75em) {
+    .section-castcrew-about,
+    .section-castcrew-resume {
       width: 98%; } }
 
 .section-castcrew-resume {
@@ -2321,6 +2325,14 @@ svg {
   width: 45%;
   top: 4rem;
   right: 1rem; }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .heading-box__castcrew-data-container {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: 10rem; } }
   @media (min-width: 75em) {
     .heading-box__castcrew-data-container {
       width: 95%;
@@ -2337,6 +2349,9 @@ svg {
   right: 0;
   margin-left: auto;
   margin-right: auto; }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    .heading-box__castcrew-info-container {
+      bottom: 5rem; } }
 
 .about-box {
   margin-top: 5rem; }
