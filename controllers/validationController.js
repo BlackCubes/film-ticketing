@@ -34,7 +34,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -47,7 +47,7 @@ exports.login = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -59,7 +59,7 @@ exports.forgotPass = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -72,7 +72,7 @@ exports.resetPass = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -86,7 +86,7 @@ exports.updatePass = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -102,7 +102,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -146,7 +146,7 @@ exports.createShow = catchAsync(async (req, res, next) => {
   }
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -192,7 +192,7 @@ exports.updateShow = catchAsync(async (req, res, next) => {
   }
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -215,7 +215,7 @@ exports.createTheater = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -239,7 +239,7 @@ exports.updateTheater = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -254,7 +254,7 @@ exports.createCastCrew = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -270,7 +270,7 @@ exports.updateCastCrew = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -285,7 +285,7 @@ exports.createShowtime = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -301,7 +301,7 @@ exports.updateShowtime = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -314,7 +314,7 @@ exports.createReview = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
@@ -327,7 +327,7 @@ exports.updateReview = catchAsync(async (req, res, next) => {
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
-    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 401));
+    if (!status) return next(new AppError(`${errMessage(err.errors)}`, 400));
 
     next();
   });
