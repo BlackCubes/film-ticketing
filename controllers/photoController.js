@@ -35,7 +35,24 @@ const upload = multer({
 });
 
 // BUFFER THE PHOTO
-exports.bufferPhoto = key => upload.single(`${key}`);
+exports.bufferPhoto = key =>
+  catchAsync(async (req, res, next) => {
+    const streamUpload = upload.single(`${key}`);
+
+    streamUpload(req, res, function(err) {
+      if (err instanceof multer.MulterError)
+        return next(
+          new AppError(`An error occured when uploading: ${err}`, 401)
+        );
+
+      if (err)
+        return next(
+          new AppError(`An unknown error occured when uploading: ${err}`, 401)
+        );
+
+      next();
+    });
+  });
 
 // CONVERT BUFFER
 const formatBufferTo64 = file =>
