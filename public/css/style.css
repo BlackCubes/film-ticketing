@@ -753,7 +753,7 @@ body {
     .tile-show.swiper-slide .tile__img,
     .tile-show.swiper-slide .tile__poster {
       width: 100%; }
-      @media (max-width: 23.4375em) {
+      @media (max-width: 23.5em) {
         .tile-show.swiper-slide .tile__img,
         .tile-show.swiper-slide .tile__poster {
           width: 42rem; } }
