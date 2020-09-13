@@ -769,7 +769,7 @@ body {
     transition: 450ms all ease-out; }
     @media (max-width: 23.5em) {
       .tile-show.swiper-slide {
-        margin-left: 0.5rem;
+        margin-left: 0.4rem;
         margin-right: -0.4rem; } }
     .tile-show.swiper-slide .tile__img,
     .tile-show.swiper-slide .tile__poster {
