@@ -43,9 +43,7 @@ exports.bufferPhoto = key =>
       console.log(Object.values(err));
       if (err instanceof multer.MulterError) {
         console.log(err.message);
-        return next(
-          new AppError(`An error occured when uploading: ${err}`, 401)
-        );
+        return next(new AppError(`${err}`, 401));
       }
 
       if (err) {
