@@ -50,9 +50,7 @@ exports.bufferPhoto = key =>
 
       if (err) {
         console.log(err);
-        return next(
-          new AppError(`An unknown error occured when uploading: ${err}`, 401)
-        );
+        return next(new AppError(`${err}`, 401));
       }
 
       next();
