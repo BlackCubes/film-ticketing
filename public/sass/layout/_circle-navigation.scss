@@ -16,6 +16,11 @@ svg {
     width: 50rem;
   }
 
+  @include respond(port-1199x-992n) {
+    width: 70rem;
+    max-width: 70rem;
+  }
+
   @include respond(desktop) {
     width: 52rem;
   }

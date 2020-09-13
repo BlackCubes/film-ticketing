@@ -1496,6 +1496,10 @@ svg {
   @media (max-width: 20em) {
     svg {
       width: 50rem; } }
+  @media (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
+    svg {
+      width: 70rem;
+      max-width: 70rem; } }
   @media (min-width: 75em) {
     svg {
       width: 52rem; } }
