@@ -9,8 +9,8 @@ exports.checkTicketExists = catchAsync(async (req, res, next) => {
   if (!req.params.showId || !req.params.theaterId || !req.params.showtimeId)
     return next(
       new AppError(
-        'The query parameters for show, theater, and/or showtime are missing!',
-        401
+        'The parameters for show, theater, and/or showtime are missing!',
+        404
       )
     );
 
@@ -23,7 +23,7 @@ exports.checkTicketExists = catchAsync(async (req, res, next) => {
 
   if (findTicket)
     return next(
-      new AppError('You have already bought a ticket for this show.', 401)
+      new AppError('You have already bought a ticket for this show.', 403)
     );
 
   next();
