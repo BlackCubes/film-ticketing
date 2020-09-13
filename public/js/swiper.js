@@ -10,6 +10,8 @@ export const displaySwiper = obj => {
     containerClass,
     slidesPerView,
     spaceBetween,
+    slidesSmallMobile,
+    spaceSmallMobile,
     slidesPortrait,
     spacePortrait,
     slidesLand,
