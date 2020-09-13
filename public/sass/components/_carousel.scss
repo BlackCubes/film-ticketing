@@ -197,6 +197,11 @@
         width: 42rem;
         height: 25rem;
       }
+
+      @include respond(max-320) {
+        width: 37rem;
+        height: 20rem;
+      }
     }
 
     & .tile__title {
