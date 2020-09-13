@@ -10,4 +10,8 @@
   @include respond(big-mobile) {
     max-width: 40rem;
   }
+
+  @include respond(port-1199x-992n) {
+    max-width: none;
+  }
 }
