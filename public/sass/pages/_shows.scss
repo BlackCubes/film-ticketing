@@ -11,6 +11,10 @@
     max-width: 40rem;
   }
 
+  @include respond(tab-land) {
+    max-width: none;
+  }
+
   @include respond(port-1199x-992n) {
     max-width: none;
   }
