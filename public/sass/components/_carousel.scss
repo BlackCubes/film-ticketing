@@ -314,6 +314,12 @@
       }
     }
 
+    & .tile-show__title {
+      @include respond(max-376) {
+        left: 40%;
+      }
+    }
+
     & .tile-show__link {
       font-size: 1.2rem;
 
