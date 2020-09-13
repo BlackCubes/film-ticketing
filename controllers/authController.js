@@ -220,9 +220,9 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     } catch (err) {
       return next(
         new AppError(
-          'There was an error sending the provided email! Try again later!'
-        ),
-        500
+          'There was an error sending the provided email! Try again later!',
+          500
+        )
       );
     }
   }
@@ -251,9 +251,9 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
     return next(
       new AppError(
-        'There was an error sending the provided email! Try again later!'
-      ),
-      500
+        'There was an error sending the provided email! Try again later!',
+        500
+      )
     );
   }
 });
