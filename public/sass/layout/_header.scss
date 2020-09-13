@@ -259,7 +259,7 @@
   transition: color 0.2s linear 0s;
 
   @include respond(max-320) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   @include respond(tab-port) {
@@ -280,9 +280,9 @@
 .nav__profile--logout {
   margin-top: 1.1rem;
 
-  @include respond(max-320) {
-    margin-top: 0.95rem;
-  }
+  // @include respond(max-320) {
+  //   margin-top: 0.95rem;
+  // }
 
   // @include respond(desktop) {
   //   margin-top: 0.9rem;
