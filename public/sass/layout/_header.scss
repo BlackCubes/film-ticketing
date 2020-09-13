@@ -206,6 +206,10 @@
 }
 
 .nav__region-item {
+  @include respond(max-320) {
+    font-size: 1.1rem;
+  }
+
   @include respond(desktop) {
     height: inherit;
     border-right: 1px solid transparent;
@@ -254,6 +258,10 @@
   cursor: pointer;
   transition: color 0.2s linear 0s;
 
+  @include respond(max-320) {
+    font-size: 1.2rem;
+  }
+
   @include respond(tab-port) {
     font-size: 1.6rem;
   }
@@ -272,6 +280,10 @@
 .nav__profile--logout {
   margin-top: 1.1rem;
 
+  @include respond(max-320) {
+    margin-top: 0.95rem;
+  }
+
   // @include respond(desktop) {
   //   margin-top: 0.9rem;
   // }
@@ -284,10 +296,19 @@
   padding: 0.7rem;
   align-items: center;
 
+  @include respond(max-320) {
+    margin-top: 0.4rem;
+  }
+
   &-img {
     width: 3rem;
     height: 3rem;
     margin-right: 1rem;
+
+    @include respond(max-320) {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
 
     @include respond(tab-port) {
       width: 3.5rem;
@@ -301,6 +322,12 @@
   height: 3rem;
   margin-right: 1rem;
   border-radius: 50%;
+
+  @include respond(max-320) {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.7rem;
+  }
 }
 
 .nav__toggle-wrapper {
@@ -518,6 +545,10 @@
   white-space: nowrap;
   transform: scaleY(0.2);
   transition: $transition-duration, opacity 1s;
+
+  @include respond(max-320) {
+    font-size: 1.25rem;
+  }
 
   @include respond(tab-port) {
     font-size: 1.7rem;
