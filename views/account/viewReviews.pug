@@ -9,6 +9,8 @@ mixin reviewsCard(type)
       - let showLink
       if user && user.role === 'admin'
         - showLink = `/admin/shows/${type.show.id}`
+      if user && user.role === 'event-owner'
+        - showLink = `/myShows/${type.show.slug}`
       else
         - showLink = `/show-overview/${type.show.slug}`
 
@@ -18,6 +20,8 @@ mixin reviewsCard(type)
     .card-account_content-type.u-center-text
       - let userRatingTitle = 'My'
       if user && user.role === 'admin'
+        - userRatingTitle = `${type.user.name}`
+      if user && user.role === 'event-owner'
         - userRatingTitle = `${type.user.name}`
 
       h3.card-account__content-type-name.heading-tertiary= `${userRatingTitle} Rating: ${type.rating}/5`
@@ -30,18 +34,34 @@ mixin reviewsCard(type)
       if user && user.role === 'admin' && reviewsOnShow
         .card-account__footer-duo-btn
           .card-account__footer-duo-btn-1
-            a.btn.btn__promo.btn--duo(href=`/admin/users/${type.user.id}/reviews`) View User's Reviews
+            a.btn.btn__promo.btn--duo(href=`/admin/users/${type.user.id}/reviews`) User's Reviews
 
           .card-account__footer-duo-btn-2
-            a.btn.btn__promo.btn--duo(href=`#`) Delete Review
+            a.btn.btn__promo.btn--duo(href=`#`) Delete
 
       else if user && user.role === 'admin' && reviewsOnUser
         .card-account__footer-duo-btn
           .card-account__footer-duo-btn-1
-            a.btn.btn__promo.btn--duo(href=`/admin/shows/${type.show.id}/reviews`) View Show's Reviews
+            a.btn.btn__promo.btn--duo(href=`/admin/shows/${type.show.id}/reviews`) Show's Reviews
 
           .card-account__footer-duo-btn-2
-            a.btn.btn__promo.btn--duo(href=`#`) Delete Review
+            a.btn.btn__promo.btn--duo(href=`#`) Delete
+
+      else if user && user.role === 'event-owner' && allReviewsTitle
+        .card-account__footer-duo-btn
+          .card-account__footer-duo-btn-1
+            a.btn.btn__promo.btn--duo(href=`/myShowsReviews/${type.show.slug}`) Show's Reviews
+
+          .card-account__footer-duo-btn-2
+            a.btn.btn__promo.btn--duo(href='#') Report
+
+      else if user && user.role === 'event-owner' && oneReviewTitle
+        .card-account__footer-duo-btn
+          .card-account__footer-duo-btn-1
+            a.btn.btn__promo.btn--duo(href='/myShowsReviews') Back
+
+          .card-account__footer-duo-btn-2
+            a.btn.btn__promo(href='#') Report
 
       else
         a.btn.btn__promo(href=`/myReviews/${type.show.slug}`) Edit
@@ -58,8 +78,12 @@ block content
               - let pageTitle
               if user && user.role === 'admin' && reviewsOnShow
                 - pageTitle = `Reviews For ${reviewsOnShow}`
-              else if user &&  user.role === 'admin' && reviewsOnUser
+              else if user && user.role === 'admin' && reviewsOnUser
                 - pageTitle = `Reviews For ${reviewsOnUser}`
+              else if user && user.role === 'event-owner' && allReviewsTitle
+                - pageTitle = allReviewsTitle
+              else if user && user.role === 'event-owner' && oneReviewTitle
+                - pageTitle = oneReviewTitle
               else
                 - pageTitle = 'My Reviews'
               h2.heading-secondary= pageTitle
