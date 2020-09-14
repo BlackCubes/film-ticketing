@@ -227,6 +227,28 @@ exports.getEventOwnerShowsReviews = catchAsync(async (req, res) => {
   });
 });
 
+exports.getEventOwnerShowReviews = catchAsync(async (req, res, next) => {
+  const show = await Show.find({
+    eventOrganizer: req.user.id,
+    slug: req.params.slug
+  }).populate({
+    path: 'reviews',
+    fields: 'id _id'
+  });
+
+  if (!show)
+    return next(new AppError('There is no show with that title!', 404));
+
+  const reviews = show.map(el => el.reviews[0]);
+  const oneReviewTitle = `${show.title} Reviews`;
+
+  res.status(200).render('account/viewReviews', {
+    title: `My Shows' Reviews: ${show.title}`,
+    reviews,
+    oneReviewTitle
+  });
+});
+
 // -- ADMIN
 exports.getAdminPage = (req, res) => {
   res.status(200).render('account/admin', {
