@@ -103,6 +103,13 @@ router.get(
   viewsController.getEventOwnerShow
 );
 
+router.get(
+  '/myShowsReviews',
+  authController.protect,
+  authController.restrictTo('event-owner', 'admin'),
+  viewsController.getEventOwnerShowsReviews
+);
+
 // ADMIN ROUTES
 router.get(
   '/admin',
