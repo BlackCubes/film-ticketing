@@ -211,6 +211,18 @@ exports.getEventOwnerShow = catchAsync(async (req, res) => {
   });
 });
 
+exports.getEventOwnerShowsReviews = catchAsync(async (req, res) => {
+  const shows = await Show.find({ eventOrganizer: req.user.id }).populate({
+    path: 'reviews',
+    fields: 'review rating user'
+  });
+
+  res.status(200).render('account/viewTestReviews', {
+    title: "My Shows' Reviews",
+    shows
+  });
+});
+
 // -- ADMIN
 exports.getAdminPage = (req, res) => {
   res.status(200).render('account/admin', {
