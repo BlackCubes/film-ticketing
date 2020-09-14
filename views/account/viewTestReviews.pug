@@ -9,4 +9,5 @@ block content
             .account-box__title.u-margin-top-small.u-margin-bottom-small
               h2.heading-secondary A Test Reviews Page
               each review in reviews
-                - console.log(review)
+                if review
+                  - console.log(review)
