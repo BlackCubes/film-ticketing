@@ -1509,6 +1509,9 @@ body {
   @media (min-width: 56.25em) {
     .stars-show {
       font-size: 3rem; } }
+  @media (min-width: 75em) {
+    .stars-show {
+      font-size: 1.5rem; } }
   .stars-show .star {
     color: #20b2aa;
     font-size: 2rem;
@@ -1525,6 +1528,9 @@ body {
     @media (min-width: 56.25em) {
       .stars-show .star {
         font-size: 3rem; } }
+    @media (min-width: 75em) {
+      .stars-show .star {
+        font-size: 1.5rem; } }
     .stars-show .star::before {
       content: '\2606'; }
     .stars-show .star.rated::before {
