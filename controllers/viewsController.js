@@ -219,7 +219,7 @@ exports.getEventOwnerShowsReviews = catchAsync(async (req, res) => {
 
   console.log('Shows: ', shows);
 
-  const reviewIds = shows.map(el => el.reviews);
+  const reviewIds = shows.map(el => el.reviews[0]);
 
   res.status(200).render('account/viewTestReviews', {
     title: "My Shows' Reviews",
