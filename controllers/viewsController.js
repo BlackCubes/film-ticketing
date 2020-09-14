@@ -228,18 +228,19 @@ exports.getEventOwnerShowsReviews = catchAsync(async (req, res) => {
 });
 
 exports.getEventOwnerShowReviews = catchAsync(async (req, res, next) => {
-  const show = await Show.find({
+  const show = await Show.findOne({
     eventOrganizer: req.user.id,
     slug: req.params.slug
   }).populate({
     path: 'reviews',
     fields: 'id _id'
   });
+  console.log(show);
 
   if (!show)
     return next(new AppError('There is no show with that title!', 404));
 
-  const reviews = show.map(el => el.reviews[0]);
+  const reviews = show.reviews.map(el => el[0]);
   const oneReviewTitle = `${show.title} Reviews`;
 
   res.status(200).render('account/viewReviews', {
