@@ -214,12 +214,14 @@ exports.getEventOwnerShow = catchAsync(async (req, res) => {
 exports.getEventOwnerShowsReviews = catchAsync(async (req, res) => {
   const shows = await Show.find({ eventOrganizer: req.user.id }).populate({
     path: 'reviews',
-    fields: 'review rating user'
+    fields: 'id _id'
   });
+
+  const reviewIds = shows.map(el => el.reviews);
 
   res.status(200).render('account/viewTestReviews', {
     title: "My Shows' Reviews",
-    shows
+    reviewIds
   });
 });
 
