@@ -239,9 +239,8 @@ exports.getEventOwnerShowReviews = catchAsync(async (req, res, next) => {
   if (!show)
     return next(new AppError('There is no show with that title!', 404));
 
-  const reviews = show.reviews.map(el => el);
+  const { reviews } = show;
   const oneReviewTitle = `${show.title} Reviews`;
-  console.log(show.reviews);
 
   res.status(200).render('account/viewReviews', {
     title: `My Shows' Reviews: ${show.title}`,
