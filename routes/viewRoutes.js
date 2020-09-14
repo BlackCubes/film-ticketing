@@ -110,6 +110,13 @@ router.get(
   viewsController.getEventOwnerShowsReviews
 );
 
+router.get(
+  '/myShowsReviews/:slug',
+  authController.protect,
+  authController.restrictTo('event-owner', 'admin'),
+  viewsController.getEventOwnerShowReviews
+);
+
 // ADMIN ROUTES
 router.get(
   '/admin',
