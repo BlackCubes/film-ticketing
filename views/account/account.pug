@@ -6,15 +6,18 @@ block content
       .user-view__content
         .user-view__form-container
           - let u
+          - let uPageTitle
           if optionUser
             - u = optionUser
+            - uPageTitle = `${u.name}' Settings`
           else
             - u = user
+            - uPageTitle = 'Your Account Settings'
 
           form#updatePersonalForm.form(novalidate)
             .form__group
               .form__title.u-center-text
-                h2.heading-secondary Your Account Settings
+                h2.heading-secondary= uPageTitle
 
             .form__group
               input#name.form__input.input-text(type='text' name='name' placeholder='Name*' value=`${u.name}` minlength='2' maxlength='70' required)
