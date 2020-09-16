@@ -112,3 +112,8 @@ a {
   //   padding-bottom: 13rem;
   // }
 }
+
+::selection {
+  background-color: $color-lightseagreen;
+  color: $color-black;
+}

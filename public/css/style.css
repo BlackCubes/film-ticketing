@@ -119,6 +119,10 @@ a {
 .main-account {
   padding-bottom: 19rem; }
 
+::selection {
+  background-color: #20b2aa;
+  color: #000; }
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
