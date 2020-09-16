@@ -105,10 +105,6 @@ exports.protect = catchAsync(async (req, res, next) => {
     );
   }
 
-  // console.log('Headers: ', req.headers);
-  // console.log('Cookies: ', req.cookies);
-  // console.log('Token 2nd Check: ', token);
-
   // const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
   const decoded = await jwt.verify(token, process.env.JWT_SECRET);
 
@@ -177,7 +173,6 @@ exports.restrictTo = (...roles) => {
 };
 
 exports.checkLogin = (req, res, next) => {
-  console.log('Req: ', req);
   if (req.cookies.jwt) {
     return next(new AppError('You are still logged in!', 403));
   }
