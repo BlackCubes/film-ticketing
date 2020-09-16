@@ -16,7 +16,12 @@ router.post(
   validationController.signup,
   authController.signup
 );
-router.post('/login', validationController.login, authController.login);
+router.post(
+  '/login',
+  authController.checkLogin,
+  validationController.login,
+  authController.login
+);
 router.get('/logout', authController.logout);
 router.post(
   '/forgotPassword',
