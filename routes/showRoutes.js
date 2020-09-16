@@ -39,6 +39,7 @@ router.post(
   '/createMyShow',
   authController.protect,
   authController.restrictTo('event-owner'),
+  showController.checkShowCreated,
   validationController.createShow,
   photoController.bufferPhoto('poster'),
   photoController.uploadPhoto('kinetotickets-shows'),
