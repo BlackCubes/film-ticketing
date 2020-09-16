@@ -20,7 +20,9 @@ exports.getEventOrganizer = (req, res, next) => {
 };
 
 exports.checkShowCreated = catchAsync(async (req, res, next) => {
-  const showCreated = await Show.find({ eventOrganizer: req.user.id });
+  const showCreated = await Show.find({ eventOrganizer: req.user.id }).select(
+    '+createdAt'
+  );
 
   console.log(showCreated);
 
