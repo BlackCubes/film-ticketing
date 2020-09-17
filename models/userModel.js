@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema({
     cloudinaryId: String,
     cloudinaryUrl: String
   },
+  cloudinaryUploadedAt: Date,
   role: {
     type: String,
     enum: ['user', 'event-owner', 'admin'],
@@ -99,6 +100,14 @@ userSchema.pre('save', async function(next) {
   if (!this.isModified('password') || this.isNew) return next();
 
   this.passwordChangedAt = Date.now() - 1000;
+  next();
+});
+
+// -- update the cloudinary uploaded date if the cloudinary photo changes
+userSchema.pre('save', async function(next) {
+  if (!this.cloudinaryPhoto) return next();
+
+  this.cloudinaryUploadedAt = Date.now() - 1000;
   next();
 });
 
