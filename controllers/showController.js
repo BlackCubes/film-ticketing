@@ -34,6 +34,7 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
 
   console.log('Created at: ', createdAt);
   console.log('Past date: ', pastDate);
+  console.log('Test date: ', testDate);
   console.log('Check date truthy', checkDate(createdAt, pastDate));
   console.log('Test date truthy', checkDate(testDate, pastDate));
 
