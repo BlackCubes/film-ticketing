@@ -21,7 +21,7 @@ exports.getEventOrganizer = (req, res, next) => {
 
 exports.checkShowCreated = catchAsync(async (req, res, next) => {
   const checkDate = (check, test) => {
-    return check.some(checkVal => checkVal < test);
+    return check.some(checkVal => checkVal > test);
   };
   const currentDate = new Date();
   const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 14));
