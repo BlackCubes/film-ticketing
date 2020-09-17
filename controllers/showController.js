@@ -27,9 +27,9 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
   const createdAt = shows.map(el => el.createdAt);
   const checkDate = createdAt.forEach(date => {
     const currentDate = new Date();
-    const pastDate = currentDate.setDate(currentDate.getDate() - 14);
+    const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 14));
 
-    console.log('Past date: ', new Date(pastDate));
+    console.log('Past date: ', pastDate);
     if (date < pastDate) return true;
     return false;
   });
