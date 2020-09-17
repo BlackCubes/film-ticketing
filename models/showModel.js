@@ -79,6 +79,7 @@ const showSchema = new mongoose.Schema(
         required: [true, 'A show image must have a Cloudinary URL!']
       }
     },
+    cloudinaryUploadedAt: Date,
     language: {
       type: String,
       default: 'English'
@@ -265,6 +266,14 @@ showSchema.pre('save', async function(next) {
     return next();
 
   this.showChangedAt = Date.now() - 1000;
+  next();
+});
+
+// -- update the cloudinary uploaded date if the cloudinary photo changes
+showSchema.pre('save', async function(next) {
+  if (!this.cloudinaryPhoto) return next();
+
+  this.cloudinaryUploadedAt = Date.now() - 1000;
   next();
 });
 
