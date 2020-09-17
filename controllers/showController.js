@@ -24,22 +24,14 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
     return check.some(checkVal => checkVal > test);
   };
   const currentDate = new Date();
-  const testyDatey = new Date();
   const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 14));
-  const testDate = [new Date(testyDatey.setDate(testyDatey.getDate() - 7))];
 
   const shows = await Show.find({ eventOrganizer: req.user.id }).select(
     '+createdAt'
   );
   const createdAt = shows.map(el => el.createdAt);
 
-  console.log('Created at: ', createdAt);
-  console.log('Past date: ', pastDate);
-  console.log('Test date: ', testDate);
-  console.log('Check date truthy', checkDate(createdAt, pastDate));
-  console.log('Test date truthy', checkDate(testDate, pastDate));
-
-  if (checkDate(testDate, pastDate))
+  if (checkDate(createdAt, pastDate))
     return next(
       new AppError(
         'You need to wait at least 2 weeks after you created your previous show before starting a new one.',
