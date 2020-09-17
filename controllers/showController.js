@@ -29,7 +29,7 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
     const currentDate = new Date();
     const pastDate = currentDate.setDate(currentDate.getDate() - 14);
 
-    console.log('Past date: ', new Date(pastDate));
+    console.log('Past date: ', new Date(pastDate).toISOString());
     if (date < pastDate) return true;
     return false;
   });
