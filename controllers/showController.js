@@ -20,21 +20,18 @@ exports.getEventOrganizer = (req, res, next) => {
 };
 
 exports.checkShowCreated = catchAsync(async (req, res, next) => {
+  const checkDate = (check, test) => {
+    return check.some(checkVal => checkVal < test);
+  };
+  const currentDate = new Date();
+  const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 14));
+
   const shows = await Show.find({ eventOrganizer: req.user.id }).select(
     '+createdAt'
   );
-
   const createdAt = shows.map(el => el.createdAt);
-  const checkDate = createdAt.forEach(date => {
-    const currentDate = new Date();
-    const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 14));
 
-    console.log('Past date: ', pastDate);
-    if (date < pastDate) return true;
-    return false;
-  });
-
-  console.log('Check date truthy', checkDate);
+  console.log('Check date truthy', checkDate(createdAt, pastDate));
 
   next();
 });
