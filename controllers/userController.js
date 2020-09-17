@@ -14,6 +14,8 @@ exports.getMe = (req, res, next) => {
 };
 
 exports.checkPhotoUploaded = catchAsync(async (req, res, next) => {
+  if (!req.params.userPhoto) return next();
+
   const currentDate = new Date();
   const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 1));
 
