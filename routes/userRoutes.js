@@ -51,7 +51,7 @@ router.patch(
 router.get(
   '/me',
   authController.protect,
-  // authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('users', 'event-owner', 'admin'),
   userController.getMe,
   userController.getUser
 );
@@ -59,7 +59,7 @@ router.get(
 router.patch(
   '/updateMe',
   authController.protect,
-  // authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('users', 'event-owner', 'admin'),
   validationController.updateUser,
   photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-users', false),
@@ -69,7 +69,7 @@ router.patch(
 router.patch(
   '/updateMe/:userPhoto',
   authController.protect,
-  // authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('users', 'event-owner', 'admin'),
   validationController.updateUser,
   photoController.bufferPhoto('photo'),
   photoController.deletePhoto('users'),
