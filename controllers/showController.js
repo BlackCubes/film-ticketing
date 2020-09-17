@@ -39,6 +39,14 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
   console.log('Check date truthy', checkDate(createdAt, pastDate));
   console.log('Test date truthy', checkDate(testDate, pastDate));
 
+  if (checkDate(testDate, pastDate))
+    return next(
+      new AppError(
+        'You need to wait at least 2 weeks after you created your previous show before starting a new one.',
+        403
+      )
+    );
+
   next();
 });
 
