@@ -2,6 +2,7 @@ const factory = require('./handlerFactory');
 const User = require('./../models/userModel');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
+const checkDate = require('./../utils/checkDate');
 const filterObj = require('./../utils/filterObject');
 const sanitize = require('./../utils/sanitize');
 
@@ -11,6 +12,24 @@ exports.getMe = (req, res, next) => {
   req.params.id = [req.user.id];
   next();
 };
+
+exports.checkPhotoUploaded = catchAsync(async (req, res, next) => {
+  const currentDate = new Date();
+  const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 1));
+
+  const user = await User.findById(req.user.id);
+  const { cloudinaryUploadedAt } = user;
+
+  if (checkDate(cloudinaryUploadedAt, pastDate))
+    return next(
+      new AppError(
+        'You need to wait at least 24 hours after you have uploaded your previous photo before adding a new one.',
+        403
+      )
+    );
+
+  next();
+});
 
 exports.updateMe = catchAsync(async (req, res, next) => {
   if (req.body.password || req.body.passwordConfirm) {
