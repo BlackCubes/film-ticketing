@@ -25,6 +25,7 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
   };
   const currentDate = new Date();
   const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 14));
+  const testDate = [new Date(currentDate.setDate(currentDate.getDate() - 7))];
 
   const shows = await Show.find({ eventOrganizer: req.user.id }).select(
     '+createdAt'
@@ -34,6 +35,7 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
   console.log('Created at: ', createdAt);
   console.log('Past date: ', pastDate);
   console.log('Check date truthy', checkDate(createdAt, pastDate));
+  console.log('Test date truthy', checkDate(testDate, pastDate));
 
   next();
 });
