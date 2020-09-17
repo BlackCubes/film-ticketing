@@ -3,6 +3,7 @@ const Show = require('./../models/showModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
+const checkDate = require('./../utils/checkDate');
 const filterObj = require('./../utils/filterObject');
 const sanitize = require('./../utils/sanitize');
 
@@ -20,9 +21,6 @@ exports.getEventOrganizer = (req, res, next) => {
 };
 
 exports.checkShowCreated = catchAsync(async (req, res, next) => {
-  const checkDate = (check, test) => {
-    return check.some(checkVal => checkVal > test);
-  };
   const currentDate = new Date();
   const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 14));
 
