@@ -40,6 +40,24 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
   next();
 });
 
+exports.checkPhotoUpload = catchAsync(async (req, res, next) => {
+  const currentDate = new Date();
+  const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 1));
+
+  const show = await Show.findById(req.params.id);
+  const { cloudinaryUploadedAt } = show;
+
+  if (checkDate(cloudinaryUploadedAt, pastDate))
+    return next(
+      new AppError(
+        'You need to wait at least 24 hours after you have uploaded your previous photo before adding a new one.',
+        403
+      )
+    );
+
+  next();
+});
+
 exports.createMyShow = catchAsync(async (req, res, next) => {
   if (req.body.ratingsAverage || req.body.ratingsQuantity) {
     return next(new AppError('This route is not for making reviews!', 403));
