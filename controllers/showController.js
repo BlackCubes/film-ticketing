@@ -31,6 +31,8 @@ exports.checkShowCreated = catchAsync(async (req, res, next) => {
   );
   const createdAt = shows.map(el => el.createdAt);
 
+  console.log('Created at: ', createdAt);
+  console.log('Past date: ', pastDate);
   console.log('Check date truthy', checkDate(createdAt, pastDate));
 
   next();
