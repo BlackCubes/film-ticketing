@@ -87,9 +87,9 @@ exports.reactivateMe = catchAsync(async (req, res, next) => {
       new AppError('You cannot reactivate your account as an admin!', 403)
     );
 
-  const userExist = await User.findById(req.params.id);
+  // const userExist = await User.findById(req.params.id);
 
-  if (!userExist) return next(new AppError('This user does not exist!', 404));
+  // if (!userExist) return next(new AppError('This user does not exist!', 404));
 
   const user = await User.findByIdAndUpdate(req.params.id, { active: true });
 
