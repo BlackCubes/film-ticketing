@@ -135,6 +135,7 @@ router
   .delete(
     authController.protect,
     authController.restrictTo('admin'),
+    authController.verifyPassword,
     userController.deleteUser
   );
 
