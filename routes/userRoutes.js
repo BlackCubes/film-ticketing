@@ -79,7 +79,13 @@ router.patch(
   userController.updateMe
 );
 
-router.delete('/deleteMe', authController.protect, userController.deleteMe);
+router.delete(
+  '/deleteMe',
+  authController.protect,
+  authController.restrictTo('user', 'event-owner'),
+  authController.verifyPassword,
+  userController.deleteMe
+);
 
 // RESTRICT ROUTES ONLY TO ADMINS
 // router.use(authController.restrictTo('admin'));
