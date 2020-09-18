@@ -28601,7 +28601,7 @@ exports.updateCastCrewSettings = updateCastCrewSettings;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteCastCrew = exports.deleteShowtime = exports.deleteTheater = exports.deleteReview = exports.deleteShow = void 0;
+exports.deleteCastCrew = exports.deleteShowtime = exports.deleteTheater = exports.deleteReview = exports.deleteShow = exports.deactivateUser = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -28613,15 +28613,15 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var deleteShow = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, showId) {
+var deactivateUser = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(data, userId) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/shows/".concat(showId);
+            url = userId ? "http://127.0.0.1:3000/api/users/deleteMe/".concat(userId) : 'http://127.0.0.1:3000/api/user/deleteMe';
             _context.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28633,9 +28633,9 @@ var deleteShow = /*#__PURE__*/function () {
             res = _context.sent;
 
             if (res.status === 204) {
-              (0, _alerts.showAlert)('success', 'Show deleted!');
+              (0, _alerts.showAlert)('success', 'Account Deactivated!');
               window.setTimeout(function () {
-                location.assign('/admin/shows');
+                location.assign('/');
               }, 1000);
             }
 
@@ -28655,22 +28655,22 @@ var deleteShow = /*#__PURE__*/function () {
     }, _callee, null, [[0, 8]]);
   }));
 
-  return function deleteShow(_x, _x2) {
+  return function deactivateUser(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
 
-exports.deleteShow = deleteShow;
+exports.deactivateUser = deactivateUser;
 
-var deleteReview = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data, reviewId) {
+var deleteShow = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(data, showId) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/reviews/deleteMyReview/".concat(reviewId);
+            url = "http://127.0.0.1:3000/api/v1/shows/".concat(showId);
             _context2.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28682,9 +28682,9 @@ var deleteReview = /*#__PURE__*/function () {
             res = _context2.sent;
 
             if (res.status === 204) {
-              (0, _alerts.showAlert)('success', 'Review deleted!');
+              (0, _alerts.showAlert)('success', 'Show deleted!');
               window.setTimeout(function () {
-                location.assign('/myReviews');
+                location.assign('/admin/shows');
               }, 1000);
             }
 
@@ -28704,22 +28704,22 @@ var deleteReview = /*#__PURE__*/function () {
     }, _callee2, null, [[0, 8]]);
   }));
 
-  return function deleteReview(_x3, _x4) {
+  return function deleteShow(_x3, _x4) {
     return _ref2.apply(this, arguments);
   };
 }();
 
-exports.deleteReview = deleteReview;
+exports.deleteShow = deleteShow;
 
-var deleteTheater = /*#__PURE__*/function () {
-  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(data, theaterId) {
+var deleteReview = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(data, reviewId) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId);
+            url = "http://127.0.0.1:3000/api/v1/reviews/deleteMyReview/".concat(reviewId);
             _context3.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28731,9 +28731,9 @@ var deleteTheater = /*#__PURE__*/function () {
             res = _context3.sent;
 
             if (res.status === 204) {
-              (0, _alerts.showAlert)('success', 'Theater deleted!');
+              (0, _alerts.showAlert)('success', 'Review deleted!');
               window.setTimeout(function () {
-                location.assign('/admin/theaters');
+                location.assign('/myReviews');
               }, 1000);
             }
 
@@ -28753,22 +28753,22 @@ var deleteTheater = /*#__PURE__*/function () {
     }, _callee3, null, [[0, 8]]);
   }));
 
-  return function deleteTheater(_x5, _x6) {
+  return function deleteReview(_x5, _x6) {
     return _ref3.apply(this, arguments);
   };
 }();
 
-exports.deleteTheater = deleteTheater;
+exports.deleteReview = deleteReview;
 
-var deleteShowtime = /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, showtimeId) {
+var deleteTheater = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(data, theaterId) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/showtimes/".concat(showtimeId);
+            url = "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId);
             _context4.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28780,9 +28780,9 @@ var deleteShowtime = /*#__PURE__*/function () {
             res = _context4.sent;
 
             if (res.status === 204) {
-              (0, _alerts.showAlert)('success', 'Showtime deleted!');
+              (0, _alerts.showAlert)('success', 'Theater deleted!');
               window.setTimeout(function () {
-                location.assign('/admin/showtimes');
+                location.assign('/admin/theaters');
               }, 1000);
             }
 
@@ -28802,22 +28802,22 @@ var deleteShowtime = /*#__PURE__*/function () {
     }, _callee4, null, [[0, 8]]);
   }));
 
-  return function deleteShowtime(_x7, _x8) {
+  return function deleteTheater(_x7, _x8) {
     return _ref4.apply(this, arguments);
   };
 }();
 
-exports.deleteShowtime = deleteShowtime;
+exports.deleteTheater = deleteTheater;
 
-var deleteCastCrew = /*#__PURE__*/function () {
-  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(data, castcrewId) {
+var deleteShowtime = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(data, showtimeId) {
     var url, res;
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId);
+            url = "http://127.0.0.1:3000/api/v1/showtimes/".concat(showtimeId);
             _context5.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28829,9 +28829,9 @@ var deleteCastCrew = /*#__PURE__*/function () {
             res = _context5.sent;
 
             if (res.status === 204) {
-              (0, _alerts.showAlert)('success', 'Cast/Crew deleted!');
+              (0, _alerts.showAlert)('success', 'Showtime deleted!');
               window.setTimeout(function () {
-                location.assign('/admin/castcrews');
+                location.assign('/admin/showtimes');
               }, 1000);
             }
 
@@ -28851,8 +28851,57 @@ var deleteCastCrew = /*#__PURE__*/function () {
     }, _callee5, null, [[0, 8]]);
   }));
 
-  return function deleteCastCrew(_x9, _x10) {
+  return function deleteShowtime(_x9, _x10) {
     return _ref5.apply(this, arguments);
+  };
+}();
+
+exports.deleteShowtime = deleteShowtime;
+
+var deleteCastCrew = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(data, castcrewId) {
+    var url, res;
+    return regeneratorRuntime.wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            _context6.prev = 0;
+            url = "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId);
+            _context6.next = 4;
+            return (0, _axios.default)({
+              method: 'DELETE',
+              url: url,
+              data: data
+            });
+
+          case 4:
+            res = _context6.sent;
+
+            if (res.status === 204) {
+              (0, _alerts.showAlert)('success', 'Cast/Crew deleted!');
+              window.setTimeout(function () {
+                location.assign('/admin/castcrews');
+              }, 1000);
+            }
+
+            _context6.next = 11;
+            break;
+
+          case 8:
+            _context6.prev = 8;
+            _context6.t0 = _context6["catch"](0);
+            (0, _alerts.showAlert)('error', _context6.t0.response.data.message);
+
+          case 11:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6, null, [[0, 8]]);
+  }));
+
+  return function deleteCastCrew(_x11, _x12) {
+    return _ref6.apply(this, arguments);
   };
 }();
 

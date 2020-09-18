@@ -2,6 +2,29 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 
+export const deactivateUser = async (data, userId) => {
+  try {
+    const url = userId
+      ? `http://127.0.0.1:3000/api/users/deleteMe/${userId}`
+      : 'http://127.0.0.1:3000/api/user/deleteMe';
+
+    const res = await axios({
+      method: 'DELETE',
+      url,
+      data
+    });
+
+    if (res.status === 204) {
+      showAlert('success', 'Account Deactivated!');
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1000);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
+
 export const deleteShow = async (data, showId) => {
   try {
     const url = `http://127.0.0.1:3000/api/v1/shows/${showId}`;
