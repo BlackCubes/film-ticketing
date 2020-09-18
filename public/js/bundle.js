@@ -28621,7 +28621,7 @@ var deactivateUser = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            url = userId ? "http://127.0.0.1:3000/api/users/deleteMe/".concat(userId) : 'http://127.0.0.1:3000/api/user/deleteMe';
+            url = userId ? "http://127.0.0.1:3000/api/users/deleteMe/".concat(userId) : 'http://127.0.0.1:3000/api/users/deleteMe';
             _context.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',

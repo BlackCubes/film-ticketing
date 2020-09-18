@@ -6,7 +6,7 @@ export const deactivateUser = async (data, userId) => {
   try {
     const url = userId
       ? `http://127.0.0.1:3000/api/users/deleteMe/${userId}`
-      : 'http://127.0.0.1:3000/api/user/deleteMe';
+      : 'http://127.0.0.1:3000/api/users/deleteMe';
 
     const res = await axios({
       method: 'DELETE',
