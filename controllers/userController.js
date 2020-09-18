@@ -69,6 +69,12 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
       new AppError('An error has occured. Please contact the system admin', 500)
     );
 
+  if (req.user.role !== 'admin')
+    res.cookie('jwt', 'loggedout', {
+      expires: new Date(Date.now() + 10 * 1000),
+      httpOnly: true
+    });
+
   res.status(204).json({
     status: 'success',
     data: null
