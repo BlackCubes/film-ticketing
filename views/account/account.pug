@@ -148,7 +148,7 @@ block content
                   small.form__info-small.small-text Please enter your password to deactivate #{user.role === 'admin' ? 'the' : 'your'} account.
 
               .form__group
-                input#password.form__input.input-text(type='password' name='password' placeholder='••••••••' required)
+                input#passwordConfirm.form__input.input-text(type='password' name='password' placeholder='••••••••' required)
                 label.form__label.label-text(for='password') Please enter your password
 
               if user.role === 'user' || user.role === 'event-owner'
