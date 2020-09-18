@@ -11,7 +11,8 @@
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "watch:sass": "node-sass public/sass/main.scss public/css/style.css -w",
-    "compile:sass": "node-sass public/sass/main.scss public/css/style.comp.css"
+    "compile:sass": "node-sass public/sass/main.scss public/css/style.comp.css",
+    "concat:css": "concat -o public/css/style.concat.css public/css/all.css public/css/style.comp.css"
   },
   "repository": {
     "type": "git",
