@@ -25,6 +25,27 @@ export const deactivateUser = async (data, userId) => {
   }
 };
 
+export const deleteUser = async (data, userId) => {
+  try {
+    const url = `http://127.0.0.1:3000/api/v1/users/${userId}`;
+
+    const res = await axios({
+      method: 'DELETE',
+      url,
+      data
+    });
+
+    if (res.status === 204) {
+      showAlert('success', 'Account Deleted!');
+      window.setTimeout(() => {
+        location.assign('/admin/users');
+      }, 1000);
+    }
+  } catch (err) {
+    showAlert('error', err.response.data.message);
+  }
+};
+
 export const deleteShow = async (data, showId) => {
   try {
     const url = `http://127.0.0.1:3000/api/v1/shows/${showId}`;
