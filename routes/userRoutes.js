@@ -93,6 +93,13 @@ router.delete(
   authController.verifyPassword,
   userController.deleteMe
 );
+router.patch(
+  '/reactivateMe/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  authController.verifyPassword,
+  userController.reactivateMe
+);
 
 // RESTRICT ROUTES ONLY TO ADMINS
 // router.use(authController.restrictTo('admin'));
