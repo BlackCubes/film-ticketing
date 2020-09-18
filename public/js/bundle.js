@@ -29773,7 +29773,7 @@ if (deactivateUserForm) {
               }
 
               password = document.getElementById('passwordConfirm').value;
-              document.getElementById('btnDeactivateUserData').textContent = 'Deactivating';
+              document.getElementById('btnDeactivateUserData').textContent = 'Deactivating...';
               _context8.next = 12;
               return (0, _deleteSettings.deactivateUser)({
                 password: password

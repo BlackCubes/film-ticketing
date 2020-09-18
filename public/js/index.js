@@ -517,7 +517,7 @@ if (deactivateUserForm) {
         const password = document.getElementById('passwordConfirm').value;
 
         document.getElementById('btnDeactivateUserData').textContent =
-          'Deactivating';
+          'Deactivating...';
 
         await deactivateUser({ password }, userId);
 
