@@ -134,6 +134,52 @@ block content
 
             .form__group
               button#btnUpdatePass.btn.btn--blue Update
+        
+        //- Deactivate account
+        .line &nbsp;
+
+        .user-view__form-container
+          form#deactivateUserForm.form(novalidate)
+            .form__group.form__group--info
+              .form__title.u-center-text
+                h2.heading-secondary.u-margin-bottom-small Deactivate Account
+
+                small.form__info-small.small-text Please enter your password to deactivate #{user.role === 'admin' ? 'the' : 'your'} account.
+
+            .form__group
+              input#password.form__input.input-text(type='password' name='password' placeholder='••••••••' required)
+              label.form__label.label-text(for='password') Please enter your password
+
+            if user.role === 'user' || user.role === 'event-owner'
+              .form__group
+                button#btnDeactivateUserData.btn.btn--red Deactivate
+
+            if user.role === 'admin' && user.role !== u.role
+              .form__group
+                button#btnDeactivateUserData.btn.btn--red(type='submit' name='hexadecimal-btn' data-user-id=`${userId}`) Deactivate
+
+        //- Delete account
+        .line &nbsp;
+
+        .user-view__form-container
+          form#deleteUserForm.form(novalidate)
+            .form__group.form__group--info
+              .form__title.u-center-text
+                - const deleteUserTitle = (user.role === 'admin') ? 'Delete User' : 'Delete Account'
+
+                h2.heading-secondary.u-margin-bottom-small= deleteUserTitle
+
+                - const deleteMoreInfo = (user.role === 'admin') ? 'Please enter your password to delete the user.' : 'If you wish to delete your account, please contact the system admin.'
+
+                small.form__info-small.small-text= deleteMoreInfo
+
+            if user.role === 'admin'
+              .form__group
+                input#password.form__input.input-text(type='password' name='password' placeholder='••••••••' required)
+                label.form__label.label-text(for='password') Please enter your password
+
+              .form__group
+                button#btnDeleteUserData.btn.btn--red(type='submit' name='hexadecimal-btn' data-user-id=`${u.id}`) Delete
 
 block circleNavigation
   include ../_circleNav
