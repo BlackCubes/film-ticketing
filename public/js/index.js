@@ -33,6 +33,7 @@ import {
   updateCastCrewSettings
 } from './updateSettings';
 import {
+  deactivateUser,
   deleteShow,
   deleteReview,
   deleteTheater,
@@ -62,11 +63,11 @@ const forgotPassForm = document.getElementById('forgotPassForm');
 const resetPassForm = document.getElementById('resetpassForm');
 const registerForm = document.getElementById('registerForm'),
   registerFieldlist1 = document.getElementById('registerFieldlist1');
-const updatePersonalForm = document.getElementById('updatePersonalForm');
-const updateEmailUsernameForm = document.getElementById(
-  'updateEmailUsernameForm'
-);
-const updatePassForm = document.getElementById('updatePassForm');
+const updatePersonalForm = document.getElementById('updatePersonalForm'),
+  updateEmailUsernameForm = document.getElementById('updateEmailUsernameForm'),
+  updatePassForm = document.getElementById('updatePassForm'),
+  deactivateUserForm = document.getElementById('deactivateUserForm'),
+  deleteUserForm = document.getElementById('deleteUserForm');
 const eoCreateShowForm = document.getElementById('eoCreateShowForm'),
   eoFieldlist1 = document.getElementById('eoFieldlist1');
 const adCreateTheaterForm = document.getElementById('adCreateTheaterForm'),
@@ -497,6 +498,37 @@ if (updatePassForm) {
       }
     }
   });
+}
+
+if (deactivateUserForm) {
+  deactivateUserForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const deactivateUserBtn = document.getElementById('btnDeactivateUserData');
+    const { userId } = deactivateUserBtn.dataset;
+
+    validateAttribute(document.getElementById('passwordConfirm'));
+    if (userId) validateAttribute(deactivateUserBtn, userId);
+
+    if (attributeStatus) {
+      checkFormSubmit(document.getElementById('passwordConfirm'));
+
+      if (formStatus === 1) {
+        const password = document.getElementById('passwordConfirm').value;
+
+        document.getElementById('btnDeactivateUserData').textContent =
+          'Deactivating';
+
+        await deactivateUser({ password }, userId);
+
+        document.getElementById('btnDeactivateUserData').textContent =
+          'Deactivate';
+      }
+    }
+  });
+}
+
+if (deleteUserForm) {
 }
 
 if (createReviewForm) {
