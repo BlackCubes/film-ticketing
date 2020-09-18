@@ -49,6 +49,15 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteMe = catchAsync(async (req, res, next) => {
+  if (
+    req.user.role === 'admin' &&
+    req.params.id &&
+    req.params.id === req.user.id
+  )
+    return next(
+      new AppError('You cannot deactivate your account as an admin!', 403)
+    );
+
   let query;
   if (req.user.role === 'admin' && req.params.id) query = req.params.id;
   if (req.user.role === 'user') query = req.user.id;
@@ -67,6 +76,11 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
 });
 
 exports.reactivateMe = catchAsync(async (req, res, next) => {
+  if (req.user.role === 'admin' && req.params.id === req.user.id)
+    return next(
+      new AppError('You cannot reactivate your account as an admin!', 403)
+    );
+
   const userExist = await User.findById(req.params.id);
 
   if (!userExist) return next(new AppError('This user does not exist!', 404));
