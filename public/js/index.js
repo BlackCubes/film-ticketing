@@ -34,6 +34,7 @@ import {
 } from './updateSettings';
 import {
   deactivateUser,
+  deleteUser,
   deleteShow,
   deleteReview,
   deleteTheater,
@@ -529,6 +530,30 @@ if (deactivateUserForm) {
 }
 
 if (deleteUserForm) {
+  deleteUserForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const deleteUserBtn = document.getElementById('btnDeleteUserData');
+    const { userId } = deleteUserBtn.dataset;
+
+    validateAttribute(document.getElementById('password'));
+    validateAttribute(deleteUserBtn, userId);
+
+    if (attributeStatus) {
+      checkFormSubmit(document.getElementById('password'));
+
+      if (formStatus === 1) {
+        const password = document.getElementById('password').value;
+
+        document.getElementById('btnDeleteUserData').textContent =
+          'Deleting...';
+
+        await deleteUser({ password }, userId);
+
+        document.getElementById('btnDeleteUserData').textContent = 'Delete';
+      }
+    }
+  });
 }
 
 if (createReviewForm) {
