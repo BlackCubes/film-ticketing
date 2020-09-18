@@ -266,7 +266,7 @@ exports.getAdminUserOptions = (req, res) => {
 };
 
 exports.getAdminUsers = catchAsync(async (req, res, next) => {
-  const optionUsers = await User.find();
+  const optionUsers = await User.find().select('+active');
 
   res.status(200).render('account/viewUsers', {
     title: 'Admin - Users',
@@ -275,7 +275,7 @@ exports.getAdminUsers = catchAsync(async (req, res, next) => {
 });
 
 exports.getAdminUser = catchAsync(async (req, res, next) => {
-  const optionUser = await User.findById(req.params.id);
+  const optionUser = await User.findById(req.params.id).select('+active');
 
   res.status(200).render('account/account', {
     title: `Admin - Users: ${optionUser.name}`,
@@ -284,7 +284,7 @@ exports.getAdminUser = catchAsync(async (req, res, next) => {
 });
 
 exports.getAdminUserShows = catchAsync(async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.params.id).select('+active');
 
   if (!user) return next(new AppError('There is no user with that id!', 404));
 
@@ -297,7 +297,7 @@ exports.getAdminUserShows = catchAsync(async (req, res, next) => {
 });
 
 exports.getAdminUserReviews = catchAsync(async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.params.id).select('+active');
 
   if (!user) return next(new AppError('There is no user with that id!', 404));
 
