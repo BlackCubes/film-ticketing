@@ -72,6 +72,7 @@
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
     "parcel-bundler": "^1.12.4",
+    "postcss-cli": "^7.1.2",
     "prettier": "^1.19.1"
   },
   "engines": {
