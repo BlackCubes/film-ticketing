@@ -86,6 +86,13 @@ router.delete(
   authController.verifyPassword,
   userController.deleteMe
 );
+router.delete(
+  '/deleteMe/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  authController.verifyPassword,
+  userController.deleteMe
+);
 
 // RESTRICT ROUTES ONLY TO ADMINS
 // router.use(authController.restrictTo('admin'));
