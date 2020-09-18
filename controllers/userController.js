@@ -93,6 +93,8 @@ exports.reactivateMe = catchAsync(async (req, res, next) => {
 
   const user = await User.findByIdAndUpdate(req.params.id, { active: true });
 
+  console.log(user);
+
   if (!user)
     return next(new AppError('An error has occured on activating', 500));
 
