@@ -5,8 +5,8 @@ import { showAlert } from './alerts';
 export const deactivateUser = async (data, userId) => {
   try {
     const url = userId
-      ? `http://127.0.0.1:3000/api/users/deleteMe/${userId}`
-      : 'http://127.0.0.1:3000/api/users/deleteMe';
+      ? `http://127.0.0.1:3000/api/v1/users/deleteMe/${userId}`
+      : 'http://127.0.0.1:3000/api/v1/users/deleteMe';
 
     const res = await axios({
       method: 'DELETE',
