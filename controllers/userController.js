@@ -81,31 +81,6 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.reactivateMe = catchAsync(async (req, res, next) => {
-  if (req.user.role === 'admin' && req.params.id === req.user.id)
-    return next(
-      new AppError('You cannot reactivate your account as an admin!', 403)
-    );
-
-  // const userExist = await User.findById(req.params.id);
-
-  // if (!userExist) return next(new AppError('This user does not exist!', 404));
-
-  const user = await User.findByIdAndUpdate(req.params.id, { active: true });
-
-  console.log(user);
-
-  if (!user)
-    return next(new AppError('An error has occured on activating', 500));
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      data: user
-    }
-  });
-});
-
 exports.getUser = factory.getOne(User);
 
 exports.createUser = (req, res) => {
