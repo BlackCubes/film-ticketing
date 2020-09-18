@@ -18,23 +18,22 @@ exports.deleteOne = Model =>
 
 exports.updateOne = Model =>
   catchAsync(async (req, res, next) => {
-    if (req.file && req.params.showPoster)
-      req.body.poster = { urlLarge: req.file.filename }; // Delete?
+    // if (req.file && req.params.showPoster)
+    //   req.body.poster = { urlLarge: req.file.filename }; // Delete?
 
-    // const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
-    //   new: true,
-    //   runValidators: true
-    // });
+    const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
 
-    // if (!doc) {
-    //   return next(new AppError('There is no document with that ID!', 404));
-    // }
-    console.log('Model placement: ', Model);
+    if (!doc) {
+      return next(new AppError('There is no document with that ID!', 404));
+    }
 
     res.status(200).json({
       status: 'success',
       data: {
-        data: 'This is a test! Change to doc when finished!'
+        data: doc
       }
     });
   });
@@ -43,13 +42,12 @@ exports.createOne = Model =>
   catchAsync(async (req, res, next) => {
     // if (req.file) req.body.poster = { urlLarge: req.file.filename }; DELETE?
 
-    // const doc = await Model.create(req.body);
-    console.log(`Model: ${Model}`); // Delete!
+    const doc = await Model.create(req.body);
 
     res.status(201).json({
       status: 'success',
       data: {
-        data: 'This is a test for cloudinary! When done, uncomment!'
+        data: doc
       }
     });
   });
