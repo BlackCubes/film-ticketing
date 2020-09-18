@@ -49,7 +49,16 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteMe = catchAsync(async (req, res, next) => {
-  await User.findByIdAndUpdate(req.user.id, { active: false });
+  let query;
+  if (req.user.role === 'admin' && req.params.id) query = req.params.id;
+  if (req.user.role === 'user') query = req.user.id;
+
+  const queryStatus = await User.findByIdAndUpdate(query, { active: false });
+
+  if (!queryStatus)
+    return next(
+      new AppError('An error has occured. Please contact the system admin', 500)
+    );
 
   res.status(204).json({
     status: 'success',
