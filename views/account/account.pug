@@ -135,7 +135,7 @@ block content
             .form__group
               button#btnUpdatePass.btn.btn--blue Update
         
-        if user.role === 'admin' && user.role !== u.role
+        if (user.role === 'admin' && user.role !== u.role) || (user.role !== 'admin')
           //- Deactivate account
           .line &nbsp;
 
