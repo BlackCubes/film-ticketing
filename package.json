@@ -10,7 +10,8 @@
     "debug": "ndb server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-    "compile:sass": "node-sass public/sass/main.scss public/css/style.css -w"
+    "watch:sass": "node-sass public/sass/main.scss public/css/style.css -w",
+    "compile:sass": "node-sass public/sass/main.scss public/css/style.comp.css"
   },
   "repository": {
     "type": "git",
