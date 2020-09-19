@@ -7,7 +7,7 @@ html
     link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap')
     link(rel='stylesheet' href='/css/style.css')
     link(rel='stylesheet' href='/css/all.css')
-    title Kinetotickets | Enable JavaScript
+    title Kinetotickets | #{title}
 
   body.body-error
     main.main.main--error
@@ -20,6 +20,6 @@ html
             h2.heading-secondary.header-secondary--error I don't judge websites by their worse mistakes
           
           .error-page__description-message
-            p.paragraph You need to run JavaScript to run this app.
+            p.paragraph= msg
 
     include _footerError
