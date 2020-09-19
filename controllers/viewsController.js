@@ -21,7 +21,7 @@ exports.getHome = catchAsync(async (req, res, next) => {
 exports.getNoJS = (req, res) => {
   res.status(200).render('error/noscript', {
     title: 'Enable JavaScript',
-    msg: 'You need to run JavaScript to run this app.'
+    msg: 'You need to enable JavaScript to run this app.'
   });
 };
 
