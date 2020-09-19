@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap')
+    link(rel='stylesheet' href='/css/style.css')
+    link(rel='stylesheet' href='/css/all.css')
+    title Kinetotickets | Enable JavaScript
+
+  body.body-error
+    main.main.main--error
+      .error-page
+        .error-page__background
+          img.error-page__background-img(src='/img/error-main.jpg')
+
+        .error-page__description
+          .error-page__description-title
+            h2.heading-secondary.header-secondary--error I don't judge websites by their worse mistakes
+          
+          .error-page__description-message
+            p.paragraph You need to run JavaScript to run this app.
+
+    include _footerError
