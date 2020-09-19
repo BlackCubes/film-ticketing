@@ -18,6 +18,13 @@ exports.getHome = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getNoJS = (req, res) => {
+  res.status(200).render('error/noscript', {
+    title: 'Enable JavaScript',
+    msg: 'You need to run JavaScript to run this app.'
+  });
+};
+
 // SHOW CONTROLLER
 exports.getShows = catchAsync(async (req, res, next) => {
   const shows = await Show.find();
