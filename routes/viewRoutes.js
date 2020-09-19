@@ -16,6 +16,8 @@ router.get(
   viewsController.getHome
 );
 
+router.get('/no-javascript');
+
 // SHOW ROUTES
 router.get('/shows', authController.isLoggedIn, viewsController.getShows);
 router.get(
