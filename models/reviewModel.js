@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Show = require('./showModel');
-const User = require('./userModel');
 
 const reviewSchema = new mongoose.Schema(
   {
