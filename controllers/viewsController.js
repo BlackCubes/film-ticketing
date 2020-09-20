@@ -94,8 +94,6 @@ exports.getTheater = catchAsync(async (req, res, next) => {
     return next(new AppError('There is no theater with that name!', 404));
   }
 
-  console.log(theater);
-
   res.status(200).render('theater-overview', {
     title: theater.name,
     theater
