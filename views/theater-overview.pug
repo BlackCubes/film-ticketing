@@ -53,6 +53,8 @@ block content
           - console.log(user.role === 'event-owner')
           if user
             - checkFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
+          if user && user.role === 'event-owner'
+            - console.log('Test')
 
           - let swiperContainerClass = 'none', swiperWrapperClass = 'none', swiperSlideClass = 'none'
           if theater.showtimes.length > 1
