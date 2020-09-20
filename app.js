@@ -8,6 +8,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const useragent = require('express-useragent');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -79,6 +80,8 @@ app.use(
     ]
   })
 );
+
+app.use(compression());
 
 // app.use((req, res, next) => {
 //   console.log('Hello from the middleware!');
