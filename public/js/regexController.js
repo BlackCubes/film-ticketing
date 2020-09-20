@@ -1,8 +1,8 @@
 /* eslint-disable */
 export const validateRegex = (e, test) => {
   var regexResult = true;
-  // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
-  const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
+  const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+  // const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
   const regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;

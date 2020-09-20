@@ -26850,9 +26850,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /* eslint-disable */
 var validateRegex = function validateRegex(e, test) {
-  var regexResult = true; // const regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/;
+  var regexResult = true;
+  var regexPass = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[.#?!@$%^&*\\-_]).{8,60}$/; // const regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
 
-  var regexPass = /^(?=.*?[0-9])(?=.*?[a-z]).{8,60}$/;
   var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var regexName = /^[a-zA-Z]{2}(([' -][a-zA-Z ])?[a-zA-Z]*)*$/;
   var regexUsername = /^(?!.*[-_]{2,})(?=^[^-_].*[^-_]$)[\w\s-]{3,9}$/;
