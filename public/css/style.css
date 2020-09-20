@@ -971,6 +971,10 @@ body {
   .tile-ticket.swiper-slide .tile-ticket__options > .btn {
     font-size: 1.2rem;
     padding: 1rem; }
+    @media only screen and (max-width: 23.5em) {
+      .tile-ticket.swiper-slide .tile-ticket__options > .btn {
+        width: 70%;
+        padding: 1.3rem; } }
     @media only screen and (min-width: 37.5em) {
       .tile-ticket.swiper-slide .tile-ticket__options > .btn {
         padding: 1rem; } }

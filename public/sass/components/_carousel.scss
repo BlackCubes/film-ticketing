@@ -644,6 +644,11 @@
       // padding: 0.7rem;
       padding: 1rem;
 
+      @include respond(max-376) {
+        width: 70%;
+        padding: 1.3rem;
+      }
+
       @include respond(tab-port) {
         padding: 1rem;
       }
