@@ -106,66 +106,6 @@ const importDataUser = async () => {
 };
 
 // DELETE ALL DATA FROM COLLECTION
-const deleteDataCastCrew = async () => {
-  try {
-    await CastCrew.deleteMany();
-    console.log('Castcrew data successfully deleted!');
-  } catch (err) {
-    console.log('Could not delete the castcrew data from collection!', err);
-  }
-  process.exit();
-};
-
-const deleteDataReview = async () => {
-  try {
-    await Review.deleteMany();
-    console.log('Review data successfully deleted!');
-  } catch (err) {
-    console.log('Could not delete the review data from collection!', err);
-  }
-  process.exit();
-};
-
-const deleteDataShow = async () => {
-  try {
-    await Show.deleteMany();
-    console.log('Show data successfully deleted!');
-  } catch (err) {
-    console.log('Could not delete the show data from collection!', err);
-  }
-  process.exit();
-};
-
-const deleteDataShowtimes = async () => {
-  try {
-    await Showtimes.deleteMany();
-    console.log('Showtimes data successfully deleted!');
-  } catch (err) {
-    console.log('Could not delete the showtimes data from collection!', err);
-  }
-  process.exit();
-};
-
-const deleteDataTheater = async () => {
-  try {
-    await Theater.deleteMany();
-    console.log('Theater data successfully deleted!');
-  } catch (err) {
-    console.log('Could not delete the theater data from collection!', err);
-  }
-  process.exit();
-};
-
-const deleteDataUser = async () => {
-  try {
-    await User.deleteMany();
-    console.log('User data successfully deleted!');
-  } catch (err) {
-    console.log('Could not delete the user data from collection!', err);
-  }
-  process.exit();
-};
-
 const deleteData = async table => {
   try {
     await Model[table].deleteMany();
@@ -184,11 +124,5 @@ if (process.argv[2] === '--import') {
   if (process.argv[3] === 'theater') importDataTheater();
   if (process.argv[3] === 'user') importDataUser();
 } else if (process.argv[2] === '--delete') {
-  if (process.argv[3] === 'castcrew') deleteDataCastCrew();
-  if (process.argv[3] === 'review') deleteDataReview();
-  if (process.argv[3] === 'show') deleteDataShow();
-  if (process.argv[3] === 'showtime') deleteDataShowtimes();
-  if (process.argv[3] === 'theater') deleteDataTheater();
-  if (process.argv[3] === 'user') deleteDataUser();
   deleteData(process.argv[3]);
 }
