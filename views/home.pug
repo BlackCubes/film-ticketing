@@ -25,6 +25,10 @@ block content
 
             .row__inner.row__inner--poster(class='swiper-'+swiperWrapperClass)
               each showtime in showtimes
+                - let promoLink
+                if showtime.shows[0].title === 'The Mandalorian: Season 1'
+                  - promoLink = showtime.shows[0].slug
+
                 .tile-show(class='swiper-'+swiperSlideClass)
                   .tile-show__media
                     img.tile__poster(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
@@ -67,7 +71,7 @@ block content
           .promo__text-wrapper.u-center-text
             p.promo__text.paragraph.
               It is the way. Watch the entire first season of The Mandalorian at the big screen with special guests Jon Favreau, Pedro Pascal, Taika Waititi, Deborah Chow and more with Q&A session.
-            .promo__join: a.btn.btn__promo(href="#") Get Tickets Now
+            .promo__join: a.btn.btn__promo(href=`/show-overview/${promoLink}`) Get Tickets Now
 
       section.section-home-member
         .member
