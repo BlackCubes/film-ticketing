@@ -37,8 +37,9 @@
   }
 
   &--new-color {
-    background-color: #f39c12;
+    background-color: $color-grey-blue;
     color: $color-black;
+    cursor: not-allowed;
   }
 
   &--red {

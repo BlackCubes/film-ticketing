@@ -376,8 +376,9 @@ body {
     background-color: #d3d3d3;
     color: #000; }
   .btn--new-color {
-    background-color: #f39c12;
-    color: #000; }
+    background-color: #546c84;
+    color: #000;
+    cursor: not-allowed; }
   .btn--red {
     background-color: #ff0000;
     color: #000;
