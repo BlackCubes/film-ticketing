@@ -49,12 +49,8 @@ block content
           h2.heading-secondary Showtimes
         .showtimes-box__theatertime-container.u-center-text
           - let checkFilter = []
-          - let eventOwnerFilter = []
           if user
             - checkFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
-          if user && user.role === 'event-owner'
-            - eventOwnerFilter = theater.showtimes.map(showtime => showtime.shows).map(el => el)
-            //- - console.log(eventOwnerFilter)
 
           - let swiperContainerClass = 'none', swiperWrapperClass = 'none', swiperSlideClass = 'none'
           if theater.showtimes.length > 1
@@ -94,6 +90,9 @@ block content
                   .tile-ticket__options
                     if user && checkFilter.filter(id => id === showtime.id).length > 0
                       button#ticketBought.btn.btn--light-silver(disabled) Bought!
+                    
+                    else if user && user.role === 'event-owner'
+                      button#ticketRestricted.btn.btn--red(disabled) Restricted!
 
                     else if user && Date.now() >= showtime.startDateTime
                       button#ticketExpired.btn.btn--red(disabled) Expired!
