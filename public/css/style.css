@@ -377,7 +377,8 @@ body {
     color: #000; }
   .btn--red {
     background-color: #ff0000;
-    color: #000; }
+    color: #000;
+    cursor: not-allowed; }
 
 @media only screen and (max-width: 74.9375em) and (min-width: 62em) and (orientation: portrait) {
   .card-wrapper {

@@ -39,5 +39,6 @@
   &--red {
     background-color: $color-red;
     color: $color-black;
+    cursor: not-allowed;
   }
 }
