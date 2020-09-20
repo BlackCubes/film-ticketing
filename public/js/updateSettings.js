@@ -6,13 +6,10 @@ export const updateSettings = async (data, type, photoParams = '') => {
   try {
     let url =
       type === 'password'
-        ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword'
-        : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+        ? '/api/v1/users/updateMyPassword'
+        : '/api/v1/users/updateMe';
 
-    url =
-      photoParams === ''
-        ? url
-        : `http://127.0.0.1:3000/api/v1/users/updateMe/${photoParams}`;
+    url = photoParams === '' ? url : `/api/v1/users/updateMe/${photoParams}`;
 
     const res = await axios({
       method: 'PATCH',
@@ -42,8 +39,8 @@ export const updateShowSettings = async (
 
     const url =
       posterParams === null
-        ? `http://127.0.0.1:3000/api/v1/shows/${urlSub}`
-        : `http://127.0.0.1:3000/api/v1/shows/${urlSub}/${posterParams}`;
+        ? `/api/v1/shows/${urlSub}`
+        : `/api/v1/shows/${urlSub}/${posterParams}`;
 
     const res = await axios({
       method: 'PATCH',
@@ -61,7 +58,7 @@ export const updateShowSettings = async (
 
 export const updateReviewSettings = async (data, showId, showTitle) => {
   try {
-    const url = `http://127.0.0.1:3000/api/v1/reviews/updateMyReview/${showId}`;
+    const url = `/api/v1/reviews/updateMyReview/${showId}`;
 
     const res = await axios({
       method: 'PATCH',
@@ -86,8 +83,8 @@ export const updateTheaterSettings = async (
   try {
     const url =
       photoParams === null
-        ? `http://127.0.0.1:3000/api/v1/theaters/${theaterId}`
-        : `http://127.0.0.1:3000/api/v1/theaters/${theaterId}/${photoParams}`;
+        ? `/api/v1/theaters/${theaterId}`
+        : `/api/v1/theaters/${theaterId}/${photoParams}`;
 
     const res = await axios({
       method: 'PATCH',
@@ -105,7 +102,7 @@ export const updateTheaterSettings = async (
 
 export const updateShowtimeSettings = async (data, message, showtimeId) => {
   try {
-    const url = `http://127.0.0.1:3000/api/v1/showtimes/${showtimeId}`;
+    const url = `/api/v1/showtimes/${showtimeId}`;
 
     const res = await axios({
       method: 'PATCH',
@@ -130,8 +127,8 @@ export const updateCastCrewSettings = async (
   try {
     const url =
       photoParams === null
-        ? `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}`
-        : `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}/${photoParams}`;
+        ? `/api/v1/castcrews/${castcrewId}`
+        : `/api/v1/castcrews/${castcrewId}/${photoParams}`;
 
     const res = await axios({
       method: 'PATCH',
