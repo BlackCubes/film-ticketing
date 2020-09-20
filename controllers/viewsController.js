@@ -52,7 +52,7 @@ exports.getShow = catchAsync(async (req, res, next) => {
     })
     .populate({
       path: 'showtimes',
-      fields: 'theaters startDateTime endDateTime' // Fix security issues
+      fields: 'theaters startDateTime endDateTime' // Fix issues
     })
     .populate({
       path: 'tickets',
@@ -83,7 +83,7 @@ exports.getTheater = catchAsync(async (req, res, next) => {
   const theater = await Theater.findOne({ slug: req.params.slug })
     .populate({
       path: 'showtimes',
-      fields: 'shows startDateTime endDateTime' // Fix security issues
+      fields: 'shows startDateTime endDateTime' // Fix issues
     })
     .populate({
       path: 'tickets',
@@ -159,7 +159,6 @@ exports.getMyTickets = catchAsync(async (req, res, next) => {
     'showtimes'
   );
 
-  // Check if you can reuse other codes!!!
   res.status(200).render('shows', {
     title: 'My Tickets',
     shows
