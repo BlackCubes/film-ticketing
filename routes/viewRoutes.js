@@ -63,7 +63,12 @@ router.get(
   authController.checkLogin,
   viewsController.getResetPasswordForm
 );
-router.get('/me', authController.protect, viewsController.getAccount);
+router.get(
+  '/me',
+  authController.protect,
+  authController.restrictTo('users', 'event-owner', 'admin'),
+  viewsController.getAccount
+);
 router.get(
   '/myTickets',
   authController.protect,
