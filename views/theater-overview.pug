@@ -50,9 +50,9 @@ block content
         .showtimes-box__theatertime-container.u-center-text
           - let checkFilter = []
           - let eventOwnerFilter = []
+          - console.log(user.role === 'event-owner')
           if user
             - checkFilter = theater.tickets.map(ticket =>  (ticket.user.id === user.id) ? ticket.showtime.id : '')
-          - console.log(user.role === 'event-owner')
 
           - let swiperContainerClass = 'none', swiperWrapperClass = 'none', swiperSlideClass = 'none'
           if theater.showtimes.length > 1
