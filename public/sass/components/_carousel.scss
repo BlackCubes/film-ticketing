@@ -657,5 +657,12 @@
         padding: 0.1rem;
       }
     }
+
+    & .tile-ticket__options > a {
+      @include respond(desktop) {
+        padding: 1.5rem 0 !important;
+        height: auto;
+      }
+    }
   }
 }

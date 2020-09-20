@@ -981,6 +981,10 @@ body {
     @media only screen and (min-width: 75em) {
       .tile-ticket.swiper-slide .tile-ticket__options > .btn {
         padding: 0.1rem; } }
+  @media only screen and (min-width: 75em) {
+    .tile-ticket.swiper-slide .tile-ticket__options > a {
+      padding: 1.5rem 0 !important;
+      height: auto; } }
 
 .dropdown {
   font-family: inherit;
