@@ -59,9 +59,10 @@ block content
             - swiperSlideClass = 'slide'
 
           .row--scroll.swiper--info(class=`swiper-${swiperContainerClass}`)
-            .swiper-button-prev
-            .swiper-button-next
-            
+            if theater.showtimes.length > 1
+              .swiper-button-prev
+              .swiper-button-next
+
             .row__inner--ticket(class=`swiper-${swiperWrapperClass}`)
               each showtime in theater.showtimes
                 .tile-ticket(class=`swiper-${swiperSlideClass}`)
