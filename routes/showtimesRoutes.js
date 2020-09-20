@@ -12,15 +12,6 @@ router.route('/daily-plan/:date').get(showtimesController.getDailyPlan);
 // PROTECT ALL OTHER ROUTES LEAKING
 // router.use(authController.protect);
 
-// DELETE ROUTE???
-router
-  .route('/createMyShowtime')
-  .post(
-    authController.protect,
-    authController.restrictTo('admin'),
-    showtimesController.createMyShowtime
-  );
-
 // router.use(authController.restrictTo('admin'));
 
 router
