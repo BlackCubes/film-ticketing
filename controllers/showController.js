@@ -1,6 +1,5 @@
 const factory = require('./handlerFactory');
 const Show = require('./../models/showModel');
-const APIFeatures = require('./../utils/apiFeatures');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 const checkDate = require('./../utils/checkDate');
@@ -68,13 +67,12 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
 
   filteredBody = sanitize(filteredBody);
 
-  // const newShow = await Show.create(filteredBody);
-  console.log('Filteredbody: ', filteredBody);
+  const newShow = await Show.create(filteredBody);
 
   res.status(200).json({
     status: 'success',
     data: {
-      data: filteredBody
+      data: newShow
     }
   });
 });
@@ -108,38 +106,22 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
     'poster',
     'cloudinaryPhoto'
   );
-  // if (req.file) filteredBody.poster = { urlLarge: req.file.filename };
-  // if (req.files) {
-  //   let imgpromoData = [];
-
-  //   req.files.forEach(file => {
-  //     imgpromoData = [...imgpromoData, { image: { urlLarge: file.filename } }];
-  //   });
-
-  //   filteredBody.imgpromo = imgpromoData;
-
-  //   console.log('Image Promo Data: ', imgpromoData);
-  // }
-
-  // console.log('Filtered Body Image Promo: ', filteredBody.imgpromo);
-
-  // })
-
-  // const updatedShow = await Show.findOneAndUpdate(
-  //   { id: req.params.id, eventOrganizer: req.user.id },
-  //   filteredBody,
-  //   {
-  //     new: true,
-  //     runValidators: true
-  //   }
-  // );
 
   filteredBody = sanitize(filteredBody);
+
+  const updatedShow = await Show.findOneAndUpdate(
+    { id: req.params.id, eventOrganizer: req.user.id },
+    filteredBody,
+    {
+      new: true,
+      runValidators: true
+    }
+  );
 
   res.status(200).json({
     status: 'success',
     data: {
-      show: filteredBody
+      show: updatedShow
     }
   });
 });
@@ -260,48 +242,3 @@ exports.getOriginalRelease = catchAsync(async (req, res, next) => {
     }
   });
 });
-
-// exports.getAllShows = catchAsync(async (req, res, next) => {
-//   const filter = {};
-//   if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
-
-//   // EXECUTE QUERY
-//   const features = new APIFeatures(Show.find(filter), req.query)
-//     .filter()
-//     .sort()
-//     .limitFields()
-//     .paginate();
-//   const shows = await features.query;
-
-//   // SEND RESPONSE
-//   res.status(200).json({
-//     status: 'success',
-//     results: shows.length,
-//     data: {
-//       shows
-//     }
-//   });
-// });
-
-// FOR WITHOUT MONGO:
-// exports.checkID = (req, res, next, val) => {
-//   console.log(`Show id is: ${val}`);
-
-//   if (req.params.id * 1 > shows.length) {
-//     return res.status(404).json({
-//       status: 'fail',
-//       message: 'Invalid ID'
-//     });
-//   }
-//   next();
-// };
-
-// exports.checkBody = (req, res, next) => {
-//   if (!req.body.title || !req.body.price) {
-//     return res.status(400).json({
-//       status: 'fail',
-//       message: 'Did not put in the name or price!'
-//     });
-//   }
-//   next();
-// };
