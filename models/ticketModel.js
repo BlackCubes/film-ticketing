@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const Theater = require('./theaterModel');
 const Showtimes = require('./showtimesModel');
 
 const ticketSchema = new mongoose.Schema({
