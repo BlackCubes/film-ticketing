@@ -173,6 +173,7 @@ const deleteData = async table => {
   } catch (err) {
     console.log(`Could not delete the ${table} data from the collection!`, err);
   }
+  process.exit();
 };
 
 if (process.argv[2] === '--import') {
