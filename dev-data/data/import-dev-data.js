@@ -9,7 +9,7 @@ const Showtimes = require('./../../models/showtimesModel');
 const Theater = require('./../../models/theaterModel');
 const User = require('./../../models/userModel');
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './../../config.env' });
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
