@@ -92,7 +92,7 @@ block content
                     if user && checkFilter.filter(id => id === showtime.id).length > 0
                       button#ticketBought.btn.btn--light-silver(disabled) Bought!
 
-                    else if user && Date.now() => showtime.startDateTime
+                    else if user && Date.now() >= showtime.startDateTime
                       button#ticketExpired.btn.btn--red(disabled) Expired!
 
                     else if user && showtime.soldOut
