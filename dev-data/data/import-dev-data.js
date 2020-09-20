@@ -8,6 +8,7 @@ const Show = require('./../../models/showModel');
 const Showtimes = require('./../../models/showtimesModel');
 const Theater = require('./../../models/theaterModel');
 const User = require('./../../models/userModel');
+const Model = require('./../../models');
 
 dotenv.config({ path: './../../config.env' });
 
@@ -165,6 +166,15 @@ const deleteDataUser = async () => {
   process.exit();
 };
 
+const deleteData = async table => {
+  try {
+    await Model[table].deleteMany();
+    console.log(`${table} data successfully deleted!`);
+  } catch (err) {
+    console.log(`Could not delete the ${table} data from the collection!`, err);
+  }
+};
+
 if (process.argv[2] === '--import') {
   if (process.argv[3] === 'castcrew') importDataCastCrew();
   if (process.argv[3] === 'review') importDataReview();
@@ -179,4 +189,5 @@ if (process.argv[2] === '--import') {
   if (process.argv[3] === 'showtime') deleteDataShowtimes();
   if (process.argv[3] === 'theater') deleteDataTheater();
   if (process.argv[3] === 'user') deleteDataUser();
+  deleteData(process.argv[3]);
 }
