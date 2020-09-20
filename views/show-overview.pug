@@ -86,6 +86,9 @@ block content
                   .tile-ticket__options
                     if user && checkFilter.filter(id => id === showtime.id).length > 0
                       button#ticketBought.btn.btn--light-silver(disabled) Bought!
+                    
+                    else if user && user.role === 'event-owner'
+                      button#ticketRestricted.btn.btn--red(disabled) Restricted!
 
                     else if user && Date.now() >= showtime.startDateTime
                       button#ticketExpired.btn.btn--red(disabled) Expired!
