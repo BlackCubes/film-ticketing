@@ -9,7 +9,7 @@ export const ticketShow = async (showId, theaterId, showtimeId) => {
     );
 
     const session = await axios(
-      `http://127.0.0.1:3000/api/v1/tickets/checkout-session/${showId}/${theaterId}/${showtimeId}`
+      `/api/v1/tickets/checkout-session/${showId}/${theaterId}/${showtimeId}`
     );
 
     await stripe.redirectToCheckout({
