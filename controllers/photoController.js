@@ -92,7 +92,9 @@ exports.deletePhoto = photoType =>
   catchAsync(async (req, res, next) => {
     if (
       photoType === 'users' &&
-      (!req.params.userPhoto || req.params.userPhoto === 'default.jpg')
+      (!req.params.userPhoto ||
+        req.params.userPhoto === 'default.jpg' ||
+        req.params.userPhoto === 'admin.png')
     )
       return next();
 
