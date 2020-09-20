@@ -28377,42 +28377,7 @@ var updateCastCrewSettings = /*#__PURE__*/function () {
   return function updateCastCrewSettings(_x16, _x17, _x18) {
     return _ref6.apply(this, arguments);
   };
-}(); // export const updatePersonalData = async (name, birthdate, gender) => {
-//   try {
-//     const res = await axios({
-//       method: 'PATCH',
-//       url: 'http://127.0.0.1:3000/api/v1/users/updateMe',
-//       data: {
-//         name,
-//         birthdate,
-//         gender
-//       }
-//     });
-//     if (res.data.status === 'success') {
-//       showAlert('success', 'Your data has been updated!');
-//     }
-//   } catch (err) {
-//     showAlert('error', err.response.data.message);
-//   }
-// };
-// export const updateEmailUsernameData = async (email, username) => {
-//   try {
-//     const res = await axios({
-//       method: 'PATCH',
-//       url: 'http://127.0.0.1:3000/api/v1/users/updateMe',
-//       data: {
-//         email,
-//         username
-//       }
-//     });
-//     if (res.data.status === 'success') {
-//       showAlert('success', 'Your email/password has been updated!');
-//     }
-//   } catch (err) {
-//     showAlert('error', err.response.data.message);
-//   }
-// };
-
+}();
 
 exports.updateCastCrewSettings = updateCastCrewSettings;
 },{"axios":"../../node_modules/axios/index.js","./alerts":"alerts.js"}],"deleteSettings.js":[function(require,module,exports) {
