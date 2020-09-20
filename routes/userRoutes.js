@@ -22,7 +22,12 @@ router.post(
   validationController.login,
   authController.login
 );
-router.get('/logout', authController.logout);
+router.get(
+  '/logout',
+  authController.protect,
+  authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.logout
+);
 router.post(
   '/forgotPassword',
   authController.checkLogin,
@@ -43,6 +48,7 @@ router.patch(
 router.patch(
   '/updateMyPassword',
   authController.protect,
+  authController.restrictTo('users', 'event-owner', 'admin'),
   validationController.insertPasswordConfirm,
   validationController.updatePass,
   authController.updateMyPassword
