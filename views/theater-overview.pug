@@ -88,7 +88,6 @@ block content
                     p.paragraph= `${showtime.startDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})} - ${showtime.endDateTime.toLocaleString('en-us', {hour: '2-digit', minute: '2-digit', hour12: true})}`
 
                   .tile-ticket__options
-                    - console.log(showtime.startDateTime)
                     if user && checkFilter.filter(id => id === showtime.id).length > 0
                       button#ticketBought.btn.btn--light-silver(disabled) Bought!
 
