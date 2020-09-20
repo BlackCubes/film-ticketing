@@ -26505,7 +26505,7 @@ var ticketShow = /*#__PURE__*/function () {
             _context.prev = 0;
             stripe = Stripe('pk_test_51GvY8yFksn4CiPD44IqL7dQXEFQtq1NStE30qwKbsINFBvKfo7D0mGasAaPbb2Ftau2RoMWXvWFInrYJaYKZLaWa00riVAwFjL');
             _context.next = 4;
-            return (0, _axios.default)("http://127.0.0.1:3000/api/v1/tickets/checkout-session/".concat(showId, "/").concat(theaterId, "/").concat(showtimeId));
+            return (0, _axios.default)("/api/v1/tickets/checkout-session/".concat(showId, "/").concat(theaterId, "/").concat(showtimeId));
 
           case 4:
             session = _context.sent;
@@ -27513,7 +27513,7 @@ var login = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:3000/api/v1/users/login',
+              url: '/api/v1/users/login',
               data: {
                 email: email,
                 password: password
@@ -27564,7 +27564,7 @@ var logout = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'GET',
-              url: 'http://127.0.0.1:3000/api/v1/users/logout'
+              url: '/api/v1/users/logout'
             });
 
           case 3:
@@ -27611,7 +27611,7 @@ var register = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:3000/api/v1/users/signup',
+              url: '/api/v1/users/signup',
               data: {
                 email: email,
                 username: username,
@@ -27667,7 +27667,7 @@ var forgotPassword = /*#__PURE__*/function () {
             _context4.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:3000/api/v1/users/forgotPassword',
+              url: '/api/v1/users/forgotPassword',
               data: {
                 email: email
               }
@@ -27722,7 +27722,7 @@ var resetPassword = /*#__PURE__*/function () {
             _context5.next = 3;
             return (0, _axios.default)({
               method: 'PATCH',
-              url: "http://127.0.0.1:3000/api/v1/users/resetPassword/".concat(token),
+              url: "/api/v1/users/resetPassword/".concat(token),
               data: data
             });
 
@@ -27767,7 +27767,7 @@ var createShow = /*#__PURE__*/function () {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.prev = 0;
-            url = role === 'admin' ? 'http://127.0.0.1:3000/api/v1/shows' : 'http://127.0.0.1:3000/api/v1/shows/createMyShow';
+            url = role === 'admin' ? '/api/v1/shows' : '/api/v1/shows/createMyShow';
             _context6.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -27816,7 +27816,7 @@ var createReview = /*#__PURE__*/function () {
         switch (_context7.prev = _context7.next) {
           case 0:
             _context7.prev = 0;
-            url = role === 'admin' ? "http://127.0.0.1:3000/api/v1/shows/".concat(showId, "/reviews") : "http://127.0.0.1:3000/api/v1/reviews/createMyReview/".concat(showId);
+            url = role === 'admin' ? "/api/v1/shows/".concat(showId, "/reviews") : "/api/v1/reviews/createMyReview/".concat(showId);
             _context7.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -27865,7 +27865,7 @@ var createTheater = /*#__PURE__*/function () {
         switch (_context8.prev = _context8.next) {
           case 0:
             _context8.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/theaters';
+            url = '/api/v1/theaters';
             _context8.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -27914,7 +27914,7 @@ var createShowtime = /*#__PURE__*/function () {
         switch (_context9.prev = _context9.next) {
           case 0:
             _context9.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/showtimes';
+            url = '/api/v1/showtimes';
             _context9.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -27963,7 +27963,7 @@ var createCastCrew = /*#__PURE__*/function () {
         switch (_context10.prev = _context10.next) {
           case 0:
             _context10.prev = 0;
-            url = 'http://127.0.0.1:3000/api/v1/castcrews';
+            url = '/api/v1/castcrews';
             _context10.next = 4;
             return (0, _axios.default)({
               method: 'POST',
@@ -28033,8 +28033,8 @@ var updateSettings = /*#__PURE__*/function () {
           case 0:
             photoParams = _args.length > 2 && _args[2] !== undefined ? _args[2] : '';
             _context.prev = 1;
-            url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
-            url = photoParams === '' ? url : "http://127.0.0.1:3000/api/v1/users/updateMe/".concat(photoParams);
+            url = type === 'password' ? '/api/v1/users/updateMyPassword' : '/api/v1/users/updateMe';
+            url = photoParams === '' ? url : "/api/v1/users/updateMe/".concat(photoParams);
             _context.next = 6;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -28087,7 +28087,7 @@ var updateShowSettings = /*#__PURE__*/function () {
             posterParams = _args2.length > 4 && _args2[4] !== undefined ? _args2[4] : null;
             _context2.prev = 1;
             urlSub = roleType === 'admin' ? "".concat(showId) : "updateMyShow/".concat(showId);
-            url = posterParams === null ? "http://127.0.0.1:3000/api/v1/shows/".concat(urlSub) : "http://127.0.0.1:3000/api/v1/shows/".concat(urlSub, "/").concat(posterParams);
+            url = posterParams === null ? "/api/v1/shows/".concat(urlSub) : "/api/v1/shows/".concat(urlSub, "/").concat(posterParams);
             _context2.next = 6;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -28133,7 +28133,7 @@ var updateReviewSettings = /*#__PURE__*/function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/reviews/updateMyReview/".concat(showId);
+            url = "/api/v1/reviews/updateMyReview/".concat(showId);
             _context3.next = 4;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -28183,7 +28183,7 @@ var updateTheaterSettings = /*#__PURE__*/function () {
           case 0:
             photoParams = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : null;
             _context4.prev = 1;
-            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId) : "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId, "/").concat(photoParams);
+            url = photoParams === null ? "/api/v1/theaters/".concat(theaterId) : "/api/v1/theaters/".concat(theaterId, "/").concat(photoParams);
             _context4.next = 5;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -28229,7 +28229,7 @@ var updateShowtimeSettings = /*#__PURE__*/function () {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/showtimes/".concat(showtimeId);
+            url = "/api/v1/showtimes/".concat(showtimeId);
             _context5.next = 4;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -28279,7 +28279,7 @@ var updateCastCrewSettings = /*#__PURE__*/function () {
           case 0:
             photoParams = _args6.length > 3 && _args6[3] !== undefined ? _args6[3] : null;
             _context6.prev = 1;
-            url = photoParams === null ? "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId) : "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId, "/").concat(photoParams);
+            url = photoParams === null ? "/api/v1/castcrews/".concat(castcrewId) : "/api/v1/castcrews/".concat(castcrewId, "/").concat(photoParams);
             _context6.next = 5;
             return (0, _axios.default)({
               method: 'PATCH',
@@ -28342,7 +28342,7 @@ var deactivateUser = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            url = userId ? "http://127.0.0.1:3000/api/v1/users/deleteMe/".concat(userId) : 'http://127.0.0.1:3000/api/v1/users/deleteMe';
+            url = userId ? "/api/v1/users/deleteMe/".concat(userId) : '/api/v1/users/deleteMe';
             _context.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28391,7 +28391,7 @@ var deleteUser = /*#__PURE__*/function () {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/users/".concat(userId);
+            url = "/api/v1/users/".concat(userId);
             _context2.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28440,7 +28440,7 @@ var deleteShow = /*#__PURE__*/function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/shows/".concat(showId);
+            url = "/api/v1/shows/".concat(showId);
             _context3.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28489,7 +28489,7 @@ var deleteReview = /*#__PURE__*/function () {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/reviews/deleteMyReview/".concat(reviewId);
+            url = "/api/v1/reviews/deleteMyReview/".concat(reviewId);
             _context4.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28538,7 +28538,7 @@ var deleteTheater = /*#__PURE__*/function () {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/theaters/".concat(theaterId);
+            url = "/api/v1/theaters/".concat(theaterId);
             _context5.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28587,7 +28587,7 @@ var deleteShowtime = /*#__PURE__*/function () {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/showtimes/".concat(showtimeId);
+            url = "/api/v1/showtimes/".concat(showtimeId);
             _context6.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -28636,7 +28636,7 @@ var deleteCastCrew = /*#__PURE__*/function () {
         switch (_context7.prev = _context7.next) {
           case 0:
             _context7.prev = 0;
-            url = "http://127.0.0.1:3000/api/v1/castcrews/".concat(castcrewId);
+            url = "/api/v1/castcrews/".concat(castcrewId);
             _context7.next = 4;
             return (0, _axios.default)({
               method: 'DELETE',
@@ -31348,7 +31348,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49211" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51299" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
