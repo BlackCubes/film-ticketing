@@ -954,6 +954,9 @@ body {
         margin-top: 1.5rem; } }
   .tile-ticket.swiper-slide .tile-ticket__media-link {
     width: 100%; }
+    @media only screen and (max-width: 23.5em) {
+      .tile-ticket.swiper-slide .tile-ticket__media-link {
+        width: 40%; } }
     @media only screen and (min-width: 37.5em) {
       .tile-ticket.swiper-slide .tile-ticket__media-link--poster {
         width: 100%;

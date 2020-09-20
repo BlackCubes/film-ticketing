@@ -615,6 +615,10 @@
     & .tile-ticket__media-link {
       width: 100%;
 
+      @include respond(max-376) {
+        width: 40%;
+      }
+
       &--poster {
         @include respond(tab-port) {
           width: 100%;
