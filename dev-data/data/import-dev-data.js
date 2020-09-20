@@ -120,11 +120,11 @@ const deleteData = async table => {
 const passwordValidator = password => {
   if (!password) {
     console.log('You need to provide a password for your last argument!');
-    return false;
+    return process.exit();
   }
   if (password !== process.env.DATABASE_PASSWORD) {
     console.log('Incorrect password!');
-    return false;
+    return process.exit();
   }
 
   return true;
