@@ -18,9 +18,6 @@ exports.deleteOne = Model =>
 
 exports.updateOne = Model =>
   catchAsync(async (req, res, next) => {
-    // if (req.file && req.params.showPoster)
-    //   req.body.poster = { urlLarge: req.file.filename }; // Delete?
-
     const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true
@@ -40,8 +37,6 @@ exports.updateOne = Model =>
 
 exports.createOne = Model =>
   catchAsync(async (req, res, next) => {
-    // if (req.file) req.body.poster = { urlLarge: req.file.filename }; DELETE?
-
     const doc = await Model.create(req.body);
 
     res.status(201).json({
@@ -74,7 +69,7 @@ exports.getOne = (Model, ...popOptions) =>
 
 exports.getAll = Model =>
   catchAsync(async (req, res, next) => {
-    // Nested routes, need to fix
+    // Nested routes, possible fix?
     const filter = {};
     if (req.params.castcrewId) filter.castcrew = req.params.castcrewId;
     if (req.params.showId && Model === 'Review')
