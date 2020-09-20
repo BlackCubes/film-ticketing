@@ -59,6 +59,10 @@ block content
             - swiperSlideClass = 'slide'
 
           .row-scroll.swiper--info(class=`swiper-${swiperContainerClass}`)
+            if castcrew.shows.length > 1
+              .swiper-button-prev
+              .swiper-button-next
+
             .row__inner--ticket(class=`swiper-${swiperWrapperClass}`)
               each show in castcrew.shows
                 .tile-ticket(class=`swiper-${swiperSlideClass}`)
