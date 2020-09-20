@@ -116,6 +116,20 @@ const deleteData = async table => {
   process.exit();
 };
 
+// ADMIN MUST ENTER PASSWORD
+const passwordValidator = password => {
+  if (!password) {
+    console.log('You need to provide a password for your last argument!');
+    return false;
+  }
+  if (password !== process.env.DATABASE_PASSWORD) {
+    console.log('Incorrect password!');
+    return false;
+  }
+
+  return true;
+};
+
 if (process.argv[2] === '--import') {
   if (process.argv[3] === 'castcrew') importDataCastCrew();
   if (process.argv[3] === 'review') importDataReview();
@@ -124,5 +138,5 @@ if (process.argv[2] === '--import') {
   if (process.argv[3] === 'theater') importDataTheater();
   if (process.argv[3] === 'user') importDataUser();
 } else if (process.argv[2] === '--delete') {
-  deleteData(process.argv[3]);
+  if (passwordValidator(process.argv[4])) deleteData(process.argv[3]);
 }
