@@ -14,6 +14,14 @@ exports.checkTicketExists = catchAsync(async (req, res, next) => {
       )
     );
 
+  if (req.user && req.user.role === 'event-owner')
+    return next(
+      new AppError(
+        'You cannot buy any tickets as an event owner. Please contact the system admin for further details.',
+        403
+      )
+    );
+
   const findTicket = await Ticket.valueExists({
     show: req.params.showId,
     theater: req.params.theaterId,
