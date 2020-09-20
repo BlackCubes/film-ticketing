@@ -92,13 +92,13 @@ block content
                     if user && checkFilter.filter(id => id === showtime.id).length > 0
                       button#ticketBought.btn.btn--light-silver(disabled) Bought!
 
-                    else if user && Date.now() > showtime.endDateTime
+                    else if user && Date.now() => showtime.startDateTime
                       button#ticketExpired.btn.btn--red(disabled) Expired!
 
                     else if user && showtime.soldOut
                       button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
 
-                    else if user && Date.now() <= showtime.startDateTime && !showtime.soldOut
+                    else if user && Date.now() < showtime.startDateTime && !showtime.soldOut
                       button#ticketShow.btn.btn--blue(name='hexadecimal-btn' data-show-id=`${showtime.shows[0].id}` data-theater-id=`${theater.id}` data-showtime-id=`${showtime.id}`) Buy!
 
                     else
