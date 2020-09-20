@@ -5,8 +5,8 @@ import { showAlert } from './alerts';
 export const deactivateUser = async (data, userId) => {
   try {
     const url = userId
-      ? `http://127.0.0.1:3000/api/v1/users/deleteMe/${userId}`
-      : 'http://127.0.0.1:3000/api/v1/users/deleteMe';
+      ? `/api/v1/users/deleteMe/${userId}`
+      : '/api/v1/users/deleteMe';
 
     const res = await axios({
       method: 'DELETE',
@@ -27,7 +27,7 @@ export const deactivateUser = async (data, userId) => {
 
 export const deleteUser = async (data, userId) => {
   try {
-    const url = `http://127.0.0.1:3000/api/v1/users/${userId}`;
+    const url = `/api/v1/users/${userId}`;
 
     const res = await axios({
       method: 'DELETE',
@@ -48,7 +48,7 @@ export const deleteUser = async (data, userId) => {
 
 export const deleteShow = async (data, showId) => {
   try {
-    const url = `http://127.0.0.1:3000/api/v1/shows/${showId}`;
+    const url = `/api/v1/shows/${showId}`;
 
     const res = await axios({
       method: 'DELETE',
@@ -69,7 +69,7 @@ export const deleteShow = async (data, showId) => {
 
 export const deleteReview = async (data, reviewId) => {
   try {
-    const url = `http://127.0.0.1:3000/api/v1/reviews/deleteMyReview/${reviewId}`;
+    const url = `/api/v1/reviews/deleteMyReview/${reviewId}`;
 
     const res = await axios({
       method: 'DELETE',
@@ -90,7 +90,7 @@ export const deleteReview = async (data, reviewId) => {
 
 export const deleteTheater = async (data, theaterId) => {
   try {
-    const url = `http://127.0.0.1:3000/api/v1/theaters/${theaterId}`;
+    const url = `/api/v1/theaters/${theaterId}`;
 
     const res = await axios({
       method: 'DELETE',
@@ -111,7 +111,7 @@ export const deleteTheater = async (data, theaterId) => {
 
 export const deleteShowtime = async (data, showtimeId) => {
   try {
-    const url = `http://127.0.0.1:3000/api/v1/showtimes/${showtimeId}`;
+    const url = `/api/v1/showtimes/${showtimeId}`;
 
     const res = await axios({
       method: 'DELETE',
@@ -132,7 +132,7 @@ export const deleteShowtime = async (data, showtimeId) => {
 
 export const deleteCastCrew = async (data, castcrewId) => {
   try {
-    const url = `http://127.0.0.1:3000/api/v1/castcrews/${castcrewId}`;
+    const url = `/api/v1/castcrews/${castcrewId}`;
 
     const res = await axios({
       method: 'DELETE',
