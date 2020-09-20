@@ -375,6 +375,9 @@ body {
   .btn--light-silver {
     background-color: #d3d3d3;
     color: #000; }
+  .btn--new-color {
+    background-color: #f39c12;
+    color: #000; }
   .btn--red {
     background-color: #ff0000;
     color: #000;
