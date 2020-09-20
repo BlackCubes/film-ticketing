@@ -3,7 +3,7 @@ const photoController = require('./../controllers/photoController');
 const showController = require('./../controllers/showController');
 const authController = require('./../controllers/authController');
 const validationController = require('./../controllers/validationController');
-const castcrewRouter = require('./castcrewRoutes');
+// const castcrewRouter = require('./castcrewRoutes');
 const reviewRouter = require('./reviewRoutes');
 const showtimeRouter = require('./showtimesRoutes');
 
