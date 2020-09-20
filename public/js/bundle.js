@@ -29249,8 +29249,7 @@ var checkboxNav = document.getElementById('navToggle'),
     navAside = document.querySelector('.nav__aside'),
     navButton = document.querySelector('.nav__toggle-container');
 var stars = document.querySelector('.stars');
-var loginForm = document.getElementById('loginForm'); // Possibly change class selector to an id selector for all logout's to use
-
+var loginForm = document.getElementById('loginForm');
 var logoutBtn = document.querySelector('.nav__profile--logout');
 var forgotPassForm = document.getElementById('forgotPassForm');
 var resetPassForm = document.getElementById('resetpassForm');
@@ -30714,7 +30713,7 @@ if (updateShowPrice) {
                 data.secretShow = secretShow;
               }
 
-              document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
+              document.getElementById('btnUpdateShowPrice').textContent = 'Updating...';
               _context20.next = 23;
               return (0, _updateSettings.updateShowSettings)(data, 'pricing', _showId, _roleType);
 

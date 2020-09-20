@@ -58,7 +58,6 @@ const checkboxNav = document.getElementById('navToggle'),
   navButton = document.querySelector('.nav__toggle-container');
 const stars = document.querySelector('.stars');
 const loginForm = document.getElementById('loginForm');
-// Possibly change class selector to an id selector for all logout's to use
 const logoutBtn = document.querySelector('.nav__profile--logout');
 const forgotPassForm = document.getElementById('forgotPassForm');
 const resetPassForm = document.getElementById('resetpassForm');
@@ -1407,7 +1406,8 @@ if (updateShowPrice) {
           data.secretShow = secretShow;
         }
 
-        document.getElementById('btnUpdateShowPrice').textContent = 'Updating';
+        document.getElementById('btnUpdateShowPrice').textContent =
+          'Updating...';
 
         await updateShowSettings(data, 'pricing', showId, roleType);
 
