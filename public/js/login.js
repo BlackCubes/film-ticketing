@@ -6,7 +6,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         email,
         password
@@ -28,7 +28,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:3000/api/v1/users/logout'
+      url: '/api/v1/users/logout'
     });
 
     if (res.data.status === 'success') {
@@ -54,7 +54,7 @@ export const register = async (
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/signup',
+      url: '/api/v1/users/signup',
       data: {
         email,
         username,
@@ -81,7 +81,7 @@ export const forgotPassword = async email => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/forgotPassword',
+      url: '/api/v1/users/forgotPassword',
       data: { email }
     });
 
@@ -108,7 +108,7 @@ export const resetPassword = async (data, token) => {
   try {
     const res = await axios({
       method: 'PATCH',
-      url: `http://127.0.0.1:3000/api/v1/users/resetPassword/${token}`,
+      url: `/api/v1/users/resetPassword/${token}`,
       data
     });
 
@@ -126,9 +126,7 @@ export const resetPassword = async (data, token) => {
 export const createShow = async (data, role) => {
   try {
     const url =
-      role === 'admin'
-        ? 'http://127.0.0.1:3000/api/v1/shows'
-        : 'http://127.0.0.1:3000/api/v1/shows/createMyShow';
+      role === 'admin' ? '/api/v1/shows' : '/api/v1/shows/createMyShow';
 
     const res = await axios({
       method: 'POST',
@@ -151,8 +149,8 @@ export const createReview = async (data, showId, role) => {
   try {
     const url =
       role === 'admin'
-        ? `http://127.0.0.1:3000/api/v1/shows/${showId}/reviews`
-        : `http://127.0.0.1:3000/api/v1/reviews/createMyReview/${showId}`;
+        ? `/api/v1/shows/${showId}/reviews`
+        : `/api/v1/reviews/createMyReview/${showId}`;
 
     const res = await axios({
       method: 'POST',
@@ -173,7 +171,7 @@ export const createReview = async (data, showId, role) => {
 
 export const createTheater = async data => {
   try {
-    const url = 'http://127.0.0.1:3000/api/v1/theaters';
+    const url = '/api/v1/theaters';
 
     const res = await axios({
       method: 'POST',
@@ -194,7 +192,7 @@ export const createTheater = async data => {
 
 export const createShowtime = async data => {
   try {
-    const url = 'http://127.0.0.1:3000/api/v1/showtimes';
+    const url = '/api/v1/showtimes';
 
     const res = await axios({
       method: 'POST',
@@ -215,7 +213,7 @@ export const createShowtime = async data => {
 
 export const createCastCrew = async data => {
   try {
-    const url = 'http://127.0.0.1:3000/api/v1/castcrews';
+    const url = '/api/v1/castcrews';
 
     const res = await axios({
       method: 'POST',
