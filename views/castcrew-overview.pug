@@ -7,7 +7,7 @@ block content
         .heading-box__background
 
           .heading-box__background-overlay &nbsp;
-          img.heading-box__background-img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name}`)
+          img.heading-box__background-img(src=`${castcrew.cloudinaryPhoto.cloudinaryUrl}`, alt=`${castcrew.name}`)
 
           .bg-video
             video.bg-video__content(autoplay muted loop)
@@ -16,7 +16,7 @@ block content
               | Sorry, your browser does not support embedded videos!
 
         .heading-box__photo
-          img.heading-box__photo-img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name}`)
+          img.heading-box__photo-img(src=`${castcrew.cloudinaryPhoto.cloudinaryUrl}`, alt=`${castcrew.name}`)
 
         .heading-box__castcrew-data-container
           .heading-box__title
@@ -64,7 +64,7 @@ block content
                 .tile-ticket(class=`swiper-${swiperSlideClass}`)
                   .tile-ticket__media
                     a.tile-ticket__media-link.tile-ticket__media-link--poster(href=`/show-overview/${show.slug}`)
-                      img.tile-ticket__media-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+                      img.tile-ticket__media-img(src=`${show.cloudinaryPhoto.cloudinaryUrl}`, alt=`${show.title}`)
                   
                   .tile-ticket__title.u-margin-bottom-small
                     h3.tile-ticket__title-content.heading-tertiary= show.title
