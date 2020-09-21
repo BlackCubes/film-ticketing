@@ -30,9 +30,9 @@ router
   .post(
     authController.protect,
     authController.restrictTo('admin'),
+    photoController.bufferPhoto('photo'),
     theaterController.geoParse,
     validationController.createTheater,
-    photoController.bufferPhoto('photo'),
     photoController.uploadPhoto('kinetotickets-theaters'),
     theaterController.createTheater
   );
