@@ -65,7 +65,7 @@ router.get(
 router.get(
   '/me',
   authController.protect,
-  authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('user', 'event-owner', 'admin'),
   viewsController.getAccount
 );
 router.get(
