@@ -4,7 +4,7 @@ mixin castcrewsCard(castcrew)
   .card-account__content
     .card-account__content-photo
       a.card-account__content-photo-link.picture-link(href=`/admin/castcrews/${castcrew.id}`)
-        img.card-account__content-photo-img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name} Photo`)
+        img.card-account__content-photo-img(src=`${castcrew.cloudinaryPhoto.cloudinaryUrl}`, alt=`${castcrew.name} Photo`)
 
     .card-account__content-type.u-margin-bottom-small
       h3.card-account__content-type-name.heading-tertiary= castcrew.name
