@@ -28,11 +28,11 @@ const castcrewSchema = new mongoose.Schema(
     cloudinaryPhoto: {
       cloudinaryId: {
         type: String,
-        required: [true, 'A show image needs to be in Cloudinary!']
+        required: [true, 'A cast/crew image needs to be in Cloudinary!']
       },
       cloudinaryUrl: {
         type: String,
-        required: [true, 'A show image must have a Cloudinary URL!']
+        required: [true, 'A cast/crew image must have a Cloudinary URL!']
       }
     },
     imgpromo: [
