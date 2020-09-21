@@ -58,10 +58,10 @@ router.patch(
   '/:id/:theaterPhoto',
   authController.protect,
   authController.restrictTo('admin'),
+  photoController.bufferPhoto('photo'),
   theaterController.geoParse,
   validationController.insertParamsId,
   validationController.updateTheater,
-  photoController.bufferPhoto('photo'),
   photoController.deletePhoto('theaters'),
   photoController.uploadPhoto('kinetotickets-theaters'),
   theaterController.updateTheater
