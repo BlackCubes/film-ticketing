@@ -13,7 +13,7 @@ block content
         .heading-box__background
 
           .heading-box__background-overlay &nbsp;
-          img.heading-box__background-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+          img.heading-box__background-img(src=`${show.cloudinaryPhoto.cloudinaryUrl}`, alt=`${show.title}`)
 
           .bg-video
             video.bg-video__content(autoplay muted loop)
@@ -22,7 +22,7 @@ block content
               | Sorry, your browser does not support embedded videos!
 
         .heading-box__poster
-          img.heading-box__poster-img(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title}`)
+          img.heading-box__poster-img(src=`${show.cloudinaryPhoto.cloudinaryUrl}`, alt=`${show.title}`)
 
         .heading-box__data-container
           .heading-box__title
@@ -73,7 +73,7 @@ block content
                 .tile-ticket(class=`swiper-${swiperSlideClass}`)
                   .tile-ticket__media
                     a.tile-ticket__media-link.tile-ticket__media-link--logo(href=`/theater-overview/${showtime.theaters[0].slug}`)
-                      img.tile-ticket__media-img(src=`/img/theaters/${showtime.theaters[0].photo}`, alt=`${showtime.theaters[0].name}`)
+                      img.tile-ticket__media-img(src=`${showtime.theaters[0].cloudinaryPhoto.cloudinaryUrl}`, alt=`${showtime.theaters[0].name}`)
                   
                   .tile-ticket__title.u-margin-bottom-small
                     h3.tile-ticket__title-content.heading-tertiary= `${showtime.theaters[0].name}`
@@ -127,7 +127,7 @@ block content
               each castcrew in show.castcrew
                 .tile.swiper-slide
                   .tile__media
-                    img.tile__img(src=`/img/castcrew/${castcrew.photo.urlLarge}`, alt=`${castcrew.name}`)
+                    img.tile__img(src=`${castcrew.cloudinaryPhoto.cloudinaryUrl}`, alt=`${castcrew.name}`)
                   .tile__details
                     .tile__title: a.tile__link(href=`/castcrew-overview/${castcrew.slug}`)= castcrew.name
 
@@ -148,7 +148,10 @@ block content
                     .tile-card.swiper-slide
                       .tile-card__reviewer
                         .tile-card__reviewer-photo
-                          img.tile-card__photo-img(src=`/img/users/${user.photo}`, alt=`${user.name} Photo`)
+                          - let sourceFile = user.cloudinaryPhoto.cloudinaryUrl
+                          if user.cloudinaryPhoto.cloudinaryUrl === 'default.jpg'
+                            - sourceFile = `/img/users/${user.cloudinaryPhoto.cloudinaryUrl}`
+                          img.tile-card__photo-img(src=`${sourceFile}`, alt=`${user.name} Photo`)
 
                         .tile-card__reviewer-name
                           p.paragraph Create a review!
@@ -175,7 +178,10 @@ block content
                 .tile-card.swiper-slide
                   .tile-card__reviewer
                     .tile-card__reviewer-photo
-                      img.tile-card__photo-img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name} Photo`)
+                      - let reviewSourceFile = review.user.cloudinaryPhoto.cloudinaryUrl
+                      if review.user.cloudinaryPhoto.cloudinaryUrl === 'default.jpg'
+                        - reviewSourceFile = `/img/users/${review.user.cloudinaryPhoto.cloudinaryUrl}`
+                      img.tile-card__photo-img(src=`${reviewSourceFile}`, alt=`${review.user.name} Photo`)
                     
                     .tile-card__reviewer-name
                       p.paragraph= review.user.name
@@ -200,8 +206,11 @@ block content
             .additional-box__organizer.trow
               .additional-box__organizer-title.td Event Organizer:
 
+              - let eventOrganizerSource = show.eventOrganizer[0].cloudinaryPhoto.cloudinaryUrl
+              if show.eventOrganizer[0].cloudinaryPhoto.cloudinaryUrl === 'default.jpg'
+                - eventOrganizerSource = `/img/users/${show.eventOrganizer[0].cloudinaryPhoto.cloudinaryUrl}`
               .additional-box__organizer-value.td.
-                #[a(class='additional-box__organizer-link', href=`mailto:${show.eventOrganizer[0].email}`) #[img(class='additional-box__organizer-img', src=`/img/users/${show.eventOrganizer[0].photo}`, alt=`${show.eventOrganizer[0].name}'s Photo`)] #[span #{show.eventOrganizer[0].name}]]
+                #[a(class='additional-box__organizer-link', href=`mailto:${show.eventOrganizer[0].email}`) #[img(class='additional-box__organizer-img', src=`${eventOrganizerSource}`, alt=`${show.eventOrganizer[0].name}'s Photo`)] #[span #{show.eventOrganizer[0].name}]]
             
             .additional-box__original-release.trow
               .additional-box__original-release-title.td Original Release:
