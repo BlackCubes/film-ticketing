@@ -41,7 +41,6 @@ block content
 
             .form__group
               .form__photo-upload
-                //- src=`${theater.cloudinaryPhoto.cloudinaryUrl}`
                 img#photoSource.form__show-photo(src=`${theater.cloudinaryPhoto.cloudinaryUrl}`, alt=`${theater.name} Photo`)
                 input#theaterPhoto.form__upload(type='file', accept='image/*', name='theaterPhoto', required)
                 label.form__label-upload.label-text(for='theaterPhoto') Choose a theater photo*
