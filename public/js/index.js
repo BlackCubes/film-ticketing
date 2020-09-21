@@ -920,7 +920,7 @@ if (adFieldlist1) {
         form.append('description', description);
         form.append('chainName', chainName);
         // form.append('chainCode', chainCode);
-        form.append('theaterPhoto', photo);
+        form.append('photo', photo);
 
         await createTheater(form);
 
