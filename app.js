@@ -9,6 +9,7 @@ const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const useragent = require('express-useragent');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -36,6 +37,10 @@ app.use(express.urlencoded({ limit: '50mb', extended: true })); // Check on the 
 
 // For parsing multipart/form-data
 // app.use(upload.array());
+
+// For implementing CORS
+app.use(cors());
+app.options('*', cors());
 
 // Static -- displaying static files
 app.use(express.static(path.join(__dirname, 'public')));
