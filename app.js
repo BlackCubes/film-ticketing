@@ -19,6 +19,7 @@ const showRouter = require('./routes/showRoutes');
 const showtimesRouter = require('./routes/showtimesRoutes');
 const theaterRouter = require('./routes/theaterRoutes');
 const ticketRouter = require('./routes/ticketRoutes');
+const ticketController = require('./controllers/ticketController');
 const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRoutes');
 
@@ -62,6 +63,12 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try again in an hour!'
 });
 app.use('/api', limiter);
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  ticketController.webhookCheckout
+);
 
 // Body Parser -- reading data from the body into req.body
 app.use(express.json({ limit: '50mb' })); //10kb
