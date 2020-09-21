@@ -20,9 +20,9 @@ router
   .post(
     authController.protect,
     authController.restrictTo('admin'),
+    photoController.bufferPhoto('photo'),
     castcrewConroller.rolesParse,
     validationController.createCastCrew,
-    photoController.bufferPhoto('photo'),
     photoController.uploadPhoto('kinetotickets-castcrews'),
     castcrewConroller.createCastCrew
   );
@@ -48,10 +48,10 @@ router.patch(
   '/:id/:castcrewsPhoto',
   authController.protect,
   authController.restrictTo('admin'),
+  photoController.bufferPhoto('photo'),
   castcrewConroller.rolesParse,
   validationController.insertParamsId,
   validationController.updateCastCrew,
-  photoController.bufferPhoto('photo'),
   photoController.deletePhoto('castcrews'),
   photoController.uploadPhoto('kinetotickets-castcrews'),
   castcrewConroller.updateCastCrew
