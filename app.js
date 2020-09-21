@@ -33,9 +33,6 @@ app.set('views', path.join(__dirname, 'views'));
 // Expose User-Agent
 app.use(useragent.express());
 
-// For parsing application/xwww-
-app.use(express.urlencoded({ limit: '50mb', extended: true })); // Check on the limit!!!
-
 // For parsing multipart/form-data
 // app.use(upload.array());
 
@@ -50,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Helmet -- set security HTTP headers
 app.use(helmet());
 
-// Morgan -- Ddvelopment logging
+// Morgan -- Development logging
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
@@ -72,6 +69,7 @@ app.post(
 
 // Body Parser -- reading data from the body into req.body
 app.use(express.json({ limit: '50mb' })); //10kb
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 
 // Data Sanitization
