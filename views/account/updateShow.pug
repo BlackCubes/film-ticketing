@@ -86,12 +86,6 @@ block content
                 input#showEventOwner.form__input.input-text(type='text' name='hexadecimal' placeholder='Event Organizer ID*' value=`${show.eventOrganizer[0]._id}` required)
                 label.form__label.label-text(for='showEventOwner') Please enter the event organizer's ID belonging to this show
 
-            //- .form__group
-            //-   .form__photo-upload
-            //-     img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
-            //-     input#showPhoto.form__upload(type='file' accept='image/*' name='poster' required)
-            //-     label.form__label-upload.label-text(for='showPhoto') Choose a different poster*
-
             .form__group
               button#btnUpdateShowData.btn.btn--blue(type='submit' name='hexadecimal-btn' data-show-id=`${show.id}` data-role-type=`${user.role}`) Update
 
@@ -106,8 +100,7 @@ block content
 
             .form__group
               .form__photo-upload
-                //- src=`${theater.cloudinaryPhoto.cloudinaryUrl}`
-                img#posterSource.form__show-photo(src=`/img/shows/${show.poster.urlLarge}`, alt=`${show.title} poster`)
+                img#posterSource.form__show-photo(src=`${show.cloudinaryPhoto.cloudinaryUrl}`, alt=`${show.title} poster`)
                 input#showPhoto.form__upload(type='file' accept='image/*' name='poster' required)
                 label.form__label-upload.label-text(for='showPhoto') Choose a different poster*
 
@@ -258,30 +251,3 @@ block content
 
 block circleNavigation
   include ../_circleNav
-
-        //- .line &nbsp;
-
-        //- .user-view__form-container
-        //-   form#updateShowImagePromo
-        //-     .form__group
-        //-       .form__title.u-center-text
-        //-           h2.heading-primary.u-margin-bottom-small Add Promotional Images
-
-        //-           small.form__info-small.small-text Upload promotional images related to your show. They could be BTS photography, or during the night of your show. A limit of 5 uploads.
-
-        //-     .form__group
-              
-
-        //-     .form__group
-
-        //-     .form__group
-
-        //-     .form__group
-
-        //-     .form__group
-
-        //-     .form__group
-
-        //- .line &nbsp;
-
-        //- .user-view__form-container
