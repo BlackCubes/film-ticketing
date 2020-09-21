@@ -12,7 +12,7 @@ block content
             .card__poster
               //- .card__poster-overlay &nbsp;
               a.card__poster-link(href=`/show-overview/${show.slug}`)
-                img.card__poster-img(src=`/img/shows/${show.cloudinaryPhoto.cloudinaryUrl}`, alt=`${show.title}`)
+                img.card__poster-img(src=`${show.cloudinaryPhoto.cloudinaryUrl}`, alt=`${show.title}`)
 
             .card__header-wrapper.u-margin-top-small.u-margin-bottom-small
               h2.card__header.heading-secondary= show.title
