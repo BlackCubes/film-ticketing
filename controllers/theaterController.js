@@ -8,6 +8,8 @@ exports.geoParse = (req, res, next) => {
   if (typeof req.body.geo !== 'string')
     return next(new AppError('Please provide a JSON string for geo', 400));
 
+  console.log('Reqbody: ', req.body);
+
   req.body.geo = { coordinates: JSON.parse(req.body.geo) };
   next();
 };
