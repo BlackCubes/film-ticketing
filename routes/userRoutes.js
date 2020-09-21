@@ -66,9 +66,9 @@ router.patch(
   '/updateMe',
   authController.protect,
   authController.restrictTo('users', 'event-owner', 'admin'),
+  photoController.bufferPhoto('photo'),
   validationController.updateUser,
   photoController.checkPhotoUpload('User'),
-  photoController.bufferPhoto('photo'),
   photoController.uploadPhoto('kinetotickets-users', false),
   userController.updateMe
 );
@@ -77,9 +77,9 @@ router.patch(
   '/updateMe/:userPhoto',
   authController.protect,
   authController.restrictTo('users', 'event-owner', 'admin'),
+  photoController.bufferPhoto('photo'),
   validationController.updateUser,
   photoController.checkPhotoUpload('User'),
-  photoController.bufferPhoto('photo'),
   photoController.deletePhoto('users'),
   photoController.uploadPhoto('kinetotickets-users', false),
   userController.updateMe
@@ -126,8 +126,8 @@ router
   .patch(
     authController.protect,
     authController.restrictTo('admin'),
-    validationController.updateUser,
     photoController.bufferPhoto('photo'),
+    validationController.updateUser,
     photoController.uploadPhoto('kinetotickets-users', false),
     userController.updateUser
   )
@@ -142,8 +142,8 @@ router.patch(
   '/:id/:userPhoto',
   authController.protect,
   authController.restrictTo('admin'),
-  validationController.updateUser,
   photoController.bufferPhoto('photo'),
+  validationController.updateUser,
   photoController.deletePhoto('users'),
   photoController.uploadPhoto('kinetotickets-users', false),
   userController.updateUser
