@@ -13,7 +13,7 @@ block content
         .heading-box__background
 
           .heading-box__background-overlay &nbsp;
-          img.heading-box__background-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
+          img.heading-box__background-img(src=`${theater.cloudinaryPhoto.cloudinaryUrl}`, alt=`${theater.name}`)
 
           .bg-video
             video.bg-video__content(autoplay muted loop)
@@ -22,7 +22,7 @@ block content
               | Sorry, your browser does not support embedded videos!
 
         .heading-box__logo
-          img.heading-box__poster-img(src=`/img/theaters/${theater.photo}`, alt=`${theater.name}`)
+          img.heading-box__poster-img(src=`${theater.cloudinaryPhoto.cloudinaryUrl}`, alt=`${theater.name}`)
 
         .heading-box__theater-data-container
           .heading-box__title
@@ -68,7 +68,7 @@ block content
                 .tile-ticket(class=`swiper-${swiperSlideClass}`)
                   .tile-ticket__media
                     a.tile-ticket__media-link.tile-ticket__media-link--poster(href=`/show-overview/${showtime.shows[0].slug}`)
-                      img.tile-ticket__media-img(src=`/img/shows/${showtime.shows[0].poster.urlLarge}`, alt=`${showtime.shows[0].title}`)
+                      img.tile-ticket__media-img(src=`/img/shows/${showtime.shows[0].cloudinaryPhoto.cloudinaryUrl}`, alt=`${showtime.shows[0].title}`)
                   
                   .tile-ticket__title.u-margin-bottom-small
                     h3.tile-ticket__title-content.heading-tertiary= showtime.shows[0].title
