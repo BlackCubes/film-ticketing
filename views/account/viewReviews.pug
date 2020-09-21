@@ -15,7 +15,7 @@ mixin reviewsCard(type)
         - showLink = `/show-overview/${type.show.slug}`
 
       a.card-account__content-photo-link.picture-link(href=`${showLink}`)
-        img.card-account__content-photo-img(src=`/img/shows/${type.show.poster.urlLarge}`, alt=`${type.show.title} Poster`)
+        img.card-account__content-photo-img(src=`${type.show.cloudinaryPhoto.cloudinaryUrl}`, alt=`${type.show.title} Poster`)
 
     .card-account_content-type.u-center-text
       - let userRatingTitle = 'My'
@@ -92,48 +92,6 @@ block content
               each review in reviews
                 if review
                   +reviewsCard(review)
-                //- .showtimes-box__theatertime
-                //-   .showtimes-box__theatertime-poster
-                //-     - let showLink
-                //-     if user.role === 'admin'
-                //-       - showLink = `/admin/shows/${review.show.id}`
-                //-     else
-                //-       - showLink = `/show-overview/${review.show.slug}`
-                //-     a.showtimes-box__theatertime-poster-link.picture-link(href=`${showLink}`)
-                //-       img.showtimes-box__theatertime-poster-img(src=`/img/shows/${review.show.poster.urlLarge}`, alt=`${review.show.title} Poster`)
-
-                //-   .showtimes-box__theatertime-theater.u-margin-bottom-small
-                //-     h3.showtimes-box__theatertime-theater-name.heading-tertiary= review.show.title
-
-                //-   .card__ratings.u-center-text
-                //-     - let userRatingTitle
-                //-     if user.role === 'admin'
-                //-       - userRatingTitle = `${review.user.name}`
-                //-     else
-                //-       - userRatingTitle = `My`
-
-                //-     h3.card__ratings-star.heading-tertiary= `${userRatingTitle} Rating: ${review.rating}`
-
-                //-   .card__details
-                //-     p.crd__details-overview.paragraph= `"${review.review}"`
-
-                //-   .showtimes-box__ticket-buy
-                //-     if user.role === 'admin' && reviewsOnShow
-                //-       .form__duo-btn
-                //-         .form__duo-btn-previous
-                //-           a.btn.btn__promo(href=`/admin/users/${review.user.id}/reviews`) View User's Reviews
-
-                //-         .form__duo-btn-next
-                //-           a.btn.btn__promo(href=`#`) Delete Review
-                //-     else if user.role === 'admin' && reviewsOnUser
-                //-       .form__duo-btn
-                //-         .form__duo-btn-previous
-                //-           a.btn.btn__promo(href=`/admin/users/${review.user.id}/reviews`) View Show's Reviews
-
-                //-         .form__duo-btn-next
-                //-           a.btn.btn__promo(href=`#`) Delete Review
-                //-     else
-                //-       a.btn.btn__promo(href=`/myReviews/${review.show.slug}`) Edit
 
 block circleNavigation
   include ../_circleNav
