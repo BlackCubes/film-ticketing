@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.get(
   '/',
-  ticketController.createTicketCheckout,
+  // ticketController.createTicketCheckout,
   authController.isLoggedIn,
   viewsController.getHome
 );
