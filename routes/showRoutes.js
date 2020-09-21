@@ -39,9 +39,9 @@ router.post(
   '/createMyShow',
   authController.protect,
   authController.restrictTo('event-owner'),
+  photoController.bufferPhoto('poster'),
   showController.checkShowCreated,
   validationController.createShow,
-  photoController.bufferPhoto('poster'),
   photoController.uploadPhoto('kinetotickets-shows'),
   showController.getEventOrganizer,
   showController.createMyShow
@@ -60,10 +60,10 @@ router.patch(
   '/updateMyShow/:id/:showPoster',
   authController.protect,
   authController.restrictTo('event-owner'),
+  photoController.bufferPhoto('poster'),
   validationController.insertParamsId,
   validationController.updateShow,
   photoController.checkPhotoUpload('Show'),
-  photoController.bufferPhoto('poster'),
   photoController.deletePhoto('shows'),
   photoController.uploadPhoto('kinetotickets-shows'),
   showController.updateMyShow
@@ -74,8 +74,8 @@ router
   .post(
     authController.protect,
     authController.restrictTo('admin'),
-    validationController.createShow,
     photoController.bufferPhoto('poster'),
+    validationController.createShow,
     photoController.uploadPhoto('kinetotickets-shows'),
     showController.createShow
   );
@@ -100,9 +100,9 @@ router.patch(
   '/:id/:showPoster',
   authController.protect,
   authController.restrictTo('admin'),
+  photoController.bufferPhoto('poster'),
   validationController.insertParamsId,
   validationController.updateShow,
-  photoController.bufferPhoto('poster'),
   photoController.deletePhoto('shows'),
   photoController.uploadPhoto('kinetotickets-shows'),
   showController.updateShow
