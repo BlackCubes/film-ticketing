@@ -25,7 +25,7 @@ router.post(
 router.get(
   '/logout',
   authController.protect,
-  authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('user', 'event-owner', 'admin'),
   authController.logout
 );
 router.post(
@@ -48,7 +48,7 @@ router.patch(
 router.patch(
   '/updateMyPassword',
   authController.protect,
-  authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('user', 'event-owner', 'admin'),
   validationController.insertPasswordConfirm,
   validationController.updatePass,
   authController.updateMyPassword
@@ -57,7 +57,7 @@ router.patch(
 router.get(
   '/me',
   authController.protect,
-  authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('user', 'event-owner', 'admin'),
   userController.getMe,
   userController.getUser
 );
@@ -65,7 +65,7 @@ router.get(
 router.patch(
   '/updateMe',
   authController.protect,
-  authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('user', 'event-owner', 'admin'),
   photoController.bufferPhoto('photo'),
   validationController.updateUser,
   photoController.checkPhotoUpload('User'),
@@ -76,7 +76,7 @@ router.patch(
 router.patch(
   '/updateMe/:userPhoto',
   authController.protect,
-  authController.restrictTo('users', 'event-owner', 'admin'),
+  authController.restrictTo('user', 'event-owner', 'admin'),
   photoController.bufferPhoto('photo'),
   validationController.updateUser,
   photoController.checkPhotoUpload('User'),
