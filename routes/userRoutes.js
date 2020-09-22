@@ -81,7 +81,7 @@ router.patch(
   validationController.updateUser,
   photoController.checkPhotoUpload('User'),
   photoController.deletePhoto('users'),
-  photoController.uploadPhoto('kinetotickets-users', false),
+  photoController.uploadPhoto('kinetotickets-users'),
   userController.updateMe
 );
 
