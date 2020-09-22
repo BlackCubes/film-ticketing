@@ -93,8 +93,8 @@ exports.deletePhoto = photoType =>
     if (
       photoType === 'users' &&
       (!req.params.userPhoto ||
-        req.params.userPhoto === 'default.jpg' ||
-        req.params.userPhoto === 'admin.png')
+        req.params.userPhoto === 'default' ||
+        req.params.userPhoto === 'admin')
     )
       return next();
 
