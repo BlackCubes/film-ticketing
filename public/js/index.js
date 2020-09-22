@@ -415,7 +415,7 @@ if (updatePersonalForm) {
 
         if (!photo) photoParams = '';
 
-        form.append('name', name.value);
+        form.append('name', name);
         form.append('birthdate', birthdate);
         form.append('gender', gender);
         form.append('photo', photo);
