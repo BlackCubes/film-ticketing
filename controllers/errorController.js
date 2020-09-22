@@ -56,7 +56,7 @@ const sendErrorProd = (err, req, res) => {
     console.error('ERROR!', err);
     return res.status(500).json({
       status: 'error',
-      message: 'Something went very wrong!'
+      message: `Something went very wrong! Error: ${err}`
     });
   }
   // FOR RENDERED WEBSITE
