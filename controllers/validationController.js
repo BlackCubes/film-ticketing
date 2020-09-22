@@ -124,7 +124,7 @@ exports.createShow = catchAsync(async (req, res, next) => {
       contentType: 'required|string|regexContent',
       price: 'required|numeric|min:5|regexPrice',
       genres: 'string|min:3',
-      specialVenue: 'string|max:1|regexSelectOpt'
+      specialVenue: 'boolean'
     };
   } else if (req.user && req.user.role === 'admin') {
     validationRule = {
@@ -139,8 +139,8 @@ exports.createShow = catchAsync(async (req, res, next) => {
       contentType: 'required|string|regexContent',
       price: 'required|numeric|min:5|regexPrice',
       genres: 'string|min:3',
-      specialVenue: 'string|max:1|regexSelectOpt',
-      secretShow: 'string|max:1|regexSelectOpt',
+      specialVenue: 'boolean',
+      secretShow: 'boolean',
       eventOrganizer: 'required|hex|regexMongo'
     };
   }
@@ -168,7 +168,7 @@ exports.updateShow = catchAsync(async (req, res, next) => {
       contentType: 'string|regexContentOpt',
       price: 'numeric|min:5|regexPrice',
       genres: 'string|min:3',
-      specialVenue: 'string|max:1|regexSelectOpt',
+      specialVenue: 'boolean',
       paramsId: 'required|hex|regexMongo'
     };
   } else if (req.user && req.user.role === 'admin') {
@@ -184,8 +184,8 @@ exports.updateShow = catchAsync(async (req, res, next) => {
       contentType: 'string|regexContentOpt',
       price: 'numeric|min:5|regexPrice',
       genres: 'string|min:3',
-      specialVenue: 'string|max:1|regexSelectOpt',
-      secretShow: 'string|max:1|regexSelectOpt',
+      specialVenue: 'boolean',
+      secretShow: 'boolean',
       eventOrganizer: 'hex|regexMongoOpt',
       paramsId: 'required|hex|regexMongo'
     };
