@@ -411,7 +411,7 @@ if (updatePersonalForm) {
         const photoUrlArr = document
           .getElementById('photoSource')
           .src.split('/');
-        let photoParams = photoUrlArr[photoUrlArr.length - 1];
+        let photoParams = photoUrlArr[photoUrlArr.length - 1].split('.')[0];
 
         if (!photo) photoParams = '';
 
