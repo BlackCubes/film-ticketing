@@ -134,6 +134,9 @@ exports.checkPhotoUpload = table =>
     const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 1));
 
     const query = await Models[table].findById(queryType);
+
+    if (!query) return next();
+
     const { cloudinaryUploadedAt } = query;
 
     if (checkDate(cloudinaryUploadedAt, pastDate))
