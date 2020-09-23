@@ -4,9 +4,9 @@ mixin usersCard(type)
   .card-account__content
     .card-account__content-photo
       a.card-account__content-photo-link.picture-link(href=`/admin/users/${type._id}`)
-        - let sourcePath = type.cloudinaryPhoto.cloudinaryUrl
-        if type.cloudinaryPhoto.cloudinaryUrl === 'default.jpg'
-          - sourcePath = `/img/users/${type.cloudinaryPhoto.cloudinaryUrl}`
+        - let sourcePath = '/img/users/default.jpg'
+        if type.cloudinaryPhoto.cloudinaryUrl
+          - sourcePath = type.cloudinaryPhoto.cloudinaryUrl
 
         img.card-account__content-photo-img(src=`${sourcePath}`, alt=`${type.name} Photo`)
 
