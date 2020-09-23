@@ -14,8 +14,8 @@ header.header-container
         if user
           a.nav__profile.nav__profile--logout Logout
           a.nav__profile(href='/me')
-            - let sourcePath = '/img/users/default.jpg'
-            if user.cloudinaryPhoto.cloudinaryUrl
+            - let sourcePath = user.role === 'admin' ? '/img/users/admin.png' : '/img/users/default.jpg'
+            if user.cloudinaryPhoto.cloudinaryUrl !== 'default.jpg' || user.cloudinaryPhoto.cloudinaryUrl !== 'admin.png'
               - sourcePath = user.cloudinaryPhoto.cloudinaryUrl
 
             img.nav__user-img(src=`${sourcePath}`, alt=`${user.name}'s photo`)
