@@ -1572,7 +1572,7 @@ if (updateTheaterLocation) {
           geoLong = parseFloat(document.getElementById('theaterGeoLong').value),
           geoLat = parseFloat(document.getElementById('theaterGeoLat').value);
 
-        const geo = JSON.stringify([geoLong, geoLat]);
+        // const geo = JSON.stringify([geoLong, geoLat]);
 
         document.getElementById('btnUpdateTheaterLocation').textContent =
           'Updating...';
@@ -1583,7 +1583,8 @@ if (updateTheaterLocation) {
         form.city = city;
         form.state = state;
         form.zipCode = zipCode;
-        form.geo = geo;
+        form.geoLong = geoLong;
+        form.geoLat = geoLat;
 
         await updateTheaterSettings(form, 'location', theaterId);
 
