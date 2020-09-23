@@ -28,11 +28,7 @@ const userSchema = new mongoose.Schema({
   photo: { type: String, default: 'default.jpg' },
   cloudinaryPhoto: {
     cloudinaryId: String,
-    cloudinaryUrl: {
-      type: String,
-      default: 'default.jpg'
-    }
-  },
+    cloudinaryUrl: String,
   cloudinaryUploadedAt: Date,
   role: {
     type: String,
@@ -108,7 +104,7 @@ userSchema.pre('save', async function(next) {
 
 // -- update the cloudinary uploaded date if the cloudinary photo changes
 userSchema.pre('save', async function(next) {
-  if (this.cloudinaryPhoto.cloudinaryUrl === 'default.jpg') return next();
+  if (!this.cloudinaryPhoto) return next();
 
   this.cloudinaryUploadedAt = Date.now() - 1000;
   next();
