@@ -92,13 +92,13 @@ block content
                       button#ticketBought.btn.btn--grey-blue(disabled) Bought!
                     
                     else if user && user.role === 'event-owner'
-                      button#ticketRestricted.btn.btn--red(disabled) Restricted!
+                      button#ticketRestricted.btn.btn--red.btn--not-allowed(disabled) Restricted!
 
                     else if user && Date.now() >= showtime.startDateTime
-                      button#ticketExpired.btn.btn--red(disabled) Expired!
+                      button#ticketExpired.btn.btn--red.btn--not-allowed(disabled) Expired!
 
                     else if user && showtime.soldOut
-                      button#ticketSoldOut.btn.btn--red(disabled) Sold Out!
+                      button#ticketSoldOut.btn.btn--red.btn--not-allowed(disabled) Sold Out!
 
                     else if user && Date.now() < showtime.startDateTime && !showtime.soldOut
                       button#ticketShow.btn.btn--blue(name='hexadecimal-btn' data-show-id=`${showtime.shows[0].id}` data-theater-id=`${theater.id}` data-showtime-id=`${showtime.id}`) Buy!
