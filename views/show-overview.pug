@@ -148,8 +148,8 @@ block content
                     .tile-card.swiper-slide
                       .tile-card__reviewer
                         .tile-card__reviewer-photo
-                          - let sourceFile = '/img/users/default.jpg'
-                          if user.cloudinaryPhoto.cloudinaryUrl
+                          - let sourceFile = user.role === 'admin' ? '/img/users/admin.png' : '/img/users/default.jpg'
+                          if user.cloudinaryPhoto.cloudinaryId
                             - sourceFile = user.cloudinaryPhoto.cloudinaryUrl
                           img.tile-card__photo-img(src=`${sourceFile}`, alt=`${user.name} Photo`)
 
@@ -178,7 +178,7 @@ block content
                 .tile-card.swiper-slide
                   .tile-card__reviewer
                     .tile-card__reviewer-photo
-                      - let reviewSourceFile = '/img/users/default.jpg'
+                      - let reviewSourceFile = `/img/users/${review.user.photo}`
                       if review.user.cloudinaryPhoto.cloudinaryUrl
                         - reviewSourceFile = review.user.cloudinaryPhoto.cloudinaryUrl
                       img.tile-card__photo-img(src=`${reviewSourceFile}`, alt=`${review.user.name} Photo`)
@@ -206,7 +206,7 @@ block content
             .additional-box__organizer.trow
               .additional-box__organizer-title.td Event Organizer:
 
-              - let eventOrganizerSource = '/img/users/default.jpg'
+              - let eventOrganizerSource = `/img/users/${show.eventOrganizer[0].photo}`
               if show.eventOrganizer[0].cloudinaryPhoto.cloudinaryUrl
                 - eventOrganizerSource = show.eventOrganizer[0].cloudinaryPhoto.cloudinaryUrl
               .additional-box__organizer-value.td.
