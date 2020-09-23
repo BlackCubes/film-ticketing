@@ -89,7 +89,7 @@ block content
 
                   .tile-ticket__options
                     if user && checkFilter.filter(id => id === showtime.id).length > 0
-                      button#ticketBought.btn.btn--grey-blue(disabled) Bought!
+                      button#ticketBought.btn.btn--grey-blue.btn--not-allowed(disabled) Bought!
                     
                     else if user && user.role === 'event-owner'
                       button#ticketRestricted.btn.btn--red.btn--not-allowed(disabled) Restricted!
