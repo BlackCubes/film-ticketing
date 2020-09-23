@@ -1581,7 +1581,7 @@ if (updateTheaterLocation) {
 
         form.address = address;
         form.city = city;
-        from.state = state;
+        form.state = state;
         form.zipCode = zipCode;
         form.geo = geo;
 
