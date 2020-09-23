@@ -66,6 +66,7 @@ exports.createMyShow = catchAsync(async (req, res, next) => {
   );
 
   filteredBody = sanitize(filteredBody);
+  filteredBody.cloudinaryPhoto = req.body.cloudinaryPhoto;
 
   const newShow = await Show.create(filteredBody);
 
