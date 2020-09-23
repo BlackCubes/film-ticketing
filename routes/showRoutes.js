@@ -63,7 +63,7 @@ router.patch(
   photoController.bufferPhoto('poster'),
   validationController.insertParamsId,
   validationController.updateShow,
-  photoController.checkPhotoUpload('Show'),
+  // photoController.checkPhotoUpload('Show'),
   photoController.deletePhoto('shows'),
   photoController.uploadPhoto('kinetotickets-shows'),
   showController.updateMyShow

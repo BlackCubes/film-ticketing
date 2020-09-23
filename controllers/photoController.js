@@ -2,10 +2,10 @@ const cloudinary = require('cloudinary').v2;
 const DatauriParser = require('datauri/parser');
 const multer = require('multer');
 const path = require('path');
-const Models = require('./../models');
+// const Models = require('./../models');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
-const checkDate = require('./../utils/checkDate');
+// const checkDate = require('./../utils/checkDate');
 
 const multerStorage = multer.memoryStorage();
 
@@ -122,30 +122,30 @@ exports.deletePhoto = photoType =>
   });
 
 // CHECK IF THE PHOTO HAS BEEN UPLOADED 24HRS RECENTLY
-exports.checkPhotoUpload = table =>
-  catchAsync(async (req, res, next) => {
-    if (table === 'User' && !req.params.userPhoto) return next();
+// exports.checkPhotoUpload = table =>
+//   catchAsync(async (req, res, next) => {
+//     if (table === 'User' && !req.params.userPhoto) return next();
 
-    let queryType;
-    if (table === 'User') queryType = req.user.id;
-    if (table === 'Show') queryType = req.params.id;
+//     let queryType;
+//     if (table === 'User') queryType = req.user.id;
+//     if (table === 'Show') queryType = req.params.id;
 
-    const currentDate = new Date();
-    const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 1));
+//     const currentDate = new Date();
+//     const pastDate = new Date(currentDate.setDate(currentDate.getDate() - 1));
 
-    const query = await Models[table].findById(queryType);
+//     const query = await Models[table].findById(queryType);
 
-    const { cloudinaryUploadedAt } = query;
+//     const { cloudinaryUploadedAt } = query;
 
-    if (!cloudinaryUploadedAt) return next();
+//     if (!cloudinaryUploadedAt) return next();
 
-    if (checkDate([cloudinaryUploadedAt], pastDate))
-      return next(
-        new AppError(
-          'You need to wait at least 24 hours after you have uploaded your previous photo before adding a new one.',
-          403
-        )
-      );
+//     if (checkDate([cloudinaryUploadedAt], pastDate))
+//       return next(
+//         new AppError(
+//           'You need to wait at least 24 hours after you have uploaded your previous photo before adding a new one.',
+//           403
+//         )
+//       );
 
-    next();
-  });
+//     next();
+//   });
