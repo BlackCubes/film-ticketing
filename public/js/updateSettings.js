@@ -9,8 +9,7 @@ export const updateSettings = async (data, type, photoParams = '') => {
         ? '/api/v1/users/updateMyPassword'
         : '/api/v1/users/updateMe';
 
-    url =
-      photoParams === '' ? url : `/api/v1/users/updateMePhoto/${photoParams}`;
+    url = photoParams === '' ? url : `/api/v1/users/updateMe/${photoParams}`;
 
     const res = await axios({
       method: 'PATCH',

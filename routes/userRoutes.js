@@ -74,7 +74,7 @@ router.patch(
 );
 
 router.patch(
-  '/updateMePhoto/:userPhoto',
+  '/updateMe/:userPhoto',
   authController.protect,
   authController.restrictTo('user', 'event-owner', 'admin'),
   photoController.bufferPhoto('photo'),
