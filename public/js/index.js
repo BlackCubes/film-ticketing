@@ -1209,7 +1209,9 @@ if (updateShowPoster) {
         const form = new FormData();
         const poster = document.getElementById('showPhoto').files[0],
           posterUrlArr = document.getElementById('posterSource').src.split('/');
-        const posterParams = posterUrlArr[posterUrlArr.length - 1];
+        const posterParams = posterUrlArr[posterUrlArr.length - 1].split(
+          '.'
+        )[0];
 
         document.getElementById('btnUpdateShowPoster').textContent =
           'Updating...';
@@ -1517,7 +1519,7 @@ if (updateTheaterPhoto) {
         const photoUrlArr = document
           .getElementById('photoSource')
           .src.split('/');
-        const photoParams = photoUrlArr[photoUrlArr.length - 1];
+        const photoParams = photoUrlArr[photoUrlArr.length - 1].split('.')[0];
 
         document.getElementById('btnUpdateTheaterPhoto').textContent =
           'Updating...';
@@ -1873,7 +1875,7 @@ if (updateCastCrewPhoto) {
         const photoUrlArr = document
           .getElementById('photoSource')
           .src.split('/');
-        const photoParams = photoUrlArr[photoUrlArr.length - 1];
+        const photoParams = photoUrlArr[photoUrlArr.length - 1].split('.')[0];
 
         document.getElementById('btnUpdateCastCrewPhoto').textContent =
           'Updating...';
