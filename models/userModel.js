@@ -28,7 +28,8 @@ const userSchema = new mongoose.Schema({
   photo: { type: String, default: 'default.jpg' },
   cloudinaryPhoto: {
     cloudinaryId: String,
-    cloudinaryUrl: String,
+    cloudinaryUrl: String
+  },
   cloudinaryUploadedAt: Date,
   role: {
     type: String,
