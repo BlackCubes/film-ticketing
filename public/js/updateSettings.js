@@ -21,7 +21,6 @@ export const updateSettings = async (data, type, photoParams = '') => {
       showAlert('success', `Your ${type} has been updated!`);
     }
   } catch (err) {
-    console.log(err.response);
     showAlert('error', err.response.data.message);
   }
 };
