@@ -139,7 +139,7 @@ exports.checkPhotoUpload = table =>
 
     if (!cloudinaryUploadedAt) return next();
 
-    if (checkDate(cloudinaryUploadedAt, pastDate))
+    if (checkDate([cloudinaryUploadedAt], pastDate))
       return next(
         new AppError(
           'You need to wait at least 24 hours after you have uploaded your previous photo before adding a new one.',
