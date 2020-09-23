@@ -135,9 +135,9 @@ exports.checkPhotoUpload = table =>
 
     const query = await Models[table].findById(queryType);
 
-    if (!query) return next();
-
     const { cloudinaryUploadedAt } = query;
+
+    if (!cloudinaryUploadedAt) return next();
 
     if (checkDate(cloudinaryUploadedAt, pastDate))
       return next(
