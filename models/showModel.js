@@ -270,12 +270,12 @@ showSchema.pre('save', async function(next) {
 });
 
 // -- update the cloudinary uploaded date if the cloudinary photo changes
-showSchema.pre('save', async function(next) {
-  if (!this.cloudinaryPhoto) return next();
+// showSchema.pre('save', async function(next) {
+//   if (!this.cloudinaryPhoto) return next();
 
-  this.cloudinaryUploadedAt = Date.now() - 1000;
-  next();
-});
+//   this.cloudinaryUploadedAt = Date.now() - 1000;
+//   next();
+// });
 
 // QUERY MIDDLEWARE
 showSchema.pre(/^find/, function(next) {
