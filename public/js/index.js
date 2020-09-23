@@ -1145,8 +1145,6 @@ if (updateShowMainView) {
       }
 
       if (formStatus === roleAmount) {
-        const form = new FormData();
-
         const selectMpaa = document.getElementById('selectMpaa'),
           selectOriginalMonth = document.getElementById('showOriginalMonth'),
           selectOriginalDay = document.getElementById('showOriginalDay'),
@@ -1161,9 +1159,12 @@ if (updateShowMainView) {
             selectOriginalYear.options[selectOriginalYear.selectedIndex].value;
 
         const mpaaRating = selectMpaa.options[selectMpaa.selectedIndex].value,
-          originalReleaseDate = [
-            originalYear.concat('-', originalMonth, '-', originalDay)
-          ];
+          originalReleaseDate = originalYear.concat(
+            '-',
+            originalMonth,
+            '-',
+            originalDay
+          );
 
         const title = document.getElementById('showTitle').value,
           duration = document.getElementById('showDuration').value;
@@ -1171,17 +1172,19 @@ if (updateShowMainView) {
         document.getElementById('btnUpdateShowData').textContent =
           'Updating...';
 
-        form.append('title', title);
-        form.append('duration', duration);
-        form.append('mpaaRating', mpaaRating);
-        form.append('originalReleaseDate', originalReleaseDate);
+        const form = {};
+
+        form.title = title;
+        form.duration = duration;
+        form.mpaaRating = mpaaRating;
+        form.originalReleaseDate = originalReleaseDate;
 
         if (roleType === 'admin') {
           const eventOrganizer = [
             document.getElementById('showEventOwner').value
           ];
 
-          form.append('eventOrganizer', eventOrganizer);
+          form.eventOrganizer = eventOrganizer;
         }
 
         await updateShowSettings(form, 'setting', showId, roleType);
