@@ -14,9 +14,9 @@ header.header-container
         if user
           a.nav__profile.nav__profile--logout Logout
           a.nav__profile(href='/me')
-            - let sourcePath = user.cloudinaryPhoto.cloudinaryUrl
-            if user.cloudinaryPhoto.cloudinaryUrl === 'default.jpg'
-              - sourcePath = `/img/users/${user.cloudinaryPhoto.cloudinaryUrl}`
+            - let sourcePath = '/img/users/default.jpg'
+            if user.cloudinaryPhoto.cloudinaryUrl
+              - sourcePath = user.cloudinaryPhoto.cloudinaryUrl
 
             img.nav__user-img(src=`${sourcePath}`, alt=`${user.name}'s photo`)
             span= user.name.split(' ')[0]
