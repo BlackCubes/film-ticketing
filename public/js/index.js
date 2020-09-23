@@ -1565,8 +1565,6 @@ if (updateTheaterLocation) {
       );
 
       if (formStatus === 6) {
-        const form = new FormData();
-
         const address = document.getElementById('theaterAddress').value,
           city = document.getElementById('theaterCity').value,
           state = document.getElementById('theaterState').value,
@@ -1579,11 +1577,13 @@ if (updateTheaterLocation) {
         document.getElementById('btnUpdateTheaterLocation').textContent =
           'Updating...';
 
-        form.append('address', address);
-        form.append('city', city);
-        form.append('state', state);
-        form.append('zipCode', zipCode);
-        form.append('geo', geo);
+        const form = {};
+
+        form.address = address;
+        form.city = city;
+        from.state = state;
+        form.zipCode = zipCode;
+        form.geo = geo;
 
         await updateTheaterSettings(form, 'location', theaterId);
 
