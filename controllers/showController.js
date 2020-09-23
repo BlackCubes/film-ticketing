@@ -109,6 +109,8 @@ exports.updateMyShow = catchAsync(async (req, res, next) => {
   );
 
   filteredBody = sanitize(filteredBody);
+  if (req.body.cloudinaryPhoto)
+    filteredBody.cloudinaryPhoto = req.body.cloudinaryPhoto;
 
   const updatedShow = await Show.findOneAndUpdate(
     { id: req.params.id, eventOrganizer: req.user.id },
