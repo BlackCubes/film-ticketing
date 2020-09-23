@@ -33,6 +33,8 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   );
 
   filteredBody = sanitize(filteredBody);
+  if (req.body.cloudinaryPhoto)
+    filteredBody.cloudinaryPhoto = req.body.cloudinaryPhoto;
 
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
     new: true,
