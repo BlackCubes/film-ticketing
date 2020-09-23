@@ -83,7 +83,7 @@ block content
 
             .form__group
               .form__photo-upload
-                - let sourcePath = '/img/users/default.jpg'
+                - let sourcePath = `/img/users/${u.photo}`
                 if u.cloudinaryPhoto.cloudinaryUrl
                   - sourcePath = u.cloudinaryPhoto.cloudinaryUrl
 
