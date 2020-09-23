@@ -12,6 +12,13 @@ exports.geoParse = (req, res, next) => {
   next();
 };
 
+exports.geoNonParse = (req, res, next) => {
+  if (!req.body.geoLong || !req.body.geoLat) return next();
+
+  req.body.geo = { coordinates: [req.body.geoLong, req.body.geoLat] };
+  next();
+};
+
 exports.getAllTheaters = factory.getAll(Theater);
 exports.getTheater = factory.getOne(Theater, 'showtimes');
 exports.createTheater = factory.createOne(Theater);
