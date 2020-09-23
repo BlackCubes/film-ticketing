@@ -39,12 +39,14 @@
   &--grey-blue {
     background-color: $color-grey-blue;
     color: $color-black;
-    cursor: not-allowed;
   }
 
   &--red {
     background-color: $color-red;
     color: $color-black;
+  }
+
+  &--not-allowed {
     cursor: not-allowed;
   }
 }
