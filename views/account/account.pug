@@ -83,7 +83,7 @@ block content
 
             .form__group
               .form__photo-upload
-                - let sourcePath = u.role === 'admin' ? '/img/users/admin.png' ? '/img/users/default.jpg'
+                - let sourcePath = u.role === 'admin' ? '/img/users/admin.png' : '/img/users/default.jpg'
                 if u.cloudinaryPhoto.cloudinaryId
                   - sourcePath = u.cloudinaryPhoto.cloudinaryUrl
 
