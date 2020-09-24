@@ -21,6 +21,11 @@ export const validateAttribute = (attribute, ...dataSets) => {
 
   if (attributeName) {
     if (!validateRegex('attribute-name', attributeName)) {
+      console.log(
+        'Validation regex: ',
+        !validateRegex('attribute-name', attributeName)
+      );
+      console.log('Attribute name: ', attributeName);
       attributeError(attribute, 'Invalid name');
       attributeStatus = false;
     }
