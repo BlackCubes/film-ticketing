@@ -83,8 +83,8 @@ block content
 
             .form__group
               .form__photo-upload
-                - let sourcePath = `/img/users/${u.photo}`
-                if u.cloudinaryPhoto.cloudinaryUrl
+                - let sourcePath = u.role === 'admin' ? '/img/users/admin.png' ? '/img/users/default.jpg'
+                if u.cloudinaryPhoto.cloudinaryId
                   - sourcePath = u.cloudinaryPhoto.cloudinaryUrl
 
                 img#photoSource.form__user-photo(src=`${sourcePath}`, alt='User photo')
