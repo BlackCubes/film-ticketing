@@ -42,8 +42,8 @@ router
   .patch(
     authController.protect,
     authController.restrictTo('admin'),
-    // theaterController.geoParse,
-    theaterController.geoNonParse,
+    theaterController.geoParse,
+    // theaterController.geoNonParse,
     validationController.insertParamsId,
     validationController.updateTheater,
     theaterController.updateTheater
@@ -60,8 +60,8 @@ router.patch(
   authController.protect,
   authController.restrictTo('admin'),
   photoController.bufferPhoto('photo'),
-  // theaterController.geoParse,
-  theaterController.geoNonParse,
+  theaterController.geoParse,
+  // theaterController.geoNonParse,
   validationController.insertParamsId,
   validationController.updateTheater,
   photoController.deletePhoto('theaters'),
