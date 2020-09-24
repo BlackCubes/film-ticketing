@@ -111,7 +111,8 @@ export const validateRegex = (e, test) => {
     'chainname',
     'textarea-bio',
     'castcrew-role',
-    'textarea-review'
+    'textarea-review',
+    'textarea-castcrew'
   ];
 
   if (e === 'attribute-name') {
