@@ -43,7 +43,6 @@ router
     authController.protect,
     authController.restrictTo('admin'),
     theaterController.geoParse,
-    // theaterController.geoNonParse,
     validationController.insertParamsId,
     validationController.updateTheater,
     theaterController.updateTheater
@@ -61,7 +60,6 @@ router.patch(
   authController.restrictTo('admin'),
   photoController.bufferPhoto('photo'),
   theaterController.geoParse,
-  // theaterController.geoNonParse,
   validationController.insertParamsId,
   validationController.updateTheater,
   photoController.deletePhoto('theaters'),

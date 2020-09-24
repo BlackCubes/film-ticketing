@@ -1584,8 +1584,6 @@ if (updateTheaterLocation) {
         form.state = state;
         form.zipCode = zipCode;
         form.geo = geo;
-        // form.geoLong = geoLong;
-        // form.geoLat = geoLat;
 
         await updateTheaterSettings(form, 'location', theaterId);
 
