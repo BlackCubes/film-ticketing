@@ -9,7 +9,6 @@ exports.geoParse = (req, res, next) => {
     return next(new AppError('Please provide a JSON string for geo', 400));
 
   req.body.geo = { type: 'Point', coordinates: JSON.parse(req.body.geo) };
-  console.log(req.body.geo);
   next();
 };
 
