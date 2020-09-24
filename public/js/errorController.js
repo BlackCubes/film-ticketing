@@ -23,9 +23,9 @@ export const attributeError = (input, message) => {
   attributeParent.classList.add('error');
   showAlert('error', message);
 
-  // return window.setTimeout(() => {
-  //   location.assign('/');
-  // }, 1000);
+  return window.setTimeout(() => {
+    location.assign('/');
+  }, 1000);
 };
 
 export const formError = (input, message) => {
