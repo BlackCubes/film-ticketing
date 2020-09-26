@@ -72,6 +72,8 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     ]
   });
 
+  console.log('Getcheckoutsession: ', session);
+
   res.status(200).json({
     status: 'success',
     session
@@ -113,6 +115,8 @@ exports.webhookCheckout = (req, res, next) => {
 
   if (event.type === 'checkout.session.completed')
     createTicketCheckout(event.data.object);
+
+  console.log('Webhookcheckout: ', event);
 
   res.status(200).json({ received: true });
 };
