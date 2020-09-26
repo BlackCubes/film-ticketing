@@ -92,8 +92,12 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 
 const createTicketCheckout = async session => {
   const { show, theater, showtime } = session.metadata;
-  const price = session.display_items[0].amount / 100;
+  const price = session.amount_total / 100;
   const user = (await User.findOne({ email: session.customer_email })).id;
+
+  console.log(
+    `Show: ${show}. Theater: ${theater}. Showtime: ${showtime}. Price: ${price}. User: ${user}`
+  );
 
   await Ticket.create(show, theater, showtime, user, price);
 };
