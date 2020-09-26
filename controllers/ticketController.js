@@ -99,7 +99,7 @@ const createTicketCheckout = async session => {
     `Show: ${show}. Theater: ${theater}. Showtime: ${showtime}. Price: ${price}. User: ${user}`
   );
 
-  await Ticket.create(show, theater, showtime, user, price);
+  await Ticket.create({ show, theater, showtime, user, price });
 };
 
 exports.webhookCheckout = (req, res, next) => {
