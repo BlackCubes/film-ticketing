@@ -61,8 +61,8 @@ app.use('/api', limiter);
 
 app.post(
   '/webhook-checkout',
-  // express.raw({ type: 'application/json' }),
-  bodyParser.raw({ type: 'application/json' }),
+  express.raw({ type: 'application/json' }),
+  // bodyParser.raw({ type: 'application/json' }),
   ticketController.webhookCheckout
 );
 
