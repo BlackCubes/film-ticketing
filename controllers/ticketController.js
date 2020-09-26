@@ -72,8 +72,6 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     ]
   });
 
-  console.log('Getcheckoutsession: ', session);
-
   res.status(200).json({
     status: 'success',
     session
@@ -95,10 +93,6 @@ const createTicketCheckout = async session => {
   const price = session.amount_total / 100;
   const user = (await User.findOne({ email: session.customer_email })).id;
 
-  console.log(
-    `Show: ${show}. Theater: ${theater}. Showtime: ${showtime}. Price: ${price}. User: ${user}`
-  );
-
   await Ticket.create({ show, theater, showtime, user, price });
 };
 
@@ -119,9 +113,6 @@ exports.webhookCheckout = (req, res, next) => {
 
   if (event.type === 'checkout.session.completed')
     createTicketCheckout(event.data.object);
-
-  console.log('Webhookcheckout: ', event);
-  console.log(`Metadata: ${event.data.object.metadata}`);
 
   res.status(200).json({ received: true });
 };
