@@ -121,6 +121,7 @@ exports.webhookCheckout = (req, res, next) => {
     createTicketCheckout(event.data.object);
 
   console.log('Webhookcheckout: ', event);
+  console.log(`Metadata: ${event.data.object.metadata}`);
 
   res.status(200).json({ received: true });
 };
