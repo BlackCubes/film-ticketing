@@ -43,7 +43,7 @@ reviewSchema.pre(/^find/, function(next) {
   // If want to populate both show and users
   this.populate('user').populate({
     path: 'show',
-    select: 'title slug poster'
+    select: 'title slug poster cloudinaryPhoto'
   });
 
   // this.populate({
