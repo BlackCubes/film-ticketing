@@ -1,0 +1,12 @@
+{
+  "name": "kinetotickets",
+  "version": "2.0.0",
+  "description": "A Ticketing Website that users can geographically locate, create, and buy rare tickets from classical movies to television shows, and to limited time and special venue shows with the casts and crews as special guests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Elias Gutierrez",
+  "license": "ISC"
+}
