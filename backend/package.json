@@ -4,6 +4,10 @@
   "description": "A Ticketing Website that users can geographically locate, create, and buy rare tickets from classical movies to television shows, and to limited time and special venue shows with the casts and crews as special guests.",
   "main": "src/index.js",
   "scripts": {
+    "build": "tsc",
+    "tsc": "tsc --watch",
+    "start": "ts-node -r tsconfig-paths/register ./src",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
