@@ -15,5 +15,9 @@
   },
   "bugs": {
     "url": "https://github.com/BlackCubes/Film-Ticket-Website/issues"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
   }
 }
