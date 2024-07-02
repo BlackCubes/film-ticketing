@@ -1,5 +1,0 @@
-{
-  "minify": true,
-  "options": ["setClasses"],
-  "feature-detects": ["test/canvas", "test/css/transforms"]
-}
