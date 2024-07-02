@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "plugin:node/recommended",
+    "plugin:security/recommended"
+  ],
+  "plugins": ["prettier", "security"],
+  "rules": {
+    "jsdoc/require-param-description": "off",
+    "prettier/prettier": "warn",
+    "no-underscore-dangle": "off",
+    "curly": ["warn", "all"],
+    "consistent-return": "warn",
+    "no-unused-vars": "warn"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "env": {
+    "node": true
+  }
+}
