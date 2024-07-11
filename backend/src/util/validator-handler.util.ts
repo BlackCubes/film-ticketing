@@ -39,6 +39,14 @@ ajv.addKeyword({
   keyword: 'validateId',
   validate: (_, data) => validator.isMongoId(data),
 });
+ajv.addKeyword({
+  keyword: 'validateUserGender',
+  validate: (_, data) => regex.userGender.includes(data),
+});
+ajv.addKeyword({
+  keyword: 'validateUserRole',
+  validate: (_, data) => regex.userRole.includes(data),
+});
 
 ajvErrors(ajv);
 
