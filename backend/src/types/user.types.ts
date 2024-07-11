@@ -1,14 +1,25 @@
-import { Model, Types } from 'mongoose';
+import { Model, Schema, Types } from 'mongoose';
+
+type TUserRole = 'user' | 'event-owner' | 'admin';
+
+type TUserGender = 'f' | 'm' | 'p';
 
 interface IUser {
   id: Types.ObjectId;
+  name: string;
   email: string;
-  createdAt: Date;
-  updatedAt: Date;
+  username: string;
+  photo?: string | null;
+  role?: TUserRole | null;
   password: string;
   passwordChangedAt: number;
   passwordResetToken?: string;
-  passwordResetExpires?: string;
+  passwordResetExpires?: number;
+  birthdate: Date;
+  gender: TUserGender;
+  isActive?: boolean | null;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 // **** MODEL **** //
@@ -19,4 +30,6 @@ interface IUserMethods {
 
 type TUserModel = Model<IUser, {}, IUserMethods, {}>;
 
-export { IUser, IUserMethods, TUserModel };
+type TUserSchema = Schema<IUser, TUserModel, IUserMethods, {}, {}>;
+
+export { IUser, IUserMethods, TUserGender, TUserModel, TUserRole, TUserSchema };
