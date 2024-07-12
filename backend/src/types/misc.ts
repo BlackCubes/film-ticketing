@@ -4,7 +4,7 @@ import sio from 'socket.io';
 import * as UserTypes from './user.types';
 
 // **** JWT **** //
-interface IDecodedJWT extends Pick<UserTypes.IUser, 'email' | 'name' | 'photo'> {
+interface IDecodedJWT extends Pick<UserTypes.IUser, 'email' | 'username' | 'name' | 'photo'> {
   id: string;
 }
 
