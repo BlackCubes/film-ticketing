@@ -12,6 +12,7 @@ import sio from 'socket.io';
 import environment from '@src/constants/environment';
 import HttpStatusCodes from '@src/constants/HttpStatusCodes';
 import { AppError } from '@src/other/classes';
+import authRoutes from '@src/routes/auth.routes';
 import * as MiscTypes from '@src/types/misc';
 import globalErrorHandler from '@src/util/global-error-handler.util';
 
@@ -61,6 +62,7 @@ app.get('/', (req, res) => {
 });
 
 // Routes
+app.use('/api/v1/auth', authRoutes);
 
 // Errors
 // --- unknown routes
