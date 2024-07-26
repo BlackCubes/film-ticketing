@@ -1,5 +1,7 @@
 import { Model, Schema, Types } from 'mongoose';
 
+import { IReq } from './misc';
+
 type TUserRole = 'user' | 'event-owner' | 'admin';
 
 type TUserGender = 'f' | 'm' | 'p';
@@ -32,4 +34,21 @@ type TUserModel = Model<IUser, {}, IUserMethods, {}>;
 
 type TUserSchema = Schema<IUser, TUserModel, IUserMethods, {}, {}>;
 
-export { IUser, IUserMethods, TUserGender, TUserModel, TUserRole, TUserSchema };
+// **** UPDATE **** //
+interface IUserUpdate extends Pick<IUser, 'name' | 'username' | 'email' | 'birthdate' | 'gender'> {}
+
+interface IUserUpdateReq extends IReq<IUserUpdate> {}
+
+interface IUserUpdateRes extends Pick<IUser, 'name' | 'username' | 'email' | 'birthdate' | 'gender' | 'photo'> {}
+
+export {
+  IUser,
+  IUserMethods,
+  TUserGender,
+  TUserModel,
+  TUserRole,
+  TUserSchema,
+  IUserUpdate,
+  IUserUpdateReq,
+  IUserUpdateRes,
+};
