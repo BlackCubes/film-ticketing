@@ -35,11 +35,19 @@ type TUserModel = Model<IUser, {}, IUserMethods, {}>;
 type TUserSchema = Schema<IUser, TUserModel, IUserMethods, {}, {}>;
 
 // **** UPDATE **** //
-interface IUserUpdate extends Pick<IUser, 'name' | 'username' | 'email' | 'birthdate' | 'gender'> {}
+interface IUserUpdate {
+  birthdate?: IUser['birthdate'] | null;
+  email?: IUser['email'] | null;
+  gender?: IUser['gender'] | null;
+  name?: IUser['name'] | null;
+  username?: IUser['username'] | null;
+}
 
 interface IUserUpdateReq extends IReq<IUserUpdate> {}
 
-interface IUserUpdateRes extends IUserUpdate, Pick<IUser, 'photo'> {}
+interface IUserUpdateRes extends IUserUpdate {
+  photo?: IUser['photo'] | null;
+}
 
 export {
   IUser,
