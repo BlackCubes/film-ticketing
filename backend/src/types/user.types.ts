@@ -39,7 +39,7 @@ interface IUserUpdate extends Pick<IUser, 'name' | 'username' | 'email' | 'birth
 
 interface IUserUpdateReq extends IReq<IUserUpdate> {}
 
-interface IUserUpdateRes extends Pick<IUser, 'name' | 'username' | 'email' | 'birthdate' | 'gender' | 'photo'> {}
+interface IUserUpdateRes extends IUserUpdate, Pick<IUser, 'photo'> {}
 
 export {
   IUser,
