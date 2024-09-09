@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ResponseInterceptor } from './response.interceptor';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { UsersModule } from './users/users.module';
     ),
     ThrottlerModule.forRoot([{ ttl: 60 * 60 * 1000, limit: 100 }]),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [
