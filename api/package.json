@@ -1,8 +1,9 @@
 {
   "name": "api",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "version": "2.0.0",
+  "description": "A ticketing website that users can geographically locate, create, and buy rare tickets from classical movies to television shows, and to limited time and special venue shows with the casts and crews as special guests.",
+  "author": "@BlackCubes",
+  "homepage": "https://github.com/BlackCubes/film-ticketing#readme",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
