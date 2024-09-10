@@ -38,7 +38,7 @@ export class User {
     minlength: [2, userErrors.username.minLength],
     maxlength: [20, userErrors.username.maxLength],
   })
-  lastName: string;
+  username: string;
 
   photo: string;
 

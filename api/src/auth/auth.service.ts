@@ -34,8 +34,6 @@ export class AuthService {
 
     const token = await this.jwtService.signAsync({
       id: loggedIn['id'],
-      access: loggedIn.access,
-      mountain: loggedIn.mountain,
     });
 
     return {

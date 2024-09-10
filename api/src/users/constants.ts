@@ -79,6 +79,8 @@ export const errorConstants = {
   gender: {
     required: 'Gender is required.',
 
+    type: 'Not a valid type for gender.',
+
     valid: "Gender should wither be 'woman', 'male', or 'prefer not to say'.",
   },
 

@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ResponseInterceptor } from './response.interceptor';
 import { UsersModule } from './users/users.module';
+import { AuthGuard } from './auth/guards/auth.guard';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
@@ -27,6 +28,7 @@ import { AuthModule } from './auth/auth.module';
     AppService,
     { provide: APP_GUARD, useClass: ThrottlerGuard },
     { provide: APP_INTERCEPTOR, useClass: ResponseInterceptor },
+    { provide: APP_GUARD, useClass: AuthGuard },
   ],
 })
 export class AppModule {}
